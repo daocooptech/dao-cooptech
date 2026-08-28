@@ -9,6 +9,13 @@
             "shell": "bash",
             "timeout": 10,
             "statusMessage": "Проверка vault-заметок..."
+          },
+          {
+            "type": "command",
+            "command": "bash \".claude/hooks/git-backup-reminder.sh\"",
+            "shell": "bash",
+            "timeout": 10,
+            "statusMessage": "Проверка git-статуса..."
           }
         ]
       }
