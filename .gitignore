@@ -1,6 +1,7 @@
 # Локальные/машинно-зависимые настройки Claude Code — не для общего репозитория
 .claude/settings.local.json
 .claude/hooks/.vault-reminder-last
+.claude/hooks/.git-backup-reminder-last
 
 # Мусор ОС
 Thumbs.db
