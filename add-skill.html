@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Добавить навык (резюме) — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="active">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <a href="skills.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу навыков</a>
+    <div class="page-title" style="margin-bottom:20px">Добавить навык</div>
+
+    <div id="as-form-view">
+      <div class="ar-layout">
+        <div class="ar-main">
+
+          <!-- 1. Должность и специализация -->
+          <div class="card ar-section" id="field-title">
+            <div class="ar-section-title"><span class="ar-section-num">1</span>Должность и специализация</div>
+            <p class="ar-section-hint">Как на hh.ru: укажите желаемую должность так, как её ищут работодатели.</p>
+
+            <div class="field">
+              <label style="display:flex;justify-content:space-between">Должность / название навыка * <span class="stat-note" id="as-title-counter">0 / 60</span></label>
+              <input class="input" id="skill-title" maxlength="60" placeholder="Например, Электромонтажник">
+              <div class="field-error">Укажите должность — до 60 символов</div>
+            </div>
+
+            <div id="as-category-picker">
+              <div class="form-two-col">
+                <div class="field" id="field-category">
+                  <label>Специализация *</label>
+                  <select class="input" id="skill-category">
+                    <option value="">Выберите специализацию</option>
+                  </select>
+                  <div class="field-error">Выберите специализацию</div>
+                </div>
+                <div class="field" id="field-subcategory" hidden>
+                  <label>Подкатегория</label>
+                  <select class="input" id="skill-subcategory">
+                    <option value="">Любая</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="as-category-crumb" hidden>
+              <span class="ar-crumb" id="as-crumb-text"></span>
+              <button type="button" id="as-crumb-change">Изменить</button>
+            </div>
+
+            <div class="field" style="margin-top:14px;margin-bottom:0">
+              <label>Желаемая зарплата</label>
+              <input class="input" id="skill-salary" placeholder="Например, от 70 000 ₽">
+            </div>
+          </div>
+
+          <!-- 2. Занятость и график -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">2</span>Занятость и график</div>
+            <div class="field" style="margin-bottom:14px">
+              <label>Занятость</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="skill-employment" value="Полная занятость" checked> Полная занятость</label>
+                <label class="radio-option"><input type="radio" name="skill-employment" value="Частичная занятость"> Частичная занятость</label>
+                <label class="radio-option"><input type="radio" name="skill-employment" value="Проектная работа"> Проектная работа</label>
+                <label class="radio-option"><input type="radio" name="skill-employment" value="Волонтёрство"> Волонтёрство</label>
+              </div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>График работы</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="skill-schedule" value="Полный день" checked> Полный день</label>
+                <label class="radio-option"><input type="radio" name="skill-schedule" value="Сменный график"> Сменный график</label>
+                <label class="radio-option"><input type="radio" name="skill-schedule" value="Гибкий график"> Гибкий график</label>
+                <label class="radio-option"><input type="radio" name="skill-schedule" value="Удалённо"> Удалённо</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Фото -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">3</span>Фото</div>
+            <p class="ar-section-hint">Резюме с фото вызывают больше доверия у работодателей.</p>
+            <div class="ar-photo-grid" id="as-photo-grid"></div>
+            <input type="file" id="skill-photo-input" accept="image/*" hidden>
+          </div>
+
+          <!-- 4. Опыт работы -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">4</span>Опыт работы</div>
+            <p class="ar-section-hint">Начните с последнего места работы. Можно добавить несколько записей.</p>
+            <div id="exp-list"></div>
+            <button type="button" class="button secondary" id="exp-add-btn" style="width:100%">+ Добавить место работы</button>
+          </div>
+
+          <!-- 5. Ключевые навыки -->
+          <div class="card ar-section" id="field-skills">
+            <div class="ar-section-title"><span class="ar-section-num">5</span>Ключевые навыки</div>
+            <p class="ar-section-hint">Введите навык и нажмите Enter — можно добавить несколько.</p>
+            <input class="input" id="skill-tag-input" placeholder="Например, Электромонтаж">
+            <div class="filter-chips" id="skill-tag-chips"></div>
+            <div class="field-error">Добавьте хотя бы один ключевой навык</div>
+          </div>
+
+          <!-- 6. Обо мне -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">6</span>Обо мне</div>
+            <div class="field" style="margin-bottom:0">
+              <label style="display:flex;justify-content:space-between;align-items:center">Описание <button type="button" class="stat-note" id="skill-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <textarea class="input" id="skill-about" rows="4" placeholder="Личные и деловые качества, готовность к разъездам, дополнительные умения."></textarea>
+              <div id="skill-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
+            </div>
+          </div>
+
+          <!-- 7. Образование -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">7</span>Образование</div>
+            <div id="edu-list"></div>
+            <button type="button" class="button secondary" id="edu-add-btn" style="width:100%">+ Добавить образование</button>
+          </div>
+
+          <!-- 8. Личная информация и контакты -->
+          <div class="card ar-section" id="field-city">
+            <div class="ar-section-title"><span class="ar-section-num">8</span>Личная информация и контакты</div>
+            <div class="form-two-col">
+              <div class="field">
+                <label>Город *</label>
+                <input class="input" id="skill-city" list="city-options" placeholder="Начните вводить город">
+                <datalist id="city-options">
+                  <option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
+                </datalist>
+                <div class="field-error">Укажите город</div>
+              </div>
+              <div class="field">
+                <label>Возраст</label>
+                <input class="input" id="skill-age" type="number" min="14" max="100" placeholder="Например, 39">
+              </div>
+            </div>
+            <div class="toggle-row" style="border-bottom:none;padding:0 0 14px">
+              <input type="checkbox" id="skill-relocate">
+              <label for="skill-relocate">Готов(а) к переезду и командировкам</label>
+            </div>
+            <div class="ar-contact-box">
+              <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич">
+              <div>
+                <div class="ar-contact-name">Дашкевич Данил Игоревич</div>
+                <div class="ar-contact-meta">Как в профиле · работодатели увидят контакты после отклика</div>
+              </div>
+            </div>
+            <div class="field" style="margin:14px 0 0">
+              <label>Телефон</label>
+              <input class="input" id="skill-phone" placeholder="+7-___-___-____">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Сайдбар: предпросмотр + публикация -->
+        <div class="ar-aside">
+          <div class="card" style="padding:14px">
+            <div class="ar-section-title" style="font-size:13px;margin-bottom:10px">Предпросмотр</div>
+            <div class="ar-preview-tile" id="as-preview"></div>
+          </div>
+
+          <div class="card" style="padding:16px 18px">
+            <div class="ar-cost-row"><span>Стоимость размещения</span><b>Бесплатно</b></div>
+            <div class="toggle-row" style="border-bottom:none;padding-top:8px">
+              <input type="checkbox" id="skill-promote">
+              <label for="skill-promote">🚀 Поднять в поиске <span class="stat-note" title="Без денег: бесплатно при уровне доверия от 80%, иначе спишет 10 кредитов взаимного кредита из «Кошелька»">ⓘ</span></label>
+            </div>
+            <button class="button ar-publish-btn" type="button" id="as-publish-btn">Опубликовать</button>
+            <button class="button secondary ar-draft-btn" type="button" id="as-draft-btn">Сохранить черновик</button>
+          </div>
+
+          <div class="card" style="padding:14px 16px">
+            <div class="ar-section-title" style="font-size:12.5px;margin-bottom:6px">📈 Как ранжируются резюме</div>
+            <div class="ar-section-hint" style="margin-bottom:0">Как на hh.ru: заполненность анкеты, фото, ключевые навыки и дата последнего обновления поднимают резюме выше в поиске работодателей.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Экран успеха -->
+    <div id="as-success-view" class="card ar-success" hidden>
+      <div class="ar-success-icon">✓</div>
+      <h2>Навык добавлен</h2>
+      <p>Резюме уже видно в каталоге навыков и работодателям, чьи вакансии совпадают по специализации. Вы можете добавить ещё один навык или перейти к каталогу.</p>
+      <div class="ar-success-actions">
+        <a href="skills.html" class="button">Перейти в каталог</a>
+        <button class="button secondary" type="button" id="as-add-another-btn">Добавить ещё один</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+<div class="toast" id="as-toast">✓ Черновик сохранён</div>
+
+<script>
+// Дерево специализаций — тот же источник, что в skills.html/vacancies.html/organizations.html (не дублировать логику фильтров)
+var CATEGORY_TREE = {
+  "Автомобильный бизнес": ["Автосервис, автомойка", "Автослесарь, автомеханик", "Продажа автозапчастей", "Автосалон"],
+  "Административный персонал": ["Административный директор", "Офис-менеджер, ассистент", "Секретарь, помощник руководителя"],
+  "Безопасность": ["Служба безопасности", "Охранник, контролёр"],
+  "Высший и средний менеджмент": ["Генеральный директор", "Директор по развитию", "Руководитель проектов"],
+  "Добыча сырья": ["Геолог", "Горный инженер", "Оператор добычи"],
+  "Домашний, обслуживающий персонал": ["Домработница, няня", "Повар для семьи", "Личный водитель"],
+  "Закупки": ["Менеджер по закупкам", "Специалист по тендерам"],
+  "Информационные технологии": ["Программирование, Разработка", "Дизайн, графика", "Тестирование", "Системное администрирование", "Аналитика, Data Science"],
+  "Искусство, развлечения, массмедиа": ["Фото, видео, звукооператоры", "Народные промыслы, ремёсла", "Флорист, декоратор", "Журналистика, СМИ"],
+  "Маркетинг, реклама, PR": ["Маркетинг", "Реклама", "PR, связи с общественностью", "SMM"],
+  "Медицина, фармацевтика": ["Врач", "Медсестра, фельдшер", "Фармацевт"],
+  "Наука, образование": ["Преподаватель, репетитор", "Научный сотрудник"],
+  "Продажи, обслуживание клиентов": ["Менеджер по продажам", "Специалист поддержки", "Продавец-консультант"],
+  "Производство, сервисное обслуживание": ["Инженер-технолог", "Швея, закройщик", "Контролёр ОТК"],
+  "Рабочий персонал": ["Электромонтажник, электромонтер, техник-электрик", "Бетонщик, арматурщик, каменщик", "Сварщик", "Слесарь, сантехник", "Столяр, плотник", "Кладовщик, Приемщик товаров", "Разнорабочий"],
+  "Розничная торговля": ["Продавец", "Кассир", "Директор магазина"],
+  "Сельское хозяйство": ["Агроном, зоотехник", "Пчеловодство, животноводство", "Тракторист"],
+  "Спортивные клубы, фитнес, салоны красоты": ["Тренер", "Мастер маникюра", "Парикмахер"],
+  "Стратегия, инвестиции, консалтинг": ["Бизнес-консультант", "Инвестиционный аналитик"],
+  "Страхование": ["Агент страховой", "Андеррайтер"],
+  "Строительство, недвижимость": ["Прораб, мастер СМР", "Архитектор", "Дизайнер, художник", "Агент по недвижимости", "Инженер строительного контроля"],
+  "Транспорт, логистика, перевозки": ["Логистика, ВЭД", "Водитель", "Диспетчер"],
+  "Туризм, гостиницы, рестораны": ["Повар, кондитер", "Официант, бармен", "Администратор гостиницы"],
+  "Управление персоналом, тренинги": ["HR-менеджер", "Бизнес-тренер"],
+  "Финансы, бухгалтерия": ["Бухгалтерия", "Финансовый аналитик", "Кредитный специалист"],
+  "Юристы": ["Юрисконсульт", "Адвокат", "Нотариус"],
+  "Другое": ["Разное"]
+};
+
+function escapeHtml(s) {
+  return (s || '').toString().replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+(function () {
+  var categorySelect = document.getElementById('skill-category');
+  var subcategoryField = document.getElementById('field-subcategory');
+  var subcategorySelect = document.getElementById('skill-subcategory');
+  var pickerBox = document.getElementById('as-category-picker');
+  var crumbBox = document.getElementById('as-category-crumb');
+  var crumbText = document.getElementById('as-crumb-text');
+  var photoInput = document.getElementById('skill-photo-input');
+  var photoGrid = document.getElementById('as-photo-grid');
+
+  var skillPhotos = [];
+  var titleInput = document.getElementById('skill-title');
+  var titleCounter = document.getElementById('as-title-counter');
+
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    var opt = document.createElement('option');
+    opt.value = cat; opt.textContent = cat;
+    categorySelect.appendChild(opt);
+  });
+
+  function updateCrumb() {
+    var cat = categorySelect.value, sub = subcategorySelect.value;
+    if (cat) {
+      crumbText.textContent = cat + (sub ? ' → ' + sub : '');
+      crumbBox.hidden = false;
+      pickerBox.hidden = true;
+    } else {
+      crumbBox.hidden = true;
+      pickerBox.hidden = false;
+    }
+    updatePreview();
+  }
+  categorySelect.addEventListener('change', function () {
+    var subs = CATEGORY_TREE[categorySelect.value] || [];
+    subcategorySelect.innerHTML = '<option value="">Любая</option>' +
+      subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+    subcategoryField.hidden = subs.length === 0;
+    document.getElementById('field-category').classList.remove('invalid');
+    if (subs.length === 0) updateCrumb();
+  });
+  subcategorySelect.addEventListener('change', updateCrumb);
+  document.getElementById('as-crumb-change').addEventListener('click', function () {
+    crumbBox.hidden = true;
+    pickerBox.hidden = false;
+  });
+
+  // Фото — один тайл (фото резюме)
+  function renderPhotoGrid() {
+    photoGrid.innerHTML = '';
+    skillPhotos.forEach(function (src, i) {
+      var tile = document.createElement('div');
+      tile.className = 'ar-photo-tile';
+      tile.innerHTML = '<img src="' + src + '" alt="">' +
+        '<button type="button" class="ar-photo-remove" data-i="' + i + '">✕</button>';
+      photoGrid.appendChild(tile);
+    });
+    if (skillPhotos.length < 1) {
+      var addTile = document.createElement('button');
+      addTile.type = 'button';
+      addTile.className = 'ar-photo-add';
+      addTile.innerHTML = '<span class="ar-photo-add-icon">📷</span><span>Добавить<br>фото</span>';
+      addTile.addEventListener('click', function () { photoInput.click(); });
+      photoGrid.appendChild(addTile);
+    }
+    photoGrid.querySelectorAll('.ar-photo-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        skillPhotos.splice(parseInt(btn.dataset.i, 10), 1);
+        renderPhotoGrid();
+        updatePreview();
+      });
+    });
+    updatePreview();
+  }
+  photoInput.addEventListener('change', function (e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function (ev) { skillPhotos = [ev.target.result]; renderPhotoGrid(); };
+    reader.readAsDataURL(file);
+    photoInput.value = '';
+  });
+  renderPhotoGrid();
+
+  titleInput.addEventListener('input', function () {
+    titleCounter.textContent = titleInput.value.length + ' / 60';
+    document.getElementById('field-title').classList.remove('invalid');
+    updatePreview();
+  });
+  document.getElementById('skill-city').addEventListener('input', function () {
+    document.getElementById('field-city').classList.remove('invalid');
+    updatePreview();
+  });
+  document.getElementById('skill-salary').addEventListener('input', updatePreview);
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="skill-employment"], input[name="skill-schedule"]'), function (r) {
+    r.addEventListener('change', updatePreview);
+  });
+
+  // Опыт работы — повторяющиеся записи
+  var expEntries = [];
+  var expList = document.getElementById('exp-list');
+  function renderExpList() {
+    expList.innerHTML = expEntries.map(function (e, i) {
+      return '<div class="card" style="padding:14px 16px;margin-bottom:12px;position:relative">' +
+        '<button type="button" class="ar-photo-remove" data-exp-remove="' + i + '" style="position:absolute;top:10px;right:10px">✕</button>' +
+        '<div class="form-two-col">' +
+        '<div class="field"><label>Место работы</label><input class="input" data-exp="company" data-i="' + i + '" value="' + escapeHtml(e.company) + '" placeholder="Например, ООО «Мириталь»"></div>' +
+        '<div class="field"><label>Должность</label><input class="input" data-exp="position" data-i="' + i + '" value="' + escapeHtml(e.position) + '" placeholder="Например, Электромонтажник"></div>' +
+        '</div>' +
+        '<div class="form-two-col">' +
+        '<div class="field"><label>Начало работы</label><input class="input" type="month" data-exp="from" data-i="' + i + '" value="' + escapeHtml(e.from) + '"></div>' +
+        '<div class="field"><label>Окончание</label><input class="input" type="month" data-exp="to" data-i="' + i + '" value="' + escapeHtml(e.to) + '" ' + (e.current ? 'disabled' : '') + '></div>' +
+        '</div>' +
+        '<div class="toggle-row" style="border-bottom:none;padding:0 0 10px"><input type="checkbox" data-exp="current" data-i="' + i + '" id="exp-current-' + i + '" ' + (e.current ? 'checked' : '') + '><label for="exp-current-' + i + '">По настоящее время</label></div>' +
+        '<div class="field" style="margin-bottom:0"><label>Описание обязанностей</label><textarea class="input" rows="2" data-exp="description" data-i="' + i + '" placeholder="Что делали на этом месте">' + escapeHtml(e.description) + '</textarea></div>' +
+        '</div>';
+    }).join('');
+    expList.querySelectorAll('[data-exp-remove]').forEach(function (btn) {
+      btn.addEventListener('click', function () { expEntries.splice(parseInt(btn.dataset.expRemove, 10), 1); renderExpList(); updatePreview(); });
+    });
+    expList.querySelectorAll('[data-exp]').forEach(function (input) {
+      var i = parseInt(input.dataset.i, 10);
+      var field = input.dataset.exp;
+      var evt = input.type === 'checkbox' ? 'change' : 'input';
+      input.addEventListener(evt, function () {
+        expEntries[i][field] = input.type === 'checkbox' ? input.checked : input.value;
+        if (field === 'current') renderExpList();
+        updatePreview();
+      });
+    });
+  }
+  document.getElementById('exp-add-btn').addEventListener('click', function () {
+    expEntries.push({ company: '', position: '', from: '', to: '', current: false, description: '' });
+    renderExpList();
+  });
+
+  // Образование — повторяющиеся записи
+  var eduEntries = [];
+  var eduList = document.getElementById('edu-list');
+  function renderEduList() {
+    eduList.innerHTML = eduEntries.map(function (e, i) {
+      return '<div class="card" style="padding:14px 16px;margin-bottom:12px;position:relative">' +
+        '<button type="button" class="ar-photo-remove" data-edu-remove="' + i + '" style="position:absolute;top:10px;right:10px">✕</button>' +
+        '<div class="form-two-col" style="margin-bottom:0">' +
+        '<div class="field" style="margin-bottom:0"><label>Год окончания</label><input class="input" type="number" data-edu="year" data-i="' + i + '" value="' + escapeHtml(e.year) + '" placeholder="Например, 2019"></div>' +
+        '<div class="field" style="margin-bottom:0"><label>Учебное заведение</label><input class="input" data-edu="name" data-i="' + i + '" value="' + escapeHtml(e.name) + '" placeholder="Название учебного заведения"></div>' +
+        '</div>' +
+        '<div class="field" style="margin-top:10px;margin-bottom:0"><label>Специальность</label><input class="input" data-edu="spec" data-i="' + i + '" value="' + escapeHtml(e.spec) + '" placeholder="Специальность, квалификация"></div>' +
+        '</div>';
+    }).join('');
+    eduList.querySelectorAll('[data-edu-remove]').forEach(function (btn) {
+      btn.addEventListener('click', function () { eduEntries.splice(parseInt(btn.dataset.eduRemove, 10), 1); renderEduList(); });
+    });
+    eduList.querySelectorAll('[data-edu]').forEach(function (input) {
+      var i = parseInt(input.dataset.i, 10);
+      var field = input.dataset.edu;
+      input.addEventListener('input', function () { eduEntries[i][field] = input.value; });
+    });
+  }
+  document.getElementById('edu-add-btn').addEventListener('click', function () {
+    eduEntries.push({ year: '', name: '', spec: '' });
+    renderEduList();
+  });
+
+  // Ключевые навыки — свободный ввод тегов (Enter добавляет чип)
+  var skillTags = [];
+  var tagInput = document.getElementById('skill-tag-input');
+  var tagChipsBox = document.getElementById('skill-tag-chips');
+  function renderTagChips() {
+    tagChipsBox.innerHTML = skillTags.map(function (t, i) {
+      return '<span class="chip">' + escapeHtml(t) + ' <span class="chip-remove" data-i="' + i + '">✕</span></span>';
+    }).join('');
+    tagChipsBox.querySelectorAll('.chip-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        skillTags.splice(parseInt(btn.dataset.i, 10), 1);
+        renderTagChips();
+        updatePreview();
+      });
+    });
+    document.getElementById('field-skills').classList.remove('invalid');
+    updatePreview();
+  }
+  tagInput.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var val = tagInput.value.trim();
+    if (val && skillTags.indexOf(val) === -1) {
+      skillTags.push(val);
+      tagInput.value = '';
+      renderTagChips();
+    }
+  });
+
+  // AI-подсказка описания «Обо мне» — шаблонная генерация (демо, без реального ИИ-бэкенда)
+  (function () {
+    var aiBtn = document.getElementById('skill-ai-btn');
+    aiBtn.addEventListener('click', function () {
+      var title = titleInput.value.trim();
+      var category = categorySelect.value;
+      if (!title || !category) { alert('Сначала укажите должность и специализацию — по ним ИИ подберёт формулировки'); return; }
+      aiBtn.disabled = true;
+      aiBtn.textContent = '🤖 Генерируем…';
+      setTimeout(function () {
+        var text = 'Ответственно отношусь к работе, умею работать как в команде, так и самостоятельно. ' +
+          'Специализация: ' + category + '. Готов(а) обучаться новому и делиться опытом с коллегами.';
+        document.getElementById('skill-about').value = text;
+        document.getElementById('skill-ai-hint').hidden = false;
+        aiBtn.disabled = false;
+        aiBtn.textContent = '✨ Сгенерировать ещё раз';
+      }, 900);
+    });
+  })();
+
+  // Живой предпросмотр в сайдбаре — карточка в стиле .vacancy-card каталога навыков
+  function updatePreview() {
+    var box = document.getElementById('as-preview');
+    var title = titleInput.value.trim();
+    var city = document.getElementById('skill-city').value.trim();
+    var salary = document.getElementById('skill-salary').value.trim();
+    var employment = document.querySelector('input[name="skill-employment"]:checked').value;
+
+    if (!title && skillPhotos.length === 0) {
+      box.innerHTML = '<div class="ar-preview-empty">Заполните форму — здесь появится превью резюме, как оно будет выглядеть в каталоге</div>';
+      return;
+    }
+    var imgHtml = skillPhotos.length
+      ? '<img src="' + skillPhotos[0] + '" alt="">'
+      : escapeHtml((title || '?').slice(0, 2).toUpperCase());
+    box.innerHTML =
+      '<div class="ar-preview-img">' + imgHtml + '</div>' +
+      '<div class="ar-preview-body">' +
+      '<div class="ar-preview-price">' + escapeHtml(salary || 'Зарплата не указана') + '</div>' +
+      '<div class="ar-preview-name">' + escapeHtml(title || 'Должность') + '</div>' +
+      '<div class="ar-preview-meta">📍 ' + escapeHtml(city || 'Город не указан') + ' · ' + escapeHtml(employment) + '</div>' +
+      '</div>';
+  }
+  updatePreview();
+
+  function validateForm() {
+    var ok = true;
+    function mark(id, bad) { document.getElementById(id).classList.toggle('invalid', bad); if (bad) ok = false; }
+    mark('field-title', !titleInput.value.trim());
+    mark('field-category', !categorySelect.value);
+    mark('field-city', !document.getElementById('skill-city').value.trim());
+    mark('field-skills', skillTags.length === 0);
+    if (!ok) {
+      var firstInvalid = document.querySelector('.field.invalid, .card.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return ok;
+  }
+
+  var toast = document.getElementById('as-toast');
+  document.getElementById('as-draft-btn').addEventListener('click', function () {
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2400);
+  });
+
+  document.getElementById('as-publish-btn').addEventListener('click', function () {
+    if (!validateForm()) return;
+    var data = {
+      title: titleInput.value.trim(),
+      category: categorySelect.value,
+      subcategory: subcategorySelect.value,
+      salary: document.getElementById('skill-salary').value.trim(),
+      employment: document.querySelector('input[name="skill-employment"]:checked').value,
+      schedule: document.querySelector('input[name="skill-schedule"]:checked').value,
+      experience: expEntries,
+      skills: skillTags,
+      about: document.getElementById('skill-about').value.trim(),
+      education: eduEntries,
+      city: document.getElementById('skill-city').value.trim(),
+      age: document.getElementById('skill-age').value.trim(),
+      relocate: document.getElementById('skill-relocate').checked,
+      phone: document.getElementById('skill-phone').value.trim(),
+      photo: skillPhotos[0] || '',
+      promoted: document.getElementById('skill-promote').checked
+    };
+    try {
+      var queue = JSON.parse(localStorage.getItem('coop_new_skills') || '[]');
+      queue.push(data);
+      localStorage.setItem('coop_new_skills', JSON.stringify(queue));
+    } catch (e) { /* localStorage недоступен (например, в изолированном превью) — публикация всё равно показывается */ }
+
+    document.getElementById('as-form-view').hidden = true;
+    document.getElementById('as-success-view').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById('as-add-another-btn').addEventListener('click', function () {
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Лента сообществ — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="active">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="communities.html">Сообщества</a>
+      <a href="communities-feed.html" class="active">Лента</a>
+    </div>
+    <div class="page-title">Лента сообществ</div>
+    <p style="color:var(--slate);font-size:12.5px;margin:-8px 0 18px;max-width:560px">Здесь собираются новости сообществ, на которые вы подписаны. Подписка на новости не связана с участием — можно читать ленту, не вступая в сообщество, и наоборот. Нажмите «🔔 Подписаться» на странице «Сообщества», чтобы видеть обновления здесь.</p>
+
+    <div class="content-with-filter">
+      <div style="flex:1">
+        <div id="feed-posts"></div>
+        <div class="empty-state" id="feed-empty" hidden>Вы пока не подписаны ни на одно сообщество. <a href="communities.html">Перейти к сообществам →</a></div>
+        <div class="empty-state" id="feed-filtered-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="feed-filter-reset-link">Сбросить фильтры</a></div>
+      </div>
+      <div class="filter-panel" id="feed-filter-panel" hidden>
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Сообщества <span class="stat-note" title="Показать новости только выбранных сообществ">ⓘ</span></label>
+          <div class="feed-project-select" id="feed-project-select">
+            <button type="button" class="input feed-project-select-btn" id="feed-project-select-btn">Все сообщества</button>
+            <div class="feed-project-select-panel" id="feed-project-select-panel" hidden></div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Дата с</label>
+          <input class="input" type="date" id="feed-date-from">
+        </div>
+        <div class="field">
+          <label>Дата по</label>
+          <input class="input" type="date" id="feed-date-to">
+        </div>
+        <div class="field">
+          <label>Упорядочить</label>
+          <select class="input" id="feed-sort">
+            <option value="new">Сначала новые</option>
+            <option value="old">Сначала старые</option>
+          </select>
+        </div>
+        <button class="button secondary" id="feed-filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+(function () {
+  var SUBSCRIBED_KEY = 'coop_groups_subscribed';
+  // Новости сообществ — по тематике каждой группы, см. communities.html
+  var GROUP_NEWS = {
+    'neighbors-tyumen': {
+      title: 'Соседи по Тюмени', link: 'communities.html', icon: '🏘️', bg: 'var(--teal-tint)', color: 'var(--teal-dark)',
+      posts: [
+        { time: '20 августа, 09:40', date: '2026-08-20', hoursAgo: 24, text: 'Собрали вторую партию совместной закупки цемента — раздача во дворе на ул. Мельникайте, 8, в субботу с 10:00. Подробности в разделе «Совместные закупки».', likes: 14, comments: 5 },
+        { time: '10 августа, 18:15', date: '2026-08-10', hoursAgo: 264, text: 'Кто-то оставлял в комментариях под прошлым постом стремянку «на время» — она нашлась, спасибо соседке с Первомайской!', likes: 22, comments: 9 }
+      ]
+    },
+    'builders': {
+      title: 'Строим вместе', link: 'project.html', icon: '🏗️', bg: 'var(--gold-tint)', color: '#8a5f1c',
+      posts: [
+        { time: '19 августа, 14:05', date: '2026-08-19', hoursAgo: 48, text: 'Монтаж 3D-принтера на площадке в Дербенте вышел на этап заливки первого яруса стен — фото и видео процесса в проекте «Строительный 3д принтер».', likes: 31, comments: 11 }
+      ]
+    },
+    'garden': {
+      title: 'Огород и теплицы', link: 'project-greenhouse.html', icon: '🌱', bg: 'var(--teal-tint)', color: 'var(--teal-dark)',
+      posts: [
+        { time: '17 августа, 08:50', date: '2026-08-17', hoursAgo: 96, text: 'Обменный стол семян в это воскресенье: несите излишки рассады и семян прошлых лет — берите то, чего не хватает вам.', likes: 19, comments: 4 },
+        { time: '1 августа, 20:30', date: '2026-08-01', hoursAgo: 480, text: 'Отчёт по круглогодичной теплице: сняли первый урожай огурцов в августе, а не в мае — делимся графиком досветки.', likes: 27, comments: 8 }
+      ]
+    },
+    'crafts': {
+      title: 'Мастера и рукоделие', link: 'communities.html', icon: '🧵', bg: 'var(--gold-tint)', color: '#8a5f1c',
+      posts: [
+        { time: '14 августа, 12:00', date: '2026-08-14', hoursAgo: 168, text: 'Новая мастерица в сообществе — Ольга шьёт лоскутные одеяла на заказ, ищет остатки тканей у тех, кто шьёт из хлопка.', likes: 12, comments: 3 }
+      ]
+    },
+    'newbies': {
+      title: 'Новички кооператива', link: 'communities.html', icon: '🌟', bg: 'var(--teal-tint)', color: 'var(--teal-dark)',
+      posts: [
+        { time: '15 августа, 10:20', date: '2026-08-15', hoursAgo: 144, text: 'Памятка для новых участников: как поднять «Уровень доверия» с первой сделки — короткая инструкция в закреплённом сообщении.', likes: 8, comments: 2 }
+      ]
+    },
+    'shukty-herders': {
+      title: 'Дербентские овцеводы', link: 'organization-coop.html', icon: '🐑', bg: 'var(--gold-tint)', color: '#8a5f1c',
+      posts: [
+        { time: '12 августа, 16:40', date: '2026-08-12', hoursAgo: 216, text: 'Закончили осеннюю стрижку — сдали первую партию шерсти на переработку. Ищем ещё пару пар рук на сортировку по качеству.', likes: 16, comments: 5 }
+      ]
+    },
+    'mutual-credit': {
+      title: 'Взаимопомощь без денег', link: 'wallet.html', icon: '🤝', bg: 'var(--teal-tint)', color: 'var(--teal-dark)',
+      posts: [
+        { time: '18 августа, 19:00', date: '2026-08-18', hoursAgo: 72, text: 'На этой неделе через взаимный кредит закрыли 11 просьб: от присмотра за детьми на пару часов до перевозки мебели на прицепе.', likes: 24, comments: 7 },
+        { time: '5 августа, 11:10', date: '2026-08-05', hoursAgo: 384, text: 'Напоминаем: баланс и история операций по взаимному кредиту — во вкладке «Взаимный кредит» в Кошельке.', likes: 10, comments: 1 }
+      ]
+    },
+    'it-coops': {
+      title: 'IT-кооператоры', link: 'ext-programs.html', icon: '💻', bg: 'var(--gold-tint)', color: '#8a5f1c',
+      posts: [
+        { time: '16 августа, 21:00', date: '2026-08-16', hoursAgo: 120, text: 'В четверг — созвон по код-ревью для тех, кто строит цифровые сервисы на кооперативных началах. Ссылка на созвон в закреплённом сообщении.', likes: 13, comments: 4 }
+      ]
+    }
+  };
+
+  function getSubscribed() {
+    try { return JSON.parse(localStorage.getItem(SUBSCRIBED_KEY)) || []; } catch (e) { return []; }
+  }
+
+  var postsEl = document.getElementById('feed-posts');
+  var emptyEl = document.getElementById('feed-empty');
+  var filteredEmptyEl = document.getElementById('feed-filtered-empty');
+  var filterPanelEl = document.getElementById('feed-filter-panel');
+  var selectBtn = document.getElementById('feed-project-select-btn');
+  var selectPanel = document.getElementById('feed-project-select-panel');
+  var dateFromEl = document.getElementById('feed-date-from');
+  var dateToEl = document.getElementById('feed-date-to');
+  var sortEl = document.getElementById('feed-sort');
+  var resetBtn = document.getElementById('feed-filter-reset');
+  var resetLink = document.getElementById('feed-filter-reset-link');
+
+  var currentSubscribed = [];
+  var selected = {}; // slug -> boolean
+
+  function updateSelectBtnLabel() {
+    var groups = currentSubscribed;
+    var chosen = groups.filter(function (slug) { return selected[slug]; });
+    if (chosen.length === 0) {
+      selectBtn.textContent = 'Ничего не выбрано';
+    } else if (chosen.length === groups.length) {
+      selectBtn.textContent = 'Все сообщества';
+    } else {
+      selectBtn.textContent = chosen.map(function (slug) { return GROUP_NEWS[slug].title; }).join(', ');
+    }
+  }
+
+  function badgeHtml(group) {
+    return '<span style="width:36px;height:36px;border-radius:6px;flex:none;display:flex;align-items:center;justify-content:center;font-size:16px;background:' + group.bg + ';color:' + group.color + '">' + group.icon + '</span>';
+  }
+
+  function buildProjectSelectPanel(groups) {
+    selectPanel.innerHTML = groups.map(function (slug) {
+      var group = GROUP_NEWS[slug];
+      return '<label class="feed-project-option">' +
+        '<input type="checkbox" data-slug="' + slug + '"' + (selected[slug] ? ' checked' : '') + '>' +
+        badgeHtml(group) +
+        '<span>' + group.title + '</span></label>';
+    }).join('');
+    Array.prototype.forEach.call(selectPanel.querySelectorAll('input[type="checkbox"]'), function (cb) {
+      cb.addEventListener('change', function () {
+        selected[cb.dataset.slug] = cb.checked;
+        updateSelectBtnLabel();
+        applyFilters();
+      });
+    });
+  }
+
+  selectBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    selectPanel.hidden = !selectPanel.hidden;
+  });
+  document.addEventListener('click', function (e) {
+    if (!selectPanel.hidden && !document.getElementById('feed-project-select').contains(e.target)) {
+      selectPanel.hidden = true;
+    }
+  });
+
+  function applyFilters() {
+    var groups = currentSubscribed;
+    var chosenSlugs = groups.filter(function (slug) { return selected[slug]; });
+    var from = dateFromEl.value;
+    var to = dateToEl.value;
+    var sortOrder = sortEl.value;
+
+    var items = [];
+    chosenSlugs.forEach(function (slug) {
+      var group = GROUP_NEWS[slug];
+      group.posts.forEach(function (p) {
+        var dateOk = (!from || p.date >= from) && (!to || p.date <= to);
+        if (dateOk) items.push({ group: group, post: p });
+      });
+    });
+
+    items.sort(function (a, b) {
+      return sortOrder === 'old' ? (b.post.hoursAgo - a.post.hoursAgo) : (a.post.hoursAgo - b.post.hoursAgo);
+    });
+
+    if (!items.length) {
+      postsEl.innerHTML = '';
+      filteredEmptyEl.hidden = false;
+      return;
+    }
+    filteredEmptyEl.hidden = true;
+
+    postsEl.innerHTML = items.map(function (item) {
+      var p = item.post;
+      var group = item.group;
+      var avatarHtml = '<span class="avatar" style="display:flex;align-items:center;justify-content:center;font-size:16px;background:' + group.bg + ';color:' + group.color + '">' + group.icon + '</span>';
+      var groupBadge = '<a class="post-project-badge" href="' + group.link + '">' + badgeHtml(group) + '<span>' + group.title + '</span></a>';
+      return '<div class="post">' +
+        '<div class="post-head">' + avatarHtml +
+        '<div class="post-info">' +
+        '<div class="post-name-row"><div class="post-name">' + group.title + '</div>' + groupBadge + '</div>' +
+        '<div class="post-time">' + p.time + '</div>' +
+        '</div></div>' +
+        p.text +
+        '<div class="post-engagement">♥ ' + p.likes + ' · ' + p.comments + ' комментари' + (p.comments === 1 ? 'й' : (p.comments >= 2 && p.comments <= 4 ? 'я' : 'ев')) + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function resetFilters() {
+    currentSubscribed.forEach(function (slug) { selected[slug] = true; });
+    dateFromEl.value = '';
+    dateToEl.value = '';
+    sortEl.value = 'new';
+    buildProjectSelectPanel(currentSubscribed);
+    updateSelectBtnLabel();
+    applyFilters();
+  }
+  resetBtn.addEventListener('click', resetFilters);
+  resetLink.addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+  dateFromEl.addEventListener('change', applyFilters);
+  dateToEl.addEventListener('change', applyFilters);
+  sortEl.addEventListener('change', applyFilters);
+
+  function renderFeed() {
+    currentSubscribed = getSubscribed().filter(function (slug) { return GROUP_NEWS[slug]; });
+    if (!currentSubscribed.length) {
+      filterPanelEl.hidden = true;
+      postsEl.innerHTML = '';
+      filteredEmptyEl.hidden = true;
+      emptyEl.hidden = false;
+      return;
+    }
+    emptyEl.hidden = true;
+    filterPanelEl.hidden = false;
+    currentSubscribed.forEach(function (slug) { if (!(slug in selected)) selected[slug] = true; });
+    buildProjectSelectPanel(currentSubscribed);
+    updateSelectBtnLabel();
+    applyFilters();
+  }
+
+  renderFeed();
+})();
+</script>
+</body>
+</html>

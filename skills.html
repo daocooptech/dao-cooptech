@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Навыки — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="active">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="skills.html" class="active">Все навыки</a>
+    </div>
+    <div class="search-row">
+      <input class="input" placeholder="Должность или навык, например «электромонтажник»">
+      <a class="button" href="add-skill.html">Добавить навык</a>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+    </div>
+    <div class="content-with-filter">
+      <div style="flex:1">
+        <div class="cat-section-title">
+          <span>Все навыки <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="res-count">20</span></span></span>
+        </div>
+        <div class="vacancy-list" id="resumes-list">
+
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=13" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Электромонтажник</div>
+                <div class="vacancy-salary">от 70 000 ₽</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич · 📍 Сочи, готов к командировкам · Опыт 3 года 2 месяца</div>
+                <p class="vacancy-snippet">Монтаж и обслуживание электропроводки, щитового оборудования и освещения. Допуск по электробезопасности III группы.</p>
+                <div class="vacancy-tags"><span class="chip">Электромонтаж</span><span class="chip">Электробезопасность</span><span class="chip">Пусконаладка</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён 2 дня назад</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=13" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Каменщик</div>
+                <div class="vacancy-salary">от 60 000 ₽</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич · 📍 Сочи · Опыт 3 года 2 месяца</div>
+                <p class="vacancy-snippet">Кирпичная и блочная кладка, чтение чертежей, работа в бригаде и самостоятельно на небольших объектах.</p>
+                <div class="vacancy-tags"><span class="chip">Кирпичная кладка</span><span class="chip">Кладка блоков</span><span class="chip">Чтение чертежей</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён 2 дня назад</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Информационные технологии" data-subcategory="Дизайн, графика" data-experience="От 1 года">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=13" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Веб-дизайнер</div>
+                <div class="vacancy-salary">от 80 000 ₽</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич · 📍 Сочи, можно удалённо · Опыт 1 год 6 месяцев</div>
+                <p class="vacancy-snippet">Интерфейсы для веб- и мобильных продуктов, дизайн-системы, прототипирование в Figma.</p>
+                <div class="vacancy-tags"><span class="chip">Веб-дизайн</span><span class="chip">Figma</span><span class="chip">UI/UX</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён неделю назад</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Красноярск" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=47" alt="Иванова Мария Петровна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Каменщик</div>
+                <div class="vacancy-salary">от 65 000 ₽</div>
+                <div class="vacancy-meta">Иванова Мария Петровна · 📍 Красноярск · Опыт 4 года</div>
+                <p class="vacancy-snippet">Кирпичная кладка, штукатурные работы, отделка фасадов. Опыт бригадиром на объектах кооператива «Шукты».</p>
+                <div class="vacancy-tags"><span class="chip">Кирпичная кладка</span><span class="chip">Штукатурные работы</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён 3 дня назад</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла" data-experience="От 1 года">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=13" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Мастер по гравировке</div>
+                <div class="vacancy-salary">сдельно, по договорённости</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич · 📍 Сочи · Опыт 1 год</div>
+                <p class="vacancy-snippet">Художественная гравировка по стеклу на заказ — сувениры, таблички, подарочные изделия.</p>
+                <div class="vacancy-tags"><span class="chip">Гравировка по стеклу</span><span class="chip">Художественная резка</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён месяц назад</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Москва" data-category="Информационные технологии" data-subcategory="Программирование, Разработка" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=33" alt="Петров Сергей Викторович" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Программист</div>
+                <div class="vacancy-salary">от 120 000 ₽</div>
+                <div class="vacancy-meta">Петров Сергей Викторович · 📍 Москва, можно удалённо · Опыт 3 года</div>
+                <p class="vacancy-snippet">Backend-разработка на Python, работа с базами данных, интеграции по API.</p>
+                <div class="vacancy-tags"><span class="chip">Программирование</span><span class="chip">Python</span><span class="chip">SQL</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён сегодня</span></div>
+              </div>
+            </div>
+          </a>
+
+
+          <a class="vacancy-card" href="skill.html" data-city="Новосибирск" data-category="Рабочий персонал" data-subcategory="Сварщик" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=4" alt="Козлов Артём Викторович" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Сварщик</div>
+                <div class="vacancy-salary">от 75 000 ₽</div>
+                <div class="vacancy-meta">Козлов Артём Викторович · 📍 Новосибирск · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Ручная дуговая и полуавтоматическая сварка металлоконструкций, монтаж каркасов на объектах.</p>
+                <div class="vacancy-tags"><span class="chip">Сварка</span><span class="chip">Металлоконструкции</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Санкт-Петербург" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=5" alt="Смирнова Екатерина Андреевна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Бухгалтер</div>
+                <div class="vacancy-salary">от 65 000 ₽</div>
+                <div class="vacancy-meta">Смирнова Екатерина Андреевна · 📍 Санкт-Петербург · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Ведение бухгалтерии кооперативов и малых предприятий, отчётность, расчёт зарплат.</p>
+                <div class="vacancy-tags"><span class="chip">Бухгалтерия</span><span class="chip">Отчётность</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Екатеринбург" data-category="Автомобильный бизнес" data-subcategory="Автослесарь, автомеханик" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=6" alt="Волков Игорь Николаевич" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Автомеханик</div>
+                <div class="vacancy-salary">от 70 000 ₽</div>
+                <div class="vacancy-meta">Волков Игорь Николаевич · 📍 Екатеринбург · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Диагностика и ремонт легковых и грузовых автомобилей, техобслуживание парка кооператива.</p>
+                <div class="vacancy-tags"><span class="chip">Автомеханика</span><span class="chip">Диагностика</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Казань" data-category="Строительство, недвижимость" data-subcategory="Дизайнер, художник" data-experience="От 1 года">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=9" alt="Морозова Анна Сергеевна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Дизайнер интерьера</div>
+                <div class="vacancy-salary">от 55 000 ₽</div>
+                <div class="vacancy-meta">Морозова Анна Сергеевна · 📍 Казань · Опыт: от 1 года</div>
+                <p class="vacancy-snippet">Дизайн-проекты жилых и коммерческих помещений, подбор материалов и мебели.</p>
+                <div class="vacancy-tags"><span class="chip">Дизайн интерьера</span><span class="chip">3D-визуализация</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Ростов-на-Дону" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=8" alt="Соколов Павел Дмитриевич" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Логист</div>
+                <div class="vacancy-salary">от 68 000 ₽</div>
+                <div class="vacancy-meta">Соколов Павел Дмитриевич · 📍 Ростов-на-Дону · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Организация поставок стройматериалов, планирование маршрутов, работа со складом.</p>
+                <div class="vacancy-tags"><span class="chip">Логистика</span><span class="chip">Складской учёт</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Пермь" data-category="Искусство, развлечения, массмедиа" data-subcategory="Флорист, декоратор" data-experience="От 1 года">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=10" alt="Лебедева Ольга Игоревна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Флорист</div>
+                <div class="vacancy-salary">сдельно, по договорённости</div>
+                <div class="vacancy-meta">Лебедева Ольга Игоревна · 📍 Пермь · Опыт: от 1 года</div>
+                <p class="vacancy-snippet">Оформление мероприятий, букеты на заказ, работа с местными поставщиками цветов.</p>
+                <div class="vacancy-tags"><span class="chip">Флористика</span><span class="chip">Оформление мероприятий</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Владивосток" data-category="Искусство, развлечения, массмедиа" data-subcategory="Фото, видео, звукооператоры" data-experience="Нет опыта">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=14" alt="Новиков Максим Олегович" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Фотограф</div>
+                <div class="vacancy-salary">сдельно, по договорённости</div>
+                <div class="vacancy-meta">Новиков Максим Олегович · 📍 Владивосток · Опыт: нет опыта</div>
+                <p class="vacancy-snippet">Предметная и портретная съёмка, обработка фото для каталогов и соцсетей.</p>
+                <div class="vacancy-tags"><span class="chip">Фотография</span><span class="chip">Обработка фото</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Воронеж" data-category="Производство, сервисное обслуживание" data-subcategory="Швея, закройщик" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=16" alt="Кузнецова Дарья Викторовна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Швея</div>
+                <div class="vacancy-salary">от 45 000 ₽</div>
+                <div class="vacancy-meta">Кузнецова Дарья Викторовна · 📍 Воронеж · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Пошив и ремонт одежды на заказ, работа с трикотажем и плотными тканями.</p>
+                <div class="vacancy-tags"><span class="chip">Швея</span><span class="chip">Пошив на заказ</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Уфа" data-category="Рабочий персонал" data-subcategory="Слесарь, сантехник" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=15" alt="Попов Артур Русланович" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Сантехник</div>
+                <div class="vacancy-salary">от 60 000 ₽</div>
+                <div class="vacancy-meta">Попов Артур Русланович · 📍 Уфа · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Монтаж и ремонт систем водоснабжения и отопления, устранение аварийных ситуаций.</p>
+                <div class="vacancy-tags"><span class="chip">Сантехника</span><span class="chip">Отопление</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Самара" data-category="Юристы" data-subcategory="Юрисконсульт" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=20" alt="Васильева Татьяна Михайловна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Юрист</div>
+                <div class="vacancy-salary">от 90 000 ₽</div>
+                <div class="vacancy-meta">Васильева Татьяна Михайловна · 📍 Самара · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Сопровождение сделок, договорная работа, консультации кооперативов по правовым вопросам.</p>
+                <div class="vacancy-tags"><span class="chip">Юриспруденция</span><span class="chip">Договорное право</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Омск" data-category="Рабочий персонал" data-subcategory="Столяр, плотник" data-experience="От 1 года">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=18" alt="Зайцев Роман Сергеевич" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Плотник</div>
+                <div class="vacancy-salary">от 55 000 ₽</div>
+                <div class="vacancy-meta">Зайцев Роман Сергеевич · 📍 Омск · Опыт: от 1 года</div>
+                <p class="vacancy-snippet">Изготовление и монтаж деревянных конструкций, стропильных систем, лестниц.</p>
+                <div class="vacancy-tags"><span class="chip">Плотницкие работы</span><span class="chip">Столярные изделия</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Челябинск" data-category="Маркетинг, реклама, PR" data-subcategory="Маркетинг" data-experience="От 1 года">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=21" alt="Павлова Виктория Андреевна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Маркетолог</div>
+                <div class="vacancy-salary">от 65 000 ₽</div>
+                <div class="vacancy-meta">Павлова Виктория Андреевна · 📍 Челябинск · Опыт: от 1 года</div>
+                <p class="vacancy-snippet">Продвижение кооперативных проектов в соцсетях, контент-план, таргетированная реклама.</p>
+                <div class="vacancy-tags"><span class="chip">Маркетинг</span><span class="chip">SMM</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Нижний Новгород" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство" data-experience="От 3 лет">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=19" alt="Семёнов Николай Петрович" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Пчеловод</div>
+                <div class="vacancy-salary">сезонно, по договорённости</div>
+                <div class="vacancy-meta">Семёнов Николай Петрович · 📍 Нижний Новгород · Опыт: от 3 лет</div>
+                <p class="vacancy-snippet">Содержание пасеки, производство мёда и продуктов пчеловодства для кооперативного рынка.</p>
+                <div class="vacancy-tags"><span class="chip">Пчеловодство</span><span class="chip">Производство мёда</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="skill.html" data-city="Волгоград" data-category="Туризм, гостиницы, рестораны" data-subcategory="Повар, кондитер" data-experience="Нет опыта">
+            <div class="card-row">
+              <img class="avatar" src="https://i.pravatar.cc/64?img=22" alt="Голубева Мария Александровна" style="width:44px;height:44px;flex:none">
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Повар-кондитер</div>
+                <div class="vacancy-salary">от 50 000 ₽</div>
+                <div class="vacancy-meta">Голубева Мария Александровна · 📍 Волгоград · Опыт: нет опыта</div>
+                <p class="vacancy-snippet">Приготовление блюд и выпечки на заказ, кейтеринг для мероприятий кооператива.</p>
+                <div class="vacancy-tags"><span class="chip">Кулинария</span><span class="chip">Кейтеринг</span></div>
+                <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="empty-state" id="resumes-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      </div>
+      <div class="filter-panel">
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Город <span class="stat-note" title="Показать навыки только из выбранного города">ⓘ</span></label>
+          <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
+          <datalist id="city-options">
+            <option value="Сочи"><option value="Красноярск"><option value="Москва"><option value="Новосибирск"><option value="Санкт-Петербург"><option value="Екатеринбург"><option value="Казань"><option value="Ростов-на-Дону"><option value="Пермь"><option value="Владивосток"><option value="Воронеж"><option value="Уфа"><option value="Самара"><option value="Омск"><option value="Челябинск"><option value="Нижний Новгород"><option value="Волгоград">
+          </datalist>
+        </div>
+        <div class="field">
+          <label>Специализация <span class="stat-note" title="Профессиональная область, как на hh.ru">ⓘ</span></label>
+          <select class="input" id="filter-category">
+            <option value="">Любая</option>
+            <option value="Автомобильный бизнес">Автомобильный бизнес</option>
+            <option value="Административный персонал">Административный персонал</option>
+            <option value="Безопасность">Безопасность</option>
+            <option value="Высший и средний менеджмент">Высший и средний менеджмент</option>
+            <option value="Добыча сырья">Добыча сырья</option>
+            <option value="Домашний, обслуживающий персонал">Домашний, обслуживающий персонал</option>
+            <option value="Закупки">Закупки</option>
+            <option value="Информационные технологии">Информационные технологии</option>
+            <option value="Искусство, развлечения, массмедиа">Искусство, развлечения, массмедиа</option>
+            <option value="Маркетинг, реклама, PR">Маркетинг, реклама, PR</option>
+            <option value="Медицина, фармацевтика">Медицина, фармацевтика</option>
+            <option value="Наука, образование">Наука, образование</option>
+            <option value="Продажи, обслуживание клиентов">Продажи, обслуживание клиентов</option>
+            <option value="Производство, сервисное обслуживание">Производство, сервисное обслуживание</option>
+            <option value="Рабочий персонал">Рабочий персонал</option>
+            <option value="Розничная торговля">Розничная торговля</option>
+            <option value="Сельское хозяйство">Сельское хозяйство</option>
+            <option value="Спортивные клубы, фитнес, салоны красоты">Спортивные клубы, фитнес, салоны красоты</option>
+            <option value="Стратегия, инвестиции, консалтинг">Стратегия, инвестиции, консалтинг</option>
+            <option value="Страхование">Страхование</option>
+            <option value="Строительство, недвижимость">Строительство, недвижимость</option>
+            <option value="Транспорт, логистика, перевозки">Транспорт, логистика, перевозки</option>
+            <option value="Туризм, гостиницы, рестораны">Туризм, гостиницы, рестораны</option>
+            <option value="Управление персоналом, тренинги">Управление персоналом, тренинги</option>
+            <option value="Финансы, бухгалтерия">Финансы, бухгалтерия</option>
+            <option value="Юристы">Юристы</option>
+            <option value="Другое">Другое</option>
+          </select>
+        </div>
+        <div class="field" id="subcategory-field" hidden>
+          <label>Подкатегория</label>
+          <select class="input" id="filter-subcategory">
+            <option value="">Любая</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Опыт работы <span class="stat-note" title="Общий стаж по этой специализации">ⓘ</span></label>
+          <select class="input" id="filter-experience">
+            <option value="">Любой</option>
+            <option value="Нет опыта">Нет опыта</option>
+            <option value="От 1 года">От 1 года</option>
+            <option value="От 3 лет">От 3 лет</option>
+          </select>
+        </div>
+        <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="vacancies.html">вакансии</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+var CATEGORY_TREE = {
+  "Автомобильный бизнес": [
+    "Автосервис, автомойка",
+    "Автослесарь, автомеханик",
+    "Продажа автозапчастей",
+    "Автосалон"
+  ],
+  "Административный персонал": [
+    "Административный директор",
+    "Офис-менеджер, ассистент",
+    "Секретарь, помощник руководителя"
+  ],
+  "Безопасность": [
+    "Служба безопасности",
+    "Охранник, контролёр"
+  ],
+  "Высший и средний менеджмент": [
+    "Генеральный директор",
+    "Директор по развитию",
+    "Руководитель проектов"
+  ],
+  "Добыча сырья": [
+    "Геолог",
+    "Горный инженер",
+    "Оператор добычи"
+  ],
+  "Домашний, обслуживающий персонал": [
+    "Домработница, няня",
+    "Повар для семьи",
+    "Личный водитель"
+  ],
+  "Закупки": [
+    "Менеджер по закупкам",
+    "Специалист по тендерам"
+  ],
+  "Информационные технологии": [
+    "Программирование, Разработка",
+    "Дизайн, графика",
+    "Тестирование",
+    "Системное администрирование",
+    "Аналитика, Data Science"
+  ],
+  "Искусство, развлечения, массмедиа": [
+    "Фото, видео, звукооператоры",
+    "Народные промыслы, ремёсла",
+    "Флорист, декоратор",
+    "Журналистика, СМИ"
+  ],
+  "Маркетинг, реклама, PR": [
+    "Маркетинг",
+    "Реклама",
+    "PR, связи с общественностью",
+    "SMM"
+  ],
+  "Медицина, фармацевтика": [
+    "Врач",
+    "Медсестра, фельдшер",
+    "Фармацевт"
+  ],
+  "Наука, образование": [
+    "Преподаватель, репетитор",
+    "Научный сотрудник"
+  ],
+  "Продажи, обслуживание клиентов": [
+    "Менеджер по продажам",
+    "Специалист поддержки",
+    "Продавец-консультант"
+  ],
+  "Производство, сервисное обслуживание": [
+    "Инженер-технолог",
+    "Швея, закройщик",
+    "Контролёр ОТК"
+  ],
+  "Рабочий персонал": [
+    "Электромонтажник, электромонтер, техник-электрик",
+    "Бетонщик, арматурщик, каменщик",
+    "Сварщик",
+    "Слесарь, сантехник",
+    "Столяр, плотник",
+    "Кладовщик, Приемщик товаров",
+    "Разнорабочий"
+  ],
+  "Розничная торговля": [
+    "Продавец",
+    "Кассир",
+    "Директор магазина"
+  ],
+  "Сельское хозяйство": [
+    "Агроном, зоотехник",
+    "Пчеловодство, животноводство",
+    "Тракторист"
+  ],
+  "Спортивные клубы, фитнес, салоны красоты": [
+    "Тренер",
+    "Мастер маникюра",
+    "Парикмахер"
+  ],
+  "Стратегия, инвестиции, консалтинг": [
+    "Бизнес-консультант",
+    "Инвестиционный аналитик"
+  ],
+  "Страхование": [
+    "Агент страховой",
+    "Андеррайтер"
+  ],
+  "Строительство, недвижимость": [
+    "Прораб, мастер СМР",
+    "Архитектор",
+    "Дизайнер, художник",
+    "Агент по недвижимости",
+    "Инженер строительного контроля"
+  ],
+  "Транспорт, логистика, перевозки": [
+    "Логистика, ВЭД",
+    "Водитель",
+    "Диспетчер"
+  ],
+  "Туризм, гостиницы, рестораны": [
+    "Повар, кондитер",
+    "Официант, бармен",
+    "Администратор гостиницы"
+  ],
+  "Управление персоналом, тренинги": [
+    "HR-менеджер",
+    "Бизнес-тренер"
+  ],
+  "Финансы, бухгалтерия": [
+    "Бухгалтерия",
+    "Финансовый аналитик",
+    "Кредитный специалист"
+  ],
+  "Юристы": [
+    "Юрисконсульт",
+    "Адвокат",
+    "Нотариус"
+  ],
+  "Другое": [
+    "Разное"
+  ]
+};
+
+var selectedSubcategory = '';
+var filterCategorySelect = document.getElementById('filter-category');
+var filterSubcategorySelect = document.getElementById('filter-subcategory');
+var subcategoryField = document.getElementById('subcategory-field');
+
+function populateSubcategories(cat) {
+  var subs = CATEGORY_TREE[cat] || [];
+  filterSubcategorySelect.innerHTML = '<option value="">Любая</option>' +
+    subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+  subcategoryField.hidden = subs.length === 0;
+}
+
+filterCategorySelect.addEventListener('change', function () {
+  selectedSubcategory = '';
+  populateSubcategories(filterCategorySelect.value);
+  applyFilters();
+});
+filterSubcategorySelect.addEventListener('change', function () {
+  selectedSubcategory = filterSubcategorySelect.value;
+  applyFilters();
+});
+
+function applyFilters() {
+  var city = document.getElementById('filter-city').value.trim().toLowerCase();
+  var category = document.getElementById('filter-category').value;
+  var experience = document.getElementById('filter-experience').value;
+  var cards = document.querySelectorAll('#resumes-list .vacancy-card');
+  var visibleCount = 0;
+  cards.forEach(function (card) {
+    var cardCity = (card.dataset.city || '').toLowerCase();
+    var cityOk = !city || cardCity.indexOf(city) !== -1;
+    var categoryOk = !category || card.dataset.category === category;
+    var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
+    var experienceOk = !experience || card.dataset.experience === experience;
+    var show = cityOk && categoryOk && subcategoryOk && experienceOk;
+    card.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+  document.getElementById('resumes-empty').hidden = visibleCount > 0;
+  document.getElementById('res-count').textContent = visibleCount;
+}
+document.getElementById('filter-city').addEventListener('input', applyFilters);
+document.getElementById('filter-category').addEventListener('change', applyFilters);
+document.getElementById('filter-experience').addEventListener('change', applyFilters);
+
+function resetFilters() {
+  document.getElementById('filter-city').value = '';
+  document.getElementById('filter-category').value = '';
+  selectedSubcategory = '';
+  subcategoryField.hidden = true;
+  document.getElementById('filter-experience').value = '';
+  applyFilters();
+}
+document.getElementById('filter-reset').addEventListener('click', resetFilters);
+document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+
+// Переключатель вида: списком / плиткой
+var viewGrid = document.getElementById('resumes-list');
+var viewListBtn = document.getElementById('view-list-btn');
+var viewTileBtn = document.getElementById('view-tile-btn');
+viewListBtn.addEventListener('click', function () {
+  viewGrid.classList.remove('tile-mode');
+  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
+});
+viewTileBtn.addEventListener('click', function () {
+  viewGrid.classList.add('tile-mode');
+  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
+});
+</script>
+</body>
+</html>

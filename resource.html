@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Карточка ресурса — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="active">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="resources.html">Каталог ресурсов</a>
+      <a href="resource.html" class="active">О ресурсе</a>
+      <a href="resource-tracking.html">Трекинг</a>
+      <a href="resource-buyers.html">Покупатели</a>
+      <a href="resource-reviews.html">Отзывы</a>
+    </div>
+    <div style="display:flex;gap:24px;align-items:flex-start">
+    <div style="flex:1;min-width:0">
+    <div class="detail-head" style="align-items:stretch">
+      <div class="res-gallery" style="margin:0;flex:0 0 340px">
+        <div class="gallery-main"><img id="gallery-main-img" src="images/photos/pelmeni.jpg" alt="Пельмени домашней лепки"></div>
+        <div class="gallery-thumbs">
+          <img src="images/photos/pelmeni.jpg" alt="" class="active">
+          <img src="images/photos/pelmeni-making.jpg" alt="">
+          <img src="images/photos/wheat-flour.jpg" alt="">
+        </div>
+      </div>
+      <div style="flex:1">
+        <div class="page-title" style="margin-bottom:6px">Пельмени домашней лепки</div>
+        <span class="badge gold">Продовольственные товары</span>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:20px">
+          <a href="person.html" style="display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич" style="width:68px;height:68px">
+            <div style="font-weight:600;font-size:12px;color:var(--ink)">Дашкевич Данил Игоревич</div>
+          </a>
+        </div>
+        <div style="margin-top:20px">
+          <div class="price-row">
+            <div class="price-main" id="price-main">450 ₽</div>
+            <select class="input" id="currency-select" style="max-width:170px">
+              <option value="RUB" selected>₽ Рубль</option>
+              <option value="USD">$ Доллар США</option>
+              <option value="EUR">€ Евро</option>
+              <option value="BTC">₿ Bitcoin</option>
+              <option value="USDT">₮ USDT</option>
+              <option value="CFA">◆ ЦФА платформы</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="label">Единица измерения</div><div class="value" style="font-size:14px">1 кг</div></div>
+      <div class="stat"><div class="label">Город</div><div class="value" style="font-size:14px">📍 Тюмень</div></div>
+      <div class="stat"><div class="label">Кол-во на складе</div><div class="value" style="font-size:14px">340 кг</div></div>
+    </div>
+    <hr class="divider">
+
+    <div class="section-title">Описание</div>
+    <p style="color:var(--slate);max-width:560px">Пельмени ручной лепки из говядины и свинины, тесто и фарш без добавок и консервантов. Замороженные, фасовка по 1 кг. Производятся в собственном цехе кооператива. Можно купить, обменять на другой ресурс, получить безвозмездно по социальной программе или внести долей в проект переработки — как удобнее.</p>
+
+    <div class="section-title">Производитель <span class="stat-note" title="Может быть несколько — ресурс совместного производства нескольких организаций/кооперативов">ⓘ</span></div>
+    <div style="display:flex;gap:12px">
+      <a class="cat-tile" href="organization.html" style="flex:0 0 128px"><div class="cat-icon"><div class="org-logo" style="background:var(--gold-tint);color:#8a5f1c">МИ</div></div><div class="cat-label">ООО «Мириталь»</div></a>
+      <a class="cat-tile" href="organization.html" style="flex:0 0 128px"><div class="cat-icon"><div class="org-logo" style="background:var(--gold-tint);color:#8a5f1c">ШУ</div></div><div class="cat-label">Кооператив «Шукты»</div></a>
+    </div>
+
+    <div class="section-title">Способы оплаты <span class="stat-note" title="Платёжные инструменты, которыми можно расплатиться за ресурс">ⓘ</span></div>
+    <div class="filter-chips" style="margin-bottom:28px">
+      <span class="chip">💵 Наличные</span><span class="chip">💳 Банковский перевод</span><span class="chip">◆ Токены платформы (ЦФА)</span><span class="chip">₿ Криптовалюта</span>
+    </div>
+
+    <div class="section-title">Состав/Комплектация</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/pork-meat.jpg" alt="Свинина"></div><div class="cat-label">Свинина</div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/beef-meat.jpg" alt="Говядина"></div><div class="cat-label">Говядина</div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/onion-bulbs.jpg" alt="Лук"></div><div class="cat-label">Лук</div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/wheat-flour.jpg" alt="Мука"></div><div class="cat-label">Мука</div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/sugar-white.jpg" alt="Сахар"></div><div class="cat-label">Сахар</div></a>
+    </div>
+
+    <div class="section-title">Пункты выдачи <a href="pickup-points.html" style="float:right;font-size:12px;font-weight:500">Все точки самовывоза →</a></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="cat-tile" href="pickup-points.html" style="flex:0 0 160px"><div class="cat-icon"><img src="images/photos/warehouse.jpg" alt="Цех кооператива"></div><div class="cat-label">📍 Цех кооператива<br><span style="font-weight:400;color:var(--slate);font-size:11px">Тюмень, ул. Мельникайте, 100</span></div></a>
+      <a class="cat-tile" href="pickup-points.html" style="flex:0 0 160px"><div class="cat-icon"><img src="images/photos/central-market.jpg" alt="Точка выдачи — Центральный рынок"></div><div class="cat-label">📍 Точка выдачи<br><span style="font-weight:400;color:var(--slate);font-size:11px">Тюмень, Центральный рынок</span></div></a>
+    </div>
+
+    <div class="section-title">Готовы рассмотреть на обмен <span class="stat-note" title="Что владелец готов принять взамен вместо денег">ⓘ</span></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/honey-jar.jpg" alt="Мёд натуральный"></div><div class="cat-label">Мёд натуральный</div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/milk-bottles.jpg" alt="Молоко фермерское"></div><div class="cat-label">Молоко фермерское</div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/carrot.jpg" alt="Овощи с огорода"></div><div class="cat-label">Овощи с огорода</div></a>
+      <a class="cat-tile" href="skill.html" style="flex:0 0 128px"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <rect width="100" height="100" fill="#E3EFED"/>
+        <path d="M50 20 L84 44 L84 82 L16 82 L16 44 Z" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M38 82 L38 58 L62 58 L62 82" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M50 47 C50 47 42 42 42 36 C42 32 45 30 48 30 C49.5 30 50 31 50 32.5 C50 31 50.5 30 52 30 C55 30 58 32 58 36 C58 42 50 47 50 47 Z" fill="#146B64"/>
+      </svg></div><div class="cat-label">Помощь по хозяйству</div></a>
+    </div>
+
+    <div class="section-title">Цепочка обмена <span class="stat-note" title="Прямой обмен не сошёлся — платформа нашла цепочку из нескольких участников, в которой каждый в итоге получает то, что хотел">ⓘ</span></div>
+    <div class="barter-chain" id="barter-chain">
+      <div class="barter-chain-node">
+        <div class="barter-chain-avatar you">Вы</div>
+        <div class="barter-chain-item">🔧 Дрель аккумуляторная</div>
+      </div>
+      <div class="barter-chain-arrow">→</div>
+      <div class="barter-chain-node">
+        <a href="person.html"><img class="avatar" src="https://i.pravatar.cc/128?img=5" alt="Смирнова Екатерина Андреевна"></a>
+        <div class="barter-chain-name">Смирнова Екатерина</div>
+        <div class="barter-chain-item">🍯 Мёд натуральный</div>
+      </div>
+      <div class="barter-chain-arrow">→</div>
+      <div class="barter-chain-node">
+        <a href="person.html"><img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич"></a>
+        <div class="barter-chain-name">Дашкевич Данил</div>
+        <div class="barter-chain-item">🥟 Пельмени домашней лепки</div>
+      </div>
+      <div class="barter-chain-arrow">→</div>
+      <div class="barter-chain-node">
+        <div class="barter-chain-avatar you">Вы</div>
+        <div class="barter-chain-item">получаете пельмени</div>
+      </div>
+    </div>
+    <p style="color:var(--slate);font-size:11.5px;max-width:620px;margin-top:8px">Прямой обмен не нашёлся (у вас нет мёда, который хочет владелец), но нашлась цепочка из 3 участников — каждый получает то, что искал. Чтобы запустить обмен, нужно согласие всех участников цепочки.</p>
+    <button class="button secondary" id="barter-chain-btn" type="button" style="margin-top:4px;margin-bottom:8px">Предложить цепочку обмена</button>
+
+    <div class="section-title">Участвует в проектах <span class="stat-note" title="Ресурс уже внесён как доля/пай в эти проекты платформы">ⓘ</span></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="cat-tile" href="project.html" style="flex:0 0 148px"><div class="cat-icon"><img src="images/photos/greenhouse.jpg" alt="Круглогодичная теплица"></div><div class="cat-label">Круглогодичная теплица<br><span style="font-weight:400;color:var(--slate);font-size:11px">доля 3%</span></div></a>
+      <a class="cat-tile" href="project.html" style="flex:0 0 148px"><div class="cat-icon"><img src="images/photos/meat-processing-workshop.jpg" alt="Цех переработки мяса и пельменей"></div><div class="cat-label">Цех переработки мяса и пельменей<br><span style="font-weight:400;color:var(--slate);font-size:11px">доля 15%</span></div></a>
+    </div>
+
+    <div class="section-title">Похожие объявления <span class="stat-note" title="Другие товары той же категории «Продовольственные товары»">ⓘ</span></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/milk-bottles.jpg" alt="Молоко фермерское"></div><div class="cat-label">Молоко фермерское<br><span style="font-weight:400;color:var(--slate);font-size:11px">от 95 ₽/л</span></div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/honey-jar.jpg" alt="Мёд натуральный липовый"></div><div class="cat-label">Мёд натуральный липовый<br><span style="font-weight:400;color:var(--slate);font-size:11px">от 650 ₽</span></div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/wheat-flour.jpg" alt="Мука пшеничная высшего сорта"></div><div class="cat-label">Мука пшеничная в/с<br><span style="font-weight:400;color:var(--slate);font-size:11px">от 32 000 ₽/т</span></div></a>
+      <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/potato-crate.jpg" alt="Картофель урожая этого года"></div><div class="cat-label">Картофель урожая этого года<br><span style="font-weight:400;color:var(--slate);font-size:11px">от 28 ₽/кг</span></div></a>
+    </div>
+
+    </div>
+    <div style="flex:0 0 220px;position:sticky;top:76px">
+      <div class="action-stack">
+        <button class="button" id="buy-now-btn" type="button">Купить в один клик</button>
+        <button class="button secondary">Добавить в корзину</button>
+        <a class="button secondary" href="messages.html">Написать владельцу</a>
+        <a class="button secondary" href="tel:+79509882244">Позвонить владельцу</a>
+        <button type="button" id="fav-toggle" class="button secondary">Добавить в избранное</button>
+        <button type="button" id="wishlist-toggle" class="button secondary" title="Показать другим, что вы ищете такое — поможет состояться бартеру">🤍 Хочу такое</button>
+      </div>
+
+      <div class="card" style="padding:14px 16px;margin-top:14px">
+        <div style="font-weight:600;font-size:12.5px;margin-bottom:8px">📦 Калькулятор доставки</div>
+        <input class="input" id="calc-city" list="calc-city-options" placeholder="Город получателя" style="margin-bottom:8px">
+        <datalist id="calc-city-options">
+          <option value="Тюмень"><option value="Екатеринбург"><option value="Курган"><option value="Ишим"><option value="Москва"><option value="Пермь"><option value="Челябинск"><option value="Омск"><option value="Красноярск"><option value="Новосибирск"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Краснодар"><option value="Санкт-Петербург">
+        </datalist>
+        <button class="button secondary" id="calc-btn" type="button" style="width:100%">Рассчитать</button>
+        <div id="calc-result" style="font-size:12px;color:var(--slate);margin-top:8px"></div>
+      </div>
+    </div>
+    </div>
+
+    <div class="modal-overlay" id="safe-deal-modal" hidden>
+      <div class="modal">
+        <div class="modal-head">
+          <h2>Безопасная сделка</h2>
+          <button class="modal-close" id="safe-deal-close" type="button">✕</button>
+        </div>
+        <p class="modal-hint">Прозрачный статус сделки виден обеим сторонам, чтобы не приходилось переспрашивать «оплатили?» и «получили?» в переписке.</p>
+        <div class="safe-deal-stepper">
+          <div class="safe-deal-step done">
+            <div class="safe-deal-step-icon">✓</div>
+            <div><div class="safe-deal-step-title">Оплата отправлена</div><div class="safe-deal-step-note">450 ₽ · только что</div></div>
+          </div>
+          <div class="safe-deal-step" id="safe-deal-step2">
+            <div class="safe-deal-step-icon">2</div>
+            <div><div class="safe-deal-step-title">Получатель подтвердил получение</div><div class="safe-deal-step-note" id="safe-deal-step2-note">Ожидает подтверждения продавца…</div></div>
+          </div>
+        </div>
+        <button class="button secondary" id="safe-deal-done" type="button" style="width:100%;margin-top:16px">Понятно</button>
+      </div>
+    </div>
+
+    <script>
+    (function () {
+      var buyBtn = document.getElementById('buy-now-btn');
+      var dealModal = document.getElementById('safe-deal-modal');
+      var closeDeal = function () { dealModal.hidden = true; };
+      buyBtn.addEventListener('click', function () {
+        dealModal.hidden = false;
+        var step2 = document.getElementById('safe-deal-step2');
+        var step2Note = document.getElementById('safe-deal-step2-note');
+        step2.classList.remove('done');
+        step2.querySelector('.safe-deal-step-icon').textContent = '2';
+        step2Note.textContent = 'Ожидает подтверждения продавца…';
+        setTimeout(function () {
+          step2.classList.add('done');
+          step2.querySelector('.safe-deal-step-icon').textContent = '✓';
+          step2Note.textContent = 'Подтверждено Дашкевич Данилом Игоревичем · только что';
+        }, 1600);
+      });
+      document.getElementById('safe-deal-close').addEventListener('click', closeDeal);
+      document.getElementById('safe-deal-done').addEventListener('click', closeDeal);
+      dealModal.addEventListener('click', function (e) { if (e.target === dealModal) closeDeal(); });
+
+      // #12 Мультисторонний бартер — демо-отправка предложения по цепочке
+      var chainBtn = document.getElementById('barter-chain-btn');
+      chainBtn.addEventListener('click', function () {
+        chainBtn.disabled = true;
+        chainBtn.textContent = '✓ Предложение отправлено всем 3 участникам';
+      });
+
+      // #2 Калькулятор доставки — условная стоимость по поясам расстояния от Тюмени (город продавца)
+      var DELIVERY_ZONES = {
+        'тюмень': { cost: 0, days: '0 (самовывоз)' },
+        'екатеринбург': { cost: 250, days: '1–2' }, 'курган': { cost: 250, days: '1–2' }, 'ишим': { cost: 200, days: '1' },
+        'москва': { cost: 450, days: '2–4' }, 'пермь': { cost: 450, days: '2–4' }, 'челябинск': { cost: 400, days: '2–3' },
+        'омск': { cost: 400, days: '2–3' }, 'санкт-петербург': { cost: 500, days: '3–5' },
+        'красноярск': { cost: 750, days: '4–7' }, 'новосибирск': { cost: 700, days: '4–6' }, 'иркутск': { cost: 850, days: '5–8' },
+        'владивосток': { cost: 1100, days: '7–10' }, 'сочи': { cost: 700, days: '4–6' }, 'краснодар': { cost: 650, days: '4–6' }
+      };
+      document.getElementById('calc-btn').addEventListener('click', function () {
+        var city = document.getElementById('calc-city').value.trim();
+        var result = document.getElementById('calc-result');
+        if (!city) { result.textContent = 'Укажите город получателя'; return; }
+        var zone = DELIVERY_ZONES[city.toLowerCase()];
+        if (!zone) {
+          result.textContent = 'Для этого города точный тариф пока не рассчитан — уточните у продавца в сообщениях.';
+          return;
+        }
+        result.innerHTML = zone.cost === 0
+          ? '<b style="color:var(--ink)">Бесплатно</b> — заберите в городе продавца (Тюмень)'
+          : 'Ориентировочно <b style="color:var(--ink)">' + zone.cost.toLocaleString('ru-RU') + ' ₽</b>, ' + zone.days + ' дн.';
+      });
+    })();
+    </script>
+
+    <script>
+    (function () {
+      var thumbs = document.querySelectorAll('.gallery-thumbs img');
+      var mainImg = document.getElementById('gallery-main-img');
+      thumbs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          mainImg.src = t.src;
+          thumbs.forEach(function (o) { o.classList.remove('active'); });
+          t.classList.add('active');
+        });
+      });
+      var favBtn = document.getElementById('fav-toggle');
+      favBtn.addEventListener('click', function () {
+        var active = favBtn.classList.toggle('active');
+        favBtn.textContent = active ? 'В избранном' : 'Добавить в избранное';
+      });
+
+      // #3 Вишлист «Хочу такое» — публичный сигнал желаемого для бартера, отдельно от избранного
+      var WISHLIST_KEY = 'coop_wishlist';
+      var wishItem = {
+        id: 'pelmeni-domashney-lepki',
+        title: 'Пельмени домашней лепки',
+        image: 'images/photos/pelmeni.jpg',
+        url: 'resource.html'
+      };
+      function getWishlist() {
+        try { return JSON.parse(localStorage.getItem(WISHLIST_KEY)) || []; } catch (e) { return []; }
+      }
+      var wishBtn = document.getElementById('wishlist-toggle');
+      function renderWishBtn() {
+        var inList = getWishlist().some(function (w) { return w.id === wishItem.id; });
+        wishBtn.classList.toggle('active', inList);
+        wishBtn.textContent = inList ? '🤍 В списке «Хочу такое»' : '🤍 Хочу такое';
+      }
+      wishBtn.addEventListener('click', function () {
+        var list = getWishlist();
+        var i = list.findIndex(function (w) { return w.id === wishItem.id; });
+        if (i === -1) list.unshift(wishItem); else list.splice(i, 1);
+        localStorage.setItem(WISHLIST_KEY, JSON.stringify(list));
+        renderWishBtn();
+      });
+      renderWishBtn();
+    })();
+    </script>
+
+    <script>
+    (function () {
+      var RATES = { RUB: 1, USD: 93, EUR: 101, BTC: 6300000, USDT: 93, CFA: 1 };
+      var LABELS = { RUB: '₽', USD: '$', EUR: '€', BTC: '₿', USDT: '₮ USDT', CFA: '◆ ЦФА' };
+      var BASE_RUB = 450;
+      document.getElementById('currency-select').addEventListener('change', function (e) {
+        var code = e.target.value;
+        var amount = BASE_RUB / RATES[code];
+        var formatted = code === 'BTC' ? amount.toFixed(6) : Math.round(amount).toLocaleString('ru-RU');
+        document.getElementById('price-main').textContent = formatted + ' ' + LABELS[code];
+      });
+    })();
+    </script>
+
+  </main>
+</div>
+</body>
+</html>

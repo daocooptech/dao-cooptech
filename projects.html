@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Каталог проектов — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="active">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="projects.html" class="active">Каталог проектов</a>
+      <a href="feed.html">Лента новостей</a>
+    </div>
+    <div class="search-row">
+      <input class="input" placeholder="Начните вводить имя или название">
+      <a class="button" href="add-project.html">Добавить проект</a>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button></span>
+    </div>
+    <div class="content-with-filter">
+      <div style="flex:1">
+      <div id="projects-home"></div>
+      <div id="projects-flat" hidden>
+      <div class="cat-section-title"><span id="flat-section-title">Все проекты</span> <a href="projects.html" class="cat-back-link">← ко всем категориям</a></div><div class="ptile-grid" id="projects-grid">
+    <a class="ptile" href="project.html" data-city="Москва" data-type="Технологии и инновации" data-subcategory="Цифровое производство" data-readiness="98" data-project-type="Кооперативный">
+      <div class="img-wrap">
+        <img src="images/photos/printer3d-construction.jpg" alt="Строительный 3д принтер">
+        <span class="badge teal type-badge">Кооперативный</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">98%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:98%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      </div>
+      <div class="pname">Строительный 3д принтер</div>
+    </a>
+    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Сельское хозяйство и еда" data-subcategory="Городское земледелие" data-readiness="91" data-project-type="Коммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/greenhouse.jpg" alt="Круглогодичная теплица">
+        <span class="badge gold type-badge">Коммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">91%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:91%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      </div>
+      <div class="pname">Круглогодичная теплица</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Воронеж" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="68" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/waste-sorting.jpg" alt="Раздельный сбор мусора">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">68%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:68%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Воронеж</span>
+      </div>
+      </div>
+      <div class="pname">Раздельный сбор мусора</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Красноярск" data-type="Сельское хозяйство и еда" data-subcategory="Городское земледелие" data-readiness="74" data-project-type="Кооперативный">
+      <div class="img-wrap">
+        <img src="images/photos/greenhouse.jpg" alt="Биовегетарий">
+        <span class="badge teal type-badge">Кооперативный</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">74%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:74%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      </div>
+      <div class="pname">Биовегетарий</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Санкт-Петербург" data-type="Малый бизнес и ремёсла" data-subcategory="Коворкинги и мастерские" data-readiness="86" data-project-type="Коммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/makerspace.jpg" alt="Антикафе «FabLab»">
+        <span class="badge gold type-badge">Коммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">86%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:86%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Санкт-Петербург</span>
+      </div>
+      </div>
+      <div class="pname">Антикафе «FabLab»</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Екатеринбург" data-type="Общественные инициативы" data-subcategory="Социальные услуги" data-readiness="55" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/laundromat.jpg" alt="Общественная прачечная">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">55%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:55%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Екатеринбург</span>
+      </div>
+      </div>
+      <div class="pname">Общественная прачечная</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Казань" data-type="Малый бизнес и ремёсла" data-subcategory="Коворкинги и мастерские" data-readiness="72" data-project-type="Кооперативный">
+      <div class="img-wrap">
+        <img src="images/photos/coworking.jpg" alt="Соседский коворкинг">
+        <span class="badge teal type-badge">Кооперативный</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">72%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:72%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Казань</span>
+      </div>
+      </div>
+      <div class="pname">Соседский коворкинг</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Ростов-на-Дону" data-type="Культура и искусство" data-subcategory="Культура и досуг" data-readiness="63" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/building-renovation.jpg" alt="Ремонт дома культуры">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">63%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:63%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Ростов-на-Дону</span>
+      </div>
+      </div>
+      <div class="pname">Ремонт дома культуры</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Уфа" data-type="Благотворительность" data-subcategory="Жильё для нуждающихся семей" data-readiness="47" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/modular-house.jpg" alt="Модульные дома для многодетных семей">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">47%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:47%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Уфа</span>
+      </div>
+      </div>
+      <div class="pname">Модульные дома для многодетных семей</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Краснодар" data-type="Экология и природа" data-subcategory="Возобновляемая энергетика" data-readiness="82" data-project-type="Кооперативный">
+      <div class="img-wrap">
+        <img src="images/photos/solar-farm.jpg" alt="Солнечная электростанция кооператива">
+        <span class="badge teal type-badge">Кооперативный</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">82%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:82%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Краснодар</span>
+      </div>
+      </div>
+      <div class="pname">Солнечная электростанция кооператива</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Самара" data-type="Архитектура и урбанистика" data-subcategory="Инфраструктура и мосты" data-readiness="58" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/bridge-repair.jpg" alt="Ремонт моста через реку">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">58%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:58%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Самара</span>
+      </div>
+      </div>
+      <div class="pname">Ремонт моста через реку</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Омск" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="77" data-project-type="ДАО">
+      <div class="img-wrap">
+        <img src="images/photos/recycling-center.jpg" alt="Пункт приёма вторсырья">
+        <span class="badge slate type-badge">ДАО</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">77%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:77%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Омск</span>
+      </div>
+      </div>
+      <div class="pname">Пункт приёма вторсырья</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Челябинск" data-type="Общественные инициативы" data-subcategory="Городская среда" data-readiness="95" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/playground.jpg" alt="Детская игровая площадка">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">95%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:95%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Челябинск</span>
+      </div>
+      </div>
+      <div class="pname">Детская игровая площадка</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Нижний Новгород" data-type="Сельское хозяйство и еда" data-subcategory="Пищевое производство" data-readiness="66" data-project-type="Кооперативный">
+      <div class="img-wrap">
+        <img src="images/photos/bakery.jpg" alt="Кооперативная пекарня">
+        <span class="badge teal type-badge">Кооперативный</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">66%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:66%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Нижний Новгород</span>
+      </div>
+      </div>
+      <div class="pname">Кооперативная пекарня</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Волгоград" data-type="Экология и природа" data-subcategory="Возобновляемая энергетика" data-readiness="39" data-project-type="Кооперативный">
+      <div class="img-wrap">
+        <img src="images/photos/wind-turbine.jpg" alt="Ветропарк для малых хозяйств">
+        <span class="badge teal type-badge">Кооперативный</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">39%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:39%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Волгоград</span>
+      </div>
+      </div>
+      <div class="pname">Ветропарк для малых хозяйств</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Тюмень" data-type="Культура и искусство" data-subcategory="Реставрация" data-readiness="71" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/historic-restoration.jpg" alt="Реставрация исторического здания">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">71%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:71%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Тюмень</span>
+      </div>
+      </div>
+      <div class="pname">Реставрация исторического здания</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Иркутск" data-type="Культура и искусство" data-subcategory="Библиотеки и медиа" data-readiness="84" data-project-type="ДАО">
+      <div class="img-wrap">
+        <img src="images/photos/outdoor-library.jpg" alt="Библиотека под открытым небом">
+        <span class="badge slate type-badge">ДАО</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">84%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:84%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Иркутск</span>
+      </div>
+      </div>
+      <div class="pname">Библиотека под открытым небом</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Хабаровск" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="60" data-project-type="Коммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/plastic-recycling.jpg" alt="Мастерская по переработке пластика">
+        <span class="badge gold type-badge">Коммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">60%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:60%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Хабаровск</span>
+      </div>
+      </div>
+      <div class="pname">Мастерская по переработке пластика</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Владивосток" data-type="Архитектура и урбанистика" data-subcategory="Инфраструктура и мосты" data-readiness="45" data-project-type="ДАО">
+      <div class="img-wrap">
+        <img src="images/photos/pedestrian-bridge.jpg" alt="Строительство моста-пешеходника">
+        <span class="badge slate type-badge">ДАО</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">45%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:45%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Владивосток</span>
+      </div>
+      </div>
+      <div class="pname">Строительство моста-пешеходника</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Калининград" data-type="Технологии и инновации" data-subcategory="Технопарки и инкубаторы" data-readiness="89" data-project-type="ДАО">
+      <div class="img-wrap">
+        <img src="images/photos/tech-park.jpg" alt="Молодёжный технопарк">
+        <span class="badge slate type-badge">ДАО</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">89%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:89%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Калининград</span>
+      </div>
+      </div>
+      <div class="pname">Молодёжный технопарк</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Архангельск" data-type="Здоровье и медицина" data-subcategory="Медицинские услуги" data-readiness="53" data-project-type="Некоммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/mobile-clinic.jpg" alt="Мобильный медпункт для отдалённых сёл">
+        <span class="badge outline type-badge">Некоммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">53%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:53%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Архангельск</span>
+      </div>
+      </div>
+      <div class="pname">Мобильный медпункт для отдалённых сёл</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Нижний Тагил" data-type="Образование и наука" data-subcategory="Дополнительное образование" data-readiness="62" data-project-type="Кооперативный">
+      <div class="img-wrap">
+        <img src="images/photos/coding-class.jpg" alt="Кооперативная школа программирования для подростков">
+        <span class="badge teal type-badge">Кооперативный</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">62%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:62%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Нижний Тагил</span>
+      </div>
+      </div>
+      <div class="pname">Кооперативная школа программирования для подростков</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Магнитогорск" data-type="Спорт и активный отдых" data-subcategory="Спортивная инфраструктура" data-readiness="70" data-project-type="Коммерческий">
+      <div class="img-wrap">
+        <img src="images/photos/climbing-gym.jpg" alt="Скалодром в бывшем цехе">
+        <span class="badge gold type-badge">Коммерческий</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">70%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:70%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Магнитогорск</span>
+      </div>
+      </div>
+      <div class="pname">Скалодром в бывшем цехе</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Новосибирск" data-type="ИТ" data-subcategory="Разработка ПО" data-readiness="58" data-project-type="ДАО">
+      <div class="img-wrap">
+        <img src="images/photos/open-source-crm.jpg" alt="Открытая CRM для кооперативов">
+        <span class="badge slate type-badge">ДАО</span>
+        <div class="tile-bottom">
+        <div class="readiness-strip">
+          <div class="readiness-pct">58%</div>
+          <div class="readiness-bar"><div class="readiness-bar-fill" style="width:58%"></div></div>
+        </div>
+        <span class="loc-bar">📍 Новосибирск</span>
+      </div>
+      </div>
+      <div class="pname">Открытая CRM для кооперативов</div>
+    </a>
+</div>
+      <div class="empty-state" id="projects-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      </div>
+      </div>
+      <div class="filter-panel" id="projects-filter-panel">
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Город <span class="stat-note" title="Показать проекты только из выбранного города">ⓘ</span></label>
+          <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
+          <datalist id="city-options">
+            <option value="Москва"><option value="Красноярск"><option value="Санкт-Петербург"><option value="Пермь"><option value="Воронеж"><option value="Екатеринбург"><option value="Казань"><option value="Ростов-на-Дону"><option value="Уфа"><option value="Краснодар"><option value="Самара"><option value="Омск"><option value="Челябинск"><option value="Нижний Новгород"><option value="Волгоград"><option value="Тюмень"><option value="Иркутск"><option value="Хабаровск"><option value="Владивосток"><option value="Калининград"><option value="Архангельск"><option value="Нижний Тагил"><option value="Магнитогорск"><option value="Новосибирск">
+          </datalist>
+        </div>
+        <div class="field">
+          <label>Категория <span class="stat-note" title="Как на краудфандинговых платформах (Boomstarter, Planeta.ru)">ⓘ</span></label>
+          <select class="input" id="filter-type">
+            <option value="">Любая</option>
+            <option value="Архитектура и урбанистика">🏛️ Архитектура и урбанистика</option>
+            <option value="Экология и природа">🌱 Экология и природа</option>
+            <option value="Общественные инициативы">🤝 Общественные инициативы</option>
+            <option value="Технологии и инновации">💡 Технологии и инновации</option>
+            <option value="ИТ">💻 ИТ</option>
+            <option value="Здоровье и медицина">🏥 Здоровье и медицина</option>
+            <option value="Образование и наука">🎓 Образование и наука</option>
+            <option value="Сельское хозяйство и еда">🌾 Сельское хозяйство и еда</option>
+            <option value="Малый бизнес и ремёсла">🧰 Малый бизнес и ремёсла</option>
+            <option value="Спорт и активный отдых">🏃 Спорт и активный отдых</option>
+            <option value="Культура и искусство">🎨 Культура и искусство</option>
+            <option value="Благотворительность">💞 Благотворительность</option>
+          </select>
+        </div>
+        <div class="field" id="subcategory-field" hidden>
+          <label>Подкатегория</label>
+          <select class="input" id="filter-subcategory">
+            <option value="">Любая</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Готовность <span class="stat-note" title="Доля выполненных этапов проекта">ⓘ</span></label>
+          <select class="input" id="filter-readiness">
+            <option value="0">Любая</option>
+            <option value="90">От 90%</option>
+            <option value="75">От 75%</option>
+            <option value="50">От 50%</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Экономическая модель <span class="stat-note" title="Кто и как получает отдачу от участия — доля с правом голоса, доля-акция, безвозвратный вклад или токены управления">ⓘ</span></label>
+          <select class="input" id="filter-project-type">
+            <option value="">Любая</option>
+            <option value="Кооперативный">Кооперативный</option>
+            <option value="Коммерческий">Коммерческий</option>
+            <option value="Некоммерческий">Некоммерческий</option>
+            <option value="ДАО">ДАО</option>
+          </select>
+        </div>
+        <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="vacancies.html">вакансии</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// Дерево категорий каталога проектов — тематическое измерение (не путать с «Экономической
+// моделью», см. фильтр filter-project-type / data-project-type — это независимое измерение)
+var CATEGORY_TREE = {
+  "Архитектура и урбанистика": [
+    "Жилищное строительство",
+    "Инфраструктура и мосты",
+    "Ремонт и благоустройство",
+    "Городское планирование"
+  ],
+  "Экология и природа": [
+    "Переработка отходов",
+    "Возобновляемая энергетика",
+    "Охрана природы"
+  ],
+  "Общественные инициативы": [
+    "Городская среда",
+    "Социальные услуги",
+    "Волонтёрство"
+  ],
+  "Технологии и инновации": [
+    "Цифровое производство",
+    "Технопарки и инкубаторы"
+  ],
+  "ИТ": [
+    "Разработка ПО",
+    "Веб-сервисы и платформы",
+    "Хостинг и инфраструктура"
+  ],
+  "Здоровье и медицина": [
+    "Медицинские услуги",
+    "Профилактика и ЗОЖ"
+  ],
+  "Образование и наука": [
+    "Дополнительное образование",
+    "Научные исследования"
+  ],
+  "Сельское хозяйство и еда": [
+    "Городское земледелие",
+    "Пищевое производство",
+    "Фермерское хозяйство"
+  ],
+  "Малый бизнес и ремёсла": [
+    "Коворкинги и мастерские",
+    "Ремесленное производство"
+  ],
+  "Спорт и активный отдых": [
+    "Спортивная инфраструктура",
+    "Активный отдых и туризм"
+  ],
+  "Культура и искусство": [
+    "Реставрация",
+    "Культура и досуг",
+    "Библиотеки и медиа"
+  ],
+  "Благотворительность": [
+    "Жильё для нуждающихся семей",
+    "Социальная поддержка"
+  ]
+};
+
+var selectedCategory = '';
+var selectedSubcategory = '';
+var filterTypeSelect = document.getElementById('filter-type');
+var filterSubcategorySelect = document.getElementById('filter-subcategory');
+var subcategoryField = document.getElementById('subcategory-field');
+
+function populateSubcategories(cat) {
+  var subs = CATEGORY_TREE[cat] || [];
+  filterSubcategorySelect.innerHTML = '<option value="">Любая</option>' +
+    subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+  subcategoryField.hidden = subs.length === 0;
+}
+
+filterTypeSelect.addEventListener('change', function () {
+  selectedCategory = filterTypeSelect.value;
+  selectedSubcategory = '';
+  populateSubcategories(selectedCategory);
+  applyFilters();
+});
+filterSubcategorySelect.addEventListener('change', function () {
+  selectedSubcategory = filterSubcategorySelect.value;
+  applyFilters();
+});
+
+function applyFilters() {
+  projectsHome.hidden = true;
+  projectsFlat.hidden = false;
+  flatSectionTitle.textContent = selectedCategory || 'Все проекты';
+  var city = document.getElementById('filter-city').value.trim().toLowerCase();
+  var type = document.getElementById('filter-type').value;
+  var readiness = parseInt(document.getElementById('filter-readiness').value, 10);
+  var projectType = document.getElementById('filter-project-type').value;
+  var cards = document.querySelectorAll('#projects-grid .ptile');
+  var visibleCount = 0;
+  cards.forEach(function (card) {
+    var cardCity = (card.dataset.city || '').toLowerCase();
+    var cardReadiness = parseInt(card.dataset.readiness, 10);
+    var cityOk = !city || cardCity.indexOf(city) !== -1;
+    var typeOk = !type || card.dataset.type === type;
+    var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
+    var readinessOk = cardReadiness >= readiness;
+    var projectTypeOk = !projectType || card.dataset.projectType === projectType;
+    var show = cityOk && typeOk && subcategoryOk && readinessOk && projectTypeOk;
+    card.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+  document.getElementById('projects-empty').hidden = visibleCount > 0;
+}
+document.getElementById('filter-city').addEventListener('input', applyFilters);
+document.getElementById('filter-readiness').addEventListener('change', applyFilters);
+document.getElementById('filter-project-type').addEventListener('change', applyFilters);
+
+function resetFilters() {
+  document.getElementById('filter-city').value = '';
+  filterTypeSelect.value = '';
+  selectedCategory = '';
+  selectedSubcategory = '';
+  subcategoryField.hidden = true;
+  document.getElementById('filter-readiness').value = '0';
+  document.getElementById('filter-project-type').value = '';
+  showHomeView();
+}
+document.getElementById('filter-reset').addEventListener('click', resetFilters);
+document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+
+// Переключатель вида: плиткой / списком (только для плоского списка #projects-grid —
+// карточки в витрине-каруселях home-вида собираются динамически при её построении)
+var viewGrid = document.getElementById('projects-grid');
+var viewListBtn = document.getElementById('view-list-btn');
+var viewTileBtn = document.getElementById('view-tile-btn');
+function ensureListMeta(grid) {
+  grid.querySelectorAll('.ptile').forEach(function (p) {
+    if (p.querySelector('.list-meta')) return;
+    var badge = p.querySelector('.readiness-pct');
+    var loc = p.querySelector('.loc-bar');
+    var typeBadge = p.querySelector('.type-badge');
+    var meta = document.createElement('div');
+    meta.className = 'list-meta';
+    meta.textContent = (badge ? badge.textContent + ' · ' : '') + (loc ? loc.textContent + ' · ' : '') + (typeBadge ? typeBadge.textContent : '');
+    p.querySelector('.pname').insertAdjacentElement('afterend', meta);
+  });
+}
+viewListBtn.addEventListener('click', function () {
+  ensureListMeta(viewGrid);
+  viewGrid.classList.add('list-mode');
+  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
+});
+viewTileBtn.addEventListener('click', function () {
+  viewGrid.classList.remove('list-mode');
+  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
+});
+
+// Домашний вид каталога: «Новые проекты» + ряд по каждой непустой категории (4 плитки + «Смотреть все»)
+var projectsHome = document.getElementById('projects-home');
+var projectsFlat = document.getElementById('projects-flat');
+var projectsFilterPanel = document.getElementById('projects-filter-panel');
+var flatSectionTitle = document.getElementById('flat-section-title');
+var homeBuilt = false;
+
+function buildHomeView() {
+  if (homeBuilt) return;
+  homeBuilt = true;
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('#projects-grid .ptile'));
+  var rows = [{ title: 'Новые проекты', key: '', cards: allCards }];
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    rows.push({ title: cat, key: cat, cards: allCards.filter(function (c) { return c.dataset.type === cat; }) });
+  });
+  var html = '';
+  rows.forEach(function (row) {
+    if (row.cards.length === 0) return;
+    var href = row.key ? 'projects.html?category=' + encodeURIComponent(row.key) : 'projects.html?view=all';
+    html += '<div class="shelf-row"><div class="shelf-row-title"><span>' + row.title + '</span></div><div class="ptile-grid">';
+    row.cards.slice(0, 4).forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.style.display = '';
+      html += clone.outerHTML;
+    });
+    html += '<a class="view-all-tile" href="' + href + '"><span class="view-all-arrow">→</span>Смотреть все</a>';
+    html += '</div></div>';
+  });
+  projectsHome.innerHTML = html;
+}
+
+function showHomeView() {
+  buildHomeView();
+  projectsHome.hidden = false;
+  projectsFlat.hidden = true;
+}
+
+function showFlatView(catParam) {
+  if (catParam && CATEGORY_TREE[catParam]) {
+    filterTypeSelect.value = catParam;
+    selectedCategory = catParam;
+    populateSubcategories(catParam);
+  } else {
+    filterTypeSelect.value = '';
+    selectedCategory = '';
+    selectedSubcategory = '';
+    subcategoryField.hidden = true;
+  }
+  applyFilters();
+}
+
+(function initProjectsView() {
+  var params = new URLSearchParams(location.search);
+  var catParam = params.get('category');
+  var viewAll = params.get('view') === 'all';
+  if (catParam || viewAll) {
+    showFlatView(catParam);
+  } else {
+    showHomeView();
+  }
+})();
+</script>
+</body>
+</html>

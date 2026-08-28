@@ -1,0 +1,7 @@
+# Локальные/машинно-зависимые настройки Claude Code — не для общего репозитория
+.claude/settings.local.json
+.claude/hooks/.vault-reminder-last
+
+# Мусор ОС
+Thumbs.db
+.DS_Store

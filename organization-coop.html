@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Карточка организации — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="active">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="organizations.html">Каталог организаций</a>
+      <a href="organization-coop.html" class="active">Об организации</a>
+    </div>
+
+    <div class="profile-layout">
+      <div class="profile-side">
+        <div class="profile-cover">
+          <img class="org-logo-img" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»">
+        </div>
+        <div class="profile-stats-text">
+          Уровень доверия: <b>88% (30/34)</b> <a href="#" class="stat-note" title="Двусторонние отзывы после каждой сделки, записываются в блокчейн и не могут быть изменены задним числом. 30 положительных отзывов из 34 оценённых сделок.">как считается?</a><br>
+          Баланс: <b>620 000 р.</b><br>
+          Проектов: <b>1</b><br>
+          Пайщиков: <b>3</b>
+        </div>
+        <div class="info-box">
+          <div class="info-title">Контакты</div>
+          <div class="info-body">
+            Город: Дербент<br>
+            Адрес: ул. Ленина д.14<br>
+            Телефон: +7-928-555-1247<br>
+            Сайт: shukty-coop.ru
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-title">Реквизиты</div>
+          <div class="info-body">
+            ИНН: 0522018834<br>
+            ОГРН: 1110570000123<br>
+            Дата регистрации: 4 июля 2011
+          </div>
+        </div>
+      </div>
+      <div class="profile-main">
+        <div class="name-row" style="margin-bottom:16px;justify-content:space-between">
+          <div>
+            <div class="page-title" style="margin-bottom:6px">Кооператив «Шукты»</div>
+            <span class="badge teal">Кооперативная организация</span>
+          </div>
+          <div style="display:flex;gap:10px;flex:none">
+            <a class="button" href="messages.html">Написать</a>
+            <a class="button secondary" href="tel:+79285551247">Позвонить</a>
+            <button class="button secondary" id="subscribe-btn" data-org-slug="shukty">Подписаться на новости</button>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <button class="stat-note" id="visibility-settings-btn" type="button" style="border:none;background:none;cursor:pointer;font-size:12.5px;padding:0">⚙ Что видят другие по умолчанию</button>
+        </div>
+
+    <div class="cat-row collapsed" data-kind="Пайщики">
+      <div class="cat-header">Пайщики <span class="cat-arrow">▼</span></div>
+      <div class="cat-items">
+        <button class="cat-nav" data-dir="-1">‹</button>
+        <div class="cat-track">
+          <a class="cat-tile" href="person.html"><div class="cat-icon"><img src="https://i.pravatar.cc/128?img=52" alt="Магомедов Али Русланович"></div><div class="cat-label">Магомедов Али Русланович</div><div class="cat-status role">председатель правления</div></a>
+          <a class="cat-tile" href="person.html"><div class="cat-icon"><img src="https://i.pravatar.cc/128?img=44" alt="Исаева Патимат Зауровна"></div><div class="cat-label">Исаева Патимат Зауровна</div><div class="cat-status role">главный зоотехник</div></a>
+          <a class="cat-tile" href="person.html"><div class="cat-icon"><img src="https://i.pravatar.cc/128?img=51" alt="Гаджиев Тимур Османович"></div><div class="cat-label">Гаджиев Тимур Османович</div><div class="cat-status role">кассир-казначей</div></a>
+        </div>
+        <button class="cat-nav" data-dir="1">›</button>
+      </div>
+    </div>
+
+    <div class="cat-row collapsed" data-kind="Организационная структура">
+      <div class="cat-header">Организационная структура <span class="cat-arrow">▼</span></div>
+      <div class="cat-items">
+        <button class="cat-nav" data-dir="-1">‹</button>
+        <div class="cat-track">
+          <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#E3EFED">🗳️</div><div class="cat-label">Общее собрание пайщиков</div></div>
+          <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#F7ECD9">🏛️</div><div class="cat-label">Правление / Председатель</div></div>
+          <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#E3EFED">🔍</div><div class="cat-label">Ревизионная комиссия</div></div>
+          <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#F7ECD9">🐑</div><div class="cat-label">Овцеводческий участок</div></div>
+          <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#E3EFED">🧶</div><div class="cat-label">Цех переработки шерсти</div></div>
+          <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#F7ECD9">🧀</div><div class="cat-label">Сыроварня и сбыт</div></div>
+        </div>
+        <button class="cat-nav" data-dir="1">›</button>
+      </div>
+    </div>
+
+    <div class="cat-row collapsed" data-kind="Ресурсы">
+      <div class="cat-header">Ресурсы <span class="cat-arrow">▼</span></div>
+      <div class="cat-items">
+        <button class="cat-nav" data-dir="-1">‹</button>
+        <div class="cat-track">
+          <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/milk-bottles.jpg" alt="Молоко"></div><div class="cat-label">Молоко</div></a>
+          <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/honey-jar.jpg" alt="Мёд"></div><div class="cat-label">Мёд</div></a>
+          <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/meat-processing-workshop.jpg" alt="Шерсть переработанная"></div><div class="cat-label">Шерсть переработанная</div></a>
+        </div>
+        <button class="cat-nav" data-dir="1">›</button>
+      </div>
+    </div>
+
+    <div class="cat-row collapsed" data-kind="Проекты">
+      <div class="cat-header">Проекты <span class="cat-arrow">▼</span></div>
+      <div class="cat-items">
+        <button class="cat-nav" data-dir="-1">‹</button>
+        <div class="cat-track">
+          <a class="cat-tile" href="project-greenhouse.html"><div class="cat-icon"><img src="images/photos/greenhouse.jpg" alt="Круглогодичная теплица"></div><div class="cat-label">Круглогодичная теплица</div></a>
+        </div>
+        <button class="cat-nav" data-dir="1">›</button>
+      </div>
+    </div>
+
+    <div class="cat-row collapsed" data-kind="Потребности">
+      <div class="cat-header">Потребности <span class="cat-arrow">▼</span></div>
+      <div class="cat-items">
+        <button class="cat-nav" data-dir="-1">‹</button>
+        <div class="cat-track">
+          <a class="cat-tile" href="vacancies.html"><div class="cat-icon line-icon" style="font-size:36px;background:#E3EFED">🐑</div><div class="cat-label">Пастух на летний период</div><div class="cat-status open">● открыта</div></a>
+          <a class="cat-tile" href="resources.html"><div class="cat-icon"><img src="images/photos/mini-tractor.jpg" alt="Мини-трактор в аренду"></div><div class="cat-label">Мини-трактор в аренду</div><div class="cat-status open">● открыта</div></a>
+          <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#F7ECD9">💰</div><div class="cat-label">Инвестиции в модернизацию сыроварни</div><div class="cat-status open">● открыта</div></div>
+        </div>
+        <button class="cat-nav" data-dir="1">›</button>
+      </div>
+    </div>
+
+    <div class="cat-row collapsed" data-kind="Связанные организации">
+      <div class="cat-header">Связанные организации <span class="cat-arrow">▼</span></div>
+      <div class="cat-items">
+        <button class="cat-nav" data-dir="-1">‹</button>
+        <div class="cat-track">
+          <a class="cat-tile" href="organization.html"><div class="cat-icon"><div class="org-logo" style="background:var(--teal-tint);color:var(--teal-dark)">КП</div></div><div class="cat-label">Кооператив «Плодородие»</div></a>
+          <a class="cat-tile" href="organization.html"><div class="cat-icon"><div class="org-logo" style="background:var(--gold-tint);color:#8a5f1c">УМ</div></div><div class="cat-label">Артель «Уральские мастера»</div></a>
+          <a class="cat-tile" href="organization.html"><div class="cat-icon"><div class="org-logo" style="background:var(--teal-tint);color:var(--teal-dark)">ВЗ</div></div><div class="cat-label">Кредитный кооператив «Взаимопомощь»</div></a>
+        </div>
+        <button class="cat-nav" data-dir="1">›</button>
+      </div>
+    </div>
+
+        <div class="cat-row" data-kind="Лента">
+          <div class="cat-header">Лента <span class="cat-arrow">▲</span></div>
+          <div class="wall-panel">
+        <div class="wall-head">
+          <div class="wall-count"><b>2</b> записи</div>
+          <a href="organizations-feed.html">К общей ленте →</a>
+        </div>
+        <div id="wall-posts">
+          <div class="post">
+            <div class="post-head">
+              <img class="avatar" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" style="object-fit:contain;background:var(--white);padding:4px;box-sizing:border-box">
+              <div>
+                <div class="post-name">Кооператив «Шукты» <span class="badge gold" style="margin-left:6px">запись закреплена</span></div>
+                <div class="post-time">6 июня, 10:15</div>
+              </div>
+            </div>
+            <p style="margin:0 0 10px">Общее собрание пайщиков утвердило распределение прибыли по итогам полугодия — часть направили на модернизацию сыроварни.</p>
+            <div class="post-engagement">71 просмотр · ♥ 14 · <a href="#">показать все 5 комментариев</a></div>
+          </div>
+          <div class="post">
+            <div class="post-head">
+              <img class="avatar" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" style="object-fit:contain;background:var(--white);padding:4px;box-sizing:border-box">
+              <div><div class="post-name">Кооператив «Шукты»</div><div class="post-time">22 мая, 09:40</div></div>
+            </div>
+            <p style="margin:0">Открыли сезонный набор пастухов на летние пастбища — подробности в разделе «Потребности».</p>
+            <div class="post-engagement">38 просмотров · ♥ 6 · <a href="#">показать все 2 комментария</a></div>
+          </div>
+        </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="modal-overlay" id="visibility-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Показ организации другим участникам</h2>
+      <button class="modal-close" id="visibility-modal-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Отметьте блоки, которые будут раскрыты сразу — и на этой странице, и у остальных посетителей, без необходимости кликать на заголовок. Свернуть/развернуть вручную можно в любой момент — при следующей загрузке страница снова покажет выбранные здесь блоки.</p>
+    <div id="visibility-toggle-list">
+      <div class="toggle-row"><input type="checkbox" id="vis-Пайщики" value="Пайщики"><label for="vis-Пайщики">Пайщики</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Организационная структура" value="Организационная структура"><label for="vis-Организационная структура">Организационная структура</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Ресурсы" value="Ресурсы"><label for="vis-Ресурсы">Ресурсы</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Проекты" value="Проекты"><label for="vis-Проекты">Проекты</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Потребности" value="Потребности"><label for="vis-Потребности">Потребности</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Связанные организации" value="Связанные организации"><label for="vis-Связанные организации">Связанные организации</label></div>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="visibility-modal-cancel" type="button">Отмена</button>
+      <button class="button" id="visibility-modal-save" type="button">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.cat-header').forEach(function (h) {
+  h.addEventListener('click', function () {
+    var row = h.closest('.cat-row');
+    row.classList.toggle('collapsed');
+    var arrow = h.querySelector('.cat-arrow');
+    arrow.textContent = row.classList.contains('collapsed') ? '▼' : '▲';
+  });
+});
+document.querySelectorAll('.cat-nav').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var track = btn.parentElement.querySelector('.cat-track');
+    var dir = parseInt(btn.dataset.dir, 10);
+    track.scrollBy({ left: dir * 150, behavior: 'smooth' });
+  });
+});
+
+// Подписка на новости организации — тот же паттерн, что на project.html/organization.html
+(function () {
+  var SUB_KEY = 'coop_subscribed_organizations';
+  var subBtn = document.getElementById('subscribe-btn');
+  var slug = subBtn.dataset.orgSlug;
+  function getSubs() {
+    try { return JSON.parse(localStorage.getItem(SUB_KEY)) || []; } catch (e) { return []; }
+  }
+  function renderSubBtn() {
+    var subs = getSubs();
+    var active = subs.indexOf(slug) !== -1;
+    subBtn.classList.toggle('active', active);
+    subBtn.textContent = active ? 'Вы подписаны' : 'Подписаться на новости';
+  }
+  subBtn.addEventListener('click', function () {
+    var subs = getSubs();
+    var i = subs.indexOf(slug);
+    if (i === -1) subs.push(slug); else subs.splice(i, 1);
+    localStorage.setItem(SUB_KEY, JSON.stringify(subs));
+    renderSubBtn();
+  });
+  renderSubBtn();
+})();
+
+// Настройка показа блоков организации другим участникам по умолчанию — тот же паттерн, что на my-page.html/organization.html
+// Отдельный ключ localStorage (не тот же, что у ООО «Мириталь») — это независимый демо-пример.
+(function () {
+  var VISIBILITY_KEY = 'coop_org_visibility_defaults_coop';
+  var VISIBILITY_FACTORY_DEFAULT = ['Пайщики', 'Организационная структура', 'Ресурсы'];
+  var visibilityBtn = document.getElementById('visibility-settings-btn');
+  var visibilityModal = document.getElementById('visibility-modal');
+  var visibilityClose = document.getElementById('visibility-modal-close');
+  var visibilityCancel = document.getElementById('visibility-modal-cancel');
+  var visibilitySave = document.getElementById('visibility-modal-save');
+
+  function getVisibilityDefaults() {
+    var raw = localStorage.getItem(VISIBILITY_KEY);
+    if (raw === null) return VISIBILITY_FACTORY_DEFAULT.slice();
+    try {
+      return JSON.parse(raw) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function applyVisibilityDefaultsToPage() {
+    getVisibilityDefaults().forEach(function (kind) {
+      var row = document.querySelector('.cat-row[data-kind="' + kind + '"]');
+      if (!row) return;
+      row.classList.remove('collapsed');
+      var arrow = row.querySelector('.cat-arrow');
+      if (arrow) arrow.textContent = '▲';
+    });
+  }
+  applyVisibilityDefaultsToPage();
+
+  function openVisibilityModal() {
+    var current = getVisibilityDefaults();
+    document.querySelectorAll('#visibility-toggle-list input[type="checkbox"]').forEach(function (cb) {
+      cb.checked = current.indexOf(cb.value) !== -1;
+    });
+    visibilityModal.hidden = false;
+  }
+
+  function closeVisibilityModal() {
+    visibilityModal.hidden = true;
+  }
+
+  if (visibilityBtn) {
+    visibilityBtn.addEventListener('click', openVisibilityModal);
+    visibilityClose.addEventListener('click', closeVisibilityModal);
+    visibilityCancel.addEventListener('click', closeVisibilityModal);
+    visibilityModal.addEventListener('click', function (e) {
+      if (e.target === visibilityModal) closeVisibilityModal();
+    });
+    visibilitySave.addEventListener('click', function () {
+      var selected = Array.from(document.querySelectorAll('#visibility-toggle-list input[type="checkbox"]:checked')).map(function (cb) { return cb.value; });
+      localStorage.setItem(VISIBILITY_KEY, JSON.stringify(selected));
+      applyVisibilityDefaultsToPage();
+      closeVisibilityModal();
+    });
+  }
+})();
+</script>
+</body>
+</html>

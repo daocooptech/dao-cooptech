@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Моя страница — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="active">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="my-page.html" class="active">Моя страница</a>
+      <a href="my-listings.html">Мои объявления</a>
+    </div>
+
+    <div class="profile-layout">
+      <div class="profile-side">
+        <div class="profile-cover">
+          <img src="https://i.pravatar.cc/600?img=13" alt="Дашкевич Данил Игоревич">
+          <button class="cover-edit-btn" id="cover-edit-btn" type="button">📷 Изменить фото</button>
+          <input type="file" accept="image/*" id="cover-upload" style="display:none">
+        </div>
+        <div class="profile-stats-text">
+          Уровень доверия: <b>92% (33/35)</b> <a href="#" class="stat-note" title="Двусторонние отзывы после каждой сделки, записываются в блокчейн и не могут быть изменены задним числом. 33 положительных отзыва из 35 оценённых сделок.">как считается?</a><br>
+          Баланс: <b>1 500 000 р.</b> <a href="#" class="stat-note">история операций →</a><br>
+          Контракты: <b>26</b><br>
+          Подписчиков: <b>321</b>
+        </div>
+        <div class="info-box">
+          <div class="info-box-head">
+            <div class="info-title">Контакты</div>
+            <button class="edit-pencil" data-edit-target="contacts-body" type="button">✎ Редактировать</button>
+          </div>
+          <div class="info-body" id="contacts-body">
+            Город: Сочи<br>
+            Телефон: +7-928-233-2324<br>
+            Skype: dashkevich-danil<br>
+            <b style="color:var(--ink)">Социальные сети:</b><br>
+            Веб-сайт: cooptech.hypercube.su<br>
+            Мессенджеры: Whatsapp, Viber, Telegram<br>
+            <b style="color:var(--ink)">Приложения:</b><br>
+            GitHub, Habrahabr
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-head">
+            <div class="info-title">Личная информация</div>
+            <button class="edit-pencil" data-edit-target="personal-body" type="button">✎ Редактировать</button>
+          </div>
+          <div class="info-body" id="personal-body">
+            День рождения: 15 октября 1986<br>
+            Языки: Русский, Украинский, Якутский
+          </div>
+        </div>
+      </div>
+      <div class="profile-main">
+        <div class="name-row" style="margin-bottom:6px">
+          <div class="page-title profile-name" style="margin:0" id="profile-name">Дашкевич Данил Игоревич</div>
+          <button class="edit-pencil" data-edit-target="profile-name" type="button">✎</button>
+        </div>
+        <div style="margin-bottom:16px">
+          <button class="stat-note" id="visibility-settings-btn" type="button" style="border:none;background:none;cursor:pointer;font-size:12.5px;padding:0">⚙ Что видят другие по умолчанию</button>
+        </div>
+
+        <div class="card" id="listing-reminder-card" style="padding:14px 16px;margin-bottom:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <div style="flex:1;min-width:200px">
+            <div style="font-weight:600;font-size:13px">⏰ Ваше объявление «Пельмени домашней лепки» висит в каталоге 30 дней</div>
+            <div style="color:var(--slate);font-size:12px;margin-top:2px">Оно всё ещё актуально? Свежие объявления выше в выдаче каталога.</div>
+          </div>
+          <div style="display:flex;gap:8px;flex:none">
+            <button class="button secondary" id="listing-still-actual" type="button">Да, актуально</button>
+            <button class="button secondary" id="listing-unpublish" type="button">Снять с публикации</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Связи">
+          <div class="cat-header">Связи <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <div class="cat-tile"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <circle cx="38" cy="38" r="14" fill="none" stroke="#146B64" stroke-width="4"/>
+                <path d="M14 82 C14 62 24 52 38 52 C52 52 62 62 62 82" fill="none" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="68" cy="44" r="11" fill="none" stroke="#146B64" stroke-width="4"/>
+                <path d="M48 82 C48 67 57 60 68 60 C78 60 87 67 87 82" fill="none" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+              </svg></div><div class="cat-label">Друзья</div></div>
+              <div class="cat-tile"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <rect x="22" y="40" width="56" height="38" rx="4" fill="none" stroke="#146B64" stroke-width="4"/>
+                <path d="M38 40 L38 32 C38 28 41 25 45 25 L55 25 C59 25 62 28 62 32 L62 40" fill="none" stroke="#146B64" stroke-width="4"/>
+                <line x1="22" y1="58" x2="78" y2="58" stroke="#146B64" stroke-width="4"/>
+              </svg></div><div class="cat-label">Коллеги</div></div>
+              <div class="cat-tile"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <path d="M20 50 L50 25 L80 50" fill="none" stroke="#146B64" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M28 46 L28 78 L72 78 L72 46" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M50 68 C50 68 40 61 40 54 C40 50 43 47 47 47 C49 47 50 48 50 50 C50 48 51 47 53 47 C57 47 60 50 60 54 C60 61 50 68 50 68 Z" fill="#146B64"/>
+              </svg></div><div class="cat-label">Родственники</div></div>
+              <div class="cat-tile add-tile" data-kind="группу связей"><div class="cat-icon">+</div><div class="cat-label">Добавить</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Образование">
+          <div class="cat-header">Образование <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="ext-education.html"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <path d="M50 30 L85 45 L50 60 L15 45 Z" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M30 52 L30 68 C30 73 39 78 50 78 C61 78 70 73 70 68 L70 52" fill="none" stroke="#146B64" stroke-width="4"/>
+                <line x1="85" y1="45" x2="85" y2="65" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+              </svg></div><div class="cat-label">ПТУ №30</div></a>
+              <a class="cat-tile" href="ext-education.html"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <path d="M50 32 C44 27 30 25 20 27 L20 68 C30 66 44 68 50 73 C56 68 70 66 80 68 L80 27 C70 25 56 27 50 32 Z" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round"/>
+                <line x1="50" y1="32" x2="50" y2="73" stroke="#146B64" stroke-width="4"/>
+              </svg></div><div class="cat-label">КААТ</div></a>
+              <a class="cat-tile" href="ext-education.html"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <path d="M18 40 L50 22 L82 40" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round"/>
+                <line x1="14" y1="40" x2="86" y2="40" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <line x1="26" y1="46" x2="26" y2="72" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <line x1="42" y1="46" x2="42" y2="72" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <line x1="58" y1="46" x2="58" y2="72" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <line x1="74" y1="46" x2="74" y2="72" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <line x1="14" y1="78" x2="86" y2="78" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+              </svg></div><div class="cat-label">СФУ</div></a>
+              <div class="cat-tile add-tile" data-kind="место учёбы"><div class="cat-icon">+</div><div class="cat-label">Добавить</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Навыки">
+          <div class="cat-header">Навыки <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="skills.html"><div class="cat-icon"><img src="images/photos/electrician.jpg" alt="Электромонтаж"></div><div class="cat-label">Электромонтаж</div></a>
+              <a class="cat-tile" href="skills.html"><div class="cat-icon"><img src="images/photos/brick-stack.jpg" alt="Кирпичная кладка"></div><div class="cat-label">Кирпичная кладка</div></a>
+              <a class="cat-tile" href="skills.html"><div class="cat-icon"><img src="images/photos/web-design.jpg" alt="Веб-дизайн"></div><div class="cat-label">Веб-дизайн</div></a>
+              <div class="cat-tile add-tile" data-kind="навык"><div class="cat-icon">+</div><div class="cat-label">Добавить</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Ресурсы">
+          <div class="cat-header">Ресурсы <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/pelmeni.jpg" alt="Пельмени домашней лепки"></div><div class="cat-label">Пельмени домашней лепки</div></a>
+              <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/timber-beam.jpg" alt="Брус 20×20"></div><div class="cat-label">Брус 20×20</div></a>
+              <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/rebar-steel.jpg" alt="Арматура А1-8"></div><div class="cat-label">Арматура А1-8</div></a>
+              <div class="cat-tile add-tile" data-kind="ресурс"><div class="cat-icon">+</div><div class="cat-label">Добавить</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Проекты">
+          <div class="cat-header">Проекты <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="project.html"><div class="cat-icon"><img src="images/photos/printer3d-construction.jpg" alt="Строительный 3д принтер"></div><div class="cat-label">Строительный 3д принтер</div></a>
+              <a class="cat-tile" href="project.html"><div class="cat-icon"><img src="images/photos/greenhouse.jpg" alt="Круглогодичная теплица"></div><div class="cat-label">Круглогодичная теплица</div></a>
+              <a class="cat-tile" href="project.html"><div class="cat-icon"><img src="images/photos/waste-sorting.jpg" alt="Раздельный сбор мусора"></div><div class="cat-label">Раздельный сбор мусора</div></a>
+              <div class="cat-tile add-tile" data-kind="проект"><div class="cat-icon">+</div><div class="cat-label">Добавить</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Достижения">
+          <div class="cat-header">Достижения <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <div class="cat-tile"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <path d="M38 22 L28 45 M62 22 L72 45" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="50" cy="62" r="20" fill="none" stroke="#146B64" stroke-width="4"/>
+                <path d="M50 52 L54 60 L63 61 L56 67 L58 76 L50 71 L42 76 L44 67 L37 61 L46 60 Z" fill="#146B64"/>
+              </svg></div><div class="cat-label">Победитель олимпиады</div></div>
+              <div class="cat-tile"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <path d="M35 28 L65 28 L63 52 C63 62 57 68 50 68 C43 68 37 62 37 52 Z" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M35 32 C25 32 22 44 32 48" fill="none" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <path d="M65 32 C75 32 78 44 68 48" fill="none" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+                <line x1="50" y1="68" x2="50" y2="82" stroke="#146B64" stroke-width="4"/>
+                <line x1="38" y1="82" x2="62" y2="82" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+              </svg></div><div class="cat-label">Победитель «Территория 2020»</div></div>
+              <div class="cat-tile"><div class="cat-icon line-icon"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <rect width="100" height="100" fill="#E3EFED"/>
+                <path d="M28 78 C20 50 40 22 78 22 C78 60 50 80 28 78 Z" fill="none" stroke="#146B64" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M28 78 C40 60 55 45 70 30" fill="none" stroke="#146B64" stroke-width="4" stroke-linecap="round"/>
+              </svg></div><div class="cat-label">Собрал 2 тонны пластика</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Потребности">
+          <div class="cat-header">Потребности <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <div class="cat-tile"><div class="cat-icon"><img src="images/photos/carrot.jpg" alt="Морковь"></div><div class="cat-label">Морковь</div><div class="cat-status open">● открыта</div></div>
+              <div class="cat-tile"><div class="cat-icon"><img src="images/photos/van-transfer.jpg" alt="Трансфер Красноярск–Москва"></div><div class="cat-label">Трансфер Красноярск–Москва</div><div class="cat-status closed">● закрыта</div></div>
+              <div class="cat-tile"><div class="cat-icon"><img src="images/photos/programmer.jpg" alt="Программист"></div><div class="cat-label">Программист</div><div class="cat-status open">● открыта</div></div>
+              <div class="cat-tile add-tile" data-kind="потребность"><div class="cat-icon">+</div><div class="cat-label">Добавить</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Хочу такое">
+          <div class="cat-header">Хочу такое <span class="stat-note" title="Публичный сигнал того, что вы ищете, — помогает состояться бартеру. Отмечается кнопкой «Хочу такое» на странице ресурса.">ⓘ</span> <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track" id="wishlist-track">
+              <div class="cat-tile add-tile" data-kind="хочу такое"><a href="resources.html" style="display:block;color:inherit;text-decoration:none"><div class="cat-icon">+</div><div class="cat-label">Найти в каталоге</div></a></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Организации">
+          <div class="cat-header">Организации <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="organization.html"><div class="cat-icon"><img src="images/photos/makerspace.jpg" alt="FabLab"></div><div class="cat-label">FabLab</div><div class="cat-status role">учредитель</div></a>
+              <a class="cat-tile" href="organization.html"><div class="cat-icon"><img src="images/photos/concrete-truck.jpg" alt="Производство ЖБК"></div><div class="cat-label">Производство ЖБК</div><div class="cat-status role">совладелец</div></a>
+              <a class="cat-tile" href="organization.html"><div class="cat-icon"><img src="images/photos/building-renovation.jpg" alt="Соц. строй"></div><div class="cat-label">Соц. строй</div><div class="cat-status role">подрядчик</div></a>
+              <div class="cat-tile add-tile" data-kind="организацию"><div class="cat-icon">+</div><div class="cat-label">Добавить</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="wall-head">
+          <div class="wall-count"><b id="wall-count">3</b> записи</div>
+          <a href="people-feed.html">К общей ленте →</a>
+        </div>
+        <div class="composer">
+          <input class="input" id="wall-input" placeholder="Что у вас нового?">
+          <button class="button" id="wall-publish" style="margin-top:10px">Опубликовать</button>
+        </div>
+        <div id="wall-posts">
+          <div class="post">
+            <div class="post-head">
+              <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Данил Дашкевич">
+              <div>
+                <div class="post-name">Данил Дашкевич <span class="badge gold" style="margin-left:6px">запись закреплена</span></div>
+                <div class="post-time">28 мая, 22:14</div>
+              </div>
+            </div>
+            <p style="margin:0 0 10px">Общество 3.0. Четыре кита децентрализованного общества — разбор, почему кооперативные платформы устроены не так, как обычные соцсети.</p>
+            <div class="thumb-wrap" style="max-width:100%">
+              <div class="thumb" style="height:180px;border-radius:var(--radius-sm);overflow:hidden">
+                <svg width="100%" height="100%" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="400" height="180" fill="#14171A"/>
+                  <circle cx="200" cy="90" r="28" fill="#ffffff" opacity="0.92"/>
+                  <path d="M191 76 L216 90 L191 104 Z" fill="#14171A"/>
+                </svg>
+              </div>
+              <span class="thumb-badge">16:18</span>
+            </div>
+            <div class="post-engagement">130 просмотров · 5 репостов · ♥ 29 · <a href="#">показать все 24 комментария</a></div>
+          </div>
+          <div class="post">
+            <div class="post-head">
+              <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Данил Дашкевич">
+              <div><div class="post-name">Данил Дашкевич</div><div class="post-time">14 апреля, 09:02</div></div>
+            </div>
+            <p style="margin:0">Закрыл потребность в трансфере — спасибо кооперативу «Шукты» за помощь!</p>
+            <div class="post-engagement">42 просмотра · ♥ 11 · <a href="#">3 комментария</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="modal-overlay" id="visibility-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Показ профиля другим участникам</h2>
+      <button class="modal-close" id="visibility-modal-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Отметьте блоки, которые будут раскрыты сразу — и на вашей странице, и у остальных посетителей, без необходимости кликать на заголовок. Свернуть/развернуть вручную можно в любой момент — при следующей загрузке страница снова покажет выбранные здесь блоки.</p>
+    <div id="visibility-toggle-list">
+      <div class="toggle-row"><input type="checkbox" id="vis-Связи" value="Связи"><label for="vis-Связи">Связи</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Образование" value="Образование"><label for="vis-Образование">Образование</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Навыки" value="Навыки"><label for="vis-Навыки">Навыки</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Ресурсы" value="Ресурсы"><label for="vis-Ресурсы">Ресурсы</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Проекты" value="Проекты"><label for="vis-Проекты">Проекты</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Достижения" value="Достижения"><label for="vis-Достижения">Достижения</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Потребности" value="Потребности"><label for="vis-Потребности">Потребности</label></div>
+      <div class="toggle-row"><input type="checkbox" id="vis-Организации" value="Организации"><label for="vis-Организации">Организации</label></div>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="visibility-modal-cancel" type="button">Отмена</button>
+      <button class="button" id="visibility-modal-save" type="button">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Свернуть/развернуть карусель по клику на заголовок
+document.querySelectorAll('.cat-header').forEach(function (h) {
+  h.addEventListener('click', function () {
+    var row = h.closest('.cat-row');
+    row.classList.toggle('collapsed');
+    var arrow = h.querySelector('.cat-arrow');
+    arrow.textContent = row.classList.contains('collapsed') ? '▼' : '▲';
+  });
+});
+
+// Прокрутка карусели кнопками ‹ ›
+document.querySelectorAll('.cat-nav').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var track = btn.parentElement.querySelector('.cat-track');
+    var dir = parseInt(btn.dataset.dir, 10);
+    track.scrollBy({ left: dir * 150, behavior: 'smooth' });
+  });
+});
+
+// Плитка "Добавить" — быстрое добавление записи (демо без бэкенда)
+document.querySelectorAll('.add-tile').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var label = prompt('Название (' + btn.dataset.kind + '):');
+    if (!label) return;
+    var tile = document.createElement('div');
+    tile.className = 'cat-tile';
+    tile.innerHTML = '<div class="cat-icon" style="display:flex;align-items:center;justify-content:center;background:var(--teal-tint);font-size:24px;color:var(--teal-dark);font-family:\'Space Grotesk\',sans-serif">+</div><div class="cat-label">' + label + '</div>';
+    btn.parentElement.insertBefore(tile, btn);
+  });
+});
+
+// Точечное редактирование блоков (контакты / личная информация)
+document.querySelectorAll('.edit-pencil[data-edit-target]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var target = document.getElementById(btn.dataset.editTarget);
+    var editing = target.getAttribute('contenteditable') === 'true';
+    target.setAttribute('contenteditable', editing ? 'false' : 'true');
+    if (!editing) target.focus();
+    btn.textContent = editing ? '✎ Редактировать' : '✓ Готово';
+  });
+});
+
+// Публикация записи на стене (демо без бэкенда)
+var wallInput = document.getElementById('wall-input');
+var wallPublish = document.getElementById('wall-publish');
+var wallPosts = document.getElementById('wall-posts');
+var wallCount = document.getElementById('wall-count');
+if (wallPublish && wallInput && wallPosts) {
+  wallPublish.addEventListener('click', function () {
+    var text = wallInput.value.trim();
+    if (!text) return;
+    var post = document.createElement('div');
+    post.className = 'post';
+    post.innerHTML =
+      '<div class="post-head"><img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Данил Дашкевич"><div><div class="post-name">Данил Дашкевич</div>' +
+      '<div class="post-time">только что</div></div></div>' +
+      '<p style="margin:0">' + text.replace(/</g, '&lt;') + '</p>' +
+      '<div class="post-engagement">0 просмотров · ♥ 0 · <a href="#">0 комментариев</a></div>';
+    wallPosts.insertBefore(post, wallPosts.firstChild);
+    wallInput.value = '';
+    if (wallCount) wallCount.textContent = String(parseInt(wallCount.textContent, 10) + 1);
+  });
+}
+
+// Смена обложки — предпросмотр без загрузки на сервер
+var coverBtn = document.getElementById('cover-edit-btn');
+var coverInput = document.getElementById('cover-upload');
+if (coverBtn && coverInput) {
+  coverBtn.addEventListener('click', function () { coverInput.click(); });
+  coverInput.addEventListener('change', function (e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+      document.querySelector('.profile-cover img').src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// Настройка показа блоков другим участникам по умолчанию
+var VISIBILITY_KEY = 'coop_profile_visibility_defaults';
+var VISIBILITY_FACTORY_DEFAULT = ['Навыки', 'Ресурсы', 'Проекты', 'Потребности'];
+var visibilityBtn = document.getElementById('visibility-settings-btn');
+var visibilityModal = document.getElementById('visibility-modal');
+var visibilityClose = document.getElementById('visibility-modal-close');
+var visibilityCancel = document.getElementById('visibility-modal-cancel');
+var visibilitySave = document.getElementById('visibility-modal-save');
+
+function getVisibilityDefaults() {
+  var raw = localStorage.getItem(VISIBILITY_KEY);
+  if (raw === null) return VISIBILITY_FACTORY_DEFAULT.slice();
+  try {
+    return JSON.parse(raw) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+// Раскрыть на самой странице те же блоки, что видят по умолчанию другие участники
+function applyVisibilityDefaultsToPage() {
+  getVisibilityDefaults().forEach(function (kind) {
+    var row = document.querySelector('.cat-row[data-kind="' + kind + '"]');
+    if (!row) return;
+    row.classList.remove('collapsed');
+    var arrow = row.querySelector('.cat-arrow');
+    if (arrow) arrow.textContent = '▲';
+  });
+}
+applyVisibilityDefaultsToPage();
+
+function openVisibilityModal() {
+  var current = getVisibilityDefaults();
+  document.querySelectorAll('#visibility-toggle-list input[type="checkbox"]').forEach(function (cb) {
+    cb.checked = current.indexOf(cb.value) !== -1;
+  });
+  visibilityModal.hidden = false;
+}
+
+function closeVisibilityModal() {
+  visibilityModal.hidden = true;
+}
+
+if (visibilityBtn) {
+  visibilityBtn.addEventListener('click', openVisibilityModal);
+  visibilityClose.addEventListener('click', closeVisibilityModal);
+  visibilityCancel.addEventListener('click', closeVisibilityModal);
+  visibilityModal.addEventListener('click', function (e) {
+    if (e.target === visibilityModal) closeVisibilityModal();
+  });
+  visibilitySave.addEventListener('click', function () {
+    var selected = Array.from(document.querySelectorAll('#visibility-toggle-list input[type="checkbox"]:checked')).map(function (cb) { return cb.value; });
+    localStorage.setItem(VISIBILITY_KEY, JSON.stringify(selected));
+    applyVisibilityDefaultsToPage();
+    closeVisibilityModal();
+  });
+}
+
+// #19 Напоминание об актуальности объявления
+(function () {
+  var card = document.getElementById('listing-reminder-card');
+  if (!card) return;
+  function dismiss(message) {
+    card.innerHTML = '<div style="color:var(--teal-dark);font-size:12.5px;font-weight:500">✓ ' + message + '</div>';
+    setTimeout(function () { card.style.display = 'none'; }, 2200);
+  }
+  document.getElementById('listing-still-actual').addEventListener('click', function () {
+    dismiss('Спасибо! Объявление отмечено как актуальное, срок продлён ещё на 30 дней.');
+  });
+  document.getElementById('listing-unpublish').addEventListener('click', function () {
+    dismiss('Объявление снято с публикации в каталоге ресурсов.');
+  });
+})();
+
+// #3 Вишлист «Хочу такое» — заполняем карусель из localStorage (ставится кнопкой на странице ресурса)
+(function () {
+  var track = document.getElementById('wishlist-track');
+  if (!track) return;
+  var list = [];
+  try { list = JSON.parse(localStorage.getItem('coop_wishlist')) || []; } catch (e) {}
+  var addTile = track.querySelector('.add-tile');
+  list.forEach(function (item) {
+    var tile = document.createElement('a');
+    tile.className = 'cat-tile';
+    tile.href = item.url || 'resources.html';
+    tile.innerHTML = '<div class="cat-icon"><img src="' + item.image + '" alt="' + item.title + '"></div><div class="cat-label">' + item.title + '</div>';
+    track.insertBefore(tile, addTile);
+  });
+})();
+</script>
+</body>
+</html>

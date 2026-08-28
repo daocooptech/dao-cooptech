@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Добавить организацию — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="active">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <a href="organizations.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу организаций</a>
+    <div class="page-title" style="margin-bottom:20px">Добавить организацию</div>
+
+    <div id="ao-form-view">
+      <div class="ar-layout">
+        <div class="ar-main">
+
+          <!-- 1. Организационно-правовая форма и отрасль -->
+          <div class="card ar-section" id="field-type">
+            <div class="ar-section-title"><span class="ar-section-num">1</span>Форма и отрасль</div>
+            <p class="ar-section-hint">Организационно-правовая форма определяет, в какой группе каталога появится организация.</p>
+
+            <div class="field" style="margin-bottom:14px">
+              <label>Организационно-правовая форма *</label>
+              <div class="radio-group" id="org-type-radios"></div>
+              <div class="field-error">Выберите организационно-правовую форму</div>
+            </div>
+
+            <div id="ao-category-picker">
+              <div class="form-two-col">
+                <div class="field" id="field-category">
+                  <label>Отрасль деятельности *</label>
+                  <select class="input" id="org-category">
+                    <option value="">Выберите отрасль</option>
+                  </select>
+                  <div class="field-error">Выберите отрасль</div>
+                </div>
+                <div class="field" id="field-subcategory" hidden>
+                  <label>Подотрасль</label>
+                  <select class="input" id="org-subcategory">
+                    <option value="">Любая</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="ao-category-crumb" hidden>
+              <span class="ar-crumb" id="ao-crumb-text"></span>
+              <button type="button" id="ao-crumb-change">Изменить</button>
+            </div>
+          </div>
+
+          <!-- 2. Логотип -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">2</span>Логотип</div>
+            <p class="ar-section-hint">Одно изображение — оно показывается в каталоге и на странице организации. Без логотипа будет показан значок из первых букв названия.</p>
+            <div class="ar-photo-grid" id="ao-photo-grid"></div>
+            <input type="file" id="org-photo-input" accept="image/*" hidden>
+          </div>
+
+          <!-- 3. Название и описание -->
+          <div class="card ar-section" id="field-title">
+            <div class="ar-section-title"><span class="ar-section-num">3</span>Название и описание</div>
+            <p class="ar-section-hint">Полное официальное название — как в реквизитах: «ООО «Название»», «Кооператив «Название»», «Фонд «Название»» и т.п.</p>
+
+            <div class="field">
+              <label style="display:flex;justify-content:space-between">Название * <span class="stat-note" id="ao-title-counter">0 / 70</span></label>
+              <input class="input" id="org-title" maxlength="70" placeholder="Например, Кооператив «Шукты»">
+              <div class="field-error">Укажите название — до 70 символов</div>
+            </div>
+
+            <div class="field">
+              <label style="display:flex;justify-content:space-between;align-items:center">Описание <button type="button" class="stat-note" id="org-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <textarea class="input" id="org-description" rows="4" placeholder="Чем занимается организация, для кого и зачем — коротко и по делу."></textarea>
+              <div id="org-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
+            </div>
+          </div>
+
+          <!-- 4. Реквизиты -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">4</span>Реквизиты</div>
+            <p class="ar-section-hint">Необязательно для черновика, но нужно для верификации организации на платформе.</p>
+            <div class="form-two-col">
+              <div class="field">
+                <label>ИНН</label>
+                <input class="input" id="org-inn" placeholder="10 или 12 цифр">
+              </div>
+              <div class="field">
+                <label>ОГРН</label>
+                <input class="input" id="org-ogrn" placeholder="13 или 15 цифр">
+              </div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Дата регистрации</label>
+              <input class="input" id="org-reg-date" type="date">
+            </div>
+          </div>
+
+          <!-- 5. Местоположение -->
+          <div class="card ar-section" id="field-city">
+            <div class="ar-section-title"><span class="ar-section-num">5</span>Местоположение</div>
+            <div class="field">
+              <label>Город *</label>
+              <input class="input" id="org-city" list="city-options" placeholder="Начните вводить город">
+              <datalist id="city-options">
+                <option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
+              </datalist>
+              <div class="field-error">Укажите город</div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Адрес</label>
+              <input class="input" id="org-address" placeholder="Улица, дом">
+            </div>
+          </div>
+
+          <!-- 6. Контакты -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">6</span>Контакты</div>
+            <div class="ar-contact-box">
+              <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич">
+              <div>
+                <div class="ar-contact-name">Дашкевич Данил Игоревич</div>
+                <div class="ar-contact-meta">Вы будете добавлены как представитель организации на платформе</div>
+              </div>
+            </div>
+            <div class="form-two-col" style="margin-top:14px">
+              <div class="field">
+                <label>Телефон</label>
+                <input class="input" id="org-phone" placeholder="+7-___-___-____">
+              </div>
+              <div class="field">
+                <label>Сайт</label>
+                <input class="input" id="org-website" placeholder="Например, cooptech.hypercube.su">
+              </div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Как с вами связываться?</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="org-contact-method" value="Звонки и сообщения" checked> Звонки и сообщения</label>
+                <label class="radio-option"><input type="radio" name="org-contact-method" value="Только сообщения"> Только сообщения в чате</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Сайдбар: предпросмотр + публикация -->
+        <div class="ar-aside">
+          <div class="card" style="padding:14px">
+            <div class="ar-section-title" style="font-size:13px;margin-bottom:10px">Предпросмотр</div>
+            <div class="ar-preview-tile" id="ao-preview"></div>
+          </div>
+
+          <div class="card" style="padding:16px 18px">
+            <div class="ar-cost-row"><span>Стоимость размещения</span><b>Бесплатно</b></div>
+            <div class="toggle-row" style="border-bottom:none;padding-top:8px">
+              <input type="checkbox" id="org-promote">
+              <label for="org-promote">🚀 Продвинуть в каталоге <span class="stat-note" title="Без денег: бесплатно при уровне доверия от 80%, иначе спишет 10 кредитов взаимного кредита из «Кошелька»">ⓘ</span></label>
+            </div>
+            <button class="button ar-publish-btn" type="button" id="ao-publish-btn">Опубликовать</button>
+            <button class="button secondary ar-draft-btn" type="button" id="ao-draft-btn">Сохранить черновик</button>
+          </div>
+
+          <div class="card" style="padding:14px 16px">
+            <div class="ar-section-title" style="font-size:12.5px;margin-bottom:6px">🤝 Как считается доверие</div>
+            <div class="ar-section-hint" style="margin-bottom:0">У новой организации уровень доверия начинается с 0% и растёт по мере двусторонних отзывов после реальных сделок — так же, как у людей на платформе. Заполненные реквизиты и подробное описание помогают участникам решиться на первую сделку.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Экран успеха -->
+    <div id="ao-success-view" class="card ar-success" hidden>
+      <div class="ar-success-icon">✓</div>
+      <h2>Организация добавлена</h2>
+      <p>Она уже видна в каталоге организаций. Уровень доверия начнёт расти после первых сделок и отзывов. Вы можете добавить ещё одну организацию или перейти к каталогу.</p>
+      <div class="ar-success-actions">
+        <a href="organizations.html" class="button">Перейти в каталог</a>
+        <button class="button secondary" type="button" id="ao-add-another-btn">Добавить ещё одну</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+<div class="toast" id="ao-toast">✓ Черновик сохранён</div>
+
+<script>
+// Дерево отраслей и список организационно-правовых форм — тот же источник, что и в organizations.html
+// (не дублировать логику фильтров каталога — только для формы добавления)
+var CATEGORY_TREE = {
+  "Автомобильный бизнес": ["Автосервис, автомойка", "Автослесарь, автомеханик", "Продажа автозапчастей", "Автосалон"],
+  "Административный персонал": ["Административный директор", "Офис-менеджер, ассистент", "Секретарь, помощник руководителя"],
+  "Безопасность": ["Служба безопасности", "Охранник, контролёр"],
+  "Высший и средний менеджмент": ["Генеральный директор", "Директор по развитию", "Руководитель проектов"],
+  "Добыча сырья": ["Геолог", "Горный инженер", "Оператор добычи"],
+  "Домашний, обслуживающий персонал": ["Домработница, няня", "Повар для семьи", "Личный водитель"],
+  "Закупки": ["Менеджер по закупкам", "Специалист по тендерам"],
+  "Информационные технологии": ["Программирование, Разработка", "Дизайн, графика", "Тестирование", "Системное администрирование", "Аналитика, Data Science"],
+  "Искусство, развлечения, массмедиа": ["Фото, видео, звукооператоры", "Народные промыслы, ремёсла", "Флорист, декоратор", "Журналистика, СМИ"],
+  "Маркетинг, реклама, PR": ["Маркетинг", "Реклама", "PR, связи с общественностью", "SMM"],
+  "Медицина, фармацевтика": ["Врач", "Медсестра, фельдшер", "Фармацевт"],
+  "Наука, образование": ["Преподаватель, репетитор", "Научный сотрудник"],
+  "Продажи, обслуживание клиентов": ["Менеджер по продажам", "Специалист поддержки", "Продавец-консультант"],
+  "Производство, сервисное обслуживание": ["Инженер-технолог", "Швея, закройщик", "Контролёр ОТК"],
+  "Рабочий персонал": ["Электромонтажник, электромонтер, техник-электрик", "Бетонщик, арматурщик, каменщик", "Сварщик", "Слесарь, сантехник", "Столяр, плотник", "Кладовщик, Приемщик товаров", "Разнорабочий"],
+  "Розничная торговля": ["Продавец", "Кассир", "Директор магазина"],
+  "Сельское хозяйство": ["Агроном, зоотехник", "Пчеловодство, животноводство", "Тракторист"],
+  "Спортивные клубы, фитнес, салоны красоты": ["Тренер", "Мастер маникюра", "Парикмахер"],
+  "Стратегия, инвестиции, консалтинг": ["Бизнес-консультант", "Инвестиционный аналитик"],
+  "Страхование": ["Агент страховой", "Андеррайтер"],
+  "Строительство, недвижимость": ["Прораб, мастер СМР", "Архитектор", "Дизайнер, художник", "Агент по недвижимости", "Инженер строительного контроля"],
+  "Транспорт, логистика, перевозки": ["Логистика, ВЭД", "Водитель", "Диспетчер"],
+  "Туризм, гостиницы, рестораны": ["Повар, кондитер", "Официант, бармен", "Администратор гостиницы"],
+  "Управление персоналом, тренинги": ["HR-менеджер", "Бизнес-тренер"],
+  "Финансы, бухгалтерия": ["Бухгалтерия", "Финансовый аналитик", "Кредитный специалист"],
+  "Юристы": ["Юрисконсульт", "Адвокат", "Нотариус"],
+  "Другое": ["Разное"]
+};
+var ORG_TYPES = [
+  "Коммерческие организации", "Кооперативные", "Некоммерческие", "Децентрализованные",
+  "Индивидуальный предприниматель", "ООО", "ОАО", "ЗАО", "ПАО"
+];
+
+function escapeHtml(s) {
+  return (s || '').toString().replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+(function () {
+  var typeRadioBox = document.getElementById('org-type-radios');
+  var categorySelect = document.getElementById('org-category');
+  var subcategoryField = document.getElementById('field-subcategory');
+  var subcategorySelect = document.getElementById('org-subcategory');
+  var pickerBox = document.getElementById('ao-category-picker');
+  var crumbBox = document.getElementById('ao-category-crumb');
+  var crumbText = document.getElementById('ao-crumb-text');
+  var photoInput = document.getElementById('org-photo-input');
+  var photoGrid = document.getElementById('ao-photo-grid');
+  var MAX_PHOTOS = 1;
+
+  var orgPhotos = []; // dataURL-и, реальная загрузка на сервер не выполняется (демо-прототип)
+  var titleInput = document.getElementById('org-title');
+  var titleCounter = document.getElementById('ao-title-counter');
+
+  // Организационно-правовая форма — радио-список из ORG_TYPES
+  ORG_TYPES.forEach(function (t, i) {
+    var label = document.createElement('label');
+    label.className = 'radio-option';
+    label.innerHTML = '<input type="radio" name="org-type" value="' + escapeHtml(t) + '"' + (i === 0 ? ' checked' : '') + '> ' + escapeHtml(t);
+    typeRadioBox.appendChild(label);
+  });
+  typeRadioBox.querySelectorAll('input[name="org-type"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      document.getElementById('field-type').classList.remove('invalid');
+      updatePreview();
+    });
+  });
+
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    var opt = document.createElement('option');
+    opt.value = cat; opt.textContent = cat;
+    categorySelect.appendChild(opt);
+  });
+
+  function updateCrumb() {
+    var cat = categorySelect.value, sub = subcategorySelect.value;
+    if (cat) {
+      crumbText.textContent = cat + (sub ? ' → ' + sub : '');
+      crumbBox.hidden = false;
+      pickerBox.hidden = true;
+    } else {
+      crumbBox.hidden = true;
+      pickerBox.hidden = false;
+    }
+    updatePreview();
+  }
+  categorySelect.addEventListener('change', function () {
+    var subs = CATEGORY_TREE[categorySelect.value] || [];
+    subcategorySelect.innerHTML = '<option value="">Любая</option>' +
+      subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+    subcategoryField.hidden = subs.length === 0;
+    document.getElementById('field-category').classList.remove('invalid');
+    if (subs.length === 0) updateCrumb();
+  });
+  subcategorySelect.addEventListener('change', updateCrumb);
+  document.getElementById('ao-crumb-change').addEventListener('click', function () {
+    crumbBox.hidden = true;
+    pickerBox.hidden = false;
+  });
+
+  // Логотип — один тайл, до 1 фото
+  function renderPhotoGrid() {
+    photoGrid.innerHTML = '';
+    orgPhotos.forEach(function (src, i) {
+      var tile = document.createElement('div');
+      tile.className = 'ar-photo-tile';
+      tile.innerHTML = '<img src="' + src + '" alt="">' +
+        '<span class="ar-photo-main-tag">Логотип</span>' +
+        '<button type="button" class="ar-photo-remove" data-i="' + i + '">✕</button>';
+      photoGrid.appendChild(tile);
+    });
+    if (orgPhotos.length < MAX_PHOTOS) {
+      var addTile = document.createElement('button');
+      addTile.type = 'button';
+      addTile.className = 'ar-photo-add';
+      addTile.innerHTML = '<span class="ar-photo-add-icon">📷</span><span>Добавить<br>логотип</span>';
+      addTile.addEventListener('click', function () { photoInput.click(); });
+      photoGrid.appendChild(addTile);
+    }
+    photoGrid.querySelectorAll('.ar-photo-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        orgPhotos.splice(parseInt(btn.dataset.i, 10), 1);
+        renderPhotoGrid();
+        updatePreview();
+      });
+    });
+    updatePreview();
+  }
+  photoInput.addEventListener('change', function (e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+      orgPhotos = [ev.target.result];
+      renderPhotoGrid();
+    };
+    reader.readAsDataURL(file);
+    photoInput.value = '';
+  });
+  renderPhotoGrid();
+
+  // Счётчик символов названия (лимит 70 — официальные названия длиннее, чем у товара)
+  titleInput.addEventListener('input', function () {
+    titleCounter.textContent = titleInput.value.length + ' / 70';
+    document.getElementById('field-title').classList.remove('invalid');
+    updatePreview();
+  });
+  document.getElementById('org-city').addEventListener('input', function () {
+    document.getElementById('field-city').classList.remove('invalid');
+    updatePreview();
+  });
+
+  // AI-подсказка описания — шаблонная генерация (демо, без реального ИИ-бэкенда)
+  (function () {
+    var aiBtn = document.getElementById('org-ai-btn');
+    var openersByType = {
+      "Коммерческие организации": "Коммерческая организация.",
+      "Кооперативные": "Кооператив, объединяющий участников на равных правах.",
+      "Некоммерческие": "Некоммерческая организация.",
+      "Децентрализованные": "Децентрализованная организация (ДАО).",
+      "Индивидуальный предприниматель": "Индивидуальный предприниматель.",
+      "ООО": "Общество с ограниченной ответственностью.",
+      "ОАО": "Открытое акционерное общество.",
+      "ЗАО": "Закрытое акционерное общество.",
+      "ПАО": "Публичное акционерное общество."
+    };
+    aiBtn.addEventListener('click', function () {
+      var title = titleInput.value.trim();
+      var type = document.querySelector('input[name="org-type"]:checked');
+      var category = categorySelect.value;
+      var city = document.getElementById('org-city').value.trim();
+      if (!title || !category) { alert('Сначала укажите название и отрасль — по ним ИИ подберёт формулировки'); return; }
+      aiBtn.disabled = true;
+      aiBtn.textContent = '🤖 Генерируем…';
+      setTimeout(function () {
+        var opener = (type && openersByType[type.value]) || 'Организация.';
+        var text = opener + ' Работает в сфере «' + category + '»' + (city ? ' в городе ' + city : '') + '. ' +
+          'Открыты к сотрудничеству и партнёрству на платформе — пишите в сообщениях или звоните.';
+        document.getElementById('org-description').value = text;
+        document.getElementById('org-ai-hint').hidden = false;
+        aiBtn.disabled = false;
+        aiBtn.textContent = '✨ Сгенерировать ещё раз';
+      }, 900);
+    });
+  })();
+
+  // Живой предпросмотр в сайдбаре — карточка в стиле .ptile каталога организаций
+  function updatePreview() {
+    var box = document.getElementById('ao-preview');
+    var title = titleInput.value.trim();
+    var city = document.getElementById('org-city').value.trim();
+
+    if (!title && orgPhotos.length === 0) {
+      box.innerHTML = '<div class="ar-preview-empty">Заполните форму — здесь появится превью карточки, как она будет выглядеть в каталоге</div>';
+      return;
+    }
+    var imgHtml = orgPhotos.length
+      ? '<img src="' + orgPhotos[0] + '" alt="">'
+      : escapeHtml((title || '?').slice(0, 2).toUpperCase());
+    box.innerHTML =
+      '<div class="ar-preview-img">' + imgHtml + '</div>' +
+      '<div class="ar-preview-body">' +
+      '<div class="ar-preview-name" style="font-size:13.5px;font-weight:600">' + escapeHtml(title || 'Название организации') + '</div>' +
+      '<div class="ar-preview-meta">📍 ' + escapeHtml(city || 'Город не указан') + '</div>' +
+      '</div>';
+  }
+  updatePreview();
+
+  function validateForm() {
+    var ok = true;
+    function mark(id, bad) { document.getElementById(id).classList.toggle('invalid', bad); if (bad) ok = false; }
+    mark('field-title', !titleInput.value.trim());
+    mark('field-type', !document.querySelector('input[name="org-type"]:checked'));
+    mark('field-category', !categorySelect.value);
+    mark('field-city', !document.getElementById('org-city').value.trim());
+    if (!ok) {
+      var firstInvalid = document.querySelector('.field.invalid, .card.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return ok;
+  }
+
+  var toast = document.getElementById('ao-toast');
+  document.getElementById('ao-draft-btn').addEventListener('click', function () {
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2400);
+  });
+
+  document.getElementById('ao-publish-btn').addEventListener('click', function () {
+    if (!validateForm()) return;
+    var data = {
+      title: titleInput.value.trim(),
+      type: document.querySelector('input[name="org-type"]:checked').value,
+      category: categorySelect.value,
+      subcategory: subcategorySelect.value,
+      description: document.getElementById('org-description').value.trim(),
+      inn: document.getElementById('org-inn').value.trim(),
+      ogrn: document.getElementById('org-ogrn').value.trim(),
+      regDate: document.getElementById('org-reg-date').value,
+      city: document.getElementById('org-city').value.trim(),
+      address: document.getElementById('org-address').value.trim(),
+      phone: document.getElementById('org-phone').value.trim(),
+      website: document.getElementById('org-website').value.trim(),
+      contactMethod: document.querySelector('input[name="org-contact-method"]:checked').value,
+      logo: orgPhotos[0] || '',
+      promoted: document.getElementById('org-promote').checked
+    };
+    try {
+      var queue = JSON.parse(localStorage.getItem('coop_new_organizations') || '[]');
+      queue.push(data);
+      localStorage.setItem('coop_new_organizations', JSON.stringify(queue));
+    } catch (e) { /* localStorage недоступен (например, в изолированном превью) — публикация всё равно показывается */ }
+
+    document.getElementById('ao-form-view').hidden = true;
+    document.getElementById('ao-success-view').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById('ao-add-another-btn').addEventListener('click', function () {
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

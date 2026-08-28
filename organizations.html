@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Каталог организаций — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="active">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="organizations.html" class="active">Каталог организаций</a>
+      <a href="organizations-feed.html">Лента новостей</a>
+    </div>
+    <div class="search-row">
+      <input class="input" placeholder="Начните вводить имя или название">
+      <a class="button" href="add-organization.html">Добавить организацию</a>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button></span>
+    </div>
+    <div class="content-with-filter">
+      <div style="flex:1">
+      <div id="orgs-home"></div>
+      <div id="orgs-flat" hidden>
+      <div class="cat-section-title"><span id="flat-section-title">Все организации</span> <a href="organizations.html" class="cat-back-link">← ко всем группам</a></div><div class="ptile-grid" id="orgs-grid">
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="92" data-category="Строительство, недвижимость" data-subcategory="Прораб, мастер СМР">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/yandex.png" alt="ООО «Мириталь»" loading="lazy">
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="pname">ООО «Мириталь»</div>
+    </a>
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="81" data-category="Стратегия, инвестиции, консалтинг" data-subcategory="Бизнес-консультант">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»" loading="lazy">
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      <div class="pname">Фонд «Территория 2020»</div>
+    </a>
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="88" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" loading="lazy">
+        <span class="loc-bar">📍 Дербент</span>
+      </div>
+      <div class="pname">Кооператив «Шукты»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="95" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/dao-cooptech.svg" alt="ДАО КООПЕХ" loading="lazy">
+        <span class="loc-bar">📍 —</span>
+      </div>
+      <div class="pname">ДАО КООПЕХ</div>
+    </a>    <a class="ptile" href="organization.html" data-city="Красноярск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="79" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/rosneft.png" alt="Артель «Северный лес»" loading="lazy">
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      <div class="pname">Артель «Северный лес»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Новосибирск" data-type="ЗАО" data-legal-group="Коммерческие организации" data-trust="84" data-category="Строительство, недвижимость" data-subcategory="Инженер строительного контроля">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/vtb.png" alt="ЗАО «СтройТехно»" loading="lazy">
+        <span class="loc-bar">📍 Новосибирск</span>
+      </div>
+      <div class="pname">ЗАО «СтройТехно»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="91" data-category="Другое" data-subcategory="Разное">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/magnit.png" alt="Благотворительный фонд «Добрый дом»" loading="lazy">
+        <span class="loc-bar">📍 Екатеринбург</span>
+      </div>
+      <div class="pname">Благотворительный фонд «Добрый дом»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="87" data-category="Строительство, недвижимость" data-subcategory="Архитектор">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/x5.png" alt="ДАО «ОткрытыйГород»" loading="lazy">
+        <span class="loc-bar">📍 —</span>
+      </div>
+      <div class="pname">ДАО «ОткрытыйГород»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Краснодар" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="76" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/mts.png" alt="Кооператив «Плодородие»" loading="lazy">
+        <span class="loc-bar">📍 Краснодар</span>
+      </div>
+      <div class="pname">Кооператив «Плодородие»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Казань" data-type="ОАО" data-legal-group="Коммерческие организации" data-trust="90" data-category="Строительство, недвижимость" data-subcategory="Инженер строительного контроля">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/megafon.png" alt="ОАО «Вектор Инжиниринг»" loading="lazy">
+        <span class="loc-bar">📍 Казань</span>
+      </div>
+      <div class="pname">ОАО «Вектор Инжиниринг»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Пермь" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="83" data-category="Наука, образование" data-subcategory="Преподаватель, репетитор">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/beeline.png" alt="АНО «Мастерская будущего»" loading="lazy">
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="pname">АНО «Мастерская будущего»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Челябинск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="80" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»" loading="lazy">
+        <span class="loc-bar">📍 Челябинск</span>
+      </div>
+      <div class="pname">Артель «Уральские мастера»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Воронеж" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="77" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/aeroflot.png" alt="ООО «ЭкоПласт»" loading="lazy">
+        <span class="loc-bar">📍 Воронеж</span>
+      </div>
+      <div class="pname">ООО «ЭкоПласт»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Самара" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="94" data-category="Управление персоналом, тренинги" data-subcategory="HR-менеджер">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/rzd.png" alt="Фонд поддержки волонтёров «Вместе»" loading="lazy">
+        <span class="loc-bar">📍 Самара</span>
+      </div>
+      <div class="pname">Фонд поддержки волонтёров «Вместе»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="92" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/kamaz.png" alt="ДАО «Цифровой кооператив»" loading="lazy">
+        <span class="loc-bar">📍 —</span>
+      </div>
+      <div class="pname">ДАО «Цифровой кооператив»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Хабаровск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="85" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/severstal.png" alt="Кооператив «Речной порт»" loading="lazy">
+        <span class="loc-bar">📍 Хабаровск</span>
+      </div>
+      <div class="pname">Кооператив «Речной порт»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Ростов-на-Дону" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="82" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/nornickel.png" alt="ООО «АгроСтрой»" loading="lazy">
+        <span class="loc-bar">📍 Ростов-на-Дону</span>
+      </div>
+      <div class="pname">ООО «АгроСтрой»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Тюмень" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="88" data-category="Другое" data-subcategory="Разное">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/nlmk.png" alt="АНО «Чистый город»" loading="lazy">
+        <span class="loc-bar">📍 Тюмень</span>
+      </div>
+      <div class="pname">АНО «Чистый город»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Иркутск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="73" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/ozon.png" alt="Артель «Байкальский промысел»" loading="lazy">
+        <span class="loc-bar">📍 Иркутск</span>
+      </div>
+      <div class="pname">Артель «Байкальский промысел»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Владивосток" data-type="ПАО" data-legal-group="Коммерческие организации" data-trust="86" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/wildberries.png" alt="ПАО «СеверТранс»" loading="lazy">
+        <span class="loc-bar">📍 Владивосток</span>
+      </div>
+      <div class="pname">ПАО «СеверТранс»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="90" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/avito.png" alt="Кредитный кооператив «Взаимопомощь»" loading="lazy">
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="pname">Кредитный кооператив «Взаимопомощь»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Санкт-Петербург" data-type="Коммерческие организации" data-legal-group="Коммерческие организации" data-trust="85" data-category="Юристы" data-subcategory="Юрисконсульт">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/vk.png" alt="Юридическое бюро «Право и дело»" loading="lazy">
+        <span class="loc-bar">📍 Санкт-Петербург</span>
+      </div>
+      <div class="pname">Юридическое бюро «Право и дело»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Новосибирск" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="93" data-category="Медицина, фармацевтика" data-subcategory="Медсестра, фельдшер">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/alfabank.png" alt="АНО «Здоровье для всех»" loading="lazy">
+        <span class="loc-bar">📍 Новосибирск</span>
+      </div>
+      <div class="pname">АНО «Здоровье для всех»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Краснодар" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="81" data-category="Розничная торговля" data-subcategory="Продавец">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/rostelecom.png" alt="ООО «Кооп-Маркет»" loading="lazy">
+        <span class="loc-bar">📍 Краснодар</span>
+      </div>
+      <div class="pname">ООО «Кооп-Маркет»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Сочи" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="88" data-category="Туризм, гостиницы, рестораны" data-subcategory="Администратор гостиницы">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/pochta.png" alt="Кооператив «Гостевой двор»" loading="lazy">
+        <span class="loc-bar">📍 Сочи</span>
+      </div>
+      <div class="pname">Кооператив «Гостевой двор»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Индивидуальный предприниматель" data-legal-group="Коммерческие организации" data-trust="76" data-category="Маркетинг, реклама, PR" data-subcategory="Маркетинг">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/s7.png" alt="ИП «Медиа Крафт»" loading="lazy">
+        <span class="loc-bar">📍 Екатеринбург</span>
+      </div>
+      <div class="pname">ИП «Медиа Крафт»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Тюмень" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="79" data-category="Автомобильный бизнес" data-subcategory="Автосервис, автомойка">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/rusal.png" alt="Артель «Автосервис Плюс»" loading="lazy">
+        <span class="loc-bar">📍 Тюмень</span>
+      </div>
+      <div class="pname">Артель «Автосервис Плюс»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Казань" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="87" data-category="Спортивные клубы, фитнес, салоны красоты" data-subcategory="Тренер">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/rostec.png" alt="АНО «Спортивный двор»" loading="lazy">
+        <span class="loc-bar">📍 Казань</span>
+      </div>
+      <div class="pname">АНО «Спортивный двор»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="89" data-category="Строительство, недвижимость" data-subcategory="Агент по недвижимости">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/vtb.png" alt="ЖСК «Соседи»" loading="lazy">
+        <span class="loc-bar">📍 Екатеринбург</span>
+      </div>
+      <div class="pname">ЖСК «Соседи»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Пермь" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="84" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/rostelecom.png" alt="Энергокооператив «СветСвои»" loading="lazy">
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="pname">Энергокооператив «СветСвои»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Ярославль" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="83" data-category="Другое" data-subcategory="Разное">
+      <div class="img-wrap">
+        <img class="org-logo-img" src="img/org-logos/wildberries.png" alt="Содружество кооперативов «Эмилия»" loading="lazy">
+        <span class="loc-bar">📍 Ярославль</span>
+      </div>
+      <div class="pname">Содружество кооперативов «Эмилия»</div>
+    </a>
+</div>
+      <div class="empty-state" id="orgs-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      </div>
+      </div>
+      <div class="filter-panel">
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Отрасль <span class="stat-note" title="Профессиональная область деятельности, как на hh.ru">ⓘ</span></label>
+          <select class="input" id="filter-category">
+            <option value="">Любая</option>
+            <option value="Автомобильный бизнес">Автомобильный бизнес</option>
+            <option value="Административный персонал">Административный персонал</option>
+            <option value="Безопасность">Безопасность</option>
+            <option value="Высший и средний менеджмент">Высший и средний менеджмент</option>
+            <option value="Добыча сырья">Добыча сырья</option>
+            <option value="Домашний, обслуживающий персонал">Домашний, обслуживающий персонал</option>
+            <option value="Закупки">Закупки</option>
+            <option value="Информационные технологии">Информационные технологии</option>
+            <option value="Искусство, развлечения, массмедиа">Искусство, развлечения, массмедиа</option>
+            <option value="Маркетинг, реклама, PR">Маркетинг, реклама, PR</option>
+            <option value="Медицина, фармацевтика">Медицина, фармацевтика</option>
+            <option value="Наука, образование">Наука, образование</option>
+            <option value="Продажи, обслуживание клиентов">Продажи, обслуживание клиентов</option>
+            <option value="Производство, сервисное обслуживание">Производство, сервисное обслуживание</option>
+            <option value="Рабочий персонал">Рабочий персонал</option>
+            <option value="Розничная торговля">Розничная торговля</option>
+            <option value="Сельское хозяйство">Сельское хозяйство</option>
+            <option value="Спортивные клубы, фитнес, салоны красоты">Спортивные клубы, фитнес, салоны красоты</option>
+            <option value="Стратегия, инвестиции, консалтинг">Стратегия, инвестиции, консалтинг</option>
+            <option value="Страхование">Страхование</option>
+            <option value="Строительство, недвижимость">Строительство, недвижимость</option>
+            <option value="Транспорт, логистика, перевозки">Транспорт, логистика, перевозки</option>
+            <option value="Туризм, гостиницы, рестораны">Туризм, гостиницы, рестораны</option>
+            <option value="Управление персоналом, тренинги">Управление персоналом, тренинги</option>
+            <option value="Финансы, бухгалтерия">Финансы, бухгалтерия</option>
+            <option value="Юристы">Юристы</option>
+            <option value="Другое">Другое</option>
+          </select>
+        </div>
+        <div class="field" id="subcategory-field" hidden>
+          <label>Подкатегория</label>
+          <select class="input" id="filter-subcategory">
+            <option value="">Любая</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Тип <span class="stat-note" title="Юридическая/организационная форма. ООО, ОАО, ЗАО, ПАО и ИП — это разновидности коммерческих организаций, а не отдельные типы">ⓘ</span></label>
+          <select class="input" id="filter-type">
+            <option value="">Любой</option>
+            <option value="Коммерческие организации">Коммерческие организации</option>
+            <option value="Кооперативные">Кооперативные</option>
+            <option value="Некоммерческие">Некоммерческие</option>
+            <option value="Децентрализованные">Децентрализованные</option>
+          </select>
+        </div>
+        <div class="field" id="legal-form-field" hidden>
+          <label>Форма</label>
+          <select class="input" id="filter-legal-form">
+            <option value="">Любая</option>
+            <option value="ООО">ООО</option>
+            <option value="ОАО">ОАО</option>
+            <option value="ЗАО">ЗАО</option>
+            <option value="ПАО">ПАО</option>
+            <option value="Индивидуальный предприниматель">Индивидуальный предприниматель</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Город <span class="stat-note" title="Показать организации только из выбранного города">ⓘ</span></label>
+          <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
+          <datalist id="city-options">
+            <option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
+          </datalist>
+        </div>
+        <div class="field">
+          <label>Уровень доверия <span class="stat-note" title="Двусторонние отзывы после сделок, хранятся в блокчейне и неизменны">ⓘ</span></label>
+          <select class="input" id="filter-trust">
+            <option value="0">Любой</option>
+            <option value="90">От 90%</option>
+            <option value="75">От 75%</option>
+            <option value="50">От 50%</option>
+          </select>
+        </div>
+        <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="vacancies.html">вакансии</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+var CATEGORY_TREE = {
+  "Автомобильный бизнес": [
+    "Автосервис, автомойка",
+    "Автослесарь, автомеханик",
+    "Продажа автозапчастей",
+    "Автосалон"
+  ],
+  "Административный персонал": [
+    "Административный директор",
+    "Офис-менеджер, ассистент",
+    "Секретарь, помощник руководителя"
+  ],
+  "Безопасность": [
+    "Служба безопасности",
+    "Охранник, контролёр"
+  ],
+  "Высший и средний менеджмент": [
+    "Генеральный директор",
+    "Директор по развитию",
+    "Руководитель проектов"
+  ],
+  "Добыча сырья": [
+    "Геолог",
+    "Горный инженер",
+    "Оператор добычи"
+  ],
+  "Домашний, обслуживающий персонал": [
+    "Домработница, няня",
+    "Повар для семьи",
+    "Личный водитель"
+  ],
+  "Закупки": [
+    "Менеджер по закупкам",
+    "Специалист по тендерам"
+  ],
+  "Информационные технологии": [
+    "Программирование, Разработка",
+    "Дизайн, графика",
+    "Тестирование",
+    "Системное администрирование",
+    "Аналитика, Data Science"
+  ],
+  "Искусство, развлечения, массмедиа": [
+    "Фото, видео, звукооператоры",
+    "Народные промыслы, ремёсла",
+    "Флорист, декоратор",
+    "Журналистика, СМИ"
+  ],
+  "Маркетинг, реклама, PR": [
+    "Маркетинг",
+    "Реклама",
+    "PR, связи с общественностью",
+    "SMM"
+  ],
+  "Медицина, фармацевтика": [
+    "Врач",
+    "Медсестра, фельдшер",
+    "Фармацевт"
+  ],
+  "Наука, образование": [
+    "Преподаватель, репетитор",
+    "Научный сотрудник"
+  ],
+  "Продажи, обслуживание клиентов": [
+    "Менеджер по продажам",
+    "Специалист поддержки",
+    "Продавец-консультант"
+  ],
+  "Производство, сервисное обслуживание": [
+    "Инженер-технолог",
+    "Швея, закройщик",
+    "Контролёр ОТК"
+  ],
+  "Рабочий персонал": [
+    "Электромонтажник, электромонтер, техник-электрик",
+    "Бетонщик, арматурщик, каменщик",
+    "Сварщик",
+    "Слесарь, сантехник",
+    "Столяр, плотник",
+    "Кладовщик, Приемщик товаров",
+    "Разнорабочий"
+  ],
+  "Розничная торговля": [
+    "Продавец",
+    "Кассир",
+    "Директор магазина"
+  ],
+  "Сельское хозяйство": [
+    "Агроном, зоотехник",
+    "Пчеловодство, животноводство",
+    "Тракторист"
+  ],
+  "Спортивные клубы, фитнес, салоны красоты": [
+    "Тренер",
+    "Мастер маникюра",
+    "Парикмахер"
+  ],
+  "Стратегия, инвестиции, консалтинг": [
+    "Бизнес-консультант",
+    "Инвестиционный аналитик"
+  ],
+  "Страхование": [
+    "Агент страховой",
+    "Андеррайтер"
+  ],
+  "Строительство, недвижимость": [
+    "Прораб, мастер СМР",
+    "Архитектор",
+    "Дизайнер, художник",
+    "Агент по недвижимости",
+    "Инженер строительного контроля"
+  ],
+  "Транспорт, логистика, перевозки": [
+    "Логистика, ВЭД",
+    "Водитель",
+    "Диспетчер"
+  ],
+  "Туризм, гостиницы, рестораны": [
+    "Повар, кондитер",
+    "Официант, бармен",
+    "Администратор гостиницы"
+  ],
+  "Управление персоналом, тренинги": [
+    "HR-менеджер",
+    "Бизнес-тренер"
+  ],
+  "Финансы, бухгалтерия": [
+    "Бухгалтерия",
+    "Финансовый аналитик",
+    "Кредитный специалист"
+  ],
+  "Юристы": [
+    "Юрисконсульт",
+    "Адвокат",
+    "Нотариус"
+  ],
+  "Другое": [
+    "Разное"
+  ]
+};
+
+// Группы организационно-правовой формы для домашнего вида каталога (шелф-ряды),
+// по образцу resources.html/projects.html. НЕ путать с CATEGORY_TREE выше (это отрасль).
+// ООО/ОАО/ЗАО/ПАО/ИП — это конкретные формы КОММЕРЧЕСКИХ организаций, а не отдельные типы наравне
+// с «Коммерческие организации» — поэтому они не отдельные пункты этого списка, а подтип внутри него
+// (см. LEGAL_FORMS ниже и атрибут data-legal-group на карточках).
+var ORG_TYPES = ["Коммерческие организации", "Кооперативные", "Некоммерческие", "Децентрализованные"];
+var LEGAL_FORMS = ["ООО", "ОАО", "ЗАО", "ПАО", "Индивидуальный предприниматель"];
+
+var selectedCategory = '';
+var selectedSubcategory = '';
+var filterCategorySelect = document.getElementById('filter-category');
+var filterSubcategorySelect = document.getElementById('filter-subcategory');
+var subcategoryField = document.getElementById('subcategory-field');
+
+function populateSubcategories(cat) {
+  var subs = CATEGORY_TREE[cat] || [];
+  filterSubcategorySelect.innerHTML = '<option value="">Любая</option>' +
+    subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+  subcategoryField.hidden = subs.length === 0;
+}
+
+filterCategorySelect.addEventListener('change', function () {
+  selectedCategory = filterCategorySelect.value;
+  selectedSubcategory = '';
+  populateSubcategories(selectedCategory);
+  applyFilters();
+});
+filterSubcategorySelect.addEventListener('change', function () {
+  selectedSubcategory = filterSubcategorySelect.value;
+  applyFilters();
+});
+
+var legalFormField = document.getElementById('legal-form-field');
+var filterLegalFormSelect = document.getElementById('filter-legal-form');
+
+function applyFilters() {
+  orgsHome.hidden = true;
+  orgsFlat.hidden = false;
+  var city = document.getElementById('filter-city').value.trim().toLowerCase();
+  var type = document.getElementById('filter-type').value;
+  var legalForm = filterLegalFormSelect.value;
+  flatSectionTitle.textContent = legalForm || type || 'Все организации';
+  var trust = parseInt(document.getElementById('filter-trust').value, 10);
+  var cards = document.querySelectorAll('#orgs-grid .ptile');
+  var visibleCount = 0;
+  cards.forEach(function (card) {
+    var cardCity = (card.dataset.city || '').toLowerCase();
+    var cardTrust = parseInt(card.dataset.trust, 10);
+    var cityOk = !city || cardCity.indexOf(city) !== -1;
+    var typeOk = !type || card.dataset.legalGroup === type;
+    // Форма (ООО/ОАО/ЗАО/ПАО/ИП) — это конкретное значение data-type внутри группы «Коммерческие организации»
+    var legalFormOk = !legalForm || card.dataset.type === legalForm;
+    var trustOk = cardTrust >= trust;
+    var categoryOk = !selectedCategory || card.dataset.category === selectedCategory;
+    var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
+    var show = cityOk && typeOk && legalFormOk && trustOk && categoryOk && subcategoryOk;
+    card.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+  document.getElementById('orgs-empty').hidden = visibleCount > 0;
+}
+document.getElementById('filter-city').addEventListener('input', applyFilters);
+var filterTypeSelect = document.getElementById('filter-type');
+filterTypeSelect.addEventListener('change', function () {
+  legalFormField.hidden = filterTypeSelect.value !== 'Коммерческие организации';
+  if (legalFormField.hidden) filterLegalFormSelect.value = '';
+  applyFilters();
+});
+filterLegalFormSelect.addEventListener('change', applyFilters);
+document.getElementById('filter-trust').addEventListener('change', applyFilters);
+
+function resetFilters() {
+  document.getElementById('filter-city').value = '';
+  document.getElementById('filter-type').value = '';
+  filterLegalFormSelect.value = '';
+  legalFormField.hidden = true;
+  document.getElementById('filter-trust').value = '0';
+  filterCategorySelect.value = '';
+  selectedCategory = '';
+  selectedSubcategory = '';
+  subcategoryField.hidden = true;
+  showHomeView();
+}
+document.getElementById('filter-reset').addEventListener('click', resetFilters);
+document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+
+// Переключатель вида: плиткой / списком
+var viewGrid = document.getElementById('orgs-grid');
+var viewListBtn = document.getElementById('view-list-btn');
+var viewTileBtn = document.getElementById('view-tile-btn');
+function ensureListMeta(grid) {
+  grid.querySelectorAll('.ptile').forEach(function (p) {
+    if (p.querySelector('.list-meta')) return;
+    var badge = p.querySelector('.pct-badge');
+    var loc = p.querySelector('.loc-bar');
+    var meta = document.createElement('div');
+    meta.className = 'list-meta';
+    meta.textContent = (badge ? badge.textContent + ' · ' : '') + (loc ? loc.textContent : '');
+    p.querySelector('.pname').insertAdjacentElement('afterend', meta);
+  });
+}
+viewListBtn.addEventListener('click', function () {
+  ensureListMeta(viewGrid);
+  viewGrid.classList.add('list-mode');
+  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
+});
+viewTileBtn.addEventListener('click', function () {
+  viewGrid.classList.remove('list-mode');
+  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
+});
+
+// Домашний вид каталога: «Все организации» + ряд по каждой непустой группе
+// (организационно-правовая форма), по образцу resources.html/projects.html.
+var orgsHome = document.getElementById('orgs-home');
+var orgsFlat = document.getElementById('orgs-flat');
+var flatSectionTitle = document.getElementById('flat-section-title');
+var homeBuilt = false;
+
+function buildHomeView() {
+  if (homeBuilt) return;
+  homeBuilt = true;
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('#orgs-grid .ptile'));
+  var rows = [{ title: 'Все организации', key: '', cards: allCards }];
+  ORG_TYPES.forEach(function (t) {
+    rows.push({ title: t, key: t, cards: allCards.filter(function (c) { return c.dataset.legalGroup === t; }) });
+  });
+  var html = '';
+  rows.forEach(function (row) {
+    if (row.cards.length === 0) return;
+    var href = row.key ? 'organizations.html?type=' + encodeURIComponent(row.key) : 'organizations.html?view=all';
+    html += '<div class="shelf-row"><div class="shelf-row-title"><span>' + row.title + '</span></div><div class="ptile-grid">';
+    row.cards.slice(0, 4).forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.style.display = '';
+      html += clone.outerHTML;
+    });
+    html += '<a class="view-all-tile" href="' + href + '"><span class="view-all-arrow">→</span>Смотреть все</a>';
+    html += '</div></div>';
+  });
+  orgsHome.innerHTML = html;
+}
+
+function showHomeView() {
+  buildHomeView();
+  orgsHome.hidden = false;
+  orgsFlat.hidden = true;
+}
+
+function showFlatView(typeParam) {
+  document.getElementById('filter-type').value = (typeParam && ORG_TYPES.indexOf(typeParam) !== -1) ? typeParam : '';
+  applyFilters();
+}
+
+(function initOrgsView() {
+  var params = new URLSearchParams(location.search);
+  var typeParam = params.get('type');
+  var viewAll = params.get('view') === 'all';
+  if (typeParam || viewAll) {
+    showFlatView(typeParam);
+  } else {
+    showHomeView();
+  }
+})();
+</script>
+</body>
+</html>

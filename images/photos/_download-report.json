@@ -1,0 +1,506 @@
+[
+  {
+    "slug": "crane-truck",
+    "query": "mobile crane truck construction",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/A_Liebherr_LTM_1500-8.1_crane_truck_lifting_a_Genie_S-85_Lift_Crane.jpg/500px-A_Liebherr_LTM_1500-8.1_crane_truck_lifting_a_Genie_S-85_Lift_Crane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": 127703,
+    "candidatesCount": 6
+  },
+  {
+    "slug": "cement-bag",
+    "query": "cement bags construction material",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Stockage_de_ciments.JPG/500px-Stockage_de_ciments.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": 95418,
+    "candidatesCount": 6
+  },
+  {
+    "slug": "timber-beam",
+    "query": "timber lumber beams stack",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Forest_Products_Week_%2820230919-FS-KM-015%29.jpg/500px-Forest_Products_Week_%2820230919-FS-KM-015%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": 60689,
+    "candidatesCount": 6
+  },
+  {
+    "slug": "rebar-steel",
+    "query": "rebar reinforcing steel bars construction",
+    "status": "fail",
+    "error": "download http 429"
+  },
+  {
+    "slug": "concrete-mixer",
+    "query": "concrete mixer machine construction",
+    "status": "fail",
+    "error": "download http 429"
+  },
+  {
+    "slug": "finance-money",
+    "query": "russian ruble banknotes",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Banknote_5_rubles_%281997%29_front.jpg/500px-Banknote_5_rubles_%281997%29_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": 46071,
+    "candidatesCount": 6
+  },
+  {
+    "slug": "excavator",
+    "query": "excavator loader construction machine",
+    "status": "fail",
+    "error": "download http 429"
+  },
+  {
+    "slug": "wood-planks",
+    "query": "wood planks lumber stack",
+    "status": "fail",
+    "error": "download http 429"
+  },
+  {
+    "slug": "welding-machine",
+    "query": "welding machine inverter tool",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Narrow_bladed_palstave_%28FindID_538672%29.jpg/500px-Narrow_bladed_palstave_%28FindID_538672%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": 35889,
+    "candidatesCount": 6
+  },
+  {
+    "slug": "brick-stack",
+    "query": "ceramic bricks stack construction",
+    "status": "fail",
+    "error": "download http 429"
+  },
+  {
+    "slug": "craft-workshop",
+    "query": "craft workshop artisan tools",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "concrete-truck",
+    "query": "concrete mixer truck ready mix",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "scaffolding",
+    "query": "construction scaffolding building facade",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "mineral-wool",
+    "query": "mineral wool insulation material",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "bank-finance",
+    "query": "bank finance credit business",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "diesel-generator",
+    "query": "diesel generator power equipment",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "metal-roof",
+    "query": "metal roof tiles roofing",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "warehouse",
+    "query": "warehouse storage building interior",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "steel-pipe",
+    "query": "steel pipes profile tube industrial",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "printer3d-construction",
+    "query": "3D printer construction concrete printing",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "greenhouse",
+    "query": "greenhouse agriculture plants interior",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "waste-sorting",
+    "query": "waste sorting recycling bins containers",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "makerspace",
+    "query": "makerspace fablab workshop tools",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "laundromat",
+    "query": "laundromat washing machines room",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "coworking",
+    "query": "coworking space office desks",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "building-renovation",
+    "query": "building renovation construction facade",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "modular-house",
+    "query": "modular house prefab building",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "solar-farm",
+    "query": "solar panel farm power station",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "bridge-repair",
+    "query": "bridge river construction",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "recycling-center",
+    "query": "recycling center waste materials facility",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "playground",
+    "query": "children playground park equipment",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "bakery",
+    "query": "bakery bread bakehouse",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "wind-turbine",
+    "query": "wind turbine farm energy field",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "historic-restoration",
+    "query": "historic building restoration facade scaffolding",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "outdoor-library",
+    "query": "outdoor public bookcase library exchange",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "plastic-recycling",
+    "query": "plastic recycling factory bales",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "pedestrian-bridge",
+    "query": "pedestrian footbridge construction",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "tech-park",
+    "query": "technology innovation park office building",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "electrician",
+    "query": "electrician wiring cable work",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "web-design",
+    "query": "web design computer screen",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "carrot",
+    "query": "carrots vegetable harvest",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "van-transfer",
+    "query": "van highway road transport vehicle",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "programmer",
+    "query": "programmer laptop coding",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "business-meeting",
+    "query": "business meeting people office table",
+    "status": "fail",
+    "error": "search http 429"
+  },
+  {
+    "slug": "pelmeni",
+    "query": "Pelmeni.jpg (Wikimedia Commons)",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Pelmeni.jpg/1280px-Pelmeni.jpg",
+    "size": 309959,
+    "note": "заменяет crane-truck как демо-ресурс resource.html/resources.html, 2026-08-10"
+  },
+  {
+    "slug": "pelmeni-making",
+    "query": "Домашние пельмени.jpg (Wikimedia Commons)",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D0%B8%D0%B5_%D0%BF%D0%B5%D0%BB%D1%8C%D0%BC%D0%B5%D0%BD%D0%B8.jpg/1280px-%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D0%B8%D0%B5_%D0%BF%D0%B5%D0%BB%D1%8C%D0%BC%D0%B5%D0%BD%D0%B8.jpg",
+    "size": 188215,
+    "note": "галерея resource.html, 2026-08-10"
+  },
+  {
+    "slug": "pork-meat",
+    "query": "raw pork meat cuts",
+    "status": "ok",
+    "title": "File:HK food ingredient red meat frozen pork chop raw butt steak October 2021 SS2 011.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/HK_food_ingredient_red_meat_frozen_pork_chop_raw_butt_steak_October_2021_SS2_011.jpg/500px-HK_food_ingredient_red_meat_frozen_pork_chop_raw_butt_steak_October_2021_SS2_011.jpg",
+    "license": "CC BY-SA 4.0",
+    "size": 66206,
+    "note": "resource.html, блок «Сырьё (комплектация)» — Свинина, 2026-08-10"
+  },
+  {
+    "slug": "beef-meat",
+    "query": "raw beef meat cuts",
+    "status": "ok",
+    "title": "File:Assorted Raw Beef, Pork & Chicken Slices for Yakiniku.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Assorted_Raw_Beef%2C_Pork_%26_Chicken_Slices_for_Yakiniku.jpg/500px-Assorted_Raw_Beef%2C_Pork_%26_Chicken_Slices_for_Yakiniku.jpg",
+    "license": "CC BY-SA 4.0",
+    "size": 74255,
+    "note": "resource.html, блок «Сырьё (комплектация)» — Говядина. Первые 2 кандидата (рынок Barkin Dogo — сырая туша; ресторанная витрина с иероглифами) отбракованы визуальным ревью, 2026-08-10"
+  },
+  {
+    "slug": "onion-bulbs",
+    "query": "yellow onions pile market",
+    "status": "ok",
+    "title": "File:Pile of Onions at Barkin Dogo Market, Kaduna North 01.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Pile_of_Onions_at_Barkin_Dogo_Market%2C_Kaduna_North_01.jpg/500px-Pile_of_Onions_at_Barkin_Dogo_Market%2C_Kaduna_North_01.jpg",
+    "license": "CC BY-SA 4.0",
+    "size": 53953,
+    "note": "resource.html, блок «Сырьё (комплектация)» — Лук. Первый кандидат (White onion cross section) отбракован — разрез, не целая луковица, 2026-08-10"
+  },
+  {
+    "slug": "sugar-white",
+    "query": "granulated sugar pile",
+    "status": "ok",
+    "title": "File:Sugarpile.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sugarpile.JPG/500px-Sugarpile.JPG",
+    "license": "CC BY-SA 3.0",
+    "size": 38681,
+    "note": "resource.html, блок «Сырьё (комплектация)» — Сахар. Первый кандидат (Bumbu Rawon) отбракован — индонезийская паста специй, не сахар, 2026-08-10"
+  },
+  {
+    "slug": "meat-grinder",
+    "query": "Fleischwolf (антикварная мясорубка, нем.)",
+    "status": "ok",
+    "title": "File:Fleischwolf der Firma Alexanderwerk.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Fleischwolf_der_Firma_Alexanderwerk.jpg/500px-Fleischwolf_der_Firma_Alexanderwerk.jpg",
+    "license": "CC BY-SA 4.0",
+    "size": 42824,
+    "note": "resource.html, блок «Используемое оборудование» — Дробилка. Свободных фото современной промышленной мясорубки не нашлось; использована историческая (антикварная) чугунная мясорубка того же типа оборудования, 2026-08-10"
+  },
+  {
+    "slug": "meat-mixer-machine",
+    "query": "Mischwolf Industrie (пром. фаршемешалка-волчок, нем.)",
+    "status": "ok",
+    "title": "File:Mischwolf Industrie MAW200.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Mischwolf_Industrie_MAW200.jpg/500px-Mischwolf_Industrie_MAW200.jpg",
+    "license": "CC BY-SA 3.0",
+    "size": 63828,
+    "note": "resource.html, блок «Используемое оборудование» — Фаршемешалка. Промышленная машина K+G Wetter, нержавеющая сталь, 2026-08-10"
+  },
+  {
+    "slug": "dough-sheeter-machine",
+    "query": "Teigausrollmaschine (тестораскаточная машина, нем.)",
+    "status": "ok",
+    "title": "File:Teigausrollmaschine DSCF3163.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Teigausrollmaschine_DSCF3163.JPG/500px-Teigausrollmaschine_DSCF3163.JPG",
+    "license": "GFDL 1.2",
+    "size": 50578,
+    "note": "resource.html, блок «Используемое оборудование» — Тестораскаточная машина, 2026-08-10"
+  },
+  {
+    "slug": "chest-freezer",
+    "query": "chest freezer commercial",
+    "status": "ok",
+    "title": "File:Freezer 1.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Freezer_1.jpg",
+    "license": "CC BY-SA (см. страницу файла)",
+    "size": 139571,
+    "note": "resource.html, блок «Используемое оборудование» — Морозилка, 2026-08-10"
+  },
+  {
+    "slug": "meat-band-saw",
+    "query": "band saw butcher / meat cutting bandsaw",
+    "status": "ok",
+    "title": "File:20-Inch Band Saw, Georgia Museum of Agriculture.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/20-Inch_Band_Saw%2C_Georgia_Museum_of_Agriculture.jpg/500px-20-Inch_Band_Saw%2C_Georgia_Museum_of_Agriculture.jpg",
+    "license": "CC BY-SA 4.0",
+    "size": 31448,
+    "note": "resource.html, блок «Используемое оборудование» — Пила для разделки. ВАЖНО: это музейный экспонат — старый деревообрабатывающий ленточный станок (распиливает бревно), а не мясной ленточнопильный станок. После нескольких попыток (bandsaw+butcher, Bandsäge+Fleisch, sierra+carne, Category:Bone saws, Category:Cutting of meat) свободного фото именно мясной ленточной пилы не нашлось — использован тот же класс оборудования (вертикальная ленточная пила) как ближайшая по смыслу замена, 2026-08-10"
+  },
+  {
+    "slug": "meat-processing-workshop",
+    "query": "meat processing plant cutting room workers",
+    "status": "ok",
+    "title": "File:Workers processing bacon at Fearman's meat processing plant (I0003209).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Workers_processing_bacon_at_Fearman%27s_meat_processing_plant_%28I0003209%29.jpg/500px-Workers_processing_bacon_at_Fearman%27s_meat_processing_plant_%28I0003209%29.jpg",
+    "size": 62593,
+    "note": "resource.html, блок «Участвует в проектах» — Цех переработки мяса и пельменей (доля 15%), 2026-08-10"
+  },
+  {
+    "slug": "central-market",
+    "query": "covered market stalls produce vendors",
+    "status": "ok",
+    "title": "File:DSCF0828 A bustling market stall piled high with ripe bananas as vendors arrange produce under a covered marketplace.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/DSCF0828_A_bustling_market_stall_piled_high_with_ripe_bananas_as_vendors_arrange_produce_under_a_covered_marketplace.jpg/960px-DSCF0828_A_bustling_market_stall_piled_high_with_ripe_bananas_as_vendors_arrange_produce_under_a_covered_marketplace.jpg",
+    "size": 144270,
+    "note": "resource.html, блок «Пункты выдачи» — Точка выдачи, Центральный рынок, Тюмень. Крупный кадр (144 КБ) — сцена крытого рынка с прилавками и продавцами, ближайшая свободная замена под конкретно «Центральный рынок» не найдена, 2026-08-10"
+  },
+  {
+    "slug": "printer3d-arm",
+    "query": "Apis Cor принтер.jpg (Wikimedia Commons)",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Apis_Cor_принтер.jpg/1280px-Apis_Cor_принтер.jpg",
+    "size": 161477,
+    "note": "project.html, галерея проекта «Строительный 3д принтер» — реальное фото российского мобильного строительного 3D-принтера Apis Cor, миниатюра 2, 2026-08-10"
+  },
+  {
+    "slug": "printer3d-nozzle",
+    "query": "Apis cor печать стены.jpg (Wikimedia Commons)",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Apis_cor_печать_стены.jpg/1280px-Apis_cor_печать_стены.jpg",
+    "size": 122988,
+    "note": "project.html, галерея проекта «Строительный 3д принтер» — экструзия бетонной смеси, миниатюра 3, 2026-08-10"
+  },
+  {
+    "slug": "greenhouse-interior",
+    "query": "-2020-07-11 Greenhouse interior, Trimingham, Norfolk.JPG (Wikimedia Commons)",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/-2020-07-11_Greenhouse_interior%2C_Trimingham%2C_Norfolk.JPG/960px--2020-07-11_Greenhouse_interior%2C_Trimingham%2C_Norfolk.JPG",
+    "size": 310647,
+    "note": "project-greenhouse.html, галерея проекта «Круглогодичная теплица» — интерьер теплицы с рассадой томатов в горшках, миниатюра 2, 2026-08-13"
+  },
+  {
+    "slug": "greenhouse-lettuce",
+    "query": "Starr-170615-0217-Lactuca sativa-rows in greenhouse-Hydroponics Town Sand Island-Midway Atoll (35551882363).jpg (Wikimedia Commons)",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Starr-170615-0217-Lactuca_sativa-rows_in_greenhouse-Hydroponics_Town_Sand_Island-Midway_Atoll_%2835551882363%29.jpg/960px-Starr-170615-0217-Lactuca_sativa-rows_in_greenhouse-Hydroponics_Town_Sand_Island-Midway_Atoll_%2835551882363%29.jpg",
+    "size": 205209,
+    "note": "project-greenhouse.html, галерея проекта «Круглогодичная теплица» — ряды салата-латука в гидропонной теплице, миниатюра 3, 2026-08-13"
+  },
+  {
+    "slug": "mobile-clinic",
+    "query": "mobile health clinic bus",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mobile_health_van_-_2021-08-27_-_Sarah_Stierch.jpg/960px-Mobile_health_van_-_2021-08-27_-_Sarah_Stierch.jpg",
+    "size": 209093,
+    "note": "projects.html, новый демо-проект «Мобильный медпункт для отдалённых сёл» (Здоровье и медицина), 2026-08-13"
+  },
+  {
+    "slug": "coding-class",
+    "query": "children computer class coding / digital literacy program",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Digital_Literacy_Program.jpg/960px-Digital_Literacy_Program.jpg",
+    "size": 116694,
+    "note": "projects.html, новый демо-проект «Кооперативная школа программирования для подростков» (Образование и наука), 2026-08-13"
+  },
+  {
+    "slug": "climbing-gym",
+    "query": "indoor bouldering climbing gym",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Man_climbing_in_bouldering_gym.jpg/960px-Man_climbing_in_bouldering_gym.jpg",
+    "size": 264766,
+    "note": "projects.html, новый демо-проект «Скалодром в бывшем цехе» (Спорт и активный отдых), 2026-08-13"
+  },
+  {
+    "slug": "house-tecla",
+    "query": "Tecla 3D printed eco house WASP Italy",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Eco-sustainable_3D_printed_house_%22Tecla%22.jpg/1280px-Eco-sustainable_3D_printed_house_%22Tecla%22.jpg",
+    "license": "CC BY 2.5",
+    "author": "Video by Alfredo Milano; Project by WASP and Mario Cucinella Architects",
+    "size": 310142,
+    "note": "used as product photo (Дом «Эко-Купол») on project.html and resources.html"
+  },
+  {
+    "slug": "house-amie",
+    "query": "AMIE 3D-printed house ORNL",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/AMIE_3D-printed_house_at_dusk_%2821445262958%29.jpg",
+    "license": "CC BY 2.0",
+    "author": "Oak Ridge National Laboratory",
+    "size": 84157,
+    "note": "used as product photo (Дом «Аркада») on project.html and resources.html"
+  },
+  {
+    "slug": "house-serendix",
+    "query": "White 3D Printed House Serendix50 Japan",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/White_3D_Printed_House_-_1.jpg/1280px-White_3D_Printed_House_-_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Kyu3",
+    "size": 397638,
+    "note": "used as product photo (Дом «Сфера») on project.html and resources.html"
+  },
+  {
+    "slug": "vegbox-csa",
+    "query": "CSA vegetable box greens",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/BB_BOX.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Apollotown",
+    "size": 317350,
+    "note": "used as product photo (Коробка «Мини»/«Семейная») on project-greenhouse.html and resources.html"
+  },
+  {
+    "slug": "vegbox-nl",
+    "query": "Community Supported Agriculture vegetable boxes Netherlands",
+    "status": "ok",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Blz_24._foto_10._Community_Supported_Agriculture._C_Elske_Hageraats.jpg/1280px-Blz_24._foto_10._Community_Supported_Agriculture._C_Elske_Hageraats.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "C. Elske Hageraats",
+    "size": 403889,
+    "note": "used as product photo (Коробка «Стандарт») on project-greenhouse.html and resources.html"
+  }
+]

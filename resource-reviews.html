@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Отзывы — Пельмени домашней лепки — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="active">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="resources.html">Каталог ресурсов</a>
+      <a href="resource.html">О ресурсе</a>
+      <a href="resource-tracking.html">Трекинг</a>
+      <a href="resource-buyers.html">Покупатели</a>
+      <a href="resource-reviews.html" class="active">Отзывы</a>
+    </div>
+    <div class="detail-head">
+      <div style="display:flex;gap:18px;align-items:center">
+        <div class="thumb" style="width:56px;height:56px;border-radius:14px;overflow:hidden"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+  <rect width="100" height="100" fill="#E3EFED"/>
+  <path d="M50 18 L82 34 L82 66 L50 82 L18 66 L18 34 Z" fill="none" stroke="#146B64" stroke-width="3"/>
+  <path d="M18 34 L50 50 L82 34 M50 50 L50 82" fill="none" stroke="#146B64" stroke-width="3"/>
+</svg></div>
+        <div>
+          <div class="page-title" style="margin-bottom:6px">Пельмени домашней лепки</div>
+          <span class="badge gold">Продовольственные товары</span>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <div class="section-title">Отзывы покупателей <span class="stat-note" title="Собираются автоматически после подтверждённой сделки (см. вкладку «Трекинг») — покупателю приходит приглашение оценить ресурс">ⓘ</span></div>
+
+    <div class="review-summary">
+      <div class="review-score">
+        <div class="review-score-value">4,6</div>
+        <div class="review-score-stars">
+          <span class="review-stars lg" aria-label="Средняя оценка 4,6 из 5">
+            <span class="review-stars-bg">★★★★★</span>
+            <span class="review-stars-fg" style="width:92%">★★★★★</span>
+          </span>
+        </div>
+        <div class="review-score-count">50 отзывов</div>
+      </div>
+      <div class="review-histogram">
+        <div class="review-hist-row"><span class="hist-label">5 ★</span><div class="review-hist-bar"><div class="review-hist-fill" style="width:72%"></div></div><span class="hist-count">36 · 72%</span></div>
+        <div class="review-hist-row"><span class="hist-label">4 ★</span><div class="review-hist-bar"><div class="review-hist-fill" style="width:18%"></div></div><span class="hist-count">9 · 18%</span></div>
+        <div class="review-hist-row"><span class="hist-label">3 ★</span><div class="review-hist-bar"><div class="review-hist-fill" style="width:6%"></div></div><span class="hist-count">3 · 6%</span></div>
+        <div class="review-hist-row"><span class="hist-label">2 ★</span><div class="review-hist-bar"><div class="review-hist-fill" style="width:2%"></div></div><span class="hist-count">1 · 2%</span></div>
+        <div class="review-hist-row"><span class="hist-label">1 ★</span><div class="review-hist-bar"><div class="review-hist-fill" style="width:2%"></div></div><span class="hist-count">1 · 2%</span></div>
+      </div>
+    </div>
+
+    <p style="color:var(--slate-light);font-size:12px;max-width:560px;margin-top:-6px;margin-bottom:16px">🔄 Сводка — по всем 50 отзывам к ресурсу. Ниже показана демо-выборка из 8 отзывов последних покупателей (из 128 розничных сделок за ₽, см. «О ресурсе»). В целевой архитектуре список подгружается из реестра отзывов платформы.</p>
+
+    <div class="section-title">Оставить отзыв о сделке <span class="stat-note" title="Двусторонние отзывы: ваш отзыв о продавце станет виден только после того, как продавец тоже оставит отзыв о вас. Это снижает риск оценки «из мести» — ни одна сторона не видит чужой отзыв, пока не оставит свой.">ⓘ</span></div>
+    <div class="mutual-review-grid" id="mutual-review-grid">
+      <div class="mutual-review-side">
+        <div class="mutual-review-label">Ваш отзыв о продавце</div>
+        <div id="mutual-review-form">
+          <div class="review-stars-input" id="mutual-stars-input" aria-label="Оценка">
+            <span data-star="1">★</span><span data-star="2">★</span><span data-star="3">★</span><span data-star="4">★</span><span data-star="5">★</span>
+          </div>
+          <textarea class="input" id="mutual-review-text" rows="2" placeholder="Как прошла сделка?" style="margin-top:8px"></textarea>
+          <button class="button" id="mutual-review-submit" type="button" style="margin-top:8px">Оставить отзыв</button>
+        </div>
+        <div class="mutual-review-revealed" id="mutual-review-buyer-sent" hidden></div>
+      </div>
+      <div class="mutual-review-side">
+        <div class="mutual-review-label">Отзыв продавца о вас</div>
+        <div class="mutual-review-pending" id="mutual-review-pending">🔒 Появится, когда обе стороны оставят отзыв друг о друге</div>
+        <div class="mutual-review-revealed" id="mutual-review-seller-sent" hidden></div>
+      </div>
+    </div>
+
+    <div class="review-toolbar">
+      <div class="chip-toggle-group">
+        <button type="button" class="chip-toggle" id="filter-photo">📷 С фото</button>
+      </div>
+      <div class="review-sort">
+        <span class="review-sort-label">Сортировать:</span>
+        <div class="chip-toggle-group">
+          <button type="button" class="chip-toggle selected" data-sort="new">Сначала новые</button>
+          <button type="button" class="chip-toggle" data-sort="useful">Сначала полезные</button>
+          <button type="button" class="chip-toggle" data-sort="high">С высокой оценкой</button>
+          <button type="button" class="chip-toggle" data-sort="low">С низкой оценкой</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-list" id="review-list">
+
+      <div class="review-card" data-photo="1" data-rating="5" data-useful="18" data-date="2026-08-03">
+        <div class="review-head">
+          <a class="review-user" href="person.html">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=5" alt="Смирнова Екатерина Андреевна">
+            <div>
+              <div class="review-name">Смирнова Екатерина</div>
+              <div class="review-date">3 августа 2026 · <span class="badge outline">Покупка подтверждена</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+        </div>
+        <div class="review-proscons">
+          <div><b>Достоинства:</b> <span>тесто тонкое, фарша много, не разваливаются при варке</span></div>
+        </div>
+        <p class="review-text">Беру уже третий раз подряд, дети в восторге. Варю 7–8 минут — держат форму, не расползаются. Однозначно лучше магазинных.</p>
+        <div class="review-photos">
+          <img src="images/photos/pelmeni.jpg" alt="Фото от покупателя">
+          <img src="images/photos/pelmeni-making.jpg" alt="Фото от покупателя">
+        </div>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 18</button><button type="button" data-vote="down">👎 1</button></div>
+        </div>
+        <div class="review-reply">
+          <div class="reply-label">Ответ продавца</div>
+          <p>Екатерина, спасибо! Рады, что тесто держит форму — раскатываем в 1,2 мм специально для этого. Ждём вас снова 🙂</p>
+        </div>
+      </div>
+
+      <div class="review-card" data-photo="0" data-rating="4" data-useful="9" data-date="2026-07-29">
+        <div class="review-head">
+          <a class="review-user" href="person.html">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=6" alt="Волков Игорь Николаевич">
+            <div>
+              <div class="review-name">Волков Игорь</div>
+              <div class="review-date">29 июля 2026 · <span class="badge outline">Покупка подтверждена</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+        </div>
+        <div class="review-proscons">
+          <div><b>Достоинства:</b> <span>хороший вкус, честный вес</span></div>
+          <div><b>Недостатки:</b> <span>доставка приехала на день позже обещанного</span></div>
+        </div>
+        <p class="review-text">Пельмени вкусные, мясные, не жирные. Заказывал доставку — курьер задержался, но продавец предупредил заранее и сделал скидку на следующий заказ. В целом доволен.</p>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 9</button><button type="button" data-vote="down">👎 0</button></div>
+        </div>
+      </div>
+
+      <div class="review-card" data-photo="0" data-rating="4" data-useful="6" data-date="2026-07-24">
+        <div class="review-head">
+          <a class="review-user" href="organization.html">
+            <div class="review-org-logo" style="background:var(--gold-tint);color:#8a5f1c">ВД</div>
+            <div>
+              <div class="review-name">Магазин «Вкусный дом»</div>
+              <div class="review-date">24 июля 2026 · <span class="badge outline">Покупка партией, 15 кг</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+        </div>
+        <div class="review-proscons">
+          <div><b>Достоинства:</b> <span>стабильное качество, честная партия</span></div>
+          <div><b>Недостатки:</b> <span>негибкий график отгрузки</span></div>
+        </div>
+        <p class="review-text">Берём для перепродажи уже третий месяц подряд. Качество стабильное, но хотелось бы более гибкие сроки отгрузки под наш график завоза — иногда приходится подстраиваться под цех.</p>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 6</button><button type="button" data-vote="down">👎 1</button></div>
+        </div>
+        <div class="review-reply">
+          <div class="reply-label">Ответ продавца</div>
+          <p>Спасибо за отзыв! Обсудим отдельный слот отгрузки под ваш график — напишите нам в сообщения, подберём удобное время.</p>
+        </div>
+      </div>
+
+      <div class="review-card" data-photo="0" data-rating="5" data-useful="4" data-date="2026-07-20">
+        <div class="review-head">
+          <a class="review-user" href="person.html">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=9" alt="Морозова Анна Сергеевна">
+            <div>
+              <div class="review-name">Морозова Анна</div>
+              <div class="review-date">20 июля 2026 · <span class="badge outline">Покупка подтверждена</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+        </div>
+        <p class="review-text">Очень вкусные, как у бабушки. Заказываю для всей семьи.</p>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 4</button><button type="button" data-vote="down">👎 0</button></div>
+        </div>
+      </div>
+
+      <div class="review-card" data-photo="0" data-rating="3" data-useful="14" data-date="2026-07-15">
+        <div class="review-head">
+          <a class="review-user" href="person.html">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=8" alt="Соколов Павел Дмитриевич">
+            <div>
+              <div class="review-name">Соколов Павел</div>
+              <div class="review-date">15 июля 2026 · <span class="badge outline">Покупка подтверждена</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 3 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:60%">★★★★★</span></span>
+        </div>
+        <div class="review-proscons">
+          <div><b>Достоинства:</b> <span>вкус хороший</span></div>
+          <div><b>Недостатки:</b> <span>часть пельменей слиплась при заморозке, пришлось отделять руками</span></div>
+        </div>
+        <p class="review-text">Вкус в целом неплохой, но упаковка подвела — похоже, при перевозке подтаяли и слиплись в один ком. Пришлось повозиться. Надеюсь, это разовая история.</p>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 14</button><button type="button" data-vote="down">👎 2</button></div>
+        </div>
+        <div class="review-reply">
+          <div class="reply-label">Ответ продавца</div>
+          <p>Павел, приносим извинения — похоже, был нарушен режим заморозки при доставке в жаркий день. Написали вам в сообщения, чтобы заменить партию и пересмотреть упаковку для лета.</p>
+        </div>
+      </div>
+
+      <div class="review-card" data-photo="1" data-rating="5" data-useful="7" data-date="2026-07-10">
+        <div class="review-head">
+          <a class="review-user" href="person.html">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=10" alt="Лебедева Ольга Игоревна">
+            <div>
+              <div class="review-name">Лебедева Ольга</div>
+              <div class="review-date">10 июля 2026 · <span class="badge outline">Покупка подтверждена</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+        </div>
+        <div class="review-proscons">
+          <div><b>Достоинства:</b> <span>быстрая доставка, аккуратная упаковка</span></div>
+        </div>
+        <p class="review-text">Заказала на пробу 1 кг — понравилось, буду брать ещё. Тесто не разваливается, фарш сочный.</p>
+        <div class="review-photos">
+          <img src="images/photos/pelmeni.jpg" alt="Фото от покупателя">
+        </div>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 7</button><button type="button" data-vote="down">👎 0</button></div>
+        </div>
+      </div>
+
+      <div class="review-card" data-photo="0" data-rating="4" data-useful="5" data-date="2026-07-05">
+        <div class="review-head">
+          <a class="review-user" href="person.html">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=14" alt="Новиков Максим Олегович">
+            <div>
+              <div class="review-name">Новиков Максим</div>
+              <div class="review-date">5 июля 2026 · <span class="badge outline">Покупка подтверждена</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+        </div>
+        <div class="review-proscons">
+          <div><b>Недостатки:</b> <span>хотелось бы фасовку и по 2 кг</span></div>
+        </div>
+        <p class="review-text">Хорошие пельмени, но упаковка только по 1 кг — для семьи из пяти человек маловато, приходится заказывать несколько пачек за раз.</p>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 5</button><button type="button" data-vote="down">👎 0</button></div>
+        </div>
+      </div>
+
+      <div class="review-card" data-photo="1" data-rating="5" data-useful="11" data-date="2026-07-01">
+        <div class="review-head">
+          <a class="review-user" href="person.html">
+            <img class="avatar" src="https://i.pravatar.cc/128?img=16" alt="Кузнецова Дарья Викторовна">
+            <div>
+              <div class="review-name">Кузнецова Дарья</div>
+              <div class="review-date">1 июля 2026 · <span class="badge outline">Покупка подтверждена</span></div>
+            </div>
+          </a>
+          <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+        </div>
+        <div class="review-proscons">
+          <div><b>Достоинства:</b> <span>домашний вкус, без консервантов</span></div>
+        </div>
+        <p class="review-text">Пробовала пельмени из разных кооперативов — эти по вкусу ближе всего к домашним. Состав простой и понятный, детям даю без опасений.</p>
+        <div class="review-photos">
+          <img src="images/photos/pelmeni-making.jpg" alt="Фото от покупателя">
+        </div>
+        <div class="review-footer">
+          <div class="review-useful">Отзыв полезен? <button type="button" data-vote="up">👍 11</button><button type="button" data-vote="down">👎 0</button></div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+    (function () {
+      var list = document.getElementById('review-list');
+      var cards = Array.prototype.slice.call(list.children);
+
+      var sortBtns = document.querySelectorAll('.review-sort .chip-toggle');
+      sortBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          sortBtns.forEach(function (b) { b.classList.remove('selected'); });
+          btn.classList.add('selected');
+          var key = btn.dataset.sort;
+          var sorted = cards.slice();
+          if (key === 'new') {
+            sorted.sort(function (a, b) { return b.dataset.date.localeCompare(a.dataset.date); });
+          } else if (key === 'useful') {
+            sorted.sort(function (a, b) { return (Number(b.dataset.useful) - Number(a.dataset.useful)); });
+          } else if (key === 'high') {
+            sorted.sort(function (a, b) { return (Number(b.dataset.rating) - Number(a.dataset.rating)) || b.dataset.date.localeCompare(a.dataset.date); });
+          } else if (key === 'low') {
+            sorted.sort(function (a, b) { return (Number(a.dataset.rating) - Number(b.dataset.rating)) || b.dataset.date.localeCompare(a.dataset.date); });
+          }
+          sorted.forEach(function (el) { list.appendChild(el); });
+        });
+      });
+
+      var photoBtn = document.getElementById('filter-photo');
+      photoBtn.addEventListener('click', function () {
+        var active = photoBtn.classList.toggle('selected');
+        cards.forEach(function (c) {
+          c.hidden = !!(active && c.dataset.photo !== '1');
+        });
+      });
+
+      // #6 Двусторонние отзывы после сделки — не видны друг другу, пока обе стороны не отправят свой
+      (function () {
+        var starsInput = document.getElementById('mutual-stars-input');
+        var starEls = Array.prototype.slice.call(starsInput.querySelectorAll('span'));
+        var rating = 0;
+        starEls.forEach(function (el) {
+          el.addEventListener('click', function () {
+            rating = Number(el.dataset.star);
+            starEls.forEach(function (s) { s.classList.toggle('on', Number(s.dataset.star) <= rating); });
+          });
+        });
+        var submitBtn = document.getElementById('mutual-review-submit');
+        var textInput = document.getElementById('mutual-review-text');
+        submitBtn.addEventListener('click', function () {
+          var text = textInput.value.trim();
+          if (!rating || !text) {
+            textInput.style.borderColor = !text ? 'var(--error)' : '';
+            starsInput.style.outline = !rating ? '1.5px solid var(--error)' : '';
+            return;
+          }
+          document.getElementById('mutual-review-form').hidden = true;
+          var buyerBox = document.getElementById('mutual-review-buyer-sent');
+          buyerBox.hidden = false;
+          buyerBox.innerHTML = '<span class="review-stars-static">' + '★'.repeat(rating) + '☆'.repeat(5 - rating) + '</span>' +
+            '«' + text.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '»' +
+            '<div style="color:var(--slate);font-size:11px;margin-top:6px">✓ Отправлено. Станет виден продавцу и другим, когда продавец оставит отзыв о вас.</div>';
+          // Демо: имитируем, что у продавца уже был готов ответный отзыв — раскрываем обе стороны одновременно
+          setTimeout(function () {
+            document.getElementById('mutual-review-pending').hidden = true;
+            var sellerBox = document.getElementById('mutual-review-seller-sent');
+            sellerBox.hidden = false;
+            sellerBox.innerHTML = '<span class="review-stars-static">★★★★★</span>' +
+              '«Отличный покупатель — забрал вовремя, был на связи, претензий нет.» — Дашкевич Данил Игоревич' +
+              '<div style="color:var(--slate);font-size:11px;margin-top:6px">Оставлен сразу после сделки, ждал вашего отзыва для раскрытия.</div>';
+          }, 1400);
+        });
+      })();
+
+      document.querySelectorAll('.review-useful button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (btn.classList.contains('voted')) return;
+          var parts = btn.textContent.split(' ');
+          var icon = parts[0];
+          var n = parseInt(parts[1], 10) || 0;
+          btn.textContent = icon + ' ' + (n + 1);
+          btn.classList.add('voted');
+        });
+      });
+    })();
+    </script>
+
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Каталог ресурсов — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="active">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="resources.html" class="active">Каталог ресурсов</a>
+    </div>
+    <div class="search-row">
+      <input class="input" placeholder="Начните вводить имя или название">
+      <a class="button" href="add-resource.html">Добавить ресурс</a>
+      <div class="saved-search-widget" id="saved-search-widget" style="margin-left:auto">
+        <button class="button secondary" type="button" id="saved-search-btn">🔔 Сохранённые поиски<span class="saved-search-badge" id="saved-search-badge" hidden></span></button>
+        <div class="saved-search-panel" id="saved-search-panel" hidden>
+          <div class="saved-search-panel-title">Сохранённые поиски</div>
+          <div id="saved-search-list"></div>
+          <div class="empty-state" id="saved-search-empty" style="padding:16px 4px">Пока нет сохранённых поисков. Настройте фильтр и нажмите «Сохранить поиск» в панели слева.</div>
+        </div>
+      </div>
+      <span class="view-toggle"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button><button id="view-map-btn" type="button" title="На карте">📍</button></span>
+    </div>
+    <div class="content-with-filter">
+      <div style="flex:1">
+      <div id="resources-home"></div>
+      <div id="resources-flat" hidden>
+      <div class="cat-section-title"><span id="flat-section-title">Все ресурсы</span> <a href="resources.html" class="cat-back-link">← ко всем категориям</a></div><div class="ptile-grid" id="resources-grid">
+    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мясная и молочная продукция" data-price="450" data-promoted="1">
+      <div class="img-wrap">
+        <img src="images/photos/pelmeni.jpg" alt="Пельмени домашней лепки">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="promo-badge" title="Продвинуто автором за счёт уровня доверия (92%) — не за деньги">🚀 Топ</span>
+        <span class="loc-bar">📍 Тюмень</span>
+      </div>
+      <div class="price-line">от 450 ₽/кг</div>
+      <div class="pname">Пельмени домашней лепки</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Красноярск" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="380">
+      <div class="img-wrap">
+        <img src="images/photos/cement-bag.jpg" alt="Цемент">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      <div class="price-line">от 380 ₽/тонна</div>
+      <div class="pname">Цемент</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Обмен,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="620">
+      <div class="img-wrap">
+        <img src="images/photos/timber-beam.jpg" alt="Брус 20×20">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">от 620 ₽/м.</div>
+      <div class="pname">Брус 20×20</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="58">
+      <div class="img-wrap">
+        <img src="images/photos/rebar-steel.jpg" alt="Арматура А1-8">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">от 58 ₽/шт.</div>
+      <div class="pname">Арматура А1-8</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Красноярск" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="1800">
+      <div class="img-wrap">
+        <img src="images/photos/concrete-mixer.jpg" alt="Бетономешалка">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      <div class="price-line">от 1 800 ₽/сутки</div>
+      <div class="pname">Бетономешалка</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Сочи" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="500000">
+      <div class="img-wrap">
+        <img src="images/photos/finance-money.jpg" alt="Микрозайм на закупку материалов">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Сочи</span>
+      </div>
+      <div class="price-line">до 500 000 ₽</div>
+      <div class="pname">Микрозайм на закупку материалов</div>
+    </a>    <a class="ptile" href="resource.html" data-city="Новосибирск" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Грузовики и спецтехника" data-price="12000">
+      <div class="img-wrap">
+        <img src="images/photos/excavator.jpg" alt="Экскаватор-погрузчик">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Новосибирск</span>
+      </div>
+      <div class="price-line">от 12 000 ₽/сутки</div>
+      <div class="pname">Экскаватор-погрузчик</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Екатеринбург" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="890">
+      <div class="img-wrap">
+        <img src="images/photos/wood-planks.jpg" alt="Доски обрезные 40×150">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Екатеринбург</span>
+      </div>
+      <div class="price-line">от 890 ₽/м³</div>
+      <div class="pname">Доски обрезные 40×150</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="14500">
+      <div class="img-wrap">
+        <img src="images/photos/welding-machine.jpg" alt="Сварочный аппарат инверторный">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Казань</span>
+      </div>
+      <div class="price-line">от 14 500 ₽</div>
+      <div class="pname">Сварочный аппарат инверторный</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Ростов-на-Дону" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="11">
+      <div class="img-wrap">
+        <img src="images/photos/brick-stack.jpg" alt="Кирпич керамический М150">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Ростов-на-Дону</span>
+      </div>
+      <div class="price-line">от 11 ₽/шт.</div>
+      <div class="pname">Кирпич керамический М150</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="300000">
+      <div class="img-wrap">
+        <img src="images/photos/craft-workshop.jpg" alt="Грант на развитие ремесленного цеха">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="price-line">до 300 000 ₽</div>
+      <div class="pname">Грант на развитие ремесленного цеха</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Уфа" data-type="Материальный" data-methods="Продажа" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="4900">
+      <div class="img-wrap">
+        <img src="images/photos/concrete-truck.jpg" alt="Бетон товарный М300">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Уфа</span>
+      </div>
+      <div class="price-line">от 4 900 ₽/м³</div>
+      <div class="pname">Бетон товарный М300</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Самара" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="350">
+      <div class="img-wrap">
+        <img src="images/photos/scaffolding.jpg" alt="Строительные леса">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Самара</span>
+      </div>
+      <div class="price-line">от 350 ₽/сутки</div>
+      <div class="pname">Строительные леса</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Омск" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="620">
+      <div class="img-wrap">
+        <img src="images/photos/mineral-wool.jpg" alt="Утеплитель минеральная вата">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Омск</span>
+      </div>
+      <div class="price-line">от 620 ₽/м²</div>
+      <div class="pname">Утеплитель минеральная вата</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Челябинск" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="2">
+      <div class="img-wrap">
+        <img src="images/photos/finance-money.jpg" alt="Кредитная линия для малого бизнеса">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Челябинск</span>
+      </div>
+      <div class="price-line">до 2 млн ₽</div>
+      <div class="pname">Кредитная линия для малого бизнеса</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Нижний Новгород" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="2500">
+      <div class="img-wrap">
+        <img src="images/photos/diesel-generator.jpg" alt="Генератор дизельный 10кВт">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Нижний Новгород</span>
+      </div>
+      <div class="price-line">от 2 500 ₽/сутки</div>
+      <div class="pname">Генератор дизельный 10кВт</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Волгоград" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="450">
+      <div class="img-wrap">
+        <img src="images/photos/metal-roof.jpg" alt="Металлочерепица">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Волгоград</span>
+      </div>
+      <div class="price-line">от 450 ₽/м²</div>
+      <div class="pname">Металлочерепица</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="1600">
+      <div class="img-wrap">
+        <img src="images/photos/concrete-mixer.jpg" alt="Бетономешалка передвижная">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Краснодар</span>
+      </div>
+      <div class="price-line">от 1 600 ₽/сутки</div>
+      <div class="pname">Бетономешалка передвижная</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="5">
+      <div class="img-wrap">
+        <img src="images/photos/warehouse.jpg" alt="Инвестиции в кооперативный склад">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Тюмень</span>
+      </div>
+      <div class="price-line">до 5 млн ₽</div>
+      <div class="pname">Инвестиции в кооперативный склад</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Иркутск" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="210">
+      <div class="img-wrap">
+        <img src="images/photos/rebar-steel.jpg" alt="Профильная труба стальная">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Иркутск</span>
+      </div>
+      <div class="price-line">от 210 ₽/м.</div>
+      <div class="pname">Профильная труба стальная</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Волгоград" data-type="Материальный" data-methods="Продажа" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Гаражи и машиноместа" data-price="350000">
+      <div class="img-wrap">
+        <img src="images/photos/garage-building.jpg" alt="Гараж на продажу">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Волгоград</span>
+      </div>
+      <div class="price-line">от 350 000 ₽</div>
+      <div class="pname">Гараж на продажу</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Аренда" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Склады и коммерческая недвижимость" data-price="45000">
+      <div class="img-wrap">
+        <img src="images/photos/warehouse.jpg" alt="Складское помещение 200 м² в аренду">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="price-line">от 45 000 ₽/мес</div>
+      <div class="pname">Складское помещение 200 м² в аренду</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Ноутбуки и компьютеры" data-price="1500">
+      <div class="img-wrap">
+        <img src="images/photos/laptop-desk.jpg" alt="Ноутбук для удалённой работы">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">от 1 500 ₽/сутки</div>
+      <div class="pname">Ноутбук для удалённой работы</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Екатеринбург" data-type="Оборудование" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Видео и аудио" data-price="18000">
+      <div class="img-wrap">
+        <img src="images/photos/cctv-camera.jpg" alt="Комплект видеонаблюдения для склада">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Екатеринбург</span>
+      </div>
+      <div class="price-line">от 18 000 ₽</div>
+      <div class="pname">Комплект видеонаблюдения для склада</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Инструменты" data-price="3500">
+      <div class="img-wrap">
+        <img src="images/photos/toolbox.jpg" alt="Ящик с ручным инструментом">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Казань</span>
+      </div>
+      <div class="price-line">от 3 500 ₽</div>
+      <div class="pname">Ящик с ручным инструментом</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Ростов-на-Дону" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Хобби и отдых" data-subcategory="Велосипеды" data-price="42000">
+      <div class="img-wrap">
+        <img src="images/photos/cargo-bike.jpg" alt="Велосипед грузовой для доставки">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Ростов-на-Дону</span>
+      </div>
+      <div class="price-line">от 42 000 ₽</div>
+      <div class="pname">Велосипед грузовой для доставки</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Легковые автомобили" data-price="3200">
+      <div class="img-wrap">
+        <img src="images/photos/car-rental.jpg" alt="Легковой автомобиль в аренду">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Казань</span>
+      </div>
+      <div class="price-line">от 3 200 ₽/сутки</div>
+      <div class="pname">Легковой автомобиль в аренду</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Омск" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="1800">
+      <div class="img-wrap">
+        <img src="images/photos/mini-tractor.jpg" alt="Мини-трактор для участка">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Омск</span>
+      </div>
+      <div class="price-line">от 1 800 ₽/сутки</div>
+      <div class="pname">Мини-трактор для участка</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Санкт-Петербург" data-type="Материальный" data-methods="Аренда" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Склады и коммерческая недвижимость" data-price="950">
+      <div class="img-wrap">
+        <img src="images/photos/office-rent.jpg" alt="Офис в бизнес-центре в аренду">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Санкт-Петербург</span>
+      </div>
+      <div class="price-line">от 950 ₽/м² в год</div>
+      <div class="pname">Офис в бизнес-центре в аренду</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Земельные участки" data-price="65000">
+      <div class="img-wrap">
+        <img src="images/photos/land-plot.jpg" alt="Земельный участок под застройку">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Тюмень</span>
+      </div>
+      <div class="price-line">от 65 000 ₽/сотка</div>
+      <div class="pname">Земельный участок под застройку</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Челябинск" data-type="Оборудование" data-methods="Продажа,Аренда" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Оргтехника" data-price="14500">
+      <div class="img-wrap">
+        <img src="images/photos/mfu-printer.jpg" alt="МФУ (принтер-сканер) для офиса">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Челябинск</span>
+      </div>
+      <div class="price-line">от 14 500 ₽</div>
+      <div class="pname">МФУ (принтер-сканер) для офиса</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Иркутск" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Видео и аудио" data-price="6900">
+      <div class="img-wrap">
+        <img src="images/photos/radio-set.jpg" alt="Комплект раций для стройплощадки">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Иркутск</span>
+      </div>
+      <div class="price-line">от 6 900 ₽/комплект</div>
+      <div class="pname">Комплект раций для стройплощадки</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Материальный" data-methods="Продажа,Безвозмездно" data-listing-type="Предложение" data-category="Личные вещи" data-subcategory="Одежда, обувь, аксессуары" data-price="2400">
+      <div class="img-wrap">
+        <img src="images/photos/workwear-ppe.jpg" alt="Комплект спецодежды и СИЗ">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Краснодар</span>
+      </div>
+      <div class="price-line">от 2 400 ₽/комплект</div>
+      <div class="pname">Комплект спецодежды и СИЗ</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Нижний Новгород" data-type="Материальный" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Личные вещи" data-subcategory="Одежда, обувь, аксессуары" data-price="3100">
+      <div class="img-wrap">
+        <img src="images/photos/camping-tent.jpg" alt="Палатка туристическая для командировок">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Нижний Новгород</span>
+      </div>
+      <div class="price-line">от 3 100 ₽</div>
+      <div class="pname">Палатка туристическая для командировок</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="28">
+      <div class="img-wrap">
+        <img src="images/photos/potato-crate.jpg" alt="Картофель урожая этого года">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Краснодар</span>
+      </div>
+      <div class="price-line">от 28 ₽/кг</div>
+      <div class="pname">Картофель урожая этого года</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Алтайский край" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мёд и продукты пчеловодства" data-price="650">
+      <div class="img-wrap">
+        <img src="images/photos/honey-jar.jpg" alt="Мёд натуральный липовый">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Алтайский край</span>
+      </div>
+      <div class="price-line">от 650 ₽/кг</div>
+      <div class="pname">Мёд натуральный липовый</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Воронеж" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Крупы, мука и бакалея" data-price="32000">
+      <div class="img-wrap">
+        <img src="images/photos/wheat-flour.jpg" alt="Мука пшеничная высшего сорта">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Воронеж</span>
+      </div>
+      <div class="price-line">от 32 000 ₽/тонна</div>
+      <div class="pname">Мука пшеничная высшего сорта</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Вологда" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мясная и молочная продукция" data-price="95">
+      <div class="img-wrap">
+        <img src="images/photos/milk-bottles.jpg" alt="Молоко фермерское">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Вологда</span>
+      </div>
+      <div class="price-line">от 95 ₽/л</div>
+      <div class="pname">Молоко фермерское</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="1850000">
+      <div class="img-wrap">
+        <img src="images/photos/house-tecla.jpg" alt="Дом «Эко-Купол», 42 м²">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">от 1 850 000 ₽</div>
+      <div class="pname">Дом «Эко-Купол» · 42 м² · проект «Строительный 3д принтер»</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="1400000">
+      <div class="img-wrap">
+        <img src="images/photos/house-amie.jpg" alt="Дом «Аркада», 27 м²">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">от 1 400 000 ₽</div>
+      <div class="pname">Дом «Аркада» · 27 м² · проект «Строительный 3д принтер»</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="690000">
+      <div class="img-wrap">
+        <img src="images/photos/house-serendix.jpg" alt="Дом «Сфера», 14 м²">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">от 690 000 ₽</div>
+      <div class="pname">Дом «Сфера» · 14 м² · проект «Строительный 3д принтер»</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="1200">
+      <div class="img-wrap">
+        <img src="images/photos/vegbox-csa.jpg" alt="Коробка «Мини» — зелень и овощи">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="price-line">от 1 200 ₽/нед.</div>
+      <div class="pname">Коробка «Мини» · зелень и овощи · проект «Круглогодичная теплица»</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="2100">
+      <div class="img-wrap">
+        <img src="images/photos/vegbox-nl.jpg" alt="Коробка «Стандарт» — зелень и овощи">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="price-line">от 2 100 ₽/нед.</div>
+      <div class="pname">Коробка «Стандарт» · зелень и овощи · проект «Круглогодичная теплица»</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="3400">
+      <div class="img-wrap">
+        <img src="images/photos/vegbox-csa.jpg" alt="Коробка «Семейная» — зелень и овощи">
+        <span class="badge teal type-badge">Предложение</span>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="price-line">от 3 400 ₽/нед.</div>
+      <div class="pname">Коробка «Семейная» · зелень и овощи · проект «Круглогодичная теплица»</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа" data-listing-type="Спрос" data-category="Продовольственные товары" data-subcategory="Мёд и продукты пчеловодства" data-price="60000">
+      <div class="img-wrap">
+        <img src="images/photos/honey-jar.jpg" alt="Ищу партию мёда оптом">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">бюджет до 60 000 ₽</div>
+      <div class="pname">Ищу партию мёда оптом для магазина</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Новосибирск" data-type="Оборудование" data-methods="Продажа" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="90000">
+      <div class="img-wrap">
+        <img src="images/photos/meat-mixer-machine.jpg" alt="Куплю промышленную мешалку б/у">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Новосибирск</span>
+      </div>
+      <div class="price-line">бюджет до 90 000 ₽</div>
+      <div class="pname">Куплю промышленную мешалку б/у для цеха</div>
+    </a>
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="500000">
+      <div class="img-wrap">
+        <img src="images/photos/finance-money.jpg" alt="Ищу инвестора в цех по переработке">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Казань</span>
+      </div>
+      <div class="price-line">нужно 500 000 ₽</div>
+      <div class="pname">Ищу инвестора в открытие цеха по переработке</div>
+    </a>
+    <a class="ptile" href="person.html" data-city="Сочи" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты">
+      <div class="img-wrap">
+        <img src="images/photos/carrot.jpg" alt="Ищу морковь для дома">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Сочи</span>
+      </div>
+      <div class="price-line">нужно немного, для дома</div>
+      <div class="pname">Ищу морковь для дома · Дашкевич Данил Игоревич</div>
+    </a>
+    <a class="ptile" href="person.html" data-city="Сочи" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+      <div class="img-wrap">
+        <img src="images/photos/programmer.jpg" alt="Ищу программиста">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Сочи</span>
+      </div>
+      <div class="price-line">оплата по договорённости</div>
+      <div class="pname">Ищу программиста · Дашкевич Данил Игоревич</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="12000">
+      <div class="img-wrap">
+        <img src="images/photos/excavator.jpg" alt="Ищу экскаватор-погрузчик в аренду">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">бюджет до 12 000 ₽/сутки</div>
+      <div class="pname">Ищу экскаватор-погрузчик в аренду · ООО «Мириталь»</div>
+    </a>
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="1200000">
+      <div class="img-wrap">
+        <img src="images/photos/warehouse.jpg" alt="Ищу инвестиции в расширение склада">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">нужно 1 200 000 ₽</div>
+      <div class="pname">Ищу инвестиции в расширение склада · ООО «Мириталь»</div>
+    </a>
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+      <div class="img-wrap">
+        <img src="images/photos/land-plot.jpg" alt="Ищу пастуха на летний период">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Дербент</span>
+      </div>
+      <div class="price-line">оплата по договорённости</div>
+      <div class="pname">Ищу пастуха на летний период · Кооператив «Шукты»</div>
+    </a>
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="1800">
+      <div class="img-wrap">
+        <img src="images/photos/mini-tractor.jpg" alt="Ищу мини-трактор в аренду">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Дербент</span>
+      </div>
+      <div class="price-line">бюджет до 1 800 ₽/сутки</div>
+      <div class="pname">Ищу мини-трактор в аренду · Кооператив «Шукты»</div>
+    </a>
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="1000000">
+      <div class="img-wrap">
+        <img src="images/photos/craft-workshop.jpg" alt="Ищу инвестиции в модернизацию сыроварни">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Дербент</span>
+      </div>
+      <div class="price-line">нужно 1 000 000 ₽</div>
+      <div class="pname">Ищу инвестиции в модернизацию сыроварни · Кооператив «Шукты»</div>
+    </a>
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+      <div class="img-wrap">
+        <img src="images/photos/playground.jpg" alt="Ищу волонтёра-координатора мероприятий">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      <div class="price-line">волонтёрская позиция</div>
+      <div class="pname">Ищу волонтёра-координатора мероприятий · Фонд «Территория 2020»</div>
+    </a>
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Электроника" data-subcategory="Ноутбуки и компьютеры" data-price="90000">
+      <div class="img-wrap">
+        <img src="images/photos/laptop-desk.jpg" alt="Нужны ноутбуки для проектного офиса">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      <div class="price-line">бюджет до 90 000 ₽</div>
+      <div class="pname">Нужны ноутбуки для проектного офиса · Фонд «Территория 2020»</div>
+    </a>
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование">
+      <div class="img-wrap">
+        <img src="images/photos/finance-money.jpg" alt="Собираем пожертвования на грантовую программу">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Красноярск</span>
+      </div>
+      <div class="price-line">принимаем пожертвования</div>
+      <div class="pname">Собираем пожертвования на грантовую программу · Фонд «Территория 2020»</div>
+    </a>
+    <a class="ptile" href="program.html" data-city="Дербент" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+      <div class="img-wrap">
+        <img src="images/photos/land-plot.jpg" alt="Ищу агронома-консультанта на сезон">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Дербент</span>
+      </div>
+      <div class="price-line">оплата по договорённости</div>
+      <div class="pname">Ищу агронома-консультанта на сезон · программа «Урожай сообща»</div>
+    </a>
+    <a class="ptile" href="program.html" data-city="Дербент" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="900000">
+      <div class="img-wrap">
+        <img src="images/photos/mini-tractor.jpg" alt="Нужен ещё один мини-трактор в лизинг">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Дербент</span>
+      </div>
+      <div class="price-line">бюджет до 900 000 ₽</div>
+      <div class="pname">Нужен ещё один мини-трактор в лизинг · программа «Урожай сообща»</div>
+    </a>
+    <a class="ptile" href="program.html" data-city="Дербент" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="800000">
+      <div class="img-wrap">
+        <img src="images/photos/warehouse.jpg" alt="Ищу инвестиции в расширение склада">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Дербент</span>
+      </div>
+      <div class="price-line">нужно 800 000 ₽</div>
+      <div class="pname">Ищу инвестиции в расширение склада · программа «Урожай сообща»</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Москва" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="50">
+      <div class="img-wrap">
+        <img src="images/photos/cement-bag.jpg" alt="Нужен цемент, 50 тонн">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">нужно 50 тонн · бюджет 500 000 ₽</div>
+      <div class="pname">Нужен цемент, 50 тонн · проект «Строительный 3д принтер»</div>
+    </a>
+    <a class="ptile" href="project.html" data-city="Москва" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-price="50000">
+      <div class="img-wrap">
+        <img src="images/photos/welding-machine.jpg" alt="Ищу инженера-технолога">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Москва</span>
+      </div>
+      <div class="price-line">бюджет 50 000 ₽</div>
+      <div class="pname">Ищу инженера-технолога · проект «Строительный 3д принтер»</div>
+    </a>
+    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="850">
+      <div class="img-wrap">
+        <img src="images/photos/greenhouse.jpg" alt="Нужны поликарбонатные панели (обшивка)">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="price-line">нужно 850 м² · бюджет 1 100 000 ₽</div>
+      <div class="pname">Нужны поликарбонатные панели (обшивка) · проект «Круглогодичная теплица»</div>
+    </a>
+    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-price="200000">
+      <div class="img-wrap">
+        <img src="images/photos/greenhouse-interior.jpg" alt="Ищу агронома">
+        <span class="badge demand type-badge">Спрос</span>
+        <span class="loc-bar">📍 Пермь</span>
+      </div>
+      <div class="price-line">бюджет 200 000 ₽</div>
+      <div class="pname">Ищу агронома · проект «Круглогодичная теплица»</div>
+    </a>
+</div>
+      <div class="empty-state" id="resources-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      <div class="resource-map" id="resources-map" hidden>
+        <div class="resource-map-canvas" id="resources-map-canvas"></div>
+        <p style="color:var(--slate);font-size:11.5px;margin:8px 0 0">Размер метки — сколько объявлений в городе (с учётом текущих фильтров). Нажмите на метку, чтобы отфильтровать по городу.</p>
+      </div>
+      </div>
+      </div>
+      <div class="filter-panel" id="resources-filter-panel">
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Быстрые фильтры</label>
+          <div class="quick-chips-row" id="quick-chips-row">
+            <button type="button" class="quick-chip" data-quick="photo">📷 С фото</button>
+            <button type="button" class="quick-chip" data-quick="exchange">🔄 На обмен</button>
+            <button type="button" class="quick-chip" data-quick="free">🎁 Безвозмездно</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Спрос или предложение <span class="stat-note" title="Предложение — вам готовы передать ресурс; Спрос — кто-то ищет этот ресурс и готов его получить">ⓘ</span></label>
+          <select class="input" id="filter-listing-type">
+            <option value="">Любая</option>
+            <option value="Предложение">Предложение</option>
+            <option value="Спрос">Спрос</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Категория <span class="stat-note" title="Дерево категорий, как разделы на Авито">ⓘ</span></label>
+          <select class="input" id="filter-category">
+            <option value="">Любая</option>
+            <option value="Транспорт">🚗 Транспорт</option>
+            <option value="Недвижимость">🏠 Недвижимость</option>
+            <option value="Услуги">🛠️ Услуги</option>
+            <option value="Личные вещи">👕 Личные вещи</option>
+            <option value="Продовольственные товары">🥕 Продовольственные товары</option>
+            <option value="Для дома и дачи">🏡 Для дома и дачи</option>
+            <option value="Запчасти и аксессуары">⚙️ Запчасти и аксессуары</option>
+            <option value="Электроника">💻 Электроника</option>
+            <option value="Хобби и отдых">🎨 Хобби и отдых</option>
+            <option value="Животные">🐾 Животные</option>
+            <option value="Бизнес и оборудование">🏢 Бизнес и оборудование</option>
+          </select>
+        </div>
+        <div class="field" id="subcategory-field" hidden>
+          <label>Подкатегория</label>
+          <select class="input" id="filter-subcategory">
+            <option value="">Любая</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Город <span class="stat-note" title="Показать ресурсы только из выбранного города">ⓘ</span></label>
+          <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
+          <datalist id="city-options">
+            <option value="Москва"><option value="Красноярск"><option value="Сочи"><option value="Новосибирск"><option value="Екатеринбург"><option value="Казань"><option value="Ростов-на-Дону"><option value="Пермь"><option value="Уфа"><option value="Самара"><option value="Омск"><option value="Челябинск"><option value="Нижний Новгород"><option value="Волгоград"><option value="Краснодар"><option value="Тюмень"><option value="Иркутск">
+          </datalist>
+        </div>
+        <div class="field">
+          <label>Цена, ₽ <span class="stat-note" title="Диапазон цены (для «Спрос» — бюджета), объявления без указанной цены показываются всегда">ⓘ</span></label>
+          <div class="form-two-col">
+            <input class="input" id="filter-price-min" type="number" min="0" placeholder="от">
+            <input class="input" id="filter-price-max" type="number" min="0" placeholder="до">
+          </div>
+        </div>
+        <div class="field">
+          <label>Тип <span class="stat-note" title="Материальный — вещи, Оборудование — техника, Финансовый — деньги, Труд — услуги и вакансии">ⓘ</span></label>
+          <select class="input" id="filter-type">
+            <option value="">Любой</option>
+            <option value="Материальный">Материальный</option>
+            <option value="Оборудование">Оборудование</option>
+            <option value="Финансовый">Финансовый</option>
+            <option value="Труд">Труд</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Способ получения <span class="stat-note" title="Можно выбрать несколько — начните вводить и выберите из списка">ⓘ</span></label>
+          <input class="input" id="filter-method-input" list="method-options" placeholder="Например, аренда">
+          <datalist id="method-options">
+            <option value="Продажа"><option value="Аренда"><option value="Рассрочка"><option value="Лизинг"><option value="Безвозмездно"><option value="Обмен"><option value="Участие в проекте">
+          </datalist>
+          <div class="filter-chips" id="method-chips"></div>
+        </div>
+        <button class="button" id="save-search-btn" style="width:100%;margin-bottom:8px">🔔 Сохранить поиск</button>
+        <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="vacancies.html">вакансии</a>
+    </div>
+
+  </main>
+</div>
+
+<!-- #20 Жалоба на объявление -->
+<div class="modal-overlay" id="report-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Пожаловаться на объявление</h2>
+      <button class="modal-close" id="report-modal-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint" id="report-modal-target">Объявление: —</p>
+    <div class="field">
+      <label>Причина</label>
+      <div class="radio-group" style="flex-direction:column;align-items:flex-start;gap:8px">
+        <label class="radio-option"><input type="radio" name="report-reason" value="Мошенничество" checked> Похоже на мошенничество</label>
+        <label class="radio-option"><input type="radio" name="report-reason" value="Спам"> Спам или реклама</label>
+        <label class="radio-option"><input type="radio" name="report-reason" value="Неверная категория"> Неверная категория</label>
+        <label class="radio-option"><input type="radio" name="report-reason" value="Оскорбительный контент"> Оскорбительный контент</label>
+        <label class="radio-option"><input type="radio" name="report-reason" value="Другое"> Другое</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Комментарий (необязательно)</label>
+      <textarea class="input" id="report-comment" rows="2" placeholder="Опишите подробнее, если нужно"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="report-modal-cancel" type="button">Отмена</button>
+      <button class="button" id="report-modal-send" type="button">Отправить жалобу</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="report-toast">✓ Жалоба отправлена модераторам</div>
+
+<script>
+var selectedMethods = [];
+var methodOptions = Array.from(document.querySelectorAll('#method-options option')).map(function (o) { return o.value; });
+
+function renderMethodChips() {
+  var box = document.getElementById('method-chips');
+  box.innerHTML = selectedMethods.map(function (s, i) {
+    return '<span class="chip">' + s + ' <span class="chip-remove" data-i="' + i + '">✕</span></span>';
+  }).join('');
+  box.querySelectorAll('.chip-remove').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      selectedMethods.splice(parseInt(btn.dataset.i, 10), 1);
+      renderMethodChips();
+      applyFilters();
+    });
+  });
+}
+
+document.getElementById('filter-method-input').addEventListener('input', function (e) {
+  var val = e.target.value.trim();
+  if (methodOptions.indexOf(val) !== -1 && selectedMethods.indexOf(val) === -1) {
+    selectedMethods.push(val);
+    e.target.value = '';
+    renderMethodChips();
+    applyFilters();
+  }
+});
+
+// Дерево категорий каталога (как на Авито) — верхний уровень + подкатегории
+var CATEGORY_TREE = {
+  'Транспорт': ['Легковые автомобили', 'Грузовики и спецтехника', 'Мотоциклы и мототехника', 'Аренда спецтехники'],
+  'Недвижимость': ['Квартиры и комнаты', 'Дома, дачи, коттеджи', 'Гаражи и машиноместа', 'Земельные участки', 'Склады и коммерческая недвижимость'],
+  'Услуги': ['Ремонт и строительство', 'Перевозки и доставка', 'Бытовые услуги', 'Деловые услуги'],
+  'Личные вещи': ['Одежда, обувь, аксессуары', 'Товары для детей', 'Часы и украшения', 'Красота и здоровье'],
+  'Продовольственные товары': ['Овощи и фрукты', 'Мясная и молочная продукция', 'Крупы, мука и бакалея', 'Мёд и продукты пчеловодства', 'Напитки'],
+  'Для дома и дачи': ['Ремонт и стройматериалы', 'Инструменты', 'Мебель и интерьер', 'Бытовая техника', 'Растения'],
+  'Запчасти и аксессуары': ['Запчасти для техники', 'Шины, диски и колёса', 'Аксессуары'],
+  'Электроника': ['Ноутбуки и компьютеры', 'Телефоны', 'Оргтехника', 'Видео и аудио'],
+  'Хобби и отдых': ['Велосипеды', 'Спорт и отдых', 'Музыкальные инструменты', 'Книги'],
+  'Животные': ['Товары для животных', 'Ветеринарные услуги'],
+  'Бизнес и оборудование': ['Оборудование для бизнеса', 'Готовый бизнес', 'Финансирование'],
+};
+
+var selectedCategory = '';
+var selectedSubcategory = '';
+var filterCategorySelect = document.getElementById('filter-category');
+var filterSubcategorySelect = document.getElementById('filter-subcategory');
+var subcategoryField = document.getElementById('subcategory-field');
+
+function populateSubcategories(cat) {
+  var subs = CATEGORY_TREE[cat] || [];
+  filterSubcategorySelect.innerHTML = '<option value="">Любая</option>' +
+    subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+  subcategoryField.hidden = subs.length === 0;
+}
+
+filterCategorySelect.addEventListener('change', function () {
+  selectedCategory = filterCategorySelect.value;
+  selectedSubcategory = '';
+  populateSubcategories(selectedCategory);
+  applyFilters();
+});
+filterSubcategorySelect.addEventListener('change', function () {
+  selectedSubcategory = filterSubcategorySelect.value;
+  applyFilters();
+});
+
+var selectedQuickChips = [];
+function cardMatchesQuick(card, key) {
+  var methods = (card.dataset.methods || '').split(',').filter(Boolean);
+  if (key === 'photo') return !!card.querySelector('.img-wrap img');
+  if (key === 'exchange') return methods.indexOf('Обмен') !== -1;
+  if (key === 'free') return methods.indexOf('Безвозмездно') !== -1;
+  return true;
+}
+// Общая проверка карточки по всем фильтрам, кроме одного — исключаемого (для facet-счётчиков категорий)
+function cardMatchesFilters(card, opts) {
+  opts = opts || {};
+  var city = document.getElementById('filter-city').value.trim().toLowerCase();
+  var type = document.getElementById('filter-type').value;
+  var listingType = document.getElementById('filter-listing-type').value;
+  var priceMin = parseFloat(document.getElementById('filter-price-min').value);
+  var priceMax = parseFloat(document.getElementById('filter-price-max').value);
+  var cardCity = (card.dataset.city || '').toLowerCase();
+  var cardMethods = (card.dataset.methods || '').split(',').filter(Boolean);
+  var cardPrice = card.dataset.price ? parseFloat(card.dataset.price) : null;
+  var priceOk = cardPrice === null || ((isNaN(priceMin) || cardPrice >= priceMin) && (isNaN(priceMax) || cardPrice <= priceMax));
+  var cityOk = !city || cardCity.indexOf(city) !== -1;
+  var typeOk = !type || card.dataset.type === type;
+  var listingTypeOk = !listingType || card.dataset.listingType === listingType;
+  var categoryOk = opts.skipCategory || !selectedCategory || card.dataset.category === selectedCategory;
+  var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
+  var methodsOk = selectedMethods.length === 0 || selectedMethods.some(function (m) { return cardMethods.indexOf(m) !== -1; });
+  var quickOk = selectedQuickChips.every(function (k) { return cardMatchesQuick(card, k); });
+  return cityOk && typeOk && listingTypeOk && categoryOk && subcategoryOk && methodsOk && priceOk && quickOk;
+}
+
+function applyFilters() {
+  resourcesHome.hidden = true;
+  resourcesFlat.hidden = false;
+  flatSectionTitle.textContent = selectedCategory || 'Все ресурсы';
+  var cards = document.querySelectorAll('#resources-grid .ptile');
+  var visibleCount = 0;
+  cards.forEach(function (card) {
+    var show = cardMatchesFilters(card);
+    card.style.display = show ? '' : 'none';
+    // #18 Продвижение за счёт доверия/кредитов, а не денег — продвинутые объявления всплывают первыми в выдаче
+    card.style.order = card.dataset.promoted === '1' ? '-1' : '0';
+    if (show) visibleCount++;
+  });
+  document.getElementById('resources-empty').hidden = visibleCount > 0;
+  updateCategoryCounts();
+}
+document.getElementById('filter-city').addEventListener('input', applyFilters);
+document.getElementById('filter-type').addEventListener('change', applyFilters);
+document.getElementById('filter-listing-type').addEventListener('change', applyFilters);
+document.getElementById('filter-price-min').addEventListener('input', applyFilters);
+document.getElementById('filter-price-max').addEventListener('input', applyFilters);
+document.querySelectorAll('#quick-chips-row .quick-chip').forEach(function (chip) {
+  chip.addEventListener('click', function () {
+    var key = chip.dataset.quick;
+    var i = selectedQuickChips.indexOf(key);
+    if (i === -1) { selectedQuickChips.push(key); chip.classList.add('selected'); }
+    else { selectedQuickChips.splice(i, 1); chip.classList.remove('selected'); }
+    applyFilters();
+  });
+});
+
+// Facet-счётчики: сколько объявлений найдётся в каждой категории при остальных активных фильтрах
+var categoryBaseLabels = {};
+Array.prototype.forEach.call(filterCategorySelect.options, function (o) {
+  categoryBaseLabels[o.value] = o.textContent;
+});
+function updateCategoryCounts() {
+  var cards = document.querySelectorAll('#resources-grid .ptile');
+  var counts = {};
+  cards.forEach(function (card) {
+    if (!cardMatchesFilters(card, { skipCategory: true })) return;
+    var cat = card.dataset.category;
+    if (!cat) return;
+    counts[cat] = (counts[cat] || 0) + 1;
+  });
+  Array.prototype.forEach.call(filterCategorySelect.options, function (o) {
+    if (!o.value) { o.textContent = categoryBaseLabels[o.value]; return; }
+    var n = counts[o.value] || 0;
+    o.textContent = categoryBaseLabels[o.value] + ' (' + n + ')';
+    o.disabled = n === 0 && o.value !== selectedCategory;
+  });
+}
+updateCategoryCounts();
+
+function resetFilters() {
+  document.getElementById('filter-city').value = '';
+  document.getElementById('filter-type').value = '';
+  document.getElementById('filter-listing-type').value = '';
+  document.getElementById('filter-price-min').value = '';
+  document.getElementById('filter-price-max').value = '';
+  selectedQuickChips = [];
+  document.querySelectorAll('#quick-chips-row .quick-chip.selected').forEach(function (c) { c.classList.remove('selected'); });
+  filterCategorySelect.value = '';
+  selectedCategory = '';
+  selectedSubcategory = '';
+  subcategoryField.hidden = true;
+  selectedMethods = [];
+  renderMethodChips();
+  showHomeView();
+  updateCategoryCounts();
+}
+document.getElementById('filter-reset').addEventListener('click', resetFilters);
+
+// #2 Сохранённые поиски + алерты о новых совпадениях
+var SAVED_SEARCHES_KEY = 'coop_saved_searches';
+function getSavedSearches() {
+  try { return JSON.parse(localStorage.getItem(SAVED_SEARCHES_KEY)) || []; } catch (e) { return []; }
+}
+function setSavedSearches(list) { localStorage.setItem(SAVED_SEARCHES_KEY, JSON.stringify(list)); }
+
+function currentFilterState() {
+  return {
+    category: selectedCategory,
+    subcategory: selectedSubcategory,
+    city: document.getElementById('filter-city').value.trim(),
+    type: document.getElementById('filter-type').value,
+    listingType: document.getElementById('filter-listing-type').value,
+    methods: selectedMethods.slice()
+  };
+}
+function describeFilterState(f) {
+  var parts = [];
+  if (f.listingType) parts.push(f.listingType);
+  if (f.subcategory) parts.push(f.subcategory); else if (f.category) parts.push(f.category);
+  if (f.city) parts.push('📍 ' + f.city);
+  if (f.type) parts.push(f.type);
+  if (f.methods && f.methods.length) parts.push(f.methods.join('/'));
+  return parts.length ? parts.join(' · ') : 'Все ресурсы';
+}
+function countMatches(f) {
+  var city = (f.city || '').toLowerCase();
+  var count = 0;
+  document.querySelectorAll('#resources-grid .ptile').forEach(function (card) {
+    var cardCity = (card.dataset.city || '').toLowerCase();
+    var cardMethods = (card.dataset.methods || '').split(',').filter(Boolean);
+    var ok = (!city || cardCity.indexOf(city) !== -1) &&
+      (!f.type || card.dataset.type === f.type) &&
+      (!f.listingType || card.dataset.listingType === f.listingType) &&
+      (!f.category || card.dataset.category === f.category) &&
+      (!f.subcategory || card.dataset.subcategory === f.subcategory) &&
+      (!f.methods || f.methods.length === 0 || f.methods.some(function (m) { return cardMethods.indexOf(m) !== -1; }));
+    if (ok) count++;
+  });
+  return count;
+}
+function pluralResources(n) {
+  return n + (n === 1 ? ' объявление' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? ' объявления' : ' объявлений'));
+}
+
+var savedSearchBtn = document.getElementById('saved-search-btn');
+var savedSearchPanel = document.getElementById('saved-search-panel');
+savedSearchBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  savedSearchPanel.hidden = !savedSearchPanel.hidden;
+});
+document.addEventListener('click', function (e) {
+  if (!savedSearchPanel.hidden && !document.getElementById('saved-search-widget').contains(e.target)) savedSearchPanel.hidden = true;
+});
+
+function applySavedSearch(s) {
+  document.getElementById('filter-city').value = s.city || '';
+  document.getElementById('filter-type').value = s.type || '';
+  document.getElementById('filter-listing-type').value = s.listingType || '';
+  filterCategorySelect.value = s.category || '';
+  selectedCategory = s.category || '';
+  populateSubcategories(selectedCategory);
+  filterSubcategorySelect.value = s.subcategory || '';
+  selectedSubcategory = s.subcategory || '';
+  selectedMethods = (s.methods || []).slice();
+  renderMethodChips();
+  applyFilters();
+}
+
+function renderSavedSearches() {
+  var list = getSavedSearches();
+  var listBox = document.getElementById('saved-search-list');
+  var emptyBox = document.getElementById('saved-search-empty');
+  var badge = document.getElementById('saved-search-badge');
+  emptyBox.hidden = list.length > 0;
+  var totalNew = 0;
+  listBox.innerHTML = list.map(function (s) {
+    var currentCount = countMatches(s);
+    var delta = currentCount - (typeof s.lastCount === 'number' ? s.lastCount : currentCount);
+    if (delta > 0) totalNew += delta;
+    var metaText = pluralResources(currentCount);
+    if (delta > 0) metaText += ' · <span class="new-count">+' + delta + ' нов' + (delta === 1 ? 'ое' : 'ых') + '</span>';
+    return '<div class="saved-search-item">' +
+      '<div class="saved-search-item-label">' + s.label + '</div>' +
+      '<div class="saved-search-item-meta">' + metaText + '</div>' +
+      '<div class="saved-search-item-actions">' +
+      '<button class="button secondary" data-action="apply" data-id="' + s.id + '" type="button">Показать</button>' +
+      '<button class="button secondary" data-action="delete" data-id="' + s.id + '" type="button">Удалить</button>' +
+      '</div></div>';
+  }).join('');
+  badge.hidden = totalNew === 0;
+  badge.textContent = totalNew > 9 ? '9+' : totalNew;
+  listBox.querySelectorAll('[data-action="apply"]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var s = getSavedSearches().filter(function (x) { return x.id === btn.dataset.id; })[0];
+      if (!s) return;
+      applySavedSearch(s);
+      var arr = getSavedSearches().map(function (x) { return x.id === s.id ? Object.assign({}, x, { lastCount: countMatches(s) }) : x; });
+      setSavedSearches(arr);
+      renderSavedSearches();
+      savedSearchPanel.hidden = true;
+    });
+  });
+  listBox.querySelectorAll('[data-action="delete"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setSavedSearches(getSavedSearches().filter(function (x) { return x.id !== btn.dataset.id; }));
+      renderSavedSearches();
+    });
+  });
+}
+
+document.getElementById('save-search-btn').addEventListener('click', function () {
+  var state = currentFilterState();
+  state.id = 'ss' + Date.now();
+  state.label = describeFilterState(state);
+  state.lastCount = countMatches(state);
+  var list = getSavedSearches();
+  list.unshift(state);
+  setSavedSearches(list);
+  renderSavedSearches();
+  savedSearchPanel.hidden = false;
+});
+
+renderSavedSearches();
+document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+
+// Переключатель вида: плиткой / списком
+var viewGrid = document.getElementById('resources-grid');
+var viewListBtn = document.getElementById('view-list-btn');
+var viewTileBtn = document.getElementById('view-tile-btn');
+function ensureListMeta(grid) {
+  grid.querySelectorAll('.ptile').forEach(function (p) {
+    if (p.querySelector('.list-meta')) return;
+    var price = p.querySelector('.price-line');
+    var badge = p.querySelector('.pct-badge');
+    var loc = p.querySelector('.loc-bar');
+    var meta = document.createElement('div');
+    meta.className = 'list-meta';
+    meta.textContent = (price ? price.textContent + ' · ' : (badge ? badge.textContent + ' · ' : '')) + (loc ? loc.textContent : '');
+    p.querySelector('.pname').insertAdjacentElement('afterend', meta);
+  });
+}
+viewListBtn.addEventListener('click', function () {
+  ensureListMeta(viewGrid);
+  viewGrid.classList.add('list-mode');
+  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
+});
+viewTileBtn.addEventListener('click', function () {
+  viewGrid.classList.remove('list-mode');
+  viewGrid.hidden = false;
+  resourcesMap.hidden = true;
+  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active'); viewMapBtn.classList.remove('active');
+});
+
+// #4 Карта объявлений по городу — схематичная карта России с метками по городам
+var viewMapBtn = document.getElementById('view-map-btn');
+var resourcesMap = document.getElementById('resources-map');
+var CITY_MAP_POS = {
+  'Санкт-Петербург': [8, 20], 'Москва': [18, 32], 'Вологда': [17, 24], 'Воронеж': [20, 42],
+  'Ростов-на-Дону': [18, 54], 'Краснодар': [15, 58], 'Сочи': [16, 64], 'Дербент': [24, 68],
+  'Волгоград': [24, 52], 'Самара': [30, 42], 'Казань': [32, 34], 'Уфа': [38, 38],
+  'Пермь': [40, 28], 'Екатеринбург': [44, 32], 'Челябинск': [44, 38], 'Тюмень': [50, 30],
+  'Омск': [56, 36], 'Алтайский край': [60, 46], 'Новосибирск': [62, 38], 'Красноярск': [70, 34],
+  'Иркутск': [80, 42], 'Нижний Новгород': [24, 30], 'Нижний Тагил': [42, 28], 'Хабаровск': [92, 46],
+  'Владивосток': [90, 54], 'Калининград': [3, 18], 'Архангельск': [22, 12], 'Магнитогорск': [42, 42]
+};
+function mapEscapeHtml(s) {
+  return (s || '').replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function renderMap() {
+  var canvas = document.getElementById('resources-map-canvas');
+  var counts = {};
+  document.querySelectorAll('#resources-grid .ptile').forEach(function (card) {
+    if (card.style.display === 'none') return;
+    var city = card.dataset.city;
+    if (!city) return;
+    counts[city] = (counts[city] || 0) + 1;
+  });
+  var pins = Object.keys(counts).map(function (city) {
+    var pos = CITY_MAP_POS[city];
+    if (!pos) return '';
+    var size = Math.min(28, 12 + counts[city] * 3);
+    return '<button class="map-pin" type="button" style="left:' + pos[0] + '%;top:' + pos[1] + '%" data-city="' + mapEscapeHtml(city) + '">' +
+      '<span class="map-pin-dot" style="width:' + size + 'px;height:' + size + 'px"></span>' +
+      '<span class="map-pin-label">' + mapEscapeHtml(city) + ' · <span class="map-pin-count">' + counts[city] + '</span></span>' +
+      '</button>';
+  }).join('');
+  canvas.innerHTML = pins || '<p style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--slate);font-size:12.5px">Нет городов, подходящих под текущий фильтр</p>';
+  canvas.querySelectorAll('.map-pin').forEach(function (pin) {
+    pin.addEventListener('click', function () {
+      document.getElementById('filter-city').value = pin.dataset.city;
+      applyFilters();
+      viewTileBtn.click();
+    });
+  });
+}
+viewMapBtn.addEventListener('click', function () {
+  viewGrid.hidden = true;
+  viewGrid.classList.remove('list-mode');
+  resourcesMap.hidden = false;
+  viewMapBtn.classList.add('active'); viewTileBtn.classList.remove('active'); viewListBtn.classList.remove('active');
+  renderMap();
+});
+
+// Домашний вид каталога: «Все ресурсы» + ряд по каждой непустой категории (4 плитки + «Смотреть все»)
+var resourcesHome = document.getElementById('resources-home');
+var resourcesFlat = document.getElementById('resources-flat');
+var resourcesFilterPanel = document.getElementById('resources-filter-panel');
+var flatSectionTitle = document.getElementById('flat-section-title');
+var homeBuilt = false;
+
+function buildHomeView() {
+  if (homeBuilt) return;
+  homeBuilt = true;
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('#resources-grid .ptile'));
+  var rows = [{ title: 'Все ресурсы', key: '', cards: allCards }];
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    rows.push({ title: cat, key: cat, cards: allCards.filter(function (c) { return c.dataset.category === cat; }) });
+  });
+  var html = '';
+  rows.forEach(function (row) {
+    if (row.cards.length === 0) return;
+    var href = row.key ? 'resources.html?category=' + encodeURIComponent(row.key) : 'resources.html?view=all';
+    html += '<div class="shelf-row"><div class="shelf-row-title"><span>' + row.title + '</span></div><div class="ptile-grid">';
+    row.cards.slice(0, 4).forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.style.display = '';
+      html += clone.outerHTML;
+    });
+    html += '<a class="view-all-tile" href="' + href + '"><span class="view-all-arrow">→</span>Смотреть все</a>';
+    html += '</div></div>';
+  });
+  resourcesHome.innerHTML = html;
+  injectReportButtons(resourcesHome);
+}
+
+function showHomeView() {
+  buildHomeView();
+  resourcesHome.hidden = false;
+  resourcesFlat.hidden = true;
+}
+
+function showFlatView(catParam) {
+  if (catParam && CATEGORY_TREE[catParam]) {
+    filterCategorySelect.value = catParam;
+    selectedCategory = catParam;
+    populateSubcategories(catParam);
+  } else {
+    filterCategorySelect.value = '';
+    selectedCategory = '';
+    selectedSubcategory = '';
+    subcategoryField.hidden = true;
+  }
+  applyFilters();
+}
+
+(function initResourcesView() {
+  var params = new URLSearchParams(location.search);
+  var catParam = params.get('category');
+  var viewAll = params.get('view') === 'all';
+  if (catParam || viewAll) {
+    showFlatView(catParam);
+  } else {
+    showHomeView();
+  }
+})();
+
+// #20 Жалоба/модерация с карточки
+var REPORTS_KEY = 'coop_reports';
+var reportModal = document.getElementById('report-modal');
+var reportTarget = document.getElementById('report-modal-target');
+var reportTargetName = '';
+// Приём объявлений, размещённых через отдельную страницу add-resource.html (в стиле Авито) —
+// демо-очередь в localStorage (см. add-resource.html), разбирается один раз при загрузке каталога.
+function escapeHtml(s) {
+  return (s || '').toString().replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function buildResourceCardFromData(data) {
+  var a = document.createElement('a');
+  a.className = 'ptile';
+  a.href = 'resource.html';
+  a.dataset.city = data.city || '';
+  a.dataset.type = data.type || '';
+  a.dataset.methods = (data.methods || []).join(',');
+  a.dataset.listingType = data.listingType || 'Предложение';
+  a.dataset.category = data.category || '';
+  a.dataset.subcategory = data.subcategory || '';
+  if (data.promoted) a.dataset.promoted = '1';
+  var firstMethod = data.methods && data.methods[0];
+  var firstDetail = firstMethod && data.methodDetails ? data.methodDetails[firstMethod] : null;
+  var priceLine = firstDetail ? firstDetail : (data.listingType === 'Спрос' ? 'Бюджет по договорённости' : 'Цена по запросу');
+  a.dataset.price = firstDetail ? (parseInt(String(firstDetail).replace(/[^\d]/g, ''), 10) || 0) : 0;
+
+  var mediaHtml = (data.photos && data.photos.length)
+    ? '<img src="' + data.photos[0] + '" alt="' + escapeHtml(data.title) + '">'
+    : '<div class="org-logo" style="background:linear-gradient(135deg,var(--teal-tint),var(--gold-tint));color:var(--teal-dark)">' + escapeHtml((data.title || '?').slice(0, 2).toUpperCase()) + '</div>';
+  var listingBadge = data.listingType === 'Спрос'
+    ? '<span class="badge demand type-badge">Ищу</span>'
+    : '<span class="badge teal type-badge">Предложение</span>';
+  var promoBadge = data.promoted ? '<span class="promo-badge" title="Продвинуто за счёт доверия/кредитов, не за деньги">🚀 Топ</span>' : '';
+
+  a.innerHTML =
+    '<div class="img-wrap">' + mediaHtml +
+    listingBadge + promoBadge +
+    '<span class="loc-bar">📍 ' + escapeHtml(data.city || '') + '</span></div>' +
+    '<div class="price-line">' + escapeHtml(priceLine) + '</div>' +
+    '<div class="pname">' + escapeHtml(data.title || '') + '</div>';
+  return a;
+}
+(function () {
+  var queue = [];
+  try { queue = JSON.parse(localStorage.getItem('coop_new_resources') || '[]'); } catch (e) {}
+  if (!queue.length) return;
+  var grid = document.getElementById('resources-grid');
+  queue.forEach(function (data) {
+    grid.insertBefore(buildResourceCardFromData(data), grid.firstChild);
+  });
+  try { localStorage.removeItem('coop_new_resources'); } catch (e) {}
+  homeBuilt = false;
+  updateCategoryCounts();
+  applyFilters();
+})();
+
+function injectReportButtons(root) {
+  (root || document).querySelectorAll('.ptile .img-wrap').forEach(function (wrap) {
+    var btn = wrap.querySelector('.report-flag-btn');
+    if (btn && btn.dataset.wired) return; // уже есть кнопка с рабочим обработчиком
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'report-flag-btn';
+      btn.title = 'Пожаловаться на объявление';
+      btn.textContent = '⚑';
+      wrap.appendChild(btn);
+    }
+    // clone клонирует элемент кнопки (buildHomeView копирует карточки через cloneNode),
+    // но не копирует обработчики — навешиваем заново на каждую найденную кнопку без метки dataset.wired
+    btn.dataset.wired = '1';
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var tile = wrap.closest('.ptile');
+      var nameEl = tile ? tile.querySelector('.pname') : null;
+      reportTargetName = nameEl ? nameEl.textContent : 'объявление';
+      reportTarget.textContent = 'Объявление: ' + reportTargetName;
+      reportModal.hidden = false;
+    });
+  });
+}
+injectReportButtons();
+
+document.getElementById('report-modal-close').addEventListener('click', function () { reportModal.hidden = true; });
+document.getElementById('report-modal-cancel').addEventListener('click', function () { reportModal.hidden = true; });
+reportModal.addEventListener('click', function (e) { if (e.target === reportModal) reportModal.hidden = true; });
+document.getElementById('report-modal-send').addEventListener('click', function () {
+  var reason = document.querySelector('input[name="report-reason"]:checked').value;
+  var comment = document.getElementById('report-comment').value.trim();
+  var reports = [];
+  try { reports = JSON.parse(localStorage.getItem(REPORTS_KEY)) || []; } catch (e) {}
+  reports.unshift({ target: reportTargetName, reason: reason, comment: comment, date: new Date().toISOString() });
+  localStorage.setItem(REPORTS_KEY, JSON.stringify(reports));
+  document.getElementById('report-comment').value = '';
+  reportModal.hidden = true;
+  var toast = document.getElementById('report-toast');
+  toast.classList.add('show');
+  setTimeout(function () { toast.classList.remove('show'); }, 2600);
+});
+</script>
+</body>
+</html>
