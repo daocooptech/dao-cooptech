@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Целевые программы ПК — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html" class="active">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="ext-programs.html" class="active">Все программы</a>
+      <a href="program-feed.html">Лента</a>
+    </div>
+    <div class="search-row">
+      <input class="input" id="filter-search" placeholder="Направление или название программы, например «энергия»">
+      <button class="button">Добавить программу</button>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+    </div>
+    <div class="content-with-filter">
+      <div style="flex:1">
+        <div class="cat-section-title">
+          <span>Целевые программы кооперации <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="res-count">10</span></span></span>
+        </div>
+        <div class="vacancy-list" id="programs-list">
+
+          <div class="vacancy-card" data-category="Сельское хозяйство" data-region="Дербент" data-duration="12 месяцев">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Урожай сообща</a>
+                <div class="vacancy-salary">Фонд программы: 4 200 000 ₽</div>
+                <div class="vacancy-meta">Кооператив «Шукты» · 📍 Дербент · срок 12 месяцев</div>
+                <p class="vacancy-snippet">Совместная закупка семян и техники по оптовой цене, разделение полевых работ по сезону, общий склад хранения урожая — каждое хозяйство остаётся самостоятельным, но «дотягивает» до конкурентоспособности через кооперативную надстройку над снабжением и сбытом.</p>
+                <div class="vacancy-tags"><span class="chip">Сельское хозяйство</span><span class="chip">86 участников</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 А.В. Чаянов, «Организация крестьянского хозяйства» (1925–1927) — кооперирование отдельных операций без ликвидации семейного хозяйства</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="shukty" data-org-name="Кооператив «Шукты»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="urozhay-soobscha" data-program-name="«Урожай сообща»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="urozhay-soobscha" data-program-name="«Урожай сообща»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="ИТ и цифровая экономика" data-region="Москва" data-duration="18 месяцев">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/dao-cooptech.svg" alt="ДАО КООПЕХ">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Своя платформа</a>
+                <div class="vacancy-salary">Фонд программы: 6 000 000 ₽</div>
+                <div class="vacancy-meta">ДАО КООПЕХ · 📍 Москва, участие удалённо по всей РФ · срок 18 месяцев</div>
+                <p class="vacancy-snippet">Инкубатор для команд, которые строят цифровой сервис не по модели «инвестор владеет всем», а на совместном владении: пользователи и работники платформы становятся её совладельцами. Юридический шаблон устава цифрового кооператива, менторская поддержка, общая инфраструктура в складчину.</p>
+                <div class="vacancy-tags"><span class="chip">ИТ и цифровая экономика</span><span class="chip">47 участников</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 Trebor Scholz, «Platform Cooperativism» (2016) — демократическое владение и управление онлайн-платформами вместо венчурной модели</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="dao-cooptech" data-org-name="ДАО КООПЕХ">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="svoya-platforma" data-program-name="«Своя платформа»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="svoya-platforma" data-program-name="«Своя платформа»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Строительство и жильё" data-region="Екатеринбург" data-duration="бессрочно">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/vtb.png" alt="ЖСК «Соседи»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Дом на всех</a>
+                <div class="vacancy-salary">Фонд программы: 3 500 000 ₽</div>
+                <div class="vacancy-meta">ЖСК «Соседи» · 📍 Екатеринбург, 14 домов · срок бессрочно</div>
+                <p class="vacancy-snippet">Помогает жилищным кооперативам и ТСЖ разработать собственные, локальные правила пользования общим имуществом — двором, кровлей, парковкой — вместо типового устава «сверху»: чёткие границы «своих», правила по вкладу, дешёвое разрешение споров внутри дома, а не через суд.</p>
+                <div class="vacancy-tags"><span class="chip">Строительство и жильё</span><span class="chip">124 участника</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 Elinor Ostrom, «Governing the Commons» (1990) — восемь принципов устойчивого управления общим ресурсом</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="sosedi-zhsk" data-org-name="ЖСК «Соседи»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="dom-na-vseh" data-program-name="«Дом на всех»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="dom-na-vseh" data-program-name="«Дом на всех»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Образование" data-region="Красноярск" data-duration="6 месяцев">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Школа кооператора</a>
+                <div class="vacancy-salary">Фонд программы: 1 800 000 ₽</div>
+                <div class="vacancy-meta">Фонд «Территория 2020» · 📍 Красноярск · срок 6 месяцев (курс с повтором)</div>
+                <p class="vacancy-snippet">Обучение «равный учит равного»: действующие участники кооперативов — бухгалтеры, председатели, юристы-самоучки — учат новичков вести общее собрание, считать пай, разрешать конфликт между участниками, оформить устав.</p>
+                <div class="vacancy-tags"><span class="chip">Образование</span><span class="chip">210 участников</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 International Co-operative Alliance, «Statement on the Co-operative Identity» (1995) — принцип 5 «Образование, обучение и информирование»</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="territory2020" data-org-name="Фонд «Территория 2020»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="shkola-kooperatora" data-program-name="«Школа кооператора»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="shkola-kooperatora" data-program-name="«Школа кооператора»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Здравоохранение и соцпомощь" data-region="Новосибирск" data-duration="24 месяца">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/alfabank.png" alt="АНО «Здоровье для всех»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Забота по соседству</a>
+                <div class="vacancy-salary">Фонд программы: 2 900 000 ₽</div>
+                <div class="vacancy-meta">АНО «Здоровье для всех» · 📍 Новосибирск · срок 24 месяца</div>
+                <p class="vacancy-snippet">Поддерживает социальные предприятия, где люди с инвалидностью, пожилые и те, кто долго не мог трудоустроиться, получают работу и уход одновременно — через совместный труд на реальных условиях, а не разовую благотворительность или имитационную занятость.</p>
+                <div class="vacancy-tags"><span class="chip">Здравоохранение и соцпомощь</span><span class="chip">63 участника</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 J. Defourny, M. Nyssens, исследования EMES о WISE (2010) — предприятия социальной интеграции через труд</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="zdorove-dlya-vseh" data-org-name="АНО «Здоровье для всех»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="zabota-po-sosedstvu" data-program-name="«Забота по соседству»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="zabota-po-sosedstvu" data-program-name="«Забота по соседству»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Микрофинансирование" data-region="Москва" data-duration="бессрочно">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/avito.png" alt="Кредитный кооператив «Взаимопомощь»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Общая касса</a>
+                <div class="vacancy-salary">Фонд программы: 5 500 000 ₽</div>
+                <div class="vacancy-meta">Кредитный кооператив «Взаимопомощь» · 📍 Москва · срок бессрочно</div>
+                <p class="vacancy-snippet">Общий фонд взаимного кредитования: каждый вносит небольшой регулярный взнос, а фонд выдаёт беспроцентные или низкопроцентные займы участникам по очереди — по решению самих участников, а не банка. Прибыль остаётся внутри кассы, а не уходит наружу.</p>
+                <div class="vacancy-tags"><span class="chip">Микрофинансирование</span><span class="chip">98 участников</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 D. McKillop и др., «Cooperative financial institutions: A review of the literature» (2020) — модель, восходящая к Ф.В. Райффайзену</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="vzaimopomosch" data-org-name="Кредитный кооператив «Взаимопомощь»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="obschaya-kassa" data-program-name="«Общая касса»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="obschaya-kassa" data-program-name="«Общая касса»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Ремесленное производство" data-region="Челябинск" data-duration="12 месяцев">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Мастерская без хозяина</a>
+                <div class="vacancy-salary">Фонд программы: 4 700 000 ₽</div>
+                <div class="vacancy-meta">Артель «Уральские мастера» · 📍 Челябинск · срок 12 месяцев</div>
+                <p class="vacancy-snippet">Объединяет мастеров и небольшие производства в кооператив без наёмного собственника: станки и помещение — в совместном владении, решения о загрузке заказов и распределении дохода принимает общее собрание, а не «хозяин цеха».</p>
+                <div class="vacancy-tags"><span class="chip">Ремесленное производство</span><span class="chip">39 участников</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 R. Flecha, Pun Ngai, о ценностях кооператива «Мондрагон» (2014)</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="uralskie-mastera" data-org-name="Артель «Уральские мастера»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="masterskaya-bez-hozyaina" data-program-name="«Мастерская без хозяина»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="masterskaya-bez-hozyaina" data-program-name="«Мастерская без хозяина»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Зелёная энергетика" data-region="Пермь" data-duration="24 месяца">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/rostelecom.png" alt="Энергокооператив «СветСвои»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Своя энергия</a>
+                <div class="vacancy-salary">Фонд программы: 8 300 000 ₽</div>
+                <div class="vacancy-meta">Энергокооператив «СветСвои» · 📍 Пермь · срок 24 месяца</div>
+                <p class="vacancy-snippet">Жители посёлка или квартала совместно вкладываются в солнечные панели или малую ветрогенерацию и становятся и совладельцами, и потребителями этой энергии — прибыль от продажи излишков возвращается участникам, а не внешнему инвестору.</p>
+                <div class="vacancy-tags"><span class="chip">Зелёная энергетика</span><span class="chip">71 участник</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 T. Bauwens, B. Gotchev, L. Holstenkamp, о низовых энергокооперативах Европы (2016)</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="svetsvoi" data-org-name="Энергокооператив «СветСвои»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="svoya-energiya" data-program-name="«Своя энергия»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="svoya-energiya" data-program-name="«Своя энергия»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Логистика и сбыт" data-region="Хабаровск" data-duration="12 месяцев">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/severstal.png" alt="Кооператив «Речной порт»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Один склад на всех</a>
+                <div class="vacancy-salary">Фонд программы: 3 900 000 ₽</div>
+                <div class="vacancy-meta">Кооператив «Речной порт» · 📍 Хабаровск · срок 12 месяцев</div>
+                <p class="vacancy-snippet">Помогает мелким производителям и фермерам скооперироваться там, где по одиночке они слабее всего: общий склад, общий грузовик и логист, общий бренд для маркетплейса или ярмарки.</p>
+                <div class="vacancy-tags"><span class="chip">Логистика и сбыт</span><span class="chip">57 участников</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 M.A. Boland и др., «Research Priorities for Agricultural Cooperatives» (2021)</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="rechnoy-port" data-org-name="Кооператив «Речной порт»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="odin-sklad-na-vseh" data-program-name="«Один склад на всех»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="odin-sklad-na-vseh" data-program-name="«Один склад на всех»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-category="Культура и местные сообщества" data-region="Ярославль" data-duration="бессрочно">
+            <div class="card-row">
+              <img class="org-mini-logo" src="img/org-logos/wildberries.png" alt="Содружество кооперативов «Эмилия»">
+              <div style="flex:1;min-width:0">
+                <a class="vacancy-title" href="program.html" style="display:block">Соседский капитал</a>
+                <div class="vacancy-salary">Фонд программы: 2 600 000 ₽</div>
+                <div class="vacancy-meta">Содружество кооперативов «Эмилия» · 📍 Ярославль · срок бессрочно</div>
+                <p class="vacancy-snippet">Местная сеть кооперативов — кафе, ремонтная мастерская, детский центр, культурный клуб — сознательно покупает услуги друг у друга и вкладывает прибыль в новые кооперативы района, вместо того чтобы деньги уходили из местной экономики к внешним сетевым игрокам.</p>
+                <div class="vacancy-tags"><span class="chip">Культура и местные сообщества</span><span class="chip">145 участников</span></div>
+                <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 John Restakis, «Humanizing the Economy» (2010) — кейс кооперативной сети Эмилия-Романьи</div>
+                <div class="vacancy-footer" style="flex-direction:column;align-items:flex-end;gap:8px;margin-top:8px">
+                  <button class="button secondary join-org-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-org-slug="emiliya-sodruzhestvo" data-org-name="Содружество кооперативов «Эмилия»">Вступить в кооператив</button>
+                  <button class="button secondary join-program-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="sosedskiy-kapital" data-program-name="«Соседский капитал»">Присоединиться к программе</button>
+                  <button class="button secondary subscribe-news-btn" type="button" style="width:230px;box-sizing:border-box;padding:7px 16px;font-size:12.5px;text-align:center" data-program-slug="sosedskiy-kapital" data-program-name="«Соседский капитал»">Подписаться на новости</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="empty-state" id="programs-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      </div>
+      <div class="filter-panel">
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Направление деятельности</label>
+          <select class="input" id="filter-category">
+            <option value="">Любое</option>
+            <option value="Сельское хозяйство">Сельское хозяйство</option>
+            <option value="ИТ и цифровая экономика">ИТ и цифровая экономика</option>
+            <option value="Строительство и жильё">Строительство и жильё</option>
+            <option value="Образование">Образование</option>
+            <option value="Здравоохранение и соцпомощь">Здравоохранение и соцпомощь</option>
+            <option value="Микрофинансирование">Микрофинансирование</option>
+            <option value="Ремесленное производство">Ремесленное производство</option>
+            <option value="Зелёная энергетика">Зелёная энергетика</option>
+            <option value="Логистика и сбыт">Логистика и сбыт</option>
+            <option value="Культура и местные сообщества">Культура и местные сообщества</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Регион <span class="stat-note" title="Показать программы только из выбранного региона">ⓘ</span></label>
+          <input class="input" id="filter-region" list="region-options" placeholder="Начните вводить регион">
+          <datalist id="region-options">
+            <option value="Дербент"><option value="Москва"><option value="Екатеринбург"><option value="Красноярск"><option value="Новосибирск"><option value="Челябинск"><option value="Пермь"><option value="Хабаровск"><option value="Ярославль">
+          </datalist>
+        </div>
+        <div class="field">
+          <label>Срок программы</label>
+          <select class="input" id="filter-duration">
+            <option value="">Любой</option>
+            <option value="6 месяцев">6 месяцев</option>
+            <option value="12 месяцев">12 месяцев</option>
+            <option value="18 месяцев">18 месяцев</option>
+            <option value="24 месяца">24 месяца</option>
+            <option value="бессрочно">Бессрочно</option>
+          </select>
+        </div>
+        <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="skills.html">навыки</a>
+    </div>
+
+  </main>
+</div>
+<div class="toast" id="program-toast"></div>
+
+<script>
+function applyFilters() {
+  var search = document.getElementById('filter-search').value.trim().toLowerCase();
+  var category = document.getElementById('filter-category').value;
+  var region = document.getElementById('filter-region').value.trim().toLowerCase();
+  var duration = document.getElementById('filter-duration').value;
+  var cards = document.querySelectorAll('#programs-list .vacancy-card');
+  var visibleCount = 0;
+  cards.forEach(function (card) {
+    var text = card.textContent.toLowerCase();
+    var searchOk = !search || text.indexOf(search) !== -1;
+    var categoryOk = !category || card.dataset.category === category;
+    var cardRegion = (card.dataset.region || '').toLowerCase();
+    var regionOk = !region || cardRegion.indexOf(region) !== -1;
+    var durationOk = !duration || card.dataset.duration === duration;
+    var show = searchOk && categoryOk && regionOk && durationOk;
+    card.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+  document.getElementById('programs-empty').hidden = visibleCount > 0;
+  document.getElementById('res-count').textContent = visibleCount;
+}
+document.getElementById('filter-search').addEventListener('input', applyFilters);
+document.getElementById('filter-category').addEventListener('change', applyFilters);
+document.getElementById('filter-region').addEventListener('input', applyFilters);
+document.getElementById('filter-duration').addEventListener('change', applyFilters);
+
+function resetFilters() {
+  document.getElementById('filter-search').value = '';
+  document.getElementById('filter-category').value = '';
+  document.getElementById('filter-region').value = '';
+  document.getElementById('filter-duration').value = '';
+  applyFilters();
+}
+document.getElementById('filter-reset').addEventListener('click', resetFilters);
+document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+
+// Переключатель вида: списком / плиткой
+var viewGrid = document.getElementById('programs-list');
+var viewListBtn = document.getElementById('view-list-btn');
+var viewTileBtn = document.getElementById('view-tile-btn');
+viewListBtn.addEventListener('click', function () {
+  viewGrid.classList.remove('tile-mode');
+  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
+});
+viewTileBtn.addEventListener('click', function () {
+  viewGrid.classList.add('tile-mode');
+  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
+});
+
+// Вступить в кооператив / присоединиться к программе — тот же паттерн, что #subscribe-btn на organization.html
+(function () {
+  var ORG_KEY = 'coop_joined_cooperatives';
+  var PROGRAM_KEY = 'coop_joined_programs';
+  var NEWS_KEY = 'coop_subscribed_programs';
+  var toast = document.getElementById('program-toast');
+
+  function getList(key) {
+    try { return JSON.parse(localStorage.getItem(key)) || []; } catch (e) { return []; }
+  }
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  }
+  function renderBtn(btn, key, slug, activeText, defaultText) {
+    var active = getList(key).indexOf(slug) !== -1;
+    btn.classList.toggle('active', active);
+    btn.textContent = active ? activeText : defaultText;
+  }
+  function wire(selector, key, slugAttr, nameAttr, activeText, defaultText, toastText) {
+    document.querySelectorAll(selector).forEach(function (btn) {
+      var slug = btn.dataset[slugAttr];
+      renderBtn(btn, key, slug, activeText, defaultText);
+      btn.addEventListener('click', function () {
+        var list = getList(key);
+        var i = list.indexOf(slug);
+        var joining = i === -1;
+        if (joining) list.push(slug); else list.splice(i, 1);
+        localStorage.setItem(key, JSON.stringify(list));
+        renderBtn(btn, key, slug, activeText, defaultText);
+        if (joining) showToast(toastText + ' ' + btn.dataset[nameAttr]);
+      });
+    });
+  }
+  wire('.join-org-btn', ORG_KEY, 'orgSlug', 'orgName', 'Вы уже в кооперативе', 'Вступить в кооператив', '✓ Вы вступили в кооператив');
+  wire('.join-program-btn', PROGRAM_KEY, 'programSlug', 'programName', 'Вы участвуете в программе', 'Присоединиться к программе', '✓ Вы присоединились к программе');
+  wire('.subscribe-news-btn', NEWS_KEY, 'programSlug', 'programName', 'Вы подписаны', 'Подписаться на новости', '✓ Вы подписались на новости программы');
+})();
+</script>
+</body>
+</html>

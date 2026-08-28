@@ -1,0 +1,89 @@
+[
+  {
+    "slug": "brick-stack",
+    "query": "clay bricks pallet construction site stack",
+    "candidates": []
+  },
+  {
+    "slug": "steel-pipe",
+    "query": "steel pipes stockyard industrial stack",
+    "candidates": []
+  },
+  {
+    "slug": "makerspace",
+    "query": "hackerspace digital fabrication workshop",
+    "candidates": []
+  },
+  {
+    "slug": "coworking",
+    "query": "open plan office shared workspace desks",
+    "candidates": [
+      {
+        "title": "File:09979 Grand Canyon New Post Office 1935 (6024316706).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/09979_Grand_Canyon_New_Post_Office_1935_%286024316706%29.jpg/500px-09979_Grand_Canyon_New_Post_Office_1935_%286024316706%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:09980 Grand Canyon New Post Office 1935 (6024316188).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/09980_Grand_Canyon_New_Post_Office_1935_%286024316188%29.jpg/500px-09980_Grand_Canyon_New_Post_Office_1935_%286024316188%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:09976 Grand Canyon New Post Office 1935 (6024317262).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/09976_Grand_Canyon_New_Post_Office_1935_%286024317262%29.jpg/500px-09976_Grand_Canyon_New_Post_Office_1935_%286024317262%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "plastic-recycling",
+    "query": "plastic bottles recycling bales",
+    "candidates": [
+      {
+        "title": "File:Torbay waste transfer and recycling centre - geograph.org.uk - 67285.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Torbay_waste_transfer_and_recycling_centre_-_geograph.org.uk_-_67285.jpg/500px-Torbay_waste_transfer_and_recycling_centre_-_geograph.org.uk_-_67285.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Box baler at Walmart.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Box_baler_at_Walmart.jpg/500px-Box_baler_at_Walmart.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Bales of PET bottles closeup.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Bales_of_PET_bottles_closeup.jpg/500px-Bales_of_PET_bottles_closeup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Bales of PET bottles stacked.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bales_of_PET_bottles_stacked.jpg/500px-Bales_of_PET_bottles_stacked.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "web-design",
+    "query": "website mockup designer screen",
+    "candidates": [
+      {
+        "title": "File:Restaurant logo design mockup.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Restaurant_logo_design_mockup.jpg/500px-Restaurant_logo_design_mockup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "van-transfer",
+    "query": "delivery van vehicle road",
+    "candidates": [
+      {
+        "title": "File:Delivery vehicle in Peru.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Delivery_vehicle_in_Peru.jpg/500px-Delivery_vehicle_in_Peru.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:FedEx delivery van, Macau Restaurant.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/FedEx_delivery_van%2C_Macau_Restaurant.jpg/500px-FedEx_delivery_van%2C_Macau_Restaurant.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Harrods delivery van in Old Brompton Road - geograph.org.uk - 2240609.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Harrods_delivery_van_in_Old_Brompton_Road_-_geograph.org.uk_-_2240609.jpg/500px-Harrods_delivery_van_in_Old_Brompton_Road_-_geograph.org.uk_-_2240609.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Morrisons delivery van on Riverside Road - geograph.org.uk - 6258692.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Morrisons_delivery_van_on_Riverside_Road_-_geograph.org.uk_-_6258692.jpg/500px-Morrisons_delivery_van_on_Riverside_Road_-_geograph.org.uk_-_6258692.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  }
+]

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Сообщения — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="active">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="messages.html" class="active">Сообщения</a>
+    </div>
+    <div class="search-row" style="max-width:850px">
+      <input class="input" id="thread-search" placeholder="Найти диалог...">
+    </div>
+    <div class="messages-body">
+      <div class="thread-list" id="thread-list"></div>
+      <div class="chat-pane" id="chat-pane"></div>
+    </div>
+    <input type="file" id="attach-photo-input" accept="image/*" style="display:none">
+    <input type="file" id="attach-doc-input" style="display:none">
+
+  </main>
+</div>
+
+<script>
+var EMOJI = ['😀','😂','😍','🙂','😉','👍','👏','🙏','🎉','🔥','❤️','💡','✅','⚠️','📌','🤝','🚀','🌱','⭐','😢','😮','🤔','👌','💪'];
+var EXTENSIONS = [
+  { name: 'Аналитика', href: 'ext-analytics.html', icon: '📊' },
+  { name: 'Цифровые активы', href: 'digital-assets.html', icon: '💠' },
+  { name: 'Образование', href: 'ext-education.html', icon: '🎓' },
+  { name: 'Целевые программы ПК', href: 'ext-programs.html', icon: '🎯' },
+  { name: 'Аукционы', href: 'ext-auctions.html', icon: '🔨' },
+  { name: 'Библиотеки', href: 'ext-libraries.html', icon: '📚' },
+  { name: 'Диск', href: 'ext-drive.html', icon: '💾' },
+  { name: 'Здоровье', href: 'ext-health.html', icon: '⚕️' },
+  { name: 'События', href: 'ext-events.html', icon: '📅' }
+];
+
+var threads = [
+  {
+    id: 'maria', kind: 'person', name: 'Иванова Мария', locality: 'Красноярск',
+    avatar: 'https://i.pravatar.cc/64?img=47', unread: false,
+    messages: [
+      { dir: 'in', text: 'Добрый день! Готовы обсудить участие в проекте?' },
+      { dir: 'out', text: 'Да, конечно, спасибо, договорились!' },
+      { dir: 'in', type: 'location', text: 'Сочи, ул. Транспортная 14 (площадка проекта)' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'miritael', kind: 'org', name: 'ООО «Мириталь»', initials: 'М', tint: 'gold', unread: false,
+    messages: [
+      { dir: 'in', text: 'Добрый день! Направляем счёт на партию пельменей «Сибирские».' },
+      { dir: 'in', type: 'document', name: 'Счёт-№184.pdf', size: '212 КБ' },
+      { dir: 'in', text: 'Отправили счёт на почту' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'shukty', kind: 'org', name: 'Кооператив «Шукты»', initials: 'Ш', tint: 'teal', unread: true,
+    messages: [
+      { dir: 'in', text: 'Здравствуйте! Уточните, пожалуйста — вы приедете смотреть площадку?' },
+      { dir: 'in', text: 'Когда сможете подъехать?' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'project3d', kind: 'group', visibility: 'private', name: 'Строительный 3д принтер', initials: '🖨', tint: 'teal', unread: false, link: 'project.html',
+    messages: [
+      { dir: 'in', author: 'Дашкевич Данил', text: 'Встречаемся в субботу на площадке, не забудьте каски.' },
+      { dir: 'in', author: 'Иванова Мария', type: 'contact', name: 'Прораб Олег', phone: '+7-900-111-22-33', avatar: 'https://i.pravatar.cc/64?img=33' },
+      { dir: 'in', author: 'Иванова Мария', text: 'Принято!' },
+      { dir: 'out', text: 'Буду к 10:00.' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'dao', kind: 'group', visibility: 'public', name: 'ДАО КООПЕХ — общее собрание', initials: 'ДК', tint: 'teal', unread: false, link: 'organization.html',
+    messages: [
+      { dir: 'in', author: 'Модератор', text: 'Открытый чат для всех участников платформы — обсуждаем регламент голосований.' },
+      { dir: 'in', author: 'Петров Сергей', type: 'photo', src: 'images/photos/business-meeting.jpg', text: 'Фото с прошлой очной встречи' }
+    ],
+    scheduled: []
+  }
+];
+var activeId = 'maria';
+var pendingAttachment = null;
+
+function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+function threadAvatarHTML(t, size) {
+  if (t.avatar) return '<img class="avatar' + (size === 'sm' ? ' sm' : '') + '" src="' + t.avatar + '" alt="' + t.name + '">';
+  var tint = t.tint === 'gold' ? 'var(--gold-tint)' : 'var(--teal-tint)';
+  var color = t.tint === 'gold' ? '#8a5f1c' : 'var(--teal-dark)';
+  var wh = size === 'sm' ? '28px' : '40px';
+  return '<div class="torg" style="width:' + wh + ';height:' + wh + ';background:' + tint + ';color:' + color + ';display:flex;align-items:center;justify-content:center;font-weight:700;font-family:\'Space Grotesk\',sans-serif;font-size:13px">' + t.initials + '</div>';
+}
+
+function previewLabel(m) {
+  switch (m.type) {
+    case 'photo': return '📷 Фото' + (m.text ? ': ' + m.text : '');
+    case 'document': return '📄 ' + m.name;
+    case 'location': return '📍 Геопозиция';
+    case 'contact': return '👤 Контакт: ' + m.name;
+    case 'extension': return m.icon + ' Расширение: ' + m.name;
+    default: return m.text;
+  }
+}
+
+function lastMessagePreview(t) {
+  var m = t.messages[t.messages.length - 1];
+  return (m.author ? m.author + ': ' : '') + previewLabel(m);
+}
+
+function kindIcon(t) {
+  if (t.kind !== 'group') return '';
+  return ' ' + (t.visibility === 'public' ? '🌐' : '🔒');
+}
+
+function renderThreadList(filter) {
+  var list = document.getElementById('thread-list');
+  list.innerHTML = '';
+  threads.forEach(function (t) {
+    if (filter && t.name.toLowerCase().indexOf(filter.toLowerCase()) === -1) return;
+    var item = document.createElement('div');
+    item.className = 'thread-item' + (t.id === activeId ? ' active' : '');
+    item.dataset.id = t.id;
+    item.innerHTML =
+      threadAvatarHTML(t, 'sm') +
+      '<div style="flex:1;min-width:0">' +
+        '<div class="tname">' + t.name + kindIcon(t) + (t.unread ? ' <span class="tdot"></span>' : '') + '</div>' +
+        '<div class="tlast">' + lastMessagePreview(t) + (t.scheduled.length ? ' · 🕒' + t.scheduled.length : '') + '</div>' +
+      '</div>';
+    item.addEventListener('click', function () {
+      t.unread = false;
+      activeId = t.id;
+      pendingAttachment = null;
+      renderThreadList(document.getElementById('thread-search').value);
+      renderChatPane();
+    });
+    list.appendChild(item);
+  });
+}
+
+function renderBubbleContent(m) {
+  switch (m.type) {
+    case 'photo':
+      return '<img src="' + m.src + '" alt="фото" style="max-width:220px;border-radius:10px;display:block">' + (m.text ? '<div style="margin-top:6px">' + escapeHtml(m.text) + '</div>' : '');
+    case 'document':
+      return '<div class="msg-doc">📄<div><div class="msg-doc-name">' + escapeHtml(m.name) + '</div><div class="msg-doc-size">' + m.size + '</div></div></div>';
+    case 'location':
+      return '<div class="msg-location">📍 <span>' + escapeHtml(m.text) + '</span></div>';
+    case 'contact':
+      return '<div class="msg-contact"><img class="avatar sm" src="' + m.avatar + '" alt=""><div><div style="font-weight:600">' + escapeHtml(m.name) + '</div><div style="font-size:11px;color:var(--slate)">' + m.phone + '</div></div></div>';
+    case 'extension':
+      return '<a href="' + m.href + '" class="msg-doc" style="text-decoration:none;color:inherit"><span style="font-size:20px">' + m.icon + '</span><div><div class="msg-doc-name">' + escapeHtml(m.name) + '</div><div class="msg-doc-size">Расширение платформы →</div></div></a>';
+    default:
+      return escapeHtml(m.text);
+  }
+}
+
+function renderScheduledPanel(t) {
+  if (!t.scheduled.length) return '';
+  return '<div class="scheduled-panel">' + t.scheduled.map(function (s, i) {
+    return '<div class="scheduled-item"><span>🕒 «' + escapeHtml(s.text) + '» — отправка ' + s.at + '</span>' +
+      '<span class="sched-actions"><a href="#" data-send-now="' + i + '">отправить сейчас</a><a href="#" data-cancel="' + i + '">отменить</a></span></div>';
+  }).join('') + '</div>';
+}
+
+function closeAllPopovers() {
+  ['attach-menu', 'emoji-menu', 'schedule-menu'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.hidden = true;
+  });
+}
+
+function renderChatPane() {
+  var t = threads.find(function (x) { return x.id === activeId; });
+  var pane = document.getElementById('chat-pane');
+  var bubbles = t.messages.map(function (m) {
+    var authorLine = (t.kind === 'group' && m.dir === 'in' && m.author) ? '<div style="font-size:11px;color:var(--slate-light);margin:0 0 2px 2px">' + m.author + '</div>' : '';
+    return authorLine + '<div class="bubble ' + m.dir + '">' + renderBubbleContent(m) + '</div>';
+  }).join('');
+  var linkHTML = t.link ? '<a href="' + t.link + '" style="margin-left:auto;font-size:12px" class="stat-note">Открыть ' + (t.id === 'dao' ? 'организацию' : 'проект') + ' →</a>' : '';
+  var kindBadge = t.kind === 'group' ? ' <span class="badge outline" style="margin-left:6px;font-weight:500">' + (t.visibility === 'public' ? '🌐 публичный чат' : '🔒 закрытый чат') + '</span>' : '';
+  pane.innerHTML =
+    '<div class="chat-header">' + threadAvatarHTML(t) + '<div class="section-title" style="margin:0">' + t.name + kindBadge + '</div>' + linkHTML + '</div>' +
+    '<div id="bubble-stream">' + bubbles + '</div>' +
+    '<div id="pending-attachment"></div>' +
+    '<div class="composer-toolbar">' +
+      '<div class="attach-wrap"><button class="icon-btn" id="attach-btn" type="button" title="Прикрепить">📎</button>' +
+        '<div class="popover" id="attach-menu" hidden>' +
+          '<div id="attach-main">' +
+            '<button type="button" data-attach="photo">🖼 Фото</button>' +
+            '<button type="button" data-attach="document">📄 Документ</button>' +
+            '<button type="button" data-attach="location">📍 Геопозиция</button>' +
+            '<button type="button" data-attach="contact">👤 Контакт</button>' +
+            '<button type="button" data-attach="extension">🧩 Расширение</button>' +
+          '</div>' +
+          '<div id="attach-ext-list" hidden>' +
+            '<button type="button" id="attach-ext-back">← Назад</button>' +
+            EXTENSIONS.map(function (ex) { return '<button type="button" data-ext="' + ex.href + '">' + ex.icon + ' ' + ex.name + '</button>'; }).join('') +
+          '</div>' +
+        '</div></div>' +
+      '<div class="attach-wrap"><button class="icon-btn" id="emoji-btn" type="button" title="Эмодзи">😊</button>' +
+        '<div class="popover emoji-popover" id="emoji-menu" hidden>' + EMOJI.map(function (e) { return '<button type="button" data-emoji="' + e + '">' + e + '</button>'; }).join('') + '</div></div>' +
+      '<div class="attach-wrap"><button class="icon-btn" id="schedule-btn" type="button" title="Отложить отправку">🕒</button>' +
+        '<div class="popover" id="schedule-menu" hidden>' +
+          '<input type="datetime-local" class="input" id="schedule-time" style="font-size:12px;padding:6px 8px">' +
+          '<button type="button" class="button secondary" id="schedule-confirm" style="margin-top:8px;width:100%;padding:7px">Запланировать</button>' +
+        '</div></div>' +
+    '</div>' +
+    '<div style="display:flex;gap:8px;margin-top:8px">' +
+      '<input class="input" id="chat-input" placeholder="Написать сообщение...">' +
+      '<button class="button" id="chat-send" style="flex:none">Отправить</button>' +
+    '</div>' +
+    renderScheduledPanel(t);
+
+  var stream = document.getElementById('bubble-stream');
+  stream.scrollTop = stream.scrollHeight;
+  renderPendingAttachment();
+
+  document.getElementById('chat-send').addEventListener('click', sendMessage);
+  document.getElementById('chat-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  document.getElementById('attach-btn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    var menu = document.getElementById('attach-menu');
+    var wasHidden = menu.hidden;
+    closeAllPopovers();
+    document.getElementById('attach-main').hidden = false;
+    document.getElementById('attach-ext-list').hidden = true;
+    menu.hidden = !wasHidden;
+  });
+  document.getElementById('emoji-btn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    var menu = document.getElementById('emoji-menu');
+    var wasHidden = menu.hidden;
+    closeAllPopovers();
+    menu.hidden = !wasHidden;
+  });
+  document.getElementById('schedule-btn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    var menu = document.getElementById('schedule-menu');
+    var wasHidden = menu.hidden;
+    closeAllPopovers();
+    menu.hidden = !wasHidden;
+  });
+
+  document.querySelectorAll('#attach-menu [data-attach]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var kind = btn.dataset.attach;
+      if (kind === 'extension') {
+        document.getElementById('attach-main').hidden = true;
+        document.getElementById('attach-ext-list').hidden = false;
+        return;
+      }
+      closeAllPopovers();
+      if (kind === 'photo') { document.getElementById('attach-photo-input').click(); return; }
+      if (kind === 'document') { document.getElementById('attach-doc-input').click(); return; }
+      if (kind === 'location') { pendingAttachment = { type: 'location', text: 'Сочи, Краснодарский край (демо-геопозиция)' }; renderPendingAttachment(); return; }
+      if (kind === 'contact') { pendingAttachment = { type: 'contact', name: 'Дашкевич Данил Игоревич', phone: '+7-928-233-2324', avatar: 'https://i.pravatar.cc/64?img=13' }; renderPendingAttachment(); return; }
+    });
+  });
+  document.getElementById('attach-ext-back').addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.getElementById('attach-main').hidden = false;
+    document.getElementById('attach-ext-list').hidden = true;
+  });
+  document.querySelectorAll('#attach-ext-list [data-ext]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var ex = EXTENSIONS.find(function (x) { return x.href === btn.dataset.ext; });
+      pendingAttachment = { type: 'extension', name: ex.name, href: ex.href, icon: ex.icon };
+      renderPendingAttachment();
+      closeAllPopovers();
+    });
+  });
+  document.querySelectorAll('#emoji-menu [data-emoji]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var input = document.getElementById('chat-input');
+      input.value += btn.dataset.emoji;
+      input.focus();
+      closeAllPopovers();
+    });
+  });
+  document.getElementById('schedule-confirm').addEventListener('click', function () {
+    var text = document.getElementById('chat-input').value.trim();
+    var when = document.getElementById('schedule-time').value;
+    if (!text || !when) { alert('Введите текст сообщения и время отправки.'); return; }
+    var d = new Date(when);
+    var label = d.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' }) + ' в ' + d.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+    t.scheduled.push({ text: text, at: label });
+    document.getElementById('chat-input').value = '';
+    closeAllPopovers();
+    renderChatPane();
+    renderThreadList(document.getElementById('thread-search').value);
+  });
+
+  document.querySelectorAll('[data-send-now]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var i = parseInt(a.dataset.sendNow, 10);
+      var s = t.scheduled.splice(i, 1)[0];
+      t.messages.push({ dir: 'out', text: s.text });
+      renderChatPane();
+      renderThreadList(document.getElementById('thread-search').value);
+    });
+  });
+  document.querySelectorAll('[data-cancel]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var i = parseInt(a.dataset.cancel, 10);
+      t.scheduled.splice(i, 1);
+      renderChatPane();
+      renderThreadList(document.getElementById('thread-search').value);
+    });
+  });
+}
+
+function renderPendingAttachment() {
+  var box = document.getElementById('pending-attachment');
+  if (!box) return;
+  if (!pendingAttachment) { box.innerHTML = ''; return; }
+  var label =
+    pendingAttachment.type === 'photo' ? '🖼 ' + pendingAttachment.name :
+    pendingAttachment.type === 'document' ? '📄 ' + pendingAttachment.name :
+    pendingAttachment.type === 'location' ? '📍 ' + pendingAttachment.text :
+    pendingAttachment.type === 'extension' ? pendingAttachment.icon + ' ' + pendingAttachment.name :
+    '👤 ' + pendingAttachment.name;
+  box.innerHTML = '<div class="attach-chip">' + escapeHtml(label) + ' <span class="remove" id="remove-attachment">✕</span></div>';
+  document.getElementById('remove-attachment').addEventListener('click', function () {
+    pendingAttachment = null;
+    renderPendingAttachment();
+  });
+}
+
+function sendMessage() {
+  var input = document.getElementById('chat-input');
+  var text = input.value.trim();
+  var t = threads.find(function (x) { return x.id === activeId; });
+  if (pendingAttachment) {
+    var msg = Object.assign({ dir: 'out' }, pendingAttachment);
+    if (text) msg.text = text;
+    t.messages.push(msg);
+    pendingAttachment = null;
+  } else if (text) {
+    t.messages.push({ dir: 'out', text: text });
+  } else {
+    return;
+  }
+  input.value = '';
+  renderChatPane();
+  renderThreadList(document.getElementById('thread-search').value);
+}
+
+function formatBytes(bytes) {
+  if (bytes < 1024) return bytes + ' Б';
+  if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + ' КБ';
+  return (bytes / (1024 * 1024)).toFixed(1) + ' МБ';
+}
+
+document.getElementById('attach-photo-input').addEventListener('change', function (e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function (ev) {
+    pendingAttachment = { type: 'photo', src: ev.target.result, name: file.name };
+    renderPendingAttachment();
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+});
+document.getElementById('attach-doc-input').addEventListener('change', function (e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  pendingAttachment = { type: 'document', name: file.name, size: formatBytes(file.size) };
+  renderPendingAttachment();
+  e.target.value = '';
+});
+
+document.addEventListener('click', closeAllPopovers);
+
+document.getElementById('thread-search').addEventListener('input', function (e) {
+  renderThreadList(e.target.value);
+});
+
+renderThreadList('');
+renderChatPane();
+</script>
+</body>
+</html>

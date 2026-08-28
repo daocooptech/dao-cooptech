@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Добавить вакансию — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="active">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <a href="vacancies.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу вакансий</a>
+    <div class="page-title" style="margin-bottom:20px">Добавить вакансию</div>
+
+    <div id="av-form-view">
+      <div class="ar-layout">
+        <div class="ar-main">
+
+          <!-- 1. Должность и специализация -->
+          <div class="card ar-section" id="field-title">
+            <div class="ar-section-title"><span class="ar-section-num">1</span>Должность и специализация</div>
+            <p class="ar-section-hint">Как на hh.ru: конкретное название должности привлекает больше подходящих откликов.</p>
+
+            <div class="field">
+              <label style="display:flex;justify-content:space-between">Название вакансии * <span class="stat-note" id="av-title-counter">0 / 60</span></label>
+              <input class="input" id="vac-title" maxlength="60" placeholder="Например, Электромонтажник">
+              <div class="field-error">Укажите название — до 60 символов</div>
+            </div>
+
+            <div id="av-category-picker">
+              <div class="form-two-col">
+                <div class="field" id="field-category">
+                  <label>Специализация *</label>
+                  <select class="input" id="vac-category">
+                    <option value="">Выберите специализацию</option>
+                  </select>
+                  <div class="field-error">Выберите специализацию</div>
+                </div>
+                <div class="field" id="field-subcategory" hidden>
+                  <label>Подкатегория</label>
+                  <select class="input" id="vac-subcategory">
+                    <option value="">Любая</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="av-category-crumb" hidden>
+              <span class="ar-crumb" id="av-crumb-text"></span>
+              <button type="button" id="av-crumb-change">Изменить</button>
+            </div>
+          </div>
+
+          <!-- 2. Вознаграждение -->
+          <div class="card ar-section" id="field-reward">
+            <div class="ar-section-title"><span class="ar-section-num">2</span>Вознаграждение</div>
+            <p class="ar-section-hint">Вознаграждение не всегда деньги — можно предложить долю в проекте, обмен услугами или волонтёрскую позицию.</p>
+            <div class="field" style="margin-bottom:14px">
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="vac-reward" value="Деньги" checked> Деньги</label>
+                <label class="radio-option"><input type="radio" name="vac-reward" value="Доля в проекте"> Доля в проекте</label>
+                <label class="radio-option"><input type="radio" name="vac-reward" value="Обмен услугами"> Обмен услугами</label>
+                <label class="radio-option"><input type="radio" name="vac-reward" value="Волонтёрство"> Волонтёрство</label>
+              </div>
+            </div>
+            <div id="vac-reward-money" class="form-two-col" style="margin-bottom:0">
+              <div class="field" style="margin-bottom:0">
+                <label>Зарплата от</label>
+                <input class="input" id="vac-salary-from" type="number" min="0" placeholder="Например, 60000">
+              </div>
+              <div class="field" style="margin-bottom:0">
+                <label>Зарплата до</label>
+                <input class="input" id="vac-salary-to" type="number" min="0" placeholder="Например, 90000">
+              </div>
+            </div>
+            <div id="vac-reward-other" class="field" style="margin-bottom:0" hidden>
+              <label>Условия вознаграждения</label>
+              <input class="input" id="vac-reward-text" placeholder="Например, доля 5–8% от результата проекта">
+            </div>
+          </div>
+
+          <!-- 3. Занятость, график, опыт -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">3</span>Занятость, график, опыт</div>
+            <div class="field" style="margin-bottom:14px">
+              <label>Занятость</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="vac-employment" value="Полная занятость" checked> Полная занятость</label>
+                <label class="radio-option"><input type="radio" name="vac-employment" value="Частичная занятость"> Частичная занятость</label>
+                <label class="radio-option"><input type="radio" name="vac-employment" value="Проектная работа"> Проектная работа</label>
+                <label class="radio-option"><input type="radio" name="vac-employment" value="Волонтёрство"> Волонтёрство</label>
+              </div>
+            </div>
+            <div class="field" style="margin-bottom:14px">
+              <label>График работы</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="vac-schedule" value="Полный день" checked> Полный день</label>
+                <label class="radio-option"><input type="radio" name="vac-schedule" value="Сменный график"> Сменный график</label>
+                <label class="radio-option"><input type="radio" name="vac-schedule" value="Гибкий график"> Гибкий график</label>
+                <label class="radio-option"><input type="radio" name="vac-schedule" value="Удалённо"> Удалённо</label>
+              </div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Требуемый опыт</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="vac-experience" value="Нет опыта" checked> Нет опыта</label>
+                <label class="radio-option"><input type="radio" name="vac-experience" value="От 1 года"> От 1 года</label>
+                <label class="radio-option"><input type="radio" name="vac-experience" value="От 3 лет"> От 3 лет</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Организация и местоположение -->
+          <div class="card ar-section" id="field-city">
+            <div class="ar-section-title"><span class="ar-section-num">4</span>Организация и местоположение</div>
+            <div class="field">
+              <label>От чьего имени публикуется вакансия *</label>
+              <select class="input" id="vac-org">
+                <option value="ООО «Мириталь»">ООО «Мириталь»</option>
+                <option value="Кооператив «Шукты»">Кооператив «Шукты»</option>
+                <option value="ДАО КООПЕХ">ДАО КООПЕХ</option>
+                <option value="Дашкевич Данил Игоревич (частное лицо)">Дашкевич Данил Игоревич (частное лицо)</option>
+              </select>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Город *</label>
+              <input class="input" id="vac-city" list="city-options" placeholder="Начните вводить город (или «Удалённо»)">
+              <datalist id="city-options">
+                <option value="Удалённо"><option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
+              </datalist>
+              <div class="field-error">Укажите город</div>
+            </div>
+          </div>
+
+          <!-- 5. Описание вакансии -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">5</span>Описание вакансии</div>
+            <div class="field">
+              <label style="display:flex;justify-content:space-between;align-items:center">Обязанности <button type="button" class="stat-note" id="vac-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <textarea class="input" id="vac-duties" rows="3" placeholder="По одному пункту с новой строки"></textarea>
+              <div id="vac-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
+            </div>
+            <div class="field">
+              <label>Требования</label>
+              <textarea class="input" id="vac-requirements" rows="3" placeholder="По одному пункту с новой строки"></textarea>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Условия</label>
+              <textarea class="input" id="vac-conditions" rows="3" placeholder="По одному пункту с новой строки"></textarea>
+            </div>
+          </div>
+
+          <!-- 6. Требуемые навыки -->
+          <div class="card ar-section" id="field-skills">
+            <div class="ar-section-title"><span class="ar-section-num">6</span>Требуемые навыки</div>
+            <p class="ar-section-hint">Введите навык и нажмите Enter — можно добавить несколько.</p>
+            <input class="input" id="vac-tag-input" placeholder="Например, Электромонтаж">
+            <div class="filter-chips" id="vac-tag-chips"></div>
+            <div class="field-error">Добавьте хотя бы один требуемый навык</div>
+          </div>
+
+          <!-- 7. Контакты для отклика -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">7</span>Контакты для отклика</div>
+            <div class="ar-contact-box">
+              <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич">
+              <div>
+                <div class="ar-contact-name">Дашкевич Данил Игоревич</div>
+                <div class="ar-contact-meta">Отклики будут приходить в сообщения на платформе</div>
+              </div>
+            </div>
+            <div class="field" style="margin:14px 0 0">
+              <label>Телефон для связи (необязательно)</label>
+              <input class="input" id="vac-phone" placeholder="+7-___-___-____">
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Как принимать отклики?</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="vac-contact-method" value="Через платформу" checked> Только через платформу</label>
+                <label class="radio-option"><input type="radio" name="vac-contact-method" value="Также по телефону"> Также по телефону</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Сайдбар: предпросмотр + публикация -->
+        <div class="ar-aside">
+          <div class="card" style="padding:14px">
+            <div class="ar-section-title" style="font-size:13px;margin-bottom:10px">Предпросмотр</div>
+            <div class="ar-preview-tile" id="av-preview"></div>
+          </div>
+
+          <div class="card" style="padding:16px 18px">
+            <div class="ar-cost-row"><span>Стоимость размещения</span><b>Бесплатно</b></div>
+            <div class="toggle-row" style="border-bottom:none;padding-top:8px">
+              <input type="checkbox" id="vac-promote">
+              <label for="vac-promote">🚀 Поднять в поиске <span class="stat-note" title="Без денег: бесплатно при уровне доверия от 80%, иначе спишет 10 кредитов взаимного кредита из «Кошелька»">ⓘ</span></label>
+            </div>
+            <button class="button ar-publish-btn" type="button" id="av-publish-btn">Опубликовать</button>
+            <button class="button secondary ar-draft-btn" type="button" id="av-draft-btn">Сохранить черновик</button>
+          </div>
+
+          <div class="card" style="padding:14px 16px">
+            <div class="ar-section-title" style="font-size:12.5px;margin-bottom:6px">📈 Как ранжируются вакансии</div>
+            <div class="ar-section-hint" style="margin-bottom:0">Как на hh.ru: конкретная вилка зарплаты вместо «по договорённости», подробное описание и быстрые ответы на отклики поднимают вакансию выше в поиске у соискателей.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Экран успеха -->
+    <div id="av-success-view" class="card ar-success" hidden>
+      <div class="ar-success-icon">✓</div>
+      <h2>Вакансия добавлена</h2>
+      <p>Она уже видна в каталоге вакансий и соискателям, чьи навыки совпадают по специализации. Вы можете разместить ещё одну вакансию или перейти к каталогу.</p>
+      <div class="ar-success-actions">
+        <a href="vacancies.html" class="button">Перейти в каталог</a>
+        <button class="button secondary" type="button" id="av-post-another-btn">Добавить ещё одну</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+<div class="toast" id="av-toast">✓ Черновик сохранён</div>
+
+<script>
+// Дерево специализаций — тот же источник, что в skills.html/add-skill.html/organizations.html (не дублировать логику фильтров)
+var CATEGORY_TREE = {
+  "Автомобильный бизнес": ["Автосервис, автомойка", "Автослесарь, автомеханик", "Продажа автозапчастей", "Автосалон"],
+  "Административный персонал": ["Административный директор", "Офис-менеджер, ассистент", "Секретарь, помощник руководителя"],
+  "Безопасность": ["Служба безопасности", "Охранник, контролёр"],
+  "Высший и средний менеджмент": ["Генеральный директор", "Директор по развитию", "Руководитель проектов"],
+  "Добыча сырья": ["Геолог", "Горный инженер", "Оператор добычи"],
+  "Домашний, обслуживающий персонал": ["Домработница, няня", "Повар для семьи", "Личный водитель"],
+  "Закупки": ["Менеджер по закупкам", "Специалист по тендерам"],
+  "Информационные технологии": ["Программирование, Разработка", "Дизайн, графика", "Тестирование", "Системное администрирование", "Аналитика, Data Science"],
+  "Искусство, развлечения, массмедиа": ["Фото, видео, звукооператоры", "Народные промыслы, ремёсла", "Флорист, декоратор", "Журналистика, СМИ"],
+  "Маркетинг, реклама, PR": ["Маркетинг", "Реклама", "PR, связи с общественностью", "SMM"],
+  "Медицина, фармацевтика": ["Врач", "Медсестра, фельдшер", "Фармацевт"],
+  "Наука, образование": ["Преподаватель, репетитор", "Научный сотрудник"],
+  "Продажи, обслуживание клиентов": ["Менеджер по продажам", "Специалист поддержки", "Продавец-консультант"],
+  "Производство, сервисное обслуживание": ["Инженер-технолог", "Швея, закройщик", "Контролёр ОТК"],
+  "Рабочий персонал": ["Электромонтажник, электромонтер, техник-электрик", "Бетонщик, арматурщик, каменщик", "Сварщик", "Слесарь, сантехник", "Столяр, плотник", "Кладовщик, Приемщик товаров", "Разнорабочий"],
+  "Розничная торговля": ["Продавец", "Кассир", "Директор магазина"],
+  "Сельское хозяйство": ["Агроном, зоотехник", "Пчеловодство, животноводство", "Тракторист"],
+  "Спортивные клубы, фитнес, салоны красоты": ["Тренер", "Мастер маникюра", "Парикмахер"],
+  "Стратегия, инвестиции, консалтинг": ["Бизнес-консультант", "Инвестиционный аналитик"],
+  "Страхование": ["Агент страховой", "Андеррайтер"],
+  "Строительство, недвижимость": ["Прораб, мастер СМР", "Архитектор", "Дизайнер, художник", "Агент по недвижимости", "Инженер строительного контроля"],
+  "Транспорт, логистика, перевозки": ["Логистика, ВЭД", "Водитель", "Диспетчер"],
+  "Туризм, гостиницы, рестораны": ["Повар, кондитер", "Официант, бармен", "Администратор гостиницы"],
+  "Управление персоналом, тренинги": ["HR-менеджер", "Бизнес-тренер"],
+  "Финансы, бухгалтерия": ["Бухгалтерия", "Финансовый аналитик", "Кредитный специалист"],
+  "Юристы": ["Юрисконсульт", "Адвокат", "Нотариус"],
+  "Другое": ["Разное"]
+};
+
+function escapeHtml(s) {
+  return (s || '').toString().replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+(function () {
+  var categorySelect = document.getElementById('vac-category');
+  var subcategoryField = document.getElementById('field-subcategory');
+  var subcategorySelect = document.getElementById('vac-subcategory');
+  var pickerBox = document.getElementById('av-category-picker');
+  var crumbBox = document.getElementById('av-category-crumb');
+  var crumbText = document.getElementById('av-crumb-text');
+  var titleInput = document.getElementById('vac-title');
+  var titleCounter = document.getElementById('av-title-counter');
+
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    var opt = document.createElement('option');
+    opt.value = cat; opt.textContent = cat;
+    categorySelect.appendChild(opt);
+  });
+
+  function updateCrumb() {
+    var cat = categorySelect.value, sub = subcategorySelect.value;
+    if (cat) {
+      crumbText.textContent = cat + (sub ? ' → ' + sub : '');
+      crumbBox.hidden = false;
+      pickerBox.hidden = true;
+    } else {
+      crumbBox.hidden = true;
+      pickerBox.hidden = false;
+    }
+    updatePreview();
+  }
+  categorySelect.addEventListener('change', function () {
+    var subs = CATEGORY_TREE[categorySelect.value] || [];
+    subcategorySelect.innerHTML = '<option value="">Любая</option>' +
+      subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+    subcategoryField.hidden = subs.length === 0;
+    document.getElementById('field-category').classList.remove('invalid');
+    if (subs.length === 0) updateCrumb();
+  });
+  subcategorySelect.addEventListener('change', updateCrumb);
+  document.getElementById('av-crumb-change').addEventListener('click', function () {
+    crumbBox.hidden = true;
+    pickerBox.hidden = false;
+  });
+
+  titleInput.addEventListener('input', function () {
+    titleCounter.textContent = titleInput.value.length + ' / 60';
+    document.getElementById('field-title').classList.remove('invalid');
+    updatePreview();
+  });
+  document.getElementById('vac-city').addEventListener('input', function () {
+    document.getElementById('field-city').classList.remove('invalid');
+    updatePreview();
+  });
+  document.getElementById('vac-org').addEventListener('change', updatePreview);
+  document.getElementById('vac-salary-from').addEventListener('input', updatePreview);
+  document.getElementById('vac-salary-to').addEventListener('input', updatePreview);
+  document.getElementById('vac-reward-text').addEventListener('input', updatePreview);
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="vac-employment"], input[name="vac-experience"]'), function (r) {
+    r.addEventListener('change', updatePreview);
+  });
+
+  // Вознаграждение: показать вилку зарплаты только при выборе «Деньги», иначе — свободное текстовое условие
+  var rewardMoneyBox = document.getElementById('vac-reward-money');
+  var rewardOtherBox = document.getElementById('vac-reward-other');
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="vac-reward"]'), function (r) {
+    r.addEventListener('change', function () {
+      var isMoney = r.value === 'Деньги' && r.checked;
+      if (r.checked) {
+        rewardMoneyBox.hidden = !isMoney;
+        rewardOtherBox.hidden = isMoney;
+      }
+      updatePreview();
+    });
+  });
+
+  // Ключевые навыки — свободный ввод тегов (Enter добавляет чип)
+  var skillTags = [];
+  var tagInput = document.getElementById('vac-tag-input');
+  var tagChipsBox = document.getElementById('vac-tag-chips');
+  function renderTagChips() {
+    tagChipsBox.innerHTML = skillTags.map(function (t, i) {
+      return '<span class="chip">' + escapeHtml(t) + ' <span class="chip-remove" data-i="' + i + '">✕</span></span>';
+    }).join('');
+    tagChipsBox.querySelectorAll('.chip-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        skillTags.splice(parseInt(btn.dataset.i, 10), 1);
+        renderTagChips();
+        updatePreview();
+      });
+    });
+    document.getElementById('field-skills').classList.remove('invalid');
+    updatePreview();
+  }
+  tagInput.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var val = tagInput.value.trim();
+    if (val && skillTags.indexOf(val) === -1) {
+      skillTags.push(val);
+      tagInput.value = '';
+      renderTagChips();
+    }
+  });
+
+  // AI-подсказка описания обязанностей — шаблонная генерация (демо, без реального ИИ-бэкенда)
+  (function () {
+    var aiBtn = document.getElementById('vac-ai-btn');
+    aiBtn.addEventListener('click', function () {
+      var title = titleInput.value.trim();
+      var category = categorySelect.value;
+      if (!title || !category) { alert('Сначала укажите название вакансии и специализацию — по ним ИИ подберёт формулировки'); return; }
+      aiBtn.disabled = true;
+      aiBtn.textContent = '🤖 Генерируем…';
+      setTimeout(function () {
+        var text = 'Выполнение задач по направлению «' + category + '».\nВзаимодействие с командой и отчётность о выполненной работе.\nСоблюдение стандартов качества и техники безопасности.';
+        document.getElementById('vac-duties').value = text;
+        document.getElementById('vac-ai-hint').hidden = false;
+        aiBtn.disabled = false;
+        aiBtn.textContent = '✨ Сгенерировать ещё раз';
+      }, 900);
+    });
+  })();
+
+  // Живой предпросмотр в сайдбаре — карточка в стиле .vacancy-card каталога вакансий
+  function rewardLine() {
+    var reward = document.querySelector('input[name="vac-reward"]:checked').value;
+    if (reward === 'Деньги') {
+      var from = document.getElementById('vac-salary-from').value.trim();
+      var to = document.getElementById('vac-salary-to').value.trim();
+      if (from && to) return from + ' – ' + to + ' ₽';
+      if (from) return 'от ' + from + ' ₽';
+      if (to) return 'до ' + to + ' ₽';
+      return 'Зарплата по договорённости';
+    }
+    var text = document.getElementById('vac-reward-text').value.trim();
+    return text || reward;
+  }
+  function updatePreview() {
+    var box = document.getElementById('av-preview');
+    var title = titleInput.value.trim();
+    var city = document.getElementById('vac-city').value.trim();
+    var org = document.getElementById('vac-org').value;
+    var employment = document.querySelector('input[name="vac-employment"]:checked').value;
+
+    if (!title) {
+      box.innerHTML = '<div class="ar-preview-empty">Заполните форму — здесь появится превью вакансии, как она будет выглядеть в каталоге</div>';
+      return;
+    }
+    box.innerHTML =
+      '<div class="ar-preview-img">' + escapeHtml((org || '?').slice(0, 2).toUpperCase()) + '</div>' +
+      '<div class="ar-preview-body">' +
+      '<div class="ar-preview-price">' + escapeHtml(rewardLine()) + '</div>' +
+      '<div class="ar-preview-name">' + escapeHtml(title || 'Название вакансии') + '</div>' +
+      '<div class="ar-preview-meta">' + escapeHtml(org) + ' · 📍 ' + escapeHtml(city || 'Город не указан') + ' · ' + escapeHtml(employment) + '</div>' +
+      '</div>';
+  }
+  updatePreview();
+
+  function validateForm() {
+    var ok = true;
+    function mark(id, bad) { document.getElementById(id).classList.toggle('invalid', bad); if (bad) ok = false; }
+    mark('field-title', !titleInput.value.trim());
+    mark('field-category', !categorySelect.value);
+    mark('field-city', !document.getElementById('vac-city').value.trim());
+    mark('field-skills', skillTags.length === 0);
+    if (!ok) {
+      var firstInvalid = document.querySelector('.field.invalid, .card.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return ok;
+  }
+
+  var toast = document.getElementById('av-toast');
+  document.getElementById('av-draft-btn').addEventListener('click', function () {
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2400);
+  });
+
+  document.getElementById('av-publish-btn').addEventListener('click', function () {
+    if (!validateForm()) return;
+    var data = {
+      title: titleInput.value.trim(),
+      category: categorySelect.value,
+      subcategory: subcategorySelect.value,
+      reward: document.querySelector('input[name="vac-reward"]:checked').value,
+      salaryFrom: document.getElementById('vac-salary-from').value.trim(),
+      salaryTo: document.getElementById('vac-salary-to').value.trim(),
+      rewardText: document.getElementById('vac-reward-text').value.trim(),
+      employment: document.querySelector('input[name="vac-employment"]:checked').value,
+      schedule: document.querySelector('input[name="vac-schedule"]:checked').value,
+      experience: document.querySelector('input[name="vac-experience"]:checked').value,
+      org: document.getElementById('vac-org').value,
+      city: document.getElementById('vac-city').value.trim(),
+      duties: document.getElementById('vac-duties').value.trim(),
+      requirements: document.getElementById('vac-requirements').value.trim(),
+      conditions: document.getElementById('vac-conditions').value.trim(),
+      skills: skillTags,
+      phone: document.getElementById('vac-phone').value.trim(),
+      contactMethod: document.querySelector('input[name="vac-contact-method"]:checked').value,
+      promoted: document.getElementById('vac-promote').checked
+    };
+    try {
+      var queue = JSON.parse(localStorage.getItem('coop_new_vacancies') || '[]');
+      queue.push(data);
+      localStorage.setItem('coop_new_vacancies', JSON.stringify(queue));
+    } catch (e) { /* localStorage недоступен (например, в изолированном превью) — публикация всё равно показывается */ }
+
+    document.getElementById('av-form-view').hidden = true;
+    document.getElementById('av-success-view').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById('av-post-another-btn').addEventListener('click', function () {
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

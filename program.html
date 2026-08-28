@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Карточка целевой программы — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html" class="active">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="ext-programs.html">Все программы</a>
+      <a href="program.html" class="active">Программа</a>
+    </div>
+
+    <div class="profile-layout">
+      <div class="profile-side">
+        <div class="profile-cover">
+          <img class="org-logo-img" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»">
+        </div>
+        <div class="profile-stats-text">
+          Направление: <b>Сельское хозяйство</b><br>
+          Регион: <b>📍 Дербент</b><br>
+          Участников: <b>86</b><br>
+          Фонд программы: <b>4 200 000 ₽</b><br>
+          Срок программы: <b>12 месяцев</b>
+        </div>
+        <div class="info-box">
+          <div class="info-title">Организующий кооператив</div>
+          <div class="info-body">
+            <a href="organization-coop.html" style="display:flex;gap:10px;align-items:center;color:inherit;text-decoration:none;margin-bottom:8px">
+              <img class="org-mini-logo" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»">
+              <span style="font-weight:600;color:var(--teal-dark)">Кооператив «Шукты»</span>
+            </a>
+            Дербент · сельское хозяйство · пайщики программы становятся пайщиками кооператива
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-title">Научная основа</div>
+          <div class="info-body">
+            📚 А.В. Чаянов, «Организация крестьянского хозяйства» (1925–1927)<br>
+            Кооперирование отдельных хозяйственных операций — снабжения, сбыта, переработки — без ликвидации самостоятельного семейного хозяйства.
+          </div>
+        </div>
+      </div>
+      <div class="profile-main">
+        <div class="name-row" style="margin-bottom:16px;justify-content:space-between">
+          <div>
+            <div class="page-title" style="margin-bottom:6px">Урожай сообща</div>
+            <span class="badge gold">Целевая программа кооперации</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;flex:none;max-width:320px">
+            <button class="button secondary join-org-btn" type="button" style="padding:7px 16px;font-size:12.5px" data-org-slug="shukty" data-org-name="Кооператив «Шукты»">Вступить в кооператив</button>
+            <button class="button secondary join-program-btn" type="button" style="padding:7px 16px;font-size:12.5px" data-program-slug="urozhay-soobscha" data-program-name="«Урожай сообща»">Присоединиться к программе</button>
+            <button class="button secondary subscribe-news-btn" type="button" style="padding:7px 16px;font-size:12.5px" data-program-slug="urozhay-soobscha" data-program-name="«Урожай сообща»">Подписаться на новости</button>
+          </div>
+        </div>
+        <p style="color:var(--slate);max-width:720px;margin-top:0">Программа объединяет несколько крестьянских (фермерских) хозяйств в общий цикл: совместная закупка семян и техники по оптовой цене, разделение полевых работ по сезону, общий склад хранения урожая. Каждое хозяйство остаётся самостоятельным — не растворяется в общем предприятии, — но «дотягивает» до конкурентоспособности через кооперативную надстройку над снабжением, сбытом и переработкой.</p>
+
+        <div class="cat-row collapsed" data-kind="Механика программы">
+          <div class="cat-header">Механика программы <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#E3EFED">📦</div><div class="cat-label">Совместная закупка семян и техники</div></div>
+              <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#F7ECD9">🌾</div><div class="cat-label">Разделение полевых работ по сезону</div></div>
+              <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#E3EFED">🏬</div><div class="cat-label">Общий склад хранения урожая</div></div>
+              <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#F7ECD9">🤝</div><div class="cat-label">Самостоятельность хозяйства сохраняется</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Участники программы">
+          <div class="cat-header">Участники программы <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="person.html"><div class="cat-icon"><img src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич"></div><div class="cat-label">Дашкевич Данил Игоревич</div><div class="cat-status role">координатор программы</div></a>
+              <a class="cat-tile" href="person.html"><div class="cat-icon"><img src="https://i.pravatar.cc/128?img=19" alt="Семёнов Николай Петрович"></div><div class="cat-label">Семёнов Николай Петрович</div><div class="cat-status role">пчеловодство</div></a>
+              <a class="cat-tile" href="person.html"><div class="cat-icon"><img src="https://i.pravatar.cc/128?img=47" alt="Иванова Мария Петровна"></div><div class="cat-label">Иванова Мария Петровна</div><div class="cat-status role">участник с 2025</div></a>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Ресурсы программы">
+          <div class="cat-header">Ресурсы программы <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/mini-tractor.jpg" alt="Мини-трактор в общем пользовании"></div><div class="cat-label">Мини-трактор в общем пользовании</div></a>
+              <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/warehouse.jpg" alt="Общий склад хранения"></div><div class="cat-label">Общий склад хранения</div></a>
+              <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/potato-crate.jpg" alt="Урожай картофеля"></div><div class="cat-label">Урожай картофеля</div></a>
+              <a class="cat-tile" href="resource.html"><div class="cat-icon"><img src="images/photos/wheat-flour.jpg" alt="Зерно и мука"></div><div class="cat-label">Зерно и мука</div></a>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Потребности">
+          <div class="cat-header">Потребности <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="vacancies.html"><div class="cat-icon line-icon" style="font-size:36px;background:#E3EFED">🧑‍🌾</div><div class="cat-label">Агроном-консультант на сезон</div><div class="cat-status open">● открыта</div></a>
+              <a class="cat-tile" href="resources.html"><div class="cat-icon"><img src="images/photos/mini-tractor.jpg" alt="Ещё один мини-трактор в лизинг"></div><div class="cat-label">Ещё один мини-трактор в лизинг</div><div class="cat-status open">● открыта</div></a>
+              <div class="cat-tile"><div class="cat-icon line-icon" style="font-size:36px;background:#F7ECD9">🏗️</div><div class="cat-label">Инвестиции в расширение склада</div><div class="cat-status open">● открыта</div></div>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row collapsed" data-kind="Связанные организации">
+          <div class="cat-header">Связанные организации <span class="cat-arrow">▼</span></div>
+          <div class="cat-items">
+            <button class="cat-nav" data-dir="-1">‹</button>
+            <div class="cat-track">
+              <a class="cat-tile" href="organization-coop.html"><div class="cat-icon"><img src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»"></div><div class="cat-label">Кооператив «Шукты»</div></a>
+              <a class="cat-tile" href="organization.html"><div class="cat-icon"><img src="img/org-logos/yandex.png" alt="ООО «Мириталь»"></div><div class="cat-label">ООО «Мириталь»</div></a>
+              <a class="cat-tile" href="organization-nonprofit.html"><div class="cat-icon"><img src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»"></div><div class="cat-label">Фонд «Территория 2020»</div></a>
+            </div>
+            <button class="cat-nav" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="cat-row" data-kind="Лента">
+          <div class="cat-header">Лента <span class="cat-arrow">▲</span></div>
+          <div class="wall-panel">
+            <div class="wall-head">
+              <div class="wall-count"><b>2</b> записи</div>
+              <a href="organizations-feed.html">К общей ленте →</a>
+            </div>
+            <div id="wall-posts">
+              <div class="post">
+                <div class="post-head">
+                  <img class="avatar" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" style="object-fit:contain;background:var(--white);padding:4px;box-sizing:border-box">
+                  <div>
+                    <div class="post-name">Кооператив «Шукты» <span class="badge gold" style="margin-left:6px">запись закреплена</span></div>
+                    <div class="post-time">12 августа, 09:40</div>
+                  </div>
+                </div>
+                <p style="margin:0 0 10px">Собрали первый общий склад урожая картофеля и зерна — 14 хозяйств уже сдали продукцию. Открыт приём заявок ещё на 20 мест в программе «Урожай сообща».</p>
+                <div class="post-engagement">72 просмотра · 1 репост · ♥ 14 · <a href="#">показать все 4 комментария</a></div>
+              </div>
+              <div class="post">
+                <div class="post-head">
+                  <img class="avatar" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" style="object-fit:contain;background:var(--white);padding:4px;box-sizing:border-box">
+                  <div><div class="post-name">Кооператив «Шукты»</div><div class="post-time">30 июля, 17:15</div></div>
+                </div>
+                <p style="margin:0">Провели совместную закупку семян озимой пшеницы по оптовой цене — экономия для каждого хозяйства составила около 18%.</p>
+                <div class="post-engagement">41 просмотр · ♥ 9 · <a href="#">показать все 2 комментария</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="toast" id="program-toast"></div>
+
+<script>
+document.querySelectorAll('.cat-header').forEach(function (h) {
+  h.addEventListener('click', function () {
+    var row = h.closest('.cat-row');
+    row.classList.toggle('collapsed');
+    var arrow = h.querySelector('.cat-arrow');
+    arrow.textContent = row.classList.contains('collapsed') ? '▼' : '▲';
+  });
+});
+document.querySelectorAll('.cat-nav').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var track = btn.parentElement.querySelector('.cat-track');
+    var dir = parseInt(btn.dataset.dir, 10);
+    track.scrollBy({ left: dir * 150, behavior: 'smooth' });
+  });
+});
+
+// Вступить в кооператив / присоединиться к программе — те же ключи localStorage, что на ext-programs.html,
+// поэтому состояние синхронизировано между каталогом и карточкой программы
+(function () {
+  var ORG_KEY = 'coop_joined_cooperatives';
+  var PROGRAM_KEY = 'coop_joined_programs';
+  var NEWS_KEY = 'coop_subscribed_programs';
+  var toast = document.getElementById('program-toast');
+
+  function getList(key) {
+    try { return JSON.parse(localStorage.getItem(key)) || []; } catch (e) { return []; }
+  }
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  }
+  function renderBtn(btn, key, slug, activeText, defaultText) {
+    var active = getList(key).indexOf(slug) !== -1;
+    btn.classList.toggle('active', active);
+    btn.textContent = active ? activeText : defaultText;
+  }
+  function wire(selector, key, slugAttr, nameAttr, activeText, defaultText, toastText) {
+    document.querySelectorAll(selector).forEach(function (btn) {
+      var slug = btn.dataset[slugAttr];
+      renderBtn(btn, key, slug, activeText, defaultText);
+      btn.addEventListener('click', function () {
+        var list = getList(key);
+        var i = list.indexOf(slug);
+        var joining = i === -1;
+        if (joining) list.push(slug); else list.splice(i, 1);
+        localStorage.setItem(key, JSON.stringify(list));
+        renderBtn(btn, key, slug, activeText, defaultText);
+        if (joining) showToast(toastText + ' ' + btn.dataset[nameAttr]);
+      });
+    });
+  }
+  wire('.join-org-btn', ORG_KEY, 'orgSlug', 'orgName', 'Вы уже в кооперативе', 'Вступить в кооператив', '✓ Вы вступили в кооператив');
+  wire('.join-program-btn', PROGRAM_KEY, 'programSlug', 'programName', 'Вы участвуете в программе', 'Присоединиться к программе', '✓ Вы присоединились к программе');
+  wire('.subscribe-news-btn', NEWS_KEY, 'programSlug', 'programName', 'Вы подписаны', 'Подписаться на новости', '✓ Вы подписались на новости программы');
+})();
+</script>
+</body>
+</html>

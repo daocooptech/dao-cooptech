@@ -1,0 +1,787 @@
+[
+  {
+    "slug": "rebar-steel",
+    "query": "rebar reinforcing steel bars construction",
+    "candidates": [
+      {
+        "title": "File:US Navy 080102-N-8547M-004 Steelworker 3rd Class Phillip J. Tremiti, assigned to Naval Mobile Construction Battalion (NMCB) 5, welds together a traditional.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/US_Navy_080102-N-8547M-004_Steelworker_3rd_Class_Phillip_J._Tremiti%2C_assigned_to_Naval_Mobile_Construction_Battalion_%28NMCB%29_5%2C_welds_together_a_traditional.jpg/500px-US_Navy_080102-N-8547M-004_Steelworker_3rd_Class_Phillip_J._Tremiti%2C_assigned_to_Naval_Mobile_Construction_Battalion_%28NMCB%29_5%2C_welds_together_a_traditional.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:A worker ties together reinforcing bar, or rebar, to strengthen concrete floors for a facility that will house 372 students as part of the Herat University Women's Dormitory Project in Herat province 140311-A-DT641-242.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/A_worker_ties_together_reinforcing_bar%2C_or_rebar%2C_to_strengthen_concrete_floors_for_a_facility_that_will_house_372_students_as_part_of_the_Herat_University_Women%27s_Dormitory_Project_in_Herat_province_140311-A-DT641-242.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Workers on the roof of the powerhouse laying rebar, August 3, 1925 (SPWS 361).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Workers_on_the_roof_of_the_powerhouse_laying_rebar%2C_August_3%2C_1925_%28SPWS_361%29.jpg/500px-Workers_on_the_roof_of_the_powerhouse_laying_rebar%2C_August_3%2C_1925_%28SPWS_361%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Workers on powerhouse roof laying rebar, August 3, 1925 (SPWS 379).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Workers_on_powerhouse_roof_laying_rebar%2C_August_3%2C_1925_%28SPWS_379%29.jpg/500px-Workers_on_powerhouse_roof_laying_rebar%2C_August_3%2C_1925_%28SPWS_379%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "concrete-mixer",
+    "query": "concrete mixer machine construction site",
+    "candidates": [
+      {
+        "title": "File:DrillingMachine with ConcreteMixer and Pump02.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/DrillingMachine_with_ConcreteMixer_and_Pump02.jpg/500px-DrillingMachine_with_ConcreteMixer_and_Pump02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Parked cement mixer.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Parked_cement_mixer.jpg/500px-Parked_cement_mixer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Engineering Civil Action Project for Pacific Partnership 2011 110419-N-KB563-083.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Engineering_Civil_Action_Project_for_Pacific_Partnership_2011_110419-N-KB563-083.jpg/500px-Engineering_Civil_Action_Project_for_Pacific_Partnership_2011_110419-N-KB563-083.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Puerto Rican engineers build training site in New Jersey 160613-A-JR823-058.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Puerto_Rican_engineers_build_training_site_in_New_Jersey_160613-A-JR823-058.jpg/500px-Puerto_Rican_engineers_build_training_site_in_New_Jersey_160613-A-JR823-058.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "excavator",
+    "query": "excavator loader construction machine",
+    "candidates": [
+      {
+        "title": "File:Doosan Daewoo loader.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Doosan_Daewoo_loader.jpg/500px-Doosan_Daewoo_loader.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Parade of Machines \"Technocracy\" in Gdynia - 084.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Parade_of_Machines_%22Technocracy%22_in_Gdynia_-_084.jpg/500px-Parade_of_Machines_%22Technocracy%22_in_Gdynia_-_084.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Construction POT 02-17 02.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Construction_POT_02-17_02.jpg/500px-Construction_POT_02-17_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Citernes Schappe (09).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Citernes_Schappe_%2809%29.jpg/500px-Citernes_Schappe_%2809%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "wood-planks",
+    "query": "wood planks lumber stack",
+    "candidates": [
+      {
+        "title": "File:StateLibQld 2 120248 Construction of the U.S. Army camp, Camp Cable.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StateLibQld_2_120248_Construction_of_the_U.S._Army_camp%2C_Camp_Cable.jpg/500px-StateLibQld_2_120248_Construction_of_the_U.S._Army_camp%2C_Camp_Cable.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Men stacking wood lumber (4586899251).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Men_stacking_wood_lumber_%284586899251%29.jpg/500px-Men_stacking_wood_lumber_%284586899251%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Stacked wood planks (Unsplash).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Stacked_wood_planks_%28Unsplash%29.jpg/500px-Stacked_wood_planks_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Fir 2x4 waiting to be installed Tacoma Speedway Boland SPEEDWAY045.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Fir_2x4_waiting_to_be_installed_Tacoma_Speedway_Boland_SPEEDWAY045.jpg/500px-Fir_2x4_waiting_to_be_installed_Tacoma_Speedway_Boland_SPEEDWAY045.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "welding-machine",
+    "query": "arc welding equipment steel",
+    "candidates": [
+      {
+        "title": "File:Submerged arc welder.lincoln.triddle.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Submerged_arc_welder.lincoln.triddle.jpg/500px-Submerged_arc_welder.lincoln.triddle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:North Carolina National Guard (28186377449).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/North_Carolina_National_Guard_%2828186377449%29.jpg/500px-North_Carolina_National_Guard_%2828186377449%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Contract No. 85, Manufacture and Delivery of Precast Concrete Steel Cylinder Pipe, Southborough, Framingham, Wayland, Natick, Weston, showing site of former plate welding shop and L - DPLA - a8a4463ceae05c645158889c3b166bf2.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Contract_No._85%2C_Manufacture_and_Delivery_of_Precast_Concrete_Steel_Cylinder_Pipe%2C_Southborough%2C_Framingham%2C_Wayland%2C_Natick%2C_Weston%2C_showing_site_of_former_plate_welding_shop_and_L_-_DPLA_-_a8a4463ceae05c645158889c3b166bf2.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Contract No. 85, Manufacture and Delivery of Precast Concrete Steel Cylinder Pipe, Southborough, Framingham, Wayland, Natick, Weston, welding tables for forms for concrete pipe, Nat - DPLA - 872a3240437866a662533ff0695ec473.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Contract_No._85%2C_Manufacture_and_Delivery_of_Precast_Concrete_Steel_Cylinder_Pipe%2C_Southborough%2C_Framingham%2C_Wayland%2C_Natick%2C_Weston%2C_welding_tables_for_forms_for_concrete_pipe%2C_Nat_-_DPLA_-_872a3240437866a662533ff0695ec473.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "brick-stack",
+    "query": "ceramic bricks stack construction",
+    "candidates": [
+      {
+        "title": "File:Gladstone Enamel Kiln 3861.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Gladstone_Enamel_Kiln_3861.JPG/500px-Gladstone_Enamel_Kiln_3861.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Careful handling of damp clay.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Careful_handling_of_damp_clay.jpg/500px-Careful_handling_of_damp_clay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Clay being dried before going to furnace.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Clay_being_dried_before_going_to_furnace.jpg/500px-Clay_being_dried_before_going_to_furnace.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "craft-workshop",
+    "query": "craft workshop artisan tools",
+    "candidates": [
+      {
+        "title": "File:Tools of brass utensil making in workshop of Thathera market of Jandiala Guru. 06.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Tools_of_brass_utensil_making_in_workshop_of_Thathera_market_of_Jandiala_Guru._06.jpg/500px-Tools_of_brass_utensil_making_in_workshop_of_Thathera_market_of_Jandiala_Guru._06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Batik Artisan Applying Wax with Canting in Trusmi Cirebon Indonesia.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/500px-Batik_Artisan_Applying_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Batik Artisan Drawing Wax with Canting in Trusmi Cirebon Indonesia.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Batik_Artisan_Drawing_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg/500px-Batik_Artisan_Drawing_Wax_with_Canting_in_Trusmi_Cirebon_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Artisan crafting a traditional drum in a workshop, Mpambire village, Mpigi District, Uganda.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Artisan_crafting_a_traditional_drum_in_a_workshop%2C_Mpambire_village%2C_Mpigi_District%2C_Uganda.jpg/500px-Artisan_crafting_a_traditional_drum_in_a_workshop%2C_Mpambire_village%2C_Mpigi_District%2C_Uganda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "concrete-truck",
+    "query": "concrete mixer truck ready mix",
+    "candidates": [
+      {
+        "title": "File:Concrete trucks in Copenhagen 1931.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Concrete_trucks_in_Copenhagen_1931.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      {
+        "title": "File:Ready Mix Concrete Truck.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Ready_Mix_Concrete_Truck.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      {
+        "title": "File:Operation of a truck mixer.gif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Operation_of_a_truck_mixer.gif/500px-Operation_of_a_truck_mixer.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Ready Mix Mercedes Benz Axor 3535 (20824734246).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Ready_Mix_Mercedes_Benz_Axor_3535_%2820824734246%29.jpg/500px-Ready_Mix_Mercedes_Benz_Axor_3535_%2820824734246%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "scaffolding",
+    "query": "construction scaffolding building facade",
+    "candidates": [
+      {
+        "title": "File:Constructions and scaffolding at the Oosterdokseiland, Amsterdam-Centrum.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Constructions_and_scaffolding_at_the_Oosterdokseiland%2C_Amsterdam-Centrum.jpg/500px-Constructions_and_scaffolding_at_the_Oosterdokseiland%2C_Amsterdam-Centrum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Mock-up of cornice on scaffolding, construction of the McKim Building. - DPLA - 7f9857a35490ac2cf4daf267e938d229.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mock-up_of_cornice_on_scaffolding%2C_construction_of_the_McKim_Building._-_DPLA_-_7f9857a35490ac2cf4daf267e938d229.jpg/500px-Mock-up_of_cornice_on_scaffolding%2C_construction_of_the_McKim_Building._-_DPLA_-_7f9857a35490ac2cf4daf267e938d229.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Construction scaffolding of metal and wood, at the building site of area Oosterdokseiland; free photo Amsterdam by Fons Heijnsbroek, April 2010.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Construction_scaffolding_of_metal_and_wood%2C_at_the_building_site_of_area_Oosterdokseiland%3B_free_photo_Amsterdam_by_Fons_Heijnsbroek%2C_April_2010.tif/lossy-page1-500px-Construction_scaffolding_of_metal_and_wood%2C_at_the_building_site_of_area_Oosterdokseiland%3B_free_photo_Amsterdam_by_Fons_Heijnsbroek%2C_April_2010.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Large and high metal scaffolding at the west-corner of the area Oosterdokseiland for the building of a new hotel; free photo Amsterdam constructions by Fons Heijnsbroek, Spring 2010.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Large_and_high_metal_scaffolding_at_the_west-corner_of_the_area_Oosterdokseiland_for_the_building_of_a_new_hotel%3B_free_photo_Amsterdam_constructions_by_Fons_Heijnsbroek%2C_Spring_2010.tif/lossy-page1-500px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "mineral-wool",
+    "query": "mineral wool insulation material",
+    "candidates": [
+      {
+        "title": "File:Knauf Insulation, Cwmbran - geograph.org.uk - 1577012.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Knauf_Insulation%2C_Cwmbran_-_geograph.org.uk_-_1577012.jpg/500px-Knauf_Insulation%2C_Cwmbran_-_geograph.org.uk_-_1577012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:The Architect and engineer of California and the Pacific Coast (1910) (14761726926).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/The_Architect_and_engineer_of_California_and_the_Pacific_Coast_%281910%29_%2814761726926%29.jpg/500px-The_Architect_and_engineer_of_California_and_the_Pacific_Coast_%281910%29_%2814761726926%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Glaswolle Zerfaserungsmaschine.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Glaswolle_Zerfaserungsmaschine.jpg/500px-Glaswolle_Zerfaserungsmaschine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Knauf Insulation's glass mineral wool plant, Cwmbran - geograph.org.uk - 3668981.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Knauf_Insulation%27s_glass_mineral_wool_plant%2C_Cwmbran_-_geograph.org.uk_-_3668981.jpg/500px-Knauf_Insulation%27s_glass_mineral_wool_plant%2C_Cwmbran_-_geograph.org.uk_-_3668981.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "bank-finance",
+    "query": "bank finance credit business",
+    "candidates": [
+      {
+        "title": "File:30-hOLBORN-LSBF-23.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/30-hOLBORN-LSBF-23.JPG/500px-30-hOLBORN-LSBF-23.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Launch of the Bank Windhoek Green Bond Impact Report 2020.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Launch_of_the_Bank_Windhoek_Green_Bond_Impact_Report_2020.jpg/500px-Launch_of_the_Bank_Windhoek_Green_Bond_Impact_Report_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Impact of the COVID-19 crisis on business, as perceived by banks in sub-Saharan Africa (% respondents).png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Impact_of_the_COVID-19_crisis_on_business%2C_as_perceived_by_banks_in_sub-Saharan_Africa_%28%25_respondents%29.png/500px-Impact_of_the_COVID-19_crisis_on_business%2C_as_perceived_by_banks_in_sub-Saharan_Africa_%28%25_respondents%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Skyway Business Park, 170 Attwell Drive, Toronto Etobicoke.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Skyway_Business_Park%2C_170_Attwell_Drive%2C_Toronto_Etobicoke.jpg/500px-Skyway_Business_Park%2C_170_Attwell_Drive%2C_Toronto_Etobicoke.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "diesel-generator",
+    "query": "diesel generator power equipment",
+    "candidates": [
+      {
+        "title": "File:US Navy 050106-N-9951E-018 Aviation Support Equipment Technician 1st Class Joseph Cullen, of Belleville, Ill., works on the emergency diesel power generator behind the main hospital in Aceh, Sumatra, Indonesia.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/US_Navy_050106-N-9951E-018_Aviation_Support_Equipment_Technician_1st_Class_Joseph_Cullen%2C_of_Belleville%2C_Ill.%2C_works_on_the_emergency_diesel_power_generator_behind_the_main_hospital_in_Aceh%2C_Sumatra%2C_Indonesia.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:US Navy 050106-N-9951E-054 The team of workers diagnosed and repaired the emergency diesel power generator behind the main hospital in Banda Aceh, Sumatra, Indonesia.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/US_Navy_050106-N-9951E-054_The_team_of_workers_diagnosed_and_repaired_the_emergency_diesel_power_generator_behind_the_main_hospital_in_Banda_Aceh%2C_Sumatra%2C_Indonesia.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Class 25 D5207 (25057) diesel locomotive - geograph.org.uk - 1249417.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Class_25_D5207_%2825057%29_diesel_locomotive_-_geograph.org.uk_-_1249417.jpg/500px-Class_25_D5207_%2825057%29_diesel_locomotive_-_geograph.org.uk_-_1249417.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Railway and locomotive engineering - a practical journal of railway motive power and rolling stock (1928) (14574283168).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Railway_and_locomotive_engineering_-_a_practical_journal_of_railway_motive_power_and_rolling_stock_%281928%29_%2814574283168%29.jpg/500px-Railway_and_locomotive_engineering_-_a_practical_journal_of_railway_motive_power_and_rolling_stock_%281928%29_%2814574283168%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "metal-roof",
+    "query": "metal roof tiles roofing",
+    "candidates": [
+      {
+        "title": "File:Repaired metal roof.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Repaired_metal_roof.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      {
+        "title": "File:Catalogue R2 illustrating and describing metallic building materials for outside use, 1912 - Metallic Roofing Co. of Canada. (1912) (14596008029).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Catalogue_R2_illustrating_and_describing_metallic_building_materials_for_outside_use%2C_1912_-_Metallic_Roofing_Co._of_Canada._%281912%29_%2814596008029%29.jpg/500px-Catalogue_R2_illustrating_and_describing_metallic_building_materials_for_outside_use%2C_1912_-_Metallic_Roofing_Co._of_Canada._%281912%29_%2814596008029%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Catalogue R2 illustrating and describing metallic building materials for outside use, 1912 - Metallic Roofing Co. of Canada. (1912) (14595962700).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Catalogue_R2_illustrating_and_describing_metallic_building_materials_for_outside_use%2C_1912_-_Metallic_Roofing_Co._of_Canada._%281912%29_%2814595962700%29.jpg/500px-Catalogue_R2_illustrating_and_describing_metallic_building_materials_for_outside_use%2C_1912_-_Metallic_Roofing_Co._of_Canada._%281912%29_%2814595962700%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Five fragments of Roman roof and floor tile. A sample from a collection of ninety three fragments. (FindID 71217).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Five_fragments_of_Roman_roof_and_floor_tile._A_sample_from_a_collection_of_ninety_three_fragments._%28FindID_71217%29.jpg/500px-Five_fragments_of_Roman_roof_and_floor_tile._A_sample_from_a_collection_of_ninety_three_fragments._%28FindID_71217%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "warehouse",
+    "query": "warehouse storage building interior",
+    "candidates": [
+      {
+        "title": "File:WAREHOUSE STORAGE BUILDING 22. - Dallas Compress Company, 2010 Alabama Avenue, Selma, Dallas County, AL HAER AL-197-14.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/WAREHOUSE_STORAGE_BUILDING_22._-_Dallas_Compress_Company%2C_2010_Alabama_Avenue%2C_Selma%2C_Dallas_County%2C_AL_HAER_AL-197-14.tif/lossy-page1-500px-WAREHOUSE_STORAGE_BUILDING_22._-_Dallas_Compress_Company%2C_2010_Alabama_Avenue%2C_Selma%2C_Dallas_County%2C_AL_HAER_AL-197-14.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:BUILDING -2205, INTERIOR VIEW OF UPPER STORAGE FLOOR ('ATTIC') SHOWING LIGHT ADMITTED BY MAIN BANK AND UPPERMOST WINDOWS, FACING SOUTHWEST. - Medford Service Center, Warehouse, HABS ORE,15-MED,1A-6.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/BUILDING_-2205%2C_INTERIOR_VIEW_OF_UPPER_STORAGE_FLOOR_%28%27ATTIC%27%29_SHOWING_LIGHT_ADMITTED_BY_MAIN_BANK_AND_UPPERMOST_WINDOWS%2C_FACING_SOUTHWEST._-_Medford_Service_Center%2C_Warehouse%2C_HABS_ORE%2C15-MED%2C1A-6.tif/lossy-page1-500px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:BUILDING -2205, INTERIOR VIEW OF UPPER STORAGE FLOOR ('ATTIC') SHOWING SKYLIGHT, FACING SOUTHEAST. - Medford Service Center, Warehouse, 1319 McAndrews Road, Medford, Jackson HABS ORE,15-MED,1A-5.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/BUILDING_-2205%2C_INTERIOR_VIEW_OF_UPPER_STORAGE_FLOOR_%28%27ATTIC%27%29_SHOWING_SKYLIGHT%2C_FACING_SOUTHEAST._-_Medford_Service_Center%2C_Warehouse%2C_1319_McAndrews_Road%2C_Medford%2C_Jackson_HABS_ORE%2C15-MED%2C1A-5.tif/lossy-page1-500px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:BUILDING -2205, INTERIOR VIEW OF UPPER STORAGE FLOOR ('ATTIC') SHOWING FREIGHT ELEVATOR, FACING WEST-NORTHWEST. - Medford Service Center, Warehouse, 1319 McAndrews Road, Medford, HABS ORE,15-MED,1A-7.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/BUILDING_-2205%2C_INTERIOR_VIEW_OF_UPPER_STORAGE_FLOOR_%28%27ATTIC%27%29_SHOWING_FREIGHT_ELEVATOR%2C_FACING_WEST-NORTHWEST._-_Medford_Service_Center%2C_Warehouse%2C_1319_McAndrews_Road%2C_Medford%2C_HABS_ORE%2C15-MED%2C1A-7.tif/lossy-page1-500px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "steel-pipe",
+    "query": "steel pipes profile tube industrial",
+    "candidates": []
+  },
+  {
+    "slug": "printer3d-construction",
+    "query": "3D printer construction concrete printing",
+    "candidates": [
+      {
+        "title": "File:3D Concrete Printer.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/3D_Concrete_Printer.jpg/500px-3D_Concrete_Printer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:9th ESB trains on 3D concrete printer (9323141).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/9th_ESB_trains_on_3D_concrete_printer_%289323141%29.jpg/500px-9th_ESB_trains_on_3D_concrete_printer_%289323141%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:9th ESB trains on 3D concrete printer (9323137).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/9th_ESB_trains_on_3D_concrete_printer_%289323137%29.jpg/500px-9th_ESB_trains_on_3D_concrete_printer_%289323137%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:9th ESB trains on 3D concrete printer (9323139).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/9th_ESB_trains_on_3D_concrete_printer_%289323139%29.jpg/500px-9th_ESB_trains_on_3D_concrete_printer_%289323139%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "greenhouse",
+    "query": "greenhouse agriculture plants interior",
+    "candidates": [
+      {
+        "title": "File:Glasshouse and fountain at lalbagh.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Glasshouse_and_fountain_at_lalbagh.jpg/500px-Glasshouse_and_fountain_at_lalbagh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Estufa principal do Jardim Botânico de Curitiba 02.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Estufa_principal_do_Jardim_Bot%C3%A2nico_de_Curitiba_02.jpg/500px-Estufa_principal_do_Jardim_Bot%C3%A2nico_de_Curitiba_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Small greenhouse with grapevines escaping.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Small_greenhouse_with_grapevines_escaping.jpg/500px-Small_greenhouse_with_grapevines_escaping.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Стаклењак, Ботаничка башта Јевремовац (greenhouse Jevremovac Botanical Garden, Belgrade, Serbia).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/%D0%A1%D1%82%D0%B0%D0%BA%D0%BB%D0%B5%D1%9A%D0%B0%D0%BA%2C_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B1%D0%B0%D1%88%D1%82%D0%B0_%D0%88%D0%B5%D0%B2%D1%80%D0%B5%D0%BC%D0%BE%D0%B2%D0%B0%D1%86_%28greenhouse_Jevremovac_Botanical_Garden%2C_Belgrade%2C_Serbia%29.jpg/500px-%D0%A1%D1%82%D0%B0%D0%BA%D0%BB%D0%B5%D1%9A%D0%B0%D0%BA%2C_%D0%91%D0%BE%D1%82%D0%B0%D0%BD%D0%B8%D1%87%D0%BA%D0%B0_%D0%B1%D0%B0%D1%88%D1%82%D0%B0_%D0%88%D0%B5%D0%B2%D1%80%D0%B5%D0%BC%D0%BE%D0%B2%D0%B0%D1%86_%28greenhouse_Jevremovac_Botanical_Garden%2C_Belgrade%2C_Serbia%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "waste-sorting",
+    "query": "waste sorting recycling bins containers",
+    "candidates": [
+      {
+        "title": "File:NEA recycling bins, Orchard Road.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/NEA_recycling_bins%2C_Orchard_Road.JPG/500px-NEA_recycling_bins%2C_Orchard_Road.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Kuala Lumpur Malaysia KLIA-Recycling-Bin-01.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kuala_Lumpur_Malaysia_KLIA-Recycling-Bin-01.jpg/500px-Kuala_Lumpur_Malaysia_KLIA-Recycling-Bin-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Singapore Recycling-bins-01.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Singapore_Recycling-bins-01.jpg/500px-Singapore_Recycling-bins-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Nusa-Dua Bali Indonesia Recycle-bin-01.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nusa-Dua_Bali_Indonesia_Recycle-bin-01.jpg/500px-Nusa-Dua_Bali_Indonesia_Recycle-bin-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "makerspace",
+    "query": "makerspace fablab workshop tools",
+    "candidates": []
+  },
+  {
+    "slug": "laundromat",
+    "query": "laundromat washing machines room",
+    "candidates": [
+      {
+        "title": "File:At the Nerd Laundromat.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/At_the_Nerd_Laundromat.jpg/500px-At_the_Nerd_Laundromat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:40 lb capacity Continental Girbau ExpressWash coin-op washing machine.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/40_lb_capacity_Continental_Girbau_ExpressWash_coin-op_washing_machine.jpg/500px-40_lb_capacity_Continental_Girbau_ExpressWash_coin-op_washing_machine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "coworking",
+    "query": "coworking space office desks",
+    "candidates": [
+      {
+        "title": "File:Ontario Premier Kathleen Wynne with partner Jane Rounthwaite, Centre for Social Innovation - 2015 (17632774758).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ontario_Premier_Kathleen_Wynne_with_partner_Jane_Rounthwaite%2C_Centre_for_Social_Innovation_-_2015_%2817632774758%29.jpg/500px-Ontario_Premier_Kathleen_Wynne_with_partner_Jane_Rounthwaite%2C_Centre_for_Social_Innovation_-_2015_%2817632774758%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Kathleen Wynne with Jane Rounthwaite - 2015 (17632774758) (cropped).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Kathleen_Wynne_with_Jane_Rounthwaite_-_2015_%2817632774758%29_%28cropped%29.jpg/500px-Kathleen_Wynne_with_Jane_Rounthwaite_-_2015_%2817632774758%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "building-renovation",
+    "query": "building renovation construction facade",
+    "candidates": [
+      {
+        "title": "File:Building activities with dust around the renovation of the tram depot of remise Tollensstraat in Amsterdam-West, 2014 Renovatie-werkzaamheden aan de tramremise Tollenstraat in de Kinkerbuurt, Amsterdam..jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Building_activities_with_dust_around_the_renovation_of_the_tram_depot_of_remise_Tollensstraat_in_Amsterdam-West%2C_2014_Renovatie-werkzaamheden_aan_de_tramremise_Tollenstraat_in_de_Kinkerbuurt%2C_Amsterdam..jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Münster, Westdeutsche Lotterie -- 2018 -- 0417.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/M%C3%BCnster%2C_Westdeutsche_Lotterie_--_2018_--_0417.jpg/500px-M%C3%BCnster%2C_Westdeutsche_Lotterie_--_2018_--_0417.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:2024 - Photo of renovation works in the street Plantage Middenlaan with building fences and scaffolding, in sun and shadow -- street photography Amsterdam in free images and high resolutions, Dutch photographer Fons Heijnsbroek.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/2024_-_Photo_of_renovation_works_in_the_street_Plantage_Middenlaan_with_building_fences_and_scaffolding%2C_in_sun_and_shadow_--_street_photography_Amsterdam_in_free_images_and_high_resolutions%2C_Dutch_photographer_Fons_Heijnsbroek.tif/lossy-page1-500px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Photo of renovation workers in the Sarphatistraat, Amsterdam - a brick old facade wall is temporary supported by metal support beams - construction sites in The Netherlands in free download photo in high resolution.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Photo_of_renovation_workers_in_the_Sarphatistraat%2C_Amsterdam_-_a_brick_old_facade_wall_is_temporary_supported_by_metal_support_beams_-_construction_sites_in_The_Netherlands_in_free_download_photo_in_high_resolution.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "modular-house",
+    "query": "modular house prefab building",
+    "candidates": [
+      {
+        "title": "File:Monroe, WA - prefab homes for sale.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Monroe%2C_WA_-_prefab_homes_for_sale.jpg/500px-Monroe%2C_WA_-_prefab_homes_for_sale.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Feature. Prefabricated Homes BAnQ P48S1P13396.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Feature._Prefabricated_Homes_BAnQ_P48S1P13396.jpg/500px-Feature._Prefabricated_Homes_BAnQ_P48S1P13396.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Suburban Americana Panorama.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Suburban_Americana_Panorama.jpg/500px-Suburban_Americana_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Prefabricated home office.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Prefabricated_home_office.jpg/500px-Prefabricated_home_office.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "solar-farm",
+    "query": "solar panel farm power station",
+    "candidates": [
+      {
+        "title": "File:Solar Panel Farm, Hawton - geograph.org.uk - 2516810.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Solar_Panel_Farm%2C_Hawton_-_geograph.org.uk_-_2516810.jpg/500px-Solar_Panel_Farm%2C_Hawton_-_geograph.org.uk_-_2516810.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Solar Panels at Upper Holton Solar Farm - geograph.org.uk - 4618188.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Solar_Panels_at_Upper_Holton_Solar_Farm_-_geograph.org.uk_-_4618188.jpg/500px-Solar_Panels_at_Upper_Holton_Solar_Farm_-_geograph.org.uk_-_4618188.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Photovoltaic Panels at a Solar Farm Near Vulcan, Alberta.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Photovoltaic_Panels_at_a_Solar_Farm_Near_Vulcan%2C_Alberta.jpg/500px-Photovoltaic_Panels_at_a_Solar_Farm_Near_Vulcan%2C_Alberta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Photovoltaic Panels at the Travers Solar Farm.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Photovoltaic_Panels_at_the_Travers_Solar_Farm.jpg/500px-Photovoltaic_Panels_at_the_Travers_Solar_Farm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "bridge-repair",
+    "query": "bridge river construction",
+    "candidates": [
+      {
+        "title": "File:Manhattan Bridge Construction 1909.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Manhattan_Bridge_Construction_1909.jpg/500px-Manhattan_Bridge_Construction_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:I-76 PTpk over Allegheny Riv and Freeport Rd jeh.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/I-76_PTpk_over_Allegheny_Riv_and_Freeport_Rd_jeh.JPG/500px-I-76_PTpk_over_Allegheny_Riv_and_Freeport_Rd_jeh.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Oblique of bridge, looking west from south bank of Allegheny River at lock and dam no. 3. - Bessemer and Lake Erie Railroad, Allegheny River Bridge, Spanning Allegheny River, East HAER PA,2-OAK.V,1-1.tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Oblique_of_bridge%2C_looking_west_from_south_bank_of_Allegheny_River_at_lock_and_dam_no._3._-_Bessemer_and_Lake_Erie_Railroad%2C_Allegheny_River_Bridge%2C_Spanning_Allegheny_River%2C_East_HAER_PA%2C2-OAK.V%2C1-1.tif/lossy-page1-500px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Allegheny River Bridge near the Allegheny Valley Interchange on the Pennsylvania Turnpike (85098).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Allegheny_River_Bridge_near_the_Allegheny_Valley_Interchange_on_the_Pennsylvania_Turnpike_%2885098%29.jpg/500px-Allegheny_River_Bridge_near_the_Allegheny_Valley_Interchange_on_the_Pennsylvania_Turnpike_%2885098%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "recycling-center",
+    "query": "recycling center waste materials facility",
+    "candidates": [
+      {
+        "title": "File:Municipal recycling facilities, Montgomery County, MD. 2007, Credit USEPA (14410405277).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Municipal_recycling_facilities%2C_Montgomery_County%2C_MD._2007%2C_Credit_USEPA_%2814410405277%29.jpg/500px-Municipal_recycling_facilities%2C_Montgomery_County%2C_MD._2007%2C_Credit_USEPA_%2814410405277%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Waste Recycling Facility, Wandsworth - geograph.org.uk - 3613980.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Waste_Recycling_Facility%2C_Wandsworth_-_geograph.org.uk_-_3613980.jpg/500px-Waste_Recycling_Facility%2C_Wandsworth_-_geograph.org.uk_-_3613980.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Wandsworth Waste Recycling Facility - geograph.org.uk - 3616913.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Wandsworth_Waste_Recycling_Facility_-_geograph.org.uk_-_3616913.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      {
+        "title": "File:Waste and recycling facility outside Leeds railway station - geograph.org.uk - 6104946.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Waste_and_recycling_facility_outside_Leeds_railway_station_-_geograph.org.uk_-_6104946.jpg/500px-Waste_and_recycling_facility_outside_Leeds_railway_station_-_geograph.org.uk_-_6104946.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "playground",
+    "query": "children playground park equipment",
+    "candidates": [
+      {
+        "title": "File:Closed playground equipment Harrsion Meadows Park.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Closed_playground_equipment_Harrsion_Meadows_Park.jpg/500px-Closed_playground_equipment_Harrsion_Meadows_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Humiston Beach Park Playground equipment 4.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Humiston_Beach_Park_Playground_equipment_4.jpg/500px-Humiston_Beach_Park_Playground_equipment_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Rumah Tinggi ECO Park - Children's playground equipment designed to look like a steam train.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Rumah_Tinggi_ECO_Park_-_Children%27s_playground_equipment_designed_to_look_like_a_steam_train.jpg/500px-Rumah_Tinggi_ECO_Park_-_Children%27s_playground_equipment_designed_to_look_like_a_steam_train.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Sandbox toys in Finland.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sandbox_toys_in_Finland.jpg/500px-Sandbox_toys_in_Finland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "bakery",
+    "query": "bakery bread bakehouse",
+    "candidates": [
+      {
+        "title": "File:Bakehouse on Sarah Island.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Bakehouse_on_Sarah_Island.jpg/500px-Bakehouse_on_Sarah_Island.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Oliver's Bakehouse - geograph.org.uk - 897981.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Oliver%27s_Bakehouse_-_geograph.org.uk_-_897981.jpg/500px-Oliver%27s_Bakehouse_-_geograph.org.uk_-_897981.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Erlangen Dechsendorf Backofen Naturbadstraße 6 001.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Erlangen_Dechsendorf_Backofen_Naturbadstra%C3%9Fe_6_001.JPG/500px-Erlangen_Dechsendorf_Backofen_Naturbadstra%C3%9Fe_6_001.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Backhaus in Trailfingen.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Backhaus_in_Trailfingen.jpg/500px-Backhaus_in_Trailfingen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "wind-turbine",
+    "query": "wind turbine farm energy field",
+    "candidates": [
+      {
+        "title": "File:White Hall Farm and Wind Turbine - geograph.org.uk - 1120744.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/White_Hall_Farm_and_Wind_Turbine_-_geograph.org.uk_-_1120744.jpg/500px-White_Hall_Farm_and_Wind_Turbine_-_geograph.org.uk_-_1120744.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Wind turbine at Clyde Wind Farm - geograph.org.uk - 7120757.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Wind_turbine_at_Clyde_Wind_Farm_-_geograph.org.uk_-_7120757.jpg/500px-Wind_turbine_at_Clyde_Wind_Farm_-_geograph.org.uk_-_7120757.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Turbine, Clyde Wind Farm - geograph.org.uk - 7386366.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Turbine%2C_Clyde_Wind_Farm_-_geograph.org.uk_-_7386366.jpg/500px-Turbine%2C_Clyde_Wind_Farm_-_geograph.org.uk_-_7386366.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Wind turbine at the Rampion Offshore Wind Farm - geograph.org.uk - 7818785.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Wind_turbine_at_the_Rampion_Offshore_Wind_Farm_-_geograph.org.uk_-_7818785.jpg/500px-Wind_turbine_at_the_Rampion_Offshore_Wind_Farm_-_geograph.org.uk_-_7818785.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "historic-restoration",
+    "query": "historic building restoration facade scaffolding",
+    "candidates": [
+      {
+        "title": "File:Zachowana elewacja kamienic Kwietniewskiego 15 w Bytomiu, 2024 KsP 141.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Zachowana_elewacja_kamienic_Kwietniewskiego_15_w_Bytomiu%2C_2024_KsP_141.jpg/500px-Zachowana_elewacja_kamienic_Kwietniewskiego_15_w_Bytomiu%2C_2024_KsP_141.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Elevador da Glória Ascending Calçada da Glória, Lisbon (54721756515).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Elevador_da_Gl%C3%B3ria_Ascending_Cal%C3%A7ada_da_Gl%C3%B3ria%2C_Lisbon_%2854721756515%29.jpg/500px-Elevador_da_Gl%C3%B3ria_Ascending_Cal%C3%A7ada_da_Gl%C3%B3ria%2C_Lisbon_%2854721756515%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Historic Façade Under Restoration Near São Bento Station, Porto, Portugal (54753243956).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Historic_Fa%C3%A7ade_Under_Restoration_Near_S%C3%A3o_Bento_Station%2C_Porto%2C_Portugal_%2854753243956%29.jpg/500px-Historic_Fa%C3%A7ade_Under_Restoration_Near_S%C3%A3o_Bento_Station%2C_Porto%2C_Portugal_%2854753243956%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Straße der Einheit 69 Kraftsdorf.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Stra%C3%9Fe_der_Einheit_69_Kraftsdorf.jpg/500px-Stra%C3%9Fe_der_Einheit_69_Kraftsdorf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "outdoor-library",
+    "query": "outdoor public bookcase library exchange",
+    "candidates": [
+      {
+        "title": "File:Zalaegerszeg Bibliothekzelle Books Europa ter.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Zalaegerszeg_Bibliothekzelle_Books_Europa_ter.JPG/500px-Zalaegerszeg_Bibliothekzelle_Books_Europa_ter.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "plastic-recycling",
+    "query": "plastic recycling factory bales",
+    "candidates": []
+  },
+  {
+    "slug": "pedestrian-bridge",
+    "query": "pedestrian footbridge construction",
+    "candidates": [
+      {
+        "title": "File:Pedestrian Bridge Construction Oulu 20180422.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pedestrian_Bridge_Construction_Oulu_20180422.jpg/500px-Pedestrian_Bridge_Construction_Oulu_20180422.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:New pedestrian footbridge (under construction) (geograph 3757586).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/New_pedestrian_footbridge_%28under_construction%29_%28geograph_3757586%29.jpg/500px-New_pedestrian_footbridge_%28under_construction%29_%28geograph_3757586%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:2287Junction pedestrian footbridge 34.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/2287Junction_pedestrian_footbridge_34.jpg/500px-2287Junction_pedestrian_footbridge_34.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Construction of a pedestrian steel bridge - Complete View.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Construction_of_a_pedestrian_steel_bridge_-_Complete_View.jpg/500px-Construction_of_a_pedestrian_steel_bridge_-_Complete_View.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "tech-park",
+    "query": "technology innovation park office building",
+    "candidates": [
+      {
+        "title": "File:PERA Innovation Park, Melton Mowbray - geograph.org.uk - 212097.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/PERA_Innovation_Park%2C_Melton_Mowbray_-_geograph.org.uk_-_212097.jpg/500px-PERA_Innovation_Park%2C_Melton_Mowbray_-_geograph.org.uk_-_212097.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Innovation and Technology Centre, Tredomen Industrial Park - geograph.org.uk - 364053.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Innovation_and_Technology_Centre%2C_Tredomen_Industrial_Park_-_geograph.org.uk_-_364053.jpg/500px-Innovation_and_Technology_Centre%2C_Tredomen_Industrial_Park_-_geograph.org.uk_-_364053.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Nemzetközi Ipari Park Szolgáltatóháza és az Innonet Innovációs és Technológiai Központ, Juharfa utca felől nézve, 2018 Győr.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Nemzetk%C3%B6zi_Ipari_Park_Szolg%C3%A1ltat%C3%B3h%C3%A1za_%C3%A9s_az_Innonet_Innov%C3%A1ci%C3%B3s_%C3%A9s_Technol%C3%B3giai_K%C3%B6zpont%2C_Juharfa_utca_fel%C5%91l_n%C3%A9zve%2C_2018_Gy%C5%91r.jpg/500px-Nemzetk%C3%B6zi_Ipari_Park_Szolg%C3%A1ltat%C3%B3h%C3%A1za_%C3%A9s_az_Innonet_Innov%C3%A1ci%C3%B3s_%C3%A9s_Technol%C3%B3giai_K%C3%B6zpont%2C_Juharfa_utca_fel%C5%91l_n%C3%A9zve%2C_2018_Gy%C5%91r.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:University of Warwick Science Park. Innovation Centre, Warwick Technology Park - geograph.org.uk - 4440100.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/University_of_Warwick_Science_Park._Innovation_Centre%2C_Warwick_Technology_Park_-_geograph.org.uk_-_4440100.jpg/500px-University_of_Warwick_Science_Park._Innovation_Centre%2C_Warwick_Technology_Park_-_geograph.org.uk_-_4440100.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "electrician",
+    "query": "electrician wiring cable work",
+    "candidates": [
+      {
+        "title": "File:Burnt terminals.JPG",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Burnt_terminals.JPG/500px-Burnt_terminals.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:US Navy 091212-N-3038W-040 Aviation Electrician's Mate 3rd Class Terry Ward performs maintenance on the wiring harness of an EA-6B Prowler.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/US_Navy_091212-N-3038W-040_Aviation_Electrician%27s_Mate_3rd_Class_Terry_Ward_performs_maintenance_on_the_wiring_harness_of_an_EA-6B_Prowler.jpg/500px-US_Navy_091212-N-3038W-040_Aviation_Electrician%27s_Mate_3rd_Class_Terry_Ward_performs_maintenance_on_the_wiring_harness_of_an_EA-6B_Prowler.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Cyclopedia of applied electricity - a general reference work on direct-current generators and motors, storage batteries, electrochemistry, welding, electric wiring, meters, electric lighting, electric (14800278203).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cyclopedia_of_applied_electricity_-_a_general_reference_work_on_direct-current_generators_and_motors%2C_storage_batteries%2C_electrochemistry%2C_welding%2C_electric_wiring%2C_meters%2C_electric_lighting%2C_electric_%2814800278203%29.jpg/500px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:The Standard Underground Cable Company manufacturers of telegraph, telephone and electric light cables (1884) (14569645100).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/The_Standard_Underground_Cable_Company_manufacturers_of_telegraph%2C_telephone_and_electric_light_cables_%281884%29_%2814569645100%29.jpg/500px-The_Standard_Underground_Cable_Company_manufacturers_of_telegraph%2C_telephone_and_electric_light_cables_%281884%29_%2814569645100%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "web-design",
+    "query": "web design computer screen",
+    "candidates": [
+      {
+        "title": "File:Web Analytics and Measurement-analysis.png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Web_Analytics_and_Measurement-analysis.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      {
+        "title": "File:Computer-aided tagging - suggested tags (mobile).png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Computer-aided_tagging_-_suggested_tags_%28mobile%29.png/500px-Computer-aided_tagging_-_suggested_tags_%28mobile%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:F.lux on computer screen stitched.png",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/F.lux_on_computer_screen_stitched.png/500px-F.lux_on_computer_screen_stitched.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Looking at a computer screen in support of Keen Edge 24 at Schriever Space Force Base.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Looking_at_a_computer_screen_in_support_of_Keen_Edge_24_at_Schriever_Space_Force_Base.jpg/500px-Looking_at_a_computer_screen_in_support_of_Keen_Edge_24_at_Schriever_Space_Force_Base.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "carrot",
+    "query": "carrots vegetable harvest",
+    "candidates": [
+      {
+        "title": "File:The I Was Away Harvest (2925889182).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_I_Was_Away_Harvest_%282925889182%29.jpg/500px-The_I_Was_Away_Harvest_%282925889182%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Garden Harvest (2856386711).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Garden_Harvest_%282856386711%29.jpg/500px-Garden_Harvest_%282856386711%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Girl with carrot harvest, Clarkson (I0000984).tif",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Girl_with_carrot_harvest%2C_Clarkson_%28I0000984%29.tif/lossy-page1-500px-Girl_with_carrot_harvest%2C_Clarkson_%28I0000984%29.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Harvested carrot.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harvested_carrot.jpg/500px-Harvested_carrot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "van-transfer",
+    "query": "van highway road transport vehicle",
+    "candidates": [
+      {
+        "title": "File:A591 road, Lake District - June 2009 Edit 1.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A591_road%2C_Lake_District_-_June_2009_Edit_1.jpg/500px-A591_road%2C_Lake_District_-_June_2009_Edit_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Utah State Route 24, Near Mile 92 view in Direction North-West 110814 2.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Utah_State_Route_24%2C_Near_Mile_92_view_in_Direction_North-West_110814_2.jpg/500px-Utah_State_Route_24%2C_Near_Mile_92_view_in_Direction_North-West_110814_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:20180924 UCI Road World Championships Innsbruck Men U23 ITT Callum Scotson 850 8281.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/20180924_UCI_Road_World_Championships_Innsbruck_Men_U23_ITT_Callum_Scotson_850_8281.jpg/500px-20180924_UCI_Road_World_Championships_Innsbruck_Men_U23_ITT_Callum_Scotson_850_8281.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Road CS-240 at Coll d'Ordino (2).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Road_CS-240_at_Coll_d%27Ordino_%282%29.jpg/500px-Road_CS-240_at_Coll_d%27Ordino_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "programmer",
+    "query": "programmer laptop coding",
+    "candidates": [
+      {
+        "title": "File:Programmer at work (Unsplash).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Programmer_at_work_%28Unsplash%29.jpg/500px-Programmer_at_work_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "slug": "business-meeting",
+    "query": "business meeting people office table",
+    "candidates": [
+      {
+        "title": "File:Working on the county maps at the colored County Land Use Pl... (3110578334).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Working_on_the_county_maps_at_the_colored_County_Land_Use_Pl..._%283110578334%29.jpg/500px-Working_on_the_county_maps_at_the_colored_County_Land_Use_Pl..._%283110578334%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Informal meeting of Energy and Transport Ministers (TTE). Round table Jean-Christophe Füeg and Tim Abraham (37149742836).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Informal_meeting_of_Energy_and_Transport_Ministers_%28TTE%29._Round_table_Jean-Christophe_F%C3%BCeg_and_Tim_Abraham_%2837149742836%29.jpg/500px-Informal_meeting_of_Energy_and_Transport_Ministers_%28TTE%29._Round_table_Jean-Christophe_F%C3%BCeg_and_Tim_Abraham_%2837149742836%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Informal meeting of Energy and Transport Ministers (TTE). Round table Jean-Christophe Füeg, Tim Abraham (36503228854).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Informal_meeting_of_Energy_and_Transport_Ministers_%28TTE%29._Round_table_Jean-Christophe_F%C3%BCeg%2C_Tim_Abraham_%2836503228854%29.jpg/500px-Informal_meeting_of_Energy_and_Transport_Ministers_%28TTE%29._Round_table_Jean-Christophe_F%C3%BCeg%2C_Tim_Abraham_%2836503228854%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "title": "File:Informal meeting of Energy and Transport Ministers (TTE). Round table Jean-Christophe Füeg, Tim Abraham (37150287876).jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Informal_meeting_of_Energy_and_Transport_Ministers_%28TTE%29._Round_table_Jean-Christophe_F%C3%BCeg%2C_Tim_Abraham_%2837150287876%29.jpg/500px-Informal_meeting_of_Energy_and_Transport_Ministers_%28TTE%29._Round_table_Jean-Christophe_F%C3%BCeg%2C_Tim_Abraham_%2837150287876%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "slug": "excavator",
+    "title": "Doosan Daewoo loader.jpg",
+    "status": "ok",
+    "size": 89581
+  },
+  {
+    "slug": "welding-machine",
+    "title": "Submerged arc welder.lincoln.triddle.jpg",
+    "status": "ok",
+    "size": 75262
+  },
+  {
+    "slug": "craft-workshop",
+    "title": "Artisan crafting a traditional drum in a workshop, Mpambire village, Mpigi District, Uganda.jpg",
+    "status": "ok",
+    "size": 75669
+  },
+  {
+    "slug": "scaffolding",
+    "title": "Constructions and scaffolding at the Oosterdokseiland, Amsterdam-Centrum.jpg",
+    "status": "ok",
+    "size": 90099
+  },
+  {
+    "slug": "diesel-generator",
+    "title": "US Navy 050106-N-9951E-018 Aviation Support Equipment Technician 1st Class Joseph Cullen, of Belleville, Ill., works on the emergency diesel power generator behind the main hospital in Aceh, Sumatra, Indonesia.jpg",
+    "status": "ok",
+    "size": 95456
+  },
+  {
+    "slug": "metal-roof",
+    "title": "Repaired metal roof.jpg",
+    "status": "fail",
+    "error": "fetch failed"
+  },
+  {
+    "slug": "warehouse",
+    "title": "WAREHOUSE STORAGE BUILDING 22. - Dallas Compress Company, 2010 Alabama Avenue, Selma, Dallas County, AL HAER AL-197-14.tif",
+    "status": "ok",
+    "size": 44414
+  },
+  {
+    "slug": "printer3d-construction",
+    "title": "3D Concrete Printer.jpg",
+    "status": "ok",
+    "size": 56087
+  },
+  {
+    "slug": "greenhouse",
+    "title": "Glasshouse and fountain at lalbagh.jpg",
+    "status": "ok",
+    "size": 68738
+  },
+  {
+    "slug": "waste-sorting",
+    "title": "Singapore Recycling-bins-01.jpg",
+    "status": "fail",
+    "error": "fetch failed"
+  },
+  {
+    "slug": "makerspace",
+    "title": "Deichman Bjørvika, Oslo - 53132065820.jpg",
+    "status": "ok",
+    "size": 120925
+  },
+  {
+    "slug": "laundromat",
+    "title": "At the Nerd Laundromat.jpg",
+    "status": "ok",
+    "size": 43092
+  },
+  {
+    "slug": "coworking",
+    "title": "CubeSpace.jpg",
+    "status": "ok",
+    "size": 69509
+  },
+  {
+    "slug": "solar-farm",
+    "title": "Photovoltaic Panels at a Solar Farm Near Vulcan, Alberta.jpg",
+    "status": "ok",
+    "size": 39981
+  },
+  {
+    "slug": "playground",
+    "title": "Humiston Beach Park Playground equipment 4.jpg",
+    "status": "ok",
+    "size": 78450
+  },
+  {
+    "slug": "bakery",
+    "title": "Backhaus in Trailfingen.jpg",
+    "status": "fail",
+    "error": "terminated"
+  },
+  {
+    "slug": "wind-turbine",
+    "title": "Wind turbine at Clyde Wind Farm - geograph.org.uk - 7120757.jpg",
+    "status": "ok",
+    "size": 27666
+  },
+  {
+    "slug": "historic-restoration",
+    "title": "Historic Façade Under Restoration Near São Bento Station, Porto, Portugal (54753243956).jpg",
+    "status": "ok",
+    "size": 69562
+  },
+  {
+    "slug": "outdoor-library",
+    "title": "Zalaegerszeg Bibliothekzelle Books Europa ter.JPG",
+    "status": "ok",
+    "size": 128157
+  },
+  {
+    "slug": "tech-park",
+    "title": "University of Warwick Science Park. Innovation Centre, Warwick Technology Park - geograph.org.uk - 4440100.jpg",
+    "status": "ok",
+    "size": 50024
+  },
+  {
+    "slug": "electrician",
+    "title": "US Navy 091212-N-3038W-040 Aviation Electrician's Mate 3rd Class Terry Ward performs maintenance on the wiring harness of an EA-6B Prowler.jpg",
+    "status": "ok",
+    "size": 85802
+  },
+  {
+    "slug": "web-design",
+    "title": "Restaurant logo design mockup.jpg",
+    "status": "ok",
+    "size": 43779
+  },
+  {
+    "slug": "carrot",
+    "title": "Harvested carrot.jpg",
+    "status": "ok",
+    "size": 99327
+  },
+  {
+    "slug": "van-transfer",
+    "title": "Delivery vehicle in Peru.jpg",
+    "status": "ok",
+    "size": 48986
+  },
+  {
+    "slug": "programmer",
+    "title": "Programmer at work (Unsplash).jpg",
+    "status": "fail",
+    "error": "fetch failed"
+  },
+  {
+    "slug": "business-meeting",
+    "title": "Informal meeting of Energy and Transport Ministers (TTE). Round table Jean-Christophe Füeg and Tim Abraham (37149742836).jpg",
+    "status": "ok",
+    "size": 32975
+  }
+]

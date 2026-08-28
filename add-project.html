@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Добавить проект — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="active">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <a href="projects.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу проектов</a>
+    <div class="page-title" style="margin-bottom:20px">Добавить проект</div>
+
+    <div id="ap-form-view">
+      <div class="ar-layout">
+        <div class="ar-main">
+
+          <!-- 1. Название и направление -->
+          <div class="card ar-section" id="field-title">
+            <div class="ar-section-title"><span class="ar-section-num">1</span>Название и направление</div>
+            <p class="ar-section-hint">Направление определяет, в какой витрине каталога появится проект.</p>
+
+            <div class="field">
+              <label style="display:flex;justify-content:space-between">Название проекта * <span class="stat-note" id="ap-title-counter">0 / 70</span></label>
+              <input class="input" id="proj-title" maxlength="70" placeholder="Например, Строительный 3D-принтер">
+              <div class="field-error">Укажите название — до 70 символов</div>
+            </div>
+
+            <div id="ap-category-picker">
+              <div class="form-two-col">
+                <div class="field" id="field-category">
+                  <label>Направление *</label>
+                  <select class="input" id="proj-category">
+                    <option value="">Выберите направление</option>
+                  </select>
+                  <div class="field-error">Выберите направление</div>
+                </div>
+                <div class="field" id="field-subcategory" hidden>
+                  <label>Подкатегория</label>
+                  <select class="input" id="proj-subcategory">
+                    <option value="">Любая</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="ap-category-crumb" hidden>
+              <span class="ar-crumb" id="ap-crumb-text"></span>
+              <button type="button" id="ap-crumb-change">Изменить</button>
+            </div>
+
+            <div class="field" style="margin-top:14px;margin-bottom:0">
+              <label>Тип проекта *</label>
+              <div class="radio-group" id="field-project-type">
+                <label class="radio-option"><input type="radio" name="proj-type" value="Кооперативный" checked> Кооперативный</label>
+                <label class="radio-option"><input type="radio" name="proj-type" value="Коммерческий"> Коммерческий</label>
+                <label class="radio-option"><input type="radio" name="proj-type" value="Некоммерческий"> Некоммерческий</label>
+                <label class="radio-option"><input type="radio" name="proj-type" value="ДАО"> ДАО</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Фото / галерея -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">2</span>Фото</div>
+            <p class="ar-section-hint">До 10 фото. Первое станет главным и будет показано в каталоге.</p>
+            <div class="ar-photo-grid" id="ap-photo-grid"></div>
+            <input type="file" id="proj-photo-input" accept="image/*" multiple hidden>
+          </div>
+
+          <!-- 3. Описание -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">3</span>Описание</div>
+            <div class="field">
+              <label style="display:flex;justify-content:space-between;align-items:center">Что это? <button type="button" class="stat-note" id="proj-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <textarea class="input" id="proj-description" rows="3" placeholder="Коротко: что вы делаете"></textarea>
+              <div id="proj-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Для чего это?</label>
+              <textarea class="input" id="proj-purpose" rows="3" placeholder="Зачем этот проект нужен — какую задачу решает"></textarea>
+            </div>
+          </div>
+
+          <!-- 4. Необходимые ресурсы -->
+          <div class="card ar-section" id="field-resources">
+            <div class="ar-section-title"><span class="ar-section-num">4</span>Необходимые ресурсы</div>
+            <p class="ar-section-hint">Добавьте строки по каждому типу ресурса — доля каждого автоматически считается от стоимости, как на странице проекта.</p>
+
+            <div style="font-weight:600;font-size:13px;margin-bottom:6px;color:var(--ink)">Материальные ресурсы</div>
+            <div id="res-material-list"></div>
+            <button type="button" class="button secondary" data-res-add="material" style="width:100%;margin-bottom:18px">+ Добавить материальный ресурс</button>
+
+            <div style="font-weight:600;font-size:13px;margin-bottom:6px;color:var(--ink)">Трудовые ресурсы</div>
+            <div id="res-labor-list"></div>
+            <button type="button" class="button secondary" data-res-add="labor" style="width:100%;margin-bottom:18px">+ Добавить трудовой ресурс</button>
+
+            <div style="font-weight:600;font-size:13px;margin-bottom:6px;color:var(--ink)">Интеллектуальные ресурсы</div>
+            <div id="res-intellectual-list"></div>
+            <button type="button" class="button secondary" data-res-add="intellectual" style="width:100%;margin-bottom:18px">+ Добавить интеллектуальный ресурс</button>
+
+            <div style="font-weight:600;font-size:13px;margin-bottom:6px;color:var(--ink)">Финансовые ресурсы</div>
+            <div id="res-financial-list"></div>
+            <button type="button" class="button secondary" data-res-add="financial" style="width:100%">+ Добавить финансовый ресурс</button>
+
+            <div class="ar-cost-row" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)"><span>Итого по проекту</span><b id="res-total-cost">0 ₽</b></div>
+          </div>
+
+          <!-- 5. Экономическая модель -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">5</span>Экономическая модель</div>
+            <p class="ar-section-hint">Как будет пересчитываться доля участников по факту вклада и распределяться доход.</p>
+            <div class="radio-group" style="flex-direction:column;align-items:flex-start;gap:12px">
+              <label class="radio-option" style="align-items:flex-start"><input type="radio" name="proj-model" value="Компас" checked style="margin-top:3px"> <span><b>«Компас»</b> — доли пересчитываются периодически по факту вклада за период. Подходит проектным командам с меняющимся составом.</span></label>
+              <label class="radio-option" style="align-items:flex-start"><input type="radio" name="proj-model" value="Чартаев" style="margin-top:3px"> <span><b>Модель Чартаева</b> — труд и капитал сливаются в единый постоянный паевой лист. Подходит устойчивым предприятиям с постоянным составом.</span></label>
+              <label class="radio-option" style="align-items:flex-start"><input type="radio" name="proj-model" value="Коммерческая" style="margin-top:3px"> <span><b>Коммерческая</b> — доля фиксируется по размеру вложенного капитала, доход распределяется пропорционально доле, как в ООО/АО. Подходит проектам с внешними инвесторами.</span></label>
+              <label class="radio-option" style="align-items:flex-start"><input type="radio" name="proj-model" value="Кооперативная" style="margin-top:3px"> <span><b>Кооперативная</b> — один участник — один голос независимо от размера вклада, часть дохода уходит в неделимый фонд кооператива на общее развитие.</span></label>
+              <label class="radio-option" style="align-items:flex-start"><input type="radio" name="proj-model" value="Смарт-контракт" style="margin-top:3px"> <span><b>Смарт-контракт</b> — правила распределения долей и выплат прописаны в коде и исполняются автоматически в блокчейне, без ручного пересчёта. Подходит децентрализованным (ДАО) проектам.</span></label>
+              <label class="radio-option" style="align-items:flex-start"><input type="radio" name="proj-model" value="Без модели (НКО)" style="margin-top:3px"> <span><b>Без модели (НКО)</b> — доход между участниками не распределяется, доли и паи не считаются. Все поступления идут на уставные цели проекта. Подходит некоммерческим и благотворительным инициативам.</span></label>
+            </div>
+          </div>
+
+          <!-- 6. Реализация -->
+          <div class="card ar-section" id="field-city">
+            <div class="ar-section-title"><span class="ar-section-num">6</span>Реализация</div>
+            <div class="field">
+              <label>Населённые пункты реализации * <span class="stat-note" title="Введите город и нажмите Enter — можно добавить несколько">ⓘ</span></label>
+              <input class="input" id="proj-city-input" list="city-options" placeholder="Например, Москва">
+              <datalist id="city-options">
+                <option value="Удалённо"><option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
+              </datalist>
+              <div class="filter-chips" id="proj-city-chips"></div>
+              <div class="field-error">Добавьте хотя бы один населённый пункт</div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Планируемый срок реализации</label>
+              <input class="input" id="proj-duration" placeholder="Например, 6 месяцев">
+            </div>
+          </div>
+
+          <!-- 7. Контакты -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">7</span>Контакты</div>
+            <div class="ar-contact-box">
+              <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич">
+              <div>
+                <div class="ar-contact-name">Дашкевич Данил Игоревич</div>
+                <div class="ar-contact-meta">Вы становитесь первым участником и инициатором проекта</div>
+              </div>
+            </div>
+            <div class="field" style="margin:14px 0 0">
+              <label>Телефон</label>
+              <input class="input" id="proj-phone" placeholder="+7-___-___-____">
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Как с вами связываться?</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="proj-contact-method" value="Звонки и сообщения" checked> Звонки и сообщения</label>
+                <label class="radio-option"><input type="radio" name="proj-contact-method" value="Только сообщения"> Только сообщения в чате</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Сайдбар: предпросмотр + публикация -->
+        <div class="ar-aside">
+          <div class="card" style="padding:14px">
+            <div class="ar-section-title" style="font-size:13px;margin-bottom:10px">Предпросмотр</div>
+            <div class="ar-preview-tile" id="ap-preview"></div>
+          </div>
+
+          <div class="card" style="padding:16px 18px">
+            <div class="ar-cost-row"><span>Стоимость размещения</span><b>Бесплатно</b></div>
+            <div class="toggle-row" style="border-bottom:none;padding-top:8px">
+              <input type="checkbox" id="proj-promote">
+              <label for="proj-promote">🚀 Продвинуть в каталоге <span class="stat-note" title="Без денег: бесплатно при уровне доверия от 80%, иначе спишет 10 кредитов взаимного кредита из «Кошелька»">ⓘ</span></label>
+            </div>
+            <button class="button ar-publish-btn" type="button" id="ap-publish-btn">Опубликовать</button>
+            <button class="button secondary ar-draft-btn" type="button" id="ap-draft-btn">Сохранить черновик</button>
+          </div>
+
+          <div class="card" style="padding:14px 16px">
+            <div class="ar-section-title" style="font-size:12.5px;margin-bottom:6px">📈 Как растёт готовность проекта</div>
+            <div class="ar-section-hint" style="margin-bottom:0">Новый проект стартует с 0% готовности. Процент растёт по мере того, как участники берут на себя ресурсы из списка — как только все строки набраны, проект готов на 100%.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Экран успеха -->
+    <div id="ap-success-view" class="card ar-success" hidden>
+      <div class="ar-success-icon">✓</div>
+      <h2>Проект добавлен</h2>
+      <p>Он уже виден в каталоге проектов и участникам, чьи навыки и ресурсы совпадают. Вы можете добавить ещё один проект или перейти к каталогу.</p>
+      <div class="ar-success-actions">
+        <a href="projects.html" class="button">Перейти в каталог</a>
+        <button class="button secondary" type="button" id="ap-add-another-btn">Добавить ещё один</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+<div class="toast" id="ap-toast">✓ Черновик сохранён</div>
+
+<script>
+// Дерево направлений — тот же источник, что в projects.html (не дублировать логику фильтров каталога).
+// Не путать с data-project-type / радио «Тип проекта» ниже — это независимое измерение (экономическая модель).
+var CATEGORY_TREE = {
+  "Архитектура и урбанистика": ["Жилищное строительство", "Инфраструктура и мосты", "Ремонт и благоустройство", "Городское планирование"],
+  "Экология и природа": ["Переработка отходов", "Возобновляемая энергетика", "Охрана природы"],
+  "Общественные инициативы": ["Городская среда", "Социальные услуги", "Волонтёрство"],
+  "Технологии и инновации": ["Цифровое производство", "Технопарки и инкубаторы"],
+  "ИТ": ["Разработка ПО", "Веб-сервисы и платформы", "Хостинг и инфраструктура"],
+  "Здоровье и медицина": ["Медицинские услуги", "Профилактика и ЗОЖ"],
+  "Образование и наука": ["Дополнительное образование", "Научные исследования"],
+  "Сельское хозяйство и еда": ["Городское земледелие", "Пищевое производство", "Фермерское хозяйство"],
+  "Малый бизнес и ремёсла": ["Коворкинги и мастерские", "Ремесленное производство"],
+  "Спорт и активный отдых": ["Спортивная инфраструктура", "Активный отдых и туризм"],
+  "Культура и искусство": ["Реставрация", "Культура и досуг", "Библиотеки и медиа"],
+  "Благотворительность": ["Жильё для нуждающихся семей", "Социальная поддержка"]
+};
+
+function escapeHtml(s) {
+  return (s || '').toString().replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+(function () {
+  var categorySelect = document.getElementById('proj-category');
+  var subcategoryField = document.getElementById('field-subcategory');
+  var subcategorySelect = document.getElementById('proj-subcategory');
+  var pickerBox = document.getElementById('ap-category-picker');
+  var crumbBox = document.getElementById('ap-category-crumb');
+  var crumbText = document.getElementById('ap-crumb-text');
+  var photoInput = document.getElementById('proj-photo-input');
+  var photoGrid = document.getElementById('ap-photo-grid');
+  var MAX_PHOTOS = 10;
+
+  var projPhotos = [];
+  var cityTags = []; // объявлено здесь заранее — updatePreview() (использует cityTags) вызывается
+                      // уже из renderPhotoGrid() при первой отрисовке, до объявления ниже по коду
+  var titleInput = document.getElementById('proj-title');
+  var titleCounter = document.getElementById('ap-title-counter');
+
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    var opt = document.createElement('option');
+    opt.value = cat; opt.textContent = cat;
+    categorySelect.appendChild(opt);
+  });
+
+  function updateCrumb() {
+    var cat = categorySelect.value, sub = subcategorySelect.value;
+    if (cat) {
+      crumbText.textContent = cat + (sub ? ' → ' + sub : '');
+      crumbBox.hidden = false;
+      pickerBox.hidden = true;
+    } else {
+      crumbBox.hidden = true;
+      pickerBox.hidden = false;
+    }
+    updatePreview();
+  }
+  categorySelect.addEventListener('change', function () {
+    var subs = CATEGORY_TREE[categorySelect.value] || [];
+    subcategorySelect.innerHTML = '<option value="">Любая</option>' +
+      subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+    subcategoryField.hidden = subs.length === 0;
+    document.getElementById('field-category').classList.remove('invalid');
+    if (subs.length === 0) updateCrumb();
+  });
+  subcategorySelect.addEventListener('change', updateCrumb);
+  document.getElementById('ap-crumb-change').addEventListener('click', function () {
+    crumbBox.hidden = true;
+    pickerBox.hidden = false;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="proj-type"]'), function (r) {
+    r.addEventListener('change', updatePreview);
+  });
+
+  // Фото — сетка тайлов, первое — главное, до 10 штук
+  function renderPhotoGrid() {
+    photoGrid.innerHTML = '';
+    projPhotos.forEach(function (src, i) {
+      var tile = document.createElement('div');
+      tile.className = 'ar-photo-tile';
+      tile.innerHTML = '<img src="' + src + '" alt="">' +
+        (i === 0 ? '<span class="ar-photo-main-tag">Главное фото</span>' : '') +
+        '<button type="button" class="ar-photo-remove" data-i="' + i + '">✕</button>';
+      photoGrid.appendChild(tile);
+    });
+    if (projPhotos.length < MAX_PHOTOS) {
+      var addTile = document.createElement('button');
+      addTile.type = 'button';
+      addTile.className = 'ar-photo-add';
+      addTile.innerHTML = '<span class="ar-photo-add-icon">📷</span><span>Добавить<br>' + projPhotos.length + ' / ' + MAX_PHOTOS + '</span>';
+      addTile.addEventListener('click', function () { photoInput.click(); });
+      photoGrid.appendChild(addTile);
+    }
+    photoGrid.querySelectorAll('.ar-photo-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        projPhotos.splice(parseInt(btn.dataset.i, 10), 1);
+        renderPhotoGrid();
+        updatePreview();
+      });
+    });
+    updatePreview();
+  }
+  photoInput.addEventListener('change', function (e) {
+    Array.prototype.forEach.call(e.target.files, function (file) {
+      if (projPhotos.length >= MAX_PHOTOS) return;
+      var reader = new FileReader();
+      reader.onload = function (ev) { projPhotos.push(ev.target.result); renderPhotoGrid(); };
+      reader.readAsDataURL(file);
+    });
+    photoInput.value = '';
+  });
+  renderPhotoGrid();
+
+  titleInput.addEventListener('input', function () {
+    titleCounter.textContent = titleInput.value.length + ' / 70';
+    document.getElementById('field-title').classList.remove('invalid');
+    updatePreview();
+  });
+
+  // AI-подсказка описания — шаблонная генерация (демо, без реального ИИ-бэкенда)
+  (function () {
+    var aiBtn = document.getElementById('proj-ai-btn');
+    aiBtn.addEventListener('click', function () {
+      var title = titleInput.value.trim();
+      var category = categorySelect.value;
+      if (!title || !category) { alert('Сначала укажите название и направление — по ним ИИ подберёт формулировки'); return; }
+      aiBtn.disabled = true;
+      aiBtn.textContent = '🤖 Генерируем…';
+      setTimeout(function () {
+        document.getElementById('proj-description').value = 'Проект «' + title + '» в направлении «' + category + '». Объединяем участников и ресурсы, чтобы довести идею до результата.';
+        document.getElementById('proj-ai-hint').hidden = false;
+        aiBtn.disabled = false;
+        aiBtn.textContent = '✨ Сгенерировать ещё раз';
+      }, 900);
+    });
+  })();
+
+  // Необходимые ресурсы — 4 повторяющихся списка (материальные/трудовые/интеллектуальные/финансовые),
+  // доля каждой строки считается от стоимости к общей сумме по всем 4 спискам (как на project.html)
+  var RES_TYPES = ['material', 'labor', 'intellectual', 'financial'];
+  var resEntries = { material: [], labor: [], intellectual: [], financial: [] };
+  var resUnitPlaceholder = { material: 'шт., тонн, м...', labor: 'чел., смен...', intellectual: '—', financial: '—' };
+
+  function grandTotal() {
+    var total = 0;
+    RES_TYPES.forEach(function (t) {
+      resEntries[t].forEach(function (e) { total += parseFloat(e.cost) || 0; });
+    });
+    return total;
+  }
+
+  function renderResList(type) {
+    var box = document.getElementById('res-' + type + '-list');
+    var total = grandTotal();
+    box.innerHTML = resEntries[type].map(function (e, i) {
+      var cost = parseFloat(e.cost) || 0;
+      var share = total > 0 ? (cost / total * 100).toFixed(2) : '0.00';
+      return '<div class="card" style="padding:12px 14px;margin-bottom:10px;position:relative">' +
+        '<button type="button" class="ar-photo-remove" data-res-remove="' + type + ':' + i + '" style="position:absolute;top:8px;right:8px">✕</button>' +
+        '<div class="form-two-col" style="margin-bottom:8px">' +
+        '<div class="field" style="margin-bottom:0"><label>Название</label><input class="input" data-res="name" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.name) + '" placeholder="Например, Цемент"></div>' +
+        '<div class="field" style="margin-bottom:0"><label>Количество</label><input class="input" data-res="qty" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.qty) + '" placeholder="' + resUnitPlaceholder[type] + '"></div>' +
+        '</div>' +
+        '<div class="form-two-col" style="margin-bottom:0">' +
+        '<div class="field" style="margin-bottom:0"><label>Стоимость, ₽</label><input class="input" type="number" min="0" data-res="cost" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.cost) + '" placeholder="0"></div>' +
+        '<div class="field" style="margin-bottom:0"><label>Доля в проекте</label><input class="input" value="' + share + '%" disabled></div>' +
+        '</div>' +
+        '</div>';
+    }).join('');
+    box.querySelectorAll('[data-res-remove]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var parts = btn.dataset.resRemove.split(':');
+        resEntries[parts[0]].splice(parseInt(parts[1], 10), 1);
+        renderAllResLists();
+        updatePreview();
+      });
+    });
+    box.querySelectorAll('[data-res]').forEach(function (input) {
+      var t = input.dataset.type, i = parseInt(input.dataset.i, 10), field = input.dataset.res;
+      input.addEventListener('input', function () {
+        resEntries[t][i][field] = input.value;
+        if (field === 'cost') renderAllResLists();
+        updateTotal();
+        updatePreview();
+      });
+    });
+  }
+  function renderAllResLists() { RES_TYPES.forEach(renderResList); updateTotal(); }
+  function updateTotal() {
+    document.getElementById('res-total-cost').textContent = grandTotal().toLocaleString('ru-RU') + ' ₽';
+  }
+  document.querySelectorAll('[data-res-add]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var t = btn.dataset.resAdd;
+      resEntries[t].push({ name: '', qty: '', cost: '' });
+      renderResList(t);
+      document.getElementById('field-resources').classList.remove('invalid');
+    });
+  });
+  updateTotal();
+
+  // Населённые пункты реализации — свободный ввод тегов (Enter добавляет чип)
+  var cityTags = [];
+  var cityInput = document.getElementById('proj-city-input');
+  var cityChipsBox = document.getElementById('proj-city-chips');
+  function renderCityChips() {
+    cityChipsBox.innerHTML = cityTags.map(function (t, i) {
+      return '<span class="chip">📍 ' + escapeHtml(t) + ' <span class="chip-remove" data-i="' + i + '">✕</span></span>';
+    }).join('');
+    cityChipsBox.querySelectorAll('.chip-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        cityTags.splice(parseInt(btn.dataset.i, 10), 1);
+        renderCityChips();
+        updatePreview();
+      });
+    });
+    document.getElementById('field-city').classList.remove('invalid');
+    updatePreview();
+  }
+  cityInput.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var val = cityInput.value.trim();
+    if (val && cityTags.indexOf(val) === -1) {
+      cityTags.push(val);
+      cityInput.value = '';
+      renderCityChips();
+    }
+  });
+
+  // Живой предпросмотр в сайдбаре — карточка в стиле .ptile каталога проектов
+  function updatePreview() {
+    var box = document.getElementById('ap-preview');
+    var title = titleInput.value.trim();
+    var city = cityTags[0] || '';
+
+    if (!title && projPhotos.length === 0) {
+      box.innerHTML = '<div class="ar-preview-empty">Заполните форму — здесь появится превью проекта, как он будет выглядеть в каталоге</div>';
+      return;
+    }
+    var imgHtml = projPhotos.length
+      ? '<img src="' + projPhotos[0] + '" alt="">'
+      : escapeHtml((title || '?').slice(0, 2).toUpperCase());
+    var projType = document.querySelector('input[name="proj-type"]:checked').value;
+    box.innerHTML =
+      '<div class="ar-preview-img">' + imgHtml + '</div>' +
+      '<div class="ar-preview-body">' +
+      '<div class="ar-preview-price">' + escapeHtml(projType) + ' · готовность 0%</div>' +
+      '<div class="ar-preview-name">' + escapeHtml(title || 'Название проекта') + '</div>' +
+      '<div class="ar-preview-meta">📍 ' + escapeHtml(city || 'Город не указан') + (cityTags.length > 1 ? ' +' + (cityTags.length - 1) : '') + '</div>' +
+      '</div>';
+  }
+  updatePreview();
+
+  function validateForm() {
+    var ok = true;
+    function mark(id, bad) { document.getElementById(id).classList.toggle('invalid', bad); if (bad) ok = false; }
+    mark('field-title', !titleInput.value.trim());
+    mark('field-category', !categorySelect.value);
+    mark('field-city', cityTags.length === 0);
+    if (!ok) {
+      var firstInvalid = document.querySelector('.field.invalid, .card.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return ok;
+  }
+
+  var toast = document.getElementById('ap-toast');
+  document.getElementById('ap-draft-btn').addEventListener('click', function () {
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2400);
+  });
+
+  document.getElementById('ap-publish-btn').addEventListener('click', function () {
+    if (!validateForm()) return;
+    var data = {
+      title: titleInput.value.trim(),
+      category: categorySelect.value,
+      subcategory: subcategorySelect.value,
+      projectType: document.querySelector('input[name="proj-type"]:checked').value,
+      description: document.getElementById('proj-description').value.trim(),
+      purpose: document.getElementById('proj-purpose').value.trim(),
+      resources: resEntries,
+      totalCost: grandTotal(),
+      economicModel: document.querySelector('input[name="proj-model"]:checked').value,
+      cities: cityTags,
+      duration: document.getElementById('proj-duration').value.trim(),
+      phone: document.getElementById('proj-phone').value.trim(),
+      contactMethod: document.querySelector('input[name="proj-contact-method"]:checked').value,
+      photos: projPhotos,
+      promoted: document.getElementById('proj-promote').checked
+    };
+    try {
+      var queue = JSON.parse(localStorage.getItem('coop_new_projects') || '[]');
+      queue.push(data);
+      localStorage.setItem('coop_new_projects', JSON.stringify(queue));
+    } catch (e) { /* localStorage недоступен (например, в изолированном превью) — публикация всё равно показывается */ }
+
+    document.getElementById('ap-form-view').hidden = true;
+    document.getElementById('ap-success-view').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById('ap-add-another-btn').addEventListener('click', function () {
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

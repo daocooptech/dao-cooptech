@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static-preview",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8793"],
+      "port": 8793
+    },
+    {
+      "name": "static-preview-2",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8794"],
+      "port": 8794
+    }
+  ]
+}

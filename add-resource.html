@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Разместить объявление — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="active">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <a href="resources.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу ресурсов</a>
+    <div class="page-title" style="margin-bottom:20px">Разместить объявление</div>
+
+    <div id="ar-form-view">
+      <div class="ar-layout">
+        <div class="ar-main">
+
+          <!-- 1. Категория -->
+          <div class="card ar-section" id="field-type">
+            <div class="ar-section-title"><span class="ar-section-num">1</span>Категория</div>
+            <p class="ar-section-hint">Выберите, что публикуете — это определит, кто увидит объявление в каталоге.</p>
+
+            <div class="field" style="margin-bottom:14px">
+              <label>Спрос или предложение? *</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="res-listing-type" value="Предложение" checked> Предложение — у меня есть, могу передать</label>
+                <label class="radio-option"><input type="radio" name="res-listing-type" value="Спрос"> Спрос — ищу, хочу получить</label>
+              </div>
+            </div>
+
+            <div class="field" style="margin-bottom:14px">
+              <label>Тип ресурса *</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="res-type" value="Материальный"> Материальный</label>
+                <label class="radio-option"><input type="radio" name="res-type" value="Оборудование"> Оборудование</label>
+                <label class="radio-option"><input type="radio" name="res-type" value="Финансовый"> Финансовый</label>
+                <label class="radio-option"><input type="radio" name="res-type" value="Труд"> Труд</label>
+              </div>
+              <div class="field-error">Выберите тип ресурса</div>
+            </div>
+
+            <div id="ar-category-picker">
+              <div class="form-two-col">
+                <div class="field" id="field-category">
+                  <label>Категория *</label>
+                  <select class="input" id="res-category">
+                    <option value="">Выберите категорию</option>
+                  </select>
+                  <div class="field-error">Выберите категорию</div>
+                </div>
+                <div class="field" id="field-subcategory" hidden>
+                  <label>Подкатегория</label>
+                  <select class="input" id="res-subcategory">
+                    <option value="">Любая</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="ar-category-crumb" hidden>
+              <span class="ar-crumb" id="ar-crumb-text"></span>
+              <button type="button" id="ar-crumb-change">Изменить</button>
+            </div>
+          </div>
+
+          <!-- 2. Фото -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">2</span>Фото</div>
+            <p class="ar-section-hint">До 10 фото. Первое станет главным — оно показывается в каталоге. Снимайте при естественном освещении, на нейтральном фоне, без лишних предметов в кадре — так объявление выглядит достовернее.</p>
+            <div class="ar-photo-grid" id="ar-photo-grid"></div>
+            <div class="ar-photo-tip">Объявления с 5+ живыми фото получают заметно больше просмотров и сообщений — алгоритм каталога поднимает их выше в поиске.</div>
+            <input type="file" id="res-photo-input" accept="image/*" multiple hidden>
+          </div>
+
+          <!-- 3. Заголовок и описание -->
+          <div class="card ar-section" id="field-title">
+            <div class="ar-section-title"><span class="ar-section-num">3</span>Заголовок и описание</div>
+            <p class="ar-section-hint">Заголовок — самое заметное место объявления: название и ключевые особенности, без лишних слов.</p>
+
+            <div class="field">
+              <label style="display:flex;justify-content:space-between">Название * <span class="stat-note" id="ar-title-counter">0 / 50</span></label>
+              <input class="input" id="res-title" maxlength="50" placeholder="Например, Пельмени домашней лепки, 1 кг">
+              <div class="field-error">Укажите название — до 50 символов</div>
+            </div>
+
+            <div class="field">
+              <label style="display:flex;justify-content:space-between;align-items:center">Описание <button type="button" class="stat-note" id="res-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <textarea class="input" id="res-description" rows="4" placeholder="Опишите главные характеристики в первом абзаце: размер, материал, состояние. Честное описание вызывает больше доверия и меньше лишних вопросов."></textarea>
+              <div id="res-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
+            </div>
+          </div>
+
+          <!-- 4. Состояние и количество -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">4</span>Состояние и количество</div>
+            <div class="field" style="margin-bottom:14px">
+              <label>Состояние</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="res-condition" value="Новое" checked> Новое</label>
+                <label class="radio-option"><input type="radio" name="res-condition" value="Б/у"> Б/у</label>
+                <label class="radio-option"><input type="radio" name="res-condition" value="Не применимо"> Не применимо</label>
+              </div>
+            </div>
+            <div class="form-two-col" style="margin-bottom:0">
+              <div class="field" style="margin-bottom:0">
+                <label>Количество</label>
+                <input class="input" id="res-qty" type="number" min="0" placeholder="1">
+              </div>
+              <div class="field" style="margin-bottom:0">
+                <label>Единица измерения</label>
+                <input class="input" id="res-unit" placeholder="шт., кг, м², сутки…">
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Способ получения и цена -->
+          <div class="card ar-section" id="field-methods">
+            <div class="ar-section-title"><span class="ar-section-num">5</span>Способ получения и цена</div>
+            <p class="ar-section-hint">Можно выбрать несколько способов и указать цену/условия для каждого.</p>
+            <div class="chip-toggle-group" id="res-method-toggles"></div>
+            <div class="field-error">Выберите хотя бы один способ получения</div>
+
+            <div id="res-method-details-field" hidden style="margin-top:14px">
+              <label style="display:block;margin-bottom:6px;color:var(--slate);font-size:12.5px;font-weight:500">Условия по каждому способу</label>
+              <div class="method-detail-list" id="res-method-details"></div>
+            </div>
+
+            <div class="toggle-row" style="border-bottom:none;padding-top:14px">
+              <input type="checkbox" id="res-bargain">
+              <label for="res-bargain">Торг уместен</label>
+            </div>
+          </div>
+
+          <!-- 6. Местоположение -->
+          <div class="card ar-section" id="field-city">
+            <div class="ar-section-title"><span class="ar-section-num">6</span>Местоположение</div>
+            <div class="field">
+              <label>Город *</label>
+              <input class="input" id="res-city" list="city-options" placeholder="Начните вводить город">
+              <datalist id="city-options">
+                <option value="Москва"><option value="Красноярск"><option value="Сочи"><option value="Новосибирск"><option value="Екатеринбург"><option value="Казань"><option value="Ростов-на-Дону"><option value="Пермь"><option value="Уфа"><option value="Самара"><option value="Омск"><option value="Челябинск"><option value="Нижний Новгород"><option value="Волгоград"><option value="Краснодар"><option value="Тюмень"><option value="Иркутск">
+              </datalist>
+              <div class="field-error">Укажите город</div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Точка самовывоза <span class="stat-note" title="Необязательно — можно выбрать точку из общего реестра платформы вместо описания адреса вручную">ⓘ</span></label>
+              <select class="input" id="res-pickup-point">
+                <option value="">Не указывать / договориться лично</option>
+                <option value="Цех кооператива, Тюмень">Цех кооператива, Тюмень</option>
+                <option value="Точка выдачи — Центральный рынок, Тюмень">Точка выдачи — Центральный рынок, Тюмень</option>
+                <option value="Склад ООО «АгроСтрой», Пермь">Склад ООО «АгроСтрой», Пермь</option>
+                <option value="Офис кооператива, Москва">Офис кооператива, Москва</option>
+                <option value="Точка выдачи — ТЦ «Сибирский», Новосибирск">Точка выдачи — ТЦ «Сибирский», Новосибирск</option>
+              </select>
+              <a href="pickup-points.html" class="stat-note" style="display:inline-block;margin-top:6px">Посмотреть все точки в реестре →</a>
+            </div>
+          </div>
+
+          <!-- 7. Контакты -->
+          <div class="card ar-section">
+            <div class="ar-section-title"><span class="ar-section-num">7</span>Контакты</div>
+            <div class="ar-contact-box">
+              <img class="avatar" src="https://i.pravatar.cc/128?img=13" alt="Дашкевич Данил Игоревич">
+              <div>
+                <div class="ar-contact-name">Дашкевич Данил Игоревич</div>
+                <div class="ar-contact-meta">Как в профиле · участникам будет виден номер, ⭐ 4,9 доверия</div>
+              </div>
+            </div>
+            <div class="field" style="margin:14px 0 0">
+              <label>Как с вами связываться?</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="res-contact-method" value="Звонки и сообщения" checked> Звонки и сообщения</label>
+                <label class="radio-option"><input type="radio" name="res-contact-method" value="Только сообщения"> Только сообщения в чате</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Сайдбар: предпросмотр + публикация -->
+        <div class="ar-aside">
+          <div class="card" style="padding:14px">
+            <div class="ar-section-title" style="font-size:13px;margin-bottom:10px">Предпросмотр</div>
+            <div class="ar-preview-tile" id="ar-preview"></div>
+          </div>
+
+          <div class="card" style="padding:16px 18px">
+            <div class="ar-cost-row"><span>Стоимость размещения</span><b>Бесплатно</b></div>
+            <div class="toggle-row" style="border-bottom:none;padding-top:8px">
+              <input type="checkbox" id="res-promote">
+              <label for="res-promote">🚀 Продвинуть в выдаче <span class="stat-note" title="Без денег: бесплатно при уровне доверия от 80%, иначе спишет 10 кредитов взаимного кредита из «Кошелька»">ⓘ</span></label>
+            </div>
+            <button class="button ar-publish-btn" type="button" id="ar-publish-btn">Опубликовать</button>
+            <button class="button secondary ar-draft-btn" type="button" id="ar-draft-btn">Сохранить черновик</button>
+          </div>
+
+          <div class="card" style="padding:14px 16px">
+            <div class="ar-section-title" style="font-size:12.5px;margin-bottom:6px">📈 Как ранжируются объявления</div>
+            <div class="ar-section-hint" style="margin-bottom:0">Алгоритм каталога учитывает не только цену — а вероятность сделки: клики, сохранения в избранное, сообщения. Живые фото и честное описание поднимают объявление выше.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Экран успеха -->
+    <div id="ar-success-view" class="card ar-success" hidden>
+      <div class="ar-success-icon">✓</div>
+      <h2>Объявление опубликовано</h2>
+      <p>Оно уже видно в каталоге ресурсов и участникам, чей спрос совпадает по категории. Вы можете разместить ещё одно или перейти к каталогу.</p>
+      <div class="ar-success-actions">
+        <a href="resources.html" class="button">Перейти в каталог</a>
+        <button class="button secondary" type="button" id="ar-post-another-btn">Разместить ещё одно</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+<div class="toast" id="ar-toast">✓ Черновик сохранён</div>
+
+<script>
+// Дерево категорий каталога (тот же источник, что и в resources.html — не дублировать при переносе)
+var CATEGORY_TREE = {
+  'Транспорт': ['Легковые автомобили', 'Грузовики и спецтехника', 'Мотоциклы и мототехника', 'Аренда спецтехники'],
+  'Недвижимость': ['Квартиры и комнаты', 'Дома, дачи, коттеджи', 'Гаражи и машиноместа', 'Земельные участки', 'Склады и коммерческая недвижимость'],
+  'Услуги': ['Ремонт и строительство', 'Перевозки и доставка', 'Бытовые услуги', 'Деловые услуги'],
+  'Личные вещи': ['Одежда, обувь, аксессуары', 'Товары для детей', 'Часы и украшения', 'Красота и здоровье'],
+  'Продовольственные товары': ['Овощи и фрукты', 'Мясная и молочная продукция', 'Крупы, мука и бакалея', 'Мёд и продукты пчеловодства', 'Напитки'],
+  'Для дома и дачи': ['Ремонт и стройматериалы', 'Инструменты', 'Мебель и интерьер', 'Бытовая техника', 'Растения'],
+  'Запчасти и аксессуары': ['Запчасти для техники', 'Шины, диски и колёса', 'Аксессуары'],
+  'Электроника': ['Ноутбуки и компьютеры', 'Телефоны', 'Оргтехника', 'Видео и аудио'],
+  'Хобби и отдых': ['Велосипеды', 'Спорт и отдых', 'Музыкальные инструменты', 'Книги'],
+  'Животные': ['Товары для животных', 'Ветеринарные услуги'],
+  'Бизнес и оборудование': ['Оборудование для бизнеса', 'Готовый бизнес', 'Финансирование'],
+};
+var methodOptions = ['Продажа', 'Аренда', 'Рассрочка', 'Лизинг', 'Безвозмездно', 'Обмен', 'Участие в проекте'];
+
+function escapeHtml(s) {
+  return (s || '').toString().replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+(function () {
+  var categorySelect = document.getElementById('res-category');
+  var subcategoryField = document.getElementById('field-subcategory');
+  var subcategorySelect = document.getElementById('res-subcategory');
+  var pickerBox = document.getElementById('ar-category-picker');
+  var crumbBox = document.getElementById('ar-category-crumb');
+  var crumbText = document.getElementById('ar-crumb-text');
+  var methodToggleBox = document.getElementById('res-method-toggles');
+  var methodDetailsField = document.getElementById('res-method-details-field');
+  var methodDetailsBox = document.getElementById('res-method-details');
+  var photoInput = document.getElementById('res-photo-input');
+  var photoGrid = document.getElementById('ar-photo-grid');
+  var MAX_PHOTOS = 10;
+
+  var resMethodValues = {};
+  var resPhotos = []; // dataURL-и, реальная загрузка на сервер не выполняется (демо-прототип)
+  // Объявлены здесь (до первого renderPhotoGrid()/updatePreview()), т.к. updatePreview обращается
+  // к titleInput ещё во время самой первой отрисовки фото-сетки при загрузке страницы.
+  var titleInput = document.getElementById('res-title');
+  var titleCounter = document.getElementById('ar-title-counter');
+
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    var opt = document.createElement('option');
+    opt.value = cat; opt.textContent = cat;
+    categorySelect.appendChild(opt);
+  });
+
+  function updateCrumb() {
+    var cat = categorySelect.value, sub = subcategorySelect.value;
+    if (cat) {
+      crumbText.textContent = cat + (sub ? ' → ' + sub : '');
+      crumbBox.hidden = false;
+      pickerBox.hidden = true;
+    } else {
+      crumbBox.hidden = true;
+      pickerBox.hidden = false;
+    }
+    updatePreview();
+  }
+  categorySelect.addEventListener('change', function () {
+    var subs = CATEGORY_TREE[categorySelect.value] || [];
+    subcategorySelect.innerHTML = '<option value="">Любая</option>' +
+      subs.map(function (s) { return '<option value="' + s + '">' + s + '</option>'; }).join('');
+    subcategoryField.hidden = subs.length === 0;
+    document.getElementById('field-category').classList.remove('invalid');
+    if (subs.length === 0) updateCrumb();
+  });
+  subcategorySelect.addEventListener('change', updateCrumb);
+  document.getElementById('ar-crumb-change').addEventListener('click', function () {
+    crumbBox.hidden = true;
+    pickerBox.hidden = false;
+  });
+
+  // Способы получения — чипы-переключатели
+  methodOptions.forEach(function (m) {
+    var chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'chip chip-toggle';
+    chip.textContent = m;
+    chip.dataset.method = m;
+    chip.addEventListener('click', function () {
+      chip.classList.toggle('selected');
+      document.getElementById('field-methods').classList.remove('invalid');
+      renderMethodDetails();
+      updatePreview();
+    });
+    methodToggleBox.appendChild(chip);
+  });
+
+  function renderMethodDetails() {
+    var selected = Array.prototype.slice.call(methodToggleBox.querySelectorAll('.chip-toggle.selected')).map(function (c) { return c.dataset.method; });
+    methodDetailsField.hidden = selected.length === 0;
+    methodDetailsBox.innerHTML = selected.map(function (m) {
+      var val = (resMethodValues[m] || '').replace(/"/g, '&quot;');
+      return '<div class="method-detail-row"><span class="mdr-label">' + m + '</span>' +
+        '<input class="input" data-method="' + m + '" placeholder="Цена/условия, например «от 25 000 ₽/сутки»" value="' + val + '"></div>';
+    }).join('');
+    methodDetailsBox.querySelectorAll('input').forEach(function (inp) {
+      inp.addEventListener('input', function () { resMethodValues[inp.dataset.method] = inp.value; updatePreview(); });
+    });
+  }
+
+  // Фото — крупная сетка тайлов, первая — главная, до 10 штук
+  function renderPhotoGrid() {
+    photoGrid.innerHTML = '';
+    resPhotos.forEach(function (src, i) {
+      var tile = document.createElement('div');
+      tile.className = 'ar-photo-tile';
+      tile.innerHTML = '<img src="' + src + '" alt="">' +
+        (i === 0 ? '<span class="ar-photo-main-tag">Главное фото</span>' : '') +
+        '<button type="button" class="ar-photo-remove" data-i="' + i + '">✕</button>';
+      photoGrid.appendChild(tile);
+    });
+    if (resPhotos.length < MAX_PHOTOS) {
+      var addTile = document.createElement('button');
+      addTile.type = 'button';
+      addTile.className = 'ar-photo-add';
+      addTile.innerHTML = '<span class="ar-photo-add-icon">📷</span><span>Добавить<br>' + resPhotos.length + ' / ' + MAX_PHOTOS + '</span>';
+      addTile.addEventListener('click', function () { photoInput.click(); });
+      photoGrid.appendChild(addTile);
+    }
+    photoGrid.querySelectorAll('.ar-photo-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        resPhotos.splice(parseInt(btn.dataset.i, 10), 1);
+        renderPhotoGrid();
+        updatePreview();
+      });
+    });
+    updatePreview();
+  }
+  photoInput.addEventListener('change', function (e) {
+    Array.prototype.forEach.call(e.target.files, function (file) {
+      if (resPhotos.length >= MAX_PHOTOS) return;
+      var reader = new FileReader();
+      reader.onload = function (ev) {
+        resPhotos.push(ev.target.result);
+        renderPhotoGrid();
+      };
+      reader.readAsDataURL(file);
+    });
+    photoInput.value = '';
+  });
+  renderPhotoGrid();
+
+  // Счётчик символов заголовка (лимит 50 — как на Авито)
+  titleInput.addEventListener('input', function () {
+    titleCounter.textContent = titleInput.value.length + ' / 50';
+    document.getElementById('field-title').classList.remove('invalid');
+    updatePreview();
+  });
+  document.getElementById('res-city').addEventListener('input', function () {
+    document.getElementById('field-city').classList.remove('invalid');
+    updatePreview();
+  });
+
+  // #5 AI-подсказки описания — шаблонная генерация (демо, без реального ИИ-бэкенда)
+  (function () {
+    var aiBtn = document.getElementById('res-ai-btn');
+    var openers = { 'Материальный': 'Продаю', 'Оборудование': 'Предлагаю в пользование', 'Финансовый': 'Предлагаю участие', 'Труд': 'Предлагаю услугу' };
+    var conditionByCategory = {
+      'Продовольственные товары': 'Свежее, произведено в собственном цехе, без лишних добавок.',
+      'Для дома и дачи': 'Состояние хорошее, использовалось бережно, все функции исправны.',
+      'Транспорт': 'На ходу, вложений не требует, история обслуживания есть.',
+      'Недвижимость': 'Документы в порядке, готово к передаче.',
+      'Электроника': 'Полностью рабочее, коробка и документы сохранены.',
+      'Бизнес и оборудование': 'В рабочем состоянии, подходит для регулярного использования.'
+    };
+    aiBtn.addEventListener('click', function () {
+      var title = titleInput.value.trim();
+      var type = document.querySelector('input[name="res-type"]:checked');
+      var category = categorySelect.value;
+      var city = document.getElementById('res-city').value.trim();
+      if (!title || !category) { alert('Сначала укажите название и категорию — по ним ИИ подберёт формулировки'); return; }
+      aiBtn.disabled = true;
+      aiBtn.textContent = '🤖 Генерируем…';
+      setTimeout(function () {
+        var opener = openers[type ? type.value : 'Материальный'] || 'Предлагаю';
+        var condition = conditionByCategory[category] || 'Состояние хорошее, готово к передаче.';
+        var text = opener + ' «' + title + '» (' + category + '). ' + condition +
+          (city ? ' Забрать можно в городе ' + city + ' или обсудить доставку.' : '') +
+          ' Открыт(а) к вопросам — пишите в сообщениях или звоните.';
+        document.getElementById('res-description').value = text;
+        document.getElementById('res-ai-hint').hidden = false;
+        aiBtn.disabled = false;
+        aiBtn.textContent = '✨ Сгенерировать ещё раз';
+      }, 900);
+    });
+  })();
+
+  // Живой предпросмотр в сайдбаре
+  function updatePreview() {
+    var box = document.getElementById('ar-preview');
+    var title = titleInput.value.trim();
+    var city = document.getElementById('res-city').value.trim();
+    var listingType = document.querySelector('input[name="res-listing-type"]:checked').value;
+    var selectedChips = Array.prototype.slice.call(methodToggleBox.querySelectorAll('.chip-toggle.selected')).map(function (c) { return c.dataset.method; });
+    var firstDetail = resMethodValues[selectedChips[0]];
+    var priceLine = firstDetail ? firstDetail : (listingType === 'Спрос' ? 'Бюджет по договорённости' : 'Цена по запросу');
+
+    if (!title && resPhotos.length === 0) {
+      box.innerHTML = '<div class="ar-preview-empty">Заполните форму — здесь появится превью объявления, как оно будет выглядеть в каталоге</div>';
+      return;
+    }
+    var imgHtml = resPhotos.length
+      ? '<img src="' + resPhotos[0] + '" alt="">'
+      : escapeHtml((title || '?').slice(0, 2).toUpperCase());
+    var badge = listingType === 'Спрос' ? '<span class="badge demand" style="position:absolute;top:8px;left:8px">Ищу</span>' : '<span class="badge teal" style="position:absolute;top:8px;left:8px">Предложение</span>';
+    box.innerHTML =
+      '<div class="ar-preview-img">' + badge + imgHtml + '</div>' +
+      '<div class="ar-preview-body">' +
+      '<div class="ar-preview-price">' + escapeHtml(priceLine) + '</div>' +
+      '<div class="ar-preview-name">' + escapeHtml(title || 'Название объявления') + '</div>' +
+      '<div class="ar-preview-meta">📍 ' + escapeHtml(city || 'Город не указан') + '</div>' +
+      '</div>';
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="res-listing-type"]'), function (r) { r.addEventListener('change', updatePreview); });
+  updatePreview();
+
+  function validateForm() {
+    var ok = true;
+    function mark(id, bad) { document.getElementById(id).classList.toggle('invalid', bad); if (bad) ok = false; }
+    mark('field-title', !titleInput.value.trim());
+    mark('field-type', !document.querySelector('input[name="res-type"]:checked'));
+    mark('field-category', !categorySelect.value);
+    mark('field-city', !document.getElementById('res-city').value.trim());
+    mark('field-methods', methodToggleBox.querySelectorAll('.chip-toggle.selected').length === 0);
+    if (!ok) {
+      var firstInvalid = document.querySelector('.field.invalid, .card.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return ok;
+  }
+
+  var toast = document.getElementById('ar-toast');
+  document.getElementById('ar-draft-btn').addEventListener('click', function () {
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2400);
+  });
+
+  document.getElementById('ar-publish-btn').addEventListener('click', function () {
+    if (!validateForm()) return;
+    var selectedChips = Array.prototype.slice.call(methodToggleBox.querySelectorAll('.chip-toggle.selected')).map(function (c) { return c.dataset.method; });
+    var data = {
+      title: titleInput.value.trim(),
+      type: document.querySelector('input[name="res-type"]:checked').value,
+      listingType: document.querySelector('input[name="res-listing-type"]:checked').value,
+      category: categorySelect.value,
+      subcategory: subcategorySelect.value,
+      condition: document.querySelector('input[name="res-condition"]:checked').value,
+      qty: document.getElementById('res-qty').value.trim(),
+      unit: document.getElementById('res-unit').value.trim() || 'шт.',
+      city: document.getElementById('res-city').value.trim(),
+      pickupPoint: document.getElementById('res-pickup-point').value,
+      description: document.getElementById('res-description').value.trim(),
+      methods: selectedChips,
+      methodDetails: resMethodValues,
+      bargain: document.getElementById('res-bargain').checked,
+      contactMethod: document.querySelector('input[name="res-contact-method"]:checked').value,
+      photos: resPhotos,
+      promoted: document.getElementById('res-promote').checked
+    };
+    try {
+      var queue = JSON.parse(localStorage.getItem('coop_new_resources') || '[]');
+      queue.push(data);
+      localStorage.setItem('coop_new_resources', JSON.stringify(queue));
+    } catch (e) { /* localStorage недоступен (например, в изолированном превью) — публикация всё равно показывается */ }
+
+    document.getElementById('ar-form-view').hidden = true;
+    document.getElementById('ar-success-view').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById('ar-post-another-btn').addEventListener('click', function () {
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Кошелёк — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="active">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="page-title" style="margin-bottom:14px">Кошелёк</div>
+    <div class="entity-tabs" id="wallet-tabs">
+      <a href="#" class="active" data-tab="crypto">Крипто кошелёк</a>
+      <a href="#" data-tab="fiat">Фиатный кошелёк</a>
+      <a href="#" data-tab="lets">Взаимный кредит</a>
+    </div>
+
+    <!-- ==================== КРИПТО КОШЕЛЁК ==================== -->
+    <div id="tab-crypto">
+      <p style="color:var(--slate);font-size:12.5px;max-width:720px;margin:18px 0 16px">Мультисетевой некастодиальный кошелёк — как Trust Wallet: любое количество монет и сетей в одном месте. Можно подключить любой блокчейн по API — публичный или полностью самописный: достаточно указать RPC/API-эндпоинт, ID сети и символ монеты, и кошелёк создаст в ней отдельный счёт (адрес).</p>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+        <button class="button" type="button">Отправить</button>
+        <button class="button secondary" type="button">Получить</button>
+        <button class="button secondary" type="button">Купить</button>
+        <button class="button secondary" type="button">Обменять</button>
+      </div>
+
+      <div class="chip-toggle-group" id="network-chips" style="margin-bottom:20px">
+        <button class="chip-toggle selected" type="button" data-network="all">Все сети</button>
+        <button class="chip-toggle" type="button" data-network="btc">Bitcoin</button>
+        <button class="chip-toggle" type="button" data-network="eth">Ethereum</button>
+        <button class="chip-toggle" type="button" data-network="bnb">BNB Smart Chain</button>
+        <button class="chip-toggle" type="button" data-network="ton">TON</button>
+        <button class="chip-toggle" type="button" data-network="sol">Solana</button>
+        <button class="chip-toggle" type="button" data-network="koop" title="Демо-пример самописной сети — подключена ровно так же, как публичный блокчейн: по RPC/API">ДАО КООПЕХ Chain 🛠️</button>
+        <button class="chip-toggle" type="button" id="add-network-btn" style="border-style:dashed">+ Добавить сеть</button>
+      </div>
+
+      <div class="profile-layout">
+        <div class="profile-side">
+          <div class="info-box">
+            <div class="info-title">Баланс кошелька</div>
+            <div class="info-body">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:var(--ink);margin:4px 0 2px">1 460 700 ₽</div>
+              <div>эквивалент по текущему курсу, 7 активов в 6 сетях</div>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-title" title="У каждой сети — собственный отдельный счёт/адрес, сгенерированный из одной seed-фразы">Адреса кошелька ⓘ</div>
+            <div class="info-body" style="font-size:11.5px;word-break:break-all;line-height:2.1">
+              <b style="color:var(--ink)">Bitcoin</b><br>bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh<br>
+              <b style="color:var(--ink)">Ethereum / BNB Smart Chain</b><br>0x71C7656EC7ab88b098defB751B7401B5f6d8976<br>
+              <b style="color:var(--ink)">TON</b><br>EQD4FPq-PRDieyQKkizFTRtSDyucUIqrj0v_zXJmqaDp6_0-<br>
+              <b style="color:var(--ink)">Solana</b><br>5FHwkrdxntdK24hgQU8qgBjn35Y1zwhz1GZwCkP2h87Fh<br>
+              <b style="color:var(--ink)">ДАО КООПЕХ Chain</b><br>koop1a8f3c9d2e5b7f1046ab820ce9d51f2f7b6390a
+            </div>
+          </div>
+        </div>
+        <div class="profile-main">
+
+          <div class="section-title">Активы</div>
+          <table class="res-table" id="assets-table">
+            <tr><th>Актив</th><th>Сеть</th><th>Баланс</th><th>Оценка</th></tr>
+            <tr data-network="btc"><td class="stage-head">Bitcoin (BTC)</td><td>Bitcoin</td><td>0,0842 BTC</td><td>612 000 ₽</td></tr>
+            <tr data-network="eth"><td class="stage-head">Ethereum (ETH)</td><td>Ethereum</td><td>1,35 ETH</td><td>298 000 ₽</td></tr>
+            <tr data-network="eth"><td class="stage-head">Tether USD (USDT)<div class="stage-sub" style="padding-left:0;font-weight:400">ERC-20</div></td><td>Ethereum</td><td>850 USDT</td><td>76 500 ₽</td></tr>
+            <tr data-network="bnb"><td class="stage-head">BNB</td><td>BNB Smart Chain</td><td>3,2 BNB</td><td>174 000 ₽</td></tr>
+            <tr data-network="ton"><td class="stage-head">Toncoin (TON)</td><td>TON</td><td>420 TON</td><td>138 600 ₽</td></tr>
+            <tr data-network="sol"><td class="stage-head">Solana (SOL)</td><td>Solana</td><td>12,4 SOL</td><td>111 600 ₽</td></tr>
+            <tr data-network="koop"><td class="stage-head">КООП<div class="stage-sub" style="padding-left:0;font-weight:400">нативный токен самописной сети</div></td><td>ДАО КООПЕХ Chain</td><td>5 000 КООП</td><td>50 000 ₽</td></tr>
+          </table>
+
+          <div class="section-title" style="margin-top:32px">История операций</div>
+          <div class="track-timeline">
+
+            <div class="track-item">
+              <div class="track-date">6 августа 2026, 08:12</div>
+              <div class="track-title">Получение — Bitcoin</div>
+              <div class="track-parties">
+                <span class="track-party">Внешний адрес bc1q…7ke2</span>
+                <span class="track-arrow">→</span>
+                <span class="track-party">Мой кошелёк</span>
+                <span class="track-arrow">— +0,02 BTC</span>
+              </div>
+              <span class="track-hash">0x3d81ff20…5a6c</span>
+            </div>
+
+            <div class="track-item">
+              <div class="track-date">9 августа 2026, 19:47</div>
+              <div class="track-title">Обмен — USDT → SOL</div>
+              <div class="track-parties">
+                <span class="track-party">200 USDT (Ethereum)</span>
+                <span class="track-arrow">→</span>
+                <span class="track-party">1,1 SOL (Solana)</span>
+              </div>
+              <span class="track-hash">0x9f204b6c…e871</span>
+            </div>
+
+            <div class="track-item current">
+              <div class="track-date">14 августа 2026, 13:05</div>
+              <div class="track-title">Отправка — ДАО КООПЕХ Chain (самописная сеть)</div>
+              <div class="track-parties">
+                <span class="track-party">Мой кошелёк</span>
+                <span class="track-arrow">→</span>
+                <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:#8a5f1c">ДК</span> Проект «Строительный 3D-принтер»</span>
+                <span class="track-arrow">— 500 КООП</span>
+              </div>
+              <span class="track-hash">koop_tx_7e21…c9f0</span>
+            </div>
+
+          </div>
+
+          <div class="card" style="margin-top:32px;padding:16px 18px">
+            <div class="section-title" style="margin-top:0">Чем это отличается от «Цифровых активов»</div>
+            <p style="color:var(--slate);font-size:12.5px;max-width:720px;margin:0">Здесь — обычные криптовалюты и любые совместимые сети без обязанного лица (как определяет 259-ФЗ цифровую валюту): курс определяется рынком, а не эмитентом. В разделе «Цифровые активы» — наоборот, регулируемые права с конкретным эмитентом (доли, паи, права по бумагам). Технически кошелёк не привязан к конкретному блокчейну: любая сеть с открытым RPC/API — публичная или частная, даже собственная разработка кооператива — подключается одинаково.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== ФИАТНЫЙ КОШЕЛЁК ==================== -->
+    <div id="tab-fiat" hidden>
+      <p style="color:var(--slate);font-size:12.5px;max-width:720px;margin:18px 0 16px">Обычные рубли — без блокчейна и курсов обмена: пополнение с карты или по номеру телефона (СБП), переводы другим участникам, оплата вакансий и покупок внутри платформы.</p>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+        <button class="button" type="button">Пополнить</button>
+        <button class="button secondary" type="button">Вывести</button>
+        <button class="button secondary" type="button">Перевести</button>
+      </div>
+
+      <div class="profile-layout">
+        <div class="profile-side">
+          <div class="info-box">
+            <div class="info-title">Баланс кошелька</div>
+            <div class="info-body">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:var(--ink);margin:4px 0 2px">214 300 ₽</div>
+              <div>доступно для вывода и переводов</div>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-title">Привязанные способы оплаты</div>
+            <div class="info-body">
+              Карта МИР •• 4412 (Сбербанк)<br>
+              СБП: +7-928-233-2324<br>
+              <a href="#">+ Привязать ещё один способ</a>
+            </div>
+          </div>
+        </div>
+        <div class="profile-main">
+
+          <div class="section-title">История операций</div>
+          <table class="res-table">
+            <tr><th>Дата</th><th>Операция</th><th>Сумма</th></tr>
+            <tr><td>14 августа 2026</td><td>Пополнение с карты МИР •• 4412</td><td style="color:var(--teal-dark);font-weight:600">+50 000 ₽</td></tr>
+            <tr><td>10 августа 2026</td><td>Перевод участнику — Петров Сергей Викторович</td><td>−12 000 ₽</td></tr>
+            <tr><td>3 августа 2026</td><td>Оплата по вакансии «Кладовщик» — ООО «Мириталь»</td><td style="color:var(--teal-dark);font-weight:600">+45 000 ₽</td></tr>
+            <tr><td>28 июля 2026</td><td>Вывод на карту МИР •• 4412</td><td>−30 000 ₽</td></tr>
+          </table>
+
+          <div class="card" style="margin-top:32px;padding:16px 18px">
+            <div class="section-title" style="margin-top:0">Чем это отличается от «Крипто кошелька»</div>
+            <p style="color:var(--slate);font-size:12.5px;max-width:720px;margin:0">Фиатный кошелёк — это просто рубли на балансе, без блокчейна, курсов и сетей: как обычный электронный кошелёк или карта. Для криптовалют и любых блокчейн-сетей (включая собственные, самописные) — вкладка «Крипто кошелёк» выше. Для регулируемых цифровых прав с конкретным эмитентом (доли, паи) — отдельный раздел «Цифровые активы».</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== ВЗАИМНЫЙ КРЕДИТ (LETS) ==================== -->
+    <div id="tab-lets" hidden>
+      <p style="color:var(--slate);font-size:12.5px;max-width:720px;margin:18px 0 16px">Система взаимного кредита (LETS — Local Exchange Trading System): учёт вклада без денег и без банка. Отдали что-то сообществу — баланс растёт, взяли что-то у сообщества — баланс снижается. Отрицательный баланс — это нормально, он просто означает, что вы пока получили от сообщества больше, чем отдали, а не долг перед конкретным человеком: каждая операция — это сделка с сообществом в целом, а не друг с другом напрямую.</p>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+        <button class="button" type="button" id="lets-send-btn">Передать кредиты участнику</button>
+      </div>
+
+      <div class="profile-layout">
+        <div class="profile-side">
+          <div class="info-box">
+            <div class="info-title">Баланс взаимного кредита</div>
+            <div class="info-body">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:var(--ink);margin:4px 0 2px" id="lets-balance">−18 кредитов</div>
+              <div>1 кредит ≈ 1 час труда или эквивалент по договорённости сторон</div>
+            </div>
+          </div>
+          <div class="info-box">
+            <div class="info-title">Как это работает <span class="stat-note" title="Принцип системы взаимного кредита">ⓘ</span></div>
+            <div class="info-body">
+              Кредиты не покупаются и не имеют курса — это просто общий счёт вклада, видимый всем участникам сообщества. Лимит по минусу задаётся сообществом коллективно (сейчас: до −100), чтобы система оставалась взаимной, а не превращалась в одностороннее одалживание.
+            </div>
+          </div>
+        </div>
+        <div class="profile-main">
+
+          <div class="section-title">История операций</div>
+          <table class="res-table">
+            <tr><th>Дата</th><th>Операция</th><th>Контрагент</th><th>Кредиты</th></tr>
+            <tr><td>13 августа 2026</td><td>Помощь с монтажом каркаса теплицы, 3 часа</td><td><a href="person.html">Семёнов Николай Петрович</a></td><td style="color:var(--teal-dark);font-weight:600">+15</td></tr>
+            <tr><td>10 августа 2026</td><td>Получили пельмени домашней лепки, 5 кг</td><td><a href="person.html">Дашкевич Данил Игоревич</a></td><td>−25</td></tr>
+            <tr><td>5 августа 2026</td><td>Консультация по электромонтажу, 2 часа</td><td><a href="person.html">Иванова Мария Петровна</a></td><td style="color:var(--teal-dark);font-weight:600">+10</td></tr>
+            <tr><td>28 июля 2026</td><td>Получили мёд натуральный, 1 кг</td><td><a href="person.html">Смирнова Екатерина Андреевна</a></td><td>−18</td></tr>
+          </table>
+
+          <div class="card" style="margin-top:32px;padding:16px 18px">
+            <div class="section-title" style="margin-top:0">Чем это отличается от «Крипто» и «Фиатного» кошельков</div>
+            <p style="color:var(--slate);font-size:12.5px;max-width:720px;margin:0">Крипто- и фиатный кошельки — это деньги: у них есть курс, ими можно расплатиться где угодно, их можно накопить впрок. Взаимный кредит — это не деньги: единицы не имеют рыночного курса, существуют только внутри сообщества платформы и специально устроены так, чтобы не накапливаться бесконечно — система работает, когда кредиты постоянно переходят от одних участников к другим, а не оседают у кого-то одного.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Модалка «Добавить сеть» -->
+<div class="modal-overlay" id="network-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Добавить сеть</h2>
+      <button class="modal-close" id="network-modal-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Любой блокчейн — публичный или полностью самописный. Достаточно указать адрес API/RPC-ноды: кошелёк создаст в этой сети отдельный счёт (адрес) из вашей seed-фразы, так же, как для Bitcoin или Ethereum.</p>
+    <div class="field">
+      <label>Название сети</label>
+      <input class="input" id="net-name" placeholder="Например, Тестовая сеть кооператива">
+    </div>
+    <div class="field">
+      <label>RPC URL / API-эндпоинт</label>
+      <input class="input" id="net-rpc" placeholder="https://rpc.example.com или https://api.мойузел.рф">
+    </div>
+    <div class="field">
+      <label>Chain ID</label>
+      <input class="input" id="net-chainid" placeholder="Например, 1337">
+    </div>
+    <div class="field">
+      <label>Символ монеты</label>
+      <input class="input" id="net-symbol" placeholder="Например, MYCOIN">
+    </div>
+    <div class="field">
+      <label>Обозреватель блоков (необязательно)</label>
+      <input class="input" id="net-explorer" placeholder="https://explorer.example.com">
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="network-modal-cancel" type="button">Отмена</button>
+      <button class="button" id="network-modal-save" type="button">Добавить сеть</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="network-toast">✓ Сеть добавлена в кошелёк</div>
+
+<!-- Модалка «Передать кредиты участнику» -->
+<div class="modal-overlay" id="lets-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Передать кредиты участнику</h2>
+      <button class="modal-close" id="lets-modal-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Отметьте, что кто-то из сообщества вам помог, — его баланс вырастет, ваш снизится ровно на ту же сумму (взаимный кредит всегда в сумме даёт ноль внутри сообщества).</p>
+    <div class="field">
+      <label>Кому</label>
+      <input class="input" id="lets-recipient" list="lets-recipient-options" placeholder="Начните вводить имя">
+      <datalist id="lets-recipient-options">
+        <option value="Дашкевич Данил Игоревич"><option value="Иванова Мария Петровна"><option value="Семёнов Николай Петрович"><option value="Лебедева Ольга Игоревна"><option value="Смирнова Екатерина Андреевна">
+      </datalist>
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Сколько кредитов</label>
+        <input class="input" id="lets-amount" type="number" min="1" placeholder="Например, 10">
+      </div>
+      <div class="field">
+        <label>За что</label>
+        <input class="input" id="lets-note" placeholder="Например, помощь с переездом">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="lets-modal-cancel" type="button">Отмена</button>
+      <button class="button" id="lets-modal-save" type="button">Передать</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="lets-toast">✓ Кредиты переданы</div>
+
+<script>
+// Переключатель вкладок «Крипто кошелёк» / «Фиатный кошелёк» — обе на одной странице
+(function () {
+  var tabs = document.querySelectorAll('#wallet-tabs a');
+  var panels = { crypto: document.getElementById('tab-crypto'), fiat: document.getElementById('tab-fiat'), lets: document.getElementById('tab-lets') };
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function (e) {
+      e.preventDefault();
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var key = tab.dataset.tab;
+      Object.keys(panels).forEach(function (k) { panels[k].hidden = (k !== key); });
+    });
+  });
+})();
+
+// Фильтр активов по выбранной сети
+(function () {
+  var chips = document.querySelectorAll('#network-chips .chip-toggle:not(#add-network-btn)');
+  var rows = document.querySelectorAll('#assets-table tr[data-network]');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) { c.classList.remove('selected'); });
+      chip.classList.add('selected');
+      var net = chip.dataset.network;
+      rows.forEach(function (r) {
+        r.style.display = (net === 'all' || r.dataset.network === net) ? '' : 'none';
+      });
+    });
+  });
+})();
+
+// Модалка «Добавить сеть» — работает так же для публичного и самописного блокчейна
+(function () {
+  var openBtn = document.getElementById('add-network-btn');
+  var modal = document.getElementById('network-modal');
+  var closeBtn = document.getElementById('network-modal-close');
+  var cancelBtn = document.getElementById('network-modal-cancel');
+  var saveBtn = document.getElementById('network-modal-save');
+  var toast = document.getElementById('network-toast');
+  var chipGroup = document.getElementById('network-chips');
+
+  function open() { modal.hidden = false; }
+  function close() { modal.hidden = true; }
+
+  openBtn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  cancelBtn.addEventListener('click', close);
+  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+
+  saveBtn.addEventListener('click', function () {
+    var name = document.getElementById('net-name').value.trim();
+    var rpc = document.getElementById('net-rpc').value.trim();
+    if (!name || !rpc) {
+      alert('Укажите хотя бы название сети и RPC/API-эндпоинт');
+      return;
+    }
+    var chip = document.createElement('button');
+    chip.className = 'chip-toggle';
+    chip.type = 'button';
+    chip.dataset.network = 'custom-' + Date.now();
+    chip.textContent = name;
+    chipGroup.insertBefore(chip, openBtn);
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('#network-chips .chip-toggle').forEach(function (c) { c.classList.remove('selected'); });
+      chip.classList.add('selected');
+      document.querySelectorAll('#assets-table tr[data-network]').forEach(function (r) { r.style.display = 'none'; });
+    });
+    ['net-name', 'net-rpc', 'net-chainid', 'net-symbol', 'net-explorer'].forEach(function (id) {
+      document.getElementById(id).value = '';
+    });
+    close();
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  });
+})();
+
+// #13 Взаимный кредит (LETS) — модалка «Передать кредиты участнику»
+(function () {
+  var openBtn = document.getElementById('lets-send-btn');
+  var modal = document.getElementById('lets-modal');
+  if (!openBtn || !modal) return;
+  var closeBtn = document.getElementById('lets-modal-close');
+  var cancelBtn = document.getElementById('lets-modal-cancel');
+  var saveBtn = document.getElementById('lets-modal-save');
+  var toast = document.getElementById('lets-toast');
+  var balanceEl = document.getElementById('lets-balance');
+  var balance = -18;
+
+  function open() { modal.hidden = false; }
+  function close() { modal.hidden = true; }
+  openBtn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  cancelBtn.addEventListener('click', close);
+  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+
+  saveBtn.addEventListener('click', function () {
+    var recipient = document.getElementById('lets-recipient').value.trim();
+    var amount = parseInt(document.getElementById('lets-amount').value, 10);
+    var note = document.getElementById('lets-note').value.trim();
+    if (!recipient || !amount || amount <= 0 || !note) {
+      alert('Заполните получателя, сумму и за что передаются кредиты');
+      return;
+    }
+    balance -= amount;
+    balanceEl.textContent = (balance >= 0 ? '+' : '−') + Math.abs(balance) + ' кредитов';
+    var table = document.querySelector('#tab-lets .res-table');
+    var row = document.createElement('tr');
+    var today = new Date();
+    var dateStr = today.getDate() + ' августа 2026';
+    row.innerHTML = '<td>' + dateStr + '</td><td>' + note.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</td>' +
+      '<td><a href="person.html">' + recipient.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '</a></td>' +
+      '<td>−' + amount + '</td>';
+    table.rows[1].parentNode.insertBefore(row, table.rows[1]);
+    ['lets-recipient', 'lets-amount', 'lets-note'].forEach(function (id) { document.getElementById(id).value = ''; });
+    close();
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  });
+})();
+</script>
+</body>
+</html>

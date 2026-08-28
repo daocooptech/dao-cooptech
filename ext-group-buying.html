@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Совместные закупки — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html" class="active">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="search-row">
+      <div class="page-title" style="margin:0">Совместные закупки</div>
+      <button class="button" type="button" id="become-organizer-btn" style="margin-left:auto">Стать организатором</button>
+    </div>
+
+    <div class="gb-intro-cards">
+      <div class="gb-intro-card">
+        <div class="gb-intro-card-title">🧑‍💼 Организатор</div>
+        <div class="gb-intro-card-text">Находит поставщика и минимальный объём выкупа, ведёт сбор заказов. За это берёт оргсбор — он уже включён в цену, которую видит участник.</div>
+      </div>
+      <div class="gb-intro-card">
+        <div class="gb-intro-card-title">📉 Цена по уровням</div>
+        <div class="gb-intro-card-text">Чем больше набирается общий объём заказа, тем ниже цена за единицу — как в опте. Уровень пересчитывается автоматически, доплачивать не нужно.</div>
+      </div>
+      <div class="gb-intro-card">
+        <div class="gb-intro-card-title">📦 Стоп → Довоз → Раздача</div>
+        <div class="gb-intro-card-text">К дате «стопа» сбор заказов закрывается, товар одной партией приходит организатору и раздаётся участникам через точку самовывоза.</div>
+      </div>
+    </div>
+
+    <div class="gb-grid" id="gb-grid"></div>
+
+  </main>
+</div>
+
+<div class="modal-overlay" id="join-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="join-modal-title">Участвовать в закупке</h2>
+      <button class="modal-close" id="join-modal-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint" id="join-modal-hint"></p>
+    <div class="field">
+      <label id="join-qty-label">Количество</label>
+      <input class="input" id="join-qty" type="number" min="1" value="1">
+    </div>
+    <div class="field">
+      <label>Итого по текущей цене за единицу</label>
+      <div id="join-total" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px">—</div>
+      <div style="color:var(--slate);font-size:11px;margin-top:2px">Если до «стопа» закупка перейдёт на следующий ценовой уровень — пересчитается автоматически в меньшую сторону, доплачивать не придётся.</div>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="join-modal-cancel" type="button">Отмена</button>
+      <button class="button" id="join-modal-save" type="button">Заказать</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="organizer-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Стать организатором совместной закупки</h2>
+      <button class="modal-close" id="organizer-modal-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Вы находите поставщика и минимальный объём выкупа, ведёте сбор заказов и получаете оргсбор (не более 20% — правило платформы для защиты участников). Раздача — через точку из общего реестра.</p>
+    <div class="field">
+      <label>Что закупаем</label>
+      <input class="input" id="org-title" placeholder="Например, Утеплитель минвата 50мм">
+    </div>
+    <div class="field">
+      <label>Поставщик</label>
+      <input class="input" id="org-supplier" placeholder="Название компании или ИП">
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Минимальный объём выкупа</label>
+        <input class="input" id="org-mov" placeholder="Например, 30 упаковок">
+      </div>
+      <div class="field">
+        <label>Оргсбор, %</label>
+        <input class="input" id="org-fee" type="number" min="0" max="20" placeholder="До 20">
+      </div>
+    </div>
+    <div class="field">
+      <label>Точка выдачи</label>
+      <select class="input" id="org-point">
+        <option value="Цех кооператива, Тюмень">Цех кооператива, Тюмень</option>
+        <option value="Точка выдачи — Центральный рынок, Тюмень">Точка выдачи — Центральный рынок, Тюмень</option>
+        <option value="Склад ООО «АгроСтрой», Пермь">Склад ООО «АгроСтрой», Пермь</option>
+        <option value="Офис кооператива, Москва">Офис кооператива, Москва</option>
+        <option value="Точка выдачи — ТЦ «Сибирский», Новосибирск">Точка выдачи — ТЦ «Сибирский», Новосибирск</option>
+      </select>
+      <a href="pickup-points.html" class="stat-note" style="display:inline-block;margin-top:4px">+ добавить новую точку в реестр →</a>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="organizer-modal-cancel" type="button">Отмена</button>
+      <button class="button" id="organizer-modal-save" type="button">Опубликовать закупку</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="gb-toast">✓ Заказ добавлен в закупку</div>
+
+<script>
+(function () {
+  var GROUP_BUYS = [
+    {
+      id: 'cement',
+      title: 'Цемент М500 навалом',
+      image: 'images/photos/cement-bag.jpg',
+      category: 'Для дома и дачи · стройматериалы',
+      organizer: { name: 'Дашкевич Данил Игоревич', avatar: 'https://i.pravatar.cc/128?img=13', link: 'person.html' },
+      supplier: 'ООО «Мириталь»',
+      unit: 'тонна',
+      collected: 27,
+      goal: 40,
+      participants: 14,
+      stopDate: '25 августа 2026',
+      pickupPoint: 'Цех кооператива, Тюмень',
+      pickupLink: 'pickup-points.html',
+      tiers: [
+        { upTo: 10, price: 12000, label: 'до 10 т' },
+        { upTo: 25, price: 10500, label: '10–25 т' },
+        { upTo: Infinity, price: 9200, label: '25 т и больше' }
+      ]
+    },
+    {
+      id: 'kidswear',
+      title: 'Детские зимние комбинезоны',
+      image: 'images/photos/warehouse.jpg',
+      category: 'Личные вещи · товары для детей',
+      organizer: { name: 'Кузнецова Дарья Викторовна', avatar: 'https://i.pravatar.cc/128?img=16', link: 'person.html' },
+      supplier: 'Фабрика «Kids Warm»',
+      unit: 'шт.',
+      collected: 42,
+      goal: 60,
+      participants: 31,
+      stopDate: '22 августа 2026',
+      pickupPoint: 'Точка выдачи — Центральный рынок, Тюмень',
+      pickupLink: 'pickup-points.html',
+      tiers: [
+        { upTo: 30, price: 3200, label: 'до 30 шт.' },
+        { upTo: 60, price: 2850, label: '30–60 шт.' },
+        { upTo: Infinity, price: 2500, label: '60 шт. и больше' }
+      ]
+    },
+    {
+      id: 'seeds',
+      title: 'Семена и рассада для теплиц',
+      image: 'images/photos/carrot.jpg',
+      category: 'Сельское хозяйство и еда',
+      organizer: { name: 'Лебедева Ольга Игоревна', avatar: 'https://i.pravatar.cc/128?img=10', link: 'person.html' },
+      supplier: 'Агрофирма «Седек»',
+      unit: 'набор',
+      collected: 18,
+      goal: 50,
+      participants: 12,
+      stopDate: '1 сентября 2026',
+      pickupPoint: 'Склад ООО «АгроСтрой», Пермь',
+      pickupLink: 'pickup-points.html',
+      tiers: [
+        { upTo: 20, price: 890, label: 'до 20 наборов' },
+        { upTo: 50, price: 690, label: '20–50 наборов' },
+        { upTo: Infinity, price: 540, label: '50 наборов и больше' }
+      ]
+    }
+  ];
+
+  function escapeHtml(s) {
+    return (s || '').toString().replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function currentTier(gb) {
+    for (var i = 0; i < gb.tiers.length; i++) {
+      if (gb.collected < gb.tiers[i].upTo || i === gb.tiers.length - 1) return gb.tiers[i];
+    }
+    return gb.tiers[gb.tiers.length - 1];
+  }
+  function fmt(n) { return n.toLocaleString('ru-RU'); }
+
+  function renderCard(gb) {
+    var pct = Math.min(100, Math.round(gb.collected / gb.goal * 100));
+    var tier = currentTier(gb);
+    var tiersHtml = gb.tiers.map(function (t) {
+      var active = t === tier;
+      return '<div class="gb-tier-row' + (active ? ' active' : '') + '"><span>' + escapeHtml(t.label) + (active ? '<span class="gb-tier-current-tag">сейчас</span>' : '') + '</span><span>' + fmt(t.price) + ' ₽/' + escapeHtml(gb.unit) + '</span></div>';
+    }).join('');
+    return '<div class="card gb-card" data-id="' + gb.id + '">' +
+      '<img class="gb-photo" src="' + gb.image + '" alt="' + escapeHtml(gb.title) + '">' +
+      '<div class="gb-body">' +
+
+      '<div class="gb-title-row">' +
+      '<div class="gb-title">' + escapeHtml(gb.title) + '</div>' +
+      '<span class="badge outline">до «стопа»: ' + escapeHtml(gb.stopDate) + '</span>' +
+      '</div>' +
+      '<div class="gb-category">' + escapeHtml(gb.category) + '</div>' +
+
+      '<div class="gb-people">' +
+      '<div class="gb-organizer">' +
+      '<a href="' + gb.organizer.link + '"><img class="avatar" src="' + gb.organizer.avatar + '" alt="' + escapeHtml(gb.organizer.name) + '"></a>' +
+      '<div class="gb-organizer-text"><span class="gb-organizer-label">Организатор</span><a class="gb-organizer-name" href="' + gb.organizer.link + '">' + escapeHtml(gb.organizer.name) + '</a></div>' +
+      '</div>' +
+      '<div class="gb-supplier">Поставщик<br><b>' + escapeHtml(gb.supplier) + '</b></div>' +
+      '</div>' +
+
+      '<div class="gb-progress-block">' +
+      '<div class="gb-progress-bar"><div class="gb-progress-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="gb-progress-label"><b>' + fmt(gb.collected) + ' из ' + fmt(gb.goal) + ' ' + escapeHtml(gb.unit) + '</b> собрано (' + pct + '%) · ' + gb.participants + ' участников</div>' +
+      '</div>' +
+
+      '<div class="gb-tiers">' + tiersHtml + '</div>' +
+
+      '<div class="gb-footer">' +
+      '<span class="gb-pickup">📍 Раздача: <a href="' + gb.pickupLink + '">' + escapeHtml(gb.pickupPoint) + '</a></span>' +
+      '<button class="button join-gb-btn" type="button" data-id="' + gb.id + '">Участвовать</button>' +
+      '</div>' +
+
+      '</div></div>';
+  }
+
+  function renderAll() {
+    document.getElementById('gb-grid').innerHTML = GROUP_BUYS.map(renderCard).join('');
+    document.querySelectorAll('.join-gb-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { openJoinModal(btn.dataset.id); });
+    });
+  }
+
+  var activeGb = null;
+  var joinModal = document.getElementById('join-modal');
+  function openJoinModal(id) {
+    activeGb = GROUP_BUYS.filter(function (g) { return g.id === id; })[0];
+    if (!activeGb) return;
+    var tier = currentTier(activeGb);
+    document.getElementById('join-modal-title').textContent = 'Участвовать: ' + activeGb.title;
+    document.getElementById('join-modal-hint').textContent = 'Текущая цена: ' + fmt(tier.price) + ' ₽/' + activeGb.unit + '. Организатор — ' + activeGb.organizer.name + ', поставщик — ' + activeGb.supplier + '.';
+    document.getElementById('join-qty-label').textContent = 'Количество, ' + activeGb.unit;
+    document.getElementById('join-qty').value = 1;
+    updateJoinTotal();
+    joinModal.hidden = false;
+  }
+  function updateJoinTotal() {
+    if (!activeGb) return;
+    var qty = parseFloat(document.getElementById('join-qty').value) || 0;
+    var tier = currentTier(activeGb);
+    document.getElementById('join-total').textContent = fmt(Math.round(qty * tier.price)) + ' ₽';
+  }
+  document.getElementById('join-qty').addEventListener('input', updateJoinTotal);
+  document.getElementById('join-modal-close').addEventListener('click', function () { joinModal.hidden = true; });
+  document.getElementById('join-modal-cancel').addEventListener('click', function () { joinModal.hidden = true; });
+  joinModal.addEventListener('click', function (e) { if (e.target === joinModal) joinModal.hidden = true; });
+
+  var toast = document.getElementById('gb-toast');
+  document.getElementById('join-modal-save').addEventListener('click', function () {
+    if (!activeGb) return;
+    var qty = parseFloat(document.getElementById('join-qty').value) || 0;
+    if (qty <= 0) { alert('Укажите количество больше нуля'); return; }
+    activeGb.collected += qty;
+    activeGb.participants += 1;
+    joinModal.hidden = true;
+    renderAll();
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  });
+
+  var orgModal = document.getElementById('organizer-modal');
+  document.getElementById('become-organizer-btn').addEventListener('click', function () { orgModal.hidden = false; });
+  document.getElementById('organizer-modal-close').addEventListener('click', function () { orgModal.hidden = true; });
+  document.getElementById('organizer-modal-cancel').addEventListener('click', function () { orgModal.hidden = true; });
+  orgModal.addEventListener('click', function (e) { if (e.target === orgModal) orgModal.hidden = true; });
+  document.getElementById('organizer-modal-save').addEventListener('click', function () {
+    var title = document.getElementById('org-title').value.trim();
+    var supplier = document.getElementById('org-supplier').value.trim();
+    var mov = document.getElementById('org-mov').value.trim();
+    var fee = document.getElementById('org-fee').value.trim();
+    if (!title || !supplier || !mov) {
+      alert('Укажите, что закупаем, поставщика и минимальный объём выкупа');
+      return;
+    }
+    orgModal.hidden = true;
+    ['org-title', 'org-supplier', 'org-mov', 'org-fee'].forEach(function (id) { document.getElementById(id).value = ''; });
+    var t = document.getElementById('gb-toast');
+    t.textContent = '✓ Заявка на закупку «' + title + '» отправлена модераторам на проверку (оргсбор ' + (fee || '—') + '%)';
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); t.textContent = '✓ Заказ добавлен в закупку'; }, 3600);
+  });
+
+  renderAll();
+})();
+</script>
+</body>
+</html>

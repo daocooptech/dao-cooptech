@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Сообщества — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="active">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="communities.html" class="active">Сообщества</a>
+      <a href="communities-feed.html">Лента</a>
+    </div>
+    <div class="search-row">
+      <input class="input" id="groups-search" placeholder="Название сообщества, например «огород»">
+      <button class="button" type="button">Добавить сообщество</button>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+    </div>
+    <p style="color:var(--slate);font-size:12.5px;max-width:680px;margin:0 0 16px">Аналог групп «ВКонтакте», но с упором на социально-экономическое взаимодействие: не просто общение, а совместные закупки, обмен ресурсами и навыками, взаимный кредит труда и координация сделок между участниками одного района, интереса или профессии.</p>
+    <div class="content-with-filter">
+      <div style="flex:1">
+        <div class="cat-section-title">
+          <span>Все сообщества <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="groups-count">8</span></span></span>
+        </div>
+
+        <div class="vacancy-list" id="groups-grid">
+
+      <div class="vacancy-card" data-group="neighbors-tyumen" data-type="Соседское" data-city="Тюмень">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🏘️</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">Соседи по Тюмени</div>
+            <div class="vacancy-meta">📍 Тюмень · 👥 128 участников</div>
+            <p class="vacancy-snippet">Локальный обмен и координация внутри города — совместные закупки, поиск того, что «есть у соседа», встречи для передачи вещей без пересылки. <a href="ext-group-buying.html">Совместные закупки района →</a></p>
+            <div class="vacancy-tags"><span class="chip">Соседское</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="neighbors-tyumen" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="neighbors-tyumen" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vacancy-card" data-group="builders" data-type="По интересам" data-city="Дербент">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🏗️</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">Строим вместе</div>
+            <div class="vacancy-meta">📍 Дербент · 👥 64 участника · связана с <a href="project.html">«Строительный 3д принтер»</a></div>
+            <p class="vacancy-snippet">Для тех, кто участвует или интересуется строительными проектами кооператива — 3D-печать домов, стройматериалы, обмен опытом монтажа.</p>
+            <div class="vacancy-tags"><span class="chip">По интересам</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="builders" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="builders" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vacancy-card" data-group="garden" data-type="По интересам" data-city="Красноярск">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">Огород и теплицы</div>
+            <div class="vacancy-meta">📍 Красноярск · 👥 47 участников · связана с <a href="project-greenhouse.html">«Круглогодичная теплица»</a></div>
+            <p class="vacancy-snippet">Обмен рассадой, семенами и советами по круглогодичному выращиванию — для владельцев теплиц и тех, кто только присматривается.</p>
+            <div class="vacancy-tags"><span class="chip">По интересам</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="garden" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="garden" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vacancy-card" data-group="crafts" data-type="По интересам" data-city="Удалённо">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🧵</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">Мастера и рукоделие</div>
+            <div class="vacancy-meta">📍 Удалённо · 👥 39 участников</div>
+            <p class="vacancy-snippet">Для тех, кто продаёт или ищет handmade-товары, ткани, инструменты для рукоделия — обмен техниками и материалами.</p>
+            <div class="vacancy-tags"><span class="chip">По интересам</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="crafts" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="crafts" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vacancy-card" data-group="newbies" data-type="Локальное" data-city="Удалённо">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌟</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">Новички кооператива</div>
+            <div class="vacancy-meta">📍 Удалённо · 👥 21 участник</div>
+            <p class="vacancy-snippet">Ответы на вопросы «как начать» — от «Уровня доверия» до первой сделки. Опытные участники помогают освоиться.</p>
+            <div class="vacancy-tags"><span class="chip">Локальное</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="newbies" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="newbies" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vacancy-card" data-group="shukty-herders" data-type="Профессиональное" data-city="Дербент">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🐑</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">Дербентские овцеводы</div>
+            <div class="vacancy-meta">📍 Дербент · 👥 33 участника · связана с <a href="organization-coop.html">Кооперативом «Шукты»</a></div>
+            <p class="vacancy-snippet">Совместный выпас, обмен опытом по стрижке и переработке шерсти, координация поставок сыроварне. Костяк сообщества — пайщики кооператива.</p>
+            <div class="vacancy-tags"><span class="chip">Профессиональное</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="shukty-herders" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="shukty-herders" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vacancy-card" data-group="mutual-credit" data-type="Финансовое" data-city="Удалённо">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🤝</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">Взаимопомощь без денег</div>
+            <div class="vacancy-meta">📍 Удалённо · 👥 57 участников</div>
+            <p class="vacancy-snippet">Координация системы взаимного кредита (LETS): кто чем может помочь прямо сейчас — час труда, консультация, присмотр — без обмена деньгами. <a href="wallet.html">Баланс и история — в Кошельке →</a></p>
+            <div class="vacancy-tags"><span class="chip">Финансовое</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="mutual-credit" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="mutual-credit" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vacancy-card" data-group="it-coops" data-type="Профессиональное" data-city="Удалённо">
+        <div class="card-row">
+          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">💻</div>
+          <div style="flex:1;min-width:0">
+            <div class="vacancy-title">IT-кооператоры</div>
+            <div class="vacancy-meta">📍 Удалённо · 👥 29 участников</div>
+            <p class="vacancy-snippet">Для команд, строящих цифровые сервисы на принципах совместного владения. Код-ревью друг другу, совместные закупки хостинга, обмен опытом устава цифрового кооператива. <a href="ext-programs.html">Связано с программой «Своя платформа» →</a></p>
+            <div class="vacancy-tags"><span class="chip">Профессиональное</span></div>
+            <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
+              <button class="button secondary sub-btn" type="button" data-group="it-coops" style="padding:7px 16px;font-size:12.5px">🔔 Подписаться</button>
+              <button class="button secondary join-btn" type="button" data-group="it-coops" style="padding:7px 16px;font-size:12.5px">Вступить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div>
+        <div class="empty-state" id="groups-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      </div>
+      <div class="filter-panel">
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Тип сообщества <span class="stat-note" title="По какому признаку объединены участники">ⓘ</span></label>
+          <select class="input" id="filter-type">
+            <option value="">Любой</option>
+            <option value="Соседское">Соседское</option>
+            <option value="По интересам">По интересам</option>
+            <option value="Профессиональное">Профессиональное</option>
+            <option value="Финансовое">Финансовое</option>
+            <option value="Локальное">Локальное</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Город <span class="stat-note" title="Можно выбрать «Удалённо» для сообществ без привязки к конкретному городу">ⓘ</span></label>
+          <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
+          <datalist id="city-options">
+            <option value="Тюмень"><option value="Дербент"><option value="Красноярск"><option value="Удалённо">
+          </datalist>
+        </div>
+        <div class="field" style="color:var(--slate)">
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400"><input type="checkbox" id="filter-joined-only"> Только те, где я состою</label>
+        </div>
+        <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="vacancies.html">вакансии</a>
+    </div>
+
+  </main>
+</div>
+<script>
+(function () {
+  var JOINED_KEY = 'coop_groups_joined';
+  function getJoined() {
+    try { return JSON.parse(localStorage.getItem(JOINED_KEY)) || []; } catch (e) { return []; }
+  }
+  function renderButtons() {
+    var joined = getJoined();
+    document.querySelectorAll('.join-btn').forEach(function (btn) {
+      var id = btn.dataset.group;
+      var isJoined = joined.indexOf(id) !== -1;
+      btn.classList.toggle('active', isJoined);
+      btn.textContent = isJoined ? '✓ Вы участник' : 'Вступить';
+    });
+  }
+  document.querySelectorAll('.join-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var id = btn.dataset.group;
+      var joined = getJoined();
+      var i = joined.indexOf(id);
+      if (i === -1) joined.push(id); else joined.splice(i, 1);
+      localStorage.setItem(JOINED_KEY, JSON.stringify(joined));
+      renderButtons();
+    });
+  });
+  renderButtons();
+
+  // Подписка на новости сообщества — намеренно отдельно от «Вступить»: можно читать ленту,
+  // не становясь участником, и наоборот, состоять в сообществе, не подписываясь на новости.
+  var SUBSCRIBED_KEY = 'coop_groups_subscribed';
+  function getSubscribed() {
+    try { return JSON.parse(localStorage.getItem(SUBSCRIBED_KEY)) || []; } catch (e) { return []; }
+  }
+  function renderSubButtons() {
+    var subscribed = getSubscribed();
+    document.querySelectorAll('.sub-btn').forEach(function (btn) {
+      var id = btn.dataset.group;
+      var isSubscribed = subscribed.indexOf(id) !== -1;
+      btn.classList.toggle('active', isSubscribed);
+      btn.textContent = isSubscribed ? '🔔 Вы подписаны' : '🔔 Подписаться';
+    });
+  }
+  document.querySelectorAll('.sub-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var id = btn.dataset.group;
+      var subscribed = getSubscribed();
+      var i = subscribed.indexOf(id);
+      if (i === -1) subscribed.push(id); else subscribed.splice(i, 1);
+      localStorage.setItem(SUBSCRIBED_KEY, JSON.stringify(subscribed));
+      renderSubButtons();
+    });
+  });
+  renderSubButtons();
+
+  // Поиск и фильтры: по названию, по типу сообщества, по городу, только те, где я состою
+  var searchInput = document.getElementById('groups-search');
+  var typeSelect = document.getElementById('filter-type');
+  var cityInput = document.getElementById('filter-city');
+  var joinedOnlyCheckbox = document.getElementById('filter-joined-only');
+  var cards = document.querySelectorAll('#groups-grid .vacancy-card');
+  function applyFilters() {
+    var q = searchInput.value.trim().toLowerCase();
+    var type = typeSelect.value;
+    var city = cityInput.value.trim().toLowerCase();
+    var joinedOnly = joinedOnlyCheckbox.checked;
+    var joined = getJoined();
+    var visibleCount = 0;
+    cards.forEach(function (card) {
+      var title = card.querySelector('.vacancy-title').textContent.toLowerCase();
+      var cardCity = (card.dataset.city || '').toLowerCase();
+      var queryOk = !q || title.indexOf(q) !== -1;
+      var typeOk = !type || card.dataset.type === type;
+      var cityOk = !city || cardCity.indexOf(city) !== -1;
+      var joinedOk = !joinedOnly || joined.indexOf(card.dataset.group) !== -1;
+      var show = queryOk && typeOk && cityOk && joinedOk;
+      card.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+    document.getElementById('groups-count').textContent = visibleCount;
+    document.getElementById('groups-empty').hidden = visibleCount > 0;
+  }
+  searchInput.addEventListener('input', applyFilters);
+  typeSelect.addEventListener('change', applyFilters);
+  cityInput.addEventListener('input', applyFilters);
+  joinedOnlyCheckbox.addEventListener('change', applyFilters);
+  // «Только те, где я состою» зависит от состояния вступления — пересчитываем и при переключении «Вступить»
+  var baseRenderButtons = renderButtons;
+  renderButtons = function () { baseRenderButtons(); if (joinedOnlyCheckbox.checked) applyFilters(); };
+
+  function resetFilters() {
+    searchInput.value = '';
+    typeSelect.value = '';
+    cityInput.value = '';
+    joinedOnlyCheckbox.checked = false;
+    applyFilters();
+  }
+  document.getElementById('filter-reset').addEventListener('click', resetFilters);
+  document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+
+  // Переключатель вида: списком / плиткой — тот же паттерн, что в остальных каталогах платформы
+  var viewGrid = document.getElementById('groups-grid');
+  var viewListBtn = document.getElementById('view-list-btn');
+  var viewTileBtn = document.getElementById('view-tile-btn');
+  viewListBtn.addEventListener('click', function () {
+    viewGrid.classList.remove('tile-mode');
+    viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
+  });
+  viewTileBtn.addEventListener('click', function () {
+    viewGrid.classList.add('tile-mode');
+    viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
+  });
+})();
+</script>
+</body>
+</html>

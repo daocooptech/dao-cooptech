@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>События — cooptech</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="cooptech"></span>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <a href="#">настройки</a>
+    <a href="login.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <nav>
+      <a href="my-page.html" class="">Моя страница</a>
+      <a href="messages.html" class="">Сообщения</a>
+      <a href="people.html" class="">Люди</a>
+      <a href="skills.html" class="">Навыки</a>
+      <a href="vacancies.html" class="">Вакансии</a>
+      <a href="resources.html" class="">Ресурсы</a>
+      <a href="projects.html" class="">Проекты</a>
+      <a href="organizations.html" class="">Организации</a>
+      <a href="communities.html" class="">Сообщества</a>
+      <a href="wallet.html" class="">Кошелёк</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav>
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html" class="active">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main">
+
+    <div class="entity-tabs">
+      <a href="ext-events.html" class="active">Все события</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;margin:4px 0 16px">
+      <button class="button ghost" id="year-prev" type="button" title="Предыдущий год">←</button>
+      <div id="year-label" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:var(--teal-dark);min-width:84px;text-align:center">2026</div>
+      <button class="button ghost" id="year-next" type="button" title="Следующий год">→</button>
+      <p style="color:var(--slate);font-size:12.5px;margin:0 0 0 4px;max-width:520px">Календарь событий кооперативной жизни платформы: обучение, встречи сообществ, собрания пайщиков и общие праздники.</p>
+    </div>
+
+    <div class="search-row">
+      <input class="input" id="filter-search" placeholder="Название события, например «собрание»">
+      <button class="button" type="button">Добавить событие</button>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+    </div>
+    <div class="content-with-filter">
+      <div style="flex:1">
+        <div class="cat-section-title">
+          <span>События <span id="year-count-label">2026</span> года <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="events-count">0</span></span></span>
+        </div>
+        <div class="vacancy-list" id="events-list">
+
+          <div class="vacancy-card" data-event="shukty-general-2025" data-category="Собрания пайщиков" data-city="Дербент" data-format="Офлайн" data-year="2025" data-date="2025-12-28">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🗳️</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Итоговое собрание пайщиков за 2025 год</div>
+                <div class="vacancy-meta">🗓 28 декабря 2025, 15:00–20:00 · 📍 Дербент</div>
+                <p class="vacancy-snippet">Отчёт правления кооператива «Шукты» по итогам года, утверждение бюджета на 2026 год, вопросы распределения дохода между пайщиками.</p>
+                <div class="vacancy-tags"><span class="chip">Собрания пайщиков</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 38 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="shukty-general-2025" data-event-name="«Итоговое собрание пайщиков за 2025 год»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="permaculture-2025" data-category="Обучение" data-city="Красноярск" data-format="Офлайн" data-year="2025" data-date="2025-06-14">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">📚</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Мастер-класс по пермакультуре</div>
+                <div class="vacancy-meta">🗓 14 июня 2025, 10:00–16:00 · 📍 Красноярск</div>
+                <p class="vacancy-snippet">Однодневный интенсив по проектированию продуктивного огорода без перекопки и химии — для участников сообщества «Огород и теплицы» и всех желающих.</p>
+                <div class="vacancy-tags"><span class="chip">Обучение</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 22 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="permaculture-2025" data-event-name="«Мастер-класс по пермакультуре»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="fair-tyumen-2025" data-category="Праздники и ярмарки" data-city="Тюмень" data-format="Офлайн" data-year="2025" data-date="2025-09-05">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🎉</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Ярмарка кооперативных продуктов</div>
+                <div class="vacancy-meta">🗓 5 сентября 2025, 10:00–17:00 · 📍 Тюмень</div>
+                <p class="vacancy-snippet">Первая городская ярмарка от сообщества «Соседи по Тюмени» — прямые продажи от пайщиков без посредников.</p>
+                <div class="vacancy-tags"><span class="chip">Праздники и ярмарки</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 64 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="fair-tyumen-2025" data-event-name="«Ярмарка кооперативных продуктов»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="it-coop-review" data-category="Мероприятия сообществ" data-city="Удалённо" data-format="Онлайн" data-year="2026" data-date="2026-08-27">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🏘️</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Созвон IT-кооператоров: код-ревью</div>
+                <div class="vacancy-meta">🗓 27 августа 2026, 21:00–22:30 · 📍 Удалённо</div>
+                <p class="vacancy-snippet">Еженедельный созвон сообщества «IT-кооператоры» — разбор чужого кода, вопросы по уставу цифрового кооператива.</p>
+                <div class="vacancy-tags"><span class="chip">Мероприятия сообществ</span><span class="chip">Онлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 12 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="it-coop-review" data-event-name="«Созвон IT-кооператоров: код-ревью»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="seed-exchange" data-category="Мероприятия сообществ" data-city="Красноярск" data-format="Офлайн" data-year="2026" data-date="2026-09-06">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Обменный стол семян</div>
+                <div class="vacancy-meta">🗓 6 сентября 2026, 11:00–14:00 · 📍 Красноярск</div>
+                <p class="vacancy-snippet">Открытый обмен семенами и рассадой для участников сообщества «Огород и теплицы» — несите лишнее, берите нужное.</p>
+                <div class="vacancy-tags"><span class="chip">Мероприятия сообществ</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 27 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="seed-exchange" data-event-name="«Обменный стол семян»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="shukty-general-2026" data-category="Собрания пайщиков" data-city="Дербент" data-format="Офлайн" data-year="2026" data-date="2026-09-12">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🗳️</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Общее собрание пайщиков кооператива «Шукты»</div>
+                <div class="vacancy-meta">🗓 12 сентября 2026, 15:00–20:00 · 📍 Дербент</div>
+                <p class="vacancy-snippet">Ежегодное собрание собственников кооперативного участка — отчёт правления, распределение доходов, выборы ревизионной комиссии.</p>
+                <div class="vacancy-tags"><span class="chip">Собрания пайщиков</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 41 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="shukty-general-2026" data-event-name="«Общее собрание пайщиков кооператива «Шукты»»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="open-day-tyumen" data-category="Праздники и ярмарки" data-city="Тюмень" data-format="Офлайн" data-year="2026" data-date="2026-10-03">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🎉</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">День открытых дверей кооператива</div>
+                <div class="vacancy-meta">🗓 3 октября 2026, 12:00–18:00 · 📍 Тюмень</div>
+                <p class="vacancy-snippet">Экскурсии по производству, дегустация продукции пайщиков, детская площадка и ярмарка местных товаров.</p>
+                <div class="vacancy-tags"><span class="chip">Праздники и ярмарки</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 96 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="open-day-tyumen" data-event-name="«День открытых дверей кооператива»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="robot-21" data-category="Обучение" data-city="Москва" data-format="Офлайн" data-year="2026" data-date="2026-11-19">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">📚</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Как собрать робота своими руками. Занятие 21</div>
+                <div class="vacancy-meta">🗓 19 ноября 2026, 19:00–22:00 · 📍 Москва, ул. Малая Ордынка, д.3, к.1</div>
+                <p class="vacancy-snippet">Двадцать первое занятие курса по сборке простых роботов из доступных деталей — можно присоединиться и без предыдущих занятий.</p>
+                <div class="vacancy-tags"><span class="chip">Обучение</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 18 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="robot-21" data-event-name="«Как собрать робота своими руками. Занятие 21»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="khorovod" data-category="Встречи и знакомства" data-city="Москва" data-format="Офлайн" data-year="2026" data-date="2026-11-19">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🤝</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Танцы. Хоровод</div>
+                <div class="vacancy-meta">🗓 19 ноября 2026, 19:00–22:00 · 📍 Москва, ул. Малая Ордынка, д.3, к.1</div>
+                <p class="vacancy-snippet">Самый масштабный хоровод сезона — открытая встреча для знакомства, никакого опыта не требуется, научим на месте.</p>
+                <div class="vacancy-tags"><span class="chip">Встречи и знакомства</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 34 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="khorovod" data-event-name="«Танцы. Хоровод»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="strategy-2027" data-category="Собрания пайщиков" data-city="Москва" data-format="Офлайн" data-year="2027" data-date="2027-01-15">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🗳️</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Стратегическая сессия кооператива на 2027 год</div>
+                <div class="vacancy-meta">🗓 15 января 2027, 11:00–17:00 · 📍 Москва</div>
+                <p class="vacancy-snippet">Обсуждение приоритетов развития платформы на новый год с участием представителей всех кооперативов-пайщиков.</p>
+                <div class="vacancy-tags"><span class="chip">Собрания пайщиков</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 15 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="strategy-2027" data-event-name="«Стратегическая сессия кооператива на 2027 год»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vacancy-card" data-event="spring-fest-2027" data-category="Праздники и ярмарки" data-city="Тюмень" data-format="Офлайн" data-year="2027" data-date="2027-04-20">
+            <div class="card-row">
+              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:#8a5f1c;font-size:20px">🎉</div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Весенний фестиваль совместных закупок</div>
+                <div class="vacancy-meta">🗓 20 апреля 2027, 12:00–19:00 · 📍 Тюмень</div>
+                <p class="vacancy-snippet">Ежегодный фестиваль сообщества «Соседи по Тюмени» — открытие сезона совместных закупок стройматериалов и рассады.</p>
+                <div class="vacancy-tags"><span class="chip">Праздники и ярмарки</span><span class="chip">Офлайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">👥 8 записались</span>
+                  <button class="button secondary attend-btn" type="button" data-event="spring-fest-2027" data-event-name="«Весенний фестиваль совместных закупок»">Записаться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="empty-state" id="events-empty" hidden>В <span id="empty-year-label">2026</span> году событий не нашлось. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      </div>
+      <div class="filter-panel">
+        <div class="section-title">Фильтр</div>
+        <div class="field">
+          <label>Категория</label>
+          <select class="input" id="filter-category">
+            <option value="">Любая</option>
+            <option value="Обучение">Обучение</option>
+            <option value="Встречи и знакомства">Встречи и знакомства</option>
+            <option value="Собрания пайщиков">Собрания пайщиков</option>
+            <option value="Мероприятия сообществ">Мероприятия сообществ</option>
+            <option value="Праздники и ярмарки">Праздники и ярмарки</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Город <span class="stat-note" title="Можно выбрать «Удалённо» для онлайн-событий">ⓘ</span></label>
+          <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
+          <datalist id="city-options">
+            <option value="Москва"><option value="Дербент"><option value="Красноярск"><option value="Тюмень"><option value="Удалённо">
+          </datalist>
+        </div>
+        <div class="field">
+          <label>Формат</label>
+          <select class="input" id="filter-format">
+            <option value="">Любой</option>
+            <option value="Офлайн">Офлайн</option>
+            <option value="Онлайн">Онлайн</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Даты <span class="stat-note" title="Спиральный календарь года — кликните день дважды, чтобы выбрать диапазон">ⓘ</span></label>
+          <button type="button" class="input" id="date-spiral-open-btn" style="text-align:left;cursor:pointer;display:flex;align-items:center;gap:6px">🌀 <span id="date-range-label">Выбрать даты</span></button>
+        </div>
+        <div class="field" style="color:var(--slate)">
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400"><input type="checkbox" id="filter-attending-only"> Только куда я записан</label>
+        </div>
+        <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+      </div>
+    </div>
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="communities.html">сообщества</a>
+    </div>
+
+  </main>
+</div>
+
+<!-- Спиральный календарь года — иллюстрация + выбор диапазона дат для фильтра событий -->
+<div class="modal-overlay" id="spiral-modal" hidden>
+  <div class="modal" style="width:640px">
+    <div class="modal-head">
+      <h2 id="spiral-modal-title">Выберите даты</h2>
+      <button class="modal-close" id="spiral-modal-close" type="button">✕</button>
+    </div>
+    <div style="display:flex;justify-content:center;margin:2px 0 12px">
+      <img src="img/spiral-calendar-2015.png" alt="Спиральный календарь года" style="width:100%;max-width:520px;height:auto">
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Дата с</label>
+        <input class="input" type="date" id="spiral-date-from">
+      </div>
+      <div class="field">
+        <label>Дата по</label>
+        <input class="input" type="date" id="spiral-date-to">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="spiral-clear-btn" type="button">Сбросить</button>
+      <button class="button" id="spiral-apply-btn" type="button">Применить</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="event-toast"></div>
+
+<script>
+// Год «сейчас» в демо-данных платформы зафиксирован на 2026 — см. дату публикации прототипа,
+// а не реальную системную дату браузера, чтобы витрина событий совпадала с остальными демо-данными.
+var CURRENT_YEAR = 2026;
+var YEARS = [2025, 2026, 2027];
+var yearIndex = YEARS.indexOf(CURRENT_YEAR);
+
+var yearLabel = document.getElementById('year-label');
+var yearCountLabel = document.getElementById('year-count-label');
+var emptyYearLabel = document.getElementById('empty-year-label');
+var yearPrevBtn = document.getElementById('year-prev');
+var yearNextBtn = document.getElementById('year-next');
+
+function renderYearControls() {
+  var year = YEARS[yearIndex];
+  yearLabel.textContent = year;
+  yearCountLabel.textContent = year;
+  emptyYearLabel.textContent = year;
+  yearPrevBtn.disabled = yearIndex === 0;
+  yearNextBtn.disabled = yearIndex === YEARS.length - 1;
+  yearPrevBtn.style.opacity = yearPrevBtn.disabled ? 0.35 : 1;
+  yearNextBtn.style.opacity = yearNextBtn.disabled ? 0.35 : 1;
+}
+yearPrevBtn.addEventListener('click', function () {
+  if (yearIndex > 0) { yearIndex--; renderYearControls(); clearDateRange(); applyFilters(); }
+});
+yearNextBtn.addEventListener('click', function () {
+  if (yearIndex < YEARS.length - 1) { yearIndex++; renderYearControls(); clearDateRange(); applyFilters(); }
+});
+renderYearControls();
+
+function applyFilters() {
+  var year = YEARS[yearIndex];
+  var search = document.getElementById('filter-search').value.trim().toLowerCase();
+  var category = document.getElementById('filter-category').value;
+  var city = document.getElementById('filter-city').value.trim().toLowerCase();
+  var format = document.getElementById('filter-format').value;
+  var dateFrom = pickedDateFrom;
+  var dateTo = pickedDateTo;
+  var attendingOnly = document.getElementById('filter-attending-only').checked;
+  var attending = getAttending();
+  var cards = document.querySelectorAll('#events-list .vacancy-card');
+  var visibleCount = 0;
+  cards.forEach(function (card) {
+    var text = card.textContent.toLowerCase();
+    var yearOk = card.dataset.year === String(year);
+    var searchOk = !search || text.indexOf(search) !== -1;
+    var categoryOk = !category || card.dataset.category === category;
+    var cardCity = (card.dataset.city || '').toLowerCase();
+    var cityOk = !city || cardCity.indexOf(city) !== -1;
+    var formatOk = !format || card.dataset.format === format;
+    var cardDate = card.dataset.date;
+    var dateOk = (!dateFrom || cardDate >= dateFrom) && (!dateTo || cardDate <= dateTo);
+    var attendingOk = !attendingOnly || attending.indexOf(card.dataset.event) !== -1;
+    var show = yearOk && searchOk && categoryOk && cityOk && formatOk && dateOk && attendingOk;
+    card.style.display = show ? '' : 'none';
+    if (show) visibleCount++;
+  });
+  document.getElementById('events-count').textContent = visibleCount;
+  document.getElementById('events-empty').hidden = visibleCount > 0;
+}
+document.getElementById('filter-search').addEventListener('input', applyFilters);
+document.getElementById('filter-category').addEventListener('change', applyFilters);
+document.getElementById('filter-city').addEventListener('input', applyFilters);
+document.getElementById('filter-format').addEventListener('change', applyFilters);
+document.getElementById('filter-attending-only').addEventListener('change', applyFilters);
+
+function resetFilters() {
+  document.getElementById('filter-search').value = '';
+  document.getElementById('filter-category').value = '';
+  document.getElementById('filter-city').value = '';
+  document.getElementById('filter-format').value = '';
+  document.getElementById('filter-attending-only').checked = false;
+  clearDateRange();
+  applyFilters();
+}
+document.getElementById('filter-reset').addEventListener('click', resetFilters);
+document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
+
+// Переключатель вида: списком / плиткой
+var viewGrid = document.getElementById('events-list');
+var viewListBtn = document.getElementById('view-list-btn');
+var viewTileBtn = document.getElementById('view-tile-btn');
+viewListBtn.addEventListener('click', function () {
+  viewGrid.classList.remove('tile-mode');
+  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
+});
+viewTileBtn.addEventListener('click', function () {
+  viewGrid.classList.add('tile-mode');
+  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
+});
+
+// Записаться на событие
+(function () {
+  var ATTEND_KEY = 'coop_events_attending';
+  var toast = document.getElementById('event-toast');
+
+  function getAttendingList() {
+    try { return JSON.parse(localStorage.getItem(ATTEND_KEY)) || []; } catch (e) { return []; }
+  }
+  window.getAttending = getAttendingList;
+
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  }
+  function renderButtons() {
+    var attending = getAttendingList();
+    document.querySelectorAll('.attend-btn').forEach(function (btn) {
+      var id = btn.dataset.event;
+      var isAttending = attending.indexOf(id) !== -1;
+      btn.classList.toggle('active', isAttending);
+      btn.textContent = isAttending ? '✓ Вы записаны' : 'Записаться';
+    });
+  }
+  document.querySelectorAll('.attend-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.dataset.event;
+      var attending = getAttendingList();
+      var i = attending.indexOf(id);
+      var joining = i === -1;
+      if (joining) attending.push(id); else attending.splice(i, 1);
+      localStorage.setItem(ATTEND_KEY, JSON.stringify(attending));
+      renderButtons();
+      if (joining) showToast('✓ Вы записались на ' + btn.dataset.eventName);
+    });
+  });
+  renderButtons();
+})();
+
+// Выбор диапазона дат для фильтра «Даты» — модалка с иллюстрацией спирального
+// календаря (референс владельца) и обычными полями «Дата с»/«Дата по» под ней.
+var pickedDateFrom = '';
+var pickedDateTo = '';
+
+var RU_MONTHS_SHORT = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+
+function formatPickedDate(iso) {
+  if (!iso) return '';
+  var parts = iso.split('-');
+  var d = parseInt(parts[2], 10);
+  var m = parseInt(parts[1], 10) - 1;
+  return d + ' ' + RU_MONTHS_SHORT[m] + ' ' + parts[0];
+}
+
+function updateDateRangeLabel() {
+  var label = document.getElementById('date-range-label');
+  var text;
+  if (pickedDateFrom && pickedDateTo) {
+    text = formatPickedDate(pickedDateFrom) + ' — ' + formatPickedDate(pickedDateTo);
+  } else if (pickedDateFrom) {
+    text = 'с ' + formatPickedDate(pickedDateFrom) + '…';
+  } else {
+    text = 'Выбрать даты';
+  }
+  label.textContent = text;
+}
+
+function clearDateRange() {
+  pickedDateFrom = '';
+  pickedDateTo = '';
+  document.getElementById('spiral-date-from').value = '';
+  document.getElementById('spiral-date-to').value = '';
+  updateDateRangeLabel();
+}
+
+var spiralModal = document.getElementById('spiral-modal');
+document.getElementById('date-spiral-open-btn').addEventListener('click', function () {
+  document.getElementById('spiral-date-from').value = pickedDateFrom;
+  document.getElementById('spiral-date-to').value = pickedDateTo;
+  spiralModal.hidden = false;
+});
+document.getElementById('spiral-modal-close').addEventListener('click', function () { spiralModal.hidden = true; });
+spiralModal.addEventListener('click', function (e) { if (e.target === spiralModal) spiralModal.hidden = true; });
+document.getElementById('spiral-clear-btn').addEventListener('click', function () { clearDateRange(); });
+document.getElementById('spiral-apply-btn').addEventListener('click', function () {
+  pickedDateFrom = document.getElementById('spiral-date-from').value;
+  pickedDateTo = document.getElementById('spiral-date-to').value;
+  updateDateRangeLabel();
+  spiralModal.hidden = true;
+  applyFilters();
+});
+
+updateDateRangeLabel();
+applyFilters();
+</script>
+</body>
+</html>
