@@ -331,8 +331,29 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 
 @media (max-width: 900px) {
   .topbar { padding: 0 14px; gap: 10px; }
+  /* Название платформы занимало в шапке три строки и на узких экранах (320px)
+     выдавливало кнопки вправо за край. Ужимаем его в одну строку с многоточием,
+     вместо того чтобы прятать совсем. */
+  .topbar-left { min-width: 0; }
+  .platform-name {
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+  }
   .topbar-search { display: none; }
   .topbar-right a { display: none; }
+  /* Замена скрытым поиску и ссылкам аккаунта (см. app.js, блок 3.1):
+     поиск раскрывается строкой под шапкой, «настройки»/«выйти» — в меню. */
+  .search-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; flex: none; border: none; border-radius: 8px;
+    background: none; color: var(--ink-2); cursor: pointer;
+  }
+  html.search-open .topbar-search {
+    display: block; position: fixed; top: 56px; left: 0; right: 0; z-index: 58;
+    width: auto; border: none; border-bottom: 1px solid var(--line);
+    border-radius: 0; background: var(--white); padding: 13px 14px;
+    font-size: 16px; /* меньше 16px iOS зумит страницу при фокусе */
+  }
+  .sidebar-account { display: block; }
   .sidebar {
     position: fixed; left: 0; top: 56px; bottom: 0; z-index: 60;
     height: auto; transform: translateX(-100%);
@@ -408,8 +429,14 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
      чтобы кнопки не сжимались), а инлайновый стиль иначе не перебить. */
   .name-row > div { flex-wrap: wrap; min-width: 0; flex-shrink: 1 !important; }
   .task-sub { flex-wrap: wrap; }
+  /* Кнопки призыва на лендинге и ссылки футера — на 360px (частая ширина
+     Android) не помещались в строку. */
+  .hero-actions, .site-footer { flex-wrap: wrap; }
   /* Строки-«таблицы» на карточке проекта и шапка резюме — тоже неразрывные ряды. */
   .res-row, .resume-header { flex-wrap: wrap; }
+  /* Ряд кнопок в карточке каталога («Написать» / «Подписаться» /
+     «Добавить в друзья») в одну строку на 375px не помещается. */
+  .vacancy-footer { flex-wrap: wrap; row-gap: 8px; }
   /* Широкие таблицы (кошелёк, реестры активов, трекинг) не ужимаются до 375px —
      даём им собственную горизонтальную прокрутку вместо прокрутки всей страницы. */
   table.res-table { display: block; max-width: 100%; overflow-x: auto; }
@@ -417,4 +444,6 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 }
 @media (min-width: 901px) {
   .burger, .filter-sheet-btn, .filter-scrim { display: none; }
+  /* На десктопе поиск и ссылки аккаунта и так в шапке — дубли не нужны */
+  .search-btn, .sidebar-account { display: none; }
 }

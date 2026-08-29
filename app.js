@@ -7,7 +7,11 @@
     moon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 14.8A8.8 8.8 0 019.2 3.6 8.8 8.8 0 1020.4 14.8z"/></svg>',
     plus: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5.5v13M5.5 12h13"/></svg>',
     burger: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
-    filter: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5h14M8 12h8M10.6 16.5h2.8"/></svg>'
+    filter: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5h14M8 12h8M10.6 16.5h2.8"/></svg>',
+    search: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.4"/><path d="M15.6 15.6l4 4"/></svg>',
+    /* Пути для ссылок аккаунта в мобильном меню — рисуются через ico() */
+    gearPath: 'M12 15.1a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2M19.3 12c0-.4 0-.8-.1-1.2l1.9-1.5-1.9-3.3-2.3 1c-.6-.5-1.2-.9-1.9-1.1L14.6 3.4h-3.8l-.4 2.5c-.7.2-1.3.6-1.9 1.1l-2.3-1-1.9 3.3L6.2 10.8a7 7 0 000 2.4l-1.9 1.5 1.9 3.3 2.3-1c.6.5 1.2.9 1.9 1.1l.4 2.5h3.8l.4-2.5c.7-.2 1.3-.6 1.9-1.1l2.3 1 1.9-3.3-1.9-1.5c.1-.4.1-.8.1-1.2z',
+    exitPath: 'M14.4 7.4V5.6a1.6 1.6 0 00-1.6-1.6H5.6A1.6 1.6 0 004 5.6v12.8a1.6 1.6 0 001.6 1.6h7.2a1.6 1.6 0 001.6-1.6v-1.8M9.6 12h10.8M17.4 8.8l3.2 3.2-3.2 3.2'
   };
   function ico(d, w) {
     return '<svg width="' + (w || 17) + '" height="' + (w || 17) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="' + d + '"/></svg>';
@@ -156,6 +160,58 @@
         document.documentElement.classList.remove('sidebar-open');
       });
       document.body.appendChild(scrim);
+    }
+
+    /* 3.1 Поиск и аккаунт на мобильном.
+       Под 900px строка поиска и ссылки «настройки»/«выйти» в шапке скрыты, и
+       замены им не было: с телефона нельзя было ни искать, ни выйти из аккаунта.
+       Поиск раскрывается отдельной строкой под шапкой по кнопке-лупе,
+       ссылки аккаунта дублируются в выдвижное меню. */
+    var search = right ? right.querySelector('.topbar-search') : null;
+    if (search) {
+      var sbtn = document.createElement('button');
+      sbtn.className = 'search-btn';
+      sbtn.type = 'button';
+      sbtn.setAttribute('aria-label', 'Поиск по платформе');
+      sbtn.setAttribute('aria-expanded', 'false');
+      sbtn.innerHTML = I.search;
+      function setSearch(open) {
+        document.documentElement.classList.toggle('search-open', open);
+        sbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) search.focus();
+      }
+      sbtn.addEventListener('click', function () {
+        setSearch(!document.documentElement.classList.contains('search-open'));
+      });
+      search.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' || e.keyCode === 27) { setSearch(false); sbtn.focus(); }
+      });
+      right.insertBefore(sbtn, right.firstChild);
+    }
+
+    if (sidebar && right) {
+      var accLinks = right.querySelectorAll('a');
+      if (accLinks.length) {
+        var acc = document.createElement('div');
+        acc.className = 'sidebar-account';
+        var accTitle = document.createElement('div');
+        accTitle.className = 'ext-title';
+        accTitle.textContent = 'Аккаунт';
+        acc.appendChild(accTitle);
+        var accNav = document.createElement('nav');
+        for (var k = 0; k < accLinks.length; k++) {
+          var copy = accLinks[k].cloneNode(true);
+          var ic = document.createElement('span');
+          ic.className = 'nav-ico';
+          /* Иконку выбираем по адресу ссылки, а не по её тексту: переименование
+             подписи не должно молча ломать иконку. */
+          ic.innerHTML = ico((copy.getAttribute('href') || '').indexOf('login') >= 0 ? I.exitPath : I.gearPath);
+          copy.insertBefore(ic, copy.firstChild);
+          accNav.appendChild(copy);
+        }
+        acc.appendChild(accNav);
+        sidebar.appendChild(acc);
+      }
     }
 
     /* 4. Лист фильтров на мобильном */
