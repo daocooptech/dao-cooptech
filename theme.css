@@ -1,7 +1,6 @@
 /* КООПТЕХ — слой нового дизайна. Подключается после styles.css.
    Наполнение страниц не меняется: переопределяются токены и структурные блоки. */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root {
   --ink: #14171a;
