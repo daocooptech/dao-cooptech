@@ -344,6 +344,13 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
     background: rgba(10,14,13,.45);
   }
   .main { padding: 16px 14px 84px; }
+  /* Шапка каталога не помещается в 375px одной строкой (поиск + «Добавить…» +
+     виджеты + переключатель вида + кнопка фильтров ≈ 520px) и распирала вьюпорт,
+     обрезая цены на карточках. Раскладываем в две строки: поиск во всю ширину,
+     кнопки под ним. margin-left:auto у последнего элемента при этом продолжает
+     работать — прижимает его вправо уже внутри своей строки. */
+  .search-row { flex-wrap: wrap; row-gap: 10px; }
+  .search-row .input { flex: 1 1 100%; max-width: none; }
   .content-with-filter { flex-direction: column; }
   .filter-panel {
     order: 0; width: auto; flex: none;
@@ -378,7 +385,34 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
     width: 34px; height: 34px; border: none; border-radius: 8px;
     background: none; color: var(--ink-2); cursor: pointer;
   }
-  .profile-layout, .split, .ar-layout, .mutual-review-grid { grid-template-columns: 1fr; }
+  /* Из перечисленных контейнеров grid-раскладку имеет только .mutual-review-grid;
+     .profile-layout / .split / .ar-layout / .messages-body — это flex, и
+     grid-template-columns на них не действовал. Из-за этого сайдбар профиля
+     (300px) и список диалогов (230px) оставались фиксированными и выдавливали
+     основную колонку: на my-page.html она сжималась до 19px, на messages.html
+     чат уезжал за правый край экрана. */
+  .mutual-review-grid { grid-template-columns: 1fr; }
+  .profile-layout, .split, .ar-layout, .messages-body {
+    flex-direction: column; align-items: stretch;
+  }
+  .profile-side { width: auto; }
+  .thread-list { width: auto; border-right: 1px solid var(--line); }
+  /* Шапки детальных страниц: «заголовок + стек кнопок» и «галерея 340px + текст»
+     стояли одной неразрывной строкой и вылезали за экран. Перенос по строкам
+     решает оба случая, не трогая инлайновые flex-basis в разметке. */
+  .detail-head, .name-row, .stats-row { flex-wrap: wrap; }
+  /* Группа кнопок внутри .name-row («Написать / Позвонить / Подписаться») —
+     инлайновый display:flex в разметке, переносим её содержимое по строкам. */
+  /* flex-shrink переопределяем через !important сознательно: у групп кнопок в
+     .name-row стоит инлайновый flex:none прямо в разметке (нужен на десктопе,
+     чтобы кнопки не сжимались), а инлайновый стиль иначе не перебить. */
+  .name-row > div { flex-wrap: wrap; min-width: 0; flex-shrink: 1 !important; }
+  .task-sub { flex-wrap: wrap; }
+  /* Строки-«таблицы» на карточке проекта и шапка резюме — тоже неразрывные ряды. */
+  .res-row, .resume-header { flex-wrap: wrap; }
+  /* Широкие таблицы (кошелёк, реестры активов, трекинг) не ужимаются до 375px —
+     даём им собственную горизонтальную прокрутку вместо прокрутки всей страницы. */
+  table.res-table { display: block; max-width: 100%; overflow-x: auto; }
   .cat-nav { display: none; }
 }
 @media (min-width: 901px) {
