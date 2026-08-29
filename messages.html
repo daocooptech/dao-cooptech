@@ -95,7 +95,7 @@ var EXTENSIONS = [
 var threads = [
   {
     id: 'maria', kind: 'person', name: 'Иванова Мария', locality: 'Красноярск',
-    avatar: 'https://i.pravatar.cc/64?img=47', unread: false,
+    avatar: 'images/avatars/47.jpg', unread: false,
     messages: [
       { dir: 'in', text: 'Добрый день! Готовы обсудить участие в проекте?' },
       { dir: 'out', text: 'Да, конечно, спасибо, договорились!' },
@@ -124,7 +124,7 @@ var threads = [
     id: 'project3d', kind: 'group', visibility: 'private', name: 'Строительный 3д принтер', initials: '🖨', tint: 'teal', unread: false, link: 'project.html',
     messages: [
       { dir: 'in', author: 'Дашкевич Данил', text: 'Встречаемся в субботу на площадке, не забудьте каски.' },
-      { dir: 'in', author: 'Иванова Мария', type: 'contact', name: 'Прораб Олег', phone: '+7-900-111-22-33', avatar: 'https://i.pravatar.cc/64?img=33' },
+      { dir: 'in', author: 'Иванова Мария', type: 'contact', name: 'Прораб Олег', phone: '+7-900-111-22-33', avatar: 'images/avatars/33.jpg' },
       { dir: 'in', author: 'Иванова Мария', text: 'Принято!' },
       { dir: 'out', text: 'Буду к 10:00.' }
     ],
@@ -317,7 +317,7 @@ function renderChatPane() {
       if (kind === 'photo') { document.getElementById('attach-photo-input').click(); return; }
       if (kind === 'document') { document.getElementById('attach-doc-input').click(); return; }
       if (kind === 'location') { pendingAttachment = { type: 'location', text: 'Сочи, Краснодарский край (демо-геопозиция)' }; renderPendingAttachment(); return; }
-      if (kind === 'contact') { pendingAttachment = { type: 'contact', name: 'Дашкевич Данил Игоревич', phone: '+7-928-233-2324', avatar: 'https://i.pravatar.cc/64?img=13' }; renderPendingAttachment(); return; }
+      if (kind === 'contact') { pendingAttachment = { type: 'contact', name: 'Дашкевич Данил Игоревич', phone: '+7-928-233-2324', avatar: 'images/avatars/13.jpg' }; renderPendingAttachment(); return; }
     });
   });
   document.getElementById('attach-ext-back').addEventListener('click', function (e) {
