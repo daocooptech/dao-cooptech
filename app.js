@@ -17,18 +17,19 @@
     return '<svg width="' + (w || 17) + '" height="' + (w || 17) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="' + d + '"/></svg>';
   }
 
-  /* Иконки разделов меню — по подписи ссылки */
+  /* Иконки разделов меню — по атрибуту data-icon у ссылки (в tools/shell.html),
+     а не по её тексту: переименование подписи не должно ломать иконку. */
   var NAV_ICONS = {
-    'моя страница': 'M12 8.4a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4M5.4 20c0-3.5 3-5.3 6.6-5.3s6.6 1.8 6.6 5.3',
-    'сообщения': 'M20.5 12.4c0 3.8-3.8 6.9-8.5 6.9-1 0-2-.14-2.9-.4L4.6 20.4l1.2-3.3c-1.2-1.2-2.3-2.8-2.3-4.7 0-3.8 3.8-6.9 8.5-6.9s8.5 3.1 8.5 6.9z',
-    'люди': 'M8.4 10.4a2.8 2.8 0 100-5.6 2.8 2.8 0 000 5.6M16 11a2.4 2.4 0 100-4.8A2.4 2.4 0 0016 11M2.8 19.4c0-3.1 2.5-4.7 5.6-4.7s5.6 1.6 5.6 4.7M15.4 14.9c3 .2 5.2 1.7 5.2 4.5',
-    'навыки': 'M12 3.6l2.5 5.1 5.6.8-4 4 .9 5.6-5-2.7-5 2.7.9-5.6-4-4 5.6-.8z',
-    'вакансии': 'M3.2 9.6a2.2 2.2 0 012.2-2.2h13.2a2.2 2.2 0 012.2 2.2v7.8a2.2 2.2 0 01-2.2 2.2H5.4a2.2 2.2 0 01-2.2-2.2zM9 7.4V5.6a2 2 0 012-2h2a2 2 0 012 2v1.8M3.2 12.6h17.6',
-    'ресурсы': 'M4 4h6.6v6.6H4zM13.4 4H20v6.6h-6.6zM4 13.4h6.6V20H4zM13.4 13.4H20V20h-6.6',
-    'проекты': 'M12 3.4l8.4 4.6-8.4 4.6L3.6 8zM3.6 12.6L12 17.2l8.4-4.6',
-    'организации': 'M3.6 5.6a1.6 1.6 0 011.6-1.6h6.6a1.6 1.6 0 011.6 1.6V20H3.6zM13.4 9.2h7V20h-7M6.6 8h3.6M6.6 12h3.6M6.6 16h3.6',
-    'сообщества': 'M12 3.4a8.6 8.6 0 100 17.2 8.6 8.6 0 000-17.2M3.6 12h16.8M12 3.4c2.4 2.3 3.6 5.1 3.6 8.6s-1.2 6.3-3.6 8.6c-2.4-2.3-3.6-5.1-3.6-8.6s1.2-6.3 3.6-8.6',
-    'кошелёк': 'M3.2 8.4a2.4 2.4 0 012.4-2.4h12.8a2.4 2.4 0 012.4 2.4v8.2a2.4 2.4 0 01-2.4 2.4H5.6a2.4 2.4 0 01-2.4-2.4zM3.2 10.2h17.6M16.4 14.6h1.8'
+    'my-page': 'M12 8.4a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4M5.4 20c0-3.5 3-5.3 6.6-5.3s6.6 1.8 6.6 5.3',
+    'messages': 'M20.5 12.4c0 3.8-3.8 6.9-8.5 6.9-1 0-2-.14-2.9-.4L4.6 20.4l1.2-3.3c-1.2-1.2-2.3-2.8-2.3-4.7 0-3.8 3.8-6.9 8.5-6.9s8.5 3.1 8.5 6.9z',
+    'people': 'M8.4 10.4a2.8 2.8 0 100-5.6 2.8 2.8 0 000 5.6M16 11a2.4 2.4 0 100-4.8A2.4 2.4 0 0016 11M2.8 19.4c0-3.1 2.5-4.7 5.6-4.7s5.6 1.6 5.6 4.7M15.4 14.9c3 .2 5.2 1.7 5.2 4.5',
+    'skills': 'M12 3.6l2.5 5.1 5.6.8-4 4 .9 5.6-5-2.7-5 2.7.9-5.6-4-4 5.6-.8z',
+    'vacancies': 'M3.2 9.6a2.2 2.2 0 012.2-2.2h13.2a2.2 2.2 0 012.2 2.2v7.8a2.2 2.2 0 01-2.2 2.2H5.4a2.2 2.2 0 01-2.2-2.2zM9 7.4V5.6a2 2 0 012-2h2a2 2 0 012 2v1.8M3.2 12.6h17.6',
+    'resources': 'M4 4h6.6v6.6H4zM13.4 4H20v6.6h-6.6zM4 13.4h6.6V20H4zM13.4 13.4H20V20h-6.6',
+    'projects': 'M12 3.4l8.4 4.6-8.4 4.6L3.6 8zM3.6 12.6L12 17.2l8.4-4.6',
+    'organizations': 'M3.6 5.6a1.6 1.6 0 011.6-1.6h6.6a1.6 1.6 0 011.6 1.6V20H3.6zM13.4 9.2h7V20h-7M6.6 8h3.6M6.6 12h3.6M6.6 16h3.6',
+    'communities': 'M12 3.4a8.6 8.6 0 100 17.2 8.6 8.6 0 000-17.2M3.6 12h16.8M12 3.4c2.4 2.3 3.6 5.1 3.6 8.6s-1.2 6.3-3.6 8.6c-2.4-2.3-3.6-5.1-3.6-8.6s1.2-6.3 3.6-8.6',
+    'wallet': 'M3.2 8.4a2.4 2.4 0 012.4-2.4h12.8a2.4 2.4 0 012.4 2.4v8.2a2.4 2.4 0 01-2.4 2.4H5.6a2.4 2.4 0 01-2.4-2.4zM3.2 10.2h17.6M16.4 14.6h1.8'
   };
 
   /* Эмодзи → SVG для плиток и иконок содержимого */
@@ -85,10 +86,8 @@
     '\uD83D\uDD25': 'M12 20.6c3.2 0 5.4-2.2 5.4-5 0-3.6-3.4-5.2-3.4-9.2-2.6 1.4-4 3.6-4 6 0-1.4-.6-2.4-1.6-3.2-1 1.6-1.8 3.6-1.8 6.4 0 2.8 2.2 5 5.4 5z'
   };
 
-  /* 1. Тема */
-  var saved = null;
-  try { saved = localStorage.getItem('cooptech_theme'); } catch (e) {}
-  if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  /* 1. Тема. Саму тему ставит theme-init.js в <head> — до первой отрисовки,
+     иначе страница мигает светлым. Здесь только кнопка-переключатель. */
 
   function buildToggle() {
     var b = document.createElement('button');
@@ -99,8 +98,9 @@
     b.innerHTML = '<span class="tt-sun">' + I.sun + '</span><span class="tt-moon">' + I.moon + '</span><span class="tt-knob"></span>';
     b.addEventListener('click', function () {
       var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (dark) document.documentElement.removeAttribute('data-theme');
-      else document.documentElement.setAttribute('data-theme', 'dark');
+      /* Явный выбор пользователя записываем — с этого момента страница
+         перестаёт следовать за системной темой (см. theme-init.js). */
+      document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
       b.setAttribute('aria-pressed', dark ? 'false' : 'true');
       try { localStorage.setItem('cooptech_theme', dark ? 'light' : 'dark'); } catch (e) {}
     });
@@ -211,9 +211,9 @@
     /* 2. Иконки в меню + кнопка «Добавить» + «+» у расширений */
     var sidebar = document.querySelector('.sidebar');
     if (sidebar) {
-      var links = sidebar.querySelectorAll('nav a');
+      var links = sidebar.querySelectorAll('nav a[data-icon]');
       for (var i = 0; i < links.length; i++) {
-        var key = links[i].textContent.trim().toLowerCase();
+        var key = links[i].getAttribute('data-icon');
         if (NAV_ICONS[key]) {
           var s = document.createElement('span');
           s.className = 'nav-ico';
@@ -296,7 +296,8 @@
     }
 
     if (sidebar && right) {
-      var accLinks = right.querySelectorAll('a');
+      /* Колокольчик не дублируем: он и на мобильном остаётся в шапке */
+      var accLinks = right.querySelectorAll('a:not(.topbar-bell)');
       if (accLinks.length) {
         var acc = document.createElement('div');
         acc.className = 'sidebar-account';
@@ -361,11 +362,11 @@
 
     /* 5. Нижняя таб-панель */
     var TABS = [
-      ['my-page.html', 'Моя страница', NAV_ICONS['моя страница']],
-      ['messages.html', 'Сообщения', NAV_ICONS['сообщения']],
-      ['resources.html', 'Ресурсы', NAV_ICONS['ресурсы']],
-      ['projects.html', 'Проекты', NAV_ICONS['проекты']],
-      ['wallet.html', 'Кошелёк', NAV_ICONS['кошелёк']]
+      ['my-page.html', 'Моя страница', NAV_ICONS['my-page']],
+      ['messages.html', 'Сообщения', NAV_ICONS['messages']],
+      ['resources.html', 'Ресурсы', NAV_ICONS['resources']],
+      ['projects.html', 'Проекты', NAV_ICONS['projects']],
+      ['wallet.html', 'Кошелёк', NAV_ICONS['wallet']]
     ];
     var page = location.pathname.split('/').pop() || 'index.html';
     if (document.querySelector('.layout')) {

@@ -23,8 +23,12 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHELL_RE = re.compile(r'<header class="topbar">.*?</aside>', re.S)
-# index.html — публичный лендинг со своей шапкой (.public-header), его не трогаем
-SKIP = {'index.html'}
+
+# Страницы для неавторизованного посетителя: у них своя шапка без сайдбара,
+# поиска и кнопки «выйти» (эталон — tools/shell-public.html).
+PUBLIC_RE = re.compile(r'<header class="public-header">.*?</header>', re.S)
+PUBLIC = {'index.html', 'login.html', 'registration.html', 'password-recovery.html'}
+SKIP = set()
 
 
 def read(path):
@@ -45,6 +49,7 @@ def build_shell(template, active_href):
 def main():
     check_only = '--check' in sys.argv
     template = read(os.path.join(ROOT, 'tools', 'shell.html')).rstrip('\n')
+    public = read(os.path.join(ROOT, 'tools', 'shell-public.html')).rstrip('\n')
     active = json.loads(read(os.path.join(ROOT, 'tools', '_active.json')))
 
     changed, skipped, missing = [], [], []
@@ -53,6 +58,18 @@ def main():
             continue
         path = os.path.join(ROOT, name)
         page = read(path)
+        if name in PUBLIC:
+            if not PUBLIC_RE.search(page):
+                missing.append(name)
+                continue
+            new = PUBLIC_RE.sub(lambda _m: public, page, count=1)
+            if new == page:
+                skipped.append(name)
+            else:
+                changed.append(name)
+                if not check_only:
+                    io.open(path, 'w', encoding='utf-8', newline='').write(new)
+            continue
         if not SHELL_RE.search(page):
             missing.append(name)
             continue

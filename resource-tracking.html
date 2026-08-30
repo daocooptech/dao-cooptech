@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Трекинг — Пельмени домашней лепки — cooptech</title>
+<script src="theme-init.js"></script>
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="theme.css">
@@ -24,28 +25,29 @@
 <header class="topbar">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
-    <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
     <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
+    <a class="topbar-bell" href="notifications.html" aria-label="Уведомления: 3 новых"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15.4V10a6 6 0 10-12 0v5.4L4.6 18h14.8M10 20.4a2 2 0 004 0"/></svg><span class="bell-count">3</span></a>
     <a href="#">настройки</a>
-    <a href="login.html">выйти</a>
+    <a href="index.html">выйти</a>
   </div>
 </header>
 <div class="layout">
   <aside class="sidebar" id="sidebar">
     <nav aria-label="Основные разделы">
-      <a href="my-page.html">Моя страница</a>
-      <a href="messages.html">Сообщения</a>
-      <a href="people.html">Люди</a>
-      <a href="skills.html">Навыки</a>
-      <a href="vacancies.html">Вакансии</a>
-      <a href="resources.html" class="active">Ресурсы</a>
-      <a href="projects.html">Проекты</a>
-      <a href="organizations.html">Организации</a>
-      <a href="communities.html">Сообщества</a>
-      <a href="wallet.html">Кошелёк</a>
+      <a href="my-page.html" data-icon="my-page">Моя страница</a>
+      <a href="messages.html" data-icon="messages">Сообщения</a>
+      <a href="people.html" data-icon="people">Люди</a>
+      <a href="skills.html" data-icon="skills">Навыки</a>
+      <a href="vacancies.html" data-icon="vacancies">Вакансии</a>
+      <a href="resources.html" class="active" data-icon="resources">Ресурсы</a>
+      <a href="projects.html" data-icon="projects">Проекты</a>
+      <a href="organizations.html" data-icon="organizations">Организации</a>
+      <a href="communities.html" data-icon="communities">Сообщества</a>
+      <a href="wallet.html" data-icon="wallet">Кошелёк</a>
     </nav>
     <div class="ext-title">Расширения</div>
     <nav aria-label="Расширения">
@@ -108,7 +110,7 @@
         <div class="track-date">14 июня 2026, 18:40</div>
         <div class="track-title">Партия произведена и поставлена на учёт</div>
         <div class="track-parties">
-          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:#8a5f1c">ШУ</span> Кооператив «Шукты»</span>
+          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:var(--gold-text)">ШУ</span> Кооператив «Шукты»</span>
           <span class="track-arrow">— первичный владелец партии (340 кг)</span>
         </div>
         <span class="track-hash">0x8e1f4a2b…d07c</span>
@@ -118,9 +120,9 @@
         <div class="track-date">16 июня 2026, 09:15</div>
         <div class="track-title">Передача на реализацию партнёру</div>
         <div class="track-parties">
-          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:#8a5f1c">ШУ</span> Кооператив «Шукты»</span>
+          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:var(--gold-text)">ШУ</span> Кооператив «Шукты»</span>
           <span class="track-arrow">→</span>
-          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:#8a5f1c">МИ</span> ООО «Мириталь»</span>
+          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:var(--gold-text)">МИ</span> ООО «Мириталь»</span>
         </div>
         <span class="track-hash">0x2c9b71e5…a44f</span>
       </div>
@@ -129,7 +131,7 @@
         <div class="track-date">2 августа 2026, 12:05</div>
         <div class="track-title">Розничная продажа конечному покупателю <span style="font-weight:400;color:var(--slate-light)">(пример одной сделки из 128)</span></div>
         <div class="track-parties">
-          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:#8a5f1c">МИ</span> ООО «Мириталь»</span>
+          <span class="track-party"><span class="track-org" style="background:var(--gold-tint);color:var(--gold-text)">МИ</span> ООО «Мириталь»</span>
           <span class="track-arrow">→</span>
           <span class="track-party"><img class="track-avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич">Дашкевич Данил Игоревич</span>
           <span class="track-arrow">— 2 кг</span>

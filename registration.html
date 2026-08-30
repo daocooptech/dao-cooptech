@@ -4,53 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Регистрация — cooptech</title>
+<script src="theme-init.js"></script>
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<header class="topbar">
+<header class="public-header">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
-    <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
-    <span class="platform-name">Социально-экономическая платформа</span>
+    <a class="logo" href="index.html" aria-label="ДАО КООПЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <span class="platform-name">Открытая социально-экономическая платформа</span>
   </div>
-  <div class="topbar-right">
-    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
-    <a href="#">настройки</a>
-    <a href="login.html">выйти</a>
+  <div class="auth-actions">
+    <a class="button ghost" href="login.html">Войти</a>
+    <a class="button" href="registration.html">Регистрация</a>
   </div>
 </header>
-<div class="layout">
-  <aside class="sidebar" id="sidebar">
-    <nav aria-label="Основные разделы">
-      <a href="my-page.html">Моя страница</a>
-      <a href="messages.html">Сообщения</a>
-      <a href="people.html">Люди</a>
-      <a href="skills.html">Навыки</a>
-      <a href="vacancies.html">Вакансии</a>
-      <a href="resources.html">Ресурсы</a>
-      <a href="projects.html">Проекты</a>
-      <a href="organizations.html">Организации</a>
-      <a href="communities.html">Сообщества</a>
-      <a href="wallet.html">Кошелёк</a>
-    </nav>
-    <div class="ext-title">Расширения</div>
-    <nav aria-label="Расширения">
-      <a href="digital-assets.html">Цифровые активы</a>
-      <a href="intangible-assets.html">Нематериальные активы</a>
-      <a href="ext-programs.html">Целевые программы ПК</a>
-      <a href="ext-group-buying.html">Совместные закупки</a>
-      <a href="ext-events.html">События</a>
-      <a href="ext-analytics.html">Аналитика</a>
-      <a href="ext-education.html">Образование</a>
-      <a href="ext-auctions.html">Аукционы</a>
-      <a href="ext-libraries.html">Библиотеки</a>
-      <a href="ext-drive.html">Диск</a>
-      <a href="ext-health.html">Здоровье</a>
-    </nav>
-  </aside>
-  <main class="main" id="main">
+<main class="main" id="main">
 
     <div class="card form-card">
       <h1>Создать аккаунт</h1>
@@ -87,7 +58,7 @@
     </div>
 
   </main>
-</div>
+
 <script src="app.js"></script>
 </body>
 </html>
