@@ -57,6 +57,7 @@
 
     <div class="entity-tabs">
       <a href="skills.html" class="active">Все навыки</a>
+      <a href="skills.html?tab=favorites" data-fav-tab="skills">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
     <div class="search-row">
       <input class="input" placeholder="Должность или навык, например «электромонтажник»">
@@ -65,12 +66,15 @@
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
+        <div id="skills-home" data-fav-section="skills"></div>
+        <div id="skills-flat" hidden>
         <div class="cat-section-title">
-          <span>Все навыки <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="res-count">20</span></span></span>
+          <span id="flat-section-title">Все навыки</span> <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="res-count">20</span></span> <a href="skills.html" class="cat-back-link">&#8592; ко всем специализациям</a>
         </div>
-        <div class="vacancy-list tile-mode tags-wrap" id="resumes-list">
+        <div class="vacancy-list tile-mode tags-wrap" id="resumes-list" data-fav-section="skills">
 
-          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик" data-experience="От 3 лет" data-fav-id="elektromontazhnik">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/electrician.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" title="Дашкевич Данил Игоревич" loading="lazy"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
@@ -84,7 +88,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет" data-fav-id="kamenschik">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/mason.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" title="Дашкевич Данил Игоревич" loading="lazy"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
@@ -98,7 +103,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Информационные технологии" data-subcategory="Дизайн, графика" data-experience="От 1 года">
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Информационные технологии" data-subcategory="Дизайн, графика" data-experience="От 1 года" data-fav-id="veb-dizayner">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/web-designer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" title="Дашкевич Данил Игоревич" loading="lazy"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
@@ -112,7 +118,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Красноярск" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Красноярск" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет" data-fav-id="kamenschik-2">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/mason-2.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/47.jpg" alt="Иванова Мария Петровна" title="Иванова Мария Петровна" loading="lazy"><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
@@ -126,7 +133,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла" data-experience="От 1 года">
+          <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла" data-experience="От 1 года" data-fav-id="master-po-gravirovke">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/engraver.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" title="Дашкевич Данил Игоревич" loading="lazy"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
@@ -140,7 +148,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Москва" data-category="Информационные технологии" data-subcategory="Программирование, Разработка" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Москва" data-category="Информационные технологии" data-subcategory="Программирование, Разработка" data-experience="От 3 лет" data-fav-id="programmist">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/programmer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/33.jpg" alt="Петров Сергей Викторович" title="Петров Сергей Викторович" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
@@ -155,7 +164,8 @@
           </a>
 
 
-          <a class="vacancy-card" href="skill.html" data-city="Новосибирск" data-category="Рабочий персонал" data-subcategory="Сварщик" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Новосибирск" data-category="Рабочий персонал" data-subcategory="Сварщик" data-experience="От 3 лет" data-fav-id="svarschik">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/welder.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/4.jpg" alt="Козлов Артём Викторович" title="Козлов Артём Викторович" loading="lazy"><span class="loc-bar">📍 Новосибирск</span></div>
               <div style="flex:1;min-width:0">
@@ -169,7 +179,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Санкт-Петербург" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Санкт-Петербург" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия" data-experience="От 3 лет" data-fav-id="buhgalter">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/accountant.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/5.jpg" alt="Смирнова Екатерина Андреевна" title="Смирнова Екатерина Андреевна" loading="lazy"><span class="loc-bar">📍 Санкт-Петербург</span></div>
               <div style="flex:1;min-width:0">
@@ -183,7 +194,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Екатеринбург" data-category="Автомобильный бизнес" data-subcategory="Автослесарь, автомеханик" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Екатеринбург" data-category="Автомобильный бизнес" data-subcategory="Автослесарь, автомеханик" data-experience="От 3 лет" data-fav-id="avtomehanik">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/car-mechanic.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/6.jpg" alt="Волков Игорь Николаевич" title="Волков Игорь Николаевич" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
               <div style="flex:1;min-width:0">
@@ -197,7 +209,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Казань" data-category="Строительство, недвижимость" data-subcategory="Дизайнер, художник" data-experience="От 1 года">
+          <a class="vacancy-card" href="skill.html" data-city="Казань" data-category="Строительство, недвижимость" data-subcategory="Дизайнер, художник" data-experience="От 1 года" data-fav-id="dizayner-interera">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/interior-designer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/9.jpg" alt="Морозова Анна Сергеевна" title="Морозова Анна Сергеевна" loading="lazy"><span class="loc-bar">📍 Казань</span></div>
               <div style="flex:1;min-width:0">
@@ -211,7 +224,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Ростов-на-Дону" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Ростов-на-Дону" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД" data-experience="От 3 лет" data-fav-id="logist">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/logistician.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/8.jpg" alt="Соколов Павел Дмитриевич" title="Соколов Павел Дмитриевич" loading="lazy"><span class="loc-bar">📍 Ростов-на-Дону</span></div>
               <div style="flex:1;min-width:0">
@@ -225,7 +239,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Пермь" data-category="Искусство, развлечения, массмедиа" data-subcategory="Флорист, декоратор" data-experience="От 1 года">
+          <a class="vacancy-card" href="skill.html" data-city="Пермь" data-category="Искусство, развлечения, массмедиа" data-subcategory="Флорист, декоратор" data-experience="От 1 года" data-fav-id="florist">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/florist.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/10.jpg" alt="Лебедева Ольга Игоревна" title="Лебедева Ольга Игоревна" loading="lazy"><span class="loc-bar">📍 Пермь</span></div>
               <div style="flex:1;min-width:0">
@@ -239,7 +254,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Владивосток" data-category="Искусство, развлечения, массмедиа" data-subcategory="Фото, видео, звукооператоры" data-experience="Нет опыта">
+          <a class="vacancy-card" href="skill.html" data-city="Владивосток" data-category="Искусство, развлечения, массмедиа" data-subcategory="Фото, видео, звукооператоры" data-experience="Нет опыта" data-fav-id="fotograf">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/photographer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/14.jpg" alt="Новиков Максим Олегович" title="Новиков Максим Олегович" loading="lazy"><span class="loc-bar">📍 Владивосток</span></div>
               <div style="flex:1;min-width:0">
@@ -253,7 +269,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Воронеж" data-category="Производство, сервисное обслуживание" data-subcategory="Швея, закройщик" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Воронеж" data-category="Производство, сервисное обслуживание" data-subcategory="Швея, закройщик" data-experience="От 3 лет" data-fav-id="shveya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/seamstress.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/16.jpg" alt="Кузнецова Дарья Викторовна" title="Кузнецова Дарья Викторовна" loading="lazy"><span class="loc-bar">📍 Воронеж</span></div>
               <div style="flex:1;min-width:0">
@@ -267,7 +284,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Уфа" data-category="Рабочий персонал" data-subcategory="Слесарь, сантехник" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Уфа" data-category="Рабочий персонал" data-subcategory="Слесарь, сантехник" data-experience="От 3 лет" data-fav-id="santehnik">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/plumber.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/15.jpg" alt="Попов Артур Русланович" title="Попов Артур Русланович" loading="lazy"><span class="loc-bar">📍 Уфа</span></div>
               <div style="flex:1;min-width:0">
@@ -281,7 +299,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Самара" data-category="Юристы" data-subcategory="Юрисконсульт" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Самара" data-category="Юристы" data-subcategory="Юрисконсульт" data-experience="От 3 лет" data-fav-id="yurist">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/lawyer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/20.jpg" alt="Васильева Татьяна Михайловна" title="Васильева Татьяна Михайловна" loading="lazy"><span class="loc-bar">📍 Самара</span></div>
               <div style="flex:1;min-width:0">
@@ -295,7 +314,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Омск" data-category="Рабочий персонал" data-subcategory="Столяр, плотник" data-experience="От 1 года">
+          <a class="vacancy-card" href="skill.html" data-city="Омск" data-category="Рабочий персонал" data-subcategory="Столяр, плотник" data-experience="От 1 года" data-fav-id="plotnik">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/carpenter.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/18.jpg" alt="Зайцев Роман Сергеевич" title="Зайцев Роман Сергеевич" loading="lazy"><span class="loc-bar">📍 Омск</span></div>
               <div style="flex:1;min-width:0">
@@ -309,7 +329,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Челябинск" data-category="Маркетинг, реклама, PR" data-subcategory="Маркетинг" data-experience="От 1 года">
+          <a class="vacancy-card" href="skill.html" data-city="Челябинск" data-category="Маркетинг, реклама, PR" data-subcategory="Маркетинг" data-experience="От 1 года" data-fav-id="marketolog">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/marketer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/21.jpg" alt="Павлова Виктория Андреевна" title="Павлова Виктория Андреевна" loading="lazy"><span class="loc-bar">📍 Челябинск</span></div>
               <div style="flex:1;min-width:0">
@@ -323,7 +344,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Нижний Новгород" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство" data-experience="От 3 лет">
+          <a class="vacancy-card" href="skill.html" data-city="Нижний Новгород" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство" data-experience="От 3 лет" data-fav-id="pchelovod">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/beekeeper.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/19.jpg" alt="Семёнов Николай Петрович" title="Семёнов Николай Петрович" loading="lazy"><span class="loc-bar">📍 Нижний Новгород</span></div>
               <div style="flex:1;min-width:0">
@@ -337,7 +359,8 @@
             </div>
           </a>
 
-          <a class="vacancy-card" href="skill.html" data-city="Волгоград" data-category="Туризм, гостиницы, рестораны" data-subcategory="Повар, кондитер" data-experience="Нет опыта">
+          <a class="vacancy-card" href="skill.html" data-city="Волгоград" data-category="Туризм, гостиницы, рестораны" data-subcategory="Повар, кондитер" data-experience="Нет опыта" data-fav-id="povar-konditer">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="card-photo" src="images/skills/pastry-chef.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/22.jpg" alt="Голубева Мария Александровна" title="Голубева Мария Александровна" loading="lazy"><span class="loc-bar">📍 Волгоград</span></div>
               <div style="flex:1;min-width:0">
@@ -351,7 +374,8 @@
             </div>
           </a>
         </div>
-        <div class="empty-state" id="resumes-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+        <div class="empty-state" id="resumes-empty" data-fav-empty="В избранном пока пусто. Нажмите на сердечко в карточке, чтобы сохранить её сюда." hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+        </div>
       </div>
       <div class="filter-panel">
         <div class="section-title">Фильтр</div>
@@ -584,7 +608,74 @@ filterSubcategorySelect.addEventListener('change', function () {
   applyFilters();
 });
 
+/* ============================================================
+   Домашний вид каталога: полки по специализациям
+   ------------------------------------------------------------
+   Тот же паттерн, что в Ресурсах/Проектах/Организациях: сначала полки
+   по разделам (по 4 карточки + плитка «Смотреть все»), плоский список —
+   по клику «Смотреть все», по выбору специализации в фильтре, по ?view=all
+   и на вкладке «Избранное».
+   ============================================================ */
+var catalogHome = document.getElementById('skills-home');
+var catalogFlat = document.getElementById('skills-flat');
+var flatSectionTitle = document.getElementById('flat-section-title');
+var homeBuilt = false;
+
+function buildHomeView() {
+  if (homeBuilt) return;
+  homeBuilt = true;
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('#resumes-list .vacancy-card'));
+  var rows = [{ title: 'Новые навыки', key: '', cards: allCards }];
+  Object.keys(CATEGORY_TREE).forEach(function (cat) {
+    rows.push({ title: cat, key: cat, cards: allCards.filter(function (c) { return c.dataset.category === cat; }) });
+  });
+  var listClass = document.getElementById('resumes-list').className.replace(' list-mode', '');
+  var html = '';
+  rows.forEach(function (row) {
+    if (row.cards.length === 0) return;
+    var href = row.key ? 'skills.html?category=' + encodeURIComponent(row.key) : 'skills.html?view=all';
+    html += '<div class="shelf-row"><div class="shelf-row-title"><span>' + row.title + '</span></div>'
+      + '<div class="' + listClass + '">';
+    row.cards.slice(0, 4).forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.style.display = '';
+      html += clone.outerHTML;
+    });
+    html += '<a class="view-all-tile" href="' + href + '"><span class="view-all-arrow">&#8594;</span>Смотреть все</a>';
+    html += '</div></div>';
+  });
+  catalogHome.innerHTML = html;
+}
+
+function showHomeView() {
+  buildHomeView();
+  catalogHome.hidden = false;
+  catalogFlat.hidden = true;
+}
+
+function showFlatView(catParam) {
+  if (catParam && CATEGORY_TREE[catParam]) {
+    filterCategorySelect.value = catParam;
+    populateSubcategories(catParam);
+  }
+  applyFilters();
+}
+
+(function initCatalogView() {
+  var params = new URLSearchParams(location.search);
+  var catParam = params.get('category');
+  var viewAll = params.get('view') === 'all';
+  var favView = (location.search || '').indexOf('tab=favorites') !== -1;
+  if (catParam || viewAll || favView) showFlatView(catParam);
+  else showHomeView();
+})();
+
 function applyFilters() {
+  /* Вкладка «Избранное» — тот же список, суженный до избранных карточек */
+  var favMode = (location.search || '').indexOf('tab=favorites') !== -1;
+  catalogHome.hidden = true;
+  catalogFlat.hidden = false;
+  flatSectionTitle.textContent = favMode ? 'Избранное' : (filterCategorySelect.value || 'Все навыки');
   var city = document.getElementById('filter-city').value.trim().toLowerCase();
   var category = document.getElementById('filter-category').value;
   var experience = document.getElementById('filter-experience').value;
@@ -596,7 +687,8 @@ function applyFilters() {
     var categoryOk = !category || card.dataset.category === category;
     var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
     var experienceOk = !experience || card.dataset.experience === experience;
-    var show = cityOk && categoryOk && subcategoryOk && experienceOk;
+    var favOk = !favMode || (window.CoopFav && CoopFav.has('skills', card.dataset.favId));
+    var show = cityOk && categoryOk && subcategoryOk && experienceOk && favOk;
     card.style.display = show ? '' : 'none';
     if (show) visibleCount++;
   });
@@ -640,6 +732,15 @@ function setListView(on) {
 viewListBtn.addEventListener('click', function () { setListView(true); });
 viewTileBtn.addEventListener('click', function () { setListView(false); });
 if (savedCatalogView() === 'list') setListView(true);
+
+/* Сердечко в карточке переключает избранное (app.js) — список
+   пересобираем сразу, иначе на вкладке «Избранное» карточка исчезнет
+   только после перезагрузки страницы. */
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.CoopFav) return;
+  CoopFav.onChange(applyFilters);
+  if ((location.search || '').indexOf('tab=favorites') !== -1) applyFilters();
+});
 </script>
 <script src="app.js"></script>
 </body>

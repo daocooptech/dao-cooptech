@@ -556,7 +556,7 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .buyer-tile .buyer-qty { font-size: 11px; color: var(--slate); font-weight: 400; display: block; margin-top: 2px; }
 
 /* Project-style catalog tile: image + big % badge + location bar + name below */
-.ptile { display: block; padding-bottom: 14px; }
+.ptile { position: relative; display: block; padding-bottom: 14px; }
 .ptile .img-wrap,
 .vacancy-list.tile-mode .card-row > .img-wrap { overflow: hidden; aspect-ratio: 1.2; }
 .ptile .img-wrap svg, .ptile .img-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
@@ -972,7 +972,7 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
    ============================================================ */
 .vacancy-list { display: flex; flex-direction: column; gap: 12px; }
 .vacancy-card {
-  display: block; padding: 18px 20px; color: var(--ink); transition: border-color .15s ease;
+  position: relative; display: block; padding: 18px 20px; color: var(--ink); transition: border-color .15s ease;
 }
 .vacancy-card:hover { border-color: var(--teal); text-decoration: none; }
 .vacancy-title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 4px; }
@@ -1071,6 +1071,17 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
   padding: 7px 10px !important; font-size: 11.5px !important;
 }
 .vacancy-list.tile-mode .vacancy-posted { flex: 1 1 100%; }
+
+/* Кнопка «в избранное» — правый верхний угол карточки любого каталога.
+   Абсолютное позиционирование от самой карточки, а не от фото: в режиме
+   списка фото уменьшается до 64px, и сердечко на нём не помещается. */
+.fav-btn {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 30px; height: 30px; padding: 0; box-sizing: border-box;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; cursor: pointer;
+}
+.fav-btn svg { display: block; }
 
 /* Мини-лого организации в карточке списка (вместо фото человека) */
 .org-mini-logo { width: 44px; height: 44px; border-radius: 8px; object-fit: contain; background: var(--white); border: 1px solid var(--line); padding: 4px; box-sizing: border-box; flex: none; }

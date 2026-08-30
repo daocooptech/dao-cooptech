@@ -320,6 +320,16 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .vacancy-list.tile-mode .vacancy-title { font: 700 14px/1.35 'Manrope', sans-serif; color: var(--ink); }
 .ptile .price-line,
 .vacancy-list.tile-mode .vacancy-salary { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 14px; color: var(--ink); }
+.fav-btn { background: rgba(20,23,26,.55); color: #fff; transition: background .15s ease, transform .15s ease; }
+.fav-btn:hover { background: rgba(20,23,26,.8); transform: scale(1.08); }
+.fav-btn svg path { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.fav-btn.active { background: var(--gold); color: #fff; }
+.fav-btn.active svg path { fill: currentColor; }
+/* На детальной странице сердечко — обычная кнопка .button.secondary,
+   в избранном она заливается так же, как #fav-toggle на ресурсе. */
+.button.secondary[data-fav].active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.fav-tab-count { margin-left: 5px; }
+
 .loc-bar { color: #fff; font-size: 11.5px; font-weight: 600; }
 .ptile .list-meta, .ptile .skill-owner { color: var(--slate-light); font-size: 11.5px; }
 /* Текст в плитке .vacancy-card — тот же масштаб, что у .ptile. */

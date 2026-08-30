@@ -205,7 +205,7 @@
         <button class="button secondary">Добавить в корзину</button>
         <a class="button secondary" href="messages.html">Написать владельцу</a>
         <a class="button secondary" href="tel:+79509882244">Позвонить владельцу</a>
-        <button type="button" id="fav-toggle" class="button secondary">Добавить в избранное</button>
+        <button type="button" id="fav-toggle" class="button secondary" data-fav="resources:pelmeni-domashney-lepki" data-fav-text aria-pressed="false">Добавить в избранное</button>
         <button type="button" id="wishlist-toggle" class="button secondary" title="Показать другим, что вы ищете такое — поможет состояться бартеру">🤍 Хочу такое</button>
       </div>
 
@@ -307,12 +307,6 @@
           t.classList.add('active');
         });
       });
-      var favBtn = document.getElementById('fav-toggle');
-      favBtn.addEventListener('click', function () {
-        var active = favBtn.classList.toggle('active');
-        favBtn.textContent = active ? 'В избранном' : 'Добавить в избранное';
-      });
-
       // #3 Вишлист «Хочу такое» — публичный сигнал желаемого для бартера, отдельно от избранного
       var WISHLIST_KEY = 'coop_wishlist';
       var wishItem = {
