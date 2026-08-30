@@ -1028,12 +1028,19 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .vacancy-list .card-row > .img-wrap { position: relative; display: inline-flex; flex: none; }
 .vacancy-list.tile-mode .card-row > .img-wrap { display: block; width: 100%; }
 .vacancy-list.tile-mode .img-wrap > img.avatar,
+.vacancy-list.tile-mode .img-wrap > img.card-photo,
 .vacancy-list.tile-mode .img-wrap > .logo-square,
 .vacancy-list.tile-mode .img-wrap > .org-mini-logo {
   width: 100% !important; height: 100% !important; flex: none;
   border-radius: 0 !important; box-sizing: border-box;
 }
-.vacancy-list.tile-mode .img-wrap > img.avatar { object-fit: cover; }
+.vacancy-list.tile-mode .img-wrap > img.avatar,
+.vacancy-list.tile-mode .img-wrap > img.card-photo { object-fit: cover; }
+/* Навыки: в медиа-полосе — фото самого ремесла, а не человека; автор навыка
+   показан кружком-аватаром поверх фото (в списке он лишний — имя есть в мета-строке). */
+.card-photo { width: 64px; height: 64px; flex: none; object-fit: cover; }
+.owner-badge { position: absolute; left: 8px; top: 8px; width: 30px; height: 30px; object-fit: cover; }
+.vacancy-list:not(.tile-mode) .owner-badge { display: none; }
 .vacancy-list.tile-mode .img-wrap > .org-mini-logo { object-fit: contain; padding: 18px !important; border: none !important; }
 .vacancy-list.tile-mode .img-wrap > .logo-square { font-size: 38px !important; }
 /* Тело карточки: отступы, действия прижаты к низу — чтобы кнопки в ряду плиток
@@ -1046,6 +1053,10 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .vacancy-list.tile-mode .vacancy-title { -webkit-line-clamp: 2; line-clamp: 2; }
 .vacancy-list.tile-mode .vacancy-meta { -webkit-line-clamp: 2; line-clamp: 2; }
 .vacancy-list.tile-mode .vacancy-tags { flex-wrap: nowrap; overflow: hidden; margin-bottom: 0; }
+/* Модификатор .tags-wrap: теги показываются целиком — переносятся на следующую
+   строку и жмутся кеглем (в theme.css), вместо того чтобы обрезаться по ширине плитки. */
+.vacancy-list.tile-mode.tags-wrap .vacancy-tags { flex-wrap: wrap; overflow: visible; row-gap: 5px; }
+.vacancy-list.tile-mode.tags-wrap .vacancy-tags .chip { max-width: 100%; overflow-wrap: anywhere; }
 /* Действия внизу плитки — компактным рядом с переносом, а не стопкой
    во всю ширину: у людей и программ кнопок по три, стопкой они забивают
    карточку. !important — часть карточек задаёт раскладку футера инлайном. */
