@@ -328,6 +328,11 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .vacancy-list.tile-mode .vacancy-meta { font-size: 11.5px; margin-bottom: 8px; }
 .vacancy-list.tile-mode .vacancy-posted { font-size: 11px; }
 .vacancy-list.tile-mode .img-wrap > .org-mini-logo { background: var(--surface-2); }
+/* Навыки: превью ремесла в списке — скруглённый прямоугольник (круг зарезервирован
+   за фото людей), аватар автора поверх плитки — кружок с белой обводкой. */
+.card-photo { border-radius: 10px; background: var(--surface-2); }
+.owner-badge { border-radius: 50%; border: 2px solid var(--white); box-shadow: 0 1px 4px rgba(20,23,26,.35); }
+.vacancy-list.tile-mode.tags-wrap .vacancy-tags .chip { font-size: 11px; padding: 4px 8px; line-height: 1.3; }
 .ptile .readiness-bar { background: var(--surface-2); }
 .ptile .readiness-bar-fill { background: var(--teal); }
 .vacancy-title { font: 700 15px/1.3 'Manrope', sans-serif; color: var(--ink); }
@@ -460,6 +465,9 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   }
   .ptile-grid.list-mode { grid-template-columns: 1fr; }
   .vacancy-list.tile-mode .img-wrap > .logo-square { font-size: 30px !important; }
+  /* На узком экране плитка вдвое уже — теги ужимаем ещё, иначе одно длинное
+     слово («Электробезопасность») распирает карточку. */
+  .vacancy-list.tile-mode.tags-wrap .vacancy-tags .chip { font-size: 10.5px; padding: 3px 7px; }
   .profile-layout, .split, .ar-layout, .messages-body {
     flex-direction: column; align-items: stretch;
   }
