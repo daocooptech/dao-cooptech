@@ -69,6 +69,7 @@
 
     <div class="entity-tabs">
       <a href="resources.html" class="active">Каталог ресурсов</a>
+      <a href="resources.html?tab=favorites" data-fav-tab="resources">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
     <div class="search-row">
       <input class="input" placeholder="Начните вводить имя или название">
@@ -85,10 +86,11 @@
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
-      <div id="resources-home"></div>
+      <div id="resources-home" data-fav-section="resources"></div>
       <div id="resources-flat" hidden>
-      <div class="cat-section-title"><span id="flat-section-title">Все ресурсы</span> <a href="resources.html" class="cat-back-link">← ко всем категориям</a></div><div class="ptile-grid" id="resources-grid">
-    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мясная и молочная продукция" data-price="450" data-promoted="1">
+      <div class="cat-section-title"><span id="flat-section-title">Все ресурсы</span> <a href="resources.html" class="cat-back-link">← ко всем категориям</a></div><div class="ptile-grid" id="resources-grid" data-fav-section="resources">
+    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мясная и молочная продукция" data-price="450" data-promoted="1" data-fav-id="pelmeni-domashney-lepki">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/pelmeni.jpg" alt="Пельмени домашней лепки">
         <span class="badge teal type-badge">Предложение</span>
@@ -98,7 +100,8 @@
       <div class="pname">Пельмени домашней лепки</div>
       <div class="price-line">от 450 ₽/кг</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Красноярск" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="380">
+    <a class="ptile" href="resource.html" data-city="Красноярск" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="380" data-fav-id="tsement">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/cement-bag.jpg" alt="Цемент">
         <span class="badge teal type-badge">Предложение</span>
@@ -107,7 +110,8 @@
       <div class="pname">Цемент</div>
       <div class="price-line">от 380 ₽/тонна</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Обмен,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="620">
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Обмен,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="620" data-fav-id="brus-20-20">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/timber-beam.jpg" alt="Брус 20×20">
         <span class="badge teal type-badge">Предложение</span>
@@ -116,7 +120,8 @@
       <div class="pname">Брус 20×20</div>
       <div class="price-line">от 620 ₽/м.</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="58">
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="58" data-fav-id="armatura-a1-8">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/rebar-steel.jpg" alt="Арматура А1-8">
         <span class="badge teal type-badge">Предложение</span>
@@ -125,7 +130,8 @@
       <div class="pname">Арматура А1-8</div>
       <div class="price-line">от 58 ₽/шт.</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Красноярск" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="1800">
+    <a class="ptile" href="resource.html" data-city="Красноярск" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="1800" data-fav-id="betonomeshalka">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/concrete-mixer.jpg" alt="Бетономешалка">
         <span class="badge teal type-badge">Предложение</span>
@@ -134,7 +140,8 @@
       <div class="pname">Бетономешалка</div>
       <div class="price-line">от 1 800 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Сочи" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="500000">
+    <a class="ptile" href="resource.html" data-city="Сочи" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="500000" data-fav-id="mikrozaym-na-zakupku-materialov">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/finance-money.jpg" alt="Микрозайм на закупку материалов">
         <span class="badge teal type-badge">Предложение</span>
@@ -142,7 +149,8 @@
       </div>
       <div class="pname">Микрозайм на закупку материалов</div>
       <div class="price-line">до 500 000 ₽</div>
-    </a>    <a class="ptile" href="resource.html" data-city="Новосибирск" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Грузовики и спецтехника" data-price="12000">
+    </a>    <a class="ptile" href="resource.html" data-city="Новосибирск" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Грузовики и спецтехника" data-price="12000" data-fav-id="ekskavator-pogruzchik">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/excavator.jpg" alt="Экскаватор-погрузчик">
         <span class="badge teal type-badge">Предложение</span>
@@ -151,7 +159,8 @@
       <div class="pname">Экскаватор-погрузчик</div>
       <div class="price-line">от 12 000 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Екатеринбург" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="890">
+    <a class="ptile" href="resource.html" data-city="Екатеринбург" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="890" data-fav-id="doski-obreznye-40-150">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/wood-planks.jpg" alt="Доски обрезные 40×150">
         <span class="badge teal type-badge">Предложение</span>
@@ -160,7 +169,8 @@
       <div class="pname">Доски обрезные 40×150</div>
       <div class="price-line">от 890 ₽/м³</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Казань" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="14500">
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="14500" data-fav-id="svarochnyy-apparat-invertornyy">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/welding-machine.jpg" alt="Сварочный аппарат инверторный">
         <span class="badge teal type-badge">Предложение</span>
@@ -169,7 +179,8 @@
       <div class="pname">Сварочный аппарат инверторный</div>
       <div class="price-line">от 14 500 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Ростов-на-Дону" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="11">
+    <a class="ptile" href="resource.html" data-city="Ростов-на-Дону" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="11" data-fav-id="kirpich-keramicheskiy-m150">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/brick-stack.jpg" alt="Кирпич керамический М150">
         <span class="badge teal type-badge">Предложение</span>
@@ -178,7 +189,8 @@
       <div class="pname">Кирпич керамический М150</div>
       <div class="price-line">от 11 ₽/шт.</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="300000">
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="300000" data-fav-id="grant-na-razvitie-remeslennogo-tseha">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/craft-workshop.jpg" alt="Грант на развитие ремесленного цеха">
         <span class="badge teal type-badge">Предложение</span>
@@ -187,7 +199,8 @@
       <div class="pname">Грант на развитие ремесленного цеха</div>
       <div class="price-line">до 300 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Уфа" data-type="Материальный" data-methods="Продажа" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="4900">
+    <a class="ptile" href="resource.html" data-city="Уфа" data-type="Материальный" data-methods="Продажа" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="4900" data-fav-id="beton-tovarnyy-m300">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/concrete-truck.jpg" alt="Бетон товарный М300">
         <span class="badge teal type-badge">Предложение</span>
@@ -196,7 +209,8 @@
       <div class="pname">Бетон товарный М300</div>
       <div class="price-line">от 4 900 ₽/м³</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Самара" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="350">
+    <a class="ptile" href="resource.html" data-city="Самара" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="350" data-fav-id="stroitelnye-lesa">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/scaffolding.jpg" alt="Строительные леса">
         <span class="badge teal type-badge">Предложение</span>
@@ -205,7 +219,8 @@
       <div class="pname">Строительные леса</div>
       <div class="price-line">от 350 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Омск" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="620">
+    <a class="ptile" href="resource.html" data-city="Омск" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="620" data-fav-id="uteplitel-mineralnaya-vata">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/mineral-wool.jpg" alt="Утеплитель минеральная вата">
         <span class="badge teal type-badge">Предложение</span>
@@ -214,7 +229,8 @@
       <div class="pname">Утеплитель минеральная вата</div>
       <div class="price-line">от 620 ₽/м²</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Челябинск" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="2">
+    <a class="ptile" href="resource.html" data-city="Челябинск" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="2" data-fav-id="kreditnaya-liniya-dlya-malogo-biznesa">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/finance-money.jpg" alt="Кредитная линия для малого бизнеса">
         <span class="badge teal type-badge">Предложение</span>
@@ -223,7 +239,8 @@
       <div class="pname">Кредитная линия для малого бизнеса</div>
       <div class="price-line">до 2 млн ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Нижний Новгород" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="2500">
+    <a class="ptile" href="resource.html" data-city="Нижний Новгород" data-type="Оборудование" data-methods="Аренда,Безвозмездно" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="2500" data-fav-id="generator-dizelnyy-10kvt">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/diesel-generator.jpg" alt="Генератор дизельный 10кВт">
         <span class="badge teal type-badge">Предложение</span>
@@ -232,7 +249,8 @@
       <div class="pname">Генератор дизельный 10кВт</div>
       <div class="price-line">от 2 500 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Волгоград" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="450">
+    <a class="ptile" href="resource.html" data-city="Волгоград" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="450" data-fav-id="metallocherepitsa">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/metal-roof.jpg" alt="Металлочерепица">
         <span class="badge teal type-badge">Предложение</span>
@@ -241,7 +259,8 @@
       <div class="pname">Металлочерепица</div>
       <div class="price-line">от 450 ₽/м²</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="1600">
+    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="1600" data-fav-id="betonomeshalka-peredvizhnaya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/concrete-mixer.jpg" alt="Бетономешалка передвижная">
         <span class="badge teal type-badge">Предложение</span>
@@ -250,7 +269,8 @@
       <div class="pname">Бетономешалка передвижная</div>
       <div class="price-line">от 1 600 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="5">
+    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Предложение" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="5" data-fav-id="investitsii-v-kooperativnyy-sklad">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/warehouse.jpg" alt="Инвестиции в кооперативный склад">
         <span class="badge teal type-badge">Предложение</span>
@@ -259,7 +279,8 @@
       <div class="pname">Инвестиции в кооперативный склад</div>
       <div class="price-line">до 5 млн ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Иркутск" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="210">
+    <a class="ptile" href="resource.html" data-city="Иркутск" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="210" data-fav-id="profilnaya-truba-stalnaya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/rebar-steel.jpg" alt="Профильная труба стальная">
         <span class="badge teal type-badge">Предложение</span>
@@ -268,7 +289,8 @@
       <div class="pname">Профильная труба стальная</div>
       <div class="price-line">от 210 ₽/м.</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Волгоград" data-type="Материальный" data-methods="Продажа" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Гаражи и машиноместа" data-price="350000">
+    <a class="ptile" href="resource.html" data-city="Волгоград" data-type="Материальный" data-methods="Продажа" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Гаражи и машиноместа" data-price="350000" data-fav-id="garazh-na-prodazhu">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/garage-building.jpg" alt="Гараж на продажу">
         <span class="badge teal type-badge">Предложение</span>
@@ -277,7 +299,8 @@
       <div class="pname">Гараж на продажу</div>
       <div class="price-line">от 350 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Аренда" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Склады и коммерческая недвижимость" data-price="45000">
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Аренда" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Склады и коммерческая недвижимость" data-price="45000" data-fav-id="skladskoe-pomeschenie-200-m-v-arendu">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/warehouse.jpg" alt="Складское помещение 200 м² в аренду">
         <span class="badge teal type-badge">Предложение</span>
@@ -286,7 +309,8 @@
       <div class="pname">Складское помещение 200 м² в аренду</div>
       <div class="price-line">от 45 000 ₽/мес</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Москва" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Ноутбуки и компьютеры" data-price="1500">
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Ноутбуки и компьютеры" data-price="1500" data-fav-id="noutbuk-dlya-udalennoy-raboty">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/laptop-desk.jpg" alt="Ноутбук для удалённой работы">
         <span class="badge teal type-badge">Предложение</span>
@@ -295,7 +319,8 @@
       <div class="pname">Ноутбук для удалённой работы</div>
       <div class="price-line">от 1 500 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Екатеринбург" data-type="Оборудование" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Видео и аудио" data-price="18000">
+    <a class="ptile" href="resource.html" data-city="Екатеринбург" data-type="Оборудование" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Видео и аудио" data-price="18000" data-fav-id="komplekt-videonablyudeniya-dlya-sklada">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/cctv-camera.jpg" alt="Комплект видеонаблюдения для склада">
         <span class="badge teal type-badge">Предложение</span>
@@ -304,7 +329,8 @@
       <div class="pname">Комплект видеонаблюдения для склада</div>
       <div class="price-line">от 18 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Казань" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Инструменты" data-price="3500">
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно" data-listing-type="Предложение" data-category="Для дома и дачи" data-subcategory="Инструменты" data-price="3500" data-fav-id="yaschik-s-ruchnym-instrumentom">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/toolbox.jpg" alt="Ящик с ручным инструментом">
         <span class="badge teal type-badge">Предложение</span>
@@ -313,7 +339,8 @@
       <div class="pname">Ящик с ручным инструментом</div>
       <div class="price-line">от 3 500 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Ростов-на-Дону" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Хобби и отдых" data-subcategory="Велосипеды" data-price="42000">
+    <a class="ptile" href="resource.html" data-city="Ростов-на-Дону" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Хобби и отдых" data-subcategory="Велосипеды" data-price="42000" data-fav-id="velosiped-gruzovoy-dlya-dostavki">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/cargo-bike.jpg" alt="Велосипед грузовой для доставки">
         <span class="badge teal type-badge">Предложение</span>
@@ -322,7 +349,8 @@
       <div class="pname">Велосипед грузовой для доставки</div>
       <div class="price-line">от 42 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Казань" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Легковые автомобили" data-price="3200">
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Оборудование" data-methods="Аренда,Лизинг" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Легковые автомобили" data-price="3200" data-fav-id="legkovoy-avtomobil-v-arendu">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/car-rental.jpg" alt="Легковой автомобиль в аренду">
         <span class="badge teal type-badge">Предложение</span>
@@ -331,7 +359,8 @@
       <div class="pname">Легковой автомобиль в аренду</div>
       <div class="price-line">от 3 200 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Омск" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="1800">
+    <a class="ptile" href="resource.html" data-city="Омск" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="1800" data-fav-id="mini-traktor-dlya-uchastka">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/mini-tractor.jpg" alt="Мини-трактор для участка">
         <span class="badge teal type-badge">Предложение</span>
@@ -340,7 +369,8 @@
       <div class="pname">Мини-трактор для участка</div>
       <div class="price-line">от 1 800 ₽/сутки</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Санкт-Петербург" data-type="Материальный" data-methods="Аренда" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Склады и коммерческая недвижимость" data-price="950">
+    <a class="ptile" href="resource.html" data-city="Санкт-Петербург" data-type="Материальный" data-methods="Аренда" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Склады и коммерческая недвижимость" data-price="950" data-fav-id="ofis-v-biznes-tsentre-v-arendu">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/office-rent.jpg" alt="Офис в бизнес-центре в аренду">
         <span class="badge teal type-badge">Предложение</span>
@@ -349,7 +379,8 @@
       <div class="pname">Офис в бизнес-центре в аренду</div>
       <div class="price-line">от 950 ₽/м² в год</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Земельные участки" data-price="65000">
+    <a class="ptile" href="resource.html" data-city="Тюмень" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Земельные участки" data-price="65000" data-fav-id="zemelnyy-uchastok-pod-zastroyku">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/land-plot.jpg" alt="Земельный участок под застройку">
         <span class="badge teal type-badge">Предложение</span>
@@ -358,7 +389,8 @@
       <div class="pname">Земельный участок под застройку</div>
       <div class="price-line">от 65 000 ₽/сотка</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Челябинск" data-type="Оборудование" data-methods="Продажа,Аренда" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Оргтехника" data-price="14500">
+    <a class="ptile" href="resource.html" data-city="Челябинск" data-type="Оборудование" data-methods="Продажа,Аренда" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Оргтехника" data-price="14500" data-fav-id="mfu-printer-skaner-dlya-ofisa">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/mfu-printer.jpg" alt="МФУ (принтер-сканер) для офиса">
         <span class="badge teal type-badge">Предложение</span>
@@ -367,7 +399,8 @@
       <div class="pname">МФУ (принтер-сканер) для офиса</div>
       <div class="price-line">от 14 500 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Иркутск" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Видео и аудио" data-price="6900">
+    <a class="ptile" href="resource.html" data-city="Иркутск" data-type="Оборудование" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Электроника" data-subcategory="Видео и аудио" data-price="6900" data-fav-id="komplekt-ratsiy-dlya-stroyploschadki">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/radio-set.jpg" alt="Комплект раций для стройплощадки">
         <span class="badge teal type-badge">Предложение</span>
@@ -376,7 +409,8 @@
       <div class="pname">Комплект раций для стройплощадки</div>
       <div class="price-line">от 6 900 ₽/комплект</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Материальный" data-methods="Продажа,Безвозмездно" data-listing-type="Предложение" data-category="Личные вещи" data-subcategory="Одежда, обувь, аксессуары" data-price="2400">
+    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Материальный" data-methods="Продажа,Безвозмездно" data-listing-type="Предложение" data-category="Личные вещи" data-subcategory="Одежда, обувь, аксессуары" data-price="2400" data-fav-id="komplekt-spetsodezhdy-i-siz">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/workwear-ppe.jpg" alt="Комплект спецодежды и СИЗ">
         <span class="badge teal type-badge">Предложение</span>
@@ -385,7 +419,8 @@
       <div class="pname">Комплект спецодежды и СИЗ</div>
       <div class="price-line">от 2 400 ₽/комплект</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Нижний Новгород" data-type="Материальный" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Личные вещи" data-subcategory="Одежда, обувь, аксессуары" data-price="3100">
+    <a class="ptile" href="resource.html" data-city="Нижний Новгород" data-type="Материальный" data-methods="Аренда,Продажа" data-listing-type="Предложение" data-category="Личные вещи" data-subcategory="Одежда, обувь, аксессуары" data-price="3100" data-fav-id="palatka-turisticheskaya-dlya-komandirovok">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/camping-tent.jpg" alt="Палатка туристическая для командировок">
         <span class="badge teal type-badge">Предложение</span>
@@ -394,7 +429,8 @@
       <div class="pname">Палатка туристическая для командировок</div>
       <div class="price-line">от 3 100 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="28">
+    <a class="ptile" href="resource.html" data-city="Краснодар" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="28" data-fav-id="kartofel-urozhaya-etogo-goda">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/potato-crate.jpg" alt="Картофель урожая этого года">
         <span class="badge teal type-badge">Предложение</span>
@@ -403,7 +439,8 @@
       <div class="pname">Картофель урожая этого года</div>
       <div class="price-line">от 28 ₽/кг</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Алтайский край" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мёд и продукты пчеловодства" data-price="650">
+    <a class="ptile" href="resource.html" data-city="Алтайский край" data-type="Материальный" data-methods="Продажа,Обмен,Безвозмездно" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мёд и продукты пчеловодства" data-price="650" data-fav-id="med-naturalnyy-lipovyy">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/honey-jar.jpg" alt="Мёд натуральный липовый">
         <span class="badge teal type-badge">Предложение</span>
@@ -412,7 +449,8 @@
       <div class="pname">Мёд натуральный липовый</div>
       <div class="price-line">от 650 ₽/кг</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Воронеж" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Крупы, мука и бакалея" data-price="32000">
+    <a class="ptile" href="resource.html" data-city="Воронеж" data-type="Материальный" data-methods="Продажа,Рассрочка" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Крупы, мука и бакалея" data-price="32000" data-fav-id="muka-pshenichnaya-vysshego-sorta">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/wheat-flour.jpg" alt="Мука пшеничная высшего сорта">
         <span class="badge teal type-badge">Предложение</span>
@@ -421,7 +459,8 @@
       <div class="pname">Мука пшеничная высшего сорта</div>
       <div class="price-line">от 32 000 ₽/тонна</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Вологда" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мясная и молочная продукция" data-price="95">
+    <a class="ptile" href="resource.html" data-city="Вологда" data-type="Материальный" data-methods="Продажа,Обмен" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Мясная и молочная продукция" data-price="95" data-fav-id="moloko-fermerskoe">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/milk-bottles.jpg" alt="Молоко фермерское">
         <span class="badge teal type-badge">Предложение</span>
@@ -430,7 +469,8 @@
       <div class="pname">Молоко фермерское</div>
       <div class="price-line">от 95 ₽/л</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="1850000">
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="1850000" data-fav-id="dom-eko-kupol-42-m-proekt-stroitelnyy-3d-printer">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/house-tecla.jpg" alt="Дом «Эко-Купол», 42 м²">
         <span class="badge teal type-badge">Предложение</span>
@@ -439,7 +479,8 @@
       <div class="pname">Дом «Эко-Купол» · 42 м² · проект «Строительный 3д принтер»</div>
       <div class="price-line">от 1 850 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="1400000">
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="1400000" data-fav-id="dom-arkada-27-m-proekt-stroitelnyy-3d-printer">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/house-amie.jpg" alt="Дом «Аркада», 27 м²">
         <span class="badge teal type-badge">Предложение</span>
@@ -448,7 +489,8 @@
       <div class="pname">Дом «Аркада» · 27 м² · проект «Строительный 3д принтер»</div>
       <div class="price-line">от 1 400 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="690000">
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Недвижимость" data-subcategory="Дома, дачи, коттеджи" data-price="690000" data-fav-id="dom-sfera-14-m-proekt-stroitelnyy-3d-printer">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/house-serendix.jpg" alt="Дом «Сфера», 14 м²">
         <span class="badge teal type-badge">Предложение</span>
@@ -457,7 +499,8 @@
       <div class="pname">Дом «Сфера» · 14 м² · проект «Строительный 3д принтер»</div>
       <div class="price-line">от 690 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="1200">
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="1200" data-fav-id="korobka-mini-zelen-i-ovoschi-proekt-kruglogodich">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/vegbox-csa.jpg" alt="Коробка «Мини» — зелень и овощи">
         <span class="badge teal type-badge">Предложение</span>
@@ -466,7 +509,8 @@
       <div class="pname">Коробка «Мини» · зелень и овощи · проект «Круглогодичная теплица»</div>
       <div class="price-line">от 1 200 ₽/нед.</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="2100">
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="2100" data-fav-id="korobka-standart-zelen-i-ovoschi-proekt-kruglogo">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/vegbox-nl.jpg" alt="Коробка «Стандарт» — зелень и овощи">
         <span class="badge teal type-badge">Предложение</span>
@@ -475,7 +519,8 @@
       <div class="pname">Коробка «Стандарт» · зелень и овощи · проект «Круглогодичная теплица»</div>
       <div class="price-line">от 2 100 ₽/нед.</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="3400">
+    <a class="ptile" href="resource.html" data-city="Пермь" data-type="Материальный" data-methods="Продажа,Участие в проекте" data-listing-type="Предложение" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-price="3400" data-fav-id="korobka-semeynaya-zelen-i-ovoschi-proekt-kruglog">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/vegbox-csa.jpg" alt="Коробка «Семейная» — зелень и овощи">
         <span class="badge teal type-badge">Предложение</span>
@@ -484,7 +529,8 @@
       <div class="pname">Коробка «Семейная» · зелень и овощи · проект «Круглогодичная теплица»</div>
       <div class="price-line">от 3 400 ₽/нед.</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа" data-listing-type="Спрос" data-category="Продовольственные товары" data-subcategory="Мёд и продукты пчеловодства" data-price="60000">
+    <a class="ptile" href="resource.html" data-city="Москва" data-type="Материальный" data-methods="Продажа" data-listing-type="Спрос" data-category="Продовольственные товары" data-subcategory="Мёд и продукты пчеловодства" data-price="60000" data-fav-id="ischu-partiyu-meda-optom-dlya-magazina">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/honey-jar.jpg" alt="Ищу партию мёда оптом">
         <span class="badge demand type-badge">Спрос</span>
@@ -493,7 +539,8 @@
       <div class="pname">Ищу партию мёда оптом для магазина</div>
       <div class="price-line">бюджет до 60 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Новосибирск" data-type="Оборудование" data-methods="Продажа" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="90000">
+    <a class="ptile" href="resource.html" data-city="Новосибирск" data-type="Оборудование" data-methods="Продажа" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Оборудование для бизнеса" data-price="90000" data-fav-id="kuplyu-promyshlennuyu-meshalku-b-u-dlya-tseha">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/meat-mixer-machine.jpg" alt="Куплю промышленную мешалку б/у">
         <span class="badge demand type-badge">Спрос</span>
@@ -502,7 +549,8 @@
       <div class="pname">Куплю промышленную мешалку б/у для цеха</div>
       <div class="price-line">бюджет до 90 000 ₽</div>
     </a>
-    <a class="ptile" href="resource.html" data-city="Казань" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="500000">
+    <a class="ptile" href="resource.html" data-city="Казань" data-type="Финансовый" data-methods="Участие в проекте" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="500000" data-fav-id="ischu-investora-v-otkrytie-tseha-po-pererabotke">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/finance-money.jpg" alt="Ищу инвестора в цех по переработке">
         <span class="badge demand type-badge">Спрос</span>
@@ -511,7 +559,8 @@
       <div class="pname">Ищу инвестора в открытие цеха по переработке</div>
       <div class="price-line">нужно 500 000 ₽</div>
     </a>
-    <a class="ptile" href="person.html" data-city="Сочи" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты">
+    <a class="ptile" href="person.html" data-city="Сочи" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Продовольственные товары" data-subcategory="Овощи и фрукты" data-fav-id="ischu-morkov-dlya-doma-dashkevich-danil-igorevic">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/carrot.jpg" alt="Ищу морковь для дома">
         <span class="badge demand type-badge">Спрос</span>
@@ -520,7 +569,8 @@
       <div class="pname">Ищу морковь для дома · Дашкевич Данил Игоревич</div>
       <div class="price-line">нужно немного, для дома</div>
     </a>
-    <a class="ptile" href="person.html" data-city="Сочи" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+    <a class="ptile" href="person.html" data-city="Сочи" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-fav-id="ischu-programmista-dashkevich-danil-igorevich">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/programmer.jpg" alt="Ищу программиста">
         <span class="badge demand type-badge">Спрос</span>
@@ -529,7 +579,8 @@
       <div class="pname">Ищу программиста · Дашкевич Данил Игоревич</div>
       <div class="price-line">оплата по договорённости</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Москва" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="12000">
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="12000" data-fav-id="ischu-ekskavator-pogruzchik-v-arendu-ooo-mirital">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/excavator.jpg" alt="Ищу экскаватор-погрузчик в аренду">
         <span class="badge demand type-badge">Спрос</span>
@@ -538,7 +589,8 @@
       <div class="pname">Ищу экскаватор-погрузчик в аренду · ООО «Мириталь»</div>
       <div class="price-line">бюджет до 12 000 ₽/сутки</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Москва" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="1200000">
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="1200000" data-fav-id="ischu-investitsii-v-rasshirenie-sklada-ooo-mirit">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/warehouse.jpg" alt="Ищу инвестиции в расширение склада">
         <span class="badge demand type-badge">Спрос</span>
@@ -547,7 +599,8 @@
       <div class="pname">Ищу инвестиции в расширение склада · ООО «Мириталь»</div>
       <div class="price-line">нужно 1 200 000 ₽</div>
     </a>
-    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-fav-id="ischu-pastuha-na-letniy-period-kooperativ-shukty">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/land-plot.jpg" alt="Ищу пастуха на летний период">
         <span class="badge demand type-badge">Спрос</span>
@@ -556,7 +609,8 @@
       <div class="pname">Ищу пастуха на летний период · Кооператив «Шукты»</div>
       <div class="price-line">оплата по договорённости</div>
     </a>
-    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="1800">
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="1800" data-fav-id="ischu-mini-traktor-v-arendu-kooperativ-shukty">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/mini-tractor.jpg" alt="Ищу мини-трактор в аренду">
         <span class="badge demand type-badge">Спрос</span>
@@ -565,7 +619,8 @@
       <div class="pname">Ищу мини-трактор в аренду · Кооператив «Шукты»</div>
       <div class="price-line">бюджет до 1 800 ₽/сутки</div>
     </a>
-    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="1000000">
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="1000000" data-fav-id="ischu-investitsii-v-modernizatsiyu-syrovarni-koo">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/craft-workshop.jpg" alt="Ищу инвестиции в модернизацию сыроварни">
         <span class="badge demand type-badge">Спрос</span>
@@ -574,7 +629,8 @@
       <div class="pname">Ищу инвестиции в модернизацию сыроварни · Кооператив «Шукты»</div>
       <div class="price-line">нужно 1 000 000 ₽</div>
     </a>
-    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-fav-id="ischu-volontera-koordinatora-meropriyatiy-fond-t">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/playground.jpg" alt="Ищу волонтёра-координатора мероприятий">
         <span class="badge demand type-badge">Спрос</span>
@@ -583,7 +639,8 @@
       <div class="pname">Ищу волонтёра-координатора мероприятий · Фонд «Территория 2020»</div>
       <div class="price-line">волонтёрская позиция</div>
     </a>
-    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Электроника" data-subcategory="Ноутбуки и компьютеры" data-price="90000">
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Электроника" data-subcategory="Ноутбуки и компьютеры" data-price="90000" data-fav-id="nuzhny-noutbuki-dlya-proektnogo-ofisa-fond-terri">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/laptop-desk.jpg" alt="Нужны ноутбуки для проектного офиса">
         <span class="badge demand type-badge">Спрос</span>
@@ -592,7 +649,8 @@
       <div class="pname">Нужны ноутбуки для проектного офиса · Фонд «Территория 2020»</div>
       <div class="price-line">бюджет до 90 000 ₽</div>
     </a>
-    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование">
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-fav-id="sobiraem-pozhertvovaniya-na-grantovuyu-programmu">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/finance-money.jpg" alt="Собираем пожертвования на грантовую программу">
         <span class="badge demand type-badge">Спрос</span>
@@ -601,7 +659,8 @@
       <div class="pname">Собираем пожертвования на грантовую программу · Фонд «Территория 2020»</div>
       <div class="price-line">принимаем пожертвования</div>
     </a>
-    <a class="ptile" href="program.html" data-city="Дербент" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги">
+    <a class="ptile" href="program.html" data-city="Дербент" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-fav-id="ischu-agronoma-konsultanta-na-sezon-programma-ur">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/land-plot.jpg" alt="Ищу агронома-консультанта на сезон">
         <span class="badge demand type-badge">Спрос</span>
@@ -610,7 +669,8 @@
       <div class="pname">Ищу агронома-консультанта на сезон · программа «Урожай сообща»</div>
       <div class="price-line">оплата по договорённости</div>
     </a>
-    <a class="ptile" href="program.html" data-city="Дербент" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="900000">
+    <a class="ptile" href="program.html" data-city="Дербент" data-type="Оборудование" data-methods="" data-listing-type="Спрос" data-category="Транспорт" data-subcategory="Аренда спецтехники" data-price="900000" data-fav-id="nuzhen-esche-odin-mini-traktor-v-lizing-programm">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/mini-tractor.jpg" alt="Нужен ещё один мини-трактор в лизинг">
         <span class="badge demand type-badge">Спрос</span>
@@ -619,7 +679,8 @@
       <div class="pname">Нужен ещё один мини-трактор в лизинг · программа «Урожай сообща»</div>
       <div class="price-line">бюджет до 900 000 ₽</div>
     </a>
-    <a class="ptile" href="program.html" data-city="Дербент" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="800000">
+    <a class="ptile" href="program.html" data-city="Дербент" data-type="Финансовый" data-methods="" data-listing-type="Спрос" data-category="Бизнес и оборудование" data-subcategory="Финансирование" data-price="800000" data-fav-id="ischu-investitsii-v-rasshirenie-sklada-programma">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/warehouse.jpg" alt="Ищу инвестиции в расширение склада">
         <span class="badge demand type-badge">Спрос</span>
@@ -628,7 +689,8 @@
       <div class="pname">Ищу инвестиции в расширение склада · программа «Урожай сообща»</div>
       <div class="price-line">нужно 800 000 ₽</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Москва" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="50">
+    <a class="ptile" href="project.html" data-city="Москва" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="50" data-fav-id="nuzhen-tsement-50-tonn-proekt-stroitelnyy-3d-pri">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/cement-bag.jpg" alt="Нужен цемент, 50 тонн">
         <span class="badge demand type-badge">Спрос</span>
@@ -637,7 +699,8 @@
       <div class="pname">Нужен цемент, 50 тонн · проект «Строительный 3д принтер»</div>
       <div class="price-line">нужно 50 тонн · бюджет 500 000 ₽</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Москва" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-price="50000">
+    <a class="ptile" href="project.html" data-city="Москва" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-price="50000" data-fav-id="ischu-inzhenera-tehnologa-proekt-stroitelnyy-3d-">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/welding-machine.jpg" alt="Ищу инженера-технолога">
         <span class="badge demand type-badge">Спрос</span>
@@ -646,7 +709,8 @@
       <div class="pname">Ищу инженера-технолога · проект «Строительный 3д принтер»</div>
       <div class="price-line">бюджет 50 000 ₽</div>
     </a>
-    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="850">
+    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Материальный" data-methods="" data-listing-type="Спрос" data-category="Для дома и дачи" data-subcategory="Ремонт и стройматериалы" data-price="850" data-fav-id="nuzhny-polikarbonatnye-paneli-obshivka-proekt-kr">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/greenhouse.jpg" alt="Нужны поликарбонатные панели (обшивка)">
         <span class="badge demand type-badge">Спрос</span>
@@ -655,7 +719,8 @@
       <div class="pname">Нужны поликарбонатные панели (обшивка) · проект «Круглогодичная теплица»</div>
       <div class="price-line">нужно 850 м² · бюджет 1 100 000 ₽</div>
     </a>
-    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-price="200000">
+    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Труд" data-methods="" data-listing-type="Спрос" data-category="Услуги" data-subcategory="Деловые услуги" data-price="200000" data-fav-id="ischu-agronoma-proekt-kruglogodichnaya-teplitsa">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/greenhouse-interior.jpg" alt="Ищу агронома">
         <span class="badge demand type-badge">Спрос</span>
@@ -665,7 +730,7 @@
       <div class="price-line">бюджет 200 000 ₽</div>
     </a>
 </div>
-      <div class="empty-state" id="resources-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      <div class="empty-state" id="resources-empty" data-fav-empty="В избранном пока пусто. Нажмите на сердечко в карточке, чтобы сохранить её сюда." hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
       <div class="resource-map" id="resources-map" hidden>
         <div class="resource-map-canvas" id="resources-map-canvas"></div>
         <p style="color:var(--slate);font-size:11.5px;margin:8px 0 0">Размер метки — сколько объявлений в городе (с учётом текущих фильтров). Нажмите на метку, чтобы отфильтровать по городу.</p>
@@ -884,13 +949,16 @@ function cardMatchesFilters(card, opts) {
 }
 
 function applyFilters() {
+  /* Вкладка «Избранное» — тот же список, суженный до избранных карточек */
+  var favMode = (location.search || '').indexOf('tab=favorites') !== -1;
   resourcesHome.hidden = true;
   resourcesFlat.hidden = false;
-  flatSectionTitle.textContent = selectedCategory || 'Все ресурсы';
+  flatSectionTitle.textContent = favMode ? 'Избранное' : (selectedCategory || 'Все ресурсы');
   var cards = document.querySelectorAll('#resources-grid .ptile');
   var visibleCount = 0;
   cards.forEach(function (card) {
-    var show = cardMatchesFilters(card);
+    var favOk = !favMode || (window.CoopFav && CoopFav.has('resources', card.dataset.favId));
+    var show = cardMatchesFilters(card) && favOk;
     card.style.display = show ? '' : 'none';
     // #18 Продвижение за счёт доверия/кредитов, а не денег — продвинутые объявления всплывают первыми в выдаче
     card.style.order = card.dataset.promoted === '1' ? '-1' : '0';
@@ -1262,7 +1330,8 @@ function showFlatView(catParam) {
   var params = new URLSearchParams(location.search);
   var catParam = params.get('category');
   var viewAll = params.get('view') === 'all';
-  if (catParam || viewAll) {
+  var favView = (location.search || '').indexOf('tab=favorites') !== -1;
+  if (catParam || viewAll || favView) {
     showFlatView(catParam);
   } else {
     showHomeView();
@@ -1376,6 +1445,15 @@ document.getElementById('report-modal-send').addEventListener('click', function 
 // #resources-map / #resources-home / #resources-flat, а они объявлены ниже
 // переключателя и на момент его определения ещё не присвоены.
 if (savedCatalogView() === 'list') setCatalogView('list');
+
+/* Сердечко в карточке переключает избранное (app.js) — список
+   пересобираем сразу, иначе на вкладке «Избранное» карточка исчезнет
+   только после перезагрузки страницы. */
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.CoopFav) return;
+  CoopFav.onChange(applyFilters);
+  if ((location.search || '').indexOf('tab=favorites') !== -1) applyFilters();
+});
 </script>
 <script src="app.js"></script>
 </body>

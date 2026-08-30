@@ -58,6 +58,7 @@
     <div class="entity-tabs">
       <a href="organizations.html" class="active">Каталог организаций</a>
       <a href="organizations-feed.html">Лента новостей</a>
+      <a href="organizations.html?tab=favorites" data-fav-tab="organizations">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
     <div class="search-row">
       <input class="input" placeholder="Начните вводить имя или название">
@@ -66,219 +67,250 @@
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
-      <div id="orgs-home"></div>
+      <div id="orgs-home" data-fav-section="organizations"></div>
       <div id="orgs-flat" hidden>
-      <div class="cat-section-title"><span id="flat-section-title">Все организации</span> <a href="organizations.html" class="cat-back-link">← ко всем группам</a></div><div class="ptile-grid" id="orgs-grid">
-    <a class="ptile" href="organization.html" data-city="Москва" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="92" data-category="Строительство, недвижимость" data-subcategory="Прораб, мастер СМР">
+      <div class="cat-section-title"><span id="flat-section-title">Все организации</span> <a href="organizations.html" class="cat-back-link">← ко всем группам</a></div><div class="ptile-grid" id="orgs-grid" data-fav-section="organizations">
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="92" data-category="Строительство, недвижимость" data-subcategory="Прораб, мастер СМР" data-fav-id="ooo-mirital">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/yandex.png" alt="ООО «Мириталь»" loading="lazy">
         <span class="loc-bar">📍 Москва</span>
       </div>
       <div class="pname">ООО «Мириталь»</div>
     </a>
-    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="81" data-category="Стратегия, инвестиции, консалтинг" data-subcategory="Бизнес-консультант">
+    <a class="ptile" href="organization-nonprofit.html" data-city="Красноярск" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="81" data-category="Стратегия, инвестиции, консалтинг" data-subcategory="Бизнес-консультант" data-fav-id="fond-territoriya-2020">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»" loading="lazy">
         <span class="loc-bar">📍 Красноярск</span>
       </div>
       <div class="pname">Фонд «Территория 2020»</div>
     </a>
-    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="88" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+    <a class="ptile" href="organization-coop.html" data-city="Дербент" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="88" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник" data-fav-id="kooperativ-shukty">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" loading="lazy">
         <span class="loc-bar">📍 Дербент</span>
       </div>
       <div class="pname">Кооператив «Шукты»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="95" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="95" data-category="Информационные технологии" data-subcategory="Программирование, Разработка" data-fav-id="dao-koopeh">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/dao-cooptech.svg" alt="ДАО КООПЕХ" loading="lazy">
         <span class="loc-bar">📍 —</span>
       </div>
       <div class="pname">ДАО КООПЕХ</div>
-    </a>    <a class="ptile" href="organization.html" data-city="Красноярск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="79" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+    </a>    <a class="ptile" href="organization.html" data-city="Красноярск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="79" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог" data-fav-id="artel-severnyy-les">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/rosneft.png" alt="Артель «Северный лес»" loading="lazy">
         <span class="loc-bar">📍 Красноярск</span>
       </div>
       <div class="pname">Артель «Северный лес»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Новосибирск" data-type="ЗАО" data-legal-group="Коммерческие организации" data-trust="84" data-category="Строительство, недвижимость" data-subcategory="Инженер строительного контроля">
+    <a class="ptile" href="organization.html" data-city="Новосибирск" data-type="ЗАО" data-legal-group="Коммерческие организации" data-trust="84" data-category="Строительство, недвижимость" data-subcategory="Инженер строительного контроля" data-fav-id="zao-stroytehno">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/vtb.png" alt="ЗАО «СтройТехно»" loading="lazy">
         <span class="loc-bar">📍 Новосибирск</span>
       </div>
       <div class="pname">ЗАО «СтройТехно»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="91" data-category="Другое" data-subcategory="Разное">
+    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="91" data-category="Другое" data-subcategory="Разное" data-fav-id="blagotvoritelnyy-fond-dobryy-dom">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/magnit.png" alt="Благотворительный фонд «Добрый дом»" loading="lazy">
         <span class="loc-bar">📍 Екатеринбург</span>
       </div>
       <div class="pname">Благотворительный фонд «Добрый дом»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="87" data-category="Строительство, недвижимость" data-subcategory="Архитектор">
+    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="87" data-category="Строительство, недвижимость" data-subcategory="Архитектор" data-fav-id="dao-otkrytyygorod">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/x5.png" alt="ДАО «ОткрытыйГород»" loading="lazy">
         <span class="loc-bar">📍 —</span>
       </div>
       <div class="pname">ДАО «ОткрытыйГород»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Краснодар" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="76" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+    <a class="ptile" href="organization.html" data-city="Краснодар" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="76" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник" data-fav-id="kooperativ-plodorodie">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/mts.png" alt="Кооператив «Плодородие»" loading="lazy">
         <span class="loc-bar">📍 Краснодар</span>
       </div>
       <div class="pname">Кооператив «Плодородие»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Казань" data-type="ОАО" data-legal-group="Коммерческие организации" data-trust="90" data-category="Строительство, недвижимость" data-subcategory="Инженер строительного контроля">
+    <a class="ptile" href="organization.html" data-city="Казань" data-type="ОАО" data-legal-group="Коммерческие организации" data-trust="90" data-category="Строительство, недвижимость" data-subcategory="Инженер строительного контроля" data-fav-id="oao-vektor-inzhiniring">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/megafon.png" alt="ОАО «Вектор Инжиниринг»" loading="lazy">
         <span class="loc-bar">📍 Казань</span>
       </div>
       <div class="pname">ОАО «Вектор Инжиниринг»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Пермь" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="83" data-category="Наука, образование" data-subcategory="Преподаватель, репетитор">
+    <a class="ptile" href="organization.html" data-city="Пермь" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="83" data-category="Наука, образование" data-subcategory="Преподаватель, репетитор" data-fav-id="ano-masterskaya-buduschego">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/beeline.png" alt="АНО «Мастерская будущего»" loading="lazy">
         <span class="loc-bar">📍 Пермь</span>
       </div>
       <div class="pname">АНО «Мастерская будущего»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Челябинск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="80" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла">
+    <a class="ptile" href="organization.html" data-city="Челябинск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="80" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла" data-fav-id="artel-uralskie-mastera">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»" loading="lazy">
         <span class="loc-bar">📍 Челябинск</span>
       </div>
       <div class="pname">Артель «Уральские мастера»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Воронеж" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="77" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+    <a class="ptile" href="organization.html" data-city="Воронеж" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="77" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог" data-fav-id="ooo-ekoplast">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/aeroflot.png" alt="ООО «ЭкоПласт»" loading="lazy">
         <span class="loc-bar">📍 Воронеж</span>
       </div>
       <div class="pname">ООО «ЭкоПласт»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Самара" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="94" data-category="Управление персоналом, тренинги" data-subcategory="HR-менеджер">
+    <a class="ptile" href="organization.html" data-city="Самара" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="94" data-category="Управление персоналом, тренинги" data-subcategory="HR-менеджер" data-fav-id="fond-podderzhki-volonterov-vmeste">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/rzd.png" alt="Фонд поддержки волонтёров «Вместе»" loading="lazy">
         <span class="loc-bar">📍 Самара</span>
       </div>
       <div class="pname">Фонд поддержки волонтёров «Вместе»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="92" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+    <a class="ptile" href="organization.html" data-city="" data-type="Децентрализованные" data-legal-group="Децентрализованные" data-trust="92" data-category="Информационные технологии" data-subcategory="Программирование, Разработка" data-fav-id="dao-tsifrovoy-kooperativ">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/kamaz.png" alt="ДАО «Цифровой кооператив»" loading="lazy">
         <span class="loc-bar">📍 —</span>
       </div>
       <div class="pname">ДАО «Цифровой кооператив»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Хабаровск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="85" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД">
+    <a class="ptile" href="organization.html" data-city="Хабаровск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="85" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД" data-fav-id="kooperativ-rechnoy-port">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/severstal.png" alt="Кооператив «Речной порт»" loading="lazy">
         <span class="loc-bar">📍 Хабаровск</span>
       </div>
       <div class="pname">Кооператив «Речной порт»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Ростов-на-Дону" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="82" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+    <a class="ptile" href="organization.html" data-city="Ростов-на-Дону" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="82" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник" data-fav-id="ooo-agrostroy">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/nornickel.png" alt="ООО «АгроСтрой»" loading="lazy">
         <span class="loc-bar">📍 Ростов-на-Дону</span>
       </div>
       <div class="pname">ООО «АгроСтрой»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Тюмень" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="88" data-category="Другое" data-subcategory="Разное">
+    <a class="ptile" href="organization.html" data-city="Тюмень" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="88" data-category="Другое" data-subcategory="Разное" data-fav-id="ano-chistyy-gorod">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/nlmk.png" alt="АНО «Чистый город»" loading="lazy">
         <span class="loc-bar">📍 Тюмень</span>
       </div>
       <div class="pname">АНО «Чистый город»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Иркутск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="73" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство">
+    <a class="ptile" href="organization.html" data-city="Иркутск" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="73" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство" data-fav-id="artel-baykalskiy-promysel">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/ozon.png" alt="Артель «Байкальский промысел»" loading="lazy">
         <span class="loc-bar">📍 Иркутск</span>
       </div>
       <div class="pname">Артель «Байкальский промысел»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Владивосток" data-type="ПАО" data-legal-group="Коммерческие организации" data-trust="86" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД">
+    <a class="ptile" href="organization.html" data-city="Владивосток" data-type="ПАО" data-legal-group="Коммерческие организации" data-trust="86" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД" data-fav-id="pao-severtrans">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/wildberries.png" alt="ПАО «СеверТранс»" loading="lazy">
         <span class="loc-bar">📍 Владивосток</span>
       </div>
       <div class="pname">ПАО «СеверТранс»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Москва" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="90" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия">
+    <a class="ptile" href="organization.html" data-city="Москва" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="90" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия" data-fav-id="kreditnyy-kooperativ-vzaimopomosch">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/avito.png" alt="Кредитный кооператив «Взаимопомощь»" loading="lazy">
         <span class="loc-bar">📍 Москва</span>
       </div>
       <div class="pname">Кредитный кооператив «Взаимопомощь»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Санкт-Петербург" data-type="Коммерческие организации" data-legal-group="Коммерческие организации" data-trust="85" data-category="Юристы" data-subcategory="Юрисконсульт">
+    <a class="ptile" href="organization.html" data-city="Санкт-Петербург" data-type="Коммерческие организации" data-legal-group="Коммерческие организации" data-trust="85" data-category="Юристы" data-subcategory="Юрисконсульт" data-fav-id="yuridicheskoe-byuro-pravo-i-delo">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/vk.png" alt="Юридическое бюро «Право и дело»" loading="lazy">
         <span class="loc-bar">📍 Санкт-Петербург</span>
       </div>
       <div class="pname">Юридическое бюро «Право и дело»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Новосибирск" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="93" data-category="Медицина, фармацевтика" data-subcategory="Медсестра, фельдшер">
+    <a class="ptile" href="organization.html" data-city="Новосибирск" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="93" data-category="Медицина, фармацевтика" data-subcategory="Медсестра, фельдшер" data-fav-id="ano-zdorove-dlya-vseh">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/alfabank.png" alt="АНО «Здоровье для всех»" loading="lazy">
         <span class="loc-bar">📍 Новосибирск</span>
       </div>
       <div class="pname">АНО «Здоровье для всех»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Краснодар" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="81" data-category="Розничная торговля" data-subcategory="Продавец">
+    <a class="ptile" href="organization.html" data-city="Краснодар" data-type="ООО" data-legal-group="Коммерческие организации" data-trust="81" data-category="Розничная торговля" data-subcategory="Продавец" data-fav-id="ooo-koop-market">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/rostelecom.png" alt="ООО «Кооп-Маркет»" loading="lazy">
         <span class="loc-bar">📍 Краснодар</span>
       </div>
       <div class="pname">ООО «Кооп-Маркет»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Сочи" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="88" data-category="Туризм, гостиницы, рестораны" data-subcategory="Администратор гостиницы">
+    <a class="ptile" href="organization.html" data-city="Сочи" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="88" data-category="Туризм, гостиницы, рестораны" data-subcategory="Администратор гостиницы" data-fav-id="kooperativ-gostevoy-dvor">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/pochta.png" alt="Кооператив «Гостевой двор»" loading="lazy">
         <span class="loc-bar">📍 Сочи</span>
       </div>
       <div class="pname">Кооператив «Гостевой двор»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Индивидуальный предприниматель" data-legal-group="Коммерческие организации" data-trust="76" data-category="Маркетинг, реклама, PR" data-subcategory="Маркетинг">
+    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Индивидуальный предприниматель" data-legal-group="Коммерческие организации" data-trust="76" data-category="Маркетинг, реклама, PR" data-subcategory="Маркетинг" data-fav-id="ip-media-kraft">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/s7.png" alt="ИП «Медиа Крафт»" loading="lazy">
         <span class="loc-bar">📍 Екатеринбург</span>
       </div>
       <div class="pname">ИП «Медиа Крафт»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Тюмень" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="79" data-category="Автомобильный бизнес" data-subcategory="Автосервис, автомойка">
+    <a class="ptile" href="organization.html" data-city="Тюмень" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="79" data-category="Автомобильный бизнес" data-subcategory="Автосервис, автомойка" data-fav-id="artel-avtoservis-plyus">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/rusal.png" alt="Артель «Автосервис Плюс»" loading="lazy">
         <span class="loc-bar">📍 Тюмень</span>
       </div>
       <div class="pname">Артель «Автосервис Плюс»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Казань" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="87" data-category="Спортивные клубы, фитнес, салоны красоты" data-subcategory="Тренер">
+    <a class="ptile" href="organization.html" data-city="Казань" data-type="Некоммерческие" data-legal-group="Некоммерческие" data-trust="87" data-category="Спортивные клубы, фитнес, салоны красоты" data-subcategory="Тренер" data-fav-id="ano-sportivnyy-dvor">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/rostec.png" alt="АНО «Спортивный двор»" loading="lazy">
         <span class="loc-bar">📍 Казань</span>
       </div>
       <div class="pname">АНО «Спортивный двор»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="89" data-category="Строительство, недвижимость" data-subcategory="Агент по недвижимости">
+    <a class="ptile" href="organization.html" data-city="Екатеринбург" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="89" data-category="Строительство, недвижимость" data-subcategory="Агент по недвижимости" data-fav-id="zhsk-sosedi">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/vtb.png" alt="ЖСК «Соседи»" loading="lazy">
         <span class="loc-bar">📍 Екатеринбург</span>
       </div>
       <div class="pname">ЖСК «Соседи»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Пермь" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="84" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+    <a class="ptile" href="organization.html" data-city="Пермь" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="84" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог" data-fav-id="energokooperativ-svetsvoi">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/rostelecom.png" alt="Энергокооператив «СветСвои»" loading="lazy">
         <span class="loc-bar">📍 Пермь</span>
       </div>
       <div class="pname">Энергокооператив «СветСвои»</div>
     </a>
-    <a class="ptile" href="organization.html" data-city="Ярославль" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="83" data-category="Другое" data-subcategory="Разное">
+    <a class="ptile" href="organization.html" data-city="Ярославль" data-type="Кооперативные" data-legal-group="Кооперативные" data-trust="83" data-category="Другое" data-subcategory="Разное" data-fav-id="sodruzhestvo-kooperativov-emiliya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img class="org-logo-img" src="img/org-logos/wildberries.png" alt="Содружество кооперативов «Эмилия»" loading="lazy">
         <span class="loc-bar">📍 Ярославль</span>
@@ -286,7 +318,7 @@
       <div class="pname">Содружество кооперативов «Эмилия»</div>
     </a>
 </div>
-      <div class="empty-state" id="orgs-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      <div class="empty-state" id="orgs-empty" data-fav-empty="В избранном пока пусто. Нажмите на сердечко в карточке, чтобы сохранить её сюда." hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
       </div>
       </div>
       <div class="filter-panel">
@@ -555,12 +587,14 @@ var legalFormField = document.getElementById('legal-form-field');
 var filterLegalFormSelect = document.getElementById('filter-legal-form');
 
 function applyFilters() {
+  /* Вкладка «Избранное» — тот же список, суженный до избранных карточек */
+  var favMode = (location.search || '').indexOf('tab=favorites') !== -1;
   orgsHome.hidden = true;
   orgsFlat.hidden = false;
   var city = document.getElementById('filter-city').value.trim().toLowerCase();
   var type = document.getElementById('filter-type').value;
   var legalForm = filterLegalFormSelect.value;
-  flatSectionTitle.textContent = legalForm || type || 'Все организации';
+  flatSectionTitle.textContent = favMode ? 'Избранное' : (legalForm || type || 'Все организации');
   var trust = parseInt(document.getElementById('filter-trust').value, 10);
   var cards = document.querySelectorAll('#orgs-grid .ptile');
   var visibleCount = 0;
@@ -574,7 +608,8 @@ function applyFilters() {
     var trustOk = cardTrust >= trust;
     var categoryOk = !selectedCategory || card.dataset.category === selectedCategory;
     var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
-    var show = cityOk && typeOk && legalFormOk && trustOk && categoryOk && subcategoryOk;
+    var favOk = !favMode || (window.CoopFav && CoopFav.has('organizations', card.dataset.favId));
+    var show = cityOk && typeOk && legalFormOk && trustOk && categoryOk && subcategoryOk && favOk;
     card.style.display = show ? '' : 'none';
     if (show) visibleCount++;
   });
@@ -713,12 +748,22 @@ function showFlatView(typeParam) {
   var params = new URLSearchParams(location.search);
   var typeParam = params.get('type');
   var viewAll = params.get('view') === 'all';
-  if (typeParam || viewAll) {
+  var favView = (location.search || '').indexOf('tab=favorites') !== -1;
+  if (typeParam || viewAll || favView) {
     showFlatView(typeParam);
   } else {
     showHomeView();
   }
 })();
+
+/* Сердечко в карточке переключает избранное (app.js) — список
+   пересобираем сразу, иначе на вкладке «Избранное» карточка исчезнет
+   только после перезагрузки страницы. */
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.CoopFav) return;
+  CoopFav.onChange(applyFilters);
+  if ((location.search || '').indexOf('tab=favorites') !== -1) applyFilters();
+});
 </script>
 <script src="app.js"></script>
 </body>

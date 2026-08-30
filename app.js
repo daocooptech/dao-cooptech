@@ -204,6 +204,122 @@
     obs.observe(overlay, { attributes: true, attributeFilter: ['hidden'] });
   }
 
+
+  /* ============================================================
+     Избранное — одно хранилище на все каталоги
+     ------------------------------------------------------------
+     Разметка: список карточек помечен data-fav-section="vacancies",
+     карточка — data-fav-id="<слаг>", кнопка-сердечко внутри карточки —
+     .fav-btn. На детальной странице кнопка несёт data-fav="секция:слаг"
+     (и data-fav-text, если у неё меняется подпись).
+     Сердечко живёт внутри карточки-ссылки, поэтому это span с role="button":
+     вложенная <button> внутри <a> — невалидная разметка (тот же приём, что
+     у кнопок «Написать» в каталоге людей).
+     ============================================================ */
+  var FAV_KEY = 'coop_favorites';
+  var favSubs = [];
+
+  function favRead() {
+    try { return JSON.parse(localStorage.getItem(FAV_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function favHas(section, id) {
+    return (favRead()[section] || []).indexOf(id) !== -1;
+  }
+  function favCount(section) {
+    return (favRead()[section] || []).length;
+  }
+  function favToggle(section, id) {
+    var map = favRead();
+    var list = map[section] || [];
+    var i = list.indexOf(id);
+    if (i === -1) list.push(id); else list.splice(i, 1);
+    map[section] = list;
+    try { localStorage.setItem(FAV_KEY, JSON.stringify(map)); } catch (e) {}
+    favRefresh();
+    for (var k = 0; k < favSubs.length; k++) favSubs[k]();
+    return i === -1;
+  }
+  /* Вкладка «Избранное» — это тот же каталог с ?tab=favorites */
+  function favMode() {
+    return (location.search || '').indexOf('tab=favorites') !== -1;
+  }
+  function favTarget(el) {
+    var direct = el.getAttribute('data-fav');
+    if (direct) {
+      var p = direct.split(':');
+      return { section: p[0], id: p.slice(1).join(':') };
+    }
+    var card = el.closest('[data-fav-id]');
+    var box = el.closest('[data-fav-section]');
+    if (!card || !box) return null;
+    return { section: box.getAttribute('data-fav-section'), id: card.getAttribute('data-fav-id') };
+  }
+  function favPaint(el) {
+    var t = favTarget(el);
+    if (!t) return;
+    var on = favHas(t.section, t.id);
+    var label = on ? 'В избранном' : 'Добавить в избранное';
+    el.classList.toggle('active', on);
+    el.setAttribute('aria-pressed', on ? 'true' : 'false');
+    el.setAttribute('title', label);
+    if (el.hasAttribute('data-fav-text')) el.textContent = label;
+    else el.setAttribute('aria-label', label);
+  }
+  function favRefresh() {
+    var btns = document.querySelectorAll('.fav-btn, [data-fav]');
+    for (var i = 0; i < btns.length; i++) favPaint(btns[i]);
+    var tabs = document.querySelectorAll('[data-fav-tab]');
+    for (var j = 0; j < tabs.length; j++) {
+      var badge = tabs[j].querySelector('.fav-tab-count');
+      if (badge) badge.textContent = favCount(tabs[j].getAttribute('data-fav-tab'));
+    }
+  }
+  function favorites() {
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.fav-btn, [data-fav]') : null;
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var t = favTarget(btn);
+      if (t) favToggle(t.section, t.id);
+    });
+    /* Сердечко в карточке — не настоящая кнопка, клавиатуру обрабатываем сами */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var btn = e.target.closest ? e.target.closest('.fav-btn') : null;
+      if (!btn) return;
+      e.preventDefault();
+      btn.click();
+    });
+
+    if (favMode()) {
+      document.body.classList.add('fav-mode');
+      var tab = document.querySelector('[data-fav-tab]');
+      if (tab && tab.parentNode) {
+        var siblings = tab.parentNode.querySelectorAll('a');
+        for (var i = 0; i < siblings.length; i++) siblings[i].classList.remove('active');
+        tab.classList.add('active');
+      }
+      var empty = document.querySelector('[data-fav-empty]');
+      if (empty) empty.textContent = empty.getAttribute('data-fav-empty');
+      /* Заголовок списка: «Все вакансии» → «Избранное» (счётчик рядом остаётся) */
+      var title = document.querySelector('.cat-section-title > span');
+      if (title && title.firstChild && title.firstChild.nodeType === 3) {
+        title.firstChild.nodeValue = 'Избранное ';
+      }
+    }
+    favRefresh();
+  }
+
+  window.CoopFav = {
+    has: favHas,
+    toggle: favToggle,
+    count: favCount,
+    mode: favMode,
+    refresh: favRefresh,
+    onChange: function (fn) { favSubs.push(fn); }
+  };
+
   function init() {
     var right = document.querySelector('.topbar-right');
     if (right) right.insertBefore(buildToggle(), right.firstChild);
@@ -381,6 +497,9 @@
       bar.innerHTML = html;
       document.body.appendChild(bar);
     }
+
+    /* 5.2 Избранное — сердечки на карточках и вкладка «Избранное» */
+    favorites();
 
     /* 5.1 Доступность: имена для кнопок-иконок, состояние переключателей,
        семантика и поведение модальных окон. Делается здесь, в общем слое,

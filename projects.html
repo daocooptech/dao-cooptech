@@ -70,6 +70,7 @@
     <div class="entity-tabs">
       <a href="projects.html" class="active">Каталог проектов</a>
       <a href="feed.html">Лента новостей</a>
+      <a href="projects.html?tab=favorites" data-fav-tab="projects">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
     <div class="search-row">
       <input class="input" placeholder="Начните вводить имя или название">
@@ -78,10 +79,11 @@
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
-      <div id="projects-home"></div>
+      <div id="projects-home" data-fav-section="projects"></div>
       <div id="projects-flat" hidden>
-      <div class="cat-section-title"><span id="flat-section-title">Все проекты</span> <a href="projects.html" class="cat-back-link">← ко всем категориям</a></div><div class="ptile-grid" id="projects-grid">
-    <a class="ptile" href="project.html" data-city="Москва" data-type="Технологии и инновации" data-subcategory="Цифровое производство" data-readiness="98" data-project-type="Кооперативный">
+      <div class="cat-section-title"><span id="flat-section-title">Все проекты</span> <a href="projects.html" class="cat-back-link">← ко всем категориям</a></div><div class="ptile-grid" id="projects-grid" data-fav-section="projects">
+    <a class="ptile" href="project.html" data-city="Москва" data-type="Технологии и инновации" data-subcategory="Цифровое производство" data-readiness="98" data-project-type="Кооперативный" data-fav-id="stroitelnyy-3d-printer">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/printer3d-construction.jpg" alt="Строительный 3д принтер">
         <span class="badge teal type-badge">Кооперативный</span>
@@ -95,7 +97,8 @@
       </div>
       <div class="pname">Строительный 3д принтер</div>
     </a>
-    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Сельское хозяйство и еда" data-subcategory="Городское земледелие" data-readiness="91" data-project-type="Коммерческий">
+    <a class="ptile" href="project-greenhouse.html" data-city="Пермь" data-type="Сельское хозяйство и еда" data-subcategory="Городское земледелие" data-readiness="91" data-project-type="Коммерческий" data-fav-id="kruglogodichnaya-teplitsa">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/greenhouse.jpg" alt="Круглогодичная теплица">
         <span class="badge gold type-badge">Коммерческий</span>
@@ -109,7 +112,8 @@
       </div>
       <div class="pname">Круглогодичная теплица</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Воронеж" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="68" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Воронеж" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="68" data-project-type="Некоммерческий" data-fav-id="razdelnyy-sbor-musora">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/waste-sorting.jpg" alt="Раздельный сбор мусора">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -123,7 +127,8 @@
       </div>
       <div class="pname">Раздельный сбор мусора</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Красноярск" data-type="Сельское хозяйство и еда" data-subcategory="Городское земледелие" data-readiness="74" data-project-type="Кооперативный">
+    <a class="ptile" href="project.html" data-city="Красноярск" data-type="Сельское хозяйство и еда" data-subcategory="Городское земледелие" data-readiness="74" data-project-type="Кооперативный" data-fav-id="biovegetariy">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/greenhouse.jpg" alt="Биовегетарий">
         <span class="badge teal type-badge">Кооперативный</span>
@@ -137,7 +142,8 @@
       </div>
       <div class="pname">Биовегетарий</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Санкт-Петербург" data-type="Малый бизнес и ремёсла" data-subcategory="Коворкинги и мастерские" data-readiness="86" data-project-type="Коммерческий">
+    <a class="ptile" href="project.html" data-city="Санкт-Петербург" data-type="Малый бизнес и ремёсла" data-subcategory="Коворкинги и мастерские" data-readiness="86" data-project-type="Коммерческий" data-fav-id="antikafe-fablab">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/makerspace.jpg" alt="Антикафе «FabLab»">
         <span class="badge gold type-badge">Коммерческий</span>
@@ -151,7 +157,8 @@
       </div>
       <div class="pname">Антикафе «FabLab»</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Екатеринбург" data-type="Общественные инициативы" data-subcategory="Социальные услуги" data-readiness="55" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Екатеринбург" data-type="Общественные инициативы" data-subcategory="Социальные услуги" data-readiness="55" data-project-type="Некоммерческий" data-fav-id="obschestvennaya-prachechnaya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/laundromat.jpg" alt="Общественная прачечная">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -165,7 +172,8 @@
       </div>
       <div class="pname">Общественная прачечная</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Казань" data-type="Малый бизнес и ремёсла" data-subcategory="Коворкинги и мастерские" data-readiness="72" data-project-type="Кооперативный">
+    <a class="ptile" href="project.html" data-city="Казань" data-type="Малый бизнес и ремёсла" data-subcategory="Коворкинги и мастерские" data-readiness="72" data-project-type="Кооперативный" data-fav-id="sosedskiy-kovorking">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/coworking.jpg" alt="Соседский коворкинг">
         <span class="badge teal type-badge">Кооперативный</span>
@@ -179,7 +187,8 @@
       </div>
       <div class="pname">Соседский коворкинг</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Ростов-на-Дону" data-type="Культура и искусство" data-subcategory="Культура и досуг" data-readiness="63" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Ростов-на-Дону" data-type="Культура и искусство" data-subcategory="Культура и досуг" data-readiness="63" data-project-type="Некоммерческий" data-fav-id="remont-doma-kultury">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/building-renovation.jpg" alt="Ремонт дома культуры">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -193,7 +202,8 @@
       </div>
       <div class="pname">Ремонт дома культуры</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Уфа" data-type="Благотворительность" data-subcategory="Жильё для нуждающихся семей" data-readiness="47" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Уфа" data-type="Благотворительность" data-subcategory="Жильё для нуждающихся семей" data-readiness="47" data-project-type="Некоммерческий" data-fav-id="modulnye-doma-dlya-mnogodetnyh-semey">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/modular-house.jpg" alt="Модульные дома для многодетных семей">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -207,7 +217,8 @@
       </div>
       <div class="pname">Модульные дома для многодетных семей</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Краснодар" data-type="Экология и природа" data-subcategory="Возобновляемая энергетика" data-readiness="82" data-project-type="Кооперативный">
+    <a class="ptile" href="project.html" data-city="Краснодар" data-type="Экология и природа" data-subcategory="Возобновляемая энергетика" data-readiness="82" data-project-type="Кооперативный" data-fav-id="solnechnaya-elektrostantsiya-kooperativa">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/solar-farm.jpg" alt="Солнечная электростанция кооператива">
         <span class="badge teal type-badge">Кооперативный</span>
@@ -221,7 +232,8 @@
       </div>
       <div class="pname">Солнечная электростанция кооператива</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Самара" data-type="Архитектура и урбанистика" data-subcategory="Инфраструктура и мосты" data-readiness="58" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Самара" data-type="Архитектура и урбанистика" data-subcategory="Инфраструктура и мосты" data-readiness="58" data-project-type="Некоммерческий" data-fav-id="remont-mosta-cherez-reku">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/bridge-repair.jpg" alt="Ремонт моста через реку">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -235,7 +247,8 @@
       </div>
       <div class="pname">Ремонт моста через реку</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Омск" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="77" data-project-type="ДАО">
+    <a class="ptile" href="project.html" data-city="Омск" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="77" data-project-type="ДАО" data-fav-id="punkt-priema-vtorsyrya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/recycling-center.jpg" alt="Пункт приёма вторсырья">
         <span class="badge slate type-badge">ДАО</span>
@@ -249,7 +262,8 @@
       </div>
       <div class="pname">Пункт приёма вторсырья</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Челябинск" data-type="Общественные инициативы" data-subcategory="Городская среда" data-readiness="95" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Челябинск" data-type="Общественные инициативы" data-subcategory="Городская среда" data-readiness="95" data-project-type="Некоммерческий" data-fav-id="detskaya-igrovaya-ploschadka">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/playground.jpg" alt="Детская игровая площадка">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -263,7 +277,8 @@
       </div>
       <div class="pname">Детская игровая площадка</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Нижний Новгород" data-type="Сельское хозяйство и еда" data-subcategory="Пищевое производство" data-readiness="66" data-project-type="Кооперативный">
+    <a class="ptile" href="project.html" data-city="Нижний Новгород" data-type="Сельское хозяйство и еда" data-subcategory="Пищевое производство" data-readiness="66" data-project-type="Кооперативный" data-fav-id="kooperativnaya-pekarnya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/bakery.jpg" alt="Кооперативная пекарня">
         <span class="badge teal type-badge">Кооперативный</span>
@@ -277,7 +292,8 @@
       </div>
       <div class="pname">Кооперативная пекарня</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Волгоград" data-type="Экология и природа" data-subcategory="Возобновляемая энергетика" data-readiness="39" data-project-type="Кооперативный">
+    <a class="ptile" href="project.html" data-city="Волгоград" data-type="Экология и природа" data-subcategory="Возобновляемая энергетика" data-readiness="39" data-project-type="Кооперативный" data-fav-id="vetropark-dlya-malyh-hozyaystv">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/wind-turbine.jpg" alt="Ветропарк для малых хозяйств">
         <span class="badge teal type-badge">Кооперативный</span>
@@ -291,7 +307,8 @@
       </div>
       <div class="pname">Ветропарк для малых хозяйств</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Тюмень" data-type="Культура и искусство" data-subcategory="Реставрация" data-readiness="71" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Тюмень" data-type="Культура и искусство" data-subcategory="Реставрация" data-readiness="71" data-project-type="Некоммерческий" data-fav-id="restavratsiya-istoricheskogo-zdaniya">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/historic-restoration.jpg" alt="Реставрация исторического здания">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -305,7 +322,8 @@
       </div>
       <div class="pname">Реставрация исторического здания</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Иркутск" data-type="Культура и искусство" data-subcategory="Библиотеки и медиа" data-readiness="84" data-project-type="ДАО">
+    <a class="ptile" href="project.html" data-city="Иркутск" data-type="Культура и искусство" data-subcategory="Библиотеки и медиа" data-readiness="84" data-project-type="ДАО" data-fav-id="biblioteka-pod-otkrytym-nebom">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/outdoor-library.jpg" alt="Библиотека под открытым небом">
         <span class="badge slate type-badge">ДАО</span>
@@ -319,7 +337,8 @@
       </div>
       <div class="pname">Библиотека под открытым небом</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Хабаровск" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="60" data-project-type="Коммерческий">
+    <a class="ptile" href="project.html" data-city="Хабаровск" data-type="Экология и природа" data-subcategory="Переработка отходов" data-readiness="60" data-project-type="Коммерческий" data-fav-id="masterskaya-po-pererabotke-plastika">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/plastic-recycling.jpg" alt="Мастерская по переработке пластика">
         <span class="badge gold type-badge">Коммерческий</span>
@@ -333,7 +352,8 @@
       </div>
       <div class="pname">Мастерская по переработке пластика</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Владивосток" data-type="Архитектура и урбанистика" data-subcategory="Инфраструктура и мосты" data-readiness="45" data-project-type="ДАО">
+    <a class="ptile" href="project.html" data-city="Владивосток" data-type="Архитектура и урбанистика" data-subcategory="Инфраструктура и мосты" data-readiness="45" data-project-type="ДАО" data-fav-id="stroitelstvo-mosta-peshehodnika">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/pedestrian-bridge.jpg" alt="Строительство моста-пешеходника">
         <span class="badge slate type-badge">ДАО</span>
@@ -347,7 +367,8 @@
       </div>
       <div class="pname">Строительство моста-пешеходника</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Калининград" data-type="Технологии и инновации" data-subcategory="Технопарки и инкубаторы" data-readiness="89" data-project-type="ДАО">
+    <a class="ptile" href="project.html" data-city="Калининград" data-type="Технологии и инновации" data-subcategory="Технопарки и инкубаторы" data-readiness="89" data-project-type="ДАО" data-fav-id="molodezhnyy-tehnopark">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/tech-park.jpg" alt="Молодёжный технопарк">
         <span class="badge slate type-badge">ДАО</span>
@@ -361,7 +382,8 @@
       </div>
       <div class="pname">Молодёжный технопарк</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Архангельск" data-type="Здоровье и медицина" data-subcategory="Медицинские услуги" data-readiness="53" data-project-type="Некоммерческий">
+    <a class="ptile" href="project.html" data-city="Архангельск" data-type="Здоровье и медицина" data-subcategory="Медицинские услуги" data-readiness="53" data-project-type="Некоммерческий" data-fav-id="mobilnyy-medpunkt-dlya-otdalennyh-sel">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/mobile-clinic.jpg" alt="Мобильный медпункт для отдалённых сёл">
         <span class="badge outline type-badge">Некоммерческий</span>
@@ -375,7 +397,8 @@
       </div>
       <div class="pname">Мобильный медпункт для отдалённых сёл</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Нижний Тагил" data-type="Образование и наука" data-subcategory="Дополнительное образование" data-readiness="62" data-project-type="Кооперативный">
+    <a class="ptile" href="project.html" data-city="Нижний Тагил" data-type="Образование и наука" data-subcategory="Дополнительное образование" data-readiness="62" data-project-type="Кооперативный" data-fav-id="kooperativnaya-shkola-programmirovaniya-dlya-pod">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/coding-class.jpg" alt="Кооперативная школа программирования для подростков">
         <span class="badge teal type-badge">Кооперативный</span>
@@ -389,7 +412,8 @@
       </div>
       <div class="pname">Кооперативная школа программирования для подростков</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Магнитогорск" data-type="Спорт и активный отдых" data-subcategory="Спортивная инфраструктура" data-readiness="70" data-project-type="Коммерческий">
+    <a class="ptile" href="project.html" data-city="Магнитогорск" data-type="Спорт и активный отдых" data-subcategory="Спортивная инфраструктура" data-readiness="70" data-project-type="Коммерческий" data-fav-id="skalodrom-v-byvshem-tsehe">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/climbing-gym.jpg" alt="Скалодром в бывшем цехе">
         <span class="badge gold type-badge">Коммерческий</span>
@@ -403,7 +427,8 @@
       </div>
       <div class="pname">Скалодром в бывшем цехе</div>
     </a>
-    <a class="ptile" href="project.html" data-city="Новосибирск" data-type="ИТ" data-subcategory="Разработка ПО" data-readiness="58" data-project-type="ДАО">
+    <a class="ptile" href="project.html" data-city="Новосибирск" data-type="ИТ" data-subcategory="Разработка ПО" data-readiness="58" data-project-type="ДАО" data-fav-id="otkrytaya-crm-dlya-kooperativov">
+            <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
       <div class="img-wrap">
         <img src="images/photos/open-source-crm.jpg" alt="Открытая CRM для кооперативов">
         <span class="badge slate type-badge">ДАО</span>
@@ -418,7 +443,7 @@
       <div class="pname">Открытая CRM для кооперативов</div>
     </a>
 </div>
-      <div class="empty-state" id="projects-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+      <div class="empty-state" id="projects-empty" data-fav-empty="В избранном пока пусто. Нажмите на сердечко в карточке, чтобы сохранить её сюда." hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
       </div>
       </div>
       <div class="filter-panel" id="projects-filter-panel">
@@ -569,9 +594,11 @@ filterSubcategorySelect.addEventListener('change', function () {
 });
 
 function applyFilters() {
+  /* Вкладка «Избранное» — тот же список, суженный до избранных карточек */
+  var favMode = (location.search || '').indexOf('tab=favorites') !== -1;
   projectsHome.hidden = true;
   projectsFlat.hidden = false;
-  flatSectionTitle.textContent = selectedCategory || 'Все проекты';
+  flatSectionTitle.textContent = favMode ? 'Избранное' : (selectedCategory || 'Все проекты');
   var city = document.getElementById('filter-city').value.trim().toLowerCase();
   var type = document.getElementById('filter-type').value;
   var readiness = parseInt(document.getElementById('filter-readiness').value, 10);
@@ -586,7 +613,8 @@ function applyFilters() {
     var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
     var readinessOk = cardReadiness >= readiness;
     var projectTypeOk = !projectType || card.dataset.projectType === projectType;
-    var show = cityOk && typeOk && subcategoryOk && readinessOk && projectTypeOk;
+    var favOk = !favMode || (window.CoopFav && CoopFav.has('projects', card.dataset.favId));
+    var show = cityOk && typeOk && subcategoryOk && readinessOk && projectTypeOk && favOk;
     card.style.display = show ? '' : 'none';
     if (show) visibleCount++;
   });
@@ -727,12 +755,22 @@ function showFlatView(catParam) {
   var params = new URLSearchParams(location.search);
   var catParam = params.get('category');
   var viewAll = params.get('view') === 'all';
-  if (catParam || viewAll) {
+  var favView = (location.search || '').indexOf('tab=favorites') !== -1;
+  if (catParam || viewAll || favView) {
     showFlatView(catParam);
   } else {
     showHomeView();
   }
 })();
+
+/* Сердечко в карточке переключает избранное (app.js) — список
+   пересобираем сразу, иначе на вкладке «Избранное» карточка исчезнет
+   только после перезагрузки страницы. */
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.CoopFav) return;
+  CoopFav.onChange(applyFilters);
+  if ((location.search || '').indexOf('tab=favorites') !== -1) applyFilters();
+});
 </script>
 <script src="app.js"></script>
 </body>
