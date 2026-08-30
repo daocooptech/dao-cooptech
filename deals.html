@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сделки — cooptech</title>
+<script src="theme-init.js"></script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="topbar-left">
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
+    <a class="topbar-bell" href="notifications.html" aria-label="Уведомления: 3 новых"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15.4V10a6 6 0 10-12 0v5.4L4.6 18h14.8M10 20.4a2 2 0 004 0"/></svg><span class="bell-count">3</span></a>
+    <a href="#">настройки</a>
+    <a href="index.html">выйти</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
+      <a href="my-page.html" data-icon="my-page">Моя страница</a>
+      <a href="messages.html" data-icon="messages">Сообщения</a>
+      <a href="people.html" data-icon="people">Люди</a>
+      <a href="skills.html" data-icon="skills">Навыки</a>
+      <a href="vacancies.html" data-icon="vacancies">Вакансии</a>
+      <a href="resources.html" data-icon="resources">Ресурсы</a>
+      <a href="projects.html" data-icon="projects">Проекты</a>
+      <a href="organizations.html" data-icon="organizations">Организации</a>
+      <a href="communities.html" data-icon="communities">Сообщества</a>
+      <a href="wallet.html" data-icon="wallet">Кошелёк</a>
+      <a href="deals.html" class="active" data-icon="deals">Сделки</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav aria-label="Расширения">
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+
+    <h1 class="page-title" style="margin-bottom:14px">Сделки</h1>
+
+    <div class="entity-tabs" id="deal-tabs">
+      <a href="#" class="active" data-tab="registry">Реестр сделок <span class="badge outline">40</span></a>
+      <a href="#" data-tab="await">Ждут вашего отзыва <span class="badge outline">2</span></a>
+      <a href="#" data-tab="trust">Уровень доверия <span class="badge outline">92%</span></a>
+    </div>
+
+    <!-- ==================== РЕЕСТР / ЖДУТ ОТЗЫВА ==================== -->
+    <div id="tab-registry">
+
+      <div class="deal-strip" id="trust-strip">
+        <span><b>92%</b> уровень доверия</span>
+        <span>33 из 35 оценённых сделок</span>
+        <span>средняя оценка <b>4,8</b></span>
+        <a href="#" data-goto-tab="trust">из чего это сложилось &rarr;</a>
+      </div>
+
+      <div class="card deal-hint" id="await-hint" hidden>
+        ⏳ <b>Две сделки ждут вашей оценки.</b> Пока вы не оставите отзыв, отзыв контрагента о вас остаётся закрытым, а сама сделка не входит ни в числитель, ни в знаменатель уровня доверия — она не поднимает и не опускает ваши 92%. Оценки раскрываются обеим сторонам одновременно, поэтому подстроить свой отзыв под чужой невозможно.
+      </div>
+
+      <div class="search-row">
+        <input class="input" id="deal-search" placeholder="Предмет сделки или контрагент, например «пельмени»">
+        <span style="color:var(--slate);font-size:12.5px">Показано <b id="deal-count">40</b> из 40</span>
+      </div>
+
+      <div class="content-with-filter">
+        <div style="flex:1">
+          <div class="deal-list" id="deal-list">
+        <article class="deal-card" data-status="active" data-outcome="none" data-type="Ресурс" data-way="Аренда" data-role="арендатор" data-party="Организация" data-year="2026" data-city="Новосибирск" data-search="экскаватор-погрузчик, 7 суток зао «стройтехно»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Экскаватор-погрузчик, 7 суток</a>
+              <div class="deal-meta">Аренда · 28 августа 2026 · <span class="meta-city">📍 Новосибирск</span> · вы — арендатор, контрагент — арендодатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">63 000 ₽</div>
+              <span class="badge outline">В работе</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/vtb.png" alt="ЗАО «СтройТехно»" loading="lazy">
+              <div>
+                <div class="review-name">ЗАО «СтройТехно»</div>
+                <div class="review-date">Контрагент · арендодатель · уровень доверия 84%</div>
+              </div>
+            </a>
+            <span class="deal-impact pending" title="Сделка не завершена — отзывы станут доступны после закрытия.">• Отзывы после завершения</span>
+          </div>
+        <div class="deal-progress">Техника получена, идёт срок аренды — до 4 сентября. Отзывы откроются обеим сторонам после завершения сделки.</div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x8f3c41a9…05e3</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="active" data-outcome="none" data-type="Проект" data-way="Доля в проекте" data-role="участник" data-party="Организация" data-year="2026" data-city="Дербент" data-search="строительный 3д принтер — доля 5% кооператив «шукты»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🏗 Проект</span>
+              <a class="deal-title" href="project.html">Строительный 3д принтер — доля 5%</a>
+              <div class="deal-meta">Доля в проекте · 26 августа 2026 · <span class="meta-city">📍 Дербент</span> · вы — участник, контрагент — оператор проекта</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">Доля 5%</div>
+              <span class="badge outline">В работе</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization-coop.html"><img class="avatar deal-org-logo" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" loading="lazy">
+              <div>
+                <div class="review-name">Кооператив «Шукты»</div>
+                <div class="review-date">Контрагент · оператор проекта · уровень доверия 88%</div>
+              </div>
+            </a>
+            <span class="deal-impact pending" title="Сделка не завершена — отзывы станут доступны после закрытия.">• Отзывы после завершения</span>
+          </div>
+        <div class="deal-progress">Вклад внесён, доля рассчитывается по итогам этапа. Отзывы откроются обеим сторонам после завершения сделки.</div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xb72d5e08…aa71</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="await-mine" data-outcome="pending" data-type="Ресурс" data-way="Продажа" data-role="продавец" data-party="Человек" data-year="2026" data-city="Нижний Новгород" data-search="пельмени домашней лепки, 9 кг семёнов николай петрович">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 9 кг</a>
+              <div class="deal-meta">Продажа · 24 августа 2026 · <span class="meta-city">📍 Нижний Новгород</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">3 600 ₽</div>
+              <span class="badge gold">Ждёт отзыва</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/19.jpg" alt="Семёнов Николай Петрович" loading="lazy">
+              <div>
+                <div class="review-name">Семёнов Николай Петрович</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 97%</div>
+              </div>
+            </a>
+            <span class="deal-impact pending" title="Пока обе стороны не оставили отзыв, сделка не влияет на уровень доверия ни у вас, ни у контрагента.">⏳ В доверие пока не входит</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Отзыв контрагента о вас</div>
+            <div class="mutual-review-pending">🔒 Отзыв оставлен Семёнов и скрыт, пока вы не оцените сделку. Так ни одна сторона не подстраивает оценку под чужую.</div>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте</div>
+            <div class="review-stars-input" data-stars-input aria-label="Оценка"><span data-star="1">★</span><span data-star="2">★</span><span data-star="3">★</span><span data-star="4">★</span><span data-star="5">★</span></div>
+            <textarea class="input" rows="2" placeholder="Как прошла сделка?" style="margin-top:8px"></textarea>
+            <button class="button" type="button" data-review-submit style="margin-top:8px">Оставить отзыв</button>
+            <div class="deal-deadline">Осталось 11 дней из 14 — потом сделка закроется без оценок и в доверие не войдёт.</div>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x1a4f90cd…7c60</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="await-theirs" data-outcome="pending" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Челябинск" data-search="программист — правки в каталоге навыков артель «уральские мастера»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — правки в каталоге навыков</a>
+              <div class="deal-meta">Услуга · 20 августа 2026 · <span class="meta-city">📍 Челябинск</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">22 000 ₽</div>
+              <span class="badge gold">Ждёт отзыва</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»" loading="lazy">
+              <div>
+                <div class="review-name">Артель «Уральские мастера»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 80%</div>
+              </div>
+            </a>
+            <span class="deal-impact pending" title="Пока обе стороны не оставили отзыв, сделка не влияет на уровень доверия ни у вас, ни у контрагента.">⏳ В доверие пока не входит</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Отзыв контрагента о вас</div>
+            <div class="mutual-review-pending">⏳ Ждём отзыв контрагента — 4 дня из 14. Ваша оценка ему пока не видна.</div>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">отправлен, ждёт раскрытия</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Приняли работу за день и оплатили сразу. По правкам отвечали в тот же час.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x6e28b3f7…23bf</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="active" data-outcome="none" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Красноярск" data-search="программист — личный кабинет фонда фонд «территория 2020»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — личный кабинет фонда</a>
+              <div class="deal-meta">Услуга · 18 августа 2026 · <span class="meta-city">📍 Красноярск</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">85 000 ₽</div>
+              <span class="badge outline">В работе</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization-nonprofit.html"><img class="avatar deal-org-logo" src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»" loading="lazy">
+              <div>
+                <div class="review-name">Фонд «Территория 2020»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 81%</div>
+              </div>
+            </a>
+            <span class="deal-impact pending" title="Сделка не завершена — отзывы станут доступны после закрытия.">• Отзывы после завершения</span>
+          </div>
+        <div class="deal-progress">2-й этап из 3, сдача — 10 сентября. Отзывы откроются обеим сторонам после завершения сделки.</div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xc05a17d4…e918</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Продажа" data-role="продавец" data-party="Человек" data-year="2026" data-city="Санкт-Петербург" data-search="пельмени домашней лепки, 12 кг смирнова екатерина андреевна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 12 кг</a>
+              <div class="deal-meta">Продажа · 12 августа 2026 · <span class="meta-city">📍 Санкт-Петербург</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">4 800 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/5.jpg" alt="Смирнова Екатерина Андреевна" loading="lazy">
+              <div>
+                <div class="review-name">Смирнова Екатерина Андреевна</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 88%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Забрала заказ вовремя, всё ровно как в описании: тесто тонкое, вес честный. Данил сам предупредил, что партия будет готова на час позже — приятно, когда о задержке говорят заранее, а не постфактум.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Екатерина приехала точно к назначенному времени, тара своя. Идеальный покупатель, жду снова.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x39fb8e26…4d2a</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Продажа партией" data-role="продавец" data-party="Организация" data-year="2026" data-city="Москва" data-search="пельмени домашней лепки, 15 кг ооо «кооп-маркет»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 15 кг</a>
+              <div class="deal-meta">Продажа партией · 4 августа 2026 · <span class="meta-city">📍 Москва</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">9 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/rostelecom.png" alt="ООО «Кооп-Маркет»" loading="lazy">
+              <div>
+                <div class="review-name">ООО «Кооп-Маркет»</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 86%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Третья поставка подряд, качество стабильное. Документы и маркировка партии оформлены без напоминаний.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Оплата пришла в срок, но заявку прислали в последний момент — цех пришлось ставить в ночную смену.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xd41c7a90…90c5</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Дербент" data-search="программист — доработка каталога кооператива кооператив «шукты»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — доработка каталога кооператива</a>
+              <div class="deal-meta">Услуга · 27 июля 2026 · <span class="meta-city">📍 Дербент</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">65 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization-coop.html"><img class="avatar deal-org-logo" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" loading="lazy">
+              <div>
+                <div class="review-name">Кооператив «Шукты»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 88%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Сделал в срок и объяснил на человеческом языке, что и зачем меняет. Прислал инструкцию, по которой наш агроном сам обновляет каталог.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Правление кооператива быстро принимало решения, техзадание не переписывали на ходу. Работать было легко.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x05e3b28f…fb07</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Аренда" data-role="арендатор" data-party="Человек" data-year="2026" data-city="Иркутск" data-search="бетономешалка передвижная, 4 суток богданов тимур асланович">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Бетономешалка передвижная, 4 суток</a>
+              <div class="deal-meta">Аренда · 18 июля 2026 · <span class="meta-city">📍 Иркутск</span> · вы — арендатор, контрагент — арендодатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">14 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/24.jpg" alt="Богданов Тимур Асланович" loading="lazy">
+              <div>
+                <div class="review-name">Богданов Тимур Асланович</div>
+                <div class="review-date">Контрагент · арендодатель · уровень доверия 71%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Вернул технику вымытой и на день раньше срока. Мелкую поломку крыльчатки устранил сам и предупредил об этом.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Мешалка рабочая, но щётки двигателя были на исходе — на третьи сутки начала греться. Хозяин на связи, вопрос решили.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xaa719c34…586a</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Проект" data-way="Доля в проекте" data-role="участник" data-party="Организация" data-year="2026" data-city="Краснодар" data-search="круглогодичная теплица — доля 4% кооператив «плодородие»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🏗 Проект</span>
+              <a class="deal-title" href="project.html">Круглогодичная теплица — доля 4%</a>
+              <div class="deal-meta">Доля в проекте · 9 июля 2026 · <span class="meta-city">📍 Краснодар</span> · вы — участник, контрагент — оператор проекта</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">Доля 4%</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/mts.png" alt="Кооператив «Плодородие»" loading="lazy">
+              <div>
+                <div class="review-name">Кооператив «Плодородие»</div>
+                <div class="review-date">Контрагент · оператор проекта · уровень доверия 76%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Внёс вклад кодом и двумя ноутбуками, довёл учёт урожая до рабочего состояния. Доля начислена по протоколу общего собрания.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Правление честно посчитало вклад и не тянуло с оформлением доли. Отчётность прозрачная.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x7c60d1e5…cd3f</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Покупка" data-role="покупатель" data-party="Организация" data-year="2026" data-city="Ростов-на-Дону" data-search="мука пшеничная высшего сорта, 300 кг ооо «агрострой»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Мука пшеничная высшего сорта, 300 кг</a>
+              <div class="deal-meta">Покупка · 30 июня 2026 · <span class="meta-city">📍 Ростов-на-Дону</span> · вы — покупатель, контрагент — продавец</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">18 600 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/nornickel.png" alt="ООО «АгроСтрой»" loading="lazy">
+              <div>
+                <div class="review-name">ООО «АгроСтрой»</div>
+                <div class="review-date">Контрагент · продавец · уровень доверия 82%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Оплатил по счёту в день выставления, машину под погрузку прислал вовремя.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Мука ровная, влажность в норме, документы приложены. Берём дальше.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x23bf4a08…12e9</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="negative" data-type="Ресурс" data-way="Продажа партией" data-role="продавец" data-party="Человек" data-year="2026" data-city="Волгоград" data-search="пельмени домашней лепки, 30 кг голубева мария александровна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 30 кг</a>
+              <div class="deal-meta">Продажа партией · 26 июня 2026 · <span class="meta-city">📍 Волгоград</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">18 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/22.jpg" alt="Голубева Мария Александровна" loading="lazy">
+              <div>
+                <div class="review-name">Голубева Мария Александровна</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 55%</div>
+              </div>
+            </a>
+            <span class="deal-impact negative" title="Отзыв контрагента о вас — отрицательный (1–2 звезды). Сделка входит только в знаменатель формулы доверия.">✖ Засчитана как отрицательная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 2 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:40%">★★★★★</span></span>
+            <p class="review-text">Партия приехала на два дня позже срока, часть упаковок была подтаявшей. Возврат за 4 кг сделали, но осадок остался — о задержке я узнала сама, когда позвонила.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 3 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:60%">★★★★★</span></span>
+            <p class="review-text">Оплата пришла с задержкой на неделю. Претензию по разморозке признал, деньги вернул, но виновата всё же логистика.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xe918c07b…a604</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Удалённо" data-search="программист — интеграция расчёта паёв дао «цифровой кооператив»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — интеграция расчёта паёв</a>
+              <div class="deal-meta">Услуга · 21 июня 2026 · <span class="meta-city">📍 Удалённо</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">120 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/kamaz.png" alt="ДАО «Цифровой кооператив»" loading="lazy">
+              <div>
+                <div class="review-name">ДАО «Цифровой кооператив»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 92%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Разобрался в чужом коде без единого лишнего вопроса и оставил тесты. Редкий случай, когда после подрядчика не надо переделывать.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Понятное ТЗ, оплата двумя частями точно в срок, доступы выдали в первый же день.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x4d2a86f1…7f5b</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Обмен" data-role="обменивающийся" data-party="Человек" data-year="2026" data-city="Краснодар" data-search="ящик с ручным инструментом ↔ 20 кг пельменей виноградов денис игоревич">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Ящик с ручным инструментом ↔ 20 кг пельменей</a>
+              <div class="deal-meta">Обмен · 14 июня 2026 · <span class="meta-city">📍 Краснодар</span> · вы — обменивающийся, контрагент — обменивающийся</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">Обмен без денег</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/23.jpg" alt="Виноградов Денис Игоревич" loading="lazy">
+              <div>
+                <div class="review-name">Виноградов Денис Игоревич</div>
+                <div class="review-date">Контрагент · обменивающийся · уровень доверия 89%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Обмен один в один как договаривались, ничего не переигрывал по дороге. Инструмент забрал сам, я никуда не ехал.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Набор полный, всё рабочее, даже ключи, которых не было на фото. Хороший обмен.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x90c5e34b…34da</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Работа" data-way="Работа по вакансии" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Удалённо" data-search="веб-разработчик — платформа дао коопех дао коопех">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">👷 Работа</span>
+              <a class="deal-title" href="vacancy.html">Веб-разработчик — платформа ДАО КООПЕХ</a>
+              <div class="deal-meta">Работа по вакансии · 5 июня 2026 · <span class="meta-city">📍 Удалённо</span> · вы — исполнитель, контрагент — работодатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">Деньги + доля</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/dao-cooptech.svg" alt="ДАО КООПЕХ" loading="lazy">
+              <div>
+                <div class="review-name">ДАО КООПЕХ</div>
+                <div class="review-date">Контрагент · работодатель · уровень доверия 95%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Закрыл спринт по каталогу ресурсов раньше срока. Код принят в основную ветку без замечаний ревью.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Задачи ставят чётко, вознаграждение и доля оформлены через голосование, всё видно в реестре.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xfb0713da…ee17</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Продажа" data-role="продавец" data-party="Человек" data-year="2026" data-city="Казань" data-search="пельмени домашней лепки, 8 кг морозова анна сергеевна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 8 кг</a>
+              <div class="deal-meta">Продажа · 28 мая 2026 · <span class="meta-city">📍 Казань</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">3 200 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/9.jpg" alt="Морозова Анна Сергеевна" loading="lazy">
+              <div>
+                <div class="review-name">Морозова Анна Сергеевна</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 73%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Всё свежее, упаковано аккуратно, доставил лично к подъезду в оговорённое окно.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Анна перенесла время получения дважды, но предупредила заранее. Претензий нет.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x586ac92e…0b93</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Аренда" data-role="арендатор" data-party="Организация" data-year="2026" data-city="Хабаровск" data-search="складское помещение 200 м², месяц кооператив «речной порт»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Складское помещение 200 м², месяц</a>
+              <div class="deal-meta">Аренда · 19 мая 2026 · <span class="meta-city">📍 Хабаровск</span> · вы — арендатор, контрагент — арендодатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">48 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/severstal.png" alt="Кооператив «Речной порт»" loading="lazy">
+              <div>
+                <div class="review-name">Кооператив «Речной порт»</div>
+                <div class="review-date">Контрагент · арендодатель · уровень доверия 85%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Помещение сдал в том же состоянии, что принял. Оплата вперёд, без напоминаний.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Склад сухой, отапливаемый, охрана работает. Договор без скрытых пунктов.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xcd3f6104…5c68</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Челябинск" data-search="программист — сайт для артели артель «уральские мастера»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — сайт для артели</a>
+              <div class="deal-meta">Услуга · 12 мая 2026 · <span class="meta-city">📍 Челябинск</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">48 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»" loading="lazy">
+              <div>
+                <div class="review-name">Артель «Уральские мастера»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 80%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Работу сделал хорошо, но неделю не выходил на связь в середине проекта. В итоге всё сдал в срок.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Мастера подготовили нормальные фото изделий с первого раза — это сильно ускорило работу.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x12e9ba75…9a24</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Покупка" data-role="покупатель" data-party="Человек" data-year="2026" data-city="Калининград" data-search="ноутбук для удалённой работы фёдоров алексей дмитриевич">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Ноутбук для удалённой работы</a>
+              <div class="deal-meta">Покупка · 3 мая 2026 · <span class="meta-city">📍 Калининград</span> · вы — покупатель, контрагент — продавец</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">62 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/27.jpg" alt="Фёдоров Алексей Дмитриевич" loading="lazy">
+              <div>
+                <div class="review-name">Фёдоров Алексей Дмитриевич</div>
+                <div class="review-date">Контрагент · продавец · уровень доверия 94%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Приехал на встречу с готовой суммой, проверил машину внимательно и по делу. Спокойная сделка.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Ноутбук полностью соответствовал описанию, батарея как заявлено. Продавец не торопил с проверкой.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xa6041fc8…d7be</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Взаимный кредит" data-way="Взаимный кредит" data-role="заёмщик" data-party="Организация" data-year="2026" data-city="Москва" data-search="заём на закупку сырья, 30 дней кредитный кооператив «взаимопомощь»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">💰 Взаимный кредит</span>
+              <a class="deal-title" href="wallet.html">Заём на закупку сырья, 30 дней</a>
+              <div class="deal-meta">Взаимный кредит · 24 апреля 2026 · <span class="meta-city">📍 Москва</span> · вы — заёмщик, контрагент — кредитор</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">80 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/avito.png" alt="Кредитный кооператив «Взаимопомощь»" loading="lazy">
+              <div>
+                <div class="review-name">Кредитный кооператив «Взаимопомощь»</div>
+                <div class="review-date">Контрагент · кредитор · уровень доверия 89%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Вернул на четыре дня раньше срока. Цель займа подтвердил документами, как договаривались.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Ставка прозрачная, никаких скрытых комиссий. Решение по заявке — за сутки.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x7f5b230e…61f8</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Продажа партией" data-role="продавец" data-party="Организация" data-year="2026" data-city="Сочи" data-search="пельмени домашней лепки, 25 кг кооператив «гостевой двор»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 25 кг</a>
+              <div class="deal-meta">Продажа партией · 15 апреля 2026 · <span class="meta-city">📍 Сочи</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">15 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/pochta.png" alt="Кооператив «Гостевой двор»" loading="lazy">
+              <div>
+                <div class="review-name">Кооператив «Гостевой двор»</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 84%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Партия под наше меню, сделал нестандартную фасовку без наценки. Привёз в день открытия сезона.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Заявка заранее, оплата сразу, машину под разгрузку подали вовремя.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x34da8916…2830</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Пермь" data-search="программист — учебный курс по вёрстке ано «мастерская будущего»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — учебный курс по вёрстке</a>
+              <div class="deal-meta">Услуга · 6 апреля 2026 · <span class="meta-city">📍 Пермь</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">35 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/beeline.png" alt="АНО «Мастерская будущего»" loading="lazy">
+              <div>
+                <div class="review-name">АНО «Мастерская будущего»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 83%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Провёл шесть занятий для подростков, материалы оставил в открытом доступе. Дети досидели до конца курса — это показатель.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Организаторы обеспечили технику и помещение, ни одно занятие не сорвалось.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xee172c5b…b4e6</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Покупка" data-role="покупатель" data-party="Человек" data-year="2026" data-city="Новосибирск" data-search="чест-морозильник для цеха зимин кирилл дмитриевич">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Чест-морозильник для цеха</a>
+              <div class="deal-meta">Покупка · 28 марта 2026 · <span class="meta-city">📍 Новосибирск</span> · вы — покупатель, контрагент — продавец</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">27 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/35.jpg" alt="Зимин Кирилл Дмитриевич" loading="lazy">
+              <div>
+                <div class="review-name">Зимин Кирилл Дмитриевич</div>
+                <div class="review-date">Контрагент · продавец · уровень доверия 80%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Забрал сам, погрузку организовал, торговался в рамках приличия.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Морозильник рабочий, но уплотнитель на крышке подсох — поменял сам за 900 ₽. Продавец об этом не знал.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x0b93af40…1d70</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Проект" data-way="Доля в проекте" data-role="участник" data-party="Организация" data-year="2026" data-city="Красноярск" data-search="кооперативная пекарня — доля 3% артель «северный лес»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🏗 Проект</span>
+              <a class="deal-title" href="project.html">Кооперативная пекарня — доля 3%</a>
+              <div class="deal-meta">Доля в проекте · 19 марта 2026 · <span class="meta-city">📍 Красноярск</span> · вы — участник, контрагент — оператор проекта</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">Доля 3%</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/rosneft.png" alt="Артель «Северный лес»" loading="lazy">
+              <div>
+                <div class="review-name">Артель «Северный лес»</div>
+                <div class="review-date">Контрагент · оператор проекта · уровень доверия 79%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Внёс оборудование и настроил учёт. На собраниях бывает регулярно, голосует осознанно.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Вклад оценили по прозрачной методике, протокол выложили в тот же день.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x5c68e1d7…f30b</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Аренда" data-role="арендатор" data-party="Человек" data-year="2026" data-city="Хабаровск" data-search="легковой автомобиль в аренду, 5 суток орлова светлана викторовна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Легковой автомобиль в аренду, 5 суток</a>
+              <div class="deal-meta">Аренда · 10 марта 2026 · <span class="meta-city">📍 Хабаровск</span> · вы — арендатор, контрагент — арендодатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">12 500 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/26.jpg" alt="Орлова Светлана Викторовна" loading="lazy">
+              <div>
+                <div class="review-name">Орлова Светлана Викторовна</div>
+                <div class="review-date">Контрагент · арендодатель · уровень доверия 86%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Вернул с полным баком и вымытым салоном. Штрафов нет.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Машина в отличном состоянии, документы в порядке, передача заняла десять минут.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x9a24730f…7a4e</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Казань" data-search="программист — выгрузка отчётности оао «вектор инжиниринг»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — выгрузка отчётности</a>
+              <div class="deal-meta">Услуга · 1 марта 2026 · <span class="meta-city">📍 Казань</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">90 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/megafon.png" alt="ОАО «Вектор Инжиниринг»" loading="lazy">
+              <div>
+                <div class="review-name">ОАО «Вектор Инжиниринг»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 90%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Уложился в срок, документацию написал так, что наш бухгалтер разобрался без нас.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Долго согласовывали доступ к базе — три недели ушло на бюрократию, работа заняла полторы.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xd7be0512…c689</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Продажа" data-role="продавец" data-party="Человек" data-year="2026" data-city="Пермь" data-search="пельмени домашней лепки, 6 кг лебедева ольга игоревна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 6 кг</a>
+              <div class="deal-meta">Продажа · 20 февраля 2026 · <span class="meta-city">📍 Пермь</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">2 400 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/10.jpg" alt="Лебедева Ольга Игоревна" loading="lazy">
+              <div>
+                <div class="review-name">Лебедева Ольга Игоревна</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 90%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Отправил транспортной в день заказа, трек прислал сразу. Довёз в мороз без разморозки.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Ольга оплатила сразу и подробно ответила про условия доставки. Без лишней переписки.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x61f8c4a3…2e07</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Покупка" data-role="покупатель" data-party="Человек" data-year="2026" data-city="Екатеринбург" data-search="мфу (принтер-сканер) для офиса гришин олег валентинович">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">МФУ (принтер-сканер) для офиса</a>
+              <div class="deal-meta">Покупка · 11 февраля 2026 · <span class="meta-city">📍 Екатеринбург</span> · вы — покупатель, контрагент — продавец</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">14 800 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/30.jpg" alt="Гришин Олег Валентинович" loading="lazy">
+              <div>
+                <div class="review-name">Гришин Олег Валентинович</div>
+                <div class="review-date">Контрагент · продавец · уровень доверия 91%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Приехал вовремя, проверил печать и скан прямо на месте, вопросов по цене не поднимал.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">МФУ как новое, продавец приложил запасной картридж. Приятно.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x28305bee…95bf</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Работа" data-way="Работа по вакансии" data-role="исполнитель" data-party="Организация" data-year="2026" data-city="Москва" data-search="разработчик учётной системы ооо «мириталь»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">👷 Работа</span>
+              <a class="deal-title" href="vacancy.html">Разработчик учётной системы</a>
+              <div class="deal-meta">Работа по вакансии · 2 февраля 2026 · <span class="meta-city">📍 Москва</span> · вы — исполнитель, контрагент — работодатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">150 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/yandex.png" alt="ООО «Мириталь»" loading="lazy">
+              <div>
+                <div class="review-name">ООО «Мириталь»</div>
+                <div class="review-date">Контрагент · работодатель · уровень доверия 92%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Проект сдан в срок, на второй месяц взял на себя ещё и обучение кладовщиков. Готовы работать снова.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Оформление официальное, оплата день в день, задачи не менялись задним числом.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xb4e6d97c…48d3</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Обмен" data-role="обменивающийся" data-party="Человек" data-year="2026" data-city="Кемерово" data-search="комплект раций ↔ доработка сайта ерёмин станислав петрович">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Комплект раций ↔ доработка сайта</a>
+              <div class="deal-meta">Обмен · 24 января 2026 · <span class="meta-city">📍 Кемерово</span> · вы — обменивающийся, контрагент — обменивающийся</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">Обмен без денег</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/32.jpg" alt="Ерёмин Станислав Петрович" loading="lazy">
+              <div>
+                <div class="review-name">Ерёмин Станислав Петрович</div>
+                <div class="review-date">Контрагент · обменивающийся · уровень доверия 77%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Сайт сделал раньше, чем я успел отправить рации. Доверять можно.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Рации рабочие, но одна из четырёх держит заряд заметно хуже. В целом обмен честный.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x1d70a852…b105</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Взаимный кредит" data-way="Взаимный кредит" data-role="кредитор" data-party="Человек" data-year="2026" data-city="Воронеж" data-search="кредит участникам платформы, 10 000 кредитов кузнецова дарья викторовна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">💰 Взаимный кредит</span>
+              <a class="deal-title" href="wallet.html">Кредит участникам платформы, 10 000 кредитов</a>
+              <div class="deal-meta">Взаимный кредит · 15 января 2026 · <span class="meta-city">📍 Воронеж</span> · вы — кредитор, контрагент — заёмщик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">10 000 кредитов</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/16.jpg" alt="Кузнецова Дарья Викторовна" loading="lazy">
+              <div>
+                <div class="review-name">Кузнецова Дарья Викторовна</div>
+                <div class="review-date">Контрагент · заёмщик · уровень доверия 77%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Данил выдал кредит в тот же день и не поднимал условия, когда я попросила отсрочку на неделю.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Дарья вернула всё вовремя, отчиталась, на что потратила. Дам ещё.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xf30bc169…6fa4</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Продажа" data-role="продавец" data-party="Человек" data-year="2026" data-city="Самара" data-search="пельмени домашней лепки, 10 кг васильева татьяна михайловна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 10 кг</a>
+              <div class="deal-meta">Продажа · 6 января 2026 · <span class="meta-city">📍 Самара</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">4 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/20.jpg" alt="Васильева Татьяна Михайловна" loading="lazy">
+              <div>
+                <div class="review-name">Васильева Татьяна Михайловна</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 92%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Новогодний заказ собрал 31-го числа, хотя цех уже закрывался. Спасибо.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Татьяна заказала заранее и забрала точно в срок — в праздники это дорогого стоит.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x7a4e2d05…0c9e</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2025" data-city="Тюмень" data-search="программист — телеграм-бот приёма заявок ано «чистый город»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — телеграм-бот приёма заявок</a>
+              <div class="deal-meta">Услуга · 18 декабря 2025 · <span class="meta-city">📍 Тюмень</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">40 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/nlmk.png" alt="АНО «Чистый город»" loading="lazy">
+              <div>
+                <div class="review-name">АНО «Чистый город»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 88%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Бот работает без сбоев полгода. Всё, что обещал, сделал, ничего не пришлось допиливать.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Задачу описали одним сообщением, но по делу. Приняли работу за день.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xc68912fb…e238</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Покупка" data-role="покупатель" data-party="Организация" data-year="2025" data-city="Иркутск" data-search="мёд натуральный липовый, 20 кг артель «байкальский промысел»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Мёд натуральный липовый, 20 кг</a>
+              <div class="deal-meta">Покупка · 9 декабря 2025 · <span class="meta-city">📍 Иркутск</span> · вы — покупатель, контрагент — продавец</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">16 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/ozon.png" alt="Артель «Байкальский промысел»" loading="lazy">
+              <div>
+                <div class="review-name">Артель «Байкальский промысел»</div>
+                <div class="review-date">Контрагент · продавец · уровень доверия 73%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Оплатил предоплатой без торга и спокойно ждал доставку три недели.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Мёд настоящий, с анализом. Упаковка выдержала дорогу через полстраны.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x2e07ad34…8f3c</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Проект" data-way="Доля в проекте" data-role="участник" data-party="Организация" data-year="2025" data-city="Удалённо" data-search="открытая crm для кооперативов — доля 6% дао «открытыйгород»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🏗 Проект</span>
+              <a class="deal-title" href="project.html">Открытая CRM для кооперативов — доля 6%</a>
+              <div class="deal-meta">Доля в проекте · 27 ноября 2025 · <span class="meta-city">📍 Удалённо</span> · вы — участник, контрагент — оператор проекта</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">Доля 6%</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/x5.png" alt="ДАО «ОткрытыйГород»" loading="lazy">
+              <div>
+                <div class="review-name">ДАО «ОткрытыйГород»</div>
+                <div class="review-date">Контрагент · оператор проекта · уровень доверия 87%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Ведёт свой модуль сам, на созвоны приходит подготовленным. Доля начислена по трудочасам.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Учёт вклада по трудочасам работает честно, споров по долям не было ни разу.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x95bf60c1…b72d</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Аренда" data-role="арендатор" data-party="Человек" data-year="2025" data-city="Санкт-Петербург" data-search="офис в бизнес-центре, месяц дмитриева елена игоревна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Офис в бизнес-центре, месяц</a>
+              <div class="deal-meta">Аренда · 14 ноября 2025 · <span class="meta-city">📍 Санкт-Петербург</span> · вы — арендатор, контрагент — арендодатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">35 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/31.jpg" alt="Дмитриева Елена Игоревна" loading="lazy">
+              <div>
+                <div class="review-name">Дмитриева Елена Игоревна</div>
+                <div class="review-date">Контрагент · арендодатель · уровень доверия 85%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Арендатор аккуратный, платил вперёд, съехал день в день и оставил кабинет чистым.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Всё как на фото, интернет и охрана работают, хозяйка не дёргала по мелочам.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x48d3e70a…1a4f</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Ресурс" data-way="Продажа" data-role="продавец" data-party="Человек" data-year="2025" data-city="Ярославль" data-search="пельмени домашней лепки, 5 кг никитина полина романовна">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">📦 Ресурс</span>
+              <a class="deal-title" href="resource.html">Пельмени домашней лепки, 5 кг</a>
+              <div class="deal-meta">Продажа · 30 октября 2025 · <span class="meta-city">📍 Ярославль</span> · вы — продавец, контрагент — покупатель</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">2 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/28.jpg" alt="Никитина Полина Романовна" loading="lazy">
+              <div>
+                <div class="review-name">Никитина Полина Романовна</div>
+                <div class="review-date">Контрагент · покупатель · уровень доверия 66%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 4 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:80%">★★★★★</span></span>
+            <p class="review-text">Вкусно, но пришлось подстраиваться под окно выдачи — цех работает только до обеда.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Полина забрала точно в срок, вопросов не возникло.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xb1052fce…6e28</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Организация" data-year="2025" data-city="Москва" data-search="программист — миграция сайта на новый хостинг ип «медиа крафт»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — миграция сайта на новый хостинг</a>
+              <div class="deal-meta">Услуга · 16 октября 2025 · <span class="meta-city">📍 Москва</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">28 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/s7.png" alt="ИП «Медиа Крафт»" loading="lazy">
+              <div>
+                <div class="review-name">ИП «Медиа Крафт»</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 81%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Перенёс без простоя, ночью, как и договаривались. Почта и формы заработали сразу.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Доступы дали в полном объёме, оплатили в тот же вечер.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x6fa4c380…c05a</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="positive" data-type="Взаимный кредит" data-way="Взаимный кредит" data-role="заёмщик" data-party="Организация" data-year="2025" data-city="Тюмень" data-search="заём на ремонт цеха, 60 дней энергокооператив «светсвои»">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">💰 Взаимный кредит</span>
+              <a class="deal-title" href="wallet.html">Заём на ремонт цеха, 60 дней</a>
+              <div class="deal-meta">Взаимный кредит · 2 октября 2025 · <span class="meta-city">📍 Тюмень</span> · вы — заёмщик, контрагент — кредитор</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">120 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="organization.html"><img class="avatar deal-org-logo" src="img/org-logos/rostelecom.png" alt="Энергокооператив «СветСвои»" loading="lazy">
+              <div>
+                <div class="review-name">Энергокооператив «СветСвои»</div>
+                <div class="review-date">Контрагент · кредитор · уровень доверия 78%</div>
+              </div>
+            </a>
+            <span class="deal-impact positive" title="Отзыв контрагента о вас — положительный (4–5 звёзд). Сделка входит в числитель формулы доверия.">✔ Засчитана как положительная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Погасил досрочно, отчитался фотографиями с объекта. Таких заёмщиков хотелось бы больше.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 5 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:100%">★★★★★</span></span>
+            <p class="review-text">Условия объяснили по-человечески, график платежей подстроили под сезон.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0x0c9e51b7…39fb</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+        <article class="deal-card" data-status="done" data-outcome="negative" data-type="Услуга" data-way="Услуга" data-role="исполнитель" data-party="Человек" data-year="2025" data-city="Омск" data-search="программист — интернет-магазин под ключ зайцев роман сергеевич">
+          <div class="deal-top">
+            <div class="deal-subject">
+              <span class="badge outline deal-type">🔧 Услуга</span>
+              <a class="deal-title" href="skill.html">Программист — интернет-магазин под ключ</a>
+              <div class="deal-meta">Услуга · 18 сентября 2025 · <span class="meta-city">📍 Омск</span> · вы — исполнитель, контрагент — заказчик</div>
+            </div>
+            <div class="deal-side">
+              <div class="deal-amount">75 000 ₽</div>
+              <span class="badge teal">Завершена</span>
+            </div>
+          </div>
+          <div class="deal-party">
+            <a class="review-user" href="person.html"><img class="avatar" src="images/avatars/18.jpg" alt="Зайцев Роман Сергеевич" loading="lazy">
+              <div>
+                <div class="review-name">Зайцев Роман Сергеевич</div>
+                <div class="review-date">Контрагент · заказчик · уровень доверия 68%</div>
+              </div>
+            </a>
+            <span class="deal-impact negative" title="Отзыв контрагента о вас — отрицательный (1–2 звезды). Сделка входит только в знаменатель формулы доверия.">✖ Засчитана как отрицательная</span>
+          </div>
+        <div class="mutual-review-grid deal-reviews">
+          <div class="mutual-review-side counts">
+            <div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>
+            <span class="review-stars" aria-label="Оценка 2 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:40%">★★★★★</span></span>
+            <p class="review-text">Сроки сорваны на три недели, часть согласованного функционала так и не появилась. Деньги за неготовое вернул — на том спасибо.</p>
+          </div>
+          <div class="mutual-review-side">
+            <div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>
+            <span class="review-stars" aria-label="Оценка 2 из 5"><span class="review-stars-bg">★★★★★</span><span class="review-stars-fg" style="width:40%">★★★★★</span></span>
+            <p class="review-text">Требования менялись каждую неделю, финального ТЗ так и не было. Разошлись, вернув остаток предоплаты.</p>
+          </div>
+        </div>
+          <div class="deal-foot">
+            <span class="track-hash" title="Оба отзыва записаны в блокчейн — изменить или удалить их задним числом нельзя">0xe2384d6a…d41c</span>
+            <a class="deal-link" href="messages.html">Переписка по сделке →</a>
+          </div>
+        </article>
+
+          </div>
+          <div class="empty-state" id="deal-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="deal-reset">Сбросить фильтры</a></div>
+        </div>
+        <div class="filter-panel">
+          <div class="section-title">Фильтр</div>
+          <div class="field" id="status-field">
+            <label>Статус <span class="stat-note" title="Завершённые сделки уже оценены обеими сторонами и попали в расчёт доверия; остальные — нет">ⓘ</span></label>
+            <select class="input" id="filter-status">
+              <option value="">Любой</option>
+              <option value="done">Завершена</option>
+              <option value="await">Ждёт отзыва</option>
+              <option value="active">В работе</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Тип сделки <span class="stat-note" title="Что было предметом сделки: вещь или материал, услуга по навыку, работа по вакансии, вклад в проект или заём">ⓘ</span></label>
+            <select class="input" id="filter-type">
+              <option value="">Любой</option>
+              <option value="Ресурс">Ресурс</option>
+              <option value="Услуга">Услуга</option>
+              <option value="Работа">Работа</option>
+              <option value="Проект">Проект</option>
+              <option value="Взаимный кредит">Взаимный кредит</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Способ <span class="stat-note" title="Способы получения ресурса и формы участия — те же, что в каталоге ресурсов">ⓘ</span></label>
+            <select class="input" id="filter-way">
+              <option value="">Любой</option>
+              <option value="Продажа">Продажа</option>
+              <option value="Продажа партией">Продажа партией</option>
+              <option value="Покупка">Покупка</option>
+              <option value="Аренда">Аренда</option>
+              <option value="Обмен">Обмен</option>
+              <option value="Услуга">Услуга</option>
+              <option value="Работа по вакансии">Работа по вакансии</option>
+              <option value="Доля в проекте">Доля в проекте</option>
+              <option value="Взаимный кредит">Взаимный кредит</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Итог для доверия <span class="stat-note" title="Как сделка учтена в вашем уровне доверия">ⓘ</span></label>
+            <select class="input" id="filter-outcome">
+              <option value="">Любой</option>
+              <option value="positive">Положительная</option>
+              <option value="negative">Отрицательная</option>
+              <option value="pending">Ждёт отзыва</option>
+              <option value="none">Не завершена</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Контрагент</label>
+            <select class="input" id="filter-party">
+              <option value="">Любой</option>
+              <option value="Человек">Человек</option>
+              <option value="Организация">Организация</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Город</label>
+            <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
+            <datalist id="city-options"><option value="Владивосток"><option value="Волгоград"><option value="Воронеж"><option value="Дербент"><option value="Екатеринбург"><option value="Иркутск"><option value="Казань"><option value="Калининград"><option value="Кемерово"><option value="Краснодар"><option value="Красноярск"><option value="Москва"><option value="Нижний Новгород"><option value="Новосибирск"><option value="Омск"><option value="Пермь"><option value="Ростов-на-Дону"><option value="Самара"><option value="Санкт-Петербург"><option value="Сочи"><option value="Тюмень"><option value="Удалённо"><option value="Уфа"><option value="Хабаровск"><option value="Челябинск"><option value="Ярославль"></datalist>
+          </div>
+          <div class="field">
+            <label>Год</label>
+            <select class="input" id="filter-year">
+              <option value="">Любой</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+            </select>
+          </div>
+          <button class="button secondary" id="filter-reset" style="width:100%">Сбросить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== УРОВЕНЬ ДОВЕРИЯ ==================== -->
+    <div id="tab-trust" hidden>
+
+      <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 16px">Уровень доверия — не оценка платформы и не рейтинг активности. Это только отзывы участников, с которыми вы реально закрыли сделку. Ниже — вся арифметика целиком.</p>
+
+      <div class="card trust-summary">
+        <div class="trust-score">
+          <div class="trust-value">92%</div>
+          <div class="trust-caption">Уровень доверия</div>
+          <div class="trust-fraction">33 из 35 оценённых сделок</div>
+        </div>
+        <div class="trust-bars">
+          <div class="trust-row"><span class="t-label">Положительные</span><span class="trust-bar"><i class="pos" style="width:94%"></i></span><span class="t-count">33 · 94%</span></div>
+          <div class="trust-row"><span class="t-label">Отрицательные</span><span class="trust-bar"><i class="neg" style="width:6%"></i></span><span class="t-count">2 · 6%</span></div>
+          <div class="trust-row"><span class="t-label">Ждут отзыва</span><span class="trust-bar"><i class="mut" style="width:5%"></i></span><span class="t-count">2 · не в счёт</span></div>
+          <div class="trust-row"><span class="t-label">В работе</span><span class="trust-bar"><i class="mut" style="width:8%"></i></span><span class="t-count">3 · не в счёт</span></div>
+        </div>
+        <div class="trust-facts">
+          <div class="trust-fact"><b>40</b><span>сделок всего</span></div>
+          <div class="trust-fact"><b>35</b><span>оценённых</span></div>
+          <div class="trust-fact"><b>4,8</b><span>средняя оценка</span></div>
+          <div class="trust-fact"><b>с 2025</b><span>первая сделка</span></div>
+        </div>
+      </div>
+
+      <p class="trust-formula"><b>Формула.</b> Уровень доверия = положительные отзывы о вас ÷ все оценённые сделки = 33 ÷ 35 = <b>92%</b>. Положительным считается отзыв на 4–5 звёзд. Отзывы записываются в блокчейн: изменить или удалить их задним числом нельзя.</p>
+
+      <div class="section-title" style="margin-top:26px">Отзывы двусторонние <span class="stat-note" title="Тот же механизм, что на вкладке «Отзывы» ресурса">ⓘ</span></div>
+      <p class="trust-formula">После каждой сделки оценивают обе стороны, и оба отзыва раскрываются одновременно — пока контрагент не оценил вас, ни ваш отзыв ему не виден, ни его вам. Поэтому подстроить оценку под чужую или ответить «из мести» нельзя. В ваш процент идёт <b>отзыв контрагента о вас</b>; ваш отзыв о нём идёт в <b>его</b> процент.</p>
+
+      <div class="section-title" style="margin-top:26px">Из чего сложились 92%</div>
+      <p class="trust-formula" style="margin-bottom:12px">Разбивка тех же 35 оценённых сделок по предмету сделки — видно, в каких видах работы репутация набрана, а в каких данных ещё мало.</p>
+          <table class="res-table">
+          <tr><th>Тип сделки</th><th>Оценённых сделок</th><th>С положительным отзывом</th><th>Доля</th></tr>
+          <tr><td class="stage-head">Ресурс</td><td>19</td><td>18</td><td><span class="trust-bar" style="display:inline-flex;width:90px;vertical-align:middle;margin-right:8px"><i class="pos" style="width:95%"></i></span>95%</td></tr>
+          <tr><td class="stage-head">Услуга</td><td>8</td><td>7</td><td><span class="trust-bar" style="display:inline-flex;width:90px;vertical-align:middle;margin-right:8px"><i class="pos" style="width:88%"></i></span>88%</td></tr>
+          <tr><td class="stage-head">Работа</td><td>2</td><td>2</td><td><span class="trust-bar" style="display:inline-flex;width:90px;vertical-align:middle;margin-right:8px"><i class="pos" style="width:100%"></i></span>100%</td></tr>
+          <tr><td class="stage-head">Проект</td><td>3</td><td>3</td><td><span class="trust-bar" style="display:inline-flex;width:90px;vertical-align:middle;margin-right:8px"><i class="pos" style="width:100%"></i></span>100%</td></tr>
+          <tr><td class="stage-head">Взаимный кредит</td><td>3</td><td>3</td><td><span class="trust-bar" style="display:inline-flex;width:90px;vertical-align:middle;margin-right:8px"><i class="pos" style="width:100%"></i></span>100%</td></tr>
+          </table>
+
+      <div class="section-title" style="margin-top:26px">По годам</div>
+          <table class="res-table">
+          <tr><th>Год</th><th>Оценённых сделок</th><th>С положительным отзывом</th><th>Доля</th></tr>
+          <tr><td class="stage-head">2026</td><td>27</td><td>26</td><td><span class="trust-bar" style="display:inline-flex;width:90px;vertical-align:middle;margin-right:8px"><i class="pos" style="width:96%"></i></span>96%</td></tr>
+          <tr><td class="stage-head">2025</td><td>8</td><td>7</td><td><span class="trust-bar" style="display:inline-flex;width:90px;vertical-align:middle;margin-right:8px"><i class="pos" style="width:88%"></i></span>88%</td></tr>
+          </table>
+
+      <div class="section-title" style="margin-top:26px">Что в расчёт не входит</div>
+      <div class="card deal-hint">
+        <b>5 сделок из 40 не влияют на процент.</b> Две ждут отзыва (одна сторона оценила, вторая нет) и три ещё в работе. Такая сделка не попадает <i>ни в числитель, ни в знаменатель</i>: она не поднимает процент и не опускает его.<br>
+        <span style="display:inline-block;margin-top:8px">→ <a href="#" data-goto-tab="await">Открыть сделки, ждущие вашего отзыва</a> &nbsp;·&nbsp; <a href="#" data-show-negative>Показать 2 отрицательные сделки в реестре</a></span>
+      </div>
+
+      <div class="section-title" style="margin-top:26px">Что ещё не решено</div>
+      <div class="card deal-hint">
+        Срок на отзыв (в прототипе — 14 дней), поведение при отказе одной стороны оценивать сделку и порядок спора по недобросовестному отзыву — открытые вопросы продукта, а не готовые правила. Пока сделка без второго отзыва просто выпадает из расчёта.
+      </div>
+    </div>
+
+    <div class="site-footer">
+      <a href="#">о сайте</a><a href="#">помощь</a><a href="#">правила</a><a href="#">разработчикам</a><a href="deals.html">сделки</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+(function () {
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.deal-card'));
+  var counter = document.getElementById('deal-count');
+  var empty = document.getElementById('deal-empty');
+  var search = document.getElementById('deal-search');
+  var f = {
+    status: document.getElementById('filter-status'),
+    type: document.getElementById('filter-type'),
+    way: document.getElementById('filter-way'),
+    outcome: document.getElementById('filter-outcome'),
+    party: document.getElementById('filter-party'),
+    city: document.getElementById('filter-city'),
+    year: document.getElementById('filter-year')
+  };
+
+  function apply() {
+    var q = search.value.trim().toLowerCase();
+    var st = f.status.value;
+    var shown = 0;
+    cards.forEach(function (c) {
+      var s = c.dataset.status;
+      var ok = (!st || (st === 'await' ? s.indexOf('await') === 0 : s === st))
+        && (!f.type.value || c.dataset.type === f.type.value)
+        && (!f.way.value || c.dataset.way === f.way.value)
+        && (!f.outcome.value || c.dataset.outcome === f.outcome.value)
+        && (!f.party.value || c.dataset.party === f.party.value)
+        && (!f.city.value || c.dataset.city.toLowerCase().indexOf(f.city.value.trim().toLowerCase()) === 0)
+        && (!f.year.value || c.dataset.year === f.year.value)
+        && (!q || c.dataset.search.indexOf(q) !== -1);
+      c.hidden = !ok;
+      if (ok) shown++;
+    });
+    counter.textContent = shown;
+    empty.hidden = shown > 0;
+  }
+
+  /* Вкладки. «Реестр» и «Ждут отзыва» — один и тот же список: вторая вкладка
+     сужает его до сделок без второго отзыва и объясняет, почему они не в счёт
+     (тот же приём, что вкладка «Избранное» в каталогах). */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('#deal-tabs a'));
+  var strip = document.getElementById('trust-strip');
+  var hint = document.getElementById('await-hint');
+  var statusField = document.getElementById('status-field');
+  /* Вкладка «Ждут отзыва» сама выставляет статус в фильтре. Снимать его при
+     возврате нужно только в этом случае — статус, выбранный пользователем
+     руками, поход на вкладку «Уровень доверия» сбрасывать не должен. */
+  var forcedAwait = false;
+
+  function openTab(key) {
+    tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.tab === key); });
+    document.getElementById('tab-registry').hidden = (key === 'trust');
+    document.getElementById('tab-trust').hidden = (key !== 'trust');
+    if (key === 'await') {
+      Object.keys(f).forEach(function (k) { f[k].value = ''; });
+      search.value = '';
+      f.status.value = 'await';
+      forcedAwait = true;
+      statusField.hidden = true;
+      hint.hidden = false;
+      strip.hidden = true;
+      apply();
+    } else if (key === 'registry') {
+      if (forcedAwait) { f.status.value = ''; forcedAwait = false; }
+      statusField.hidden = false;
+      hint.hidden = true;
+      strip.hidden = false;
+      apply();
+    }
+    window.scrollTo(0, 0);
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function (e) { e.preventDefault(); openTab(t.dataset.tab); });
+  });
+  document.querySelectorAll('[data-goto-tab]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); openTab(a.dataset.gotoTab); });
+  });
+  var negBtn = document.querySelector('[data-show-negative]');
+  if (negBtn) negBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    openTab('registry');
+    Object.keys(f).forEach(function (k) { f[k].value = ''; });
+    search.value = '';
+    f.outcome.value = 'negative';
+    apply();
+  });
+
+  Object.keys(f).forEach(function (k) { f[k].addEventListener('input', apply); f[k].addEventListener('change', apply); });
+  search.addEventListener('input', apply);
+  document.getElementById('filter-reset').addEventListener('click', function () {
+    Object.keys(f).forEach(function (k) { f[k].value = ''; });
+    search.value = '';
+    if (statusField.hidden) f.status.value = 'await';
+    apply();
+  });
+  document.getElementById('deal-reset').addEventListener('click', function (e) {
+    e.preventDefault();
+    openTab('registry');
+    Object.keys(f).forEach(function (k) { f[k].value = ''; });
+    search.value = '';
+    apply();
+  });
+
+  /* Двусторонний отзыв по сделке, которая ждёт вашей оценки:
+     отзыв контрагента раскрывается только после того, как вы отправите свой. */
+  document.querySelectorAll('[data-stars-input]').forEach(function (box) {
+    var stars = Array.prototype.slice.call(box.querySelectorAll('span'));
+    var rating = 0;
+    stars.forEach(function (el) {
+      el.addEventListener('click', function () {
+        rating = Number(el.dataset.star);
+        stars.forEach(function (s) { s.classList.toggle('on', Number(s.dataset.star) <= rating); });
+      });
+    });
+    var side = box.closest('.mutual-review-side');
+    var text = side.querySelector('textarea');
+    side.querySelector('[data-review-submit]').addEventListener('click', function () {
+      var val = text.value.trim();
+      if (!rating || !val) {
+        text.style.borderColor = !val ? 'var(--error)' : '';
+        box.style.outline = !rating ? '1.5px solid var(--error)' : '';
+        return;
+      }
+      var line = '\u2605'.repeat(rating) + '\u2606'.repeat(5 - rating);
+      side.innerHTML = '<div class="mutual-review-label">Ваш отзыв о контрагенте <span class="deal-note">считается в доверие контрагента</span></div>'
+        + '<div class="mutual-review-revealed"><span class="review-stars-static">' + line + '</span>\u00AB'
+        + val.replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }) + '\u00BB</div>';
+      var card = side.closest('.deal-card');
+      var other = card.querySelector('.mutual-review-side .mutual-review-pending');
+      setTimeout(function () {
+        other.parentNode.innerHTML = '<div class="mutual-review-label">Отзыв контрагента о вас <span class="deal-note">считается в ваше доверие</span></div>'
+          + '<div class="mutual-review-revealed"><span class="review-stars-static">\u2605\u2605\u2605\u2605\u2605</span>'
+          + '\u00ABЗаказ собрал точно к сроку, всё как договаривались. Спокойный, надёжный продавец.\u00BB</div>';
+        card.dataset.outcome = 'positive';
+        card.dataset.status = 'done';
+        card.querySelector('.deal-impact').className = 'deal-impact positive';
+        card.querySelector('.deal-impact').textContent = '\u2714 Засчитана как положительная';
+        card.querySelector('.deal-side .badge').className = 'badge teal';
+        card.querySelector('.deal-side .badge').textContent = 'Завершена';
+      }, 1200);
+    });
+  });
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>
