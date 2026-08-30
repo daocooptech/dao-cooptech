@@ -198,7 +198,7 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 
 /* ── Карточки, кнопки, поля ───────────────────────────────── */
 .card, .info-box, .form-card, .wall-panel, .post, .composer,
-.vacancy-card, .gb-card, .ar-section, .saved-search-panel, .modal {
+.vacancy-card, .gb-card, .ar-section, .saved-search-panel, .modal, .deal-card {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -508,6 +508,14 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
      «Добавить в друзья») в одну строку на 375px не помещается. */
   .vacancy-footer { flex-wrap: wrap; row-gap: 8px; }
   .cat-nav { display: none; }
+  /* Сделки: сводка доверия и шапка карточки в один столбец */
+  .trust-summary { flex-direction: column; align-items: stretch; gap: 18px; padding: 18px; }
+  .trust-score, .trust-bars, .trust-facts { flex: none; }
+  .trust-facts { gap: 10px 22px; }
+  .deal-side { align-items: flex-start; text-align: left; }
+  .deal-party, .deal-foot { row-gap: 8px; }
+  .deal-strip a { margin-left: 0; }
+  .trust-row .t-label { width: 96px; }
 }
 @media (min-width: 901px) {
   .burger, .filter-sheet-btn, .filter-scrim { display: none; }
@@ -570,3 +578,42 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .seg-demand { background: var(--error); }
 .seg-skill { background: var(--gold); }
 .seg-vacancy { background: var(--slate-light); }
+
+/* Сделки (deals.html) — оформление реестра сделок и сводки доверия
+   (структура и раскладка — в styles.css). */
+.trust-value { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--teal-dark); }
+.trust-caption { color: var(--ink); font-weight: 600; }
+.trust-fraction, .trust-row, .trust-fact { color: var(--slate); }
+.trust-bar { background: var(--surface-2); border-radius: 999px; }
+.trust-bar > i { border-radius: 999px; background: var(--slate-light); }
+.trust-bar > i.pos { background: var(--teal); }
+.trust-bar > i.neg { background: var(--error); }
+.trust-bar > i.mut { background: var(--line); }
+.trust-row .t-count { color: var(--slate-light); }
+.trust-facts { border-top: 1px solid var(--line); }
+.trust-fact b { font-family: 'JetBrains Mono', monospace; font-weight: 500; color: var(--ink); }
+.trust-formula { color: var(--slate); }
+.trust-formula a { color: var(--teal); }
+
+.deal-strip { background: var(--teal-tint); border-radius: var(--radius-sm); color: var(--slate); }
+.deal-strip b { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--teal-dark); }
+.deal-strip a { color: var(--teal); text-decoration: none; }
+.deal-strip a:hover { text-decoration: underline; }
+.deal-hint { color: var(--slate); }
+.deal-hint b { color: var(--ink); }
+.deal-hint a { color: var(--teal); }
+.deal-title { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--ink); text-decoration: none; }
+.deal-title:hover { color: var(--teal-dark); }
+.deal-meta { color: var(--slate); }
+.deal-amount { font-family: 'JetBrains Mono', monospace; font-weight: 500; color: var(--ink); }
+.deal-party { background: var(--paper); border-radius: var(--radius-sm); }
+.deal-impact.positive { color: var(--teal-dark); }
+.deal-impact.negative { color: var(--error); }
+.deal-impact.pending { color: var(--slate-light); }
+.deal-note { color: var(--slate-light); }
+.deal-deadline { color: var(--gold-text); }
+.deal-progress { background: var(--paper); border-left: 3px solid var(--teal); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--slate); }
+.deal-link { color: var(--teal); text-decoration: none; }
+.deal-link:hover { text-decoration: underline; }
+/* Сторона с отзывом, который считается в уровень доверия владельца страницы */
+.deal-reviews .mutual-review-side.counts { border-color: var(--teal); }
