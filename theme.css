@@ -301,10 +301,14 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .ptile-grid.list-mode { grid-template-columns: 1fr; gap: 10px; }
 .ptile .img-wrap { min-height: 132px; }
 .ptile .img-wrap, .vacancy-list.tile-mode .card-row > .img-wrap { position: relative; }
-.ptile .type-badge, .ptile .loc-bar, .promo-badge {
+/* Ограничение по ширине — для бейджей-чипов поверх фото, чтобы длинная подпись
+   не растягивалась на всю плитку. Полоса города — не чип: она идёт во всю ширину
+   фото (как в каталогах Вакансий/Людей/Навыков), ей достаточно многоточия. */
+.ptile .type-badge, .promo-badge {
   max-width: calc(100% - 16px);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
+.ptile .loc-bar { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ptile {
   background: var(--white); border: 1px solid var(--line);
   border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
