@@ -66,106 +66,1210 @@
     <div class="content-with-filter">
       <div style="flex:1">
         <div class="cat-section-title">
-          <span>Все вакансии <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="vac-count">6</span></span></span>
+          <span>Все вакансии <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="vac-count">71</span></span></span>
         </div>
-        <div class="vacancy-list tile-mode" id="vacancies-list">
-
-          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик">
+        <div class="vacancy-list tile-mode tags-wrap" id="vacancies-list">
+          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик">
             <div class="card-row">
-              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:15px">М</div><span class="loc-bar">📍 Москва</span></div>
+              <div class="img-wrap"><img class="card-photo" src="images/photos/electrician.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/34.jpg" alt="Опубликовал(а) Жукова Наталья Александровна" title="Опубликовал(а) Жукова Наталья Александровна" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Электромонтажник</div>
                 <div class="vacancy-salary">60 000 – 90 000 ₽</div>
-                <div class="vacancy-meta">ООО «Мириталь» · <span class="meta-city">📍 Москва · </span>Полная занятость, полный день · Опыт от 1 года</div>
+                <div class="vacancy-meta">ООО «Мириталь» · <span class="meta-city">📍 Москва · </span>Полная занятость · От 1 года</div>
                 <p class="vacancy-snippet">Обслуживание и монтаж электропроводки на производственных линиях. Работа по графику, официальное оформление.</p>
-                <div class="vacancy-tags"><span class="chip">Электромонтаж</span></div>
+                <div class="vacancy-tags"><span class="chip">Электромонтаж</span><span class="chip">Электробезопасность</span></div>
                 <div class="vacancy-footer">
-                  <span class="vacancy-posted">Опубликовано 2 дня назад</span>
+                  <span class="vacancy-posted">Жукова Наталья Александровна · 2 дня назад</span>
                   <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
                 </div>
               </div>
             </div>
           </a>
 
-          <a class="vacancy-card" href="vacancy.html" data-city="Дербент" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Доля в проекте" data-category="Строительство, недвижимость" data-subcategory="Прораб, мастер СМР">
+          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Кладовщик, Приемщик товаров">
             <div class="card-row">
-              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:15px">Ш</div><span class="loc-bar">📍 Дербент</span></div>
-              <div style="flex:1;min-width:0">
-                <div class="vacancy-title">Прораб на площадку 3D-принтера</div>
-                <div class="vacancy-salary">Доля в проекте 5–8%</div>
-                <div class="vacancy-meta">Кооператив «Шукты» · <span class="meta-city">📍 Дербент · </span>Проектная работа · Опыт от 3 лет</div>
-                <p class="vacancy-snippet">Руководство монтажом строительного 3D-принтера на площадке. Вознаграждение — доля в готовом результате проекта.</p>
-                <div class="vacancy-tags"><span class="chip">Кирпичная кладка</span><span class="chip">Управление стройплощадкой</span></div>
-                <div class="vacancy-footer">
-                  <span class="vacancy-posted">Опубликовано 5 дней назад</span>
-                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a class="vacancy-card" href="vacancy.html" data-city="Удалённо" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Доля в проекте" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
-            <div class="card-row">
-              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:14px">ДК</div><span class="loc-bar">📍 Удалённо</span></div>
-              <div style="flex:1;min-width:0">
-                <div class="vacancy-title">Веб-разработчик</div>
-                <div class="vacancy-salary">По договорённости: деньги + доля</div>
-                <div class="vacancy-meta">ДАО КООПЕХ · <span class="meta-city">📍 Удалённо · </span>Частичная занятость, гибкий график · Опыт от 1 года</div>
-                <p class="vacancy-snippet">Развитие платформы cooptech: новые разделы, интеграции с расширениями. Открытый код, гибкий график.</p>
-                <div class="vacancy-tags"><span class="chip">Веб-дизайн</span><span class="chip">Программирование</span></div>
-                <div class="vacancy-footer">
-                  <span class="vacancy-posted">Опубликовано неделю назад</span>
-                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-category="Рабочий персонал" data-subcategory="Кладовщик, Приемщик товаров">
-            <div class="card-row">
-              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:15px">М</div><span class="loc-bar">📍 Москва</span></div>
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/warehouse-worker.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/29.jpg" alt="Опубликовал(а) Белова Инна Сергеевна" title="Опубликовал(а) Белова Инна Сергеевна" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Кладовщик</div>
                 <div class="vacancy-salary">45 000 ₽</div>
-                <div class="vacancy-meta">ООО «Мириталь» · <span class="meta-city">📍 Москва · </span>Полная занятость, сменный график · Без опыта</div>
+                <div class="vacancy-meta">ООО «Мириталь» · <span class="meta-city">📍 Москва · </span>Полная занятость · Нет опыта</div>
                 <p class="vacancy-snippet">Приём и отгрузка товара, ведение складского учёта. Обучение на месте.</p>
                 <div class="vacancy-tags"><span class="chip">Складской учёт</span></div>
                 <div class="vacancy-footer">
-                  <span class="vacancy-posted">Опубликовано вчера</span>
+                  <span class="vacancy-posted">Белова Инна Сергеевна · вчера</span>
                   <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
                 </div>
               </div>
             </div>
           </a>
 
-          <a class="vacancy-card" href="vacancy.html" data-city="Красноярск" data-employment="Волонтёрство" data-experience="От 1 года" data-reward="Волонтёрство" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+          <a class="vacancy-card" href="vacancy.html" data-city="Дербент" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Доля в проекте" data-owner-type="Организация" data-category="Строительство, недвижимость" data-subcategory="Прораб, мастер СМР">
             <div class="card-row">
-              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div><span class="loc-bar">📍 Красноярск</span></div>
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/construction-foreman.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/24.jpg" alt="Опубликовал(а) Богданов Тимур Асланович" title="Опубликовал(а) Богданов Тимур Асланович" loading="lazy"><span class="loc-bar">📍 Дербент</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Прораб на площадку 3D-принтера</div>
+                <div class="vacancy-salary">Доля в проекте 5–8%</div>
+                <div class="vacancy-meta">Кооператив «Шукты» · <span class="meta-city">📍 Дербент · </span>Проектная работа · От 3 лет</div>
+                <p class="vacancy-snippet">Руководство монтажом строительного 3D-принтера на площадке. Вознаграждение — доля в готовом результате проекта.</p>
+                <div class="vacancy-tags"><span class="chip">Управление стройплощадкой</span><span class="chip">Кирпичная кладка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Богданов Тимур Асланович · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Удалённо" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Организация" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/programmer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/33.jpg" alt="Опубликовал(а) Петров Сергей Викторович" title="Опубликовал(а) Петров Сергей Викторович" loading="lazy"><span class="loc-bar">📍 Удалённо</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Веб-разработчик</div>
+                <div class="vacancy-salary">По договорённости: деньги + доля</div>
+                <div class="vacancy-meta">ДАО КООПЕХ · <span class="meta-city">📍 Удалённо · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Развитие платформы cooptech: новые разделы, интеграции с расширениями. Открытый код, гибкий график.</p>
+                <div class="vacancy-tags"><span class="chip">Программирование</span><span class="chip">Веб-дизайн</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Петров Сергей Викторович · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Новосибирск" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Сварщик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/welder-argon.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/35.jpg" alt="Опубликовал(а) Зимин Кирилл Дмитриевич" title="Опубликовал(а) Зимин Кирилл Дмитриевич" loading="lazy"><span class="loc-bar">📍 Новосибирск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Сварщик-аргонщик</div>
+                <div class="vacancy-salary">85 000 – 110 000 ₽</div>
+                <div class="vacancy-meta">ЗАО «СтройТехно» · <span class="meta-city">📍 Новосибирск · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Сварка металлоконструкций на объектах компании. Аттестация НАКС приветствуется, спецодежда и инструмент свои или наши.</p>
+                <div class="vacancy-tags"><span class="chip">Аргонодуговая сварка</span><span class="chip">Чтение чертежей</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Зимин Кирилл Дмитриевич · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Красноярск" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Столяр, плотник">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/carpenter-workshop.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/47.jpg" alt="Опубликовал(а) Иванова Мария Петровна" title="Опубликовал(а) Иванова Мария Петровна" loading="lazy"><span class="loc-bar">📍 Красноярск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Столяр-краснодеревщик</div>
+                <div class="vacancy-salary">70 000 – 95 000 ₽</div>
+                <div class="vacancy-meta">Артель «Северный лес» · <span class="meta-city">📍 Красноярск · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Изготовление мебели из массива на заказ: от раскроя до финишной отделки. Мастерская с полным парком станков.</p>
+                <div class="vacancy-tags"><span class="chip">Столярка</span><span class="chip">Работа с массивом</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Иванова Мария Петровна · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Краснодар" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Сельское хозяйство" data-subcategory="Тракторист">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/tractor-driver.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/23.jpg" alt="Опубликовал(а) Виноградов Денис Игоревич" title="Опубликовал(а) Виноградов Денис Игоревич" loading="lazy"><span class="loc-bar">📍 Краснодар</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Тракторист-механизатор</div>
+                <div class="vacancy-salary">65 000 ₽ + премия за урожай</div>
+                <div class="vacancy-meta">Кооператив «Плодородие» · <span class="meta-city">📍 Краснодар · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Сезонные полевые работы: вспашка, посев, уборка. Техника кооператива, проживание для иногородних.</p>
+                <div class="vacancy-tags"><span class="chip">Работа на тракторе</span><span class="chip">Обслуживание техники</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Виноградов Денис Игоревич · 6 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Частичная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/accountant-office.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/5.jpg" alt="Опубликовал(а) Смирнова Екатерина Андреевна" title="Опубликовал(а) Смирнова Екатерина Андреевна" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Бухгалтер кооператива</div>
+                <div class="vacancy-salary">55 000 ₽ за 20 часов в неделю</div>
+                <div class="vacancy-meta">Кредитный кооператив «Взаимопомощь» · <span class="meta-city">📍 Москва · </span>Частичная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Ведение учёта паевых взносов и займов пайщиков, отчётность. Возможна частичная удалёнка.</p>
+                <div class="vacancy-tags"><span class="chip">Бухгалтерский учёт</span><span class="chip">1С</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Смирнова Екатерина Андреевна · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Санкт-Петербург" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Юристы" data-subcategory="Юрисконсульт">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/skills/lawyer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/20.jpg" alt="Опубликовал(а) Васильева Татьяна Михайловна" title="Опубликовал(а) Васильева Татьяна Михайловна" loading="lazy"><span class="loc-bar">📍 Санкт-Петербург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Юрисконсульт</div>
+                <div class="vacancy-salary">90 000 – 130 000 ₽</div>
+                <div class="vacancy-meta">Юридическое бюро «Право и дело» · <span class="meta-city">📍 Санкт-Петербург · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Сопровождение кооперативов и НКО: уставы, договоры, споры. Часть клиентов — участники платформы.</p>
+                <div class="vacancy-tags"><span class="chip">Договорное право</span><span class="chip">Регистрация НКО</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Васильева Татьяна Михайловна · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Хабаровск" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Транспорт, логистика, перевозки" data-subcategory="Водитель">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/delivery-driver.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/26.jpg" alt="Опубликовал(а) Орлова Светлана Викторовна" title="Опубликовал(а) Орлова Светлана Викторовна" loading="lazy"><span class="loc-bar">📍 Хабаровск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Водитель-экспедитор</div>
+                <div class="vacancy-salary">80 000 ₽</div>
+                <div class="vacancy-meta">Кооператив «Речной порт» · <span class="meta-city">📍 Хабаровск · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Доставка грузов кооператива по краю. Машина закреплённая, ремонт и топливо за счёт кооператива.</p>
+                <div class="vacancy-tags"><span class="chip">Категория C</span><span class="chip">Экспедирование</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Орлова Светлана Викторовна · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Владивосток" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/logistics-dispatcher.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/8.jpg" alt="Опубликовал(а) Соколов Павел Дмитриевич" title="Опубликовал(а) Соколов Павел Дмитриевич" loading="lazy"><span class="loc-bar">📍 Владивосток</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Логист</div>
+                <div class="vacancy-salary">75 000 ₽</div>
+                <div class="vacancy-meta">ПАО «СеверТранс» · <span class="meta-city">📍 Владивосток · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Планирование маршрутов и контейнерных отправок, работа с таможенными брокерами.</p>
+                <div class="vacancy-tags"><span class="chip">Логистика</span><span class="chip">ВЭД</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Соколов Павел Дмитриевич · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Пермь" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Производство, сервисное обслуживание" data-subcategory="Швея, закройщик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/seamstress-sewing.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/16.jpg" alt="Опубликовал(а) Кузнецова Дарья Викторовна" title="Опубликовал(а) Кузнецова Дарья Викторовна" loading="lazy"><span class="loc-bar">📍 Пермь</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Швея на пошив спецодежды</div>
+                <div class="vacancy-salary">300 – 450 ₽ / час</div>
+                <div class="vacancy-meta">АНО «Мастерская будущего» · <span class="meta-city">📍 Пермь · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Пошив рабочей одежды для кооперативов платформы. Оборудованное рабочее место, гибкие смены.</p>
+                <div class="vacancy-tags"><span class="chip">Пошив</span><span class="chip">Промышленная машина</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Кузнецова Дарья Викторовна · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Сочи" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Туризм, гостиницы, рестораны" data-subcategory="Повар, кондитер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/baker-pastry.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/22.jpg" alt="Опубликовал(а) Голубева Мария Александровна" title="Опубликовал(а) Голубева Мария Александровна" loading="lazy"><span class="loc-bar">📍 Сочи</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Кондитер</div>
+                <div class="vacancy-salary">60 000 – 80 000 ₽</div>
+                <div class="vacancy-meta">Кооператив «Гостевой двор» · <span class="meta-city">📍 Сочи · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Десерты и выпечка для гостевого дома и кофейни кооператива. Смены 2/2, питание включено.</p>
+                <div class="vacancy-tags"><span class="chip">Кондитерское дело</span><span class="chip">Выпечка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Голубева Мария Александровна · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Тюмень" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Автомобильный бизнес" data-subcategory="Автослесарь, автомеханик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/skills/car-mechanic.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/25.jpg" alt="Опубликовал(а) Медведева Юлия Олеговна" title="Опубликовал(а) Медведева Юлия Олеговна" loading="lazy"><span class="loc-bar">📍 Тюмень</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Автослесарь</div>
+                <div class="vacancy-salary">70 000 – 100 000 ₽</div>
+                <div class="vacancy-meta">Артель «Автосервис Плюс» · <span class="meta-city">📍 Тюмень · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Ремонт и обслуживание легковых авто в артели. Оплата — оклад плюс процент от заказ-нарядов.</p>
+                <div class="vacancy-tags"><span class="chip">Ремонт двигателя</span><span class="chip">Диагностика</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Медведева Юлия Олеговна · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Новосибирск" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Медицина, фармацевтика" data-subcategory="Медсестра, фельдшер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/nurse-mobile-clinic.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/31.jpg" alt="Опубликовал(а) Дмитриева Елена Игоревна" title="Опубликовал(а) Дмитриева Елена Игоревна" loading="lazy"><span class="loc-bar">📍 Новосибирск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Медсестра выездной бригады</div>
+                <div class="vacancy-salary">65 000 ₽</div>
+                <div class="vacancy-meta">АНО «Здоровье для всех» · <span class="meta-city">📍 Новосибирск · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Выезды в отдалённые посёлки: осмотры, вакцинация, забор анализов. Транспорт организации.</p>
+                <div class="vacancy-tags"><span class="chip">Сестринское дело</span><span class="chip">Забор анализов</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Дмитриева Елена Игоревна · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Тюмень" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Разнорабочий">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/recycling-sorter.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/32.jpg" alt="Опубликовал(а) Ерёмин Станислав Петрович" title="Опубликовал(а) Ерёмин Станислав Петрович" loading="lazy"><span class="loc-bar">📍 Тюмень</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Оператор сортировки вторсырья</div>
+                <div class="vacancy-salary">50 000 ₽</div>
+                <div class="vacancy-meta">АНО «Чистый город» · <span class="meta-city">📍 Тюмень · </span>Полная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Сортировка привезённого вторсырья на линии, работа сменами. Обучение и спецодежда за счёт организации.</p>
+                <div class="vacancy-tags"><span class="chip">Сортировка отходов</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Ерёмин Станислав Петрович · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Пермь" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/solar-farm.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/39.jpg" alt="Опубликовал(а) Мельников Григорий Олегович" title="Опубликовал(а) Мельников Григорий Олегович" loading="lazy"><span class="loc-bar">📍 Пермь</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Монтажник солнечных панелей</div>
+                <div class="vacancy-salary">Доля выработки станции + 3 000 ₽/смена</div>
+                <div class="vacancy-meta">Энергокооператив «СветСвои» · <span class="meta-city">📍 Пермь · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Монтаж крышных солнечных станций у пайщиков кооператива. Часть вознаграждения — доля выработки.</p>
+                <div class="vacancy-tags"><span class="chip">Электромонтаж</span><span class="chip">Работа на высоте</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Мельников Григорий Олегович · сегодня</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Екатеринбург" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Маркетинг, реклама, PR" data-subcategory="SMM">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/smm-specialist.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/21.jpg" alt="Опубликовал(а) Павлова Виктория Андреевна" title="Опубликовал(а) Павлова Виктория Андреевна" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">SMM-специалист</div>
+                <div class="vacancy-salary">40 000 ₽</div>
+                <div class="vacancy-meta">ИП «Медиа Крафт» · <span class="meta-city">📍 Екатеринбург · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Ведение соцсетей кооперативов-клиентов: контент-план, съёмка на месте, тексты.</p>
+                <div class="vacancy-tags"><span class="chip">SMM</span><span class="chip">Копирайтинг</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Павлова Виктория Андреевна · 6 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Самара" data-employment="Волонтёрство" data-experience="Нет опыта" data-reward="Волонтёрство" data-owner-type="Организация" data-category="Управление персоналом, тренинги" data-subcategory="HR-менеджер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/volunteer-coordinator.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/38.jpg" alt="Опубликовал(а) Лаврова Светлана Игоревна" title="Опубликовал(а) Лаврова Светлана Игоревна" loading="lazy"><span class="loc-bar">📍 Самара</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Координатор волонтёров</div>
+                <div class="vacancy-salary">Без оплаты — обучение и компенсация проезда</div>
+                <div class="vacancy-meta">Фонд поддержки волонтёров «Вместе» · <span class="meta-city">📍 Самара · </span>Волонтёрство · Нет опыта</div>
+                <p class="vacancy-snippet">Сбор и координация волонтёрских смен на городских акциях. Хороший старт для тех, кто хочет в НКО.</p>
+                <div class="vacancy-tags"><span class="chip">Организация мероприятий</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Лаврова Светлана Игоревна · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Красноярск" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Стратегия, инвестиции, консалтинг" data-subcategory="Бизнес-консультант">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/grant-manager.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/28.jpg" alt="Опубликовал(а) Никитина Полина Романовна" title="Опубликовал(а) Никитина Полина Романовна" loading="lazy"><span class="loc-bar">📍 Красноярск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Грант-менеджер</div>
+                <div class="vacancy-salary">70 000 ₽</div>
+                <div class="vacancy-meta">Фонд «Территория 2020» · <span class="meta-city">📍 Красноярск · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Подготовка заявок на гранты для проектов платформы и отчётность по выигранным.</p>
+                <div class="vacancy-tags"><span class="chip">Гранты</span><span class="chip">Отчётность</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Никитина Полина Романовна · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Удалённо" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Организация" data-category="Информационные технологии" data-subcategory="Дизайн, графика">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/skills/web-designer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/9.jpg" alt="Опубликовал(а) Морозова Анна Сергеевна" title="Опубликовал(а) Морозова Анна Сергеевна" loading="lazy"><span class="loc-bar">📍 Удалённо</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">UX-дизайнер</div>
+                <div class="vacancy-salary">Доля в проекте + 40 000 ₽ аванс</div>
+                <div class="vacancy-meta">ДАО «ОткрытыйГород» · <span class="meta-city">📍 Удалённо · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Интерфейсы сервисов городского ДАО: карты инициатив, голосования, бюджет участия.</p>
+                <div class="vacancy-tags"><span class="chip">Веб-дизайн</span><span class="chip">Прототипирование</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Морозова Анна Сергеевна · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Казань" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Строительство, недвижимость" data-subcategory="Инженер строительного контроля">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/scaffolding.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/37.jpg" alt="Опубликовал(а) Крылов Виталий Андреевич" title="Опубликовал(а) Крылов Виталий Андреевич" loading="lazy"><span class="loc-bar">📍 Казань</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Инженер строительного контроля</div>
+                <div class="vacancy-salary">95 000 ₽</div>
+                <div class="vacancy-meta">ОАО «Вектор Инжиниринг» · <span class="meta-city">📍 Казань · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Контроль качества работ подрядчиков на объектах, ведение исполнительной документации.</p>
+                <div class="vacancy-tags"><span class="chip">Стройконтроль</span><span class="chip">Исполнительная документация</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Крылов Виталий Андреевич · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Челябинск" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/woodcarver.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/18.jpg" alt="Опубликовал(а) Зайцев Роман Сергеевич" title="Опубликовал(а) Зайцев Роман Сергеевич" loading="lazy"><span class="loc-bar">📍 Челябинск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Резчик по дереву</div>
+                <div class="vacancy-salary">Сдельно, от 2 500 ₽ за изделие</div>
+                <div class="vacancy-meta">Артель «Уральские мастера» · <span class="meta-city">📍 Челябинск · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Резьба наличников и сувенирной продукции артели. Можно работать в своей мастерской.</p>
+                <div class="vacancy-tags"><span class="chip">Резьба по дереву</span><span class="chip">Народные промыслы</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Зайцев Роман Сергеевич · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Воронеж" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/plastics-technologist.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/4.jpg" alt="Опубликовал(а) Козлов Артём Викторович" title="Опубликовал(а) Козлов Артём Викторович" loading="lazy"><span class="loc-bar">📍 Воронеж</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Инженер-технолог по переработке пластика</div>
+                <div class="vacancy-salary">90 000 ₽</div>
+                <div class="vacancy-meta">ООО «ЭкоПласт» · <span class="meta-city">📍 Воронеж · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Настройка линии дробления и экструзии вторичного пластика, контроль параметров партии.</p>
+                <div class="vacancy-tags"><span class="chip">Экструзия</span><span class="chip">Контроль качества</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Козлов Артём Викторович · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Удалённо" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Организация" data-category="Информационные технологии" data-subcategory="Тестирование">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/laptop-desk.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/27.jpg" alt="Опубликовал(а) Фёдоров Алексей Дмитриевич" title="Опубликовал(а) Фёдоров Алексей Дмитриевич" loading="lazy"><span class="loc-bar">📍 Удалённо</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Тестировщик</div>
+                <div class="vacancy-salary">Доля в проекте + 50 000 ₽</div>
+                <div class="vacancy-meta">ДАО «Цифровой кооператив» · <span class="meta-city">📍 Удалённо · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Ручное и автоматизированное тестирование кооперативных сервисов. Решения принимаются голосованием held-участников.</p>
+                <div class="vacancy-tags"><span class="chip">Тестирование</span><span class="chip">Автотесты</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Фёдоров Алексей Дмитриевич · сегодня</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Ростов-на-Дону" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Разнорабочий">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/general-laborer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/8.jpg" alt="Опубликовал(а) Соколов Павел Дмитриевич" title="Опубликовал(а) Соколов Павел Дмитриевич" loading="lazy"><span class="loc-bar">📍 Ростов-на-Дону</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Разнорабочий на стройку</div>
+                <div class="vacancy-salary">3 000 ₽ за смену</div>
+                <div class="vacancy-meta">ООО «АгроСтрой» · <span class="meta-city">📍 Ростов-на-Дону · </span>Полная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Погрузка-разгрузка, помощь бригаде на объектах агрокомплекса. Выплаты еженедельно.</p>
+                <div class="vacancy-tags"><span class="chip">Подсобные работы</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Соколов Павел Дмитриевич · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Казань" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Спортивные клубы, фитнес, салоны красоты" data-subcategory="Тренер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/sports-coach.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/24.jpg" alt="Опубликовал(а) Богданов Тимур Асланович" title="Опубликовал(а) Богданов Тимур Асланович" loading="lazy"><span class="loc-bar">📍 Казань</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Тренер по воркауту</div>
+                <div class="vacancy-salary">1 000 ₽ за занятие</div>
+                <div class="vacancy-meta">АНО «Спортивный двор» · <span class="meta-city">📍 Казань · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Бесплатные дворовые тренировки для подростков на площадках района. Занятия вечером и в выходные.</p>
+                <div class="vacancy-tags"><span class="chip">Тренировки</span><span class="chip">Работа с подростками</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Богданов Тимур Асланович · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Удалённо" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Стратегия, инвестиции, консалтинг" data-subcategory="Бизнес-консультант">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/business-meeting.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/34.jpg" alt="Опубликовал(а) Жукова Наталья Александровна" title="Опубликовал(а) Жукова Наталья Александровна" loading="lazy"><span class="loc-bar">📍 Удалённо</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Консультант по кооперативному развитию</div>
+                <div class="vacancy-salary">По договорённости, проектная оплата</div>
+                <div class="vacancy-meta">Содружество кооперативов «Эмилия» · <span class="meta-city">📍 Удалённо · </span>Проектная работа · От 3 лет</div>
+                <p class="vacancy-snippet">Помощь новым кооперативам: устав, паевая политика, финмодель, первые полгода сопровождения.</p>
+                <div class="vacancy-tags"><span class="chip">Кооперативы</span><span class="chip">Финмодель</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Жукова Наталья Александровна · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Краснодар" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Организация" data-category="Розничная торговля" data-subcategory="Продавец">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/farm-seller.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/23.jpg" alt="Опубликовал(а) Виноградов Денис Игоревич" title="Опубликовал(а) Виноградов Денис Игоревич" loading="lazy"><span class="loc-bar">📍 Краснодар</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Продавец на фермерский прилавок</div>
+                <div class="vacancy-salary">45 000 ₽</div>
+                <div class="vacancy-meta">Кооператив «Плодородие» · <span class="meta-city">📍 Краснодар · </span>Полная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Продажа овощей и молочной продукции кооператива на рынке. Обучение и медкнижка за счёт кооператива.</p>
+                <div class="vacancy-tags"><span class="chip">Продажи</span><span class="chip">Работа с кассой</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Виноградов Денис Игоревич · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Хабаровск" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Рабочий персонал" data-subcategory="Разнорабочий">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/crane-operator.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/26.jpg" alt="Опубликовал(а) Орлова Светлана Викторовна" title="Опубликовал(а) Орлова Светлана Викторовна" loading="lazy"><span class="loc-bar">📍 Хабаровск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Крановщик портального крана</div>
+                <div class="vacancy-salary">110 000 ₽</div>
+                <div class="vacancy-meta">Кооператив «Речной порт» · <span class="meta-city">📍 Хабаровск · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Перегрузка контейнеров и сыпучих грузов в речном порту. Удостоверение крановщика обязательно.</p>
+                <div class="vacancy-tags"><span class="chip">Управление краном</span><span class="chip">Стропальные работы</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Орлова Светлана Викторовна · 6 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Екатеринбург" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Транспорт, логистика, перевозки" data-subcategory="Водитель">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/van-transfer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/30.jpg" alt="Опубликовал(а) Гришин Олег Валентинович" title="Опубликовал(а) Гришин Олег Валентинович" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Водитель социального такси</div>
+                <div class="vacancy-salary">48 000 ₽</div>
+                <div class="vacancy-meta">Благотворительный фонд «Добрый дом» · <span class="meta-city">📍 Екатеринбург · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Развоз пожилых подопечных фонда по врачам и социальным службам. Машина фонда, график по будням.</p>
+                <div class="vacancy-tags"><span class="chip">Категория B</span><span class="chip">Работа с людьми</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Гришин Олег Валентинович · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Финансы, бухгалтерия" data-subcategory="Кредитный специалист">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/credit-specialist.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/5.jpg" alt="Опубликовал(а) Смирнова Екатерина Андреевна" title="Опубликовал(а) Смирнова Екатерина Андреевна" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Кредитный специалист</div>
+                <div class="vacancy-salary">60 000 ₽ + процент</div>
+                <div class="vacancy-meta">Кредитный кооператив «Взаимопомощь» · <span class="meta-city">📍 Москва · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Консультирование пайщиков по займам, оценка платёжеспособности, сопровождение договоров.</p>
+                <div class="vacancy-tags"><span class="chip">Оценка заёмщика</span><span class="chip">Работа с пайщиками</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Смирнова Екатерина Андреевна · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Краснодар" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Организация" data-category="Розничная торговля" data-subcategory="Кассир">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/cashier.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/23.jpg" alt="Опубликовал(а) Виноградов Денис Игоревич" title="Опубликовал(а) Виноградов Денис Игоревич" loading="lazy"><span class="loc-bar">📍 Краснодар</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Кассир</div>
+                <div class="vacancy-salary">42 000 ₽</div>
+                <div class="vacancy-meta">ООО «Кооп-Маркет» · <span class="meta-city">📍 Краснодар · </span>Полная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Работа на кассе кооперативного магазина, смены 2/2. Скидка сотрудникам на весь ассортимент.</p>
+                <div class="vacancy-tags"><span class="chip">Касса</span><span class="chip">Обслуживание покупателей</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Виноградов Денис Игоревич · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Сочи" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Туризм, гостиницы, рестораны" data-subcategory="Администратор гостиницы">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/hotel-administrator.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/13.jpg" alt="Опубликовал(а) Дашкевич Данил Игоревич" title="Опубликовал(а) Дашкевич Данил Игоревич" loading="lazy"><span class="loc-bar">📍 Сочи</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Администратор гостевого дома</div>
+                <div class="vacancy-salary">55 000 ₽</div>
+                <div class="vacancy-meta">Кооператив «Гостевой двор» · <span class="meta-city">📍 Сочи · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Заселение гостей, бронирования, координация уборки. Проживание для иногородних предоставляется.</p>
+                <div class="vacancy-tags"><span class="chip">Приём гостей</span><span class="chip">Бронирование</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Дашкевич Данил Игоревич · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Новосибирск" data-employment="Полная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Медицина, фармацевтика" data-subcategory="Врач">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/doctor-gp.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/31.jpg" alt="Опубликовал(а) Дмитриева Елена Игоревна" title="Опубликовал(а) Дмитриева Елена Игоревна" loading="lazy"><span class="loc-bar">📍 Новосибирск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Врач общей практики</div>
+                <div class="vacancy-salary">120 000 ₽</div>
+                <div class="vacancy-meta">АНО «Здоровье для всех» · <span class="meta-city">📍 Новосибирск · </span>Полная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Приём в амбулатории организации и выезды в сёла области. Сертификат по специальности обязателен.</p>
+                <div class="vacancy-tags"><span class="chip">Терапия</span><span class="chip">Диспансеризация</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Дмитриева Елена Игоревна · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Екатеринбург" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Искусство, развлечения, массмедиа" data-subcategory="Фото, видео, звукооператоры">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/videographer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/14.jpg" alt="Опубликовал(а) Новиков Максим Олегович" title="Опубликовал(а) Новиков Максим Олегович" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Видеооператор</div>
+                <div class="vacancy-salary">25 000 ₽ за съёмочный день</div>
+                <div class="vacancy-meta">ИП «Медиа Крафт» · <span class="meta-city">📍 Екатеринбург · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Съёмка коротких роликов о кооперативах и производствах: интервью, процессы, монтаж.</p>
+                <div class="vacancy-tags"><span class="chip">Видеосъёмка</span><span class="chip">Монтаж</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Новиков Максим Олегович · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Красноярск" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/wood-planks.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/47.jpg" alt="Опубликовал(а) Иванова Мария Петровна" title="Опубликовал(а) Иванова Мария Петровна" loading="lazy"><span class="loc-bar">📍 Красноярск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Оператор лесопильного станка</div>
+                <div class="vacancy-salary">75 000 ₽</div>
+                <div class="vacancy-meta">Артель «Северный лес» · <span class="meta-city">📍 Красноярск · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Распил круглого леса на пилораме артели, контроль геометрии и сортировка пиломатериала.</p>
+                <div class="vacancy-tags"><span class="chip">Работа на станке</span><span class="chip">Пиломатериалы</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Иванова Мария Петровна · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Санкт-Петербург" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Организация" data-category="Юристы" data-subcategory="Юрисконсульт">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/junior-lawyer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/20.jpg" alt="Опубликовал(а) Васильева Татьяна Михайловна" title="Опубликовал(а) Васильева Татьяна Михайловна" loading="lazy"><span class="loc-bar">📍 Санкт-Петербург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Помощник юриста</div>
+                <div class="vacancy-salary">45 000 ₽</div>
+                <div class="vacancy-meta">Юридическое бюро «Право и дело» · <span class="meta-city">📍 Санкт-Петербург · </span>Полная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Подготовка документов, выписки из реестров, сопровождение сделок под руководством юриста.</p>
+                <div class="vacancy-tags"><span class="chip">Документооборот</span><span class="chip">Правовой анализ</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Васильева Татьяна Михайловна · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Пермь" data-employment="Частичная занятость" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Организация" data-category="Наука, образование" data-subcategory="Преподаватель, репетитор">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/woodwork-mentor.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/39.jpg" alt="Опубликовал(а) Мельников Григорий Олегович" title="Опубликовал(а) Мельников Григорий Олегович" loading="lazy"><span class="loc-bar">📍 Пермь</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Мастер-наставник по столярке</div>
+                <div class="vacancy-salary">900 ₽ / час</div>
+                <div class="vacancy-meta">АНО «Мастерская будущего» · <span class="meta-city">📍 Пермь · </span>Частичная занятость · От 3 лет</div>
+                <p class="vacancy-snippet">Занятия по работе с деревом для подростков в общественной мастерской, 2–3 группы в неделю.</p>
+                <div class="vacancy-tags"><span class="chip">Столярка</span><span class="chip">Наставничество</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Мельников Григорий Олегович · 6 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Екатеринбург" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Обмен услугами" data-owner-type="Организация" data-category="Административный персонал" data-subcategory="Административный директор">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/house-manager.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/6.jpg" alt="Опубликовал(а) Волков Игорь Николаевич" title="Опубликовал(а) Волков Игорь Николаевич" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Управляющий домом</div>
+                <div class="vacancy-salary">Зачёт взносов + 20 000 ₽</div>
+                <div class="vacancy-meta">ЖСК «Соседи» · <span class="meta-city">📍 Екатеринбург · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Хозяйственные вопросы дома: подрядчики, показания, мелкий ремонт. Часть оплаты — зачёт взносов ЖСК.</p>
+                <div class="vacancy-tags"><span class="chip">Эксплуатация здания</span><span class="chip">Работа с подрядчиками</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Волков Игорь Николаевич · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Пермь" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Организация" data-category="Транспорт, логистика, перевозки" data-subcategory="Диспетчер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/grid-dispatcher.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/10.jpg" alt="Опубликовал(а) Лебедева Ольга Игоревна" title="Опубликовал(а) Лебедева Ольга Игоревна" loading="lazy"><span class="loc-bar">📍 Пермь</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Диспетчер сетей</div>
+                <div class="vacancy-salary">70 000 ₽</div>
+                <div class="vacancy-meta">Энергокооператив «СветСвои» · <span class="meta-city">📍 Пермь · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Смены в диспетчерской кооператива: мониторинг выработки и заявок на подключение.</p>
+                <div class="vacancy-tags"><span class="chip">Диспетчеризация</span><span class="chip">Электросети</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Лебедева Ольга Игоревна · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Проект" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/printer3d-construction.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/4.jpg" alt="Опубликовал(а) Козлов Артём Викторович" title="Опубликовал(а) Козлов Артём Викторович" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Оператор строительного 3D-принтера</div>
+                <div class="vacancy-salary">Доля в проекте 4% + 60 000 ₽</div>
+                <div class="vacancy-meta">Проект «Строительный 3D-принтер» · <span class="meta-city">📍 Москва · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Подготовка смеси, калибровка портала и печать стен на объекте. Обучение на площадке проекта.</p>
+                <div class="vacancy-tags"><span class="chip">Цифровое производство</span><span class="chip">3D-печать</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Козлов Артём Викторович · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Пермь" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Проект" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/greenhouse.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/39.jpg" alt="Опубликовал(а) Мельников Григорий Олегович" title="Опубликовал(а) Мельников Григорий Олегович" loading="lazy"><span class="loc-bar">📍 Пермь</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Агроном-технолог теплицы</div>
+                <div class="vacancy-salary">70 000 ₽</div>
+                <div class="vacancy-meta">Проект «Круглогодичная теплица» · <span class="meta-city">📍 Пермь · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Ведение циклов выращивания зелени и томатов, контроль микроклимата и питания растений.</p>
+                <div class="vacancy-tags"><span class="chip">Агрономия</span><span class="chip">Гидропоника</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Мельников Григорий Олегович · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Воронеж" data-employment="Волонтёрство" data-experience="Нет опыта" data-reward="Волонтёрство" data-owner-type="Проект" data-category="Другое" data-subcategory="Разное">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/waste-sorting.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/37.jpg" alt="Опубликовал(а) Крылов Виталий Андреевич" title="Опубликовал(а) Крылов Виталий Андреевич" loading="lazy"><span class="loc-bar">📍 Воронеж</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Координатор пунктов раздельного сбора</div>
+                <div class="vacancy-salary">Без оплаты — доля в доходе проекта позже</div>
+                <div class="vacancy-meta">Проект «Раздельный сбор мусора» · <span class="meta-city">📍 Воронеж · </span>Волонтёрство · Нет опыта</div>
+                <p class="vacancy-snippet">Организация графика вывоза и общение с жителями районов. Пока волонтёрство, после запуска — доля.</p>
+                <div class="vacancy-tags"><span class="chip">Организация процессов</span><span class="chip">Экопросвещение</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Крылов Виталий Андреевич · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Красноярск" data-employment="Волонтёрство" data-experience="От 1 года" data-reward="Волонтёрство" data-owner-type="Проект" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/greenhouse-lettuce.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/36.jpg" alt="Опубликовал(а) Игнатьева Оксана Романовна" title="Опубликовал(а) Игнатьева Оксана Романовна" loading="lazy"><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Агроном-консультант</div>
                 <div class="vacancy-salary">Без оплаты — доля урожая</div>
-                <div class="vacancy-meta">Проект «Биовегетарий» · <span class="meta-city">📍 Красноярск · </span>Волонтёрство · Опыт от 1 года</div>
+                <div class="vacancy-meta">Проект «Биовегетарий» · <span class="meta-city">📍 Красноярск · </span>Волонтёрство · От 1 года</div>
                 <p class="vacancy-snippet">Консультации по круглогодичному выращиванию овощей в теплице проекта. Доля урожая для консультанта и семьи.</p>
                 <div class="vacancy-tags"><span class="chip">Агрономия</span></div>
                 <div class="vacancy-footer">
-                  <span class="vacancy-posted">Опубликовано 3 дня назад</span>
+                  <span class="vacancy-posted">Игнатьева Оксана Романовна · 3 дня назад</span>
                   <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
                 </div>
               </div>
             </div>
           </a>
 
-          <a class="vacancy-card" href="vacancy.html" data-city="Сочи" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Обмен услугами" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+          <a class="vacancy-card" href="vacancy.html" data-city="Санкт-Петербург" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Обмен услугами" data-owner-type="Проект" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
             <div class="card-row">
-              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:14px">ДД</div><span class="loc-bar">📍 Сочи</span></div>
+              <div class="img-wrap"><img class="card-photo" src="images/photos/makerspace.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/31.jpg" alt="Опубликовал(а) Дмитриева Елена Игоревна" title="Опубликовал(а) Дмитриева Елена Игоревна" loading="lazy"><span class="loc-bar">📍 Санкт-Петербург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Мастер по 3D-печати и лазерной резке</div>
+                <div class="vacancy-salary">Доступ к оборудованию + 25 000 ₽</div>
+                <div class="vacancy-meta">Проект «Антикафе FabLab» · <span class="meta-city">📍 Санкт-Петербург · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Помощь резидентам мастерской с заказами и обслуживание станков. Часть вознаграждения — свободный доступ к оборудованию.</p>
+                <div class="vacancy-tags"><span class="chip">3D-печать</span><span class="chip">Лазерная резка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Дмитриева Елена Игоревна · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Екатеринбург" data-employment="Частичная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Проект" data-category="Домашний, обслуживающий персонал" data-subcategory="Домработница, няня">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/laundromat.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/30.jpg" alt="Опубликовал(а) Гришин Олег Валентинович" title="Опубликовал(а) Гришин Олег Валентинович" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Оператор общественной прачечной</div>
+                <div class="vacancy-salary">30 000 ₽ за полставки</div>
+                <div class="vacancy-meta">Проект «Общественная прачечная» · <span class="meta-city">📍 Екатеринбург · </span>Частичная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Приём белья, загрузка машин, мелкое обслуживание техники. График по договорённости.</p>
+                <div class="vacancy-tags"><span class="chip">Обслуживание оборудования</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Гришин Олег Валентинович · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Казань" data-employment="Частичная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Проект" data-category="Административный персонал" data-subcategory="Офис-менеджер, ассистент">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/coworking.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/9.jpg" alt="Опубликовал(а) Морозова Анна Сергеевна" title="Опубликовал(а) Морозова Анна Сергеевна" loading="lazy"><span class="loc-bar">📍 Казань</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Администратор коворкинга</div>
+                <div class="vacancy-salary">35 000 ₽</div>
+                <div class="vacancy-meta">Проект «Соседский коворкинг» · <span class="meta-city">📍 Казань · </span>Частичная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Встреча резидентов, бронь переговорных, порядок в пространстве. Смены по 6 часов.</p>
+                <div class="vacancy-tags"><span class="chip">Работа с резидентами</span><span class="chip">Бронирование</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Морозова Анна Сергеевна · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Ростов-на-Дону" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Проект" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/building-renovation.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/8.jpg" alt="Опубликовал(а) Соколов Павел Дмитриевич" title="Опубликовал(а) Соколов Павел Дмитриевич" loading="lazy"><span class="loc-bar">📍 Ростов-на-Дону</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Штукатур-маляр</div>
+                <div class="vacancy-salary">4 000 ₽ за смену</div>
+                <div class="vacancy-meta">Проект «Ремонт дома культуры» · <span class="meta-city">📍 Ростов-на-Дону · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Отделка залов дома культуры перед открытием. Материалы и инструмент от проекта.</p>
+                <div class="vacancy-tags"><span class="chip">Штукатурные работы</span><span class="chip">Малярные работы</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Соколов Павел Дмитриевич · 6 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Уфа" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Проект" data-category="Рабочий персонал" data-subcategory="Столяр, плотник">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/modular-house.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/15.jpg" alt="Опубликовал(а) Попов Артур Русланович" title="Опубликовал(а) Попов Артур Русланович" loading="lazy"><span class="loc-bar">📍 Уфа</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Плотник-сборщик модулей</div>
+                <div class="vacancy-salary">Доля в проекте 3% + 5 000 ₽ за смену</div>
+                <div class="vacancy-meta">Проект «Модульные дома для многодетных семей» · <span class="meta-city">📍 Уфа · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Сборка каркасов и обшивка модулей на площадке. Часть вознаграждения — доля в проекте.</p>
+                <div class="vacancy-tags"><span class="chip">Каркасное строительство</span><span class="chip">Столярка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Попов Артур Русланович · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Краснодар" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Проект" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/solar-farm.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/23.jpg" alt="Опубликовал(а) Виноградов Денис Игоревич" title="Опубликовал(а) Виноградов Денис Игоревич" loading="lazy"><span class="loc-bar">📍 Краснодар</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Электромонтажник по фотомодулям</div>
+                <div class="vacancy-salary">Доля выработки + 4 500 ₽ за смену</div>
+                <div class="vacancy-meta">Проект «Солнечная электростанция кооператива» · <span class="meta-city">📍 Краснодар · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Монтаж и подключение фотомодулей на поле кооператива, пусконаладка инверторов.</p>
+                <div class="vacancy-tags"><span class="chip">Электромонтаж</span><span class="chip">Солнечные панели</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Виноградов Денис Игоревич · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Самара" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Проект" data-category="Рабочий персонал" data-subcategory="Сварщик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/bridge-repair.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/20.jpg" alt="Опубликовал(а) Васильева Татьяна Михайловна" title="Опубликовал(а) Васильева Татьяна Михайловна" loading="lazy"><span class="loc-bar">📍 Самара</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Сварщик металлоконструкций</div>
+                <div class="vacancy-salary">6 000 ₽ за смену</div>
+                <div class="vacancy-meta">Проект «Ремонт моста через реку» · <span class="meta-city">📍 Самара · </span>Проектная работа · От 3 лет</div>
+                <p class="vacancy-snippet">Сварочные работы на пролётах моста. Вахтовый график, проживание за счёт проекта.</p>
+                <div class="vacancy-tags"><span class="chip">Сварка</span><span class="chip">Работа на высоте</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Васильева Татьяна Михайловна · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Омск" data-employment="Частичная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Проект" data-category="Рабочий персонал" data-subcategory="Кладовщик, Приемщик товаров">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/recycling-center.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/18.jpg" alt="Опубликовал(а) Зайцев Роман Сергеевич" title="Опубликовал(а) Зайцев Роман Сергеевич" loading="lazy"><span class="loc-bar">📍 Омск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Приёмщик вторсырья</div>
+                <div class="vacancy-salary">35 000 ₽</div>
+                <div class="vacancy-meta">Проект «Пункт приёма вторсырья» · <span class="meta-city">📍 Омск · </span>Частичная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Приём и взвешивание вторсырья от жителей, учёт в системе проекта. Решения по правилам приёма — голосованием ДАО.</p>
+                <div class="vacancy-tags"><span class="chip">Приём сырья</span><span class="chip">Весовой учёт</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Зайцев Роман Сергеевич · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Челябинск" data-employment="Волонтёрство" data-experience="Нет опыта" data-reward="Волонтёрство" data-owner-type="Проект" data-category="Рабочий персонал" data-subcategory="Разнорабочий">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/playground.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/21.jpg" alt="Опубликовал(а) Павлова Виктория Андреевна" title="Опубликовал(а) Павлова Виктория Андреевна" loading="lazy"><span class="loc-bar">📍 Челябинск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Волонтёр-сборщик площадки</div>
+                <div class="vacancy-salary">Без оплаты — участие в общем деле</div>
+                <div class="vacancy-meta">Проект «Детская игровая площадка» · <span class="meta-city">📍 Челябинск · </span>Волонтёрство · Нет опыта</div>
+                <p class="vacancy-snippet">Выходные субботники по монтажу игрового оборудования. Инструмент и обед от проекта.</p>
+                <div class="vacancy-tags"><span class="chip">Сборка конструкций</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Павлова Виктория Андреевна · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Нижний Новгород" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Проект" data-category="Туризм, гостиницы, рестораны" data-subcategory="Повар, кондитер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/bakery.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/19.jpg" alt="Опубликовал(а) Семёнов Николай Петрович" title="Опубликовал(а) Семёнов Николай Петрович" loading="lazy"><span class="loc-bar">📍 Нижний Новгород</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Пекарь</div>
+                <div class="vacancy-salary">65 000 ₽</div>
+                <div class="vacancy-meta">Проект «Кооперативная пекарня» · <span class="meta-city">📍 Нижний Новгород · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Ночные и утренние замесы, подовый хлеб на закваске. Пайщики пекарни получают долю выручки.</p>
+                <div class="vacancy-tags"><span class="chip">Выпечка</span><span class="chip">Работа с тестом</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Семёнов Николай Петрович · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Волгоград" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Доля в проекте" data-owner-type="Проект" data-category="Производство, сервисное обслуживание" data-subcategory="Инженер-технолог">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/wind-turbine.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/22.jpg" alt="Опубликовал(а) Голубева Мария Александровна" title="Опубликовал(а) Голубева Мария Александровна" loading="lazy"><span class="loc-bar">📍 Волгоград</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Инженер по обслуживанию ветроустановок</div>
+                <div class="vacancy-salary">Доля в проекте 5%</div>
+                <div class="vacancy-meta">Проект «Ветропарк для малых хозяйств» · <span class="meta-city">📍 Волгоград · </span>Проектная работа · От 3 лет</div>
+                <p class="vacancy-snippet">Монтаж и регламентное обслуживание малых ветроустановок у фермеров-пайщиков.</p>
+                <div class="vacancy-tags"><span class="chip">Ветроэнергетика</span><span class="chip">Обслуживание оборудования</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Голубева Мария Александровна · неделю назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Тюмень" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Проект" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/historic-restoration.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/25.jpg" alt="Опубликовал(а) Медведева Юлия Олеговна" title="Опубликовал(а) Медведева Юлия Олеговна" loading="lazy"><span class="loc-bar">📍 Тюмень</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Реставратор по камню</div>
+                <div class="vacancy-salary">По договорённости, от 90 000 ₽</div>
+                <div class="vacancy-meta">Проект «Реставрация исторического здания» · <span class="meta-city">📍 Тюмень · </span>Проектная работа · От 3 лет</div>
+                <p class="vacancy-snippet">Восстановление фасадного декора купеческого дома. Требуется опыт работ на объектах наследия.</p>
+                <div class="vacancy-tags"><span class="chip">Реставрация</span><span class="chip">Работа с камнем</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Медведева Юлия Олеговна · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Иркутск" data-employment="Волонтёрство" data-experience="Нет опыта" data-reward="Волонтёрство" data-owner-type="Проект" data-category="Искусство, развлечения, массмедиа" data-subcategory="Журналистика, СМИ">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/outdoor-library.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/24.jpg" alt="Опубликовал(а) Богданов Тимур Асланович" title="Опубликовал(а) Богданов Тимур Асланович" loading="lazy"><span class="loc-bar">📍 Иркутск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Библиотекарь-волонтёр</div>
+                <div class="vacancy-salary">Без оплаты — свободный доступ к фонду</div>
+                <div class="vacancy-meta">Проект «Библиотека под открытым небом» · <span class="meta-city">📍 Иркутск · </span>Волонтёрство · Нет опыта</div>
+                <p class="vacancy-snippet">Дежурства в летней читальне, выдача книг, помощь с детскими чтениями по выходным.</p>
+                <div class="vacancy-tags"><span class="chip">Работа с книгами</span><span class="chip">Мероприятия</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Богданов Тимур Асланович · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Хабаровск" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-owner-type="Проект" data-category="Рабочий персонал" data-subcategory="Разнорабочий">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/plastic-recycling.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/26.jpg" alt="Опубликовал(а) Орлова Светлана Викторовна" title="Опубликовал(а) Орлова Светлана Викторовна" loading="lazy"><span class="loc-bar">📍 Хабаровск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Оператор дробилки и пресса</div>
+                <div class="vacancy-salary">55 000 ₽</div>
+                <div class="vacancy-meta">Проект «Мастерская по переработке пластика» · <span class="meta-city">📍 Хабаровск · </span>Полная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Дробление и прессование пластика, подготовка сырья для литья изделий. Обучение на месте.</p>
+                <div class="vacancy-tags"><span class="chip">Работа на оборудовании</span><span class="chip">Сортировка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Орлова Светлана Викторовна · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Владивосток" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Доля в проекте" data-owner-type="Проект" data-category="Строительство, недвижимость" data-subcategory="Архитектор">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/pedestrian-bridge.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/14.jpg" alt="Опубликовал(а) Новиков Максим Олегович" title="Опубликовал(а) Новиков Максим Олегович" loading="lazy"><span class="loc-bar">📍 Владивосток</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Инженер-проектировщик</div>
+                <div class="vacancy-salary">Доля в проекте 6%</div>
+                <div class="vacancy-meta">Проект «Строительство моста-пешеходника» · <span class="meta-city">📍 Владивосток · </span>Проектная работа · От 3 лет</div>
+                <p class="vacancy-snippet">Рабочая документация пешеходного моста, согласования. Смета и этапы утверждаются голосованием ДАО.</p>
+                <div class="vacancy-tags"><span class="chip">Проектирование</span><span class="chip">Расчёт конструкций</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Новиков Максим Олегович · 6 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Калининград" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Проект" data-category="Наука, образование" data-subcategory="Преподаватель, репетитор">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/tech-park.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/27.jpg" alt="Опубликовал(а) Фёдоров Алексей Дмитриевич" title="Опубликовал(а) Фёдоров Алексей Дмитриевич" loading="lazy"><span class="loc-bar">📍 Калининград</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Куратор образовательных программ</div>
+                <div class="vacancy-salary">50 000 ₽</div>
+                <div class="vacancy-meta">Проект «Молодёжный технопарк» · <span class="meta-city">📍 Калининград · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Составление расписания кружков, приглашение менторов, сопровождение команд-участников.</p>
+                <div class="vacancy-tags"><span class="chip">Образовательные программы</span><span class="chip">Работа с молодёжью</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Фёдоров Алексей Дмитриевич · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Архангельск" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Проект" data-category="Медицина, фармацевтика" data-subcategory="Медсестра, фельдшер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/mobile-clinic.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/31.jpg" alt="Опубликовал(а) Дмитриева Елена Игоревна" title="Опубликовал(а) Дмитриева Елена Игоревна" loading="lazy"><span class="loc-bar">📍 Архангельск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Фельдшер выездной бригады</div>
+                <div class="vacancy-salary">70 000 ₽</div>
+                <div class="vacancy-meta">Проект «Мобильный медпункт» · <span class="meta-city">📍 Архангельск · </span>Полная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Приём жителей отдалённых сёл в мобильном медпункте, маршрут — неделя в разъездах, неделя дома.</p>
+                <div class="vacancy-tags"><span class="chip">Неотложная помощь</span><span class="chip">Выездная работа</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Дмитриева Елена Игоревна · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Нижний Тагил" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Проект" data-category="Наука, образование" data-subcategory="Преподаватель, репетитор">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/coding-class.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/35.jpg" alt="Опубликовал(а) Зимин Кирилл Дмитриевич" title="Опубликовал(а) Зимин Кирилл Дмитриевич" loading="lazy"><span class="loc-bar">📍 Нижний Тагил</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Преподаватель Python</div>
+                <div class="vacancy-salary">1 200 ₽ / час</div>
+                <div class="vacancy-meta">Проект «Кооперативная школа программирования» · <span class="meta-city">📍 Нижний Тагил · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Занятия по программированию для подростков, две группы по вечерам. Программа готова, нужен ведущий.</p>
+                <div class="vacancy-tags"><span class="chip">Python</span><span class="chip">Преподавание</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Зимин Кирилл Дмитриевич · 5 дней назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Магнитогорск" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Обмен услугами" data-owner-type="Проект" data-category="Спортивные клубы, фитнес, салоны красоты" data-subcategory="Тренер">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/climbing-gym.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/32.jpg" alt="Опубликовал(а) Ерёмин Станислав Петрович" title="Опубликовал(а) Ерёмин Станислав Петрович" loading="lazy"><span class="loc-bar">📍 Магнитогорск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Инструктор скалолазания</div>
+                <div class="vacancy-salary">Абонемент + 800 ₽ за занятие</div>
+                <div class="vacancy-meta">Проект «Скалодром в бывшем цехе» · <span class="meta-city">📍 Магнитогорск · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Ведение групп начинающих, страховка и инструктаж. Часть оплаты — свободный доступ на скалодром.</p>
+                <div class="vacancy-tags"><span class="chip">Скалолазание</span><span class="chip">Страховка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Ерёмин Станислав Петрович · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Новосибирск" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Доля в проекте" data-owner-type="Проект" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/photos/open-source-crm.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/33.jpg" alt="Опубликовал(а) Петров Сергей Викторович" title="Опубликовал(а) Петров Сергей Викторович" loading="lazy"><span class="loc-bar">📍 Новосибирск</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Фронтенд-разработчик</div>
+                <div class="vacancy-salary">Доля в проекте + 70 000 ₽</div>
+                <div class="vacancy-meta">Проект «Открытая CRM для кооперативов» · <span class="meta-city">📍 Новосибирск · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Интерфейсы открытой CRM: пайщики, взносы, склад. Код в открытом репозитории, релизы — по решению ДАО.</p>
+                <div class="vacancy-tags"><span class="chip">Программирование</span><span class="chip">Открытый код</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Петров Сергей Викторович · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Сочи" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Обмен услугами" data-owner-type="Частное лицо" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/programmer-desk.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/13.jpg" alt="Опубликовал(а) Дашкевич Данил Игоревич" title="Опубликовал(а) Дашкевич Данил Игоревич" loading="lazy"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Программист</div>
                 <div class="vacancy-salary">Обмен услугами / по договорённости</div>
-                <div class="vacancy-meta">Дашкевич Данил Игоревич (частное лицо) · <span class="meta-city">📍 Сочи · </span>Проектная работа · Опыт от 1 года</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич (частное лицо) · <span class="meta-city">📍 Сочи · </span>Проектная работа · От 1 года</div>
                 <p class="vacancy-snippet">Нужна помощь с небольшим pet-проектом. Готов обменяться навыками — электромонтаж или кирпичная кладка в обмен на код.</p>
                 <div class="vacancy-tags"><span class="chip">Программирование</span></div>
                 <div class="vacancy-footer">
-                  <span class="vacancy-posted">Опубликовано сегодня</span>
+                  <span class="vacancy-posted">Дашкевич Данил Игоревич · сегодня</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Нижний Новгород" data-employment="Частичная занятость" data-experience="Нет опыта" data-reward="Обмен услугами" data-owner-type="Частное лицо" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/beekeeper-apiary.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/19.jpg" alt="Опубликовал(а) Семёнов Николай Петрович" title="Опубликовал(а) Семёнов Николай Петрович" loading="lazy"><span class="loc-bar">📍 Нижний Новгород</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Помощник на пасеку</div>
+                <div class="vacancy-salary">Обмен — часть медосбора</div>
+                <div class="vacancy-meta">Семёнов Николай Петрович (частное лицо) · <span class="meta-city">📍 Нижний Новгород · </span>Частичная занятость · Нет опыта</div>
+                <p class="vacancy-snippet">Нужен помощник на летний медосбор: качка мёда, уход за ульями. Научу с нуля, расчёт — частью мёда.</p>
+                <div class="vacancy-tags"><span class="chip">Пчеловодство</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Семёнов Николай Петрович · вчера</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Екатеринбург" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Частное лицо" data-category="Рабочий персонал" data-subcategory="Слесарь, сантехник">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/plumber-pipes.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/30.jpg" alt="Опубликовал(а) Гришин Олег Валентинович" title="Опубликовал(а) Гришин Олег Валентинович" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Сантехник на разовый ремонт</div>
+                <div class="vacancy-salary">8 000 ₽ за работу</div>
+                <div class="vacancy-meta">Гришин Олег Валентинович (частное лицо) · <span class="meta-city">📍 Екатеринбург · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Замена стояка и подводки в квартире, материалы куплены. Нужен мастер с инструментом на один день.</p>
+                <div class="vacancy-tags"><span class="chip">Сантехника</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Гришин Олег Валентинович · 2 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Казань" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Частное лицо" data-category="Искусство, развлечения, массмедиа" data-subcategory="Фото, видео, звукооператоры">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/skills/photographer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/9.jpg" alt="Опубликовал(а) Морозова Анна Сергеевна" title="Опубликовал(а) Морозова Анна Сергеевна" loading="lazy"><span class="loc-bar">📍 Казань</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Фотограф на семейный праздник</div>
+                <div class="vacancy-salary">12 000 ₽ за съёмку</div>
+                <div class="vacancy-meta">Морозова Анна Сергеевна (частное лицо) · <span class="meta-city">📍 Казань · </span>Проектная работа · От 1 года</div>
+                <p class="vacancy-snippet">Съёмка семейного юбилея, 4 часа, обработка 40 кадров. Приветствуется репортажный стиль.</p>
+                <div class="vacancy-tags"><span class="chip">Фотосъёмка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Морозова Анна Сергеевна · 3 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Деньги" data-owner-type="Частное лицо" data-category="Наука, образование" data-subcategory="Преподаватель, репетитор">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/skills/programmer.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/29.jpg" alt="Опубликовал(а) Белова Инна Сергеевна" title="Опубликовал(а) Белова Инна Сергеевна" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Репетитор по информатике</div>
+                <div class="vacancy-salary">1 500 ₽ / занятие</div>
+                <div class="vacancy-meta">Белова Инна Сергеевна (частное лицо) · <span class="meta-city">📍 Москва · </span>Частичная занятость · От 1 года</div>
+                <p class="vacancy-snippet">Подготовка сына к ОГЭ по информатике, два занятия в неделю очно или онлайн.</p>
+                <div class="vacancy-tags"><span class="chip">Информатика</span><span class="chip">Подготовка к ОГЭ</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Белова Инна Сергеевна · 4 дня назад</span>
+                  <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a class="vacancy-card" href="vacancy.html" data-city="Краснодар" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Деньги" data-owner-type="Частное лицо" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик">
+            <div class="card-row">
+              <div class="img-wrap"><img class="card-photo" src="images/vacancies/bricklayer-house.jpg" alt="" loading="lazy"><img class="owner-badge" src="images/avatars/23.jpg" alt="Опубликовал(а) Виноградов Денис Игоревич" title="Опубликовал(а) Виноградов Денис Игоревич" loading="lazy"><span class="loc-bar">📍 Краснодар</span></div>
+              <div style="flex:1;min-width:0">
+                <div class="vacancy-title">Каменщик на баню</div>
+                <div class="vacancy-salary">От 90 000 ₽ за объект</div>
+                <div class="vacancy-meta">Виноградов Денис Игоревич (частное лицо) · <span class="meta-city">📍 Краснодар · </span>Проектная работа · От 3 лет</div>
+                <p class="vacancy-snippet">Кладка стен бани из кирпича 5×4 м, фундамент готов. Материалы на участке, сроки — месяц.</p>
+                <div class="vacancy-tags"><span class="chip">Кирпичная кладка</span></div>
+                <div class="vacancy-footer">
+                  <span class="vacancy-posted">Виноградов Денис Игоревич · неделю назад</span>
                   <span class="button secondary" style="padding:7px 16px;font-size:12.5px">Откликнуться</span>
                 </div>
               </div>
@@ -217,10 +1321,19 @@
           </select>
         </div>
         <div class="field">
+          <label>Кто ищет <span class="stat-note" title="Вакансию публикует организация, проект или частное лицо">&#9432;</span></label>
+          <select class="input" id="filter-owner">
+            <option value="">Любой</option>
+            <option value="Организация">Организация</option>
+            <option value="Проект">Проект</option>
+            <option value="Частное лицо">Частное лицо</option>
+          </select>
+        </div>
+        <div class="field">
           <label>Город <span class="stat-note" title="Можно выбрать удалённую работу отдельным значением">ⓘ</span></label>
           <input class="input" id="filter-city" list="city-options" placeholder="Начните вводить город">
           <datalist id="city-options">
-            <option value="Москва"><option value="Дербент"><option value="Красноярск"><option value="Сочи"><option value="Удалённо">
+            <option value="Архангельск"><option value="Владивосток"><option value="Волгоград"><option value="Воронеж"><option value="Дербент"><option value="Екатеринбург"><option value="Иркутск"><option value="Казань"><option value="Калининград"><option value="Краснодар"><option value="Красноярск"><option value="Магнитогорск"><option value="Москва"><option value="Нижний Новгород"><option value="Нижний Тагил"><option value="Новосибирск"><option value="Омск"><option value="Пермь"><option value="Ростов-на-Дону"><option value="Самара"><option value="Санкт-Петербург"><option value="Сочи"><option value="Тюмень"><option value="Уфа"><option value="Хабаровск"><option value="Челябинск"><option value="Удалённо">
           </datalist>
         </div>
         <div class="field">
@@ -433,6 +1546,7 @@ function applyFilters() {
   var employment = document.getElementById('filter-employment').value;
   var experience = document.getElementById('filter-experience').value;
   var reward = document.getElementById('filter-reward').value;
+  var owner = document.getElementById('filter-owner').value;
   var cards = document.querySelectorAll('#vacancies-list .vacancy-card');
   var visibleCount = 0;
   cards.forEach(function (card) {
@@ -441,9 +1555,10 @@ function applyFilters() {
     var employmentOk = !employment || card.dataset.employment === employment;
     var experienceOk = !experience || card.dataset.experience === experience;
     var rewardOk = !reward || card.dataset.reward === reward;
+    var ownerOk = !owner || card.dataset.ownerType === owner;
     var categoryOk = !selectedCategory || card.dataset.category === selectedCategory;
     var subcategoryOk = !selectedSubcategory || card.dataset.subcategory === selectedSubcategory;
-    var show = cityOk && employmentOk && experienceOk && rewardOk && categoryOk && subcategoryOk;
+    var show = cityOk && employmentOk && experienceOk && rewardOk && ownerOk && categoryOk && subcategoryOk;
     card.style.display = show ? '' : 'none';
     if (show) visibleCount++;
   });
@@ -454,12 +1569,14 @@ document.getElementById('filter-city').addEventListener('input', applyFilters);
 document.getElementById('filter-employment').addEventListener('change', applyFilters);
 document.getElementById('filter-experience').addEventListener('change', applyFilters);
 document.getElementById('filter-reward').addEventListener('change', applyFilters);
+document.getElementById('filter-owner').addEventListener('change', applyFilters);
 
 function resetFilters() {
   document.getElementById('filter-city').value = '';
   document.getElementById('filter-employment').value = '';
   document.getElementById('filter-experience').value = '';
   document.getElementById('filter-reward').value = '';
+  document.getElementById('filter-owner').value = '';
   filterCategorySelect.value = '';
   selectedCategory = '';
   selectedSubcategory = '';
