@@ -6,7 +6,13 @@
    тени и все дизайн-токены :root — живёт в theme.css; здесь остаются
    структурные свойства (раскладка, размеры, позиционирование), которые тема
    не переопределяет. Не возвращайте сюда правила, дублирующие theme.css:
-   они всё равно не применятся, тема грузится позже. */
+   они всё равно не применятся, тема грузится позже.
+
+   Про оставшиеся литералы цвета (#fff, #cfd3d1): это НЕ забытый хардкод.
+   Так подписан текст поверх насыщенной или заведомо тёмной подложки —
+   бейджи на teal/gold, подписи на фото, полоса .cta-band и шапка
+   .public-header. Он должен оставаться светлым в обеих темах, поэтому
+   заменять его на var(--white) нельзя: в тёмной теме этот токен тёмный. */
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -101,7 +107,7 @@ a { text-decoration: none; }
 .button.secondary:hover { background: var(--teal-tint); }
 #fav-toggle.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
 #fav-toggle.active:hover { background: var(--ink-2); }
-#wishlist-toggle.active { background: var(--gold-tint); color: #8a5f1c; border-color: var(--gold); }
+#wishlist-toggle.active { background: var(--gold-tint); color: var(--gold-text); border-color: var(--gold); }
 .button.ghost { padding: 8.5px 18px; }
 .button.secondary.active:hover, .button.ghost.active:hover { background: var(--teal-dark); }
 
@@ -126,7 +132,7 @@ a { text-decoration: none; }
 .badge.slate { background: var(--white); color: var(--ink-2); border: 1px solid var(--slate-light); font-weight: 500; }
 .badge.demand { background: var(--white); color: var(--error); border: 1px solid var(--error); font-weight: 500; }
 .badge.verified { background: var(--teal-tint); color: var(--teal-dark); font-weight: 600; }
-.badge.new-member { background: var(--gold-tint); color: #8a5f1c; font-weight: 500; }
+.badge.new-member { background: var(--gold-tint); color: var(--gold-text); font-weight: 500; }
 
 /* #11 Статус «Безопасная сделка» */
 .safe-deal-stepper { display: flex; flex-direction: column; gap: 0; margin-top: 4px; }
@@ -605,7 +611,7 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
   color: var(--teal-dark); font-weight: 600; font-size: 12px; text-align: center;
   aspect-ratio: 1.05; padding: 8px; align-self: start; min-height: 0;
 }
-.view-all-tile:hover { background: var(--gold-tint); color: #8a5f1c; border-color: var(--gold); }
+.view-all-tile:hover { background: var(--gold-tint); color: var(--gold-text); border-color: var(--gold); }
 .view-all-tile .view-all-arrow { font-size: 18px; line-height: 1; }
 .cat-back-link { font-weight: 500; font-size: 13px; color: var(--teal); font-family: 'Manrope', sans-serif; }
 .cat-back-link:hover { color: var(--teal-dark); }
@@ -654,7 +660,7 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 
 .cat-row.collapsed .cat-items { display: none; }
 .cat-header { cursor: pointer; user-select: none; }
-.cat-header:hover { background: #d3e6e2; }
+.cat-header:hover { background: var(--teal-tint); }
 
 .cat-status { font-size: 10.5px; margin-top: 3px; }
 .cat-status.open { color: var(--teal-dark); font-weight: 600; }
@@ -802,7 +808,7 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 
 .cta-band { background: var(--ink); border-radius: var(--radius); max-width: 1080px; margin: 0 auto 60px; padding: 36px 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .cta-band h2 { color: #fff; margin: 0 0 6px; font-size: 20px; }
-.cta-band p { color: #a9b0ad; margin: 0; font-size: 13px; }
+.cta-band p { color: var(--slate-light); margin: 0; font-size: 13px; }
 .cta-band .button.secondary { color: #fff; border-color: rgba(255,255,255,.4); }
 
 @media (max-width: 900px) {
@@ -877,8 +883,8 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .msg-doc-name { font-weight: 600; font-size: 12.5px; }
 .msg-doc-size { font-size: 11px; color: var(--slate-light); }
 .scheduled-panel { margin-top: 10px; }
-.scheduled-item { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: var(--gold-tint); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; margin-bottom: 6px; color: #7a5416; }
-.scheduled-item .sched-actions a { font-size: 11px; margin-left: 8px; color: #7a5416; text-decoration: underline; }
+.scheduled-item { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: var(--gold-tint); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; margin-bottom: 6px; color: var(--gold-text); }
+.scheduled-item .sched-actions a { font-size: 11px; margin-left: 8px; color: var(--gold-text); text-decoration: underline; }
 .tdot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-left: 3px; }
 
 /* ============================================================
@@ -887,7 +893,9 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
    для аналогичных форм в других каталогах (Люди/Навыки/Вакансии/Проекты/Организации).
    ============================================================ */
 .modal.wide { width: 560px; }
-.form-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+/* minmax(0,1fr), а не 1fr: у грид-колонки минимальная ширина по умолчанию равна
+   содержимому, и длинная строка распирала страницу (resource-buyers.html). */
+.form-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
 
 .field.invalid .input,
 .field.invalid textarea.input { border-color: var(--error); }
@@ -1046,7 +1054,7 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
   width: 24px; height: 24px; border-radius: 50%; flex: none;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 10px;
-  background: var(--gold-tint); color: #8a5f1c;
+  background: var(--gold-tint); color: var(--gold-text);
 }
 .track-hash {
   display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--slate);

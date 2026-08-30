@@ -88,6 +88,21 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .topbar-right { gap: 14px; color: var(--ink-2); }
 .topbar-right a { color: var(--ink-2); font-weight: 500; font-size: 12.5px; }
 .topbar-right a:hover { color: var(--teal); }
+
+/* Колокольчик уведомлений в шапке (п.14 аудита: страница уведомлений была
+   доступна только по прямому адресу — ссылки на неё не было нигде). */
+.topbar-bell {
+  position: relative; display: inline-flex; align-items: center;
+  color: var(--ink-2); padding: 4px;
+}
+.topbar-bell:hover { color: var(--teal); }
+.bell-count {
+  position: absolute; top: -3px; right: -5px; min-width: 15px; height: 15px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 3px; box-sizing: border-box;
+  background: var(--gold); color: #1a1205;
+  border-radius: 8px; font: 700 9.5px/1 'Manrope', sans-serif;
+}
 .topbar-search {
   background: var(--surface-2);
   border: 1px solid transparent;
@@ -344,6 +359,8 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   }
   .topbar-search { display: none; }
   .topbar-right a { display: none; }
+  /* колокольчик нужен и с телефона */
+  .topbar-right a.topbar-bell { display: inline-flex; }
   /* Замена скрытым поиску и ссылкам аккаунта (см. app.js, блок 3.1):
      поиск раскрывается строкой под шапкой, «настройки»/«выйти» — в меню. */
   .search-btn {
@@ -441,9 +458,6 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   /* Ряд кнопок в карточке каталога («Написать» / «Подписаться» /
      «Добавить в друзья») в одну строку на 375px не помещается. */
   .vacancy-footer { flex-wrap: wrap; row-gap: 8px; }
-  /* Широкие таблицы (кошелёк, реестры активов, трекинг) не ужимаются до 375px —
-     даём им собственную горизонтальную прокрутку вместо прокрутки всей страницы. */
-  table.res-table { display: block; max-width: 100%; overflow-x: auto; }
   .cat-nav { display: none; }
 }
 @media (min-width: 901px) {
@@ -455,6 +469,12 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 /* ── Доступность ──────────────────────────────────────────── */
 /* Заголовок для скринридера там, где визуального заголовка нет
    (на каталогах роль заголовка играет активная вкладка). */
+/* Широкие таблицы (кошелёк, реестры активов, трекинг, покупатели) шире своей
+   колонки и на мобильном, и на десктопе — на 1200px переполнение давали
+   intangible-assets и resource-buyers. Даём таблице собственную
+   горизонтальную прокрутку вместо прокрутки всей страницы. */
+table.res-table { display: block; max-width: 100%; overflow-x: auto; }
+
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
