@@ -61,22 +61,22 @@
     <div class="search-row">
       <input class="input" placeholder="Должность или ключевые слова, например «электрик»">
       <a class="button" href="add-vacancy.html">Добавить вакансию</a>
-      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button></span>
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
         <div class="cat-section-title">
           <span>Все вакансии <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="vac-count">6</span></span></span>
         </div>
-        <div class="vacancy-list" id="vacancies-list">
+        <div class="vacancy-list tile-mode" id="vacancies-list">
 
           <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Полная занятость" data-experience="От 1 года" data-reward="Деньги" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:15px">М</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:15px">М</div><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Электромонтажник</div>
                 <div class="vacancy-salary">60 000 – 90 000 ₽</div>
-                <div class="vacancy-meta">ООО «Мириталь» · 📍 Москва · Полная занятость, полный день · Опыт от 1 года</div>
+                <div class="vacancy-meta">ООО «Мириталь» · <span class="meta-city">📍 Москва · </span>Полная занятость, полный день · Опыт от 1 года</div>
                 <p class="vacancy-snippet">Обслуживание и монтаж электропроводки на производственных линиях. Работа по графику, официальное оформление.</p>
                 <div class="vacancy-tags"><span class="chip">Электромонтаж</span></div>
                 <div class="vacancy-footer">
@@ -89,11 +89,11 @@
 
           <a class="vacancy-card" href="vacancy.html" data-city="Дербент" data-employment="Проектная работа" data-experience="От 3 лет" data-reward="Доля в проекте" data-category="Строительство, недвижимость" data-subcategory="Прораб, мастер СМР">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:15px">Ш</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:15px">Ш</div><span class="loc-bar">📍 Дербент</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Прораб на площадку 3D-принтера</div>
                 <div class="vacancy-salary">Доля в проекте 5–8%</div>
-                <div class="vacancy-meta">Кооператив «Шукты» · 📍 Дербент · Проектная работа · Опыт от 3 лет</div>
+                <div class="vacancy-meta">Кооператив «Шукты» · <span class="meta-city">📍 Дербент · </span>Проектная работа · Опыт от 3 лет</div>
                 <p class="vacancy-snippet">Руководство монтажом строительного 3D-принтера на площадке. Вознаграждение — доля в готовом результате проекта.</p>
                 <div class="vacancy-tags"><span class="chip">Кирпичная кладка</span><span class="chip">Управление стройплощадкой</span></div>
                 <div class="vacancy-footer">
@@ -106,11 +106,11 @@
 
           <a class="vacancy-card" href="vacancy.html" data-city="Удалённо" data-employment="Частичная занятость" data-experience="От 1 года" data-reward="Доля в проекте" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:14px">ДК</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:14px">ДК</div><span class="loc-bar">📍 Удалённо</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Веб-разработчик</div>
                 <div class="vacancy-salary">По договорённости: деньги + доля</div>
-                <div class="vacancy-meta">ДАО КООПЕХ · 📍 Удалённо · Частичная занятость, гибкий график · Опыт от 1 года</div>
+                <div class="vacancy-meta">ДАО КООПЕХ · <span class="meta-city">📍 Удалённо · </span>Частичная занятость, гибкий график · Опыт от 1 года</div>
                 <p class="vacancy-snippet">Развитие платформы cooptech: новые разделы, интеграции с расширениями. Открытый код, гибкий график.</p>
                 <div class="vacancy-tags"><span class="chip">Веб-дизайн</span><span class="chip">Программирование</span></div>
                 <div class="vacancy-footer">
@@ -123,11 +123,11 @@
 
           <a class="vacancy-card" href="vacancy.html" data-city="Москва" data-employment="Полная занятость" data-experience="Нет опыта" data-reward="Деньги" data-category="Рабочий персонал" data-subcategory="Кладовщик, Приемщик товаров">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:15px">М</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:15px">М</div><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Кладовщик</div>
                 <div class="vacancy-salary">45 000 ₽</div>
-                <div class="vacancy-meta">ООО «Мириталь» · 📍 Москва · Полная занятость, сменный график · Без опыта</div>
+                <div class="vacancy-meta">ООО «Мириталь» · <span class="meta-city">📍 Москва · </span>Полная занятость, сменный график · Без опыта</div>
                 <p class="vacancy-snippet">Приём и отгрузка товара, ведение складского учёта. Обучение на месте.</p>
                 <div class="vacancy-tags"><span class="chip">Складской учёт</span></div>
                 <div class="vacancy-footer">
@@ -140,11 +140,11 @@
 
           <a class="vacancy-card" href="vacancy.html" data-city="Красноярск" data-employment="Волонтёрство" data-experience="От 1 года" data-reward="Волонтёрство" data-category="Сельское хозяйство" data-subcategory="Агроном, зоотехник">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Агроном-консультант</div>
                 <div class="vacancy-salary">Без оплаты — доля урожая</div>
-                <div class="vacancy-meta">Проект «Биовегетарий» · 📍 Красноярск · Волонтёрство · Опыт от 1 года</div>
+                <div class="vacancy-meta">Проект «Биовегетарий» · <span class="meta-city">📍 Красноярск · </span>Волонтёрство · Опыт от 1 года</div>
                 <p class="vacancy-snippet">Консультации по круглогодичному выращиванию овощей в теплице проекта. Доля урожая для консультанта и семьи.</p>
                 <div class="vacancy-tags"><span class="chip">Агрономия</span></div>
                 <div class="vacancy-footer">
@@ -157,11 +157,11 @@
 
           <a class="vacancy-card" href="vacancy.html" data-city="Сочи" data-employment="Проектная работа" data-experience="От 1 года" data-reward="Обмен услугами" data-category="Информационные технологии" data-subcategory="Программирование, Разработка">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:14px">ДД</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:14px">ДД</div><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Программист</div>
                 <div class="vacancy-salary">Обмен услугами / по договорённости</div>
-                <div class="vacancy-meta">Дашкевич Данил Игоревич (частное лицо) · 📍 Сочи · Проектная работа · Опыт от 1 года</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич (частное лицо) · <span class="meta-city">📍 Сочи · </span>Проектная работа · Опыт от 1 года</div>
                 <p class="vacancy-snippet">Нужна помощь с небольшим pet-проектом. Готов обменяться навыками — электромонтаж или кирпичная кладка в обмен на код.</p>
                 <div class="vacancy-tags"><span class="chip">Программирование</span></div>
                 <div class="vacancy-footer">
