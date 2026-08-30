@@ -609,11 +609,16 @@ function resetFilters() {
 document.getElementById('filter-reset').addEventListener('click', resetFilters);
 document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
 
-// Переключатель вида: плиткой / списком (только для плоского списка #projects-grid —
-// карточки в витрине-каруселях home-вида собираются динамически при её построении)
-var viewGrid = document.getElementById('projects-grid');
+// Переключатель вида: плиткой / списком. Раньше режим применялся только к плоской
+// сетке #projects-grid, а домашний вид собран из отдельных .ptile-grid по категориям —
+// из-за этого на витрине кнопка «Списком» не давала никакого эффекта. Теперь режим
+// общий для всех сеток страницы.
 var viewListBtn = document.getElementById('view-list-btn');
 var viewTileBtn = document.getElementById('view-tile-btn');
+var listView = false;
+// Текст метки города без самой пиктограммы: app.js заменяет эмодзи на SVG, поэтому
+// textContent метки различается до и после его загрузки — приводим к одному виду.
+function locText(loc) { return loc.textContent.replace(/\uD83D\uDCCD/g, '').trim(); }
 function ensureListMeta(grid) {
   grid.querySelectorAll('.ptile').forEach(function (p) {
     if (p.querySelector('.list-meta')) return;
@@ -622,19 +627,50 @@ function ensureListMeta(grid) {
     var typeBadge = p.querySelector('.type-badge');
     var meta = document.createElement('div');
     meta.className = 'list-meta';
-    meta.textContent = (badge ? badge.textContent + ' · ' : '') + (loc ? loc.textContent + ' · ' : '') + (typeBadge ? typeBadge.textContent : '');
+    meta.textContent = (badge ? badge.textContent + ' · ' : '') + (loc ? locText(loc) + ' · ' : '') + (typeBadge ? typeBadge.textContent : '');
     p.querySelector('.pname').insertAdjacentElement('afterend', meta);
   });
 }
-viewListBtn.addEventListener('click', function () {
-  ensureListMeta(viewGrid);
-  viewGrid.classList.add('list-mode');
-  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
-});
-viewTileBtn.addEventListener('click', function () {
-  viewGrid.classList.remove('list-mode');
-  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
-});
+function applyListMode() {
+  document.querySelectorAll('.ptile-grid').forEach(function (grid) {
+    if (listView) ensureListMeta(grid);
+    grid.classList.toggle('list-mode', listView);
+  });
+}
+// Выбранный вид держится между страницами каталогов: иначе переход в раздел
+// или в категорию сбрасывал список обратно на плитку, и кнопка «Списком»
+// выглядела нерабочей. localStorage может быть недоступен — тогда просто плитка.
+function savedCatalogView() {
+  try { return localStorage.getItem('coop-catalog-view'); } catch (e) { return null; }
+}
+function rememberCatalogView(isList) {
+  try { localStorage.setItem('coop-catalog-view', isList ? 'list' : 'tile'); } catch (e) {}
+}
+function setListView(on) {
+  listView = on;
+  applyListMode();
+  viewListBtn.classList.toggle('active', on);
+  viewTileBtn.classList.toggle('active', !on);
+  rememberCatalogView(on);
+}
+viewListBtn.addEventListener('click', function () { setListView(true); });
+viewTileBtn.addEventListener('click', function () { setListView(false); });
+if (savedCatalogView() === 'list') setListView(true);
+
+// Витрина и плоский список пересобираются на лету — возвращаем текущий режим
+// сеткам, которые появились в DOM после переключения.
+new MutationObserver(function (records) {
+  for (var i = 0; i < records.length; i++) {
+    var added = records[i].addedNodes;
+    for (var j = 0; j < added.length; j++) {
+      var n = added[j];
+      if (n.nodeType === 1 && (n.classList.contains('ptile-grid') || n.querySelector('.ptile-grid'))) {
+        applyListMode();
+        return;
+      }
+    }
+  }
+}).observe(document.getElementById('main'), { childList: true, subtree: true });
 
 // Домашний вид каталога: «Новые проекты» + ряд по каждой непустой категории (4 плитки + «Смотреть все»)
 var projectsHome = document.getElementById('projects-home');
