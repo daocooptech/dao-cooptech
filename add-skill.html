@@ -10,19 +10,20 @@
 </head>
 <body>
 <header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
     <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
-    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
     <a href="#">настройки</a>
     <a href="login.html">выйти</a>
   </div>
 </header>
 <div class="layout">
-  <aside class="sidebar">
-    <nav>
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
       <a href="my-page.html">Моя страница</a>
       <a href="messages.html">Сообщения</a>
       <a href="people.html">Люди</a>
@@ -35,7 +36,7 @@
       <a href="wallet.html">Кошелёк</a>
     </nav>
     <div class="ext-title">Расширения</div>
-    <nav>
+    <nav aria-label="Расширения">
       <a href="digital-assets.html">Цифровые активы</a>
       <a href="intangible-assets.html">Нематериальные активы</a>
       <a href="ext-programs.html">Целевые программы ПК</a>
@@ -49,14 +50,14 @@
       <a href="ext-health.html">Здоровье</a>
     </nav>
   </aside>
-  <main class="main">
+  <main class="main" id="main">
 
     <a href="skills.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу навыков</a>
-    <div class="page-title" style="margin-bottom:20px">Добавить навык</div>
+    <h1 class="page-title" style="margin-bottom:20px">Добавить навык</h1>
 
     <div id="as-form-view">
       <div class="ar-layout">
-        <div class="ar-main">
+        <form data-demo-form="" class="ar-form"><div class="ar-main">
 
           <!-- 1. Должность и специализация -->
           <div class="card ar-section" id="field-title">
@@ -64,22 +65,22 @@
             <p class="ar-section-hint">Как на hh.ru: укажите желаемую должность так, как её ищут работодатели.</p>
 
             <div class="field">
-              <label style="display:flex;justify-content:space-between">Должность / название навыка * <span class="stat-note" id="as-title-counter">0 / 60</span></label>
-              <input class="input" id="skill-title" maxlength="60" placeholder="Например, Электромонтажник">
+              <label style="display:flex;justify-content:space-between" for="skill-title">Должность / название навыка * <span class="stat-note" id="as-title-counter">0 / 60</span></label>
+              <input class="input" id="skill-title" maxlength="60" placeholder="Например, Электромонтажник" required>
               <div class="field-error">Укажите должность — до 60 символов</div>
             </div>
 
             <div id="as-category-picker">
               <div class="form-two-col">
                 <div class="field" id="field-category">
-                  <label>Специализация *</label>
-                  <select class="input" id="skill-category">
+                  <label for="skill-category">Специализация *</label>
+                  <select class="input" id="skill-category" required>
                     <option value="">Выберите специализацию</option>
                   </select>
                   <div class="field-error">Выберите специализацию</div>
                 </div>
                 <div class="field" id="field-subcategory" hidden>
-                  <label>Подкатегория</label>
+                  <label for="skill-subcategory">Подкатегория</label>
                   <select class="input" id="skill-subcategory">
                     <option value="">Любая</option>
                   </select>
@@ -92,7 +93,7 @@
             </div>
 
             <div class="field" style="margin-top:14px;margin-bottom:0">
-              <label>Желаемая зарплата</label>
+              <label for="skill-salary">Желаемая зарплата</label>
               <input class="input" id="skill-salary" placeholder="Например, от 70 000 ₽">
             </div>
           </div>
@@ -101,8 +102,8 @@
           <div class="card ar-section">
             <div class="ar-section-title"><span class="ar-section-num">2</span>Занятость и график</div>
             <div class="field" style="margin-bottom:14px">
-              <label>Занятость</label>
-              <div class="radio-group">
+              <label id="skill-group-1">Занятость</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="skill-group-1">
                 <label class="radio-option"><input type="radio" name="skill-employment" value="Полная занятость" checked> Полная занятость</label>
                 <label class="radio-option"><input type="radio" name="skill-employment" value="Частичная занятость"> Частичная занятость</label>
                 <label class="radio-option"><input type="radio" name="skill-employment" value="Проектная работа"> Проектная работа</label>
@@ -110,8 +111,8 @@
               </div>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>График работы</label>
-              <div class="radio-group">
+              <label id="skill-group-2">График работы</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="skill-group-2">
                 <label class="radio-option"><input type="radio" name="skill-schedule" value="Полный день" checked> Полный день</label>
                 <label class="radio-option"><input type="radio" name="skill-schedule" value="Сменный график"> Сменный график</label>
                 <label class="radio-option"><input type="radio" name="skill-schedule" value="Гибкий график"> Гибкий график</label>
@@ -149,7 +150,7 @@
           <div class="card ar-section">
             <div class="ar-section-title"><span class="ar-section-num">6</span>Обо мне</div>
             <div class="field" style="margin-bottom:0">
-              <label style="display:flex;justify-content:space-between;align-items:center">Описание <button type="button" class="stat-note" id="skill-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <label style="display:flex;justify-content:space-between;align-items:center" for="skill-about">Описание <button type="button" class="stat-note" id="skill-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
               <textarea class="input" id="skill-about" rows="4" placeholder="Личные и деловые качества, готовность к разъездам, дополнительные умения."></textarea>
               <div id="skill-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
             </div>
@@ -167,15 +168,15 @@
             <div class="ar-section-title"><span class="ar-section-num">8</span>Личная информация и контакты</div>
             <div class="form-two-col">
               <div class="field">
-                <label>Город *</label>
-                <input class="input" id="skill-city" list="city-options" placeholder="Начните вводить город">
+                <label for="skill-city">Город *</label>
+                <input class="input" id="skill-city" list="city-options" placeholder="Начните вводить город" required>
                 <datalist id="city-options">
                   <option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
                 </datalist>
                 <div class="field-error">Укажите город</div>
               </div>
               <div class="field">
-                <label>Возраст</label>
+                <label for="skill-age">Возраст</label>
                 <input class="input" id="skill-age" type="number" min="14" max="100" placeholder="Например, 39">
               </div>
             </div>
@@ -191,12 +192,12 @@
               </div>
             </div>
             <div class="field" style="margin:14px 0 0">
-              <label>Телефон</label>
+              <label for="skill-phone">Телефон</label>
               <input class="input" id="skill-phone" placeholder="+7-___-___-____">
             </div>
           </div>
 
-        </div>
+        </div></form>
 
         <!-- Сайдбар: предпросмотр + публикация -->
         <div class="ar-aside">
@@ -381,15 +382,15 @@ function escapeHtml(s) {
       return '<div class="card" style="padding:14px 16px;margin-bottom:12px;position:relative">' +
         '<button type="button" class="ar-photo-remove" data-exp-remove="' + i + '" style="position:absolute;top:10px;right:10px">✕</button>' +
         '<div class="form-two-col">' +
-        '<div class="field"><label>Место работы</label><input class="input" data-exp="company" data-i="' + i + '" value="' + escapeHtml(e.company) + '" placeholder="Например, ООО «Мириталь»"></div>' +
-        '<div class="field"><label>Должность</label><input class="input" data-exp="position" data-i="' + i + '" value="' + escapeHtml(e.position) + '" placeholder="Например, Электромонтажник"></div>' +
+        '<div class="field"><label for="skill-field-1">Место работы</label><input class="input" data-exp="company" data-i="' + i + '" value="' + escapeHtml(e.company) + '" placeholder="Например, ООО «Мириталь»" id="skill-field-1"></div>' +
+        '<div class="field"><label for="skill-field-2">Должность</label><input class="input" data-exp="position" data-i="' + i + '" value="' + escapeHtml(e.position) + '" placeholder="Например, Электромонтажник" id="skill-field-2"></div>' +
         '</div>' +
         '<div class="form-two-col">' +
-        '<div class="field"><label>Начало работы</label><input class="input" type="month" data-exp="from" data-i="' + i + '" value="' + escapeHtml(e.from) + '"></div>' +
-        '<div class="field"><label>Окончание</label><input class="input" type="month" data-exp="to" data-i="' + i + '" value="' + escapeHtml(e.to) + '" ' + (e.current ? 'disabled' : '') + '></div>' +
+        '<div class="field"><label for="skill-field-3">Начало работы</label><input class="input" type="month" data-exp="from" data-i="' + i + '" value="' + escapeHtml(e.from) + '" id="skill-field-3"></div>' +
+        '<div class="field"><label for="skill-field-4">Окончание</label><input class="input" type="month" data-exp="to" data-i="' + i + '" value="' + escapeHtml(e.to) + '" ' + (e.current ? 'disabled' : '') + ' id="skill-field-4"></div>' +
         '</div>' +
         '<div class="toggle-row" style="border-bottom:none;padding:0 0 10px"><input type="checkbox" data-exp="current" data-i="' + i + '" id="exp-current-' + i + '" ' + (e.current ? 'checked' : '') + '><label for="exp-current-' + i + '">По настоящее время</label></div>' +
-        '<div class="field" style="margin-bottom:0"><label>Описание обязанностей</label><textarea class="input" rows="2" data-exp="description" data-i="' + i + '" placeholder="Что делали на этом месте">' + escapeHtml(e.description) + '</textarea></div>' +
+        '<div class="field" style="margin-bottom:0"><label for="skill-field-5">Описание обязанностей</label><textarea class="input" rows="2" data-exp="description" data-i="' + i + '" placeholder="Что делали на этом месте" id="skill-field-5">' + escapeHtml(e.description) + '</textarea></div>' +
         '</div>';
     }).join('');
     expList.querySelectorAll('[data-exp-remove]').forEach(function (btn) {
@@ -419,10 +420,10 @@ function escapeHtml(s) {
       return '<div class="card" style="padding:14px 16px;margin-bottom:12px;position:relative">' +
         '<button type="button" class="ar-photo-remove" data-edu-remove="' + i + '" style="position:absolute;top:10px;right:10px">✕</button>' +
         '<div class="form-two-col" style="margin-bottom:0">' +
-        '<div class="field" style="margin-bottom:0"><label>Год окончания</label><input class="input" type="number" data-edu="year" data-i="' + i + '" value="' + escapeHtml(e.year) + '" placeholder="Например, 2019"></div>' +
-        '<div class="field" style="margin-bottom:0"><label>Учебное заведение</label><input class="input" data-edu="name" data-i="' + i + '" value="' + escapeHtml(e.name) + '" placeholder="Название учебного заведения"></div>' +
+        '<div class="field" style="margin-bottom:0"><label for="skill-field-6">Год окончания</label><input class="input" type="number" data-edu="year" data-i="' + i + '" value="' + escapeHtml(e.year) + '" placeholder="Например, 2019" id="skill-field-6"></div>' +
+        '<div class="field" style="margin-bottom:0"><label for="skill-field-7">Учебное заведение</label><input class="input" data-edu="name" data-i="' + i + '" value="' + escapeHtml(e.name) + '" placeholder="Название учебного заведения" id="skill-field-7"></div>' +
         '</div>' +
-        '<div class="field" style="margin-top:10px;margin-bottom:0"><label>Специальность</label><input class="input" data-edu="spec" data-i="' + i + '" value="' + escapeHtml(e.spec) + '" placeholder="Специальность, квалификация"></div>' +
+        '<div class="field" style="margin-top:10px;margin-bottom:0"><label for="skill-field-8">Специальность</label><input class="input" data-edu="spec" data-i="' + i + '" value="' + escapeHtml(e.spec) + '" placeholder="Специальность, квалификация" id="skill-field-8"></div>' +
         '</div>';
     }).join('');
     eduList.querySelectorAll('[data-edu-remove]').forEach(function (btn) {

@@ -22,19 +22,20 @@
 </head>
 <body>
 <header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
     <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
-    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
     <a href="#">настройки</a>
     <a href="login.html">выйти</a>
   </div>
 </header>
 <div class="layout">
-  <aside class="sidebar">
-    <nav>
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
       <a href="my-page.html" class="active">Моя страница</a>
       <a href="messages.html">Сообщения</a>
       <a href="people.html">Люди</a>
@@ -47,7 +48,7 @@
       <a href="wallet.html">Кошелёк</a>
     </nav>
     <div class="ext-title">Расширения</div>
-    <nav>
+    <nav aria-label="Расширения">
       <a href="digital-assets.html">Цифровые активы</a>
       <a href="intangible-assets.html">Нематериальные активы</a>
       <a href="ext-programs.html">Целевые программы ПК</a>
@@ -61,13 +62,13 @@
       <a href="ext-health.html">Здоровье</a>
     </nav>
   </aside>
-  <main class="main">
+  <main class="main" id="main">
 
     <div class="entity-tabs">
       <a href="my-page.html">Моя страница</a>
       <a href="my-listings.html" class="active">Мои объявления</a>
     </div>
-    <div class="page-title" style="margin-bottom:4px">Мои объявления</div>
+    <h1 class="page-title" style="margin-bottom:4px">Мои объявления</h1>
     <p style="color:var(--slate);font-size:12.5px;max-width:640px;margin:0 0 20px">Статистика по вашим объявлениям в каталоге ресурсов — просмотры, обращения и конверсия в контакт за последние 30 дней.</p>
 
     <div class="stats-row" style="margin-bottom:24px">

@@ -10,19 +10,20 @@
 </head>
 <body>
 <header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
     <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
-    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
     <a href="#">настройки</a>
     <a href="login.html">выйти</a>
   </div>
 </header>
 <div class="layout">
-  <aside class="sidebar">
-    <nav>
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
       <a href="my-page.html">Моя страница</a>
       <a href="messages.html">Сообщения</a>
       <a href="people.html">Люди</a>
@@ -35,7 +36,7 @@
       <a href="wallet.html">Кошелёк</a>
     </nav>
     <div class="ext-title">Расширения</div>
-    <nav>
+    <nav aria-label="Расширения">
       <a href="digital-assets.html">Цифровые активы</a>
       <a href="intangible-assets.html">Нематериальные активы</a>
       <a href="ext-programs.html">Целевые программы ПК</a>
@@ -49,14 +50,14 @@
       <a href="ext-health.html">Здоровье</a>
     </nav>
   </aside>
-  <main class="main">
+  <main class="main" id="main">
 
     <a href="organizations.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу организаций</a>
-    <div class="page-title" style="margin-bottom:20px">Добавить организацию</div>
+    <h1 class="page-title" style="margin-bottom:20px">Добавить организацию</h1>
 
     <div id="ao-form-view">
       <div class="ar-layout">
-        <div class="ar-main">
+        <form data-demo-form="" class="ar-form"><div class="ar-main">
 
           <!-- 1. Организационно-правовая форма и отрасль -->
           <div class="card ar-section" id="field-type">
@@ -72,14 +73,14 @@
             <div id="ao-category-picker">
               <div class="form-two-col">
                 <div class="field" id="field-category">
-                  <label>Отрасль деятельности *</label>
-                  <select class="input" id="org-category">
+                  <label for="org-category">Отрасль деятельности *</label>
+                  <select class="input" id="org-category" required>
                     <option value="">Выберите отрасль</option>
                   </select>
                   <div class="field-error">Выберите отрасль</div>
                 </div>
                 <div class="field" id="field-subcategory" hidden>
-                  <label>Подотрасль</label>
+                  <label for="org-subcategory">Подотрасль</label>
                   <select class="input" id="org-subcategory">
                     <option value="">Любая</option>
                   </select>
@@ -106,13 +107,13 @@
             <p class="ar-section-hint">Полное официальное название — как в реквизитах: «ООО «Название»», «Кооператив «Название»», «Фонд «Название»» и т.п.</p>
 
             <div class="field">
-              <label style="display:flex;justify-content:space-between">Название * <span class="stat-note" id="ao-title-counter">0 / 70</span></label>
-              <input class="input" id="org-title" maxlength="70" placeholder="Например, Кооператив «Шукты»">
+              <label style="display:flex;justify-content:space-between" for="org-title">Название * <span class="stat-note" id="ao-title-counter">0 / 70</span></label>
+              <input class="input" id="org-title" maxlength="70" placeholder="Например, Кооператив «Шукты»" required>
               <div class="field-error">Укажите название — до 70 символов</div>
             </div>
 
             <div class="field">
-              <label style="display:flex;justify-content:space-between;align-items:center">Описание <button type="button" class="stat-note" id="org-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <label style="display:flex;justify-content:space-between;align-items:center" for="org-description">Описание <button type="button" class="stat-note" id="org-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
               <textarea class="input" id="org-description" rows="4" placeholder="Чем занимается организация, для кого и зачем — коротко и по делу."></textarea>
               <div id="org-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
             </div>
@@ -124,16 +125,16 @@
             <p class="ar-section-hint">Необязательно для черновика, но нужно для верификации организации на платформе.</p>
             <div class="form-two-col">
               <div class="field">
-                <label>ИНН</label>
+                <label for="org-inn">ИНН</label>
                 <input class="input" id="org-inn" placeholder="10 или 12 цифр">
               </div>
               <div class="field">
-                <label>ОГРН</label>
+                <label for="org-ogrn">ОГРН</label>
                 <input class="input" id="org-ogrn" placeholder="13 или 15 цифр">
               </div>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Дата регистрации</label>
+              <label for="org-reg-date">Дата регистрации</label>
               <input class="input" id="org-reg-date" type="date">
             </div>
           </div>
@@ -142,15 +143,15 @@
           <div class="card ar-section" id="field-city">
             <div class="ar-section-title"><span class="ar-section-num">5</span>Местоположение</div>
             <div class="field">
-              <label>Город *</label>
-              <input class="input" id="org-city" list="city-options" placeholder="Начните вводить город">
+              <label for="org-city">Город *</label>
+              <input class="input" id="org-city" list="city-options" placeholder="Начните вводить город" required>
               <datalist id="city-options">
                 <option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
               </datalist>
               <div class="field-error">Укажите город</div>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Адрес</label>
+              <label for="org-address">Адрес</label>
               <input class="input" id="org-address" placeholder="Улица, дом">
             </div>
           </div>
@@ -167,24 +168,24 @@
             </div>
             <div class="form-two-col" style="margin-top:14px">
               <div class="field">
-                <label>Телефон</label>
+                <label for="org-phone">Телефон</label>
                 <input class="input" id="org-phone" placeholder="+7-___-___-____">
               </div>
               <div class="field">
-                <label>Сайт</label>
+                <label for="org-website">Сайт</label>
                 <input class="input" id="org-website" placeholder="Например, cooptech.hypercube.su">
               </div>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Как с вами связываться?</label>
-              <div class="radio-group">
+              <label id="org-group-1">Как с вами связываться?</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="org-group-1">
                 <label class="radio-option"><input type="radio" name="org-contact-method" value="Звонки и сообщения" checked> Звонки и сообщения</label>
                 <label class="radio-option"><input type="radio" name="org-contact-method" value="Только сообщения"> Только сообщения в чате</label>
               </div>
             </div>
           </div>
 
-        </div>
+        </div></form>
 
         <!-- Сайдбар: предпросмотр + публикация -->
         <div class="ar-aside">

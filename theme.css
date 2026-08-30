@@ -29,6 +29,7 @@
   --sun: #c98a2b;
   --moon: #c4c4bd;
   --error: #b3413a;   /* перенесён из styles.css: все токены живут здесь */
+  --focus: #0e4f4a;   /* обводка фокуса с клавиатуры */
 }
 
 html[data-theme="dark"] {
@@ -53,6 +54,7 @@ html[data-theme="dark"] {
   --knob: 23px;
   --sun: #4d5854;
   --moon: #e0b061;
+  --focus: #7fd8cd;
   color-scheme: dark;
 }
 
@@ -448,4 +450,36 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   .burger, .filter-sheet-btn, .filter-scrim { display: none; }
   /* На десктопе поиск и ссылки аккаунта и так в шапке — дубли не нужны */
   .search-btn, .sidebar-account { display: none; }
+}
+
+/* ── Доступность ──────────────────────────────────────────── */
+/* Заголовок для скринридера там, где визуального заголовка нет
+   (на каталогах роль заголовка играет активная вкладка). */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap; border: 0;
+}
+/* Видимый фокус при навигации с клавиатуры. :focus-visible, а не :focus, —
+   чтобы обводка не появлялась при обычном клике мышью. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+/* Ссылка «Перейти к содержимому»: не видна, пока не получит фокус с Tab. */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--white); color: var(--ink);
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 9px 14px; font: 700 12.5px/1 'Manrope', sans-serif; z-index: 100;
+}
+.skip-link:focus { left: 12px; top: 10px; }
+/* У полей ввода была своя подсветка (рамка + подложка), но в тёмной теме
+   подложка почти не видна, а styles.css гасил обводку (.input:focus{outline:none}).
+   Возвращаем полям ту же обводку, что и остальным элементам. */
+.input:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
 }
