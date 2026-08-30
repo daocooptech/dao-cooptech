@@ -10,19 +10,20 @@
 </head>
 <body>
 <header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
     <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
-    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
     <a href="#">настройки</a>
     <a href="login.html">выйти</a>
   </div>
 </header>
 <div class="layout">
-  <aside class="sidebar">
-    <nav>
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
       <a href="my-page.html">Моя страница</a>
       <a href="messages.html">Сообщения</a>
       <a href="people.html">Люди</a>
@@ -35,7 +36,7 @@
       <a href="wallet.html">Кошелёк</a>
     </nav>
     <div class="ext-title">Расширения</div>
-    <nav>
+    <nav aria-label="Расширения">
       <a href="digital-assets.html">Цифровые активы</a>
       <a href="intangible-assets.html">Нематериальные активы</a>
       <a href="ext-programs.html">Целевые программы ПК</a>
@@ -49,14 +50,14 @@
       <a href="ext-health.html">Здоровье</a>
     </nav>
   </aside>
-  <main class="main">
+  <main class="main" id="main">
 
     <a href="projects.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу проектов</a>
-    <div class="page-title" style="margin-bottom:20px">Добавить проект</div>
+    <h1 class="page-title" style="margin-bottom:20px">Добавить проект</h1>
 
     <div id="ap-form-view">
       <div class="ar-layout">
-        <div class="ar-main">
+        <form data-demo-form="" class="ar-form"><div class="ar-main">
 
           <!-- 1. Название и направление -->
           <div class="card ar-section" id="field-title">
@@ -64,22 +65,22 @@
             <p class="ar-section-hint">Направление определяет, в какой витрине каталога появится проект.</p>
 
             <div class="field">
-              <label style="display:flex;justify-content:space-between">Название проекта * <span class="stat-note" id="ap-title-counter">0 / 70</span></label>
-              <input class="input" id="proj-title" maxlength="70" placeholder="Например, Строительный 3D-принтер">
+              <label style="display:flex;justify-content:space-between" for="proj-title">Название проекта * <span class="stat-note" id="ap-title-counter">0 / 70</span></label>
+              <input class="input" id="proj-title" maxlength="70" placeholder="Например, Строительный 3D-принтер" required>
               <div class="field-error">Укажите название — до 70 символов</div>
             </div>
 
             <div id="ap-category-picker">
               <div class="form-two-col">
                 <div class="field" id="field-category">
-                  <label>Направление *</label>
-                  <select class="input" id="proj-category">
+                  <label for="proj-category">Направление *</label>
+                  <select class="input" id="proj-category" required>
                     <option value="">Выберите направление</option>
                   </select>
                   <div class="field-error">Выберите направление</div>
                 </div>
                 <div class="field" id="field-subcategory" hidden>
-                  <label>Подкатегория</label>
+                  <label for="proj-subcategory">Подкатегория</label>
                   <select class="input" id="proj-subcategory">
                     <option value="">Любая</option>
                   </select>
@@ -92,8 +93,8 @@
             </div>
 
             <div class="field" style="margin-top:14px;margin-bottom:0">
-              <label>Тип проекта *</label>
-              <div class="radio-group" id="field-project-type">
+              <label id="proj-group-1">Тип проекта *</label>
+              <div class="radio-group" id="field-project-type" role="radiogroup" aria-labelledby="proj-group-1">
                 <label class="radio-option"><input type="radio" name="proj-type" value="Кооперативный" checked> Кооперативный</label>
                 <label class="radio-option"><input type="radio" name="proj-type" value="Коммерческий"> Коммерческий</label>
                 <label class="radio-option"><input type="radio" name="proj-type" value="Некоммерческий"> Некоммерческий</label>
@@ -114,12 +115,12 @@
           <div class="card ar-section">
             <div class="ar-section-title"><span class="ar-section-num">3</span>Описание</div>
             <div class="field">
-              <label style="display:flex;justify-content:space-between;align-items:center">Что это? <button type="button" class="stat-note" id="proj-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <label style="display:flex;justify-content:space-between;align-items:center" for="proj-description">Что это? <button type="button" class="stat-note" id="proj-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
               <textarea class="input" id="proj-description" rows="3" placeholder="Коротко: что вы делаете"></textarea>
               <div id="proj-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Для чего это?</label>
+              <label for="proj-purpose">Для чего это?</label>
               <textarea class="input" id="proj-purpose" rows="3" placeholder="Зачем этот проект нужен — какую задачу решает"></textarea>
             </div>
           </div>
@@ -166,8 +167,8 @@
           <div class="card ar-section" id="field-city">
             <div class="ar-section-title"><span class="ar-section-num">6</span>Реализация</div>
             <div class="field">
-              <label>Населённые пункты реализации * <span class="stat-note" title="Введите город и нажмите Enter — можно добавить несколько">ⓘ</span></label>
-              <input class="input" id="proj-city-input" list="city-options" placeholder="Например, Москва">
+              <label for="proj-city-input">Населённые пункты реализации * <span class="stat-note" title="Введите город и нажмите Enter — можно добавить несколько">ⓘ</span></label>
+              <input class="input" id="proj-city-input" list="city-options" placeholder="Например, Москва" required>
               <datalist id="city-options">
                 <option value="Удалённо"><option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
               </datalist>
@@ -175,7 +176,7 @@
               <div class="field-error">Добавьте хотя бы один населённый пункт</div>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Планируемый срок реализации</label>
+              <label for="proj-duration">Планируемый срок реализации</label>
               <input class="input" id="proj-duration" placeholder="Например, 6 месяцев">
             </div>
           </div>
@@ -191,19 +192,19 @@
               </div>
             </div>
             <div class="field" style="margin:14px 0 0">
-              <label>Телефон</label>
+              <label for="proj-phone">Телефон</label>
               <input class="input" id="proj-phone" placeholder="+7-___-___-____">
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Как с вами связываться?</label>
-              <div class="radio-group">
+              <label id="proj-group-2">Как с вами связываться?</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="proj-group-2">
                 <label class="radio-option"><input type="radio" name="proj-contact-method" value="Звонки и сообщения" checked> Звонки и сообщения</label>
                 <label class="radio-option"><input type="radio" name="proj-contact-method" value="Только сообщения"> Только сообщения в чате</label>
               </div>
             </div>
           </div>
 
-        </div>
+        </div></form>
 
         <!-- Сайдбар: предпросмотр + публикация -->
         <div class="ar-aside">
@@ -407,12 +408,12 @@ function escapeHtml(s) {
       return '<div class="card" style="padding:12px 14px;margin-bottom:10px;position:relative">' +
         '<button type="button" class="ar-photo-remove" data-res-remove="' + type + ':' + i + '" style="position:absolute;top:8px;right:8px">✕</button>' +
         '<div class="form-two-col" style="margin-bottom:8px">' +
-        '<div class="field" style="margin-bottom:0"><label>Название</label><input class="input" data-res="name" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.name) + '" placeholder="Например, Цемент"></div>' +
-        '<div class="field" style="margin-bottom:0"><label>Количество</label><input class="input" data-res="qty" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.qty) + '" placeholder="' + resUnitPlaceholder[type] + '"></div>' +
+        '<div class="field" style="margin-bottom:0"><label for="proj-field-1">Название</label><input class="input" data-res="name" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.name) + '" placeholder="Например, Цемент" id="proj-field-1"></div>' +
+        '<div class="field" style="margin-bottom:0"><label for="proj-field-2">Количество</label><input class="input" data-res="qty" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.qty) + '" placeholder="' + resUnitPlaceholder[type] + '" id="proj-field-2"></div>' +
         '</div>' +
         '<div class="form-two-col" style="margin-bottom:0">' +
-        '<div class="field" style="margin-bottom:0"><label>Стоимость, ₽</label><input class="input" type="number" min="0" data-res="cost" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.cost) + '" placeholder="0"></div>' +
-        '<div class="field" style="margin-bottom:0"><label>Доля в проекте</label><input class="input" value="' + share + '%" disabled></div>' +
+        '<div class="field" style="margin-bottom:0"><label for="proj-field-3">Стоимость, ₽</label><input class="input" type="number" min="0" data-res="cost" data-type="' + type + '" data-i="' + i + '" value="' + escapeHtml(e.cost) + '" placeholder="0" id="proj-field-3"></div>' +
+        '<div class="field" style="margin-bottom:0"><label for="proj-field-4">Доля в проекте</label><input class="input" value="' + share + '%" disabled id="proj-field-4"></div>' +
         '</div>' +
         '</div>';
     }).join('');

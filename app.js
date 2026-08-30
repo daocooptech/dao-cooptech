@@ -94,15 +94,114 @@
     var b = document.createElement('button');
     b.className = 'theme-toggle';
     b.type = 'button';
-    b.setAttribute('aria-label', 'Переключить тему');
+    b.setAttribute('aria-label', 'Тёмная тема');
+    b.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
     b.innerHTML = '<span class="tt-sun">' + I.sun + '</span><span class="tt-moon">' + I.moon + '</span><span class="tt-knob"></span>';
     b.addEventListener('click', function () {
       var dark = document.documentElement.getAttribute('data-theme') === 'dark';
       if (dark) document.documentElement.removeAttribute('data-theme');
       else document.documentElement.setAttribute('data-theme', 'dark');
+      b.setAttribute('aria-pressed', dark ? 'false' : 'true');
       try { localStorage.setItem('cooptech_theme', dark ? 'light' : 'dark'); } catch (e) {}
     });
     return b;
+  }
+
+  /* ── Доступность ───────────────────────────────────────────
+     Кнопки-иконки (☰/▦, скрепка, эмодзи, стрелки календаря) подписаны только
+     атрибутом title — скринридер его не всегда озвучивает; переносим в
+     aria-label. Переключатели вида получают aria-pressed. Модальные окна —
+     role="dialog", закрытие по Esc, фокус внутрь и возврат обратно. */
+  function a11y() {
+    /* 1. Имя для кнопки без текста: берём из title */
+    var btns = document.querySelectorAll('button[title], a[title]');
+    for (var i = 0; i < btns.length; i++) {
+      var b = btns[i];
+      if (b.getAttribute('aria-label')) continue;
+      if (b.textContent.trim()) continue;          /* текст есть — имя уже есть */
+      b.setAttribute('aria-label', b.getAttribute('title'));
+    }
+
+    /* 2. Переключатель «списком / плиткой» — это состояние, а не действие */
+    var toggles = document.querySelectorAll('.view-toggle');
+    for (var t = 0; t < toggles.length; t++) {
+      toggles[t].setAttribute('role', 'group');
+      toggles[t].setAttribute('aria-label', 'Вид каталога');
+      var tb = toggles[t].querySelectorAll('button');
+      for (var j = 0; j < tb.length; j++) {
+        tb[j].setAttribute('aria-pressed', tb[j].classList.contains('active') ? 'true' : 'false');
+      }
+      toggles[t].addEventListener('click', function (e) {
+        var host = e.currentTarget;
+        setTimeout(function () {
+          var list = host.querySelectorAll('button');
+          for (var k = 0; k < list.length; k++) {
+            list[k].setAttribute('aria-pressed', list[k].classList.contains('active') ? 'true' : 'false');
+          }
+        }, 0);
+      });
+    }
+
+    /* 3. Модальные окна */
+    var overlays = document.querySelectorAll('.modal-overlay');
+    for (var o = 0; o < overlays.length; o++) setupModal(overlays[o], o);
+
+    /* 4. Формы. Бэкенда нет, поэтому отправку перехватываем: браузер сначала
+       сам проверит required/type (покажет свою подсказку у поля), а дальше
+       либо уводим на страницу из data-demo-form, либо просто ничего не делаем —
+       у форм размещения объявлений свой пошаговый сценарий на кнопках. */
+    var forms = document.querySelectorAll('form[data-demo-form]');
+    for (var f = 0; f < forms.length; f++) {
+      forms[f].addEventListener('submit', function (e) {
+        e.preventDefault();
+        var target = e.currentTarget.getAttribute('data-demo-form');
+        if (target) location.href = target;
+      });
+    }
+  }
+
+  function setupModal(overlay, idx) {
+    var box = overlay.querySelector('.modal');
+    if (!box) return;
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    var head = box.querySelector('h1, h2, h3, .modal-head');
+    if (head) {
+      if (!head.id) head.id = 'modal-title-' + idx;
+      box.setAttribute('aria-labelledby', head.id);
+    }
+    var closeBtn = box.querySelector('.modal-close');
+    var opener = null;
+
+    function focusables() {
+      return box.querySelectorAll('a[href], button:not([disabled]), input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])');
+    }
+    function onKey(e) {
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        if (closeBtn) closeBtn.click();
+        return;
+      }
+      if (e.key !== 'Tab' && e.keyCode !== 9) return;
+      var f = focusables();
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    /* Окна на страницах показываются снятием атрибута hidden — следим за ним */
+    var obs = new MutationObserver(function () {
+      if (!overlay.hasAttribute('hidden')) {
+        opener = document.activeElement;
+        document.addEventListener('keydown', onKey);
+        var f = focusables();
+        if (f.length) f[0].focus();
+      } else {
+        document.removeEventListener('keydown', onKey);
+        if (opener && opener.focus) opener.focus();
+        opener = null;
+      }
+    });
+    obs.observe(overlay, { attributes: true, attributeFilter: ['hidden'] });
   }
 
   function init() {
@@ -148,16 +247,21 @@
       burger.className = 'burger';
       burger.type = 'button';
       burger.setAttribute('aria-label', 'Меню');
+      burger.setAttribute('aria-expanded', 'false');
+      if (sidebar.id) burger.setAttribute('aria-controls', sidebar.id);
       burger.innerHTML = I.burger;
       burger.addEventListener('click', function () {
-        document.documentElement.classList.toggle('sidebar-open');
+        var open = document.documentElement.classList.toggle('sidebar-open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
       left.insertBefore(burger, left.firstChild);
 
       var scrim = document.createElement('div');
       scrim.className = 'sidebar-scrim';
+      scrim.setAttribute('aria-hidden', 'true');
       scrim.addEventListener('click', function () {
         document.documentElement.classList.remove('sidebar-open');
+        burger.setAttribute('aria-expanded', 'false');
       });
       document.body.appendChild(scrim);
     }
@@ -174,6 +278,8 @@
       sbtn.type = 'button';
       sbtn.setAttribute('aria-label', 'Поиск по платформе');
       sbtn.setAttribute('aria-expanded', 'false');
+      if (!search.id) search.id = 'topbar-search';
+      sbtn.setAttribute('aria-controls', search.id);
       sbtn.innerHTML = I.search;
       function setSearch(open) {
         document.documentElement.classList.toggle('search-open', open);
@@ -217,10 +323,13 @@
     /* 4. Лист фильтров на мобильном */
     var panel = document.querySelector('.filter-panel');
     if (panel) {
+      if (!panel.id) panel.id = 'filter-panel';
       var fscrim = document.createElement('div');
       fscrim.className = 'filter-scrim';
+      fscrim.setAttribute('aria-hidden', 'true');
       fscrim.addEventListener('click', function () {
         document.documentElement.classList.remove('filters-open');
+        fb.setAttribute('aria-expanded', 'false');
       });
       document.body.appendChild(fscrim);
 
@@ -228,9 +337,12 @@
       var fb = document.createElement('button');
       fb.className = 'filter-sheet-btn';
       fb.type = 'button';
+      fb.setAttribute('aria-expanded', 'false');
+      fb.setAttribute('aria-controls', panel.id);
       fb.innerHTML = I.filter + 'Фильтр';
       fb.addEventListener('click', function () {
         document.documentElement.classList.add('filters-open');
+        fb.setAttribute('aria-expanded', 'true');
       });
       if (host === panel.parentNode) host.insertBefore(fb, panel);
       else if (host) host.appendChild(fb);
@@ -242,6 +354,7 @@
       apply.textContent = 'Показать результаты';
       apply.addEventListener('click', function () {
         document.documentElement.classList.remove('filters-open');
+        fb.setAttribute('aria-expanded', 'false');
       });
       panel.appendChild(apply);
     }
@@ -258,6 +371,7 @@
     if (document.querySelector('.layout')) {
       var bar = document.createElement('nav');
       bar.className = 'mobile-tabbar';
+      bar.setAttribute('aria-label', 'Быстрые разделы');
       var html = '';
       for (var k = 0; k < TABS.length; k++) {
         html += '<a href="' + TABS[k][0] + '"' + (page === TABS[k][0] ? ' class="active"' : '') + '>'
@@ -266,6 +380,11 @@
       bar.innerHTML = html;
       document.body.appendChild(bar);
     }
+
+    /* 5.1 Доступность: имена для кнопок-иконок, состояние переключателей,
+       семантика и поведение модальных окон. Делается здесь, в общем слое,
+       чтобы не размазывать одни и те же атрибуты по 59 страницам. */
+    a11y();
 
     /* 6. Эмодзи → SVG */
     var BLOCK_SEL = '.cat-icon, .out-icon, .f-icon, .thumb, .cat-icon.line-icon';

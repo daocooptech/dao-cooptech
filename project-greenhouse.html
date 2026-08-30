@@ -22,19 +22,20 @@
 </head>
 <body>
 <header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
     <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
-    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
     <a href="#">настройки</a>
     <a href="login.html">выйти</a>
   </div>
 </header>
 <div class="layout">
-  <aside class="sidebar">
-    <nav>
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
       <a href="my-page.html">Моя страница</a>
       <a href="messages.html">Сообщения</a>
       <a href="people.html">Люди</a>
@@ -47,7 +48,7 @@
       <a href="wallet.html">Кошелёк</a>
     </nav>
     <div class="ext-title">Расширения</div>
-    <nav>
+    <nav aria-label="Расширения">
       <a href="digital-assets.html">Цифровые активы</a>
       <a href="intangible-assets.html">Нематериальные активы</a>
       <a href="ext-programs.html">Целевые программы ПК</a>
@@ -61,7 +62,7 @@
       <a href="ext-health.html">Здоровье</a>
     </nav>
   </aside>
-  <main class="main">
+  <main class="main" id="main">
 
     <div class="entity-tabs">
       <a href="projects.html">Каталог проектов</a>
@@ -87,7 +88,7 @@
         </div>
       </div>
       <div style="flex:1">
-        <div class="page-title" style="margin-bottom:6px">Круглогодичная теплица. Овощи и зелень под LED-досветкой круглый год.</div>
+        <h1 class="page-title" style="margin-bottom:6px">Круглогодичная теплица. Овощи и зелень под LED-досветкой круглый год.</h1>
         <span class="badge gold">Коммерческий проект</span>
         <div style="display:flex;gap:12px;align-items:center;margin-top:20px">
           <a href="organization.html" style="display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit">

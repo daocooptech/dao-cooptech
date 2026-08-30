@@ -10,19 +10,20 @@
 </head>
 <body>
 <header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
     <span class="logo"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></span>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
-    <input class="topbar-search" placeholder="Поиск по платформе...">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
     <a href="#">настройки</a>
     <a href="login.html">выйти</a>
   </div>
 </header>
 <div class="layout">
-  <aside class="sidebar">
-    <nav>
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
       <a href="my-page.html">Моя страница</a>
       <a href="messages.html">Сообщения</a>
       <a href="people.html">Люди</a>
@@ -35,7 +36,7 @@
       <a href="wallet.html">Кошелёк</a>
     </nav>
     <div class="ext-title">Расширения</div>
-    <nav>
+    <nav aria-label="Расширения">
       <a href="digital-assets.html">Цифровые активы</a>
       <a href="intangible-assets.html">Нематериальные активы</a>
       <a href="ext-programs.html">Целевые программы ПК</a>
@@ -49,14 +50,14 @@
       <a href="ext-health.html">Здоровье</a>
     </nav>
   </aside>
-  <main class="main">
+  <main class="main" id="main">
 
     <a href="vacancies.html" class="stat-note" style="display:inline-block;margin-bottom:10px">← Назад к каталогу вакансий</a>
-    <div class="page-title" style="margin-bottom:20px">Добавить вакансию</div>
+    <h1 class="page-title" style="margin-bottom:20px">Добавить вакансию</h1>
 
     <div id="av-form-view">
       <div class="ar-layout">
-        <div class="ar-main">
+        <form data-demo-form="" class="ar-form"><div class="ar-main">
 
           <!-- 1. Должность и специализация -->
           <div class="card ar-section" id="field-title">
@@ -64,22 +65,22 @@
             <p class="ar-section-hint">Как на hh.ru: конкретное название должности привлекает больше подходящих откликов.</p>
 
             <div class="field">
-              <label style="display:flex;justify-content:space-between">Название вакансии * <span class="stat-note" id="av-title-counter">0 / 60</span></label>
-              <input class="input" id="vac-title" maxlength="60" placeholder="Например, Электромонтажник">
+              <label style="display:flex;justify-content:space-between" for="vac-title">Название вакансии * <span class="stat-note" id="av-title-counter">0 / 60</span></label>
+              <input class="input" id="vac-title" maxlength="60" placeholder="Например, Электромонтажник" required>
               <div class="field-error">Укажите название — до 60 символов</div>
             </div>
 
             <div id="av-category-picker">
               <div class="form-two-col">
                 <div class="field" id="field-category">
-                  <label>Специализация *</label>
-                  <select class="input" id="vac-category">
+                  <label for="vac-category">Специализация *</label>
+                  <select class="input" id="vac-category" required>
                     <option value="">Выберите специализацию</option>
                   </select>
                   <div class="field-error">Выберите специализацию</div>
                 </div>
                 <div class="field" id="field-subcategory" hidden>
-                  <label>Подкатегория</label>
+                  <label for="vac-subcategory">Подкатегория</label>
                   <select class="input" id="vac-subcategory">
                     <option value="">Любая</option>
                   </select>
@@ -106,11 +107,11 @@
             </div>
             <div id="vac-reward-money" class="form-two-col" style="margin-bottom:0">
               <div class="field" style="margin-bottom:0">
-                <label>Зарплата от</label>
+                <label for="vac-salary-from">Зарплата от</label>
                 <input class="input" id="vac-salary-from" type="number" min="0" placeholder="Например, 60000">
               </div>
               <div class="field" style="margin-bottom:0">
-                <label>Зарплата до</label>
+                <label for="vac-salary-to">Зарплата до</label>
                 <input class="input" id="vac-salary-to" type="number" min="0" placeholder="Например, 90000">
               </div>
             </div>
@@ -124,8 +125,8 @@
           <div class="card ar-section">
             <div class="ar-section-title"><span class="ar-section-num">3</span>Занятость, график, опыт</div>
             <div class="field" style="margin-bottom:14px">
-              <label>Занятость</label>
-              <div class="radio-group">
+              <label id="vac-group-1">Занятость</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="vac-group-1">
                 <label class="radio-option"><input type="radio" name="vac-employment" value="Полная занятость" checked> Полная занятость</label>
                 <label class="radio-option"><input type="radio" name="vac-employment" value="Частичная занятость"> Частичная занятость</label>
                 <label class="radio-option"><input type="radio" name="vac-employment" value="Проектная работа"> Проектная работа</label>
@@ -133,8 +134,8 @@
               </div>
             </div>
             <div class="field" style="margin-bottom:14px">
-              <label>График работы</label>
-              <div class="radio-group">
+              <label id="vac-group-2">График работы</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="vac-group-2">
                 <label class="radio-option"><input type="radio" name="vac-schedule" value="Полный день" checked> Полный день</label>
                 <label class="radio-option"><input type="radio" name="vac-schedule" value="Сменный график"> Сменный график</label>
                 <label class="radio-option"><input type="radio" name="vac-schedule" value="Гибкий график"> Гибкий график</label>
@@ -142,8 +143,8 @@
               </div>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Требуемый опыт</label>
-              <div class="radio-group">
+              <label id="vac-group-3">Требуемый опыт</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="vac-group-3">
                 <label class="radio-option"><input type="radio" name="vac-experience" value="Нет опыта" checked> Нет опыта</label>
                 <label class="radio-option"><input type="radio" name="vac-experience" value="От 1 года"> От 1 года</label>
                 <label class="radio-option"><input type="radio" name="vac-experience" value="От 3 лет"> От 3 лет</label>
@@ -155,8 +156,8 @@
           <div class="card ar-section" id="field-city">
             <div class="ar-section-title"><span class="ar-section-num">4</span>Организация и местоположение</div>
             <div class="field">
-              <label>От чьего имени публикуется вакансия *</label>
-              <select class="input" id="vac-org">
+              <label for="vac-org">От чьего имени публикуется вакансия *</label>
+              <select class="input" id="vac-org" required>
                 <option value="ООО «Мириталь»">ООО «Мириталь»</option>
                 <option value="Кооператив «Шукты»">Кооператив «Шукты»</option>
                 <option value="ДАО КООПЕХ">ДАО КООПЕХ</option>
@@ -164,8 +165,8 @@
               </select>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Город *</label>
-              <input class="input" id="vac-city" list="city-options" placeholder="Начните вводить город (или «Удалённо»)">
+              <label for="vac-city">Город *</label>
+              <input class="input" id="vac-city" list="city-options" placeholder="Начните вводить город (или «Удалённо»)" required>
               <datalist id="city-options">
                 <option value="Удалённо"><option value="Москва"><option value="Красноярск"><option value="Дербент"><option value="Новосибирск"><option value="Екатеринбург"><option value="Краснодар"><option value="Казань"><option value="Пермь"><option value="Челябинск"><option value="Воронеж"><option value="Самара"><option value="Хабаровск"><option value="Ростов-на-Дону"><option value="Тюмень"><option value="Иркутск"><option value="Владивосток"><option value="Сочи"><option value="Ярославль">
               </datalist>
@@ -177,16 +178,16 @@
           <div class="card ar-section">
             <div class="ar-section-title"><span class="ar-section-num">5</span>Описание вакансии</div>
             <div class="field">
-              <label style="display:flex;justify-content:space-between;align-items:center">Обязанности <button type="button" class="stat-note" id="vac-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
+              <label style="display:flex;justify-content:space-between;align-items:center" for="vac-duties">Обязанности <button type="button" class="stat-note" id="vac-ai-btn" style="border:none;background:none;cursor:pointer;font-weight:600;color:var(--teal-dark)">✨ Сгенерировать с помощью ИИ</button></label>
               <textarea class="input" id="vac-duties" rows="3" placeholder="По одному пункту с новой строки"></textarea>
               <div id="vac-ai-hint" style="color:var(--slate-light);font-size:11px;margin-top:4px" hidden>Черновик от ИИ — обязательно проверьте и поправьте перед публикацией.</div>
             </div>
             <div class="field">
-              <label>Требования</label>
+              <label for="vac-requirements">Требования</label>
               <textarea class="input" id="vac-requirements" rows="3" placeholder="По одному пункту с новой строки"></textarea>
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Условия</label>
+              <label for="vac-conditions">Условия</label>
               <textarea class="input" id="vac-conditions" rows="3" placeholder="По одному пункту с новой строки"></textarea>
             </div>
           </div>
@@ -211,19 +212,19 @@
               </div>
             </div>
             <div class="field" style="margin:14px 0 0">
-              <label>Телефон для связи (необязательно)</label>
+              <label for="vac-phone">Телефон для связи (необязательно)</label>
               <input class="input" id="vac-phone" placeholder="+7-___-___-____">
             </div>
             <div class="field" style="margin-bottom:0">
-              <label>Как принимать отклики?</label>
-              <div class="radio-group">
+              <label id="vac-group-4">Как принимать отклики?</label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="vac-group-4">
                 <label class="radio-option"><input type="radio" name="vac-contact-method" value="Через платформу" checked> Только через платформу</label>
                 <label class="radio-option"><input type="radio" name="vac-contact-method" value="Также по телефону"> Также по телефону</label>
               </div>
             </div>
           </div>
 
-        </div>
+        </div></form>
 
         <!-- Сайдбар: предпросмотр + публикация -->
         <div class="ar-aside">
