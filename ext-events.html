@@ -69,21 +69,21 @@
     <div class="search-row">
       <input class="input" id="filter-search" placeholder="Название события, например «собрание»">
       <button class="button" type="button">Добавить событие</button>
-      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button></span>
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
         <div class="cat-section-title">
           <span>События <span id="year-count-label">2026</span> года <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="events-count">0</span></span></span>
         </div>
-        <div class="vacancy-list" id="events-list">
+        <div class="vacancy-list tile-mode" id="events-list">
 
           <div class="vacancy-card" data-event="shukty-general-2025" data-category="Собрания пайщиков" data-city="Дербент" data-format="Офлайн" data-year="2025" data-date="2025-12-28">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🗳️</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🗳️</div><span class="loc-bar">📍 Дербент</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Итоговое собрание пайщиков за 2025 год</div>
-                <div class="vacancy-meta">🗓 28 декабря 2025, 15:00–20:00 · 📍 Дербент</div>
+                <div class="vacancy-meta">🗓 28 декабря 2025, 15:00–20:00<span class="meta-city"> · 📍 Дербент</span></div>
                 <p class="vacancy-snippet">Отчёт правления кооператива «Шукты» по итогам года, утверждение бюджета на 2026 год, вопросы распределения дохода между пайщиками.</p>
                 <div class="vacancy-tags"><span class="chip">Собрания пайщиков</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">
@@ -96,10 +96,10 @@
 
           <div class="vacancy-card" data-event="permaculture-2025" data-category="Обучение" data-city="Красноярск" data-format="Офлайн" data-year="2025" data-date="2025-06-14">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">📚</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">📚</div><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Мастер-класс по пермакультуре</div>
-                <div class="vacancy-meta">🗓 14 июня 2025, 10:00–16:00 · 📍 Красноярск</div>
+                <div class="vacancy-meta">🗓 14 июня 2025, 10:00–16:00<span class="meta-city"> · 📍 Красноярск</span></div>
                 <p class="vacancy-snippet">Однодневный интенсив по проектированию продуктивного огорода без перекопки и химии — для участников сообщества «Огород и теплицы» и всех желающих.</p>
                 <div class="vacancy-tags"><span class="chip">Обучение</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">
@@ -112,10 +112,10 @@
 
           <div class="vacancy-card" data-event="fair-tyumen-2025" data-category="Праздники и ярмарки" data-city="Тюмень" data-format="Офлайн" data-year="2025" data-date="2025-09-05">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🎉</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🎉</div><span class="loc-bar">📍 Тюмень</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Ярмарка кооперативных продуктов</div>
-                <div class="vacancy-meta">🗓 5 сентября 2025, 10:00–17:00 · 📍 Тюмень</div>
+                <div class="vacancy-meta">🗓 5 сентября 2025, 10:00–17:00<span class="meta-city"> · 📍 Тюмень</span></div>
                 <p class="vacancy-snippet">Первая городская ярмарка от сообщества «Соседи по Тюмени» — прямые продажи от пайщиков без посредников.</p>
                 <div class="vacancy-tags"><span class="chip">Праздники и ярмарки</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">
@@ -128,10 +128,10 @@
 
           <div class="vacancy-card" data-event="it-coop-review" data-category="Мероприятия сообществ" data-city="Удалённо" data-format="Онлайн" data-year="2026" data-date="2026-08-27">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🏘️</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🏘️</div><span class="loc-bar">📍 Удалённо</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Созвон IT-кооператоров: код-ревью</div>
-                <div class="vacancy-meta">🗓 27 августа 2026, 21:00–22:30 · 📍 Удалённо</div>
+                <div class="vacancy-meta">🗓 27 августа 2026, 21:00–22:30<span class="meta-city"> · 📍 Удалённо</span></div>
                 <p class="vacancy-snippet">Еженедельный созвон сообщества «IT-кооператоры» — разбор чужого кода, вопросы по уставу цифрового кооператива.</p>
                 <div class="vacancy-tags"><span class="chip">Мероприятия сообществ</span><span class="chip">Онлайн</span></div>
                 <div class="vacancy-footer">
@@ -144,10 +144,10 @@
 
           <div class="vacancy-card" data-event="seed-exchange" data-category="Мероприятия сообществ" data-city="Красноярск" data-format="Офлайн" data-year="2026" data-date="2026-09-06">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Обменный стол семян</div>
-                <div class="vacancy-meta">🗓 6 сентября 2026, 11:00–14:00 · 📍 Красноярск</div>
+                <div class="vacancy-meta">🗓 6 сентября 2026, 11:00–14:00<span class="meta-city"> · 📍 Красноярск</span></div>
                 <p class="vacancy-snippet">Открытый обмен семенами и рассадой для участников сообщества «Огород и теплицы» — несите лишнее, берите нужное.</p>
                 <div class="vacancy-tags"><span class="chip">Мероприятия сообществ</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">
@@ -160,10 +160,10 @@
 
           <div class="vacancy-card" data-event="shukty-general-2026" data-category="Собрания пайщиков" data-city="Дербент" data-format="Офлайн" data-year="2026" data-date="2026-09-12">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🗳️</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🗳️</div><span class="loc-bar">📍 Дербент</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Общее собрание пайщиков кооператива «Шукты»</div>
-                <div class="vacancy-meta">🗓 12 сентября 2026, 15:00–20:00 · 📍 Дербент</div>
+                <div class="vacancy-meta">🗓 12 сентября 2026, 15:00–20:00<span class="meta-city"> · 📍 Дербент</span></div>
                 <p class="vacancy-snippet">Ежегодное собрание собственников кооперативного участка — отчёт правления, распределение доходов, выборы ревизионной комиссии.</p>
                 <div class="vacancy-tags"><span class="chip">Собрания пайщиков</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">
@@ -176,10 +176,10 @@
 
           <div class="vacancy-card" data-event="open-day-tyumen" data-category="Праздники и ярмарки" data-city="Тюмень" data-format="Офлайн" data-year="2026" data-date="2026-10-03">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🎉</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🎉</div><span class="loc-bar">📍 Тюмень</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">День открытых дверей кооператива</div>
-                <div class="vacancy-meta">🗓 3 октября 2026, 12:00–18:00 · 📍 Тюмень</div>
+                <div class="vacancy-meta">🗓 3 октября 2026, 12:00–18:00<span class="meta-city"> · 📍 Тюмень</span></div>
                 <p class="vacancy-snippet">Экскурсии по производству, дегустация продукции пайщиков, детская площадка и ярмарка местных товаров.</p>
                 <div class="vacancy-tags"><span class="chip">Праздники и ярмарки</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">
@@ -192,7 +192,7 @@
 
           <div class="vacancy-card" data-event="robot-21" data-category="Обучение" data-city="Москва" data-format="Офлайн" data-year="2026" data-date="2026-11-19">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">📚</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">📚</div><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Как собрать робота своими руками. Занятие 21</div>
                 <div class="vacancy-meta">🗓 19 ноября 2026, 19:00–22:00 · 📍 Москва, ул. Малая Ордынка, д.3, к.1</div>
@@ -208,7 +208,7 @@
 
           <div class="vacancy-card" data-event="khorovod" data-category="Встречи и знакомства" data-city="Москва" data-format="Офлайн" data-year="2026" data-date="2026-11-19">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🤝</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🤝</div><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Танцы. Хоровод</div>
                 <div class="vacancy-meta">🗓 19 ноября 2026, 19:00–22:00 · 📍 Москва, ул. Малая Ордынка, д.3, к.1</div>
@@ -224,10 +224,10 @@
 
           <div class="vacancy-card" data-event="strategy-2027" data-category="Собрания пайщиков" data-city="Москва" data-format="Офлайн" data-year="2027" data-date="2027-01-15">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🗳️</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🗳️</div><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Стратегическая сессия кооператива на 2027 год</div>
-                <div class="vacancy-meta">🗓 15 января 2027, 11:00–17:00 · 📍 Москва</div>
+                <div class="vacancy-meta">🗓 15 января 2027, 11:00–17:00<span class="meta-city"> · 📍 Москва</span></div>
                 <p class="vacancy-snippet">Обсуждение приоритетов развития платформы на новый год с участием представителей всех кооперативов-пайщиков.</p>
                 <div class="vacancy-tags"><span class="chip">Собрания пайщиков</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">
@@ -240,10 +240,10 @@
 
           <div class="vacancy-card" data-event="spring-fest-2027" data-category="Праздники и ярмарки" data-city="Тюмень" data-format="Офлайн" data-year="2027" data-date="2027-04-20">
             <div class="card-row">
-              <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🎉</div>
+              <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🎉</div><span class="loc-bar">📍 Тюмень</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Весенний фестиваль совместных закупок</div>
-                <div class="vacancy-meta">🗓 20 апреля 2027, 12:00–19:00 · 📍 Тюмень</div>
+                <div class="vacancy-meta">🗓 20 апреля 2027, 12:00–19:00<span class="meta-city"> · 📍 Тюмень</span></div>
                 <p class="vacancy-snippet">Ежегодный фестиваль сообщества «Соседи по Тюмени» — открытие сезона совместных закупок стройматериалов и рассады.</p>
                 <div class="vacancy-tags"><span class="chip">Праздники и ярмарки</span><span class="chip">Офлайн</span></div>
                 <div class="vacancy-footer">

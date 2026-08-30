@@ -74,7 +74,7 @@
     <div class="search-row">
       <input class="input" id="groups-search" placeholder="Название сообщества, например «огород»">
       <button class="button" type="button">Добавить сообщество</button>
-      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button></span>
     </div>
     <p style="color:var(--slate);font-size:12.5px;max-width:680px;margin:0 0 16px">Аналог групп «ВКонтакте», но с упором на социально-экономическое взаимодействие: не просто общение, а совместные закупки, обмен ресурсами и навыками, взаимный кредит труда и координация сделок между участниками одного района, интереса или профессии.</p>
     <div class="content-with-filter">
@@ -83,14 +83,14 @@
           <span>Все сообщества <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="groups-count">8</span></span></span>
         </div>
 
-        <div class="vacancy-list" id="groups-grid">
+        <div class="vacancy-list tile-mode" id="groups-grid">
 
       <div class="vacancy-card" data-group="neighbors-tyumen" data-type="Соседское" data-city="Тюмень">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🏘️</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🏘️</div><span class="loc-bar">📍 Тюмень</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">Соседи по Тюмени</div>
-            <div class="vacancy-meta">📍 Тюмень · 👥 128 участников</div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Тюмень · </span>👥 128 участников</div>
             <p class="vacancy-snippet">Локальный обмен и координация внутри города — совместные закупки, поиск того, что «есть у соседа», встречи для передачи вещей без пересылки. <a href="ext-group-buying.html">Совместные закупки района →</a></p>
             <div class="vacancy-tags"><span class="chip">Соседское</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
@@ -103,10 +103,10 @@
 
       <div class="vacancy-card" data-group="builders" data-type="По интересам" data-city="Дербент">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🏗️</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🏗️</div><span class="loc-bar">📍 Дербент</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">Строим вместе</div>
-            <div class="vacancy-meta">📍 Дербент · 👥 64 участника · связана с <a href="project.html">«Строительный 3д принтер»</a></div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Дербент · </span>👥 64 участника · связана с <a href="project.html">«Строительный 3д принтер»</a></div>
             <p class="vacancy-snippet">Для тех, кто участвует или интересуется строительными проектами кооператива — 3D-печать домов, стройматериалы, обмен опытом монтажа.</p>
             <div class="vacancy-tags"><span class="chip">По интересам</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
@@ -119,10 +119,10 @@
 
       <div class="vacancy-card" data-group="garden" data-type="По интересам" data-city="Красноярск">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div><span class="loc-bar">📍 Красноярск</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">Огород и теплицы</div>
-            <div class="vacancy-meta">📍 Красноярск · 👥 47 участников · связана с <a href="project-greenhouse.html">«Круглогодичная теплица»</a></div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Красноярск · </span>👥 47 участников · связана с <a href="project-greenhouse.html">«Круглогодичная теплица»</a></div>
             <p class="vacancy-snippet">Обмен рассадой, семенами и советами по круглогодичному выращиванию — для владельцев теплиц и тех, кто только присматривается.</p>
             <div class="vacancy-tags"><span class="chip">По интересам</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
@@ -135,10 +135,10 @@
 
       <div class="vacancy-card" data-group="crafts" data-type="По интересам" data-city="Удалённо">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🧵</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🧵</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">Мастера и рукоделие</div>
-            <div class="vacancy-meta">📍 Удалённо · 👥 39 участников</div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Удалённо · </span>👥 39 участников</div>
             <p class="vacancy-snippet">Для тех, кто продаёт или ищет handmade-товары, ткани, инструменты для рукоделия — обмен техниками и материалами.</p>
             <div class="vacancy-tags"><span class="chip">По интересам</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
@@ -151,10 +151,10 @@
 
       <div class="vacancy-card" data-group="newbies" data-type="Локальное" data-city="Удалённо">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌟</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌟</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">Новички кооператива</div>
-            <div class="vacancy-meta">📍 Удалённо · 👥 21 участник</div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Удалённо · </span>👥 21 участник</div>
             <p class="vacancy-snippet">Ответы на вопросы «как начать» — от «Уровня доверия» до первой сделки. Опытные участники помогают освоиться.</p>
             <div class="vacancy-tags"><span class="chip">Локальное</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
@@ -167,10 +167,10 @@
 
       <div class="vacancy-card" data-group="shukty-herders" data-type="Профессиональное" data-city="Дербент">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🐑</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🐑</div><span class="loc-bar">📍 Дербент</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">Дербентские овцеводы</div>
-            <div class="vacancy-meta">📍 Дербент · 👥 33 участника · связана с <a href="organization-coop.html">Кооперативом «Шукты»</a></div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Дербент · </span>👥 33 участника · связана с <a href="organization-coop.html">Кооперативом «Шукты»</a></div>
             <p class="vacancy-snippet">Совместный выпас, обмен опытом по стрижке и переработке шерсти, координация поставок сыроварне. Костяк сообщества — пайщики кооператива.</p>
             <div class="vacancy-tags"><span class="chip">Профессиональное</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
@@ -183,10 +183,10 @@
 
       <div class="vacancy-card" data-group="mutual-credit" data-type="Финансовое" data-city="Удалённо">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🤝</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🤝</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">Взаимопомощь без денег</div>
-            <div class="vacancy-meta">📍 Удалённо · 👥 57 участников</div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Удалённо · </span>👥 57 участников</div>
             <p class="vacancy-snippet">Координация системы взаимного кредита (LETS): кто чем может помочь прямо сейчас — час труда, консультация, присмотр — без обмена деньгами. <a href="wallet.html">Баланс и история — в Кошельке →</a></p>
             <div class="vacancy-tags"><span class="chip">Финансовое</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">
@@ -199,10 +199,10 @@
 
       <div class="vacancy-card" data-group="it-coops" data-type="Профессиональное" data-city="Удалённо">
         <div class="card-row">
-          <div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">💻</div>
+          <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">💻</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
             <div class="vacancy-title">IT-кооператоры</div>
-            <div class="vacancy-meta">📍 Удалённо · 👥 29 участников</div>
+            <div class="vacancy-meta"><span class="meta-city">📍 Удалённо · </span>👥 29 участников</div>
             <p class="vacancy-snippet">Для команд, строящих цифровые сервисы на принципах совместного владения. Код-ревью друг другу, совместные закупки хостинга, обмен опытом устава цифрового кооператива. <a href="ext-programs.html">Связано с программой «Своя платформа» →</a></p>
             <div class="vacancy-tags"><span class="chip">Профессиональное</span></div>
             <div class="vacancy-footer" style="justify-content:flex-end;gap:8px">

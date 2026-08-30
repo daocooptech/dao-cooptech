@@ -53,7 +53,7 @@ a { text-decoration: none; }
 }
 
 /* Layout */
-.layout { display: flex; align-items: flex-start; }
+.layout { display: flex; align-items: flex-start; max-width: 1440px; margin: 0 auto; }
 
 .sidebar {
   position: sticky;
@@ -348,8 +348,9 @@ table.res-table td.stage-sub a { font-size: 12px; margin-right: 12px; }
 .post {
   padding: 16px 18px;
   margin-bottom: 16px;
-  max-width: 620px;
 }
+/* Пост тянется по ширине колонки, но строка текста остаётся читаемой. */
+.post > p { max-width: 74ch; }
 .post-head { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
 .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--teal-tint), var(--gold-tint)); flex: none; }
 img.avatar { object-fit: cover; display: block; background: var(--paper); }
@@ -378,10 +379,13 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .feed-project-option img { width: 20px; height: 20px; border-radius: 4px; object-fit: cover; flex: none; background: var(--paper); border: 1px solid var(--line); }
 .feed-project-option span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.composer { padding: 12px 16px; color: var(--slate-light); max-width: 620px; margin-bottom: 20px; }
+.composer { padding: 12px 16px; color: var(--slate-light); margin-bottom: 20px; }
 
-.messages-body { display: flex; gap: 0; max-width: 850px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-.thread-list { width: 230px; flex: none; border: 1px solid var(--line); border-right: none; }
+/* Блок переписки тянется по ширине основной колонки — как каталоги и лента,
+   без собственного узкого лимита. Высота фиксирована, чтобы список диалогов
+   и чат не прыгали при переключении тредов. */
+.messages-body { display: flex; gap: 0; min-height: 620px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.thread-list { width: 300px; flex: none; border: 1px solid var(--line); border-right: none; overflow-y: auto; }
 .thread-item { padding: 12px 14px; border-bottom: 1px solid var(--line); cursor: pointer; display: flex; align-items: center; gap: 10px; }
 .thread-item:hover { background: var(--paper); }
 .thread-item .tname { font-weight: 600; font-size: 12.5px; }
@@ -392,12 +396,15 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
   font-weight: 700; font-family: 'Manrope', sans-serif; flex: none;
 }
 .chat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.chat-pane { flex: 1; border: 1px solid var(--line); padding: 18px; }
-.bubble { max-width: 280px; padding: 9px 13px; border-radius: 14px; margin-bottom: 10px; font-size: 12.5px; }
+.chat-pane { flex: 1; min-width: 0; border: 1px solid var(--line); padding: 18px; display: flex; flex-direction: column; }
+/* Лента сообщений забирает всю свободную высоту панели, композер прижат к низу. */
+#bubble-stream { flex: 1; overflow-y: auto; }
+/* Пузырь по ширине текста, но не шире 70% широкой панели чата. */
+.bubble { width: fit-content; max-width: min(560px, 70%); padding: 9px 13px; border-radius: 14px; margin-bottom: 10px; font-size: 12.5px; }
 .bubble.in { border-bottom-left-radius: 4px; }
 .bubble.out { margin-left: auto; border-bottom-right-radius: 4px; }
 
-.notif-list { max-width: 620px; }
+.notif-list { max-width: 860px; }
 .notif-item {
   padding: 14px 16px;
   background: var(--white);
@@ -503,7 +510,7 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .info-box .info-body { color: var(--slate); font-size: 12.5px; line-height: 1.9; margin-top: 8px; }
 
 .profile-main { flex: 1; min-width: 0; }
-.cat-row { max-width: 620px; }
+.cat-row { max-width: none; }
 .cat-header {
   background: var(--teal-tint); font-size: 12.5px; font-weight: 600;
   display: flex; justify-content: space-between; align-items: center;
@@ -549,11 +556,11 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .buyer-tile .buyer-qty { font-size: 11px; color: var(--slate); font-weight: 400; display: block; margin-top: 2px; }
 
 /* Project-style catalog tile: image + big % badge + location bar + name below */
-.ptile { display: block; }
-.ptile .img-wrap { border-radius: var(--radius); overflow: hidden;
-  border: 1px solid var(--line); box-shadow: var(--shadow); aspect-ratio: 1.05;
-}
+.ptile { display: block; padding-bottom: 14px; }
+.ptile .img-wrap,
+.vacancy-list.tile-mode .card-row > .img-wrap { overflow: hidden; aspect-ratio: 1.2; }
 .ptile .img-wrap svg, .ptile .img-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.ptile .pname { -webkit-line-clamp: 2; line-clamp: 2; }
 .ptile .img-wrap .org-logo {
   width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
   font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: .02em;
@@ -571,19 +578,25 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 }
 .ptile .readiness-bar { height: 4px; border-radius: 2px; overflow: hidden; }
 .ptile .readiness-bar-fill { height: 100%; border-radius: 2px; }
-.ptile .loc-bar {
+.loc-bar {
   position: absolute; left: 0; right: 0; bottom: 0;
   background: rgba(20,23,26,.72);
   padding: 7px 10px; display: flex; align-items: center; gap: 5px;
 }
+/* В режиме списка метка не нужна: город и так есть в мета-строке карточки. */
+.vacancy-list:not(.tile-mode) .loc-bar,
+.ptile-grid.list-mode .loc-bar { display: none; }
+/* Обратное: в плитке город уже есть на фото — из мета-строки его убираем. */
+.vacancy-list.tile-mode .meta-city { display: none; }
 .ptile .tile-bottom .loc-bar { position: static; }
 .ptile .type-badge { position: absolute; top: 10px; left: 10px; font-size: 10px; padding: 3px 9px; }
-.ptile .pname { margin-top: 10px; font-weight: 500; font-size: 13.5px; }
-.ptile .price-line { margin-top: 10px; font-size: 15px; }
+.ptile .pname { margin-top: 11px; font-weight: 500; font-size: 13.5px; }
+.ptile .price-line { margin-top: 6px; font-size: 15px; }
+/* .ptile — карточка без padding по бокам, отступ даём самим строкам текста. */
+.ptile .pname, .ptile .price-line, .ptile .skill-owner, .ptile .list-meta { padding: 0 12px; }
 .ptile-grid.list-mode .ptile .price-line { display: none; }
 .ptile .skill-owner { margin-top: 2px; }
 .ptile:hover .pname { text-decoration: underline; }
-.ptile:hover .img-wrap { box-shadow: 0 4px 8px rgba(20,23,26,.06), 0 14px 28px rgba(20,23,26,.1); }
 
 .cat-section-title {
   font-weight: 700; font-size: 16px; font-family: 'Manrope', sans-serif;
@@ -699,9 +712,13 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 }
 .cover-edit-btn:hover { background: rgba(20,23,26,.9); }
 
-.name-row { display: flex; align-items: center; gap: 10px; }
+.name-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+/* Заголовок профиля не сжимаем в узкий столбик: если группа кнопок
+   («Написать / Позвонить / Подписаться») не помещается рядом, она уходит
+   на строку ниже. Без этого «ООО «Мириталь»» ломалось на три строки. */
+.name-row > :first-child { min-width: 260px; }
 
-.wall-head { display: flex; justify-content: space-between; align-items: center; margin: 28px 0 14px; font-size: 13px; color: var(--slate); max-width: 620px; }
+.wall-head { display: flex; justify-content: space-between; align-items: center; margin: 28px 0 14px; font-size: 13px; color: var(--slate); }
 .wall-head b { color: var(--ink); font-family: 'Manrope', sans-serif; font-size: 15px; }
 .composer .input { margin-bottom: 0; }
 
@@ -1004,24 +1021,59 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .view-toggle button.active { border-color: var(--teal); }
 
 .card-row { display: flex; gap: 14px; align-items: flex-start; }
-.vacancy-list.tile-mode .vacancy-card { padding: 16px 14px; }
-.vacancy-list.tile-mode .card-row { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
-.vacancy-list.tile-mode .card-row img.avatar,
-.vacancy-list.tile-mode .card-row .logo-square,
-.vacancy-list.tile-mode .card-row .org-mini-logo { width: 64px !important; height: 64px !important; font-size: 18px !important; }
+.vacancy-list.tile-mode .vacancy-card { padding: 0 0 14px; display: flex; flex-direction: column; overflow: hidden; }
+.vacancy-list.tile-mode .card-row { flex-direction: column; align-items: stretch; gap: 0; flex: 1; }
+/* Медиа-полоса: у людей это фото, у организаций и сообществ — логотип или эмодзи.
+   !important — потому что размеры аватарок заданы инлайном в разметке карточек. */
+.vacancy-list .card-row > .img-wrap { position: relative; display: inline-flex; flex: none; }
+.vacancy-list.tile-mode .card-row > .img-wrap { display: block; width: 100%; }
+.vacancy-list.tile-mode .img-wrap > img.avatar,
+.vacancy-list.tile-mode .img-wrap > .logo-square,
+.vacancy-list.tile-mode .img-wrap > .org-mini-logo {
+  width: 100% !important; height: 100% !important; flex: none;
+  border-radius: 0 !important; box-sizing: border-box;
+}
+.vacancy-list.tile-mode .img-wrap > img.avatar { object-fit: cover; }
+.vacancy-list.tile-mode .img-wrap > .org-mini-logo { object-fit: contain; padding: 18px !important; border: none !important; }
+.vacancy-list.tile-mode .img-wrap > .logo-square { font-size: 38px !important; }
+/* Тело карточки: отступы, действия прижаты к низу — чтобы кнопки в ряду плиток
+   стояли на одной линии независимо от длины названия. */
+.vacancy-list.tile-mode .card-row > div:not(.img-wrap) { padding: 12px 14px 0; display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.vacancy-list.tile-mode .vacancy-title,
+.vacancy-list.tile-mode .vacancy-meta {
+  display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
+}
+.vacancy-list.tile-mode .vacancy-title { -webkit-line-clamp: 2; line-clamp: 2; }
+.vacancy-list.tile-mode .vacancy-meta { -webkit-line-clamp: 2; line-clamp: 2; }
+.vacancy-list.tile-mode .vacancy-tags { flex-wrap: nowrap; overflow: hidden; margin-bottom: 0; }
+/* Действия внизу плитки — компактным рядом с переносом, а не стопкой
+   во всю ширину: у людей и программ кнопок по три, стопкой они забивают
+   карточку. !important — часть карточек задаёт раскладку футера инлайном. */
+.vacancy-list.tile-mode .vacancy-footer {
+  flex-direction: row !important; align-items: stretch !important;
+  flex-wrap: wrap; justify-content: flex-start !important;
+  gap: 6px !important; margin-top: auto; padding-top: 12px;
+}
+.vacancy-list.tile-mode .vacancy-footer .button {
+  flex: 1 1 auto; width: auto !important; min-width: 0;
+  box-sizing: border-box; text-align: center;
+  padding: 7px 10px !important; font-size: 11.5px !important;
+}
+.vacancy-list.tile-mode .vacancy-posted { flex: 1 1 100%; }
 
 /* Мини-лого организации в карточке списка (вместо фото человека) */
 .org-mini-logo { width: 44px; height: 44px; border-radius: 8px; object-fit: contain; background: var(--white); border: 1px solid var(--line); padding: 4px; box-sizing: border-box; flex: none; }
-.vacancy-list.tile-mode .vacancy-salary,
-.vacancy-list.tile-mode .vacancy-meta,
+/* В плитке прячем только длинное описание и сноски — цена, город и теги
+   остаются: без них плитка перестаёт быть каталогом и становится просто аватаркой. */
 .vacancy-list.tile-mode .vacancy-snippet,
-.vacancy-list.tile-mode .vacancy-footer { display: none; }
-.vacancy-list.tile-mode .vacancy-tags { justify-content: center; margin-bottom: 0; }
+.vacancy-list.tile-mode .card-row .stat-note { display: none !important; }
 
 /* Каталоги-плитки (Ресурсы/Проекты/Организации) переключены в режим списка */
 .ptile-grid.list-mode { display: flex; flex-direction: column; gap: 10px; }
 .ptile-grid.list-mode .ptile { display: flex; align-items: center; gap: 14px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 10px 16px; }
 .ptile-grid.list-mode .ptile .img-wrap { width: 52px; height: 52px; flex: none; aspect-ratio: auto; border-radius: 10px; }
+.ptile-grid.list-mode .ptile .pname,
+.ptile-grid.list-mode .ptile .list-meta { padding: 0; }
 .ptile-grid.list-mode .ptile .img-wrap .org-logo { font-size: 16px; }
 .ptile-grid.list-mode .ptile .tile-bottom,
 .ptile-grid.list-mode .ptile .type-badge { display: none; }
@@ -1237,3 +1289,32 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
   .ar-layout { flex-direction: column; }
   .ar-aside { width: 100%; position: static; }
 }
+
+/* Мои объявления — аналитика по всем размещённым объявлениям
+   (предложение и спрос на ресурсы, навыки, вакансии). */
+.listing-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+.metric-row { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 8px; }
+.metric { min-width: 76px; }
+.metric-label { font-size: 11px; }
+.metric-value { font-weight: 700; }
+.share-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; }
+.share-bar > span { display: block; }
+.share-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; }
+.share-legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; }
+.share-dot { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+.share-legend-item b { font-weight: 700; }
+.mini-bars { display: flex; align-items: flex-end; gap: 6px; height: 90px; }
+.mini-bars > i { flex: 1; border-radius: 3px 3px 0 0; display: block; }
+.chart-note { font-size: 11px; margin-top: 6px; }
+.listing-chart { margin-top: 12px; }
+.listing-spark { height: 34px; gap: 3px; }
+.listing-spark > i { border-radius: 2px 2px 0 0; min-height: 2px; }
+.listing-spark-note { font-size: 11px; margin-top: 5px; }
+.listing-group { margin-bottom: 26px; }
+.listing-group-note { font-size: 12px; margin: -6px 0 12px; }
+.listing-thumb { width: 52px; height: 52px; border-radius: 10px; flex: none; }
+.listing-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.listing-name { font-weight: 600; font-size: 13.5px; }
+.listing-hint { font-size: 11.5px; margin: 8px 0 0; }
+.listing-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
+.listing-actions .button { padding: 6px 14px; font-size: 12px; }

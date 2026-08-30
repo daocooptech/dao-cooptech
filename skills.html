@@ -61,18 +61,18 @@
     <div class="search-row">
       <input class="input" placeholder="Должность или навык, например «электромонтажник»">
       <a class="button" href="add-skill.html">Добавить навык</a>
-      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button></span>
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
         <div class="cat-section-title">
           <span>Все навыки <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="res-count">20</span></span></span>
         </div>
-        <div class="vacancy-list" id="resumes-list">
+        <div class="vacancy-list tile-mode" id="resumes-list">
 
           <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Электромонтажник, электромонтер, техник-электрик" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Электромонтажник</div>
                 <div class="vacancy-salary">от 70 000 ₽</div>
@@ -86,11 +86,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Каменщик</div>
                 <div class="vacancy-salary">от 60 000 ₽</div>
-                <div class="vacancy-meta">Дашкевич Данил Игоревич · 📍 Сочи · Опыт 3 года 2 месяца</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич · <span class="meta-city">📍 Сочи · </span>Опыт 3 года 2 месяца</div>
                 <p class="vacancy-snippet">Кирпичная и блочная кладка, чтение чертежей, работа в бригаде и самостоятельно на небольших объектах.</p>
                 <div class="vacancy-tags"><span class="chip">Кирпичная кладка</span><span class="chip">Кладка блоков</span><span class="chip">Чтение чертежей</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён 2 дня назад</span></div>
@@ -100,7 +100,7 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Информационные технологии" data-subcategory="Дизайн, графика" data-experience="От 1 года">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Веб-дизайнер</div>
                 <div class="vacancy-salary">от 80 000 ₽</div>
@@ -114,11 +114,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Красноярск" data-category="Рабочий персонал" data-subcategory="Бетонщик, арматурщик, каменщик" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/47.jpg" alt="Иванова Мария Петровна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/47.jpg" alt="Иванова Мария Петровна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Каменщик</div>
                 <div class="vacancy-salary">от 65 000 ₽</div>
-                <div class="vacancy-meta">Иванова Мария Петровна · 📍 Красноярск · Опыт 4 года</div>
+                <div class="vacancy-meta">Иванова Мария Петровна · <span class="meta-city">📍 Красноярск · </span>Опыт 4 года</div>
                 <p class="vacancy-snippet">Кирпичная кладка, штукатурные работы, отделка фасадов. Опыт бригадиром на объектах кооператива «Шукты».</p>
                 <div class="vacancy-tags"><span class="chip">Кирпичная кладка</span><span class="chip">Штукатурные работы</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён 3 дня назад</span></div>
@@ -128,11 +128,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Сочи" data-category="Искусство, развлечения, массмедиа" data-subcategory="Народные промыслы, ремёсла" data-experience="От 1 года">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Сочи</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Мастер по гравировке</div>
                 <div class="vacancy-salary">сдельно, по договорённости</div>
-                <div class="vacancy-meta">Дашкевич Данил Игоревич · 📍 Сочи · Опыт 1 год</div>
+                <div class="vacancy-meta">Дашкевич Данил Игоревич · <span class="meta-city">📍 Сочи · </span>Опыт 1 год</div>
                 <p class="vacancy-snippet">Художественная гравировка по стеклу на заказ — сувениры, таблички, подарочные изделия.</p>
                 <div class="vacancy-tags"><span class="chip">Гравировка по стеклу</span><span class="chip">Художественная резка</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён месяц назад</span></div>
@@ -142,7 +142,7 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Москва" data-category="Информационные технологии" data-subcategory="Программирование, Разработка" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/33.jpg" alt="Петров Сергей Викторович" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/33.jpg" alt="Петров Сергей Викторович" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Программист</div>
                 <div class="vacancy-salary">от 120 000 ₽</div>
@@ -157,11 +157,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Новосибирск" data-category="Рабочий персонал" data-subcategory="Сварщик" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/4.jpg" alt="Козлов Артём Викторович" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/4.jpg" alt="Козлов Артём Викторович" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Новосибирск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Сварщик</div>
                 <div class="vacancy-salary">от 75 000 ₽</div>
-                <div class="vacancy-meta">Козлов Артём Викторович · 📍 Новосибирск · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Козлов Артём Викторович · <span class="meta-city">📍 Новосибирск · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Ручная дуговая и полуавтоматическая сварка металлоконструкций, монтаж каркасов на объектах.</p>
                 <div class="vacancy-tags"><span class="chip">Сварка</span><span class="chip">Металлоконструкции</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -171,11 +171,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Санкт-Петербург" data-category="Финансы, бухгалтерия" data-subcategory="Бухгалтерия" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/5.jpg" alt="Смирнова Екатерина Андреевна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/5.jpg" alt="Смирнова Екатерина Андреевна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Санкт-Петербург</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Бухгалтер</div>
                 <div class="vacancy-salary">от 65 000 ₽</div>
-                <div class="vacancy-meta">Смирнова Екатерина Андреевна · 📍 Санкт-Петербург · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Смирнова Екатерина Андреевна · <span class="meta-city">📍 Санкт-Петербург · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Ведение бухгалтерии кооперативов и малых предприятий, отчётность, расчёт зарплат.</p>
                 <div class="vacancy-tags"><span class="chip">Бухгалтерия</span><span class="chip">Отчётность</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -185,11 +185,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Екатеринбург" data-category="Автомобильный бизнес" data-subcategory="Автослесарь, автомеханик" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/6.jpg" alt="Волков Игорь Николаевич" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/6.jpg" alt="Волков Игорь Николаевич" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Екатеринбург</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Автомеханик</div>
                 <div class="vacancy-salary">от 70 000 ₽</div>
-                <div class="vacancy-meta">Волков Игорь Николаевич · 📍 Екатеринбург · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Волков Игорь Николаевич · <span class="meta-city">📍 Екатеринбург · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Диагностика и ремонт легковых и грузовых автомобилей, техобслуживание парка кооператива.</p>
                 <div class="vacancy-tags"><span class="chip">Автомеханика</span><span class="chip">Диагностика</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -199,11 +199,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Казань" data-category="Строительство, недвижимость" data-subcategory="Дизайнер, художник" data-experience="От 1 года">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/9.jpg" alt="Морозова Анна Сергеевна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/9.jpg" alt="Морозова Анна Сергеевна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Казань</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Дизайнер интерьера</div>
                 <div class="vacancy-salary">от 55 000 ₽</div>
-                <div class="vacancy-meta">Морозова Анна Сергеевна · 📍 Казань · Опыт: от 1 года</div>
+                <div class="vacancy-meta">Морозова Анна Сергеевна · <span class="meta-city">📍 Казань · </span>Опыт: от 1 года</div>
                 <p class="vacancy-snippet">Дизайн-проекты жилых и коммерческих помещений, подбор материалов и мебели.</p>
                 <div class="vacancy-tags"><span class="chip">Дизайн интерьера</span><span class="chip">3D-визуализация</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -213,11 +213,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Ростов-на-Дону" data-category="Транспорт, логистика, перевозки" data-subcategory="Логистика, ВЭД" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/8.jpg" alt="Соколов Павел Дмитриевич" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/8.jpg" alt="Соколов Павел Дмитриевич" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Ростов-на-Дону</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Логист</div>
                 <div class="vacancy-salary">от 68 000 ₽</div>
-                <div class="vacancy-meta">Соколов Павел Дмитриевич · 📍 Ростов-на-Дону · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Соколов Павел Дмитриевич · <span class="meta-city">📍 Ростов-на-Дону · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Организация поставок стройматериалов, планирование маршрутов, работа со складом.</p>
                 <div class="vacancy-tags"><span class="chip">Логистика</span><span class="chip">Складской учёт</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -227,11 +227,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Пермь" data-category="Искусство, развлечения, массмедиа" data-subcategory="Флорист, декоратор" data-experience="От 1 года">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/10.jpg" alt="Лебедева Ольга Игоревна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/10.jpg" alt="Лебедева Ольга Игоревна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Пермь</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Флорист</div>
                 <div class="vacancy-salary">сдельно, по договорённости</div>
-                <div class="vacancy-meta">Лебедева Ольга Игоревна · 📍 Пермь · Опыт: от 1 года</div>
+                <div class="vacancy-meta">Лебедева Ольга Игоревна · <span class="meta-city">📍 Пермь · </span>Опыт: от 1 года</div>
                 <p class="vacancy-snippet">Оформление мероприятий, букеты на заказ, работа с местными поставщиками цветов.</p>
                 <div class="vacancy-tags"><span class="chip">Флористика</span><span class="chip">Оформление мероприятий</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -241,11 +241,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Владивосток" data-category="Искусство, развлечения, массмедиа" data-subcategory="Фото, видео, звукооператоры" data-experience="Нет опыта">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/14.jpg" alt="Новиков Максим Олегович" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/14.jpg" alt="Новиков Максим Олегович" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Владивосток</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Фотограф</div>
                 <div class="vacancy-salary">сдельно, по договорённости</div>
-                <div class="vacancy-meta">Новиков Максим Олегович · 📍 Владивосток · Опыт: нет опыта</div>
+                <div class="vacancy-meta">Новиков Максим Олегович · <span class="meta-city">📍 Владивосток · </span>Опыт: нет опыта</div>
                 <p class="vacancy-snippet">Предметная и портретная съёмка, обработка фото для каталогов и соцсетей.</p>
                 <div class="vacancy-tags"><span class="chip">Фотография</span><span class="chip">Обработка фото</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -255,11 +255,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Воронеж" data-category="Производство, сервисное обслуживание" data-subcategory="Швея, закройщик" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/16.jpg" alt="Кузнецова Дарья Викторовна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/16.jpg" alt="Кузнецова Дарья Викторовна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Воронеж</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Швея</div>
                 <div class="vacancy-salary">от 45 000 ₽</div>
-                <div class="vacancy-meta">Кузнецова Дарья Викторовна · 📍 Воронеж · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Кузнецова Дарья Викторовна · <span class="meta-city">📍 Воронеж · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Пошив и ремонт одежды на заказ, работа с трикотажем и плотными тканями.</p>
                 <div class="vacancy-tags"><span class="chip">Швея</span><span class="chip">Пошив на заказ</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -269,11 +269,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Уфа" data-category="Рабочий персонал" data-subcategory="Слесарь, сантехник" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/15.jpg" alt="Попов Артур Русланович" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/15.jpg" alt="Попов Артур Русланович" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Уфа</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Сантехник</div>
                 <div class="vacancy-salary">от 60 000 ₽</div>
-                <div class="vacancy-meta">Попов Артур Русланович · 📍 Уфа · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Попов Артур Русланович · <span class="meta-city">📍 Уфа · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Монтаж и ремонт систем водоснабжения и отопления, устранение аварийных ситуаций.</p>
                 <div class="vacancy-tags"><span class="chip">Сантехника</span><span class="chip">Отопление</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -283,11 +283,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Самара" data-category="Юристы" data-subcategory="Юрисконсульт" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/20.jpg" alt="Васильева Татьяна Михайловна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/20.jpg" alt="Васильева Татьяна Михайловна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Самара</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Юрист</div>
                 <div class="vacancy-salary">от 90 000 ₽</div>
-                <div class="vacancy-meta">Васильева Татьяна Михайловна · 📍 Самара · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Васильева Татьяна Михайловна · <span class="meta-city">📍 Самара · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Сопровождение сделок, договорная работа, консультации кооперативов по правовым вопросам.</p>
                 <div class="vacancy-tags"><span class="chip">Юриспруденция</span><span class="chip">Договорное право</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -297,11 +297,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Омск" data-category="Рабочий персонал" data-subcategory="Столяр, плотник" data-experience="От 1 года">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/18.jpg" alt="Зайцев Роман Сергеевич" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/18.jpg" alt="Зайцев Роман Сергеевич" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Омск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Плотник</div>
                 <div class="vacancy-salary">от 55 000 ₽</div>
-                <div class="vacancy-meta">Зайцев Роман Сергеевич · 📍 Омск · Опыт: от 1 года</div>
+                <div class="vacancy-meta">Зайцев Роман Сергеевич · <span class="meta-city">📍 Омск · </span>Опыт: от 1 года</div>
                 <p class="vacancy-snippet">Изготовление и монтаж деревянных конструкций, стропильных систем, лестниц.</p>
                 <div class="vacancy-tags"><span class="chip">Плотницкие работы</span><span class="chip">Столярные изделия</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -311,11 +311,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Челябинск" data-category="Маркетинг, реклама, PR" data-subcategory="Маркетинг" data-experience="От 1 года">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/21.jpg" alt="Павлова Виктория Андреевна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/21.jpg" alt="Павлова Виктория Андреевна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Челябинск</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Маркетолог</div>
                 <div class="vacancy-salary">от 65 000 ₽</div>
-                <div class="vacancy-meta">Павлова Виктория Андреевна · 📍 Челябинск · Опыт: от 1 года</div>
+                <div class="vacancy-meta">Павлова Виктория Андреевна · <span class="meta-city">📍 Челябинск · </span>Опыт: от 1 года</div>
                 <p class="vacancy-snippet">Продвижение кооперативных проектов в соцсетях, контент-план, таргетированная реклама.</p>
                 <div class="vacancy-tags"><span class="chip">Маркетинг</span><span class="chip">SMM</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -325,11 +325,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Нижний Новгород" data-category="Сельское хозяйство" data-subcategory="Пчеловодство, животноводство" data-experience="От 3 лет">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/19.jpg" alt="Семёнов Николай Петрович" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/19.jpg" alt="Семёнов Николай Петрович" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Нижний Новгород</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Пчеловод</div>
                 <div class="vacancy-salary">сезонно, по договорённости</div>
-                <div class="vacancy-meta">Семёнов Николай Петрович · 📍 Нижний Новгород · Опыт: от 3 лет</div>
+                <div class="vacancy-meta">Семёнов Николай Петрович · <span class="meta-city">📍 Нижний Новгород · </span>Опыт: от 3 лет</div>
                 <p class="vacancy-snippet">Содержание пасеки, производство мёда и продуктов пчеловодства для кооперативного рынка.</p>
                 <div class="vacancy-tags"><span class="chip">Пчеловодство</span><span class="chip">Производство мёда</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>
@@ -339,11 +339,11 @@
 
           <a class="vacancy-card" href="skill.html" data-city="Волгоград" data-category="Туризм, гостиницы, рестораны" data-subcategory="Повар, кондитер" data-experience="Нет опыта">
             <div class="card-row">
-              <img class="avatar" src="images/avatars/22.jpg" alt="Голубева Мария Александровна" style="width:44px;height:44px;flex:none">
+              <div class="img-wrap"><img class="avatar" src="images/avatars/22.jpg" alt="Голубева Мария Александровна" style="width:44px;height:44px;flex:none"><span class="loc-bar">📍 Волгоград</span></div>
               <div style="flex:1;min-width:0">
                 <div class="vacancy-title">Повар-кондитер</div>
                 <div class="vacancy-salary">от 50 000 ₽</div>
-                <div class="vacancy-meta">Голубева Мария Александровна · 📍 Волгоград · Опыт: нет опыта</div>
+                <div class="vacancy-meta">Голубева Мария Александровна · <span class="meta-city">📍 Волгоград · </span>Опыт: нет опыта</div>
                 <p class="vacancy-snippet">Приготовление блюд и выпечки на заказ, кейтеринг для мероприятий кооператива.</p>
                 <div class="vacancy-tags"><span class="chip">Кулинария</span><span class="chip">Кейтеринг</span></div>
                 <div class="vacancy-footer"><span class="vacancy-posted">Навык обновлён на этой неделе</span></div>

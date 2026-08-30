@@ -62,22 +62,22 @@
     <div class="search-row">
       <input class="input" id="filter-search" placeholder="Направление или название программы, например «энергия»">
       <button class="button">Добавить программу</button>
-      <span class="view-toggle" style="margin-left:auto"><button id="view-list-btn" class="active" type="button" title="Списком">☰</button><button id="view-tile-btn" type="button" title="Плиткой">▦</button></span>
+      <span class="view-toggle" style="margin-left:auto"><button id="view-tile-btn" class="active" type="button" title="Плиткой">▦</button><button id="view-list-btn" type="button" title="Списком">☰</button></span>
     </div>
     <div class="content-with-filter">
       <div style="flex:1">
         <div class="cat-section-title">
           <span>Целевые программы кооперации <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="res-count">10</span></span></span>
         </div>
-        <div class="vacancy-list" id="programs-list">
+        <div class="vacancy-list tile-mode" id="programs-list">
 
           <div class="vacancy-card" data-category="Сельское хозяйство" data-region="Дербент" data-duration="12 месяцев">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»"><span class="loc-bar">📍 Дербент</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Урожай сообща</a>
                 <div class="vacancy-salary">Фонд программы: 4 200 000 ₽</div>
-                <div class="vacancy-meta">Кооператив «Шукты» · 📍 Дербент · срок 12 месяцев</div>
+                <div class="vacancy-meta">Кооператив «Шукты» · <span class="meta-city">📍 Дербент · </span>срок 12 месяцев</div>
                 <p class="vacancy-snippet">Совместная закупка семян и техники по оптовой цене, разделение полевых работ по сезону, общий склад хранения урожая — каждое хозяйство остаётся самостоятельным, но «дотягивает» до конкурентоспособности через кооперативную надстройку над снабжением и сбытом.</p>
                 <div class="vacancy-tags"><span class="chip">Сельское хозяйство</span><span class="chip">86 участников</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 А.В. Чаянов, «Организация крестьянского хозяйства» (1925–1927) — кооперирование отдельных операций без ликвидации семейного хозяйства</div>
@@ -92,7 +92,7 @@
 
           <div class="vacancy-card" data-category="ИТ и цифровая экономика" data-region="Москва" data-duration="18 месяцев">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/dao-cooptech.svg" alt="ДАО КООПЕХ">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/dao-cooptech.svg" alt="ДАО КООПЕХ"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Своя платформа</a>
                 <div class="vacancy-salary">Фонд программы: 6 000 000 ₽</div>
@@ -111,7 +111,7 @@
 
           <div class="vacancy-card" data-category="Строительство и жильё" data-region="Екатеринбург" data-duration="бессрочно">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/vtb.png" alt="ЖСК «Соседи»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/vtb.png" alt="ЖСК «Соседи»"><span class="loc-bar">📍 Екатеринбург</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Дом на всех</a>
                 <div class="vacancy-salary">Фонд программы: 3 500 000 ₽</div>
@@ -130,11 +130,11 @@
 
           <div class="vacancy-card" data-category="Образование" data-region="Красноярск" data-duration="6 месяцев">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»"><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Школа кооператора</a>
                 <div class="vacancy-salary">Фонд программы: 1 800 000 ₽</div>
-                <div class="vacancy-meta">Фонд «Территория 2020» · 📍 Красноярск · срок 6 месяцев (курс с повтором)</div>
+                <div class="vacancy-meta">Фонд «Территория 2020» · <span class="meta-city">📍 Красноярск · </span>срок 6 месяцев (курс с повтором)</div>
                 <p class="vacancy-snippet">Обучение «равный учит равного»: действующие участники кооперативов — бухгалтеры, председатели, юристы-самоучки — учат новичков вести общее собрание, считать пай, разрешать конфликт между участниками, оформить устав.</p>
                 <div class="vacancy-tags"><span class="chip">Образование</span><span class="chip">210 участников</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 International Co-operative Alliance, «Statement on the Co-operative Identity» (1995) — принцип 5 «Образование, обучение и информирование»</div>
@@ -149,11 +149,11 @@
 
           <div class="vacancy-card" data-category="Здравоохранение и соцпомощь" data-region="Новосибирск" data-duration="24 месяца">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/alfabank.png" alt="АНО «Здоровье для всех»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/alfabank.png" alt="АНО «Здоровье для всех»"><span class="loc-bar">📍 Новосибирск</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Забота по соседству</a>
                 <div class="vacancy-salary">Фонд программы: 2 900 000 ₽</div>
-                <div class="vacancy-meta">АНО «Здоровье для всех» · 📍 Новосибирск · срок 24 месяца</div>
+                <div class="vacancy-meta">АНО «Здоровье для всех» · <span class="meta-city">📍 Новосибирск · </span>срок 24 месяца</div>
                 <p class="vacancy-snippet">Поддерживает социальные предприятия, где люди с инвалидностью, пожилые и те, кто долго не мог трудоустроиться, получают работу и уход одновременно — через совместный труд на реальных условиях, а не разовую благотворительность или имитационную занятость.</p>
                 <div class="vacancy-tags"><span class="chip">Здравоохранение и соцпомощь</span><span class="chip">63 участника</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 J. Defourny, M. Nyssens, исследования EMES о WISE (2010) — предприятия социальной интеграции через труд</div>
@@ -168,11 +168,11 @@
 
           <div class="vacancy-card" data-category="Микрофинансирование" data-region="Москва" data-duration="бессрочно">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/avito.png" alt="Кредитный кооператив «Взаимопомощь»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/avito.png" alt="Кредитный кооператив «Взаимопомощь»"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Общая касса</a>
                 <div class="vacancy-salary">Фонд программы: 5 500 000 ₽</div>
-                <div class="vacancy-meta">Кредитный кооператив «Взаимопомощь» · 📍 Москва · срок бессрочно</div>
+                <div class="vacancy-meta">Кредитный кооператив «Взаимопомощь» · <span class="meta-city">📍 Москва · </span>срок бессрочно</div>
                 <p class="vacancy-snippet">Общий фонд взаимного кредитования: каждый вносит небольшой регулярный взнос, а фонд выдаёт беспроцентные или низкопроцентные займы участникам по очереди — по решению самих участников, а не банка. Прибыль остаётся внутри кассы, а не уходит наружу.</p>
                 <div class="vacancy-tags"><span class="chip">Микрофинансирование</span><span class="chip">98 участников</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 D. McKillop и др., «Cooperative financial institutions: A review of the literature» (2020) — модель, восходящая к Ф.В. Райффайзену</div>
@@ -187,11 +187,11 @@
 
           <div class="vacancy-card" data-category="Ремесленное производство" data-region="Челябинск" data-duration="12 месяцев">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»"><span class="loc-bar">📍 Челябинск</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Мастерская без хозяина</a>
                 <div class="vacancy-salary">Фонд программы: 4 700 000 ₽</div>
-                <div class="vacancy-meta">Артель «Уральские мастера» · 📍 Челябинск · срок 12 месяцев</div>
+                <div class="vacancy-meta">Артель «Уральские мастера» · <span class="meta-city">📍 Челябинск · </span>срок 12 месяцев</div>
                 <p class="vacancy-snippet">Объединяет мастеров и небольшие производства в кооператив без наёмного собственника: станки и помещение — в совместном владении, решения о загрузке заказов и распределении дохода принимает общее собрание, а не «хозяин цеха».</p>
                 <div class="vacancy-tags"><span class="chip">Ремесленное производство</span><span class="chip">39 участников</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 R. Flecha, Pun Ngai, о ценностях кооператива «Мондрагон» (2014)</div>
@@ -206,11 +206,11 @@
 
           <div class="vacancy-card" data-category="Зелёная энергетика" data-region="Пермь" data-duration="24 месяца">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/rostelecom.png" alt="Энергокооператив «СветСвои»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/rostelecom.png" alt="Энергокооператив «СветСвои»"><span class="loc-bar">📍 Пермь</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Своя энергия</a>
                 <div class="vacancy-salary">Фонд программы: 8 300 000 ₽</div>
-                <div class="vacancy-meta">Энергокооператив «СветСвои» · 📍 Пермь · срок 24 месяца</div>
+                <div class="vacancy-meta">Энергокооператив «СветСвои» · <span class="meta-city">📍 Пермь · </span>срок 24 месяца</div>
                 <p class="vacancy-snippet">Жители посёлка или квартала совместно вкладываются в солнечные панели или малую ветрогенерацию и становятся и совладельцами, и потребителями этой энергии — прибыль от продажи излишков возвращается участникам, а не внешнему инвестору.</p>
                 <div class="vacancy-tags"><span class="chip">Зелёная энергетика</span><span class="chip">71 участник</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 T. Bauwens, B. Gotchev, L. Holstenkamp, о низовых энергокооперативах Европы (2016)</div>
@@ -225,11 +225,11 @@
 
           <div class="vacancy-card" data-category="Логистика и сбыт" data-region="Хабаровск" data-duration="12 месяцев">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/severstal.png" alt="Кооператив «Речной порт»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/severstal.png" alt="Кооператив «Речной порт»"><span class="loc-bar">📍 Хабаровск</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Один склад на всех</a>
                 <div class="vacancy-salary">Фонд программы: 3 900 000 ₽</div>
-                <div class="vacancy-meta">Кооператив «Речной порт» · 📍 Хабаровск · срок 12 месяцев</div>
+                <div class="vacancy-meta">Кооператив «Речной порт» · <span class="meta-city">📍 Хабаровск · </span>срок 12 месяцев</div>
                 <p class="vacancy-snippet">Помогает мелким производителям и фермерам скооперироваться там, где по одиночке они слабее всего: общий склад, общий грузовик и логист, общий бренд для маркетплейса или ярмарки.</p>
                 <div class="vacancy-tags"><span class="chip">Логистика и сбыт</span><span class="chip">57 участников</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 M.A. Boland и др., «Research Priorities for Agricultural Cooperatives» (2021)</div>
@@ -244,11 +244,11 @@
 
           <div class="vacancy-card" data-category="Культура и местные сообщества" data-region="Ярославль" data-duration="бессрочно">
             <div class="card-row">
-              <img class="org-mini-logo" src="img/org-logos/wildberries.png" alt="Содружество кооперативов «Эмилия»">
+              <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/wildberries.png" alt="Содружество кооперативов «Эмилия»"><span class="loc-bar">📍 Ярославль</span></div>
               <div style="flex:1;min-width:0">
                 <a class="vacancy-title" href="program.html" style="display:block">Соседский капитал</a>
                 <div class="vacancy-salary">Фонд программы: 2 600 000 ₽</div>
-                <div class="vacancy-meta">Содружество кооперативов «Эмилия» · 📍 Ярославль · срок бессрочно</div>
+                <div class="vacancy-meta">Содружество кооперативов «Эмилия» · <span class="meta-city">📍 Ярославль · </span>срок бессрочно</div>
                 <p class="vacancy-snippet">Местная сеть кооперативов — кафе, ремонтная мастерская, детский центр, культурный клуб — сознательно покупает услуги друг у друга и вкладывает прибыль в новые кооперативы района, вместо того чтобы деньги уходили из местной экономики к внешним сетевым игрокам.</p>
                 <div class="vacancy-tags"><span class="chip">Культура и местные сообщества</span><span class="chip">145 участников</span></div>
                 <div class="stat-note" style="display:block;margin-bottom:12px" title="Источник, вдохновивший программу">📚 John Restakis, «Humanizing the Economy» (2010) — кейс кооперативной сети Эмилия-Романьи</div>
