@@ -355,14 +355,24 @@
   var viewGrid = document.getElementById('groups-grid');
   var viewListBtn = document.getElementById('view-list-btn');
   var viewTileBtn = document.getElementById('view-tile-btn');
-  viewListBtn.addEventListener('click', function () {
-    viewGrid.classList.remove('tile-mode');
-    viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
-  });
-  viewTileBtn.addEventListener('click', function () {
-    viewGrid.classList.add('tile-mode');
-    viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active');
-  });
+    // Выбранный вид держится между страницами каталогов: иначе переход в раздел
+  // или в категорию сбрасывал список обратно на плитку, и кнопка «Списком»
+  // выглядела нерабочей. localStorage может быть недоступен — тогда просто плитка.
+  function savedCatalogView() {
+    try { return localStorage.getItem('coop-catalog-view'); } catch (e) { return null; }
+  }
+  function rememberCatalogView(isList) {
+    try { localStorage.setItem('coop-catalog-view', isList ? 'list' : 'tile'); } catch (e) {}
+  }
+  function setListView(on) {
+    viewGrid.classList.toggle('tile-mode', !on);
+    viewListBtn.classList.toggle('active', on);
+    viewTileBtn.classList.toggle('active', !on);
+    rememberCatalogView(on);
+  }
+  viewListBtn.addEventListener('click', function () { setListView(true); });
+  viewTileBtn.addEventListener('click', function () { setListView(false); });
+  if (savedCatalogView() === 'list') setListView(true);
 })();
 </script>
 <script src="app.js"></script>

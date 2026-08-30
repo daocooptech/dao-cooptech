@@ -1084,10 +1084,29 @@ document.getElementById('save-search-btn').addEventListener('click', function ()
 renderSavedSearches();
 document.getElementById('reset-filters').addEventListener('click', function (e) { e.preventDefault(); resetFilters(); });
 
-// Переключатель вида: плиткой / списком
-var viewGrid = document.getElementById('resources-grid');
+// Переключатель вида: плиткой / списком / на карте. Раньше режим применялся только
+// к плоской сетке #resources-grid, а витрина собрана из отдельных .ptile-grid по
+// категориям — из-за этого на ней кнопка «Списком» не давала никакого эффекта,
+// а карта открывалась под витриной, не заменяя её. Теперь вид общий для страницы.
 var viewListBtn = document.getElementById('view-list-btn');
 var viewTileBtn = document.getElementById('view-tile-btn');
+var listView = false;
+var mapReturn = 'home';   // куда вернуться с карты: витрина или плоский список
+
+// Выбранный вид держится между страницами каталогов: иначе переход в категорию
+// сбрасывал список обратно на плитку, и кнопка «Списком» выглядела нерабочей.
+// localStorage может быть недоступен — тогда просто плитка.
+function savedCatalogView() {
+  try { return localStorage.getItem('coop-catalog-view'); } catch (e) { return null; }
+}
+function rememberCatalogView(isList) {
+  try { localStorage.setItem('coop-catalog-view', isList ? 'list' : 'tile'); } catch (e) {}
+}
+
+// Текст метки города без самой пиктограммы: app.js заменяет эмодзи на SVG, поэтому
+// textContent метки различается до и после его загрузки — приводим к одному виду.
+function locText(loc) { return loc.textContent.replace(/\uD83D\uDCCD/g, '').trim(); }
+
 function ensureListMeta(grid) {
   grid.querySelectorAll('.ptile').forEach(function (p) {
     if (p.querySelector('.list-meta')) return;
@@ -1096,21 +1115,50 @@ function ensureListMeta(grid) {
     var loc = p.querySelector('.loc-bar');
     var meta = document.createElement('div');
     meta.className = 'list-meta';
-    meta.textContent = (price ? price.textContent + ' · ' : (badge ? badge.textContent + ' · ' : '')) + (loc ? loc.textContent : '');
+    meta.textContent = (price ? price.textContent + ' · ' : (badge ? badge.textContent + ' · ' : '')) + (loc ? locText(loc) : '');
     p.querySelector('.pname').insertAdjacentElement('afterend', meta);
   });
 }
-viewListBtn.addEventListener('click', function () {
-  ensureListMeta(viewGrid);
-  viewGrid.classList.add('list-mode');
-  viewListBtn.classList.add('active'); viewTileBtn.classList.remove('active');
-});
-viewTileBtn.addEventListener('click', function () {
-  viewGrid.classList.remove('list-mode');
-  viewGrid.hidden = false;
-  resourcesMap.hidden = true;
-  viewTileBtn.classList.add('active'); viewListBtn.classList.remove('active'); viewMapBtn.classList.remove('active');
-});
+
+function applyListMode() {
+  document.querySelectorAll('.ptile-grid').forEach(function (grid) {
+    if (listView) ensureListMeta(grid);
+    grid.classList.toggle('list-mode', listView);
+  });
+}
+
+function setCatalogView(mode) {
+  // Пока мы не на карте — запоминаем, что показано: витрина или плоский список.
+  // Иначе возврат с карты сбросил бы отфильтрованный список на витрину.
+  if (resourcesMap.hidden) mapReturn = resourcesFlat.hidden ? 'home' : 'flat';
+  listView = mode === 'list';
+  applyListMode();
+  var map = mode === 'map';
+  resourcesMap.hidden = !map;
+  resourcesHome.hidden = map || mapReturn !== 'home';
+  resourcesFlat.hidden = map || mapReturn !== 'flat';
+  viewTileBtn.classList.toggle('active', mode === 'tile');
+  viewListBtn.classList.toggle('active', mode === 'list');
+  viewMapBtn.classList.toggle('active', map);
+  if (map) { renderMap(); } else { rememberCatalogView(listView); }
+}
+viewListBtn.addEventListener('click', function () { setCatalogView('list'); });
+viewTileBtn.addEventListener('click', function () { setCatalogView('tile'); });
+
+// Витрина и плоский список пересобираются на лету — возвращаем текущий режим
+// сеткам, которые появились в DOM после переключения.
+new MutationObserver(function (records) {
+  for (var i = 0; i < records.length; i++) {
+    var added = records[i].addedNodes;
+    for (var j = 0; j < added.length; j++) {
+      var n = added[j];
+      if (n.nodeType === 1 && (n.classList.contains('ptile-grid') || n.querySelector('.ptile-grid'))) {
+        applyListMode();
+        return;
+      }
+    }
+  }
+}).observe(document.getElementById('main'), { childList: true, subtree: true });
 
 // #4 Карта объявлений по городу — схематичная карта России с метками по городам
 var viewMapBtn = document.getElementById('view-map-btn');
@@ -1156,13 +1204,7 @@ function renderMap() {
     });
   });
 }
-viewMapBtn.addEventListener('click', function () {
-  viewGrid.hidden = true;
-  viewGrid.classList.remove('list-mode');
-  resourcesMap.hidden = false;
-  viewMapBtn.classList.add('active'); viewTileBtn.classList.remove('active'); viewListBtn.classList.remove('active');
-  renderMap();
-});
+viewMapBtn.addEventListener('click', function () { setCatalogView('map'); });
 
 // Домашний вид каталога: «Все ресурсы» + ряд по каждой непустой категории (4 плитки + «Смотреть все»)
 var resourcesHome = document.getElementById('resources-home');
@@ -1329,6 +1371,11 @@ document.getElementById('report-modal-send').addEventListener('click', function 
   toast.classList.add('show');
   setTimeout(function () { toast.classList.remove('show'); }, 2600);
 });
+
+// Восстановление сохранённого вида — в самом конце файла: setCatalogView трогает
+// #resources-map / #resources-home / #resources-flat, а они объявлены ниже
+// переключателя и на момент его определения ещё не присвоены.
+if (savedCatalogView() === 'list') setCatalogView('list');
 </script>
 <script src="app.js"></script>
 </body>
