@@ -15,6 +15,13 @@
    заменять его на var(--white) нельзя: в тёмной теме этот токен тёмный. */
 
 * { box-sizing: border-box; }
+/* Атрибут hidden должен прятать что угодно. По умолчанию браузер даёт ему
+   display:none, но любое авторское правило с display (например
+   .profile-layout { display:flex }) это перебивает — и «скрытый» блок
+   остаётся на экране. Одна строка закрывает целый класс таких ошибок. */
+[hidden] { display: none !important; }
+
+
 html { scroll-behavior: smooth; }
 
 body {
