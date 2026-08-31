@@ -498,10 +498,10 @@
      Раньше платформа этого не различала: любое действие выглядело как
      действие человека. Теперь контекст выбирается в шапке и виден всегда. */
   var CONTEXTS = [
-    { id: 'self',  name: 'Дашкевич Данил Игоревич', role: 'от своего имени, физическое лицо' },
-    { id: 'coop',  name: 'Кооператив «Шукты»',      role: 'пайщик · вправе голосовать и подавать заявки' },
-    { id: 'ooo',   name: 'ООО «Мириталь»',          role: 'учредитель · вправе подписывать документы' },
-    { id: 'fond',  name: 'Фонд «Территория 2020»',  role: 'подрядчик · доступ только к своим проектам' }
+    { id: 'self', name: 'Дашкевич Данил Игоревич', img: 'images/avatars/13.jpg' },
+    { id: 'coop', name: 'Кооператив «Шукты»',      initial: 'Ш' },
+    { id: 'ooo',  name: 'ООО «Мириталь»',          initial: 'М' },
+    { id: 'fond', name: 'Фонд «Территория 2020»',  initial: 'Т' }
   ];
   function initContext() {
     var right = document.querySelector('.topbar-right');
@@ -519,24 +519,30 @@
     btn.type = 'button';
     btn.setAttribute('aria-haspopup', 'true');
     btn.setAttribute('aria-expanded', 'false');
-    btn.innerHTML = '<span class="ctx-name"></span>' + I.chevron;
     var menu = document.createElement('div');
     menu.className = 'ctx-menu';
     menu.hidden = true;
     menu.setAttribute('role', 'menu');
     menu.setAttribute('aria-label', 'От чьего имени действовать');
 
+    /* Иконка аккаунта — она же указатель контекста: у физлица фото,
+       у организации инициал. Кем человек действует, видно без подписи. */
     function label() {
-      btn.querySelector('.ctx-name').textContent = ctx(cur).name;
-      btn.setAttribute('title', 'Действую как: ' + ctx(cur).name + ' — ' + ctx(cur).role);
+      var c = ctx(cur);
+      btn.innerHTML = c.img
+        ? '<img class="ctx-avatar" src="' + c.img + '" alt="">'
+        : '<span class="ctx-avatar ctx-initial">' + c.initial + '</span>';
+      btn.setAttribute('title', c.name);
+      btn.setAttribute('aria-label', 'Аккаунт: ' + c.name);
     }
     function draw() {
       menu.innerHTML = CONTEXTS.map(function (c) {
         return '<button type="button" role="menuitem" data-ctx="' + c.id + '"'
-          + (c.id === cur ? ' aria-current="true"' : '') + '>' + c.name
-          + '<span class="ctx-role">' + c.role + '</span></button>';
-      }).join('') + '<div class="ctx-menu-note">Сделки, заявки и подписи уходят от имени выбранной стороны. '
-        + 'Права тоже берутся её: то, что можно председателю кооператива, недоступно тому же человеку как физлицу.</div>';
+          + (c.id === cur ? ' aria-current="true"' : '') + '>'
+          + (c.img ? '<img class="ctx-avatar" src="' + c.img + '" alt="">'
+                   : '<span class="ctx-avatar ctx-initial">' + c.initial + '</span>')
+          + '<span>' + c.name + '</span></button>';
+      }).join('');
     }
     function close() { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
 
@@ -562,7 +568,9 @@
     label(); draw();
     wrap.appendChild(btn);
     wrap.appendChild(menu);
-    right.insertBefore(wrap, right.firstChild);
+    /* Место иконки — в конце шапки, рядом с выходом: там её и ищут */
+    var exit = right.querySelector('a[href="index.html"], a[href="login.html"]');
+    if (exit) right.insertBefore(wrap, exit); else right.appendChild(wrap);
   }
 
   function init() {
