@@ -7,7 +7,7 @@
  "communities-feed.html": "communities.html",
  "communities.html": "communities.html",
  "deals.html": "deals.html",
- "digital-assets.html": null,
+ "digital-assets.html": "cfa-catalog.html",
  "ext-analytics.html": null,
  "ext-auctions.html": null,
  "ext-drive.html": null,
@@ -18,7 +18,7 @@
  "ext-libraries.html": null,
  "ext-programs.html": "ext-programs.html",
  "feed.html": null,
- "intangible-assets.html": null,
+ "intangible-assets.html": "nma-catalog.html",
  "login.html": null,
  "messages.html": "messages.html",
  "my-listings.html": "my-page.html",
@@ -62,5 +62,9 @@
  "deal.html": "deals.html",
  "ext-warehouse.html": "ext-warehouse.html",
  "extensions.html": null,
- "portal.html": null
+ "portal.html": null,
+ "cfa-catalog.html": "cfa-catalog.html",
+ "cfa-asset.html": "cfa-catalog.html",
+ "nma-catalog.html": "nma-catalog.html",
+ "nma-asset.html": "nma-catalog.html"
 }
