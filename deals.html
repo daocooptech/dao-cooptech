@@ -59,6 +59,7 @@
 
     <div class="entity-tabs" id="deal-tabs">
       <a href="#" class="active" data-tab="registry">Реестр сделок <span class="badge outline">40</span></a>
+      <a href="#" data-tab="active">В работе <span class="badge outline">3</span></a>
       <a href="#" data-tab="await">Ждут вашего отзыва <span class="badge outline">2</span></a>
       <a href="#" data-tab="trust">Уровень доверия <span class="badge outline">92%</span></a>
     </div>
@@ -75,6 +76,10 @@
 
       <div class="card deal-hint" id="await-hint" hidden>
         ⏳ <b>Две сделки ждут вашей оценки.</b> Пока вы не оставите отзыв, отзыв контрагента о вас остаётся закрытым, а сама сделка не входит ни в числитель, ни в знаменатель уровня доверия — она не поднимает и не опускает ваши 92%. Оценки раскрываются обеим сторонам одновременно, поэтому подстроить свой отзыв под чужой невозможно.
+      </div>
+
+      <div class="card deal-hint" id="active-hint" hidden>
+        • <b>Три сделки ещё идут.</b> По ним нечего оценивать: отзывы откроются обеим сторонам только после завершения, и до этого сделка не влияет на уровень доверия. Пока сделка в работе, спорные моменты решаются в переписке — там же остаётся след договорённостей.
       </div>
 
       <div class="search-row">
@@ -1825,7 +1830,7 @@
       <div class="section-title" style="margin-top:26px">Что в расчёт не входит</div>
       <div class="card deal-hint">
         <b>5 сделок из 40 не влияют на процент.</b> Две ждут отзыва (одна сторона оценила, вторая нет) и три ещё в работе. Такая сделка не попадает <i>ни в числитель, ни в знаменатель</i>: она не поднимает процент и не опускает его.<br>
-        <span style="display:inline-block;margin-top:8px">→ <a href="#" data-goto-tab="await">Открыть сделки, ждущие вашего отзыва</a> &nbsp;·&nbsp; <a href="#" data-show-negative>Показать 2 отрицательные сделки в реестре</a></span>
+        <span style="display:inline-block;margin-top:8px">→ <a href="#" data-goto-tab="await">Ждут вашего отзыва</a> &nbsp;·&nbsp; <a href="#" data-goto-tab="active">Сделки в работе</a> &nbsp;·&nbsp; <a href="#" data-show-negative>2 отрицательные сделки в реестре</a></span>
       </div>
 
       <div class="section-title" style="margin-top:26px">Что ещё не решено</div>
@@ -1932,30 +1937,33 @@
      (тот же приём, что вкладка «Избранное» в каталогах). */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('#deal-tabs a'));
   var strip = document.getElementById('trust-strip');
-  var hint = document.getElementById('await-hint');
+  var hints = { await: document.getElementById('await-hint'), active: document.getElementById('active-hint') };
   var statusField = document.getElementById('status-field');
-  /* Вкладка «Ждут отзыва» сама выставляет статус в фильтре. Снимать его при
-     возврате нужно только в этом случае — статус, выбранный пользователем
-     руками, поход на вкладку «Уровень доверия» сбрасывать не должен. */
-  var forcedAwait = false;
+  /* Вкладки «Ждут отзыва» и «В работе» — тот же реестр, суженный по статусу:
+     они сами выставляют статус в фильтре и прячут это поле. Снимать статус при
+     возврате в реестр нужно только в этом случае — статус, выбранный
+     пользователем руками, поход на другую вкладку сбрасывать не должен. */
+  var forcedStatus = '';
 
   function openTab(key) {
     tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.tab === key); });
     document.getElementById('tab-registry').hidden = (key === 'trust');
     document.getElementById('tab-trust').hidden = (key !== 'trust');
-    if (key === 'await') {
+    if (key === 'await' || key === 'active') {
       Object.keys(f).forEach(function (k) { f[k].value = ''; });
       search.value = '';
-      f.status.value = 'await';
-      forcedAwait = true;
+      f.status.value = key;
+      forcedStatus = key;
       statusField.hidden = true;
-      hint.hidden = false;
+      hints.await.hidden = (key !== 'await');
+      hints.active.hidden = (key !== 'active');
       strip.hidden = true;
       apply();
     } else if (key === 'registry') {
-      if (forcedAwait) { f.status.value = ''; forcedAwait = false; }
+      if (forcedStatus) { f.status.value = ''; forcedStatus = ''; }
       statusField.hidden = false;
-      hint.hidden = true;
+      hints.await.hidden = true;
+      hints.active.hidden = true;
       strip.hidden = false;
       apply();
     }
@@ -1983,7 +1991,7 @@
   document.getElementById('filter-reset').addEventListener('click', function () {
     Object.keys(f).forEach(function (k) { f[k].value = ''; });
     search.value = '';
-    if (statusField.hidden) f.status.value = 'await';
+    if (forcedStatus) f.status.value = forcedStatus;
     apply();
   });
   document.getElementById('deal-reset').addEventListener('click', function (e) {
