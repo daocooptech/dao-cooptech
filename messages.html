@@ -1133,6 +1133,7 @@ function bindChatSearch() {
 
 function refreshStream(t) {
   document.getElementById('bubble-stream').innerHTML = renderStream(t);
+  scrollStreamToBottom();
   var count = document.getElementById('chat-search-count');
   if (count) {
     var shown = visibleMessages(t).length;
@@ -1142,9 +1143,28 @@ function refreshStream(t) {
   }
 }
 
+/* Переписка всегда открывается на последнем сообщении.
+   Одной прокрутки мало: высота ленты меняется уже после отрисовки — грузятся
+   фото и шрифты, меняется размер окна. Поэтому лента «прилипает» к низу, пока
+   пользователь сам не прокрутил её вверх: следим за загрузкой картинок и за
+   изменением размеров самой ленты (ResizeObserver). */
+var stickToBottom = true;
+
 function scrollStreamToBottom() {
   var stream = document.getElementById('bubble-stream');
-  if (stream) stream.scrollTop = stream.scrollHeight;
+  if (!stream) return;
+  stickToBottom = true;
+  var toBottom = function () { if (stickToBottom) stream.scrollTop = stream.scrollHeight; };
+  toBottom();
+  stream.querySelectorAll('img').forEach(function (img) {
+    if (img.complete) return;
+    img.addEventListener('load', toBottom, { once: true });
+    img.addEventListener('error', toBottom, { once: true });
+  });
+  stream.addEventListener('scroll', function () {
+    stickToBottom = stream.scrollHeight - stream.clientHeight - stream.scrollTop < 24;
+  });
+  if (window.ResizeObserver) new ResizeObserver(toBottom).observe(stream);
 }
 
 /* Поле ввода растёт под текст до 5 строк, дальше прокручивается внутри себя. */
@@ -1232,6 +1252,11 @@ document.getElementById('thread-search').addEventListener('input', function (e) 
 renderFilters();
 renderThreadList('');
 renderChatPane();
+
+/* Шрифты и картинки догружаются уже после первой отрисовки и меняют высоту
+   ленты — повторяем прокрутку к последнему сообщению, когда всё загрузилось. */
+window.addEventListener('load', scrollStreamToBottom);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(scrollStreamToBottom);
 </script>
 <script src="app.js"></script>
 </body>
