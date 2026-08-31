@@ -984,6 +984,8 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .field.invalid .field-error { display: block; }
 
 .radio-group { display: flex; gap: 14px; flex-wrap: wrap; }
+/* Вариант в столбик — когда подписи вариантов длиннее пары слов (настройки) */
+.radio-group.stacked { flex-direction: column; gap: 10px; }
 .radio-option { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; cursor: pointer; }
 .radio-option input[type="radio"] { width: 15px; height: 15px; accent-color: var(--teal); cursor: pointer; }
 
@@ -1469,3 +1471,20 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .listing-hint { font-size: 11.5px; margin: 8px 0 0; }
 .listing-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
 .listing-actions .button { padding: 6px 14px; font-size: 12px; }
+
+/* ============================================================
+   Настройки (settings.html) — структура. Оформление — в theme.css
+   ============================================================ */
+.set-pane { max-width: 780px; }
+.set-section { padding: 18px 20px; margin-bottom: 14px; }
+.set-hint { font-size: 12.5px; line-height: 1.6; margin: 6px 0 14px; }
+.set-note { font-size: 12px; }
+.set-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap; padding: 10px 2px; font-size: 13.5px;
+}
+.set-row .button { padding: 6px 14px; font-size: 12px; flex: none; }
+.set-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 4px 0 22px; }
+/* Матрица «событие × канал»: подписи каналов узкие, галочки по центру */
+.set-matrix th:not(:first-child), .set-matrix td:not(:first-child) { width: 15%; text-align: center; }
+.set-matrix input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
