@@ -79,7 +79,7 @@
 
       <div class="search-row">
         <input class="input" id="deal-search" placeholder="Предмет сделки или контрагент, например «пельмени»">
-        <span style="color:var(--slate);font-size:12.5px">Показано <b id="deal-count">40</b> из 40</span>
+        <span style="color:var(--slate);font-size:12.5px">Найдено: <b id="deal-count">40</b></span>
       </div>
 
       <div class="content-with-filter">
@@ -1613,6 +1613,12 @@
         </article>
 
           </div>
+          <nav class="pager" id="deal-pager" aria-label="Страницы реестра сделок" hidden>
+            <button class="pager-btn" type="button" id="pager-prev" aria-label="Предыдущая страница">‹</button>
+            <span class="pager-pages" id="pager-pages"></span>
+            <button class="pager-btn" type="button" id="pager-next" aria-label="Следующая страница">›</button>
+            <span class="pager-info" id="pager-info"></span>
+          </nav>
           <div class="empty-state" id="deal-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="deal-reset">Сбросить фильтры</a></div>
         </div>
         <div class="filter-panel">
@@ -1771,10 +1777,22 @@
     year: document.getElementById('filter-year')
   };
 
+  /* Реестр выводится по 20 сделок на страницу: 40 карточек с двумя отзывами
+     в каждой — это экран длиной в четыре тысячи пикселей. Фильтры считают
+     совпадения по всему реестру, пейджер режет уже отфильтрованный список. */
+  var PER_PAGE = 20;
+  var pager = document.getElementById('deal-pager');
+  var pagerPages = document.getElementById('pager-pages');
+  var pagerInfo = document.getElementById('pager-info');
+  var pagerPrev = document.getElementById('pager-prev');
+  var pagerNext = document.getElementById('pager-next');
+  var matched = [];
+  var page = 1;
+
   function apply() {
     var q = search.value.trim().toLowerCase();
     var st = f.status.value;
-    var shown = 0;
+    matched = [];
     cards.forEach(function (c) {
       var s = c.dataset.status;
       var ok = (!st || (st === 'await' ? s.indexOf('await') === 0 : s === st))
@@ -1785,12 +1803,49 @@
         && (!f.city.value || c.dataset.city.toLowerCase().indexOf(f.city.value.trim().toLowerCase()) === 0)
         && (!f.year.value || c.dataset.year === f.year.value)
         && (!q || c.dataset.search.indexOf(q) !== -1);
-      c.hidden = !ok;
-      if (ok) shown++;
+      c.hidden = true;
+      if (ok) matched.push(c);
     });
-    counter.textContent = shown;
-    empty.hidden = shown > 0;
+    counter.textContent = matched.length;
+    empty.hidden = matched.length > 0;
+    page = 1;
+    render();
   }
+
+  function render() {
+    var total = matched.length;
+    var pages = Math.max(1, Math.ceil(total / PER_PAGE));
+    if (page > pages) page = pages;
+    var from = (page - 1) * PER_PAGE;
+    var to = Math.min(from + PER_PAGE, total);
+    matched.forEach(function (c, i) { c.hidden = (i < from || i >= to); });
+
+    pager.hidden = total <= PER_PAGE;
+    if (pager.hidden) return;
+    var html = '';
+    for (var i = 1; i <= pages; i++) {
+      html += '<button class="pager-page' + (i === page ? ' active' : '') + '" type="button" data-page="' + i + '"'
+        + (i === page ? ' aria-current="page"' : '') + '>' + i + '</button>';
+    }
+    pagerPages.innerHTML = html;
+    pagerInfo.textContent = (from + 1) + '–' + to + ' из ' + total;
+    pagerPrev.disabled = (page === 1);
+    pagerNext.disabled = (page === pages);
+  }
+
+  function goTo(n) {
+    var pages = Math.max(1, Math.ceil(matched.length / PER_PAGE));
+    page = Math.min(Math.max(1, n), pages);
+    render();
+    window.scrollTo(0, 0);
+  }
+
+  pagerPages.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-page]') : null;
+    if (b) goTo(Number(b.dataset.page));
+  });
+  pagerPrev.addEventListener('click', function () { goTo(page - 1); });
+  pagerNext.addEventListener('click', function () { goTo(page + 1); });
 
   /* Вкладки. «Реестр» и «Ждут отзыва» — один и тот же список: вторая вкладка
      сужает его до сделок без второго отзыва и объясняет, почему они не в счёт
@@ -1858,6 +1913,10 @@
     search.value = '';
     apply();
   });
+
+  /* Первая отрисовка: до появления пейджера разметка была финальной сама по
+     себе, теперь стартовую страницу реестра тоже нужно посчитать. */
+  apply();
 
   /* Двусторонний отзыв по сделке, которая ждёт вашей оценки:
      отзыв контрагента раскрывается только после того, как вы отправите свой. */

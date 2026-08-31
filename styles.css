@@ -1297,6 +1297,18 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .deal-strip[hidden] { display: none; }
 .deal-hint { padding: 14px 16px; margin-bottom: 16px; font-size: 12.5px; line-height: 1.7; }
 
+/* Пейджер. Первый на платформе — компонент общий, не привязан к сделкам:
+   в каталогах его можно переиспользовать как есть. */
+.pager { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 20px 0 4px; }
+.pager[hidden] { display: none; }
+.pager-pages { display: flex; gap: 6px; flex-wrap: wrap; }
+.pager-btn, .pager-page {
+  min-width: 32px; height: 32px; padding: 0 9px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: inherit; font-size: 13px; cursor: pointer;
+}
+.pager-info { margin-left: auto; font-size: 12px; }
+
 .deal-list { display: flex; flex-direction: column; gap: 14px; }
 .deal-card { padding: 16px 18px; }
 .deal-card[hidden] { display: none; }
