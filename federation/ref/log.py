@@ -1,16 +1,29 @@
 # -*- coding: utf-8 -*-
-"""Журнал событий узла: конверт, подпись, хэш-цепочка.
+"""Журнал событий узла: конверт, подпись, хэш-цепочка, вымарывание.
 
-Каждый узел сети ведёт свой журнал — только дописываемый и связанный
-хэшами. Событие ссылается на предыдущее поле `prev`, поэтому вырезать или
-подменить запись в середине нельзя, не переписав весь хвост, а хвост подписан.
+Каждый узел ведёт свой журнал — только дописываемый и связанный хэшами.
+Событие ссылается на предыдущее полем `prev`, поэтому вырезать или подменить
+запись в середине нельзя, не переписав весь хвост, а хвост подписан.
 
 Порядок внутри журнала — полный: за него отвечает `seq`. Порядка между
 журналами разных узлов нет и не нужно: у каждого факта ровно один
-авторитетный узел — тот, о ком факт. Двусторонние объекты (сделка)
-продвигаются, только когда в обоих журналах есть подписанные события.
+авторитетный узел — тот, о ком факт. Двусторонние объекты (сделка, взаимное
+обязательство) продвигаются, только когда подписались обе стороны.
 
-Здесь — эталон формата, а не рабочий узел: ни сети, ни хранилища.
+## Почему тело события отделено от конверта
+
+Первая версия подписывала конверт вместе с телом. Тогда адресное событие
+нельзя было отдать соседу, не показав содержимого: убрал тело — рассыпалась
+цепочка, и получатель больше не может проверить, что журнал полон.
+
+Здесь конверт подписывает не тело, а его хэш (`body_hash`). Тело едет рядом
+и отцепляется. Кооператив, которому событие не адресовано, получает конверт
+без тела, проверяет подпись и непрерывность цепочки — и не видит ни рубля
+чужой сделки. Это и есть выборочное раскрытие, без которого федерация не
+проходит по 152-ФЗ.
+
+Вложения живут внутри тела: их адреса и хэши — тоже содержимое, а не служебные
+поля конверта.
 """
 import base64
 import re
@@ -18,13 +31,16 @@ import re
 from . import canonical, ed25519
 
 VERSION = 1
-UNSIGNED = ('id', 'sig')                 # поля, которых нет под подписью
+ENVELOPE = ('v', 'node', 'kid', 'seq', 'prev', 'ts', 'type', 'subject', 'to', 'body_hash')
 TS_RE = re.compile(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$')
 DID_RE = re.compile(r'^did:web:[a-z0-9.\-]+(:[A-Za-z0-9.\-_%]+)*$')
 
+OK = 'ok'
+SUSPECT = 'suspect'          # ключ отозван как скомпрометированный задним числом
+
 
 class Invalid(Exception):
-    """Событие или цепочка не проходят проверку."""
+    """Событие, цепочка или ключ не проходят проверку."""
 
 
 def b64(raw):
@@ -35,13 +51,12 @@ def unb64(text):
     return base64.urlsafe_b64decode(text + '=' * (-len(text) % 4))
 
 
-def payload(event):
-    """То, что подписывается: событие без id и подписи."""
-    return {k: v for k, v in event.items() if k not in UNSIGNED}
+def envelope(event):
+    """Подписываемая часть: конверт без id, sig и тела."""
+    return {k: v for k, v in event.items() if k in ENVELOPE}
 
 
-def make(node, kid, seq, prev, ts, type_, subject, body, to=None, attachments=None):
-    """Собрать конверт. Порядок ключей не важен — сериализация каноническая."""
+def make(node, kid, seq, prev, ts, type_, subject, body, to=None):
     event = {
         'v': VERSION,
         'node': node,
@@ -51,31 +66,33 @@ def make(node, kid, seq, prev, ts, type_, subject, body, to=None, attachments=No
         'ts': ts,
         'type': type_,
         'subject': subject,
+        'body_hash': canonical.digest(body),
         'body': body,
     }
     if to is not None:
         event['to'] = list(to)
-    if attachments:
-        event['attachments'] = list(attachments)
     return event
 
 
 def sign(event, secret):
-    """Подписать конверт: добавляет id и sig, исходный словарь не трогает."""
+    """Подписать конверт. Тело в подпись не входит — только его хэш."""
     signed = dict(event)
-    for field in UNSIGNED:
-        signed.pop(field, None)
-    raw = canonical.encode(signed)
-    signed['id'] = canonical.digest(payload(signed))
-    signed['sig'] = b64(ed25519.sign(secret, raw))
+    head = envelope(signed)
+    signed['id'] = canonical.digest(head)
+    signed['sig'] = b64(ed25519.sign(secret, canonical.encode(head)))
     return signed
 
 
-def check(event, public_key):
-    """Проверить одно событие. Бросает Invalid с внятной причиной."""
+def redact(event):
+    """Отцепить тело: конверт остаётся проверяемым, содержимое не видно."""
+    return {k: v for k, v in event.items() if k != 'body'}
+
+
+def check(event, keyring):
+    """Проверить одно событие. Возвращает OK или SUSPECT, иначе бросает Invalid."""
     if event.get('v') != VERSION:
         raise Invalid('версия конверта %r, поддерживается %d' % (event.get('v'), VERSION))
-    for field in ('node', 'kid', 'seq', 'ts', 'type', 'subject', 'body', 'id', 'sig'):
+    for field in ('node', 'kid', 'seq', 'ts', 'type', 'subject', 'body_hash', 'id', 'sig'):
         if field not in event:
             raise Invalid('нет обязательного поля %s' % field)
     if not DID_RE.match(event['node']):
@@ -89,19 +106,27 @@ def check(event, public_key):
     if (event['seq'] == 0) != (event.get('prev') is None):
         raise Invalid('первое событие журнала и только оно имеет prev = null')
 
-    body = payload(event)
-    if canonical.digest(body) != event['id']:
-        raise Invalid('id не совпадает с хэшем содержимого — событие изменено')
-    if not ed25519.verify(public_key, canonical.encode(body), unb64(event['sig'])):
+    head = envelope(event)
+    if canonical.digest(head) != event['id']:
+        raise Invalid('id не совпадает с хэшем конверта — событие изменено')
+
+    # Ключ проверяется на момент события, а не на сегодня: подпись трёхлетней
+    # давности обязана сходиться и после плановой смены ключа.
+    public_key, status = keyring.resolve(event['kid'], event['ts'])
+    if not ed25519.verify(public_key, canonical.encode(head), unb64(event['sig'])):
         raise Invalid('подпись не проходит проверку')
-    return True
+
+    # Тело едет отдельно и может быть отцеплено: проверяем, только если оно есть.
+    if 'body' in event and canonical.digest(event['body']) != event['body_hash']:
+        raise Invalid('тело не соответствует хэшу в конверте')
+    return status
 
 
-def check_chain(events, public_key):
+def check_chain(events, keyring):
     """Проверить непрерывность и подлинность журнала целиком."""
-    previous = None
+    previous, statuses = None, []
     for index, event in enumerate(events):
-        check(event, public_key)
+        statuses.append(check(event, keyring))
         if previous is None:
             if event['seq'] != 0:
                 raise Invalid('журнал начинается с seq %d, а не с нуля' % event['seq'])
@@ -114,7 +139,39 @@ def check_chain(events, public_key):
             if event['node'] != previous['node']:
                 raise Invalid('в одном журнале события разных узлов')
         previous = event
-    return True
+    return SUSPECT if SUSPECT in statuses else OK
+
+
+class KeyRing(object):
+    """Ключи узлов с историей.
+
+    Ключ действует с `since`. Плановый отзыв (`revoked`) не отменяет подписи,
+    сделанные до него. Компрометация (`compromised`) — отменяет доверие к
+    подписям после указанного момента, но события не выбрасываются: они
+    помечаются как сомнительные и требуют переподтверждения. Молча удалять
+    историю нельзя — это скрыло бы след взлома.
+    """
+
+    def __init__(self):
+        self.keys = {}
+
+    def add(self, kid, public_key, since='0000-01-01T00:00:00Z',
+            revoked=None, compromised=None):
+        self.keys[kid] = {'key': public_key, 'since': since,
+                          'revoked': revoked, 'compromised': compromised}
+        return self
+
+    def resolve(self, kid, ts):
+        entry = self.keys.get(kid)
+        if entry is None:
+            raise Invalid('ключ %s неизвестен' % kid)
+        if ts < entry['since']:
+            raise Invalid('ключ %s ещё не действовал на %s' % (kid, ts))
+        if entry['revoked'] and ts >= entry['revoked']:
+            raise Invalid('ключ %s отозван с %s' % (kid, entry['revoked']))
+        if entry['compromised'] and ts >= entry['compromised']:
+            return entry['key'], SUSPECT
+        return entry['key'], OK
 
 
 class Log(object):
@@ -127,22 +184,63 @@ class Log(object):
         self.public_key = ed25519.public_key(secret)
         self.events = []
 
-    def append(self, ts, type_, subject, body, to=None, attachments=None):
+    def keyring(self):
+        return KeyRing().add(self.kid, self.public_key)
+
+    def append(self, ts, type_, subject, body, to=None):
         last = self.events[-1] if self.events else None
         event = make(
             node=self.node, kid=self.kid,
             seq=0 if last is None else last['seq'] + 1,
             prev=None if last is None else last['id'],
-            ts=ts, type_=type_, subject=subject, body=body,
-            to=to, attachments=attachments,
+            ts=ts, type_=type_, subject=subject, body=body, to=to,
         )
         signed = sign(event, self.secret)
         self.events.append(signed)
         return signed
 
-    def since(self, seq=0, limit=100):
-        """Выдача для GET /federation/log — узел догоняет журнал порциями."""
-        return [e for e in self.events if e['seq'] >= seq][:limit]
+    def since(self, seq=0, limit=100, reader=None):
+        """Выдача для GET /federation/log.
 
-    def verify(self):
-        return check_chain(self.events, self.public_key)
+        `reader` — кто спрашивает. Адресные события отдаются ему с телом,
+        остальным — вымаранными: цепочка остаётся проверяемой у всех.
+        """
+        out = []
+        for event in self.events:
+            if event['seq'] < seq:
+                continue
+            audience = event.get('to')
+            if audience is None or reader in audience or reader == self.node:
+                out.append(event)
+            else:
+                out.append(redact(event))
+            if len(out) >= limit:
+                break
+        return out
+
+    def head(self, ts):
+        """Подписанный конец журнала.
+
+        Узлы обмениваются головами соседей и складывают их. Если узел
+        показывает разным партнёрам разные истории, расхождение всплывает
+        при первой же сверке — без общего реестра и без консенсуса.
+        """
+        last = self.events[-1] if self.events else None
+        head = {'node': self.node, 'kid': self.kid, 'ts': ts,
+                'seq': -1 if last is None else last['seq'],
+                'id': None if last is None else last['id']}
+        head['sig'] = b64(ed25519.sign(self.secret, canonical.encode(
+            {k: v for k, v in head.items() if k != 'sig'})))
+        return head
+
+    def verify(self, keyring=None):
+        return check_chain(self.events, keyring or self.keyring())
+
+
+def check_head(head, keyring):
+    """Проверить подписанную голову чужого журнала."""
+    body = {k: v for k, v in head.items() if k != 'sig'}
+    public_key, status = keyring.resolve(head['kid'], head['ts'])
+    if not ed25519.verify(public_key, canonical.encode(body), unb64(head['sig'])):
+        raise Invalid('подпись головы журнала не проходит проверку')
+    return status
