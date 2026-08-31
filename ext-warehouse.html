@@ -74,6 +74,7 @@
       <a href="#" class="active" data-tab="my">Мои склады <span class="badge outline">3</span></a>
       <a href="#" data-tab="market">Биржа мощностей <span class="badge outline">13</span></a>
       <a href="#" data-tab="agreements">Договорённости <span class="badge outline">6</span></a>
+      <a href="ext-warehouse.html?tab=favorites" data-fav-tab="warehouse">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
 
     <!-- ==================== МОИ СКЛАДЫ ==================== -->
@@ -134,12 +135,13 @@
         </div>
         <span style="color:var(--slate);font-size:12.5px">Найдено: <b id="wh-count">8</b></span>
         <button class="button secondary" type="button" id="publish-btn" style="margin-left:auto">Выставить мощности</button>
+        <span class="view-toggle"><button id="view-tile-btn" class="active" type="button" title="Плиткой">&#9638;</button><button id="view-list-btn" type="button" title="Списком">&#9776;</button></span>
       </div>
 
       <div class="content-with-filter">
         <div style="flex:1;min-width:0">
-          <div class="wh-grid" id="wh-grid"></div>
-          <div class="empty-state" id="wh-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="wh-filter-reset">Сбросить фильтры</a></div>
+          <div class="vacancy-list tile-mode tags-wrap" id="wh-grid" data-fav-section="warehouse"></div>
+          <div class="empty-state" id="wh-empty" hidden data-fav-empty="В избранном пока пусто. Отметьте сердечком предложения на бирже — они соберутся здесь.">Ничего не нашлось по заданным фильтрам. <a href="#" id="wh-filter-reset">Сбросить фильтры</a></div>
         </div>
         <div class="filter-panel">
           <div class="section-title">Фильтр</div>
@@ -749,7 +751,10 @@
   var grid = document.getElementById('wh-grid');
   var emptyBox = document.getElementById('wh-empty');
   var countBox = document.getElementById('wh-count');
+  var EMPTY_HTML = emptyBox.innerHTML;
   var side = 'offer';
+  /* Режим «Избранное» — та же вкладка биржи, но только отмеченные карточки. */
+  var favOnly = (location.search || '').indexOf('tab=favorites') !== -1;
 
   var fCity = document.getElementById('f-city');
   var fKind = document.getElementById('f-kind');
@@ -758,34 +763,50 @@
   var fParty = document.getElementById('f-party');
   var search = document.getElementById('wh-search');
 
+  /* Карточка биржи собрана по общей анатомии каталогов платформы
+     (.vacancy-card в .vacancy-list): медиа-полоса с городом и аватаром
+     владельца, название, строка ценности, мета, теги-условия и действия.
+     Благодаря этому работает общий переключатель «плиткой / списком»:
+     в плитке видно название, цену и условия чипами, в списке
+     дополнительно раскрываются характеристики и полный список условий. */
+  var HEART = '<span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное">'
+    + '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>';
+
   function offerCard(o) {
     var isOffer = o.side === 'offer';
-    var pct = isOffer ? Math.round(o.free / o.total * 100) : 100;
+    var main = o.terms[0];
     var capacity = isOffer
-      ? '<div class="gb-progress-bar"><div class="gb-progress-fill" style="width:' + pct + '%"></div></div>'
-        + '<div class="wh-capacity-label">Свободно <b>' + fmt(o.free) + ' ' + esc(o.unit) + '</b> из ' + fmt(o.total) + ' ' + esc(o.unit) + ' (' + pct + '%)</div>'
-      : '<div class="wh-capacity-label">Требуется <b>' + fmt(o.need) + ' ' + esc(o.unit) + '</b> · срок ' + esc(PERIODS[o.period]) + '</div>';
-    return '<article class="card wh-offer" data-id="' + o.id + '">'
-      + '<img class="wh-offer-photo" src="' + o.photo + '" alt="' + esc(o.title) + '" loading="lazy">'
-      + '<div class="wh-offer-body">'
-      + '<div class="wh-offer-title-row"><div class="wh-offer-title">' + esc(o.title) + '</div>'
-      + '<span class="badge ' + (isOffer ? 'outline' : 'demand') + '">' + (isOffer ? 'Предлагают' : 'Ищут') + '</span></div>'
-      + '<div class="wh-offer-meta">📍 ' + esc(o.city) + ' · ' + esc(KINDS[o.kind]) + '</div>'
-      + '<div class="wh-owner">'
-      + '<a href="' + o.owner.link + '"><img class="avatar' + (o.owner.logo ? ' wh-owner-logo' : '') + '" src="' + o.owner.avatar + '" alt="' + esc(o.owner.name) + '" loading="lazy"></a>'
-      + '<div class="wh-owner-text"><span class="wh-owner-label">' + (isOffer ? 'Владелец мощностей' : 'Кто ищет') + (o.mine ? ' · это вы' : '') + '</span>'
-      + '<a class="wh-owner-name" href="' + o.owner.link + '">' + esc(o.owner.name) + '</a></div>'
-      + '<span class="badge teal" style="margin-left:auto">доверие ' + o.owner.trust + '%</span>'
+      ? 'свободно ' + fmt(o.free) + ' ' + esc(o.unit) + ' из ' + fmt(o.total)
+      : 'требуется ' + fmt(o.need) + ' ' + esc(o.unit);
+    var ownerAlt = (isOffer ? 'Владелец мощностей — ' : 'Заявку разместил(а) ') + esc(o.owner.name);
+    return '<a class="vacancy-card" href="resource.html" data-fav-id="' + o.id + '"'
+      + ' data-city="' + esc(o.city) + '" data-kind="' + o.kind + '">'
+      + HEART
+      + '<div class="card-row">'
+      + '<div class="img-wrap">'
+      + '<img class="card-photo" src="' + o.photo + '" alt="" loading="lazy">'
+      + '<img class="owner-badge" src="' + o.owner.avatar + '" alt="' + ownerAlt + '" title="' + ownerAlt + '" loading="lazy">'
+      + '<span class="loc-bar">📍 ' + esc(o.city) + '</span>'
       + '</div>'
-      + '<div class="wh-specs">' + o.specs.map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>'
-      + '<div>' + capacity + '</div>'
+      + '<div style="flex:1;min-width:0">'
+      + '<div class="vacancy-title">' + esc(o.title) + '</div>'
+      + '<div class="vacancy-salary">' + esc(main.value) + '</div>'
+      + '<div class="vacancy-meta">' + esc(o.owner.name) + ' · <span class="meta-city">📍 ' + esc(o.city) + ' · </span>'
+      + esc(KINDS[o.kind]) + ' · ' + capacity + '</div>'
+      + '<p class="vacancy-snippet">' + o.specs.join(' · ') + '</p>'
       + termsHtml(o.terms)
-      + '<div class="wh-offer-foot">'
-      + '<span class="wh-offer-note">' + (isOffer ? 'Срок: ' + esc(PERIODS[o.period]) : 'Готовы обсуждать любой из вариантов') + '</span>'
+      + '<div class="vacancy-tags">' + o.terms.map(function (t) {
+          return '<span class="chip">' + esc(TERMS[t.key]) + '</span>';
+        }).join('') + '</div>'
+      + '<div class="vacancy-footer">'
+      + '<span class="vacancy-posted">' + (o.mine ? 'Ваша заявка · ' : '')
+      + (isOffer ? 'Предлагают' : 'Ищут') + ' · срок ' + esc(PERIODS[o.period]) + '</span>'
       + (o.mine
-          ? '<a class="button secondary" href="messages.html">Отклики на вашу заявку</a>'
-          : '<button class="button" type="button" data-respond="' + o.id + '">' + (isOffer ? 'Откликнуться' : 'Предложить своё место') + '</button>')
-      + '</div></div></article>';
+          ? '<span class="button secondary" role="button" tabindex="0" data-open="messages.html">Отклики на вашу заявку</span>'
+          : '<span class="button secondary" role="button" tabindex="0" data-respond="' + o.id + '">'
+            + (isOffer ? 'Откликнуться' : 'Предложить своё место') + '</span>')
+      + '</div>'
+      + '</div></div></a>';
   }
 
   function applyFilters() {
@@ -793,6 +814,7 @@
     var city = fCity.value.trim().toLowerCase();
     var rows = MARKET.filter(function (o) {
       if (o.side !== side) return false;
+      if (favOnly && window.CoopFav && !CoopFav.has('warehouse', o.id)) return false;
       if (city && o.city.toLowerCase().indexOf(city) < 0) return false;
       if (fKind.value && o.kind !== fKind.value) return false;
       if (fPeriod.value && o.period !== fPeriod.value) return false;
@@ -806,12 +828,15 @@
       return true;
     });
     grid.innerHTML = rows.map(offerCard).join('');
-    grid.hidden = rows.length === 0;
+    /* app.js подставляет data-fav-empty только при заходе по ссылке
+       «?tab=favorites»; вкладку здесь переключают без перезагрузки,
+       поэтому текст пустого состояния меняем сами. */
+    emptyBox.innerHTML = favOnly ? esc(emptyBox.getAttribute('data-fav-empty')) : EMPTY_HTML;
     emptyBox.hidden = rows.length !== 0;
     countBox.textContent = rows.length;
-    grid.querySelectorAll('[data-respond]').forEach(function (b) {
-      b.addEventListener('click', function () { openRespond(b.dataset.respond); });
-    });
+    /* Сердечки перерисованных карточек надо перекрасить — обработчики
+       у избранного делегированы, а вот состояние app.js красит разово. */
+    if (window.CoopFav) CoopFav.refresh();
   }
 
   [search, fCity, fKind, fTerm, fPeriod, fParty].forEach(function (el) {
@@ -822,9 +847,30 @@
     search.value = ''; fCity.value = ''; fKind.value = ''; fTerm.value = ''; fPeriod.value = ''; fParty.value = '';
     applyFilters();
   });
-  document.getElementById('wh-filter-reset').addEventListener('click', function (e) {
-    e.preventDefault(); document.getElementById('f-reset').click();
+  emptyBox.addEventListener('click', function (e) {
+    if (!e.target.closest('#wh-filter-reset')) return;
+    e.preventDefault();
+    document.getElementById('f-reset').click();
   });
+  /* Карточка каталога — это <a>, поэтому «Откликнуться» внутри неё
+     не кнопка, а span: клик перехватываем и гасим переход по ссылке.
+     Тот же приём уже применён к кнопкам в каталоге людей. */
+  grid.addEventListener('click', function (e) {
+    var act = e.target.closest('[data-respond], [data-open]');
+    if (!act) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (act.dataset.open) location.href = act.dataset.open;
+    else openRespond(act.dataset.respond);
+  });
+  grid.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var act = e.target.closest('[data-respond], [data-open]');
+    if (!act) return;
+    e.preventDefault();
+    act.click();
+  });
+
   document.getElementById('wh-side').addEventListener('click', function (e) {
     var btn = e.target.closest('.chip-toggle');
     if (!btn) return;
@@ -839,15 +885,33 @@
   /* ── Вкладки ────────────────────────────────────────────── */
   var tabs = document.getElementById('wh-tabs');
   var panes = { my: document.getElementById('tab-my'), market: document.getElementById('tab-market'), agreements: document.getElementById('tab-agreements') };
+  var favTab = tabs.querySelector('[data-fav-tab]');
   function showTab(name) {
     Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== name; });
-    tabs.querySelectorAll('a').forEach(function (a) { a.classList.toggle('active', a.dataset.tab === name); });
+    tabs.querySelectorAll('a').forEach(function (a) {
+      a.classList.toggle('active', !favOnly && a.dataset.tab === name);
+    });
+    if (favTab) favTab.classList.toggle('active', favOnly);
     window.scrollTo(0, 0);
   }
+  /* «Избранное» не отдельный экран, а режим биржи: адрес меняем без
+     перезагрузки, чтобы состояние совпадало с остальными каталогами. */
+  function setFavOnly(on) {
+    favOnly = on;
+    document.body.classList.toggle('fav-mode', on);
+    try {
+      history.replaceState(null, '', 'ext-warehouse.html' + (on ? '?tab=favorites' : ''));
+    } catch (err) {}
+    showTab('market');
+    applyFilters();
+  }
   tabs.addEventListener('click', function (e) {
-    var a = e.target.closest('a[data-tab]');
+    var a = e.target.closest('a');
     if (!a) return;
     e.preventDefault();
+    if (a === favTab) { setFavOnly(true); return; }
+    if (!a.dataset.tab) return;
+    if (favOnly) setFavOnly(false);
     showTab(a.dataset.tab);
   });
   document.querySelectorAll('[data-goto-tab]').forEach(function (a) {
@@ -974,8 +1038,36 @@
     say('✓ Отклик отправлен: ' + to + ', ' + fmt(amount) + ' ' + respActive.unit + ', ' + term + '. Ответ придёт в «Сообщения».');
   });
 
+  /* ── Вид каталога: плиткой / списком ───────────────────────
+     Тот же переключатель и тот же ключ localStorage, что во всех
+     каталогах платформы, — выбранный вид держится между разделами. */
+  var viewTileBtn = document.getElementById('view-tile-btn');
+  var viewListBtn = document.getElementById('view-list-btn');
+  function rememberCatalogView(isList) {
+    try { localStorage.setItem('coop-catalog-view', isList ? 'list' : 'tile'); } catch (e) {}
+  }
+  function savedCatalogView() {
+    try { return localStorage.getItem('coop-catalog-view'); } catch (e) { return null; }
+  }
+  function setListView(on) {
+    grid.classList.toggle('tile-mode', !on);
+    viewListBtn.classList.toggle('active', on);
+    viewTileBtn.classList.toggle('active', !on);
+    rememberCatalogView(on);
+  }
+  viewListBtn.addEventListener('click', function () { setListView(true); });
+  viewTileBtn.addEventListener('click', function () { setListView(false); });
+  if (savedCatalogView() === 'list') setListView(true);
+
   renderMy();
   applyFilters();
+  if (favOnly) showTab('market');
+
+  /* Сердечко переключает избранное в app.js — список пересобираем сразу,
+     иначе в режиме «Избранное» карточка исчезнет только после перезагрузки. */
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.CoopFav) CoopFav.onChange(applyFilters);
+  });
 })();
 </script>
 <script src="app.js"></script>
