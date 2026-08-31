@@ -149,6 +149,57 @@
     </div>
 
     <div class="card" style="padding:16px 18px;margin-bottom:18px">
+      <div class="section-title" style="margin-top:0">Заявки на согласовании <span class="badge gold">2 ждут вас</span>
+        <span class="stat-note" title="Маршрут показывает, через кого проходит решение и на каком шаге оно сейчас">ⓘ</span>
+      </div>
+      <p style="color:var(--slate);font-size:12.5px;margin:0 0 14px">Решения кооператива идут по маршруту, а не в личных сообщениях: видно, кто уже высказался, кто следующий и сколько заявка ждёт.</p>
+
+      <div class="sign-box" style="margin:0 0 14px">
+        <div class="sign-side" style="flex:1 1 100%">
+          <div class="sign-who">Приём в пайщики: Козлов Артём Викторович</div>
+          <div class="sign-when">Подана 26 августа · ждёт 5 дней · рекомендация: двое пайщиков поручились</div>
+          <ol class="deal-flow" style="margin:10px 0 8px">
+            <li class="done">Заявление подано<span class="flow-date">26 августа</span></li>
+            <li class="done">Проверка правлением<span class="flow-date">28 августа, согласовано</span></li>
+            <li class="now">Общее собрание<span class="flow-date">ваш голос</span></li>
+            <li>Внесение паевого взноса<span class="flow-date">—</span></li>
+          </ol>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" data-appr="1">
+            <button class="button appr-yes" type="button" style="padding:6px 12px;font-size:12px">Поддержать</button>
+            <button class="button secondary appr-no" type="button" style="padding:6px 12px;font-size:12px">Против</button>
+            <button class="button secondary appr-wait" type="button" style="padding:6px 12px;font-size:12px">Воздержаться</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sign-box" style="margin:0 0 14px">
+        <div class="sign-side" style="flex:1 1 100%">
+          <div class="sign-who">Выделение ресурса: трактор МТЗ на 12 дней, участок овцеводства</div>
+          <div class="sign-when">Подана 29 августа · ждёт 2 дня · пересекается с бронью цеха переработки</div>
+          <ol class="deal-flow" style="margin:10px 0 8px">
+            <li class="done">Заявка подана<span class="flow-date">29 августа</span></li>
+            <li class="now">Согласование правления<span class="flow-date">ваш голос</span></li>
+            <li>Бронь техники<span class="flow-date">—</span></li>
+          </ol>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" data-appr="2">
+            <button class="button appr-yes" type="button" style="padding:6px 12px;font-size:12px">Согласовать</button>
+            <button class="button secondary appr-no" type="button" style="padding:6px 12px;font-size:12px">Отклонить</button>
+            <button class="button secondary appr-wait" type="button" style="padding:6px 12px;font-size:12px">Запросить уточнение</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sign-box" style="margin:0">
+        <div class="sign-side signed" style="flex:1 1 100%">
+          <div class="sign-who">Выплата по заявлению: 6 000 ₽ из паевого счёта</div>
+          <div class="sign-when">Согласована 14 апреля · маршрут пройден полностью, деньги перечислены</div>
+        </div>
+      </div>
+
+      <p class="unit-hint" style="margin:14px 0 0">Маршруты заданы уставом: приём в пайщики проходит через общее собрание, выделение техники — через правление, выплата из паевого счёта — через председателя и бухгалтерию. Кто и что может согласовывать, будет определяться ролью в <a href="#">организационной структуре</a>.</p>
+    </div>
+
+    <div class="card" style="padding:16px 18px;margin-bottom:18px">
       <div class="section-title" style="margin-top:0">Итоги 2025 года и распределение
         <span class="badge teal" style="margin-left:6px">Период закрыт 28.02.2026</span>
         <span class="stat-note" title="После закрытия периода операции прошлого года изменить нельзя — только исправительной операцией текущего года">ⓘ</span>
@@ -402,5 +453,33 @@ document.querySelectorAll('.cat-nav').forEach(function (btn) {
 })();
 </script>
 <script src="app.js"></script>
+
+<script>
+(function () {
+  /* Согласование: голос фиксируется и маршрут двигается на шаг вперёд */
+  document.querySelectorAll('[data-appr]').forEach(function (row) {
+    row.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      var box = row.closest('.sign-side');
+      var flow = box.querySelector('.deal-flow');
+      var now = flow.querySelector('.now');
+      var verdict = btn.classList.contains('appr-yes') ? 'поддержано вами'
+        : btn.classList.contains('appr-no') ? 'вы против' : 'вы воздержались';
+      if (now) {
+        now.className = btn.classList.contains('appr-no') ? '' : 'done';
+        now.querySelector('.flow-date').textContent = verdict + ', сегодня';
+        var next = now.nextElementSibling;
+        if (next && !btn.classList.contains('appr-no')) {
+          next.className = 'now';
+          next.querySelector('.flow-date').textContent = 'следующий шаг';
+        }
+      }
+      if (!btn.classList.contains('appr-no')) box.classList.add('signed');
+      row.remove();
+    });
+  });
+})();
+</script>
 </body>
 </html>
