@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>НМА «Открытая CRM» — cooptech</title>
+<script src="theme-init.js"></script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="topbar-left">
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
+    <a class="topbar-bell" href="notifications.html" aria-label="Уведомления: 3 новых"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15.4V10a6 6 0 10-12 0v5.4L4.6 18h14.8M10 20.4a2 2 0 004 0"/></svg><span class="bell-count">3</span></a>
+    <a class="topbar-ico" href="settings.html" aria-label="Настройки" title="Настройки"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.1a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2M19.3 12c0-.4 0-.8-.1-1.2l1.9-1.5-1.9-3.3-2.3 1c-.6-.5-1.2-.9-1.9-1.1L14.6 3.4h-3.8l-.4 2.5c-.7.2-1.3.6-1.9 1.1l-2.3-1-1.9 3.3L6.2 10.8a7 7 0 000 2.4l-1.9 1.5 1.9 3.3 2.3-1c.6.5 1.2.9 1.9 1.1l.4 2.5h3.8l.4-2.5c.7-.2 1.3-.6 1.9-1.1l2.3 1 1.9-3.3-1.9-1.5c.1-.4.1-.8.1-1.2z"/></svg></a>
+    <a class="topbar-ico" href="index.html" aria-label="Выйти" title="Выйти"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.4 7.4V5.6a1.6 1.6 0 00-1.6-1.6H5.6A1.6 1.6 0 004 5.6v12.8a1.6 1.6 0 001.6 1.6h7.2a1.6 1.6 0 001.6-1.6v-1.8M9.6 12h10.8M17.4 8.8l3.2 3.2-3.2 3.2"/></svg></a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
+      <a href="my-page.html" data-icon="my-page">Моя страница</a>
+      <a href="messages.html" data-icon="messages">Сообщения</a>
+      <a href="people.html" data-icon="people">Люди</a>
+      <a href="skills.html" data-icon="skills">Навыки</a>
+      <a href="vacancies.html" data-icon="vacancies">Вакансии</a>
+      <a href="resources.html" data-icon="resources">Ресурсы</a>
+      <a href="projects.html" data-icon="projects">Проекты</a>
+      <a href="organizations.html" data-icon="organizations">Организации</a>
+      <a href="communities.html" data-icon="communities">Сообщества</a>
+      <a href="wallet.html" data-icon="wallet">Кошелёк</a>
+      <a href="deals.html" data-icon="deals">Сделки</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav aria-label="Расширения">
+      <a href="cfa-catalog.html">Цифровые активы</a>
+      <a href="nma-catalog.html" class="active">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-warehouse.html">Склад</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+    <h1 class="sr-only">НМА: программа «Открытая CRM для кооперативов»</h1>
+
+    <div class="entity-tabs">
+      <a href="nma-catalog.html">Каталог НМА</a>
+      <a href="nma-asset.html" class="active">«Открытая CRM для кооперативов»</a>
+      <a href="intangible-assets.html">Мои НМА</a>
+    </div>
+
+    <div class="card deal-head">
+      <div class="deal-head-main">
+        <div class="deal-head-row">
+          <span class="badge outline">Программа для ЭВМ</span>
+          <span class="badge teal">Право действует</span>
+          <span class="deal-doc-no" title="Инвентарный номер объекта в учёте организации">НМА-2026-0007</span>
+        </div>
+        <h2 class="deal-head-title">«Открытая CRM для кооперативов»</h2>
+        <div class="deal-head-meta">Правообладатель — <a href="organizations.html">кооператив «Взаимопомощь»</a> · свидетельство Роспатента № 2026612345 от 14.03.2026 · принят к учёту 31.03.2026</div>
+      </div>
+      <div class="deal-head-side">
+        <div class="deal-total">868 000 ₽</div>
+        <div class="stat-note">остаточная стоимость на 31.08.2026</div>
+        <div class="deal-head-actions">
+          <button class="button secondary" type="button">Свидетельство</button>
+          <button class="button" type="button">Запросить лицензию</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-row">
+      <div class="stock-cell"><div class="stock-num">1 240 000 ₽</div><div class="stock-label">Первоначальная стоимость</div></div>
+      <div class="stock-cell reserved"><div class="stock-num">372 000 ₽</div><div class="stock-label">Накопленная амортизация</div></div>
+      <div class="stock-cell free"><div class="stock-num">868 000 ₽</div><div class="stock-label">Остаточная стоимость</div></div>
+      <div class="stock-cell"><div class="stock-num">5 лет</div><div class="stock-label">Срок полезного использования</div></div>
+    </div>
+
+    <div class="sub-tabs" role="tablist" aria-label="Разделы актива">
+      <button type="button" role="tab" aria-selected="true" aria-controls="nma-accounting" id="tab-acc">Учёт</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="nma-legal" id="tab-legal">Правовая охрана</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="nma-license" id="tab-lic">Лицензии</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="nma-use" id="tab-use">Где используется</button>
+    </div>
+
+    <section class="card" id="nma-accounting" role="tabpanel" aria-labelledby="tab-acc" style="padding:16px 18px">
+      <div class="section-title" style="margin-top:0">Признание по ФСБУ 14/2022 <span class="stat-note" title="Все шесть условий должны выполняться одновременно, иначе затраты идут в расходы периода">ⓘ</span></div>
+      <ul class="checklist">
+        <li><input type="checkbox" checked disabled> Не имеет материально-вещественной формы</li>
+        <li><input type="checkbox" checked disabled> Предназначена для использования в обычной деятельности кооператива</li>
+        <li><input type="checkbox" checked disabled> Срок использования более 12 месяцев</li>
+        <li><input type="checkbox" checked disabled> Способна приносить экономические выгоды: лицензии другим кооперативам</li>
+        <li><input type="checkbox" checked disabled> Может быть идентифицирована: исключительное право подтверждено свидетельством</li>
+        <li><input type="checkbox" checked disabled> Первоначальная стоимость определена по фактическим затратам</li>
+      </ul>
+
+      <div class="section-title" style="margin-top:22px">Из чего сложилась первоначальная стоимость</div>
+      <table class="doc-table res-table">
+        <thead><tr><th>Статья затрат</th><th>Основание</th><th class="num">Сумма</th></tr></thead>
+        <tbody>
+          <tr><td>Работы участников кооператива по разработке</td><td>860 смен, ставка 1 200 ₽</td><td class="num">1 032 000 ₽</td></tr>
+          <tr><td>Подрядчик: интерфейс и тестирование</td><td>договор с <a href="person.html">Петровым С. В.</a></td><td class="num">180 000 ₽</td></tr>
+          <tr><td>Государственная пошлина за регистрацию</td><td>Роспатент</td><td class="num">4 500 ₽</td></tr>
+          <tr><td>Нотариальные и сопутствующие расходы</td><td>—</td><td class="num">23 500 ₽</td></tr>
+          <tr class="doc-total-row"><td colspan="2">Первоначальная стоимость</td><td class="num">1 240 000 ₽</td></tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin:12px 0 0">Реклама программы и обучение участников в стоимость не включены — по ФСБУ 14/2022 такие затраты в первоначальную стоимость не входят и списываются в расходы периода.</p>
+
+      <div class="section-title" style="margin-top:22px">Амортизация</div>
+      <table class="doc-table res-table">
+        <tbody>
+          <tr><td style="width:250px">Способ</td><td>Линейный — выгоды поступают равномерно в течение срока действия</td></tr>
+          <tr><td>Срок полезного использования</td><td>5 лет, установлен исходя из планового цикла обновления версии</td></tr>
+          <tr><td>Ликвидационная стоимость</td><td>0 ₽ — продажа по окончании срока не планируется</td></tr>
+          <tr><td>Ежемесячная сумма</td><td>20 667 ₽</td></tr>
+          <tr><td>Начислено с начала использования</td><td>372 000 ₽ за 18 месяцев</td></tr>
+          <tr><td>Проверка обесценения</td><td>Ежегодно по правилам МСФО (IAS) 36; признаков обесценения на 31.08.2026 не выявлено</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" id="nma-legal" role="tabpanel" aria-labelledby="tab-legal" style="padding:16px 18px" hidden>
+      <div class="section-title" style="margin-top:0">Правовая охрана</div>
+      <table class="doc-table res-table">
+        <tbody>
+          <tr><td style="width:250px">Объект</td><td>Программа для ЭВМ — охраняется как литературное произведение (ст. 1261 ГК РФ)</td></tr>
+          <tr><td>Когда возникает охрана</td><td>С момента создания. Государственная регистрация для программ — по желанию правообладателя, но она облегчает доказывание в споре и постановку на учёт</td></tr>
+          <tr><td>Регистрация</td><td>Свидетельство Роспатента № 2026612345 от 14.03.2026</td></tr>
+          <tr><td>Вид права</td><td>Исключительное право в полном объёме, принадлежит кооперативу</td></tr>
+          <tr><td>Срок действия</td><td>Всю жизнь автора и 70 лет после — для учёта это означает, что срок охраны длиннее срока полезного использования</td></tr>
+          <tr><td>Служебное произведение</td><td>Права перешли к кооперативу как к работодателю; с участниками, работавшими по договорам, подписаны акты об отчуждении права</td></tr>
+          <tr><td>Открытая лицензия</td><td>Часть кода опубликована под открытой лицензией — это не лишает кооператив исключительного права, но ограничивает его в запрете использования опубликованных частей</td></tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin:12px 0 0">Важная для кооператива тонкость: открытость кода и наличие исключительного права — разные вещи. Можно отдать код сообществу и одновременно держать актив на балансе, если затраты подтверждены и выгоды существуют.</p>
+    </section>
+
+    <section class="card" id="nma-license" role="tabpanel" aria-labelledby="tab-lic" style="padding:16px 18px" hidden>
+      <div class="section-title" style="margin-top:0">Выданные лицензии</div>
+      <table class="doc-table res-table">
+        <thead><tr><th>Кому</th><th>Вид лицензии</th><th>Срок</th><th class="num">Платёж</th><th>Статус</th></tr></thead>
+        <tbody>
+          <tr><td><a href="organization-coop.html">Кооператив «Шукты»</a></td><td>Простая (неисключительная)</td><td>бессрочно</td><td class="num">0 ₽</td><td><span class="badge teal">действует</span></td></tr>
+          <tr><td>Кооператив «Речной порт»</td><td>Простая (неисключительная)</td><td>3 года</td><td class="num">60 000 ₽ в год</td><td><span class="badge teal">действует</span></td></tr>
+          <tr><td>ООО «АгроСтрой»</td><td>Простая (неисключительная)</td><td>1 год</td><td class="num">90 000 ₽</td><td><span class="badge outline">истекла</span></td></tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin:12px 0 0">Членам кооперативов платформы — бесплатно, внешним организациям — за плату: типичная кооперативная модель, где актив работает на сообщество, а не только на владельца. Исключительная лицензия не выдавалась: она лишила бы правообладателя возможности передавать программу другим.</p>
+      <p class="unit-hint" style="margin:8px 0 0">Лицензионные платежи учитываются в доходах правообладателя; у лицензиата право пользования отражается не как НМА, а как расходы — исключительное право к нему не переходит.</p>
+    </section>
+
+    <section class="card" id="nma-use" role="tabpanel" aria-labelledby="tab-use" style="padding:16px 18px" hidden>
+      <div class="section-title" style="margin-top:0">Где актив работает</div>
+      <table class="doc-table res-table">
+        <tbody>
+          <tr><td style="width:250px">Проект</td><td><a href="projects.html">«Открытая CRM для кооперативов»</a> — разработка и развитие, Новосибирск</td></tr>
+          <tr><td>Вклад в проекты</td><td>Внесён как вклад в проект «Круглогодичная теплица»: доля кооператива посчитана от остаточной стоимости на дату внесения</td></tr>
+          <tr><td>Пользователи</td><td>2 кооператива по действующим лицензиям, 41 участник платформы</td></tr>
+          <tr><td>Связанные сделки</td><td>Лицензионные договоры проходят как сделки платформы и попадают в <a href="deals.html">реестр</a> с двусторонними отзывами</td></tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin:12px 0 0">Внесение НМА в проект — то место, где учёт встречается с кооперативной экономикой: доля участника считается от остаточной стоимости актива, подтверждённой учётом, а не от оценки «на глаз». Правило расчёта доли обсуждается — см. открытые вопросы к экономисту.</p>
+    </section>
+
+  </main>
+</div>
+<script src="app.js"></script>
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.sub-tabs button');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) {
+        var sel = x === t;
+        x.setAttribute('aria-selected', sel ? 'true' : 'false');
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !sel;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

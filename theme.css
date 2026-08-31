@@ -532,6 +532,9 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
      стояли одной неразрывной строкой и вылезали за экран. Перенос по строкам
      решает оба случая, не трогая инлайновые flex-basis в разметке. */
   .detail-head, .name-row, .stats-row { flex-wrap: wrap; }
+  /* Шапка карточки сделки/актива и её кнопки — тоже неразрывные ряды */
+  .deal-head, .deal-head-actions { flex-wrap: wrap; }
+  .deal-head-side { align-items: flex-start; text-align: left; }
   /* Группа кнопок внутри .name-row («Написать / Позвонить / Подписаться») —
      инлайновый display:flex в разметке, переносим её содержимое по строкам. */
   /* flex-shrink переопределяем через !important сознательно: у групп кнопок в

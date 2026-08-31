@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЦФА «Мириталь-01» — cooptech</title>
+<script src="theme-init.js"></script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="topbar-left">
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
+    <a class="topbar-bell" href="notifications.html" aria-label="Уведомления: 3 новых"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15.4V10a6 6 0 10-12 0v5.4L4.6 18h14.8M10 20.4a2 2 0 004 0"/></svg><span class="bell-count">3</span></a>
+    <a class="topbar-ico" href="settings.html" aria-label="Настройки" title="Настройки"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.1a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2M19.3 12c0-.4 0-.8-.1-1.2l1.9-1.5-1.9-3.3-2.3 1c-.6-.5-1.2-.9-1.9-1.1L14.6 3.4h-3.8l-.4 2.5c-.7.2-1.3.6-1.9 1.1l-2.3-1-1.9 3.3L6.2 10.8a7 7 0 000 2.4l-1.9 1.5 1.9 3.3 2.3-1c.6.5 1.2.9 1.9 1.1l.4 2.5h3.8l.4-2.5c.7-.2 1.3-.6 1.9-1.1l2.3 1 1.9-3.3-1.9-1.5c.1-.4.1-.8.1-1.2z"/></svg></a>
+    <a class="topbar-ico" href="index.html" aria-label="Выйти" title="Выйти"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.4 7.4V5.6a1.6 1.6 0 00-1.6-1.6H5.6A1.6 1.6 0 004 5.6v12.8a1.6 1.6 0 001.6 1.6h7.2a1.6 1.6 0 001.6-1.6v-1.8M9.6 12h10.8M17.4 8.8l3.2 3.2-3.2 3.2"/></svg></a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
+      <a href="my-page.html" data-icon="my-page">Моя страница</a>
+      <a href="messages.html" data-icon="messages">Сообщения</a>
+      <a href="people.html" data-icon="people">Люди</a>
+      <a href="skills.html" data-icon="skills">Навыки</a>
+      <a href="vacancies.html" data-icon="vacancies">Вакансии</a>
+      <a href="resources.html" data-icon="resources">Ресурсы</a>
+      <a href="projects.html" data-icon="projects">Проекты</a>
+      <a href="organizations.html" data-icon="organizations">Организации</a>
+      <a href="communities.html" data-icon="communities">Сообщества</a>
+      <a href="wallet.html" data-icon="wallet">Кошелёк</a>
+      <a href="deals.html" data-icon="deals">Сделки</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav aria-label="Расширения">
+      <a href="cfa-catalog.html" class="active">Цифровые активы</a>
+      <a href="nma-catalog.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-warehouse.html">Склад</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+    <h1 class="sr-only">ЦФА «Мириталь-01»</h1>
+
+    <div class="entity-tabs">
+      <a href="cfa-catalog.html">Каталог ЦФА</a>
+      <a href="cfa-asset.html" class="active">Выпуск «Мириталь-01»</a>
+      <a href="digital-assets.html">Мои ЦФА</a>
+    </div>
+
+    <div class="card deal-head">
+      <div class="deal-head-main">
+        <div class="deal-head-row">
+          <span class="badge outline">Денежные требования</span>
+          <span class="badge teal">Размещение до 20.09.2026</span>
+          <span class="deal-doc-no" title="Идентификатор выпуска в информационной системе оператора">RU-CFA-2026-000412</span>
+        </div>
+        <h2 class="deal-head-title">ЦФА «Мириталь-01»</h2>
+        <div class="deal-head-meta">Эмитент — <a href="organization.html">ООО «Мириталь»</a> · оператор информационной системы «Атомайз» (реестр Банка России) · срок 12 месяцев</div>
+      </div>
+      <div class="deal-head-side">
+        <div class="deal-total">1 000 ₽</div>
+        <div class="stat-note">номинал одного ЦФА · объём выпуска 5 000 000 ₽</div>
+        <div class="deal-head-actions">
+          <button class="button secondary" type="button">Решение о выпуске</button>
+          <button class="button" type="button">Приобрести</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-row">
+      <div class="stock-cell free"><div class="stock-num">14% годовых</div><div class="stock-label">Доход по денежному требованию</div></div>
+      <div class="stock-cell"><div class="stock-num">3 420 000 ₽</div><div class="stock-label">Размещено, 68%</div></div>
+      <div class="stock-cell reserved"><div class="stock-num">20.09.2026</div><div class="stock-label">Окончание размещения</div></div>
+      <div class="stock-cell"><div class="stock-num">20.09.2027</div><div class="stock-label">Дата погашения</div></div>
+    </div>
+
+    <div class="sub-tabs" role="tablist" aria-label="Разделы выпуска">
+      <button type="button" role="tab" aria-selected="true" aria-controls="cfa-terms" id="tab-terms">Условия выпуска</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="cfa-pay" id="tab-pay">Выплаты</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="cfa-legal" id="tab-legal">Право и налоги</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="cfa-risk" id="tab-risk">Риски</button>
+    </div>
+
+    <section class="card" id="cfa-terms" role="tabpanel" aria-labelledby="tab-terms" style="padding:16px 18px">
+      <div class="section-title" style="margin-top:0">Решение о выпуске <span class="stat-note" title="Обязательный документ: публикуется до размещения и не может быть изменён задним числом">ⓘ</span></div>
+      <table class="doc-table res-table">
+        <tbody>
+          <tr><td style="width:250px">Эмитент</td><td>ООО «Мириталь», ИНН 7203112233, ОГРН 1027200654321, Тюмень</td></tr>
+          <tr><td>Вид удостоверяемых прав</td><td>Денежные требования: право требовать выплаты номинала и дохода в установленный срок</td></tr>
+          <tr><td>Объём выпуска</td><td>5 000 000 ₽ · 5 000 цифровых финансовых активов номиналом 1 000 ₽</td></tr>
+          <tr><td>Цена размещения</td><td>1 000 ₽ за один ЦФА, без изменения в течение периода размещения</td></tr>
+          <tr><td>Доход</td><td>14% годовых, начисляется на номинал, выплачивается двумя частями</td></tr>
+          <tr><td>Срок и порядок исполнения</td><td>Погашение 20.09.2027 перечислением на счёт держателя в течение 5 рабочих дней</td></tr>
+          <tr><td>Обеспечение</td><td>Выручка от поставок пельменей по действующим договорам, в том числе <a href="deal.html">СД-2026-000124</a></td></tr>
+          <tr><td>Оператор информационной системы</td><td>«Атомайз», включён в реестр операторов ИС Банка России</td></tr>
+          <tr><td>Оператор обмена</td><td>Мосбиржа — вторичное обращение доступно с 25.09.2026</td></tr>
+          <tr><td>Досрочное погашение</td><td>По требованию эмитента не допускается; по соглашению сторон — возможно</td></tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin:12px 0 0">На что кооператив тратит привлечённое: закупка сырья на зимний сезон и вторая линия фасовки. Это не абстрактный инвестиционный инструмент — деньги идут в <a href="project.html">конкретный проект</a>, и его отчётность видна здесь же на платформе.</p>
+    </section>
+
+    <section class="card" id="cfa-pay" role="tabpanel" aria-labelledby="tab-pay" style="padding:16px 18px" hidden>
+      <div class="section-title" style="margin-top:0">График выплат на один ЦФА</div>
+      <table class="doc-table res-table">
+        <thead><tr><th>Дата</th><th>Событие</th><th class="num">На один ЦФА</th><th class="num">На весь выпуск</th><th>Статус</th></tr></thead>
+        <tbody>
+          <tr><td>20.03.2027</td><td>Первая выплата дохода</td><td class="num">70 ₽</td><td class="num">350 000 ₽</td><td><span class="badge outline">ожидается</span></td></tr>
+          <tr><td>20.09.2027</td><td>Вторая выплата дохода</td><td class="num">70 ₽</td><td class="num">350 000 ₽</td><td><span class="badge outline">ожидается</span></td></tr>
+          <tr><td>20.09.2027</td><td>Погашение номинала</td><td class="num">1 000 ₽</td><td class="num">5 000 000 ₽</td><td><span class="badge outline">ожидается</span></td></tr>
+          <tr class="doc-total-row"><td colspan="2">Итого к выплате</td><td class="num">1 140 ₽</td><td class="num">5 700 000 ₽</td><td></td></tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin:12px 0 0">Выплаты проводит оператор информационной системы: эмитент перечисляет средства, оператор распределяет их держателям и фиксирует исполнение. Обязательство считается исполненным с момента записи в информационной системе.</p>
+    </section>
+
+    <section class="card" id="cfa-legal" role="tabpanel" aria-labelledby="tab-legal" style="padding:16px 18px" hidden>
+      <div class="section-title" style="margin-top:0">Правовая сторона</div>
+      <table class="doc-table res-table">
+        <tbody>
+          <tr><td style="width:250px">Регулирование</td><td>Федеральный закон № 259-ФЗ от 31.07.2020 «О цифровых финансовых активах, цифровой валюте и о внесении изменений в отдельные законодательные акты РФ»</td></tr>
+          <tr><td>Кому доступен</td><td>Неквалифицированным инвесторам — с учётом ограничения 600 000 ₽ в календарный год на все приобретения ЦФА; лимит контролирует оператор при покупке</td></tr>
+          <tr><td>Учёт прав</td><td>Права держателя учитываются записями в информационной системе оператора; выписка доступна в разделе «Мои ЦФА»</td></tr>
+          <tr><td>НДФЛ</td><td>13% с дохода, 15% с суммы, превышающей порог годового дохода. Налоговым агентом выступает оператор либо эмитент — в зависимости от порядка выплаты</td></tr>
+          <tr><td>НДС</td><td>Реализация ЦФА, удостоверяющих денежные требования, налогом на добавленную стоимость не облагается (пп. 38 п. 2 ст. 149 НК РФ)</td></tr>
+          <tr><td>Для юридических лиц</td><td>Доход учитывается во внереализационных доходах; сам ЦФА отражается как финансовое вложение</td></tr>
+          <tr><td>Чем это не является</td><td>Не вклад в банке — на ЦФА не распространяется страхование вкладов. Не пай в кооперативе — паевые отношения регулируются законом о кооперации. Не криптовалюта</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" id="cfa-risk" role="tabpanel" aria-labelledby="tab-risk" style="padding:16px 18px" hidden>
+      <div class="section-title" style="margin-top:0">Риски — коротко и без прикрас</div>
+      <ul style="color:var(--slate);font-size:12.5px;line-height:1.8;margin:0;padding-left:18px">
+        <li><b>Кредитный риск эмитента.</b> Если у кооператива не будет выручки, платить будет нечем. Никакой государственной гарантии здесь нет: страхование вкладов на ЦФА не распространяется.</li>
+        <li><b>Риск ликвидности.</b> Продать ЦФА до погашения можно только через оператора обмена и только если найдётся покупатель. Вторичный рынок таких выпусков тонкий.</li>
+        <li><b>Операционный риск.</b> Права существуют записями в информационной системе оператора. Уход оператора с рынка — отдельный сценарий, который стоит понимать заранее.</li>
+        <li><b>Отсутствие обеспечения залогом.</b> Выпуск обеспечен ожидаемой выручкой, а не заложенным имуществом: это обещание платить, а не право забрать вещь.</li>
+      </ul>
+      <p class="unit-hint" style="margin:12px 0 0">Уровень доверия эмитента (92% по 35 сделкам) и его <a href="deals.html">история сделок</a> на платформе — не гарантия возврата, но это больше, чем знает о заёмщике обычный инвестор.</p>
+    </section>
+
+  </main>
+</div>
+<script src="app.js"></script>
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.sub-tabs button');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) {
+        var sel = x === t;
+        x.setAttribute('aria-selected', sel ? 'true' : 'false');
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !sel;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
