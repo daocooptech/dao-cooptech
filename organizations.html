@@ -1377,7 +1377,7 @@ function buildHomeView() {
     if (row.cards.length === 0) return;
     var href = row.key ? 'organizations.html?type=' + encodeURIComponent(row.key) : 'organizations.html?view=all';
     html += '<div class="shelf-row"><div class="shelf-row-title"><span>' + row.title + '</span></div><div class="ptile-grid">';
-    row.cards.slice(0, 4).forEach(function (card) {
+    row.cards.slice(0, 8).forEach(function (card) {
       var clone = card.cloneNode(true);
       clone.style.display = '';
       html += clone.outerHTML;
