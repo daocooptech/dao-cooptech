@@ -257,15 +257,15 @@
           <div class="section-title" style="margin-top:0">Документы и ЭДО <span class="badge teal">модуль подключён</span></div>
           <p style="color:var(--slate);font-size:12.5px;margin:0 0 12px">Договоры, счета и акты собираются из сделок организации автоматически: номер, дата и стороны берутся из документа сделки, подписывать нужно только один раз.</p>
           <table class="doc-table res-table">
-            <thead><tr><th>Документ</th><th>Сделка</th><th>Контрагент</th><th>Дата</th><th>Подписи</th></tr></thead>
+            <thead><tr><th>Документ</th><th>Сделка</th><th>Контрагент</th><th>Дата</th><th>Подписи</th><th>В блокчейне</th></tr></thead>
             <tbody>
-              <tr><td>Договор поставки № СД-2026-000124</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>24.08.2026</td><td><span class="badge teal">обе стороны</span></td></tr>
-              <tr><td>Счёт на оплату № 124</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>24.08.2026</td><td><span class="badge outline">не требует</span></td></tr>
-              <tr><td>Акт приёма-передачи</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>28.08.2026</td><td><span class="badge gold">ждёт вторую сторону</span></td></tr>
-              <tr><td>Договор аренды № СД-2026-000118</td><td>СД-2026-000118</td><td>ЗАО «СтройТехно»</td><td>12.08.2026</td><td><span class="badge teal">обе стороны</span></td></tr>
+              <tr><td>Договор поставки № СД-2026-000124</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>24.08.2026</td><td><span class="badge teal">обе стороны</span></td><td><button class="track-hash" type="button" data-chain="0x7c41a93b8f05e3d2a19c4477be0c6531f8a2d90e4c7b1553aa9e2f6d0b83c714" data-doc="Договор поставки № СД-2026-000124" data-block="4 812 903" data-time="24.08.2026, 11:04" data-conf="18 402" data-signers="ООО «Мириталь» и кооператив «Шукты»">0x7c41a9…c714</button></td></tr>
+              <tr><td>Счёт на оплату № 124</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>24.08.2026</td><td><span class="badge outline">не требует</span></td><td><span class="unit-hint">не записывается</span></td></tr>
+              <tr><td>Акт приёма-передачи</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>28.08.2026</td><td><span class="badge gold">ждёт вторую сторону</span></td><td><span class="unit-hint">после второй подписи</span></td></tr>
+              <tr><td>Договор аренды № СД-2026-000118</td><td>СД-2026-000118</td><td>ЗАО «СтройТехно»</td><td>12.08.2026</td><td><span class="badge teal">обе стороны</span></td><td><button class="track-hash" type="button" data-chain="0x2f90ab6714c3d85e0a47bb219f6c803d5ae71b4492cc0f38d6e5a71b0c94f227" data-doc="Договор аренды № СД-2026-000118" data-block="4 796 118" data-time="12.08.2026, 09:37" data-conf="32 187" data-signers="ООО «Мириталь» и ЗАО «СтройТехно»">0x2f90ab…f227</button></td></tr>
             </tbody>
           </table>
-          <p class="unit-hint" style="margin:12px 0 0">Электронная подпись в прототипе показана как подтверждение обеими сторонами — как именно она будет устроена технически, решается отдельно.</p>
+          <p class="unit-hint" style="margin:12px 0 0">Подписанный обеими сторонами документ записывается в блокчейн — нажмите на отпечаток, чтобы увидеть запись и сверить с ней свой файл. В реестр уходит только отпечаток: реквизиты, суммы и условия остаются на платформе. Счета не записываются вовсе, акт попадёт в реестр после второй подписи. Как именно будет устроена электронная подпись технически — решается отдельно.</p>
         </div>
       </section>
 

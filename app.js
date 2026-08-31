@@ -384,6 +384,107 @@
     }
   };
 
+
+  /* ── Документ в блокчейне ──────────────────────────────────
+     Кнопка с отпечатком (data-chain) открывает карточку записи: что именно
+     лежит в реестре, в каком блоке и кто подписал. В блокчейн пишется не сам
+     документ, а его хэш — иначе реквизиты и коммерческие условия утекли бы в
+     публичный реестр. Здесь же можно выбрать файл и сверить его отпечаток с
+     записью: хэш считается прямо в браузере (SHA-256), файл никуда не уходит. */
+  function initChain() {
+    var triggers = document.querySelectorAll('[data-chain]');
+    if (!triggers.length) return;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    overlay.id = 'chain-modal';
+    overlay.hidden = true;
+    overlay.innerHTML =
+      '<div class="modal wide">'
+      + '<div class="modal-head"><h2 id="chain-title">Запись в блокчейне</h2>'
+      + '<button class="modal-close" id="chain-close" type="button" aria-label="Закрыть">✕</button></div>'
+      + '<dl class="chain-grid" id="chain-grid"></dl>'
+      + '<div class="card" style="padding:14px 16px;background:var(--paper)">'
+      + '<b style="font-size:12.5px">Сверить файл с записью</b>'
+      + '<p style="color:var(--slate);font-size:12px;margin:6px 0 10px">Выберите файл документа — браузер посчитает его отпечаток и сравнит с тем, что записан в реестре. Файл при этом никуда не отправляется.</p>'
+      + '<input type="file" id="chain-file" aria-label="Файл для сверки">'
+      + '<div class="chain-verdict" id="chain-verdict" hidden></div>'
+      + '</div>'
+      + '<div class="modal-actions">'
+      + '<button class="button secondary" type="button" id="chain-cancel">Закрыть</button>'
+      + '<a class="button" id="chain-explorer" href="#" rel="noopener">Открыть в обозревателе</a>'
+      + '</div></div>';
+    document.body.appendChild(overlay);
+    setupModal(overlay, 'chain');
+
+    var grid = document.getElementById('chain-grid');
+    var verdict = document.getElementById('chain-verdict');
+    var current = null;
+
+    function row(k, v) { return '<dt>' + k + '</dt><dd>' + v + '</dd>'; }
+
+    function open(btn) {
+      current = btn.getAttribute('data-chain');
+      document.getElementById('chain-title').textContent =
+        'В блокчейне: ' + (btn.getAttribute('data-doc') || 'документ');
+      grid.innerHTML =
+        row('Документ', btn.getAttribute('data-doc') || '—')
+        + row('Отпечаток документа', '<span class="chain-hash">' + current + '</span>')
+        + row('Сеть', btn.getAttribute('data-net') || 'ДАО КООПЕХ Chain')
+        + row('Блок', btn.getAttribute('data-block') || '—')
+        + row('Записано', btn.getAttribute('data-time') || '—')
+        + row('Подтверждений', btn.getAttribute('data-conf') || '—')
+        + row('Подписали', btn.getAttribute('data-signers') || '—')
+        + row('Что лежит в реестре',
+              'Только отпечаток файла и время записи. Сам документ хранится на платформе: '
+              + 'реквизиты, суммы и условия в публичный реестр не попадают.');
+      verdict.hidden = true;
+      verdict.textContent = '';
+      var f = document.getElementById('chain-file');
+      if (f) f.value = '';
+      document.getElementById('chain-explorer').setAttribute('href',
+        'https://explorer.example.com/tx/' + current.replace(/….*$/, ''));
+      overlay.hidden = false;
+    }
+    function close() { overlay.hidden = true; }
+
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-chain]');
+      if (btn) { e.preventDefault(); open(btn); return; }
+    });
+    document.getElementById('chain-close').addEventListener('click', close);
+    document.getElementById('chain-cancel').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+
+    document.getElementById('chain-file').addEventListener('change', function (e) {
+      var file = e.target.files && e.target.files[0];
+      if (!file) return;
+      verdict.hidden = false;
+      verdict.className = 'chain-verdict';
+      verdict.textContent = 'Считаем отпечаток…';
+      if (!window.crypto || !crypto.subtle) {
+        verdict.textContent = 'Браузер не умеет считать SHA-256 — сверку можно сделать только на стороне платформы.';
+        return;
+      }
+      file.arrayBuffer().then(function (buf) {
+        return crypto.subtle.digest('SHA-256', buf);
+      }).then(function (digest) {
+        var hex = '0x' + Array.prototype.map.call(new Uint8Array(digest), function (b) {
+          return ('00' + b.toString(16)).slice(-2);
+        }).join('');
+        var short = hex.slice(0, 10) + '…' + hex.slice(-4);
+        var same = current && (hex === current || short === current);
+        verdict.className = 'chain-verdict ' + (same ? 'ok' : 'no');
+        verdict.textContent = same
+          ? 'Отпечаток совпал: это тот самый файл, что записан в реестре.'
+          : 'Отпечаток не совпал — это другой файл или другая его версия. Посчитано: ' + short;
+      }).catch(function () {
+        verdict.className = 'chain-verdict no';
+        verdict.textContent = 'Не удалось прочитать файл.';
+      });
+    });
+  }
+
   function init() {
     var right = document.querySelector('.topbar-right');
     if (right) right.insertBefore(buildToggle(), right.firstChild);
@@ -577,6 +678,7 @@
        семантика и поведение модальных окон. Делается здесь, в общем слое,
        чтобы не размазывать одни и те же атрибуты по 59 страницам. */
     a11y();
+    initChain();
 
     /* 6. Эмодзи → SVG */
     var BLOCK_SEL = '.cat-icon, .out-icon, .f-icon, .thumb, .cat-icon.line-icon';
