@@ -327,6 +327,87 @@
   </div>
 </div>
 
+<!-- Управление складом -->
+<div class="modal-overlay" id="manage-modal" hidden>
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2 id="manage-title">Управление складом</h2>
+      <button class="modal-close" id="manage-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Всё, что описывает склад: как называется, где стоит, сколько вмещает и как поделён на зоны. Изменения сразу видны в карточке склада, а если мощности выставлены — и в предложении на бирже.</p>
+    <div class="field">
+      <label>Название</label>
+      <input class="input" id="mg-name">
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Город</label>
+        <input class="input" id="mg-city" list="city-options">
+      </div>
+      <div class="field">
+        <label>Адрес</label>
+        <input class="input" id="mg-address">
+      </div>
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Тип хранения</label>
+        <select class="input" id="mg-kind">
+          <option value="heated">Сухой отапливаемый</option>
+          <option value="dry">Сухой неотапливаемый</option>
+          <option value="chill">Холодильная камера, +2…+6 °C</option>
+          <option value="freeze">Морозильная камера, −18 °C</option>
+          <option value="open">Открытая площадка</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>График работы</label>
+        <input class="input" id="mg-hours" placeholder="Например, Пн–Пт 9:00–18:00">
+      </div>
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Ёмкость</label>
+        <input class="input" id="mg-total" type="number" min="1">
+      </div>
+      <div class="field">
+        <label>Единица учёта</label>
+        <select class="input" id="mg-unit">
+          <option value="м²">м²</option>
+          <option value="паллетомест">паллетоместа</option>
+          <option value="т">тонны</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Занято под своё</label>
+        <input class="input" id="mg-own" type="number" min="0">
+      </div>
+      <div class="field">
+        <label>Сдано другим <span class="stat-note" title="Это число меняется, когда начинается или заканчивается договорённость на вкладке «Договорённости»">ⓘ</span></label>
+        <input class="input" id="mg-rented" type="number" min="0">
+      </div>
+    </div>
+    <div class="field">
+      <label>Ответственный за склад</label>
+      <input class="input" id="mg-keeper" placeholder="Кто принимает и отгружает">
+    </div>
+    <div class="field">
+      <label>Зоны <span class="stat-note" title="Зона — часть склада со своим режимом и своими условиями: одну держите под своё, другую сдаёте, третью выставляете на биржу">ⓘ</span></label>
+      <table class="res-table wh-zone-editor">
+        <thead><tr><th>Название</th><th>Ёмкость</th><th>На каких условиях</th><th></th></tr></thead>
+        <tbody id="mg-zone-rows"></tbody>
+      </table>
+      <button class="button ghost" type="button" id="mg-add-zone" style="margin-top:8px">+ Добавить зону</button>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="manage-cancel" type="button">Отмена</button>
+      <button class="button" id="manage-save" type="button">Сохранить</button>
+    </div>
+  </div>
+</div>
+
 <!-- Выставить мощности на биржу -->
 <div class="modal-overlay" id="publish-modal" hidden>
   <div class="modal wide">
@@ -451,6 +532,8 @@
       total: 620, own: 240, rented: 200,
       published: 180,
       income: '84 000 ₽ в месяц',
+      hours: 'Пн–Пт 9:00–18:00',
+      keeper: 'Дашкевич Данил Игоревич',
       specs: ['Высота потолка <b>6 м</b>', 'Рампа и док-левеллер', 'Стеллажи, 3 яруса', 'Охрана <b>24/7</b>', 'Учёт по партиям'],
       zones: [
         { name: 'Зона A — стеллажное хранение', cap: '260 м²', busy: '200 м²', who: 'ООО «Кооп-Маркет»', link: 'organization.html', term: 'Аренда, 420 ₽/м² в месяц, до 31.12.2026' },
@@ -469,6 +552,8 @@
       total: 90, own: 34, rented: 40,
       published: 16,
       income: '288 000 ₽ в месяц',
+      hours: 'Ежедневно 7:00–20:00',
+      keeper: 'Кузнецова Дарья Викторовна',
       specs: ['Режим <b>−18 °C</b>', 'Резервный дизель-генератор', 'Термограф с выгрузкой', 'Приёмка и отгрузка силами склада'],
       zones: [
         { name: 'Камера 1 — своя продукция', cap: '34 паллетоместа', busy: '34', who: 'Пельмени домашней лепки', link: 'resource.html', term: 'Своё, не сдаётся' },
@@ -487,6 +572,8 @@
       total: 1200, own: 300, rented: 550,
       published: 0,
       income: '60 500 ₽ в месяц',
+      hours: 'Круглосуточно',
+      keeper: 'Семёнов Николай Петрович',
       specs: ['Твёрдое покрытие', 'Круглосуточный въезд для фур', 'Освещение и видеонаблюдение', 'Погрузчик по заявке'],
       zones: [
         { name: 'Сектор 1 — щебень и песок', cap: '550 м²', busy: '550 м²', who: 'Артель «Уральские мастера»', link: 'organization.html', term: 'Аренда, 110 ₽/м² в месяц, до 30.04.2027' },
@@ -709,7 +796,10 @@
       + '<div class="wh-name-row"><div class="wh-name">' + esc(w.name) + '</div>'
       + '<span class="badge outline">' + esc(KINDS[w.kind]) + '</span></div>'
       + '<div class="wh-meta">📍 ' + esc(w.city) + ', ' + esc(w.address) + ' · ёмкость ' + fmt(w.total) + ' ' + esc(w.unit) + ' · поступления ' + esc(w.income) + '</div>'
-      + '<div class="wh-specs">' + w.specs.map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>'
+      + '<div class="wh-specs">' + w.specs.concat([
+          'График: <b>' + esc(w.hours) + '</b>',
+          'Ответственный: <b>' + esc(w.keeper) + '</b>'
+        ]).map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>'
       + '<div class="wh-occupancy">'
       + '<div class="share-bar" role="img" aria-label="Занятость склада: своё ' + pc(w.own) + '%, сдано ' + pc(w.rented) + '%, свободно ' + pc(free) + '%">'
       + '<span class="seg-own" style="width:' + pc(w.own) + '%"></span>'
@@ -724,6 +814,7 @@
       + '<div class="wh-zones"><table class="res-table"><thead><tr><th>Зона</th><th>Ёмкость</th><th>Занято</th><th>Кто размещён</th><th>На каких условиях</th></tr></thead><tbody>' + zones + '</tbody></table></div>'
       + '<div class="wh-foot">'
       + '<button class="button" type="button" data-publish="' + w.id + '">Выставить свободные мощности</button>'
+      + '<button class="button secondary" type="button" data-manage="' + w.id + '">Управление складом</button>'
       + '<a class="button secondary" href="resource-tracking.html">Остатки на складе</a>'
       + '<a class="button secondary" href="resource.html">Карточка ресурса</a>'
       + '<span class="wh-foot-note">' + (w.published ? 'На бирже: ' + fmt(w.published) + ' ' + esc(w.unit) : 'На бирже пока ничего не выставлено') + '</span>'
@@ -740,6 +831,9 @@
     myEmpty.hidden = rows.length !== 0;
     myList.querySelectorAll('[data-publish]').forEach(function (b) {
       b.addEventListener('click', function () { openPublish(b.dataset.publish); });
+    });
+    myList.querySelectorAll('[data-manage]').forEach(function (b) {
+      b.addEventListener('click', function () { openManage(b.dataset.manage); });
     });
   }
   mySearch.addEventListener('input', renderMy);
@@ -940,6 +1034,8 @@
       unit: document.getElementById('nw-unit').value,
       total: total, own: own, rented: 0, published: 0,
       income: '0 ₽ в месяц',
+      hours: 'График не указан',
+      keeper: 'Дашкевич Данил Игоревич',
       specs: ['Описание пока не заполнено'],
       zones: [{ name: 'Зона 1 — всё пространство', cap: total + ' ' + document.getElementById('nw-unit').value, busy: own + '', who: own ? 'Ваше хранение' : '—', link: '', term: own >= total ? 'Своё, не сдаётся' : 'Свободно, на биржу пока не выставлено' }]
     });
@@ -991,6 +1087,92 @@
     closePublish();
     renderMy();
     say('✓ Выставлено на биржу: ' + fmt(amount) + ' ' + w.unit + ', ' + w.name + ' — ' + picked.join(', ').toLowerCase());
+  });
+
+  /* ── Модалка «Управление складом» ──────────────────────
+     Кнопка есть у каждого своего склада: здесь правится всё, что описывает
+     объект, включая деление на зоны. Чужие склады с биржи сюда не попадают —
+     ими управляет их владелец. */
+  var manageModal = document.getElementById('manage-modal');
+  var zoneRows = document.getElementById('mg-zone-rows');
+  var manageActive = null;
+
+  function zoneRowHtml(z) {
+    return '<tr data-busy="' + esc(z.busy) + '" data-who="' + esc(z.who) + '" data-link="' + esc(z.link) + '">'
+      + '<td><input class="input" data-z="name" value="' + esc(z.name) + '"></td>'
+      + '<td><input class="input" data-z="cap" value="' + esc(z.cap) + '"></td>'
+      + '<td><input class="input" data-z="term" value="' + esc(z.term) + '"></td>'
+      + '<td><button class="button ghost" type="button" data-z-del aria-label="Удалить зону" title="Удалить зону">✕</button></td>'
+      + '</tr>';
+  }
+  function openManage(id) {
+    manageActive = MY.filter(function (w) { return w.id === id; })[0];
+    if (!manageActive) return;
+    var w = manageActive;
+    document.getElementById('manage-title').textContent = 'Управление складом: ' + w.name;
+    document.getElementById('mg-name').value = w.name;
+    document.getElementById('mg-city').value = w.city;
+    document.getElementById('mg-address').value = w.address;
+    document.getElementById('mg-kind').value = w.kind;
+    document.getElementById('mg-hours').value = w.hours;
+    document.getElementById('mg-total').value = w.total;
+    document.getElementById('mg-unit').value = w.unit;
+    document.getElementById('mg-own').value = w.own;
+    document.getElementById('mg-rented').value = w.rented;
+    document.getElementById('mg-keeper').value = w.keeper;
+    zoneRows.innerHTML = w.zones.map(zoneRowHtml).join('');
+    manageModal.hidden = false;
+  }
+  function closeManage() { manageModal.hidden = true; }
+  document.getElementById('manage-close').addEventListener('click', closeManage);
+  document.getElementById('manage-cancel').addEventListener('click', closeManage);
+  manageModal.addEventListener('click', function (e) { if (e.target === manageModal) closeManage(); });
+  document.getElementById('mg-add-zone').addEventListener('click', function () {
+    var unit = document.getElementById('mg-unit').value;
+    zoneRows.insertAdjacentHTML('beforeend', zoneRowHtml({
+      name: 'Новая зона', cap: '0 ' + unit, busy: '0', who: '—', link: '',
+      term: 'Свободно, на биржу пока не выставлено'
+    }));
+  });
+  zoneRows.addEventListener('click', function (e) {
+    var del = e.target.closest('[data-z-del]');
+    if (!del) return;
+    del.closest('tr').remove();
+  });
+  document.getElementById('manage-save').addEventListener('click', function () {
+    var w = manageActive;
+    if (!w) return;
+    var name = document.getElementById('mg-name').value.trim();
+    var total = parseFloat(document.getElementById('mg-total').value) || 0;
+    var own = parseFloat(document.getElementById('mg-own').value) || 0;
+    var rented = parseFloat(document.getElementById('mg-rented').value) || 0;
+    if (!name) { alert('У склада должно быть название'); return; }
+    if (total <= 0) { alert('Укажите ёмкость склада больше нуля'); return; }
+    if (own + rented > total) {
+      alert('Своё и сданное вместе (' + fmt(own + rented) + ') не помещаются в ёмкость ' + fmt(total));
+      return;
+    }
+    w.name = name;
+    w.city = document.getElementById('mg-city').value.trim() || w.city;
+    w.address = document.getElementById('mg-address').value.trim() || w.address;
+    w.kind = document.getElementById('mg-kind').value;
+    w.hours = document.getElementById('mg-hours').value.trim() || 'График не указан';
+    w.keeper = document.getElementById('mg-keeper').value.trim() || 'не назначен';
+    w.unit = document.getElementById('mg-unit').value;
+    w.total = total; w.own = own; w.rented = rented;
+    w.zones = Array.prototype.map.call(zoneRows.querySelectorAll('tr'), function (tr) {
+      var val = function (k) { return tr.querySelector('[data-z="' + k + '"]').value.trim(); };
+      return {
+        name: val('name'), cap: val('cap'), term: val('term'),
+        busy: tr.dataset.busy, who: tr.dataset.who, link: tr.dataset.link
+      };
+    });
+    /* Выставленное на бирже не может оказаться больше оставшегося свободным */
+    var free = w.total - w.own - w.rented;
+    if (w.published > free) w.published = free;
+    closeManage();
+    renderMy();
+    say('✓ Склад «' + w.name + '» обновлён: свободно ' + fmt(free) + ' ' + w.unit + ', зон — ' + w.zones.length);
   });
 
   /* ── Модалка «Откликнуться» ────────────────────────────── */
