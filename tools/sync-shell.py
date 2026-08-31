@@ -27,7 +27,7 @@ SHELL_RE = re.compile(r'<header class="topbar">.*?</aside>', re.S)
 # Страницы для неавторизованного посетителя: у них своя шапка без сайдбара,
 # поиска и кнопки «выйти» (эталон — tools/shell-public.html).
 PUBLIC_RE = re.compile(r'<header class="public-header">.*?</header>', re.S)
-PUBLIC = {'index.html', 'login.html', 'registration.html', 'password-recovery.html'}
+PUBLIC = {'index.html', 'login.html', 'registration.html', 'password-recovery.html', 'portal.html'}
 SKIP = set()
 
 

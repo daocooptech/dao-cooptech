@@ -7,6 +7,7 @@
     moon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 14.8A8.8 8.8 0 019.2 3.6 8.8 8.8 0 1020.4 14.8z"/></svg>',
     plus: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5.5v13M5.5 12h13"/></svg>',
     burger: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+    chevron: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg>',
     filter: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5h14M8 12h8M10.6 16.5h2.8"/></svg>',
     search: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.4"/><path d="M15.6 15.6l4 4"/></svg>',
     /* Пути для ссылок аккаунта в мобильном меню — рисуются через ico() */
@@ -364,7 +365,13 @@
     { id: 'api',      name: 'API и вебхуки',          cat: 'Интеграции',  page: '',                        org: false,
       desc: 'Открытый REST API и уведомления во внешние системы кооператива.' },
     { id: 'kb',       name: 'База знаний',            cat: 'Сообщество',  page: '',                        org: true,
-      desc: 'Устав, регламенты и инструкции организации с версиями и поиском.' }
+      desc: 'Устав, регламенты и инструкции организации с версиями и поиском.' },
+    { id: 'rights',   name: 'Права и роли',           cat: 'Процессы',    page: '',                        org: true,
+      desc: 'Кто что видит и может менять: пайщик, правление, ревизионная комиссия, наёмный сотрудник. Плюс передача полномочий на время отсутствия.' },
+    { id: 'audit',    name: 'Журнал аудита',          cat: 'Учёт',        page: '',                        org: true,
+      desc: 'Кто что изменил и когда: правки документов, суммы, роли. Нужен ревизионной комиссии, чтобы проверять, а не верить на слово.' },
+    { id: 'portal',   name: 'Портал для контрагентов',cat: 'Процессы',    page: '',                        org: true,
+      desc: 'Внешний участник видит только свою сделку и документы по ней — без регистрации и без доступа к остальной платформе.' }
   ];
   var DEFAULT_ON = ['stock', 'docs'];
   window.CoopModules = {
@@ -483,6 +490,79 @@
         verdict.textContent = 'Не удалось прочитать файл.';
       });
     });
+  }
+
+
+  /* ── От чьего имени я действую (идея 29) ───────────────────
+     Человек бывает и физлицом, и учредителем ООО, и пайщиком кооператива.
+     Раньше платформа этого не различала: любое действие выглядело как
+     действие человека. Теперь контекст выбирается в шапке и виден всегда. */
+  var CONTEXTS = [
+    { id: 'self',  name: 'Дашкевич Данил Игоревич', role: 'от своего имени, физическое лицо' },
+    { id: 'coop',  name: 'Кооператив «Шукты»',      role: 'пайщик · вправе голосовать и подавать заявки' },
+    { id: 'ooo',   name: 'ООО «Мириталь»',          role: 'учредитель · вправе подписывать документы' },
+    { id: 'fond',  name: 'Фонд «Территория 2020»',  role: 'подрядчик · доступ только к своим проектам' }
+  ];
+  function initContext() {
+    var right = document.querySelector('.topbar-right');
+    if (!right) return;
+    var cur = 'self';
+    try { cur = localStorage.getItem('cooptech_ctx') || 'self'; } catch (e) {}
+    function ctx(id) {
+      for (var i = 0; i < CONTEXTS.length; i++) if (CONTEXTS[i].id === id) return CONTEXTS[i];
+      return CONTEXTS[0];
+    }
+    var wrap = document.createElement('div');
+    wrap.className = 'ctx-wrap';
+    var btn = document.createElement('button');
+    btn.className = 'ctx-switch';
+    btn.type = 'button';
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="ctx-name"></span>' + I.chevron;
+    var menu = document.createElement('div');
+    menu.className = 'ctx-menu';
+    menu.hidden = true;
+    menu.setAttribute('role', 'menu');
+    menu.setAttribute('aria-label', 'От чьего имени действовать');
+
+    function label() {
+      btn.querySelector('.ctx-name').textContent = ctx(cur).name;
+      btn.setAttribute('title', 'Действую как: ' + ctx(cur).name + ' — ' + ctx(cur).role);
+    }
+    function draw() {
+      menu.innerHTML = CONTEXTS.map(function (c) {
+        return '<button type="button" role="menuitem" data-ctx="' + c.id + '"'
+          + (c.id === cur ? ' aria-current="true"' : '') + '>' + c.name
+          + '<span class="ctx-role">' + c.role + '</span></button>';
+      }).join('') + '<div class="ctx-menu-note">Сделки, заявки и подписи уходят от имени выбранной стороны. '
+        + 'Права тоже берутся её: то, что можно председателю кооператива, недоступно тому же человеку как физлицу.</div>';
+    }
+    function close() { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menu.hidden = !menu.hidden;
+      btn.setAttribute('aria-expanded', menu.hidden ? 'false' : 'true');
+    });
+    menu.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-ctx]');
+      if (!b) return;
+      cur = b.getAttribute('data-ctx');
+      try { localStorage.setItem('cooptech_ctx', cur); } catch (err) {}
+      label(); draw(); close();
+    });
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Escape' || e.keyCode === 27) && !menu.hidden) { close(); btn.focus(); }
+    });
+
+    label(); draw();
+    wrap.appendChild(btn);
+    wrap.appendChild(menu);
+    right.insertBefore(wrap, right.firstChild);
   }
 
   function init() {
@@ -679,6 +759,7 @@
        чтобы не размазывать одни и те же атрибуты по 59 страницам. */
     a11y();
     initChain();
+    initContext();
 
     /* 6. Эмодзи → SVG */
     var BLOCK_SEL = '.cat-icon, .out-icon, .f-icon, .thumb, .cat-icon.line-icon';
