@@ -1488,3 +1488,92 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 /* Матрица «событие × канал»: подписи каналов узкие, галочки по центру */
 .set-matrix th:not(:first-child), .set-matrix td:not(:first-child) { width: 15%; text-align: center; }
 .set-matrix input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+
+/* ==========================================================================
+   Карточка сделки (deal.html) и складская часть ресурса.
+   Блок «Сделка как документ» — пп. 1–10 списка идей из 1С/Odoo/Битрикс24.
+   Цвета — только через токены, чтобы обе темы работали без правок.
+   ========================================================================== */
+
+/* Шапка сделки: предмет и стороны слева, деньги и действия справа */
+.deal-head { display: flex; gap: 24px; align-items: flex-start; padding: 18px 20px; margin-bottom: 18px; }
+.deal-head-main { flex: 1; min-width: 0; }
+.deal-head-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.deal-doc-no { font: 600 12px/1 'JetBrains Mono', monospace; color: var(--slate); letter-spacing: .02em; }
+.deal-head-title { font-size: 20px; margin: 0 0 6px; }
+.deal-head-meta { color: var(--slate); font-size: 12.5px; }
+.deal-head-side { flex: none; text-align: right; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.deal-total { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 24px; }
+.deal-head-actions { display: flex; gap: 8px; margin-top: 6px; }
+
+/* Стороны сделки */
+.deal-parties { display: flex; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+.deal-party-card { flex: 1 1 240px; display: flex; gap: 12px; align-items: center; padding: 12px 14px; }
+.deal-party-role { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--slate-light); font-weight: 700; }
+.deal-party-name { font-weight: 700; font-size: 13.5px; }
+.deal-party-req { color: var(--slate); font-size: 11.5px; margin-top: 2px; }
+
+/* Лента статусов документа */
+.deal-flow { display: flex; gap: 0; list-style: none; margin: 0 0 8px; padding: 0; flex-wrap: wrap; }
+.deal-flow li { flex: 1 1 120px; padding: 10px 12px; border-top: 3px solid var(--line); color: var(--slate-light); font-size: 12px; font-weight: 600; }
+.deal-flow li.done { border-top-color: var(--teal); color: var(--slate); }
+.deal-flow li.now { border-top-color: var(--teal); color: var(--teal-dark); }
+.deal-flow li .flow-date { display: block; font-weight: 500; font-size: 11px; color: var(--slate-light); margin-top: 2px; }
+.deal-flow-note { color: var(--slate); font-size: 12px; margin-bottom: 20px; }
+
+/* Внутренние вкладки карточки */
+.sub-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 16px; }
+.sub-tabs button {
+  border: 1px solid var(--line); background: var(--white); color: var(--slate);
+  border-radius: var(--radius-sm); padding: 8px 13px; cursor: pointer;
+  font: 600 12.5px/1 'Manrope', sans-serif;
+}
+.sub-tabs button:hover { border-color: var(--teal); color: var(--teal-dark); }
+.sub-tabs button[aria-selected="true"] { background: var(--teal-tint); border-color: var(--teal); color: var(--teal-dark); }
+
+/* Таблица спецификации и платежей */
+.doc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.doc-table th {
+  text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line);
+  font: 700 10.5px/1.3 'JetBrains Mono', monospace; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--slate-light);
+}
+.doc-table td { padding: 11px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc-table tr:last-child td { border-bottom: none; }
+.doc-table .num { text-align: right; white-space: nowrap; }
+.doc-table .pos-sub { display: block; color: var(--slate); font-size: 11.5px; margin-top: 3px; }
+.doc-total-row td { font-weight: 700; border-top: 2px solid var(--line); border-bottom: none; }
+.unit-hint { color: var(--slate-light); font-size: 11.5px; }
+
+/* Строка остатков ресурса */
+.stock-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.stock-cell { flex: 1 1 140px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 10px 12px; background: var(--paper); }
+.stock-cell .stock-num { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px; }
+.stock-cell .stock-label { color: var(--slate); font-size: 11.5px; margin-top: 2px; }
+.stock-cell.reserved .stock-num { color: var(--gold-text); }
+.stock-cell.free .stock-num { color: var(--teal-dark); }
+
+/* Акт приёма-передачи: две подписи */
+.sign-box { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0 4px; }
+.sign-side { flex: 1 1 240px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 14px; }
+.sign-side.signed { border-color: var(--teal); background: var(--teal-tint); }
+.sign-who { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+.sign-when { color: var(--slate); font-size: 11.5px; }
+
+/* Печатная форма в модальном окне */
+.print-sheet { background: var(--white); color: var(--ink); font-size: 12.5px; line-height: 1.6; }
+.print-sheet h3 { margin: 0 0 4px; font-size: 15px; }
+.print-sheet .print-sub { color: var(--slate); font-size: 11.5px; margin-bottom: 14px; }
+.print-sheet dl { display: grid; grid-template-columns: minmax(0, 160px) minmax(0, 1fr); gap: 6px 14px; margin: 0 0 14px; }
+.print-sheet dt { color: var(--slate); }
+.print-sheet dd { margin: 0; }
+.print-sheet .print-sign { display: flex; gap: 30px; margin-top: 22px; flex-wrap: wrap; }
+.print-sheet .print-sign div { flex: 1 1 200px; border-top: 1px solid var(--line); padding-top: 6px; color: var(--slate); font-size: 11.5px; }
+
+/* На печать уходит только сама форма, без интерфейса платформы */
+@media print {
+  body > *:not(.modal-overlay) { display: none !important; }
+  .modal-overlay { position: static; background: none; display: block; }
+  .modal { box-shadow: none; border: none; max-width: none; width: auto; }
+  .modal-head button, .modal-actions { display: none !important; }
+}

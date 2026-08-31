@@ -112,7 +112,7 @@
     <div class="stats-row">
       <div class="stat"><div class="label">Единица измерения</div><div class="value" style="font-size:14px">1 кг</div></div>
       <div class="stat"><div class="label">Город</div><div class="value" style="font-size:14px">📍 Тюмень</div></div>
-      <div class="stat"><div class="label">Кол-во на складе</div><div class="value" style="font-size:14px">340 кг</div></div>
+      <div class="stat"><div class="label">Свободно к заказу</div><div class="value" style="font-size:14px">340 кг</div></div>
     </div>
     <hr class="divider">
 
@@ -138,6 +138,35 @@
       <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/wheat-flour.jpg" alt="Мука"></div><div class="cat-label">Мука</div></a>
       <a class="cat-tile" href="resource.html" style="flex:0 0 128px"><div class="cat-icon"><img src="images/photos/sugar-white.jpg" alt="Сахар"></div><div class="cat-label">Сахар</div></a>
     </div>
+
+    <div class="section-title">Наличие и партии <span class="stat-note" title="Свободный остаток уменьшается, когда количество резервируют под сделку">ⓘ</span></div>
+    <div class="stock-row">
+      <div class="stock-cell free"><div class="stock-num">340 кг</div><div class="stock-label">Свободно к заказу</div></div>
+      <div class="stock-cell reserved"><div class="stock-num">200 кг</div><div class="stock-label">В резерве под сделки</div></div>
+      <div class="stock-cell"><div class="stock-num">615 кг</div><div class="stock-label">Выдано за 30 дней</div></div>
+      <div class="stock-cell"><div class="stock-num">120 кг</div><div class="stock-label">В производстве, к 5 сентября</div></div>
+    </div>
+    <p class="unit-hint" style="margin:0 0 12px">Единица учёта — <b>килограмм</b>. Пересчёт: 1 ящик = 10 кг, 1 упаковка = 0,5 кг. Заказать можно в любой из них, в спецификацию сделки количество попадает в килограммах.</p>
+    <table class="doc-table res-table">
+      <thead><tr><th>Партия</th><th>Изготовлено</th><th>Годен до</th><th class="num">Остаток</th><th>Состояние</th></tr></thead>
+      <tbody>
+        <tr><td>П-240816</td><td>16.08.2026</td><td>16.02.2027</td><td class="num">180 кг</td><td><span class="badge teal">Свободна</span></td></tr>
+        <tr><td>П-240818</td><td>18.08.2026</td><td>18.02.2027</td><td class="num">200 кг</td><td><span class="badge gold">В резерве по <a href="deal.html">СД-2026-000124</a></span></td></tr>
+        <tr><td>П-240822</td><td>22.08.2026</td><td>22.02.2027</td><td class="num">160 кг</td><td><span class="badge teal">Свободна</span></td></tr>
+      </tbody>
+    </table>
+    <p class="unit-hint" style="margin:12px 0 0">Партия — то, что физически произведено за одну смену: у неё свой срок годности и свой остаток. При отгрузке в акт попадает номер партии, поэтому по любой сделке видно, какой именно товар получен.</p>
+
+    <div class="section-title">Последние движения <a href="deal.html" style="float:right;font-size:12px;font-weight:500">Движения по сделке →</a></div>
+    <table class="doc-table res-table">
+      <thead><tr><th>Дата</th><th>Операция</th><th class="num">Кол-во</th><th class="num">Свободный остаток</th><th>Основание</th></tr></thead>
+      <tbody>
+        <tr><td>28.08.2026</td><td>Выдача со склада</td><td class="num">200 кг</td><td class="num">340 кг</td><td><a href="deal.html">СД-2026-000124</a></td></tr>
+        <tr><td>24.08.2026</td><td>Резерв под сделку</td><td class="num">200 кг</td><td class="num">340 кг</td><td><a href="deal.html">СД-2026-000124</a></td></tr>
+        <tr><td>22.08.2026</td><td>Приход из производства, партия П-240822</td><td class="num">160 кг</td><td class="num">540 кг</td><td>Смена 22.08</td></tr>
+        <tr><td>19.08.2026</td><td>Выдача со склада</td><td class="num">95 кг</td><td class="num">380 кг</td><td>СД-2026-000118</td></tr>
+      </tbody>
+    </table>
 
     <div class="section-title">Пункты выдачи <a href="pickup-points.html" style="float:right;font-size:12px;font-weight:500">Все точки самовывоза →</a></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
