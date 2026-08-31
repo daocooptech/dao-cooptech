@@ -72,8 +72,9 @@
       <a href="messages.html" class="active">Сообщения</a>
     </div>
     <div class="search-row">
-      <input class="input" id="thread-search" placeholder="Найти диалог...">
+      <input class="input" id="thread-search" placeholder="Найти диалог, человека или организацию...">
     </div>
+    <div class="chip-toggle-group thread-filters" id="thread-filters"></div>
     <div class="messages-body">
       <div class="thread-list" id="thread-list"></div>
       <div class="chat-pane" id="chat-pane"></div>
@@ -98,60 +99,578 @@ var EXTENSIONS = [
   { name: 'События', href: 'ext-events.html', icon: '📅' }
 ];
 
+/* Категории диалогов — чипы-фильтры над перепиской.
+   id совпадает с thread.kind, кроме служебных «all» и «unread». */
+var CATEGORIES = [
+  { id: 'all', label: 'Все' },
+  { id: 'unread', label: 'Непрочитанные' },
+  { id: 'person', label: 'Личные' },
+  { id: 'deal', label: 'Сделки' },
+  { id: 'org', label: 'Организации' },
+  { id: 'project', label: 'Проекты' },
+  { id: 'community', label: 'Сообщества' },
+  { id: 'service', label: 'Сервис' }
+];
+
+/* Короткие конструкторы сообщений: входящее / исходящее / реплика в групповом чате.
+   d — день (подпись разделителя в ленте), t — время. У исходящих read:false рисует
+   одну галочку («доставлено»), read:true — две («прочитано»). */
+function mi(text, d, t) { return { dir: 'in', text: text, d: d, t: t }; }
+function mo(text, d, t, unread) { return { dir: 'out', text: text, d: d, t: t, read: unread !== true }; }
+function ma(author, text, d, t) { return { dir: 'in', author: author, text: text, d: d, t: t }; }
+
 var threads = [
   {
-    id: 'maria', kind: 'person', name: 'Иванова Мария', locality: 'Красноярск',
-    avatar: 'images/avatars/47.jpg', unread: false,
+    id: 'shukty', kind: 'org', name: 'Кооператив «Шукты»', sub: 'Дербент · 128 пайщиков',
+    avatar: 'img/org-logos/gazprom.png', logo: true, unread: 2, pinned: true, online: true,
+    link: { href: 'organization-coop.html', label: 'Открыть организацию' },
     messages: [
-      { dir: 'in', text: 'Добрый день! Готовы обсудить участие в проекте?' },
-      { dir: 'out', text: 'Да, конечно, спасибо, договорились!' },
-      { dir: 'in', type: 'location', text: 'Сочи, ул. Транспортная 14 (площадка проекта)' }
+      ma('Магомедов Расул', 'Здравствуйте! Уточните, пожалуйста — вы приедете смотреть площадку под принтер?', 'Вчера', '17:40'),
+      mo('Планирую в эти выходные, в четверг подтвержу.', 'Вчера', '18:05'),
+      ma('Магомедов Расул', 'Хорошо, подготовим доступ и покажем готовый фундамент.', 'Сегодня', '09:12'),
+      { dir: 'in', author: 'Магомедов Расул', type: 'photo', src: 'images/photos/printer3d-construction.jpg', text: 'Так площадка выглядит сейчас', d: 'Сегодня', t: '09:14' },
+      ma('Магомедов Расул', 'Когда сможете подъехать?', 'Сегодня', '09:15')
     ],
     scheduled: []
   },
   {
-    id: 'miritael', kind: 'org', name: 'ООО «Мириталь»', initials: 'М', tint: 'gold', unread: false,
+    id: 'deal-excavator', kind: 'deal', name: 'ЗАО «СтройТехно»', sub: 'Новосибирск · аренда техники',
+    avatar: 'img/org-logos/vtb.png', logo: true, unread: 1, pinned: true,
+    deal: { title: 'Экскаватор-погрузчик, 7 суток', href: 'deals.html', role: 'вы арендатор', status: 'Активна', tone: 'active' },
+    link: { href: 'deals.html', label: 'Открыть сделку' },
     messages: [
-      { dir: 'in', text: 'Добрый день! Направляем счёт на партию пельменей «Сибирские».' },
-      { dir: 'in', type: 'document', name: 'Счёт-№184.pdf', size: '212 КБ' },
-      { dir: 'in', text: 'Отправили счёт на почту' }
+      mi('Добрый день! Экскаватор забронирован за вами с 2 сентября, 7 суток.', 'Вчера', '11:20'),
+      { dir: 'in', type: 'document', name: 'Договор-аренды-СТ-2026-114.pdf', size: '318 КБ', d: 'Вчера', t: '11:22' },
+      mo('Спасибо, договор посмотрел, всё устраивает.', 'Вчера', '12:40'),
+      mo('Доставка своим ходом или нужен трал?', 'Вчера', '12:41'),
+      mi('Трал наш, включён в стоимость. Пришлите точку разгрузки.', 'Сегодня', '08:35'),
+      { dir: 'out', type: 'location', text: 'Дербент, площадка кооператива «Шукты»', d: 'Сегодня', t: '08:52', read: true },
+      mi('Принято. Водитель свяжется за час до прибытия.', 'Сегодня', '08:58')
     ],
     scheduled: []
   },
   {
-    id: 'shukty', kind: 'org', name: 'Кооператив «Шукты»', initials: 'Ш', tint: 'teal', unread: true,
+    id: 'maria', kind: 'person', name: 'Иванова Мария', sub: 'Красноярск · агроном, теплицы',
+    avatar: 'images/avatars/47.jpg', unread: 0, online: true,
+    link: { href: 'person.html', label: 'Открыть профиль' },
     messages: [
-      { dir: 'in', text: 'Здравствуйте! Уточните, пожалуйста — вы приедете смотреть площадку?' },
-      { dir: 'in', text: 'Когда сможете подъехать?' }
+      mi('Добрый день! Готовы обсудить участие в проекте?', '27 августа', '10:02'),
+      mo('Да, конечно, спасибо, договорились!', '27 августа', '10:15'),
+      { dir: 'in', type: 'location', text: 'Сочи, ул. Транспортная 14 (площадка проекта)', d: '27 августа', t: '10:18' },
+      mi('Посмотрела вашу заявку на долю в теплице — по трудочасам всё сходится.', 'Вчера', '19:30'),
+      mo('Отлично. Тогда закрепим 4% и я выхожу на смены с понедельника.', 'Сегодня', '07:45'),
+      mi('Договорились 🤝', 'Сегодня', '08:02')
     ],
     scheduled: []
   },
   {
-    id: 'project3d', kind: 'group', visibility: 'private', name: 'Строительный 3д принтер', initials: '🖨', tint: 'teal', unread: false, link: 'project.html',
+    id: 'project3d', kind: 'project', visibility: 'private', name: 'Строительный 3д принтер',
+    sub: '14 участников · закрытый чат проекта',
+    avatar: 'images/photos/printer3d-arm.jpg', unread: 5,
+    link: { href: 'project.html', label: 'Открыть проект' },
     messages: [
-      { dir: 'in', author: 'Дашкевич Данил', text: 'Встречаемся в субботу на площадке, не забудьте каски.' },
-      { dir: 'in', author: 'Иванова Мария', type: 'contact', name: 'Прораб Олег', phone: '+7-900-111-22-33', avatar: 'images/avatars/33.jpg' },
-      { dir: 'in', author: 'Иванова Мария', text: 'Принято!' },
-      { dir: 'out', text: 'Буду к 10:00.' }
+      ma('Дашкевич Данил', 'Встречаемся в субботу на площадке, не забудьте каски.', 'Вчера', '16:10'),
+      { dir: 'in', author: 'Иванова Мария', type: 'contact', name: 'Прораб Олег', phone: '+7-900-111-22-33', avatar: 'images/avatars/33.jpg', d: 'Вчера', t: '16:22' },
+      ma('Иванова Мария', 'Принято!', 'Вчера', '16:23'),
+      mo('Буду к 10:00.', 'Вчера', '16:40'),
+      ma('Козлов Артём', 'Сопло привезли, но не тот диаметр — 8 мм вместо 12.', 'Сегодня', '09:40'),
+      { dir: 'in', author: 'Козлов Артём', type: 'photo', src: 'images/photos/printer3d-nozzle.jpg', text: 'Вот что пришло', d: 'Сегодня', t: '09:41' },
+      ma('Петров Сергей', 'Поставщик готов обменять, но доставка за наш счёт.', 'Сегодня', '09:58'),
+      ma('Смирнова Екатерина', 'Предлагаю вынести на голосование — деньги из общего фонда.', 'Сегодня', '10:05'),
+      ma('Козлов Артём', 'Поддерживаю. Кто оформит предложение?', 'Сегодня', '10:07')
     ],
     scheduled: []
   },
   {
-    id: 'dao', kind: 'group', visibility: 'public', name: 'ДАО КООПЕХ — общее собрание', initials: 'ДК', tint: 'teal', unread: false, link: 'organization.html',
+    id: 'miritael', kind: 'org', name: 'ООО «Мириталь»', sub: 'Москва · поставщик, пищевое производство',
+    avatar: 'img/org-logos/yandex.png', logo: true, unread: 0,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
     messages: [
-      { dir: 'in', author: 'Модератор', text: 'Открытый чат для всех участников платформы — обсуждаем регламент голосований.' },
-      { dir: 'in', author: 'Петров Сергей', type: 'photo', src: 'images/photos/business-meeting.jpg', text: 'Фото с прошлой очной встречи' }
+      mi('Добрый день! Направляем счёт на партию пельменей «Сибирские».', 'Сегодня', '09:20'),
+      { dir: 'in', type: 'document', name: 'Счёт-№184.pdf', size: '212 КБ', d: 'Сегодня', t: '09:21' },
+      mi('Отправили счёт также на почту.', 'Сегодня', '09:22'),
+      mo('Получил, оплачу сегодня из кооперативного кошелька.', 'Сегодня', '09:47', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'deal-pelmeni9', kind: 'deal', name: 'Белова Инна', sub: 'Москва · покупатель',
+    avatar: 'images/avatars/29.jpg', unread: 0,
+    deal: { title: 'Пельмени домашней лепки, 9 кг', href: 'deals.html', role: 'вы продавец', status: 'Ждём отзыв покупателя', tone: 'pending' },
+    link: { href: 'deals.html', label: 'Открыть сделку' },
+    messages: [
+      mi('Забрала заказ в пункте выдачи, всё в порядке!', 'Вчера', '13:05'),
+      mo('Спасибо! Оставите отзыв — сделка зачтётся в доверие обеим сторонам.', 'Вчера', '13:20'),
+      mi('Обязательно, на выходных распробуем и напишу 🙂', 'Вчера', '13:24'),
+      mo('Отлично, буду ждать.', 'Сегодня', '10:12', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'greenhouse', kind: 'project', visibility: 'private', name: 'Круглогодичная теплица',
+    sub: '23 участника · закрытый чат проекта',
+    avatar: 'images/photos/greenhouse.jpg', unread: 3,
+    link: { href: 'project-greenhouse.html', label: 'Открыть проект' },
+    messages: [
+      ma('Иванова Мария', 'Салат первой закладки вышел на товарный вид, снимаем в пятницу.', 'Сегодня', '08:10'),
+      { dir: 'in', author: 'Иванова Мария', type: 'photo', src: 'images/photos/greenhouse-lettuce.jpg', text: 'Третий стеллаж', d: 'Сегодня', t: '08:11' },
+      ma('Виноградов Денис', 'Нужны две пары рук на фасовку, кто свободен в пятницу с 9?', 'Сегодня', '08:30'),
+      mo('Я могу с 9 до 13.', 'Сегодня', '08:44'),
+      ma('Кузнецова Дарья', 'И я подключусь, запишите трудочасы на проект.', 'Сегодня', '09:02')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'sergey', kind: 'person', name: 'Петров Сергей', sub: 'Москва · инженер-механик',
+    avatar: 'images/avatars/33.jpg', unread: 0, online: true,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('Данил, привет! Смотрел твой отзыв по бетономешалке — брали на 4 суток?', 'Вчера', '20:11'),
+      mo('Да, на 4. Хватило впритык, лучше брать на 5.', 'Вчера', '20:30'),
+      mi('Спасибо. И ещё: скинь контакт прораба, если не сложно.', 'Сегодня', '07:20'),
+      { dir: 'out', type: 'contact', name: 'Прораб Олег', phone: '+7-900-111-22-33', avatar: 'images/avatars/33.jpg', d: 'Сегодня', t: '07:38', read: true },
+      mi('Принял, спасибо 👍', 'Сегодня', '07:41')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'dao', kind: 'community', visibility: 'public', name: 'ДАО КООПЕХ — общее собрание',
+    sub: '1 240 участников · публичный чат',
+    initials: 'ДК', tint: 'teal', unread: 12,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
+    messages: [
+      ma('Модератор', 'Открытый чат для всех участников платформы — обсуждаем регламент голосований.', '25 августа', '12:00'),
+      { dir: 'in', author: 'Петров Сергей', type: 'photo', src: 'images/photos/business-meeting.jpg', text: 'Фото с прошлой очной встречи', d: '25 августа', t: '12:40' },
+      ma('Орлова Светлана', 'Предлагаю поднять кворум с 30% до 40% — иначе решения принимает горстка активных.', 'Сегодня', '10:20'),
+      ma('Мельников Григорий', 'А если кворум не набирается? Проекты встанут.', 'Сегодня', '10:26'),
+      ma('Модератор', 'Вынесем оба варианта на голосование в пятницу.', 'Сегодня', '10:35')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'uralmasters', kind: 'org', name: 'Артель «Уральские мастера»', sub: 'Челябинск · заказчик работ',
+    avatar: 'img/org-logos/tinkoff.png', logo: true, unread: 0,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Данил, правки по каталогу навыков приняли, спасибо за скорость.', 'Вчера', '15:02'),
+      mo('Рад помочь. Остался блок фильтров — доделаю к четвергу.', 'Вчера', '15:20'),
+      mi('Хорошо. Тогда закрываем сделку после фильтров и обмениваемся отзывами.', 'Сегодня', '09:05'),
+      mo('Договорились.', 'Сегодня', '09:30', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'ekaterina', kind: 'person', name: 'Смирнова Екатерина', sub: 'Санкт-Петербург · веб-дизайнер',
+    avatar: 'images/avatars/5.jpg', unread: 2,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mo('Катя, привет! Нужен макет лендинга для кооперативной пекарни. Возьмёшься?', 'Вчера', '14:12'),
+      mi('Привет! Возьмусь. Ориентир — 20 трудочасов, оплата паями или взаимозачётом.', 'Вчера', '14:40'),
+      mo('Взаимозачёт подойдёт — у нас есть свободный коворкинг-день.', 'Вчера', '14:55'),
+      mi('Отлично. Скинула черновой мудборд, посмотри.', 'Сегодня', '11:02'),
+      { dir: 'in', type: 'photo', src: 'images/photos/web-design.jpg', text: 'Первое направление — светлое, «ремесленное»', d: 'Сегодня', t: '11:03' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'deal-3dshare', kind: 'deal', name: 'Кооператив «Шукты»', sub: 'Дербент · доля в проекте',
+    avatar: 'img/org-logos/gazprom.png', logo: true, unread: 0,
+    deal: { title: 'Строительный 3д принтер — доля 5%', href: 'deals.html', role: 'вы участник', status: 'Активна', tone: 'active' },
+    link: { href: 'deals.html', label: 'Открыть сделку' },
+    messages: [
+      mi('Ваши 5% зафиксированы в реестре проекта, выписка во вложении.', '27 августа', '16:20'),
+      { dir: 'in', type: 'document', name: 'Выписка-доли-проект-3D.pdf', size: '96 КБ', d: '27 августа', t: '16:21' },
+      mo('Спасибо. Трудочасы за август тоже вошли?', '27 августа', '17:00'),
+      mi('Да, 46 часов учтены. Следующая сверка — 30 сентября.', 'Вчера', '10:15'),
+      mo('Принято.', 'Вчера', '10:40', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'artem', kind: 'person', name: 'Козлов Артём', sub: 'Новосибирск · оператор спецтехники',
+    avatar: 'images/avatars/4.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('По экскаватору: могу выйти оператором на все 7 суток.', 'Вчера', '09:10'),
+      mo('Отлично, ставка обычная? Оформим как услугу через платформу.', 'Вчера', '09:32'),
+      mi('Да, обычная. Оформляй, подтвержу.', 'Вчера', '09:35'),
+      mo('Отправил предложение сделки, посмотри в разделе «Сделки».', 'Вчера', '09:50', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'bakery', kind: 'project', visibility: 'private', name: 'Кооперативная пекарня',
+    sub: '11 участников · закрытый чат проекта',
+    avatar: 'images/photos/bakery.jpg', unread: 0,
+    link: { href: 'project.html', label: 'Открыть проект' },
+    messages: [
+      ma('Голубева Мария', 'Тестораскатку привезли, стоит в цеху. Нужен электрик на подключение.', 'Вчера', '12:05'),
+      { dir: 'in', author: 'Голубева Мария', type: 'photo', src: 'images/photos/dough-sheeter-machine.jpg', d: 'Вчера', t: '12:06' },
+      mo('Есть Волков Игорь по электрике, напишу ему.', 'Вчера', '12:30'),
+      ma('Семёнов Николай', 'Мука на первый месяц закуплена, чек в общей папке.', 'Вчера', '13:40'),
+      mo('Спасибо, закину в «Диск» проекта.', 'Вчера', '13:55', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'support', kind: 'service', name: 'Поддержка платформы', sub: 'ДАО КООПЕХ · отвечаем в течение суток',
+    initials: '💬', tint: 'teal', unread: 1,
+    messages: [
+      mo('Здравствуйте! Не отображается блокчейн-хеш у завершённой сделки по муке.', 'Вчера', '18:20'),
+      mi('Здравствуйте! Проверяем. Хеш появляется после того, как обе стороны оставили отзыв.', 'Вчера', '19:05'),
+      mo('Отзывы оба на месте, хеша нет.', 'Вчера', '19:12'),
+      mi('Спасибо, воспроизвели. Исправление выйдет в ближайшем обновлении — напишем здесь.', 'Сегодня', '10:40')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'igor', kind: 'person', name: 'Волков Игорь', sub: 'Екатеринбург · электрик, 4 разряд',
+    avatar: 'images/avatars/6.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mo('Игорь, нужна помощь: подключить тестораскатку в пекарне, 380 В.', 'Вчера', '12:35'),
+      mi('Сделаю. Пришлите паспорт оборудования — прикину кабель и автомат.', 'Вчера', '13:00'),
+      { dir: 'out', type: 'document', name: 'Паспорт-тестораскатки.pdf', size: '1,4 МБ', d: 'Вчера', t: '13:10', read: true },
+      mi('Всё ясно, приеду в четверг утром.', 'Вчера', '13:25')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'territoriya', kind: 'org', name: 'Фонд «Территория 2020»', sub: 'Красноярск · заказчик, НКО',
+    avatar: 'img/org-logos/sberbank.png', logo: true, unread: 0,
+    link: { href: 'organization-nonprofit.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Добрый день! По личному кабинету фонда — согласовали ТЗ у правления.', '27 августа', '11:00'),
+      { dir: 'in', type: 'document', name: 'ТЗ-личный-кабинет-v2.docx', size: '84 КБ', d: '27 августа', t: '11:01' },
+      mo('Посмотрел. Уточнение по ролям: у волонтёра есть доступ к отчётам?', '27 августа', '15:20'),
+      mi('Только к своим. Поправим в тексте.', 'Вчера', '09:40'),
+      mo('Тогда стартую на следующей неделе.', 'Вчера', '10:00', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'neighbors-tyumen', kind: 'community', visibility: 'public', name: 'Соседи по Тюмени',
+    sub: '164 участника · публичный чат', initials: '🏙', tint: 'teal', unread: 7,
+    link: { href: 'communities-feed.html', label: 'Открыть сообщество' },
+    messages: [
+      ma('Медведева Юлия', 'Кто-нибудь брал в аренду мини-трактор на выходные? Нужен для расчистки.', 'Вчера', '18:40'),
+      ma('Зимин Кирилл', 'Есть в каталоге ресурсов, отдают по 1 200 ₽/сутки.', 'Вчера', '18:52'),
+      { dir: 'in', author: 'Зимин Кирилл', type: 'photo', src: 'images/photos/mini-tractor.jpg', d: 'Вчера', t: '18:53' },
+      ma('Медведева Юлия', 'Спасибо! Написала владельцу.', 'Сегодня', '08:15'),
+      ma('Никитина Полина', 'Напоминаю: субботник у детской площадки в 11:00.', 'Сегодня', '09:30')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'deal-flour', kind: 'deal', name: 'ООО «АгроСтрой»', sub: 'Ростов-на-Дону · поставщик',
+    avatar: 'img/org-logos/nornickel.png', logo: true, unread: 0,
+    deal: { title: 'Мука пшеничная высшего сорта, 300 кг', href: 'deals.html', role: 'вы покупатель', status: 'Завершена, отзывы обменяны', tone: 'done' },
+    link: { href: 'deals.html', label: 'Открыть сделку' },
+    messages: [
+      mi('Партия отгружена, водитель будет к 14:00.', '25 августа', '09:15'),
+      mo('Принял. Разгрузка у пекарни, въезд со двора.', '25 августа', '09:30', true),
+      mi('Всё выгрузили, накладную оставили кладовщику.', '25 августа', '14:40'),
+      mo('Спасибо, качество отличное. Отзыв оставил.', '25 августа', '18:00', true),
+      mi('Взаимно! Обращайтесь ещё.', '25 августа', '18:20')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'anna', kind: 'person', name: 'Морозова Анна', sub: 'Казань · HR кооператива',
+    avatar: 'images/avatars/9.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('Данил, добрый день! Ваш отклик на вакансию «Программист-фронтендер» получили.', '27 августа', '10:40'),
+      mo('Здравствуйте! Готов обсудить нагрузку — сейчас у меня два проекта.', '27 августа', '11:15'),
+      mi('Нам подойдёт частичная занятость. Созвонимся в среду в 15:00?', 'Вчера', '11:30'),
+      mo('Да, удобно.', 'Вчера', '11:35', true),
+      { dir: 'in', type: 'extension', name: 'События', href: 'ext-events.html', icon: '📅', text: 'Добавила встречу в календарь', d: 'Вчера', t: '11:40' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'svetsvoi', kind: 'org', name: 'Энергокооператив «СветСвои»', sub: 'Краснодар · энергоснабжение',
+    avatar: 'img/org-logos/rostelecom.png', logo: true, unread: 0,
+    link: { href: 'organization-coop.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Здравствуйте! По заявке на подключение теплицы к солнечной станции.', '27 августа', '14:00'),
+      mi('Свободная мощность есть — 12 кВт. Нужен акт от вашей стороны.', '27 августа', '14:02'),
+      mo('Подготовим на этой неделе.', '27 августа', '16:30', true),
+      { dir: 'in', type: 'photo', src: 'images/photos/solar-farm.jpg', text: 'Наша станция после расширения', d: 'Вчера', t: '10:05' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'crafts', kind: 'community', visibility: 'public', name: 'Мастера и рукоделие',
+    sub: '312 участников · публичный чат', initials: '🧵', tint: 'gold', unread: 4,
+    link: { href: 'communities-feed.html', label: 'Открыть сообщество' },
+    messages: [
+      ma('Лаврова Светлана', 'Собираем общий заказ на фурнитуру — кто в деле, пишите позиции.', 'Вчера', '16:00'),
+      { dir: 'in', author: 'Лаврова Светлана', type: 'extension', name: 'Совместные закупки', href: 'ext-group-buying.html', icon: '🛒', text: 'Закупка уже заведена', d: 'Вчера', t: '16:02' },
+      ma('Жукова Наталья', 'Записалась на 3 набора.', 'Вчера', '16:40'),
+      ma('Игнатьева Оксана', 'А доставка до Красноярска считается отдельно?', 'Сегодня', '09:12'),
+      ma('Лаврова Светлана', 'Да, разделим пропорционально весу.', 'Сегодня', '09:20')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'pavel', kind: 'person', name: 'Соколов Павел', sub: 'Ростов-на-Дону · логист',
+    avatar: 'images/avatars/8.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('Загрузились, еду. Буду к обеду.', '25 августа', '10:30'),
+      mo('Павел, здравствуйте! Нужна машина под 300 кг муки, Ростов → Сочи.', '27 августа', '08:20'),
+      mi('Здравствуйте! Есть попутка в четверг, возьму по себестоимости.', '27 августа', '08:45'),
+      mo('Отлично, беру.', '27 августа', '08:50', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'bridge', kind: 'project', visibility: 'private', name: 'Ремонт моста через реку',
+    sub: '31 участник · закрытый чат проекта',
+    avatar: 'images/photos/bridge-repair.jpg', unread: 2,
+    link: { href: 'project.html', label: 'Открыть проект' },
+    messages: [
+      ma('Ерёмин Станислав', 'Смета пересчитана: арматура подорожала на 8%.', 'Вчера', '14:20'),
+      { dir: 'in', author: 'Ерёмин Станислав', type: 'document', name: 'Смета-мост-ред3.xlsx', size: '148 КБ', d: 'Вчера', t: '14:21' },
+      mo('Разница покрывается остатком целевой программы?', 'Вчера', '15:00', true),
+      ma('Крылов Виталий', 'Не полностью, не хватает 62 000 ₽.', 'Сегодня', '08:50'),
+      ma('Ерёмин Станислав', 'Выношу вопрос в «Предложения» проекта, голосуем до пятницы.', 'Сегодня', '08:58')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'vzaimopomosch', kind: 'org', name: 'Кредитный кооператив «Взаимопомощь»', sub: 'Самара · паевой фонд',
+    avatar: 'img/org-logos/avito.png', logo: true, unread: 0,
+    link: { href: 'organization-coop.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Ваш паевой взнос за август зачислен, спасибо.', '27 августа', '12:10'),
+      mi('Напоминаем: заявку на беспроцентный заём можно подать до 10 сентября.', '27 августа', '12:11'),
+      mo('Спасибо. Планирую подать на закупку сырья для пекарни.', '27 августа', '13:00', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'deal-mixer', kind: 'deal', name: 'Гришин Олег', sub: 'Екатеринбург · владелец ресурса',
+    avatar: 'images/avatars/30.jpg', unread: 0,
+    deal: { title: 'Бетономешалка передвижная, 4 суток', href: 'deals.html', role: 'вы арендатор', status: 'Завершена, отзывы обменяны', tone: 'done' },
+    link: { href: 'deals.html', label: 'Открыть сделку' },
+    messages: [
+      mo('Олег, вернул бетономешалку, помыл, оставил у ворот.', '25 августа', '17:40', true),
+      mi('Принял, всё в порядке. Отзыв оставил — приятно иметь дело.', '25 августа', '19:10'),
+      mo('Спасибо! Взаимно.', '25 августа', '19:30', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'olga', kind: 'person', name: 'Лебедева Ольга', sub: 'Пермь · координатор закупок',
+    avatar: 'images/avatars/10.jpg', unread: 1,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('Данил, запускаем совместную закупку утеплителя. Вам сколько рулонов?', 'Вчера', '11:10'),
+      mo('Восемь. Это на пекарню.', 'Вчера', '11:40', true),
+      { dir: 'in', type: 'photo', src: 'images/photos/mineral-wool.jpg', text: 'Вот эта позиция, минвата 100 мм', d: 'Сегодня', t: '07:55' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'it-coop', kind: 'community', visibility: 'public', name: 'IT-кооператоры',
+    sub: '198 участников · публичный чат', initials: '💻', tint: 'teal', unread: 0,
+    link: { href: 'communities-feed.html', label: 'Открыть сообщество' },
+    messages: [
+      ma('Мельников Григорий', 'Кто-нибудь допиливал открытую CRM под кооперативы? Нужен модуль паёв.', '27 августа', '19:00'),
+      mo('Мы делали похожее для «Шукты» — могу показать схему данных.', '27 августа', '19:30', true),
+      ma('Мельников Григорий', 'Было бы супер, скинь в личку.', '27 августа', '19:35'),
+      { dir: 'in', author: 'Дмитриева Елена', type: 'photo', src: 'images/photos/open-source-crm.jpg', text: 'Наш форк, вид реестра пайщиков', d: 'Вчера', t: '10:20' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'coopmarket', kind: 'org', name: 'ООО «Кооп-Маркет»', sub: 'Москва · оптовый покупатель',
+    avatar: 'img/org-logos/rostelecom.png', logo: true, unread: 0,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Здравствуйте! Готовы брать пельмени по 15 кг еженедельно.', '25 августа', '10:00'),
+      mo('Здравствуйте! Такой объём потянем со следующего месяца.', '25 августа', '10:40', true),
+      mi('Отлично, зарезервируем слот в графике поставок.', '25 августа', '10:55')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'coworking', kind: 'project', visibility: 'private', name: 'Соседский коворкинг',
+    sub: '19 участников · закрытый чат проекта',
+    avatar: 'images/photos/coworking.jpg', unread: 0,
+    link: { href: 'project.html', label: 'Открыть проект' },
+    messages: [
+      ma('Павлова Виктория', 'Расписание на сентябрь свёрстано, смотрите вложение.', '27 августа', '13:00'),
+      { dir: 'in', author: 'Павлова Виктория', type: 'document', name: 'Коворкинг-расписание-сентябрь.pdf', size: '64 КБ', d: '27 августа', t: '13:01' },
+      mo('Забронировал вторник и четверг под встречи по пекарне.', '27 августа', '13:40', true),
+      ma('Богданов Тимур', 'Wi-Fi роутер меняем в субботу, будет час без сети.', 'Вчера', '09:15')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'darya', kind: 'person', name: 'Кузнецова Дарья', sub: 'Воронеж · агроном',
+    avatar: 'images/avatars/16.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('Рассаду второй волны заложили, всходы ровные.', '27 августа', '07:40'),
+      { dir: 'in', type: 'photo', src: 'images/photos/greenhouse-interior.jpg', d: '27 августа', t: '07:41' },
+      mo('Красота. Сколько лотков вышло?', '27 августа', '08:10', true),
+      mi('Сто двадцать. По плану — сто.', '27 августа', '08:20')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'deal-teplica', kind: 'deal', name: 'Кооператив «Плодородие»', sub: 'Краснодар · доля в проекте',
+    avatar: 'img/org-logos/mts.png', logo: true, unread: 0,
+    deal: { title: 'Круглогодичная теплица — доля 4%', href: 'deals.html', role: 'вы участник', status: 'Завершена, отзывы обменяны', tone: 'done' },
+    link: { href: 'deals.html', label: 'Открыть сделку' },
+    messages: [
+      mi('Доля 4% закреплена, распределение прибыли — по итогам квартала.', '20 августа', '11:00'),
+      mo('Спасибо. Отчёт по трудочасам выложил в проект.', '20 августа', '11:50', true),
+      mi('Видим, всё сошлось. Отзыв оставили.', '20 августа', '15:20')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'sovet', kind: 'service', name: 'Совет ДАО КООПЕХ', sub: 'Голосования и регламент',
+    initials: '⚖', tint: 'gold', unread: 3,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Открыто голосование: «Повышение кворума общего собрания до 40%». До 5 сентября.', 'Вчера', '12:00'),
+      mi('Открыто голосование: «Целевая программа ремонта моста — добор 62 000 ₽».', 'Сегодня', '09:00'),
+      mi('Напоминание: вы ещё не проголосовали по двум вопросам.', 'Сегодня', '11:30')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'timur', kind: 'person', name: 'Богданов Тимур', sub: 'Иркутск · овцеводство, шерсть',
+    avatar: 'images/avatars/24.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('Данил, по шерсти: первая партия готова к отправке, 240 кг.', '27 августа', '09:00'),
+      mo('Отлично. Сыроварня возьмёт часть в зачёт?', '27 августа', '09:25', true),
+      mi('Да, договорился — половину закроем взаимозачётом.', '27 августа', '09:40')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'herders', kind: 'community', visibility: 'public', name: 'Дербентские овцеводы',
+    sub: '33 участника · публичный чат', initials: '🐑', tint: 'gold', unread: 0,
+    link: { href: 'communities-feed.html', label: 'Открыть сообщество' },
+    messages: [
+      ma('Магомедов Расул', 'Стрижка на следующей неделе, нужны две машинки.', '27 августа', '18:00'),
+      ma('Богданов Тимур', 'Одну привезу свою.', '27 августа', '18:20'),
+      mo('Вторую можно взять в «Библиотеке вещей» кооператива.', '27 августа', '18:35', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'alexey', kind: 'person', name: 'Фёдоров Алексей', sub: 'Калининград · юрист',
+    avatar: 'images/avatars/27.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mo('Алексей, посмотрите договор аренды спецтехники? Смущает пункт 5.4.', '27 августа', '10:00'),
+      { dir: 'out', type: 'document', name: 'Договор-аренды-СТ-2026-114.pdf', size: '318 КБ', d: '27 августа', t: '10:01', read: true },
+      mi('Посмотрел. 5.4 перекладывает на вас простой по вине владельца — просите убрать.', '27 августа', '16:40'),
+      mo('Спасибо, запрошу правку.', '27 августа', '17:00', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'mutual-credit', kind: 'community', visibility: 'public', name: 'Взаимопомощь без денег',
+    sub: '57 участников · публичный чат', initials: '🤝', tint: 'teal', unread: 2,
+    link: { href: 'communities-feed.html', label: 'Открыть сообщество' },
+    messages: [
+      ma('Дмитриева Елена', 'Нужен час помощи с переездом в субботу, взамен — консультация по бухгалтерии.', 'Вчера', '19:00'),
+      mo('Могу подъехать на два часа.', 'Вчера', '19:30', true),
+      ma('Дмитриева Елена', 'Отлично, записала обмен в общий баланс.', 'Сегодня', '08:00'),
+      { dir: 'in', author: 'Дмитриева Елена', type: 'extension', name: 'Аналитика', href: 'ext-analytics.html', icon: '📊', text: 'Сводка обменов за месяц', d: 'Сегодня', t: '08:05' }
+    ],
+    scheduled: []
+  },
+  {
+    id: 'stroytehno', kind: 'org', name: 'ЗАО «СтройТехно»', sub: 'Новосибирск · парк техники',
+    avatar: 'img/org-logos/vtb.png', logo: true, unread: 0,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Обновили каталог: добавили автокран 25 т и вышку.', '25 августа', '11:00'),
+      { dir: 'in', type: 'photo', src: 'images/photos/crane-truck.jpg', d: '25 августа', t: '11:01' },
+      mo('Спасибо, кран может пригодиться на мосту.', '25 августа', '11:30', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'ekoplast', kind: 'org', name: 'ООО «ЭкоПласт»', sub: 'Пермь · переработка вторсырья',
+    avatar: 'img/org-logos/aeroflot.png', logo: true, unread: 0,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Принимаем ПЭТ от кооперативов по повышенной ставке до конца сентября.', '20 августа', '10:00'),
+      mo('Какая минимальная партия?', '20 августа', '10:40', true),
+      mi('От 200 кг. Вывоз наш.', '20 августа', '11:10')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'roman', kind: 'person', name: 'Зайцев Роман', sub: 'Омск · сварщик',
+    avatar: 'images/avatars/18.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mo('Роман, здравствуйте! Нужны стойки под стеллажи в теплицу, 12 штук.', '20 августа', '09:00'),
+      mi('Сделаю за неделю. Металл ваш или мой?', '20 августа', '09:30'),
+      mo('Наш, профтруба уже на площадке.', '20 августа', '09:35', true),
+      mi('Тогда только работа. Договорились.', '20 августа', '09:40')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'deal-pelmeni15', kind: 'deal', name: 'ООО «Кооп-Маркет»', sub: 'Москва · оптовый покупатель',
+    avatar: 'img/org-logos/rostelecom.png', logo: true, unread: 0,
+    deal: { title: 'Пельмени домашней лепки, 15 кг', href: 'deals.html', role: 'вы продавец', status: 'Завершена, отзывы обменяны', tone: 'done' },
+    link: { href: 'deals.html', label: 'Открыть сделку' },
+    messages: [
+      mi('Партию приняли, расхождений нет.', '20 августа', '14:00'),
+      mo('Спасибо! Отзыв оставил.', '20 августа', '15:10', true),
+      mi('Наш тоже на месте, сделка закрыта.', '20 августа', '15:40')
+    ],
+    scheduled: []
+  },
+  {
+    id: 'pravo', kind: 'org', name: 'Юридическое бюро «Право и дело»', sub: 'Москва · сопровождение кооперативов',
+    avatar: 'img/org-logos/vk.png', logo: true, unread: 0,
+    link: { href: 'organization.html', label: 'Открыть организацию' },
+    messages: [
+      mi('Подготовили типовой устав для производственного кооператива.', '12 августа', '11:00'),
+      { dir: 'in', type: 'document', name: 'Типовой-устав-ПК.docx', size: '128 КБ', d: '12 августа', t: '11:01' },
+      mo('Спасибо, передам инициативной группе.', '12 августа', '12:30', true)
+    ],
+    scheduled: []
+  },
+  {
+    id: 'nikolay', kind: 'person', name: 'Семёнов Николай', sub: 'Нижний Новгород · пекарь',
+    avatar: 'images/avatars/19.jpg', unread: 0,
+    link: { href: 'person.html', label: 'Открыть профиль' },
+    messages: [
+      mi('Рецептуру на ржаной подовый выложил в общий доступ проекта.', '12 августа', '09:20'),
+      mo('Спасибо! Попробуем на первой смене.', '12 августа', '10:00', true),
+      mi('Только не гоните расстойку, ей нужно 90 минут.', '12 августа', '10:05')
     ],
     scheduled: []
   }
 ];
+
 var activeId = 'maria';
+var activeCategory = 'all';
 var pendingAttachment = null;
 
 function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
+function isGroup(t) { return t.kind === 'project' || t.kind === 'community'; }
+
 function threadAvatarHTML(t, size) {
-  if (t.avatar) return '<img class="avatar' + (size === 'sm' ? ' sm' : '') + '" src="' + t.avatar + '" alt="' + t.name + '">';
+  var cls = 'avatar' + (size === 'sm' ? ' sm' : '') + (t.logo ? ' deal-org-logo' : '');
+  if (t.avatar) return '<img class="' + cls + '" src="' + t.avatar + '" alt="' + escapeHtml(t.name) + '">';
   var tint = t.tint === 'gold' ? 'var(--gold-tint)' : 'var(--teal-tint)';
   var color = t.tint === 'gold' ? '#8a5f1c' : 'var(--teal-dark)';
   var wh = size === 'sm' ? '28px' : '40px';
@@ -169,39 +688,99 @@ function previewLabel(m) {
   }
 }
 
+function lastMessage(t) { return t.messages[t.messages.length - 1]; }
+
 function lastMessagePreview(t) {
-  var m = t.messages[t.messages.length - 1];
-  return (m.author ? m.author + ': ' : '') + previewLabel(m);
+  var m = lastMessage(t);
+  var who = m.author ? m.author.split(' ')[0] + ': ' : (m.dir === 'out' ? 'Вы: ' : '');
+  return who + previewLabel(m);
+}
+
+/* В списке диалогов показываем время последнего сообщения, если оно сегодняшнее,
+   иначе — день («Вчера», «27 августа»). */
+function lastStamp(t) {
+  var m = lastMessage(t);
+  return m.d === 'Сегодня' ? m.t : m.d;
 }
 
 function kindIcon(t) {
-  if (t.kind !== 'group') return '';
-  return ' ' + (t.visibility === 'public' ? '🌐' : '🔒');
+  if (t.kind === 'project') return ' 🔒';
+  if (t.kind === 'community') return ' 🌐';
+  if (t.kind === 'deal') return ' 🤝';
+  return '';
+}
+
+function inCategory(t, cat) {
+  if (cat === 'all') return true;
+  if (cat === 'unread') return t.unread > 0;
+  return t.kind === cat;
+}
+
+function matchesSearch(t, filter) {
+  if (!filter) return true;
+  var q = filter.toLowerCase();
+  var hay = t.name + ' ' + (t.sub || '') + ' ' + (t.deal ? t.deal.title : '') + ' ' + lastMessagePreview(t);
+  return hay.toLowerCase().indexOf(q) !== -1;
+}
+
+/* Закреплённые диалоги всегда наверху, остальные — в порядке свежести
+   (массив threads уже отсортирован от новых к старым). */
+function sortedThreads() {
+  return threads.slice().sort(function (a, b) { return (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0); });
+}
+
+function renderFilters() {
+  var box = document.getElementById('thread-filters');
+  box.innerHTML = CATEGORIES.map(function (c) {
+    var n = threads.filter(function (t) { return inCategory(t, c.id); }).length;
+    if (c.id === 'unread' && n === 0) return '';
+    return '<button type="button" class="chip chip-toggle' + (activeCategory === c.id ? ' selected' : '') +
+      '" data-cat="' + c.id + '">' + c.label + ' <span class="chip-num">' + n + '</span></button>';
+  }).join('');
+  box.querySelectorAll('[data-cat]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activeCategory = btn.dataset.cat;
+      renderFilters();
+      renderThreadList(document.getElementById('thread-search').value);
+    });
+  });
 }
 
 function renderThreadList(filter) {
   var list = document.getElementById('thread-list');
   list.innerHTML = '';
-  threads.forEach(function (t) {
-    if (filter && t.name.toLowerCase().indexOf(filter.toLowerCase()) === -1) return;
+  var shown = 0;
+  sortedThreads().forEach(function (t) {
+    if (!inCategory(t, activeCategory) || !matchesSearch(t, filter)) return;
+    shown++;
     var item = document.createElement('div');
-    item.className = 'thread-item' + (t.id === activeId ? ' active' : '');
+    item.className = 'thread-item' + (t.id === activeId ? ' active' : '') + (t.unread ? ' unread' : '');
     item.dataset.id = t.id;
     item.innerHTML =
       threadAvatarHTML(t, 'sm') +
-      '<div style="flex:1;min-width:0">' +
-        '<div class="tname">' + t.name + kindIcon(t) + (t.unread ? ' <span class="tdot"></span>' : '') + '</div>' +
-        '<div class="tlast">' + lastMessagePreview(t) + (t.scheduled.length ? ' · 🕒' + t.scheduled.length : '') + '</div>' +
+      '<div class="tmain">' +
+        '<div class="thread-row">' +
+          '<span class="tname">' + (t.pinned ? '📌 ' : '') + escapeHtml(t.name) + kindIcon(t) + '</span>' +
+          '<span class="ttime">' + lastStamp(t) + '</span>' +
+        '</div>' +
+        '<div class="thread-row">' +
+          '<span class="tlast">' + escapeHtml(lastMessagePreview(t)) + (t.scheduled.length ? ' · 🕒' + t.scheduled.length : '') + '</span>' +
+          (t.unread ? '<span class="tcount">' + t.unread + '</span>' : '') +
+        '</div>' +
       '</div>';
     item.addEventListener('click', function () {
-      t.unread = false;
+      t.unread = 0;
       activeId = t.id;
       pendingAttachment = null;
+      renderFilters();
       renderThreadList(document.getElementById('thread-search').value);
       renderChatPane();
     });
     list.appendChild(item);
   });
+  if (!shown) {
+    list.innerHTML = '<div class="thread-empty">Ничего не найдено.<br>Попробуйте другой запрос или снимите фильтр.</div>';
+  }
 }
 
 function renderBubbleContent(m) {
@@ -215,10 +794,47 @@ function renderBubbleContent(m) {
     case 'contact':
       return '<div class="msg-contact"><img class="avatar sm" src="' + m.avatar + '" alt=""><div><div style="font-weight:600">' + escapeHtml(m.name) + '</div><div style="font-size:11px;color:var(--slate)">' + m.phone + '</div></div></div>';
     case 'extension':
-      return '<a href="' + m.href + '" class="msg-doc" style="text-decoration:none;color:inherit"><span style="font-size:20px">' + m.icon + '</span><div><div class="msg-doc-name">' + escapeHtml(m.name) + '</div><div class="msg-doc-size">Расширение платформы →</div></div></a>';
+      return '<a href="' + m.href + '" class="msg-doc" style="text-decoration:none;color:inherit"><span style="font-size:20px">' + m.icon + '</span><div><div class="msg-doc-name">' + escapeHtml(m.name) + '</div><div class="msg-doc-size">Расширение платформы →</div></div></a>' + (m.text ? '<div style="margin-top:6px">' + escapeHtml(m.text) + '</div>' : '');
     default:
       return escapeHtml(m.text);
   }
+}
+
+/* Время под сообщением; у исходящих — статус доставки: ✓ отправлено, ✓✓ прочитано. */
+function bubbleMetaHTML(m) {
+  var tick = m.dir === 'out' ? ' <span class="msg-tick' + (m.read ? ' read' : '') + '">' + (m.read ? '✓✓' : '✓') + '</span>' : '';
+  return '<span class="msg-meta">' + (m.t || '') + tick + '</span>';
+}
+
+function renderStream(t) {
+  var day = '';
+  return t.messages.map(function (m) {
+    var out = '';
+    if (m.d && m.d !== day) { day = m.d; out += '<div class="chat-day"><span>' + escapeHtml(day) + '</span></div>'; }
+    if (m.dir === 'in' && m.author) out += '<div class="msg-author">' + escapeHtml(m.author) + '</div>';
+    out += '<div class="bubble ' + m.dir + '">' + renderBubbleContent(m) + bubbleMetaHTML(m) + '</div>';
+    return out;
+  }).join('');
+}
+
+/* Контекстная плашка под шапкой чата: у сделок — предмет и статус,
+   у групповых чатов — к чему привязан чат. */
+function renderContext(t) {
+  if (t.deal) {
+    return '<div class="chat-context">🤝 Сделка: <a href="' + t.deal.href + '">' + escapeHtml(t.deal.title) + '</a>' +
+      '<span class="deal-sep">·</span><span>' + escapeHtml(t.deal.role) + '</span>' +
+      '<span class="badge deal-state ' + t.deal.tone + '">' + escapeHtml(t.deal.status) + '</span></div>';
+  }
+  if (t.kind === 'project') {
+    return '<div class="chat-context">🔒 Закрытый чат проекта — видят только участники. <a href="' + t.link.href + '">' + t.link.label + ' →</a></div>';
+  }
+  if (t.kind === 'community') {
+    return '<div class="chat-context">🌐 Публичный чат сообщества — читать может любой участник платформы. <a href="' + t.link.href + '">' + t.link.label + ' →</a></div>';
+  }
+  if (t.kind === 'service') {
+    return '<div class="chat-context">⚙️ Служебный диалог платформы.</div>';
+  }
+  return '';
 }
 
 function renderScheduledPanel(t) {
@@ -239,15 +855,19 @@ function closeAllPopovers() {
 function renderChatPane() {
   var t = threads.find(function (x) { return x.id === activeId; });
   var pane = document.getElementById('chat-pane');
-  var bubbles = t.messages.map(function (m) {
-    var authorLine = (t.kind === 'group' && m.dir === 'in' && m.author) ? '<div style="font-size:11px;color:var(--slate-light);margin:0 0 2px 2px">' + m.author + '</div>' : '';
-    return authorLine + '<div class="bubble ' + m.dir + '">' + renderBubbleContent(m) + '</div>';
-  }).join('');
-  var linkHTML = t.link ? '<a href="' + t.link + '" style="margin-left:auto;font-size:12px" class="stat-note">Открыть ' + (t.id === 'dao' ? 'организацию' : 'проект') + ' →</a>' : '';
-  var kindBadge = t.kind === 'group' ? ' <span class="badge outline" style="margin-left:6px;font-weight:500">' + (t.visibility === 'public' ? '🌐 публичный чат' : '🔒 закрытый чат') + '</span>' : '';
+  var linkHTML = t.link ? '<a href="' + t.link.href + '" class="stat-note chat-link">' + t.link.label + ' →</a>' : '';
+  var statusHTML = t.kind === 'person'
+    ? '<span class="online-dot' + (t.online ? '' : ' off') + '"></span>' + (t.online ? 'в сети' : 'был(а) недавно')
+    : '';
   pane.innerHTML =
-    '<div class="chat-header">' + threadAvatarHTML(t) + '<div class="section-title" style="margin:0">' + t.name + kindBadge + '</div>' + linkHTML + '</div>' +
-    '<div id="bubble-stream">' + bubbles + '</div>' +
+    '<div class="chat-header">' + threadAvatarHTML(t) +
+      '<div class="chat-head-text">' +
+        '<div class="section-title" style="margin:0">' + escapeHtml(t.name) + '</div>' +
+        '<div class="chat-sub">' + statusHTML + (statusHTML && t.sub ? '<span class="deal-sep">·</span>' : '') + escapeHtml(t.sub || '') + '</div>' +
+      '</div>' + linkHTML +
+    '</div>' +
+    renderContext(t) +
+    '<div id="bubble-stream">' + renderStream(t) + '</div>' +
     '<div id="pending-attachment"></div>' +
     '<div class="composer-toolbar">' +
       '<div class="attach-wrap"><button class="icon-btn" id="attach-btn" type="button" title="Прикрепить">📎</button>' +
@@ -365,7 +985,7 @@ function renderChatPane() {
       e.preventDefault();
       var i = parseInt(a.dataset.sendNow, 10);
       var s = t.scheduled.splice(i, 1)[0];
-      t.messages.push({ dir: 'out', text: s.text });
+      t.messages.push({ dir: 'out', text: s.text, d: 'Сегодня', t: nowTime(), read: false });
       renderChatPane();
       renderThreadList(document.getElementById('thread-search').value);
     });
@@ -379,6 +999,10 @@ function renderChatPane() {
       renderThreadList(document.getElementById('thread-search').value);
     });
   });
+}
+
+function nowTime() {
+  return new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
 }
 
 function renderPendingAttachment() {
@@ -403,12 +1027,12 @@ function sendMessage() {
   var text = input.value.trim();
   var t = threads.find(function (x) { return x.id === activeId; });
   if (pendingAttachment) {
-    var msg = Object.assign({ dir: 'out' }, pendingAttachment);
+    var msg = Object.assign({ dir: 'out', d: 'Сегодня', t: nowTime(), read: false }, pendingAttachment);
     if (text) msg.text = text;
     t.messages.push(msg);
     pendingAttachment = null;
   } else if (text) {
-    t.messages.push({ dir: 'out', text: text });
+    t.messages.push({ dir: 'out', text: text, d: 'Сегодня', t: nowTime(), read: false });
   } else {
     return;
   }
@@ -448,6 +1072,7 @@ document.getElementById('thread-search').addEventListener('input', function (e) 
   renderThreadList(e.target.value);
 });
 
+renderFilters();
 renderThreadList('');
 renderChatPane();
 </script>

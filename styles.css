@@ -904,6 +904,44 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .scheduled-item .sched-actions a { font-size: 11px; margin-left: 8px; color: var(--gold-text); text-decoration: underline; }
 .tdot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-left: 3px; }
 
+/* Список диалогов: две строки — «имя + время» и «превью + счётчик непрочитанных».
+   Обе строки ужимаются многоточием, чтобы длинные названия организаций и
+   групповых чатов не распирали колонку в 300px. */
+.thread-filters { margin: -12px 0 18px; }
+.chip-num { font-weight: 500; opacity: .7; }
+.thread-item .tmain { flex: 1; min-width: 0; }
+.thread-row { display: flex; align-items: center; gap: 8px; }
+.thread-row + .thread-row { margin-top: 2px; }
+.thread-item .tname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.thread-item .tlast { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.thread-item .ttime { flex: none; font-size: 10.5px; }
+.tcount {
+  flex: none; min-width: 18px; height: 18px; border-radius: 9px; padding: 0 5px;
+  font: 700 10.5px/1 'Manrope', sans-serif;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.thread-empty { padding: 26px 18px; font-size: 12.5px; line-height: 1.6; text-align: center; }
+
+/* Шапка чата: имя, подпись (статус/город/число участников) и ссылка на сущность. */
+.chat-head-text { min-width: 0; flex: 1; }
+.chat-header .chat-link { margin-left: auto; flex: none; font-size: 12px; }
+.chat-sub { display: flex; align-items: center; gap: 5px; font-size: 11.5px; margin-top: 2px; }
+.online-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+
+/* Контекстная плашка: предмет сделки / тип группового чата. */
+.chat-context {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  padding: 8px 12px; border-radius: var(--radius-sm); font-size: 12px; margin-bottom: 14px;
+}
+.deal-state { margin-left: auto; }
+
+/* Разделитель дней и метаданные сообщения (время + статус доставки). */
+.chat-day { text-align: center; margin: 4px 0 12px; }
+.chat-day span { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; }
+.msg-author { font-size: 11px; margin: 0 0 2px 2px; }
+.msg-meta { display: block; text-align: right; font-size: 10px; margin-top: 4px; }
+.bubble.out .msg-meta { opacity: .8; }
+
 /* ============================================================
    Форма «Добавить сущность» внутри модалки (паттерн модалки — см. .modal
    выше). Первый прецедент — resources.html «Добавить ресурс»; переиспользовать
