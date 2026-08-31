@@ -386,6 +386,15 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .chat-day span { background: var(--surface-2); color: var(--slate); }
 .msg-author { color: var(--slate-light); }
 .msg-meta { color: var(--slate-light); }
+.chat-search-count { color: var(--slate); }
+.chat-search-btn.active { border-color: var(--teal); background: var(--teal-tint); }
+.stream-empty { color: var(--slate); }
+/* Подсветка найденного — золотой акцент платформы. Цвет текста задан явно
+   тёмным: подложка одинаково золотая в обеих темах, а var(--ink) в тёмной
+   становится светлым и совпадает с фоном подсветки. */
+.tname mark, .tlast mark, .bubble mark, .msg-author mark {
+  background: var(--gold); color: #14171a; border-radius: 3px; padding: 0 1px;
+}
 .bubble.out .msg-meta { color: var(--btn-fg); }
 
 /* ── Футер ────────────────────────────────────────────────── */
@@ -505,6 +514,11 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   }
   .profile-side { width: auto; }
   .thread-list { width: auto; border-right: 1px solid var(--line); }
+  /* На телефоне список диалогов и чат встают друг под друга, и страница снова
+     прокручивается целиком: раскладка «раздел ровно в один экран» здесь только
+     мешала бы — чат сжимался бы до нескольких строк. */
+  .messages-page { height: auto; min-height: 0; }
+  .messages-body { flex: none; min-height: 620px; }
   /* Шапки детальных страниц: «заголовок + стек кнопок» и «галерея 340px + текст»
      стояли одной неразрывной строкой и вылезали за экран. Перенос по строкам
      решает оба случая, не трогая инлайновые flex-basis в разметке. */
