@@ -1,0 +1,195 @@
+openapi: 3.1.0
+info:
+  title: Узел сети ДАО КООПЕХ — федеративный обмен
+  version: "1.0.0"
+  description: |
+    Минимальный контракт узла. Обязательны пять точек и ничего сверх того:
+    HTTPS и JSON, без очередей, без IPFS, без libp2p. Это сознательное
+    ограничение — интегратор 1С или WordPress должен реализовать узел за день,
+    иначе сеть останется из одних наших установок.
+
+    Всё остальное — ускорения, а не требования. Push через `/federation/inbox`
+    убирает задержку опроса; NATS или libp2p убирают опрос вовсе; IPFS снимает
+    нагрузку с раздачи вложений. Узел, который умеет только `GET /federation/log`,
+    полноценный участник сети.
+
+    Аутентификация запросов не нужна для публичных журналов: подлинность даёт
+    подпись каждого события, а не канал. Адресные события (`to`) отдаются только
+    предъявителю подписи получателя — см. `/federation/log` и параметр `for`.
+servers:
+  - url: https://{host}/
+    variables:
+      host:
+        default: coop.example.ru
+paths:
+  /.well-known/did.json:
+    get:
+      summary: DID-документ узла
+      description: |
+        Разрешение идентификатора `did:web:coop.example.ru`. Отдаёт открытые
+        ключи, которыми узел подписывает события. Ротация ключей — добавлением
+        нового ключа при сохранении старого: история должна проверяться и через
+        год после смены.
+      responses:
+        "200":
+          description: Документ
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [id, verificationMethod]
+                properties:
+                  id: {type: string, examples: ["did:web:coop.example.ru"]}
+                  verificationMethod:
+                    type: array
+                    items:
+                      type: object
+                      required: [id, type, publicKeyMultibase]
+                      properties:
+                        id: {type: string, examples: ["did:web:coop.example.ru#key-1"]}
+                        type: {const: Ed25519VerificationKey2020}
+                        publicKeyMultibase: {type: string}
+                        notBefore: {type: string, format: date-time}
+                        revoked: {type: string, format: date-time}
+  /federation/manifest:
+    get:
+      summary: Что узел умеет
+      responses:
+        "200":
+          description: Возможности узла
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [node, protocol, software]
+                properties:
+                  node: {type: string}
+                  protocol: {type: array, items: {const: 1}}
+                  software:
+                    type: string
+                    description: odoo/rudoo-19, 1c-erp, bitrix24, wordpress, cyclos
+                    examples: ["odoo/rudoo-19"]
+                  event_types:
+                    type: array
+                    items: {type: string}
+                    description: Какие типы узел публикует и понимает.
+                  transports:
+                    type: array
+                    items: {enum: [https-pull, https-push, nats, libp2p]}
+                  regions:
+                    type: array
+                    items: {type: string}
+                    description: Где физически стоит узел. Нужно для выбора ближайшей реплики каталога.
+                  head:
+                    type: object
+                    description: Текущий конец журнала — чтобы понять, отстал ли ты, не выкачивая его.
+                    properties:
+                      seq: {type: integer}
+                      id: {type: string}
+  /federation/log:
+    get:
+      summary: Журнал узла порциями
+      description: |
+        Основной и единственный обязательный способ репликации. Клиент помнит
+        последний полученный `seq` и запрашивает продолжение. После долгого
+        офлайна догоняет теми же порциями — специального режима восстановления
+        нет и не нужно.
+      parameters:
+        - name: since
+          in: query
+          schema: {type: integer, minimum: 0, default: 0}
+          description: Начиная с какого seq (включительно).
+        - name: limit
+          in: query
+          schema: {type: integer, minimum: 1, maximum: 1000, default: 100}
+        - name: type
+          in: query
+          schema: {type: string}
+          description: Фильтр по типу. Осторожно — при фильтрации цепочка prev рвётся, и проверить непрерывность нельзя.
+        - name: for
+          in: query
+          schema: {type: string}
+          description: |
+            Идентификатор запрашивающего узла. Адресные события (`to`) выдаются
+            только ему и только при валидной подписи в заголовке.
+      responses:
+        "200":
+          description: Порция журнала
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [events, head]
+                properties:
+                  events:
+                    type: array
+                    items: {$ref: "./event.schema.json"}
+                  head:
+                    type: object
+                    properties:
+                      seq: {type: integer}
+                      id: {type: string}
+                  next:
+                    type: integer
+                    description: С какого seq запрашивать дальше. Отсутствует — журнал вычитан до конца.
+  /federation/inbox:
+    post:
+      summary: Приём событий от другого узла (необязательно)
+      description: |
+        Ускорение, а не требование: убирает задержку опроса. Получатель обязан
+        проверить подпись и цепочку так же, как при вытягивании. Событие с
+        разрывом в нумерации не отбрасывается, а откладывается: отправитель
+        мог обогнать собственную предыдущую доставку.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [events]
+              properties:
+                events:
+                  type: array
+                  items: {$ref: "./event.schema.json"}
+      responses:
+        "202":
+          description: Принято к обработке
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accepted: {type: integer}
+                  deferred:
+                    type: integer
+                    description: Отложено до прихода недостающих предшественников.
+                  rejected:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: {type: string}
+                        reason: {type: string}
+        "401":
+          description: Подпись отправителя не проходит проверку
+  /federation/attachment/{sha256}:
+    get:
+      summary: Вложение по хэшу
+      description: |
+        Запасной путь для узлов без IPFS. Отдаёт ровно те байты, чей SHA-256
+        указан в событии; для зашифрованных вложений — шифротекст.
+      parameters:
+        - name: sha256
+          in: path
+          required: true
+          schema: {type: string, pattern: "^[0-9a-f]{64}$"}
+      responses:
+        "200":
+          description: Содержимое
+          content:
+            application/octet-stream:
+              schema: {type: string, format: binary}
+        "403":
+          description: Вложение адресное, запрашивающий не в списке получателей
+        "404":
+          description: Нет такого вложения
