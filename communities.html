@@ -71,6 +71,7 @@
     <div class="entity-tabs">
       <a href="communities.html" class="active">Сообщества</a>
       <a href="communities-feed.html">Лента</a>
+      <a href="communities.html?tab=favorites" data-fav-tab="communities">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
     <div class="search-row">
       <input class="input" id="groups-search" placeholder="Название сообщества, например «огород»">
@@ -84,9 +85,10 @@
           <span>Все сообщества <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="groups-count">8</span></span></span>
         </div>
 
-        <div class="vacancy-list tile-mode" id="groups-grid">
+        <div class="vacancy-list tile-mode" id="groups-grid" data-fav-section="communities">
 
-      <div class="vacancy-card" data-group="neighbors-tyumen" data-type="Соседское" data-city="Тюмень">
+      <div class="vacancy-card" data-group="neighbors-tyumen" data-type="Соседское" data-city="Тюмень" data-fav-id="neighbors-tyumen">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🏘️</div><span class="loc-bar">📍 Тюмень</span></div>
           <div style="flex:1;min-width:0">
@@ -102,7 +104,8 @@
         </div>
       </div>
 
-      <div class="vacancy-card" data-group="builders" data-type="По интересам" data-city="Дербент">
+      <div class="vacancy-card" data-group="builders" data-type="По интересам" data-city="Дербент" data-fav-id="builders">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🏗️</div><span class="loc-bar">📍 Дербент</span></div>
           <div style="flex:1;min-width:0">
@@ -118,7 +121,8 @@
         </div>
       </div>
 
-      <div class="vacancy-card" data-group="garden" data-type="По интересам" data-city="Красноярск">
+      <div class="vacancy-card" data-group="garden" data-type="По интересам" data-city="Красноярск" data-fav-id="garden">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌱</div><span class="loc-bar">📍 Красноярск</span></div>
           <div style="flex:1;min-width:0">
@@ -134,7 +138,8 @@
         </div>
       </div>
 
-      <div class="vacancy-card" data-group="crafts" data-type="По интересам" data-city="Удалённо">
+      <div class="vacancy-card" data-group="crafts" data-type="По интересам" data-city="Удалённо" data-fav-id="crafts">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🧵</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
@@ -150,7 +155,8 @@
         </div>
       </div>
 
-      <div class="vacancy-card" data-group="newbies" data-type="Локальное" data-city="Удалённо">
+      <div class="vacancy-card" data-group="newbies" data-type="Локальное" data-city="Удалённо" data-fav-id="newbies">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🌟</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
@@ -166,7 +172,8 @@
         </div>
       </div>
 
-      <div class="vacancy-card" data-group="shukty-herders" data-type="Профессиональное" data-city="Дербент">
+      <div class="vacancy-card" data-group="shukty-herders" data-type="Профессиональное" data-city="Дербент" data-fav-id="shukty-herders">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">🐑</div><span class="loc-bar">📍 Дербент</span></div>
           <div style="flex:1;min-width:0">
@@ -182,7 +189,8 @@
         </div>
       </div>
 
-      <div class="vacancy-card" data-group="mutual-credit" data-type="Финансовое" data-city="Удалённо">
+      <div class="vacancy-card" data-group="mutual-credit" data-type="Финансовое" data-city="Удалённо" data-fav-id="mutual-credit">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--teal-tint);color:var(--teal-dark);font-size:20px">🤝</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
@@ -198,7 +206,8 @@
         </div>
       </div>
 
-      <div class="vacancy-card" data-group="it-coops" data-type="Профессиональное" data-city="Удалённо">
+      <div class="vacancy-card" data-group="it-coops" data-type="Профессиональное" data-city="Удалённо" data-fav-id="it-coops">
+        <span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
         <div class="card-row">
           <div class="img-wrap"><div class="logo-square" style="width:48px;height:48px;background:var(--gold-tint);color:var(--gold-text);font-size:20px">💻</div><span class="loc-bar">📍 Удалённо</span></div>
           <div style="flex:1;min-width:0">
@@ -215,7 +224,7 @@
       </div>
 
         </div>
-        <div class="empty-state" id="groups-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
+        <div class="empty-state" id="groups-empty" data-fav-empty="В избранном пока пусто. Нажмите на сердечко в карточке, чтобы сохранить её сюда." hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="reset-filters">Сбросить фильтры</a></div>
       </div>
       <div class="filter-panel">
         <div class="section-title">Фильтр</div>
@@ -313,6 +322,7 @@
   var cityInput = document.getElementById('filter-city');
   var joinedOnlyCheckbox = document.getElementById('filter-joined-only');
   var cards = document.querySelectorAll('#groups-grid .vacancy-card');
+  var favMode = (location.search || '').indexOf('tab=favorites') !== -1;
   function applyFilters() {
     var q = searchInput.value.trim().toLowerCase();
     var type = typeSelect.value;
@@ -327,7 +337,8 @@
       var typeOk = !type || card.dataset.type === type;
       var cityOk = !city || cardCity.indexOf(city) !== -1;
       var joinedOk = !joinedOnly || joined.indexOf(card.dataset.group) !== -1;
-      var show = queryOk && typeOk && cityOk && joinedOk;
+      var favOk = !favMode || (window.CoopFav && CoopFav.has('communities', card.dataset.favId));
+      var show = queryOk && typeOk && cityOk && joinedOk && favOk;
       card.style.display = show ? '' : 'none';
       if (show) visibleCount++;
     });
@@ -374,6 +385,15 @@
   viewListBtn.addEventListener('click', function () { setListView(true); });
   viewTileBtn.addEventListener('click', function () { setListView(false); });
   if (savedCatalogView() === 'list') setListView(true);
+
+  /* Сердечко в карточке переключает избранное (app.js) — список пересобираем
+     сразу, иначе на вкладке «Избранное» карточка исчезнет только после
+     перезагрузки страницы. */
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!window.CoopFav) return;
+    CoopFav.onChange(applyFilters);
+    if (favMode) applyFilters();
+  });
 })();
 </script>
 <script src="app.js"></script>
