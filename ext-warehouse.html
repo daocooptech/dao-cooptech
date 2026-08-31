@@ -72,8 +72,8 @@
 
     <div class="entity-tabs" id="wh-tabs">
       <a href="#" class="active" data-tab="my">Мои склады <span class="badge outline">3</span></a>
-      <a href="#" data-tab="market">Биржа мощностей <span class="badge outline">13</span></a>
       <a href="#" data-tab="agreements">Договорённости <span class="badge outline">6</span></a>
+      <a href="#" data-tab="market">Биржа мощностей <span class="badge outline">13</span></a>
       <a href="ext-warehouse.html?tab=favorites" data-fav-tab="warehouse">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
 
@@ -96,6 +96,81 @@
 
       <div class="wh-list" id="wh-my-list"></div>
       <div class="empty-state" id="wh-my-empty" hidden>Среди ваших складов ничего не нашлось. <a href="#" id="wh-my-reset">Сбросить поиск</a></div>
+
+    </div>
+
+    <!-- ==================== ДОГОВОРЁННОСТИ ==================== -->
+    <div id="tab-agreements" hidden>
+
+      <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 18px">Всё, о чём вы договорились по складу: и то, что сдаёте вы, и то, что берёте у других. Каждая строка — обычная сделка платформы: она попадает в реестр, по ней идёт переписка, а после завершения обе стороны оставляют отзывы.</p>
+
+      <table class="res-table">
+        <thead>
+          <tr><th>Объект</th><th>Роль</th><th>Контрагент</th><th>Условие</th><th>Объём</th><th>Срок</th><th>Статус</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Склад на Мельникайте, зона A</td>
+            <td>Сдаю</td>
+            <td><a href="organization.html">ООО «Кооп-Маркет»</a></td>
+            <td>Аренда, 420 ₽/м² в месяц</td>
+            <td>200 м²</td>
+            <td>до 31.12.2026</td>
+            <td><span class="badge teal">Действует</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+          <tr>
+            <td>Морозильная камера при цехе</td>
+            <td>Сдаю</td>
+            <td><a href="person.html">Смирнова Екатерина Андреевна</a></td>
+            <td>Ответственное хранение, 240 ₽/паллетоместо в сутки</td>
+            <td>40 паллетомест</td>
+            <td>бессрочно</td>
+            <td><span class="badge teal">Действует</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+          <tr>
+            <td>Открытая площадка «Заводская»</td>
+            <td>Сдаю</td>
+            <td><a href="organization.html">Артель «Уральские мастера»</a></td>
+            <td>Аренда, 110 ₽/м² в месяц</td>
+            <td>550 м²</td>
+            <td>до 30.04.2027</td>
+            <td><span class="badge teal">Действует</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+          <tr>
+            <td>Складской модуль в технопарке, Новосибирск</td>
+            <td>Беру</td>
+            <td><a href="organization-nonprofit.html">Фонд «Территория 2020»</a></td>
+            <td>Участие в проекте, доля 12%</td>
+            <td>180 м²</td>
+            <td>12 месяцев</td>
+            <td><span class="badge gold">На согласовании</span></td>
+            <td><a class="deal-link" href="messages.html">Переписка →</a></td>
+          </tr>
+          <tr>
+            <td>Холодильная камера +2…+6 °C, Пермь</td>
+            <td>Беру</td>
+            <td><a href="organization.html">ООО «АгроСтрой»</a></td>
+            <td>Пай 1/20 в складском блоке</td>
+            <td>8 паллетомест</td>
+            <td>бессрочно</td>
+            <td><span class="badge outline">Заявка отправлена</span></td>
+            <td><a class="deal-link" href="messages.html">Переписка →</a></td>
+          </tr>
+          <tr>
+            <td>Гаражный бокс под инструмент, Ишим</td>
+            <td>Беру</td>
+            <td><a href="person.html">Лебедева Ольга Игоревна</a></td>
+            <td>Аренда, 300 ₽/м² в месяц</td>
+            <td>60 м²</td>
+            <td>завершён 31.07.2026</td>
+            <td><span class="badge slate">Завершена</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
 
@@ -193,81 +268,6 @@
           <button class="button secondary" type="button" id="f-reset" style="width:100%">Сбросить</button>
         </div>
       </div>
-
-    </div>
-
-    <!-- ==================== ДОГОВОРЁННОСТИ ==================== -->
-    <div id="tab-agreements" hidden>
-
-      <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 18px">Всё, о чём вы договорились по складу: и то, что сдаёте вы, и то, что берёте у других. Каждая строка — обычная сделка платформы: она попадает в реестр, по ней идёт переписка, а после завершения обе стороны оставляют отзывы.</p>
-
-      <table class="res-table">
-        <thead>
-          <tr><th>Объект</th><th>Роль</th><th>Контрагент</th><th>Условие</th><th>Объём</th><th>Срок</th><th>Статус</th><th></th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Склад на Мельникайте, зона A</td>
-            <td>Сдаю</td>
-            <td><a href="organization.html">ООО «Кооп-Маркет»</a></td>
-            <td>Аренда, 420 ₽/м² в месяц</td>
-            <td>200 м²</td>
-            <td>до 31.12.2026</td>
-            <td><span class="badge teal">Действует</span></td>
-            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
-          </tr>
-          <tr>
-            <td>Морозильная камера при цехе</td>
-            <td>Сдаю</td>
-            <td><a href="person.html">Смирнова Екатерина Андреевна</a></td>
-            <td>Ответственное хранение, 240 ₽/паллетоместо в сутки</td>
-            <td>40 паллетомест</td>
-            <td>бессрочно</td>
-            <td><span class="badge teal">Действует</span></td>
-            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
-          </tr>
-          <tr>
-            <td>Открытая площадка «Заводская»</td>
-            <td>Сдаю</td>
-            <td><a href="organization.html">Артель «Уральские мастера»</a></td>
-            <td>Аренда, 110 ₽/м² в месяц</td>
-            <td>550 м²</td>
-            <td>до 30.04.2027</td>
-            <td><span class="badge teal">Действует</span></td>
-            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
-          </tr>
-          <tr>
-            <td>Складской модуль в технопарке, Новосибирск</td>
-            <td>Беру</td>
-            <td><a href="organization-nonprofit.html">Фонд «Территория 2020»</a></td>
-            <td>Участие в проекте, доля 12%</td>
-            <td>180 м²</td>
-            <td>12 месяцев</td>
-            <td><span class="badge gold">На согласовании</span></td>
-            <td><a class="deal-link" href="messages.html">Переписка →</a></td>
-          </tr>
-          <tr>
-            <td>Холодильная камера +2…+6 °C, Пермь</td>
-            <td>Беру</td>
-            <td><a href="organization.html">ООО «АгроСтрой»</a></td>
-            <td>Пай 1/20 в складском блоке</td>
-            <td>8 паллетомест</td>
-            <td>бессрочно</td>
-            <td><span class="badge outline">Заявка отправлена</span></td>
-            <td><a class="deal-link" href="messages.html">Переписка →</a></td>
-          </tr>
-          <tr>
-            <td>Гаражный бокс под инструмент, Ишим</td>
-            <td>Беру</td>
-            <td><a href="person.html">Лебедева Ольга Игоревна</a></td>
-            <td>Аренда, 300 ₽/м² в месяц</td>
-            <td>60 м²</td>
-            <td>завершён 31.07.2026</td>
-            <td><span class="badge slate">Завершена</span></td>
-            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
-          </tr>
-        </tbody>
-      </table>
 
     </div>
 
