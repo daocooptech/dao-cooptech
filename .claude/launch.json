@@ -4,14 +4,32 @@
     {
       "name": "static-preview",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8793"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8793"
+      ],
       "port": 8793
     },
     {
       "name": "static-preview-2",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8794"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8794"
+      ],
       "port": 8794
+    },
+    {
+      "name": "static-preview-3",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8795"
+      ],
+      "port": 8795
     }
   ]
 }
