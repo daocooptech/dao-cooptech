@@ -1711,3 +1711,6 @@ button.track-hash:hover { border-color: var(--teal); color: var(--teal-dark); }
 .pager-btn[disabled] { opacity: .45; cursor: default; }
 .pager-btn.active { background: var(--teal-tint); border-color: var(--teal); color: var(--teal-dark); }
 .pager-gap { color: var(--slate-light); padding: 0 2px; }
+
+/* Карточка, не влезающая в полную строку полки, прячется — см. fitShelves() */
+.shelf-off { display: none !important; }

@@ -684,6 +684,60 @@
     });
   }
 
+
+  /* ── Сколько карточек показывать в полке каталога ──────────
+     Плитка «Смотреть все» стоит последней в той же сетке. Если карточек
+     ровно столько, что плитка не помещается в строку, она съезжает вниз
+     одна — полка выглядит оборванной. Сколько плиток влезает в строку,
+     зависит от ширины экрана, поэтому число не зашито в разметку: строка
+     измеряется по факту, и полка обрезается так, чтобы «Смотреть все»
+     закрывала последнюю строку. Четыре карточки не показываем никогда —
+     это тот самый случай, с которого началась правка. */
+  function fitShelves() {
+    document.querySelectorAll('.shelf-row').forEach(function (shelf) {
+      var grid = shelf.querySelector('.ptile-grid, .vacancy-list');
+      if (!grid) return;
+      var kids = Array.prototype.filter.call(grid.children, function (el) { return el.nodeType === 1; });
+      kids.forEach(function (el) { el.classList.remove('shelf-off'); });
+
+      var tile = null, cards = [];
+      kids.forEach(function (el) {
+        if (/view-all/.test(el.className)) tile = el; else cards.push(el);
+      });
+      if (cards.length < 2) return;
+
+      /* ёмкость строки — по позициям плиток после сброса */
+      var tops = {};
+      kids.forEach(function (el) {
+        var t = Math.round(el.getBoundingClientRect().top);
+        tops[t] = (tops[t] || 0) + 1;
+      });
+      var perRow = tops[Object.keys(tops)[0]] || 4;
+      if (perRow < 2) return;
+
+      var target = perRow - (tile ? 1 : 0);          /* одна полная строка */
+      while (target + perRow <= cards.length) target += perRow;
+      /* Больше семи карточек в полке — уже не витрина, а стена: обрезаем
+         на целую строку назад, пока не уложимся в семь. */
+      while (target > 7) target -= perRow;
+      if (target === 4) target = 3;                 /* четвёрку не показываем */
+      if (target > cards.length) target = (cards.length === 4) ? 3 : cards.length;
+      if (target < 1) target = Math.min(cards.length, 3);
+
+      cards.forEach(function (el, i) { el.classList.toggle('shelf-off', i >= target); });
+    });
+  }
+
+  function initShelfFit() {
+    var host = document.querySelector('[id$="-home"], .main');
+    if (!host) return;
+    var timer = null;
+    var schedule = function () { clearTimeout(timer); timer = setTimeout(fitShelves, 60); };
+    new MutationObserver(schedule).observe(host, { childList: true, subtree: true });
+    window.addEventListener('resize', schedule);
+    schedule();
+  }
+
   function init() {
     var right = document.querySelector('.topbar-right');
     if (right) right.insertBefore(buildToggle(), right.firstChild);
@@ -880,6 +934,7 @@
     initChain();
     initContext();
     initPager();
+    initShelfFit();
 
     /* 6. Эмодзи → SVG */
     var BLOCK_SEL = '.cat-icon, .out-icon, .f-icon, .thumb, .cat-icon.line-icon';

@@ -1838,7 +1838,7 @@ function buildHomeView() {
     var href = row.key ? 'skills.html?category=' + encodeURIComponent(row.key) : 'skills.html?view=all';
     html += '<div class="shelf-row"><div class="shelf-row-title"><span>' + row.title + '</span></div>'
       + '<div class="' + listClass + '">';
-    row.cards.slice(0, 4).forEach(function (card) {
+    row.cards.slice(0, 8).forEach(function (card) {
       var clone = card.cloneNode(true);
       clone.style.display = '';
       html += clone.outerHTML;
