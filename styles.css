@@ -1643,3 +1643,13 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .checklist li.done { color: var(--slate-light); text-decoration: line-through; }
 .checklist input { margin-top: 2px; flex: none; }
 .checklist-progress { font: 600 11.5px/1 'Manrope', sans-serif; color: var(--teal-dark); margin-top: 6px; }
+
+/* «+» в строке вкладок — открывает каталог расширений (модулей) */
+.tab-add {
+  margin-left: 6px; width: 24px; height: 24px; flex: none; align-self: center;
+  border-radius: 7px; border: 1px solid var(--line);
+  background: var(--surface-2); color: var(--slate);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; font: 700 14px/1 'Manrope', sans-serif;
+}
+.tab-add:hover { border-color: var(--teal); color: var(--teal); }

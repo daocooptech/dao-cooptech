@@ -68,9 +68,11 @@
   </aside>
   <main class="main" id="main">
 
-    <div class="entity-tabs">
+    <div class="entity-tabs" id="org-tabs">
       <a href="organizations.html">Каталог организаций</a>
-      <a href="organization.html" class="active">Об организации</a>
+      <a href="organization.html" class="active" data-pane="about">Об организации</a>
+      <!-- вкладки подключённых модулей подставляет скрипт внизу страницы -->
+      <button class="tab-add" id="org-add-module" type="button" title="Подключить модуль из каталога расширений" aria-label="Каталог расширений">+</button>
     </div>
 
     <div class="profile-layout">
@@ -246,6 +248,99 @@
       </div>
     </div>
 
+    <!-- Панели подключённых модулей. Показываются вместо карточки организации,
+         когда выбрана соответствующая вкладка (см. скрипт внизу страницы). -->
+    <div id="org-module-panes">
+
+      <section class="module-pane" data-pane="docs" hidden>
+        <div class="card" style="padding:16px 18px">
+          <div class="section-title" style="margin-top:0">Документы и ЭДО <span class="badge teal">модуль подключён</span></div>
+          <p style="color:var(--slate);font-size:12.5px;margin:0 0 12px">Договоры, счета и акты собираются из сделок организации автоматически: номер, дата и стороны берутся из документа сделки, подписывать нужно только один раз.</p>
+          <table class="doc-table res-table">
+            <thead><tr><th>Документ</th><th>Сделка</th><th>Контрагент</th><th>Дата</th><th>Подписи</th></tr></thead>
+            <tbody>
+              <tr><td>Договор поставки № СД-2026-000124</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>24.08.2026</td><td><span class="badge teal">обе стороны</span></td></tr>
+              <tr><td>Счёт на оплату № 124</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>24.08.2026</td><td><span class="badge outline">не требует</span></td></tr>
+              <tr><td>Акт приёма-передачи</td><td><a href="deal.html">СД-2026-000124</a></td><td>Кооператив «Шукты»</td><td>28.08.2026</td><td><span class="badge gold">ждёт вторую сторону</span></td></tr>
+              <tr><td>Договор аренды № СД-2026-000118</td><td>СД-2026-000118</td><td>ЗАО «СтройТехно»</td><td>12.08.2026</td><td><span class="badge teal">обе стороны</span></td></tr>
+            </tbody>
+          </table>
+          <p class="unit-hint" style="margin:12px 0 0">Электронная подпись в прототипе показана как подтверждение обеими сторонами — как именно она будет устроена технически, решается отдельно.</p>
+        </div>
+      </section>
+
+      <section class="module-pane" data-pane="approve" hidden>
+        <div class="card" style="padding:16px 18px">
+          <div class="section-title" style="margin-top:0">Согласования <span class="badge teal">модуль подключён</span></div>
+          <p style="color:var(--slate);font-size:12.5px;margin:0 0 12px">Решения идут по маршруту, а не в личной переписке: видно, у кого заявка сейчас и сколько она ждёт.</p>
+          <table class="doc-table res-table">
+            <thead><tr><th>Заявка</th><th>Инициатор</th><th>Этап</th><th>Ждёт</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Закупка сырья на сентябрь, 480 000 ₽</td><td>Отдел снабжения</td><td>Директор</td><td>2 дня</td><td><button class="button secondary" type="button" style="padding:5px 12px;font-size:11.5px">Согласовать</button></td></tr>
+              <tr><td>Скидка 12% постоянному покупателю</td><td>Отдел продаж</td><td>Бухгалтерия</td><td>1 день</td><td><button class="button secondary" type="button" style="padding:5px 12px;font-size:11.5px">Согласовать</button></td></tr>
+              <tr><td>Списание тары, 14 ящиков</td><td>Склад</td><td>Согласовано</td><td>—</td><td><span class="badge teal">закрыта</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="module-pane" data-pane="booking" hidden>
+        <div class="card" style="padding:16px 18px">
+          <div class="section-title" style="margin-top:0">Бронирование ресурсов <span class="badge teal">модуль подключён</span></div>
+          <p style="color:var(--slate);font-size:12.5px;margin:0 0 12px">Общая техника и помещения в одном календаре: занято — значит занято, спорить не о чем.</p>
+          <table class="doc-table res-table">
+            <thead><tr><th>Ресурс</th><th>Пн 1.09</th><th>Вт 2.09</th><th>Ср 3.09</th><th>Чт 4.09</th><th>Пт 5.09</th></tr></thead>
+            <tbody>
+              <tr><td>Термофургон</td><td><span class="badge teal">развоз</span></td><td>—</td><td><span class="badge teal">развоз</span></td><td>—</td><td><span class="badge gold">ремонт</span></td></tr>
+              <tr><td>Цех фасовки</td><td><span class="badge teal">смена</span></td><td><span class="badge teal">смена</span></td><td><span class="badge teal">смена</span></td><td>—</td><td><span class="badge teal">смена</span></td></tr>
+              <tr><td>Переговорная</td><td>—</td><td><span class="badge teal">правление 14:00</span></td><td>—</td><td>—</td><td><span class="badge teal">приёмка 10:00</span></td></tr>
+            </tbody>
+          </table>
+          <button class="button" type="button" style="margin-top:12px">Забронировать</button>
+        </div>
+      </section>
+
+      <section class="module-pane" data-pane="exchange" hidden>
+        <div class="card" style="padding:16px 18px">
+          <div class="section-title" style="margin-top:0">Обмен с 1С <span class="badge teal">модуль подключён</span></div>
+          <p style="color:var(--slate);font-size:12.5px;margin:0 0 12px">Бухгалтерия остаётся в 1С, платформа даёт витрину и сделки. Обмен двусторонний, по расписанию.</p>
+          <div class="stock-row">
+            <div class="stock-cell free"><div class="stock-num">сегодня 06:00</div><div class="stock-label">Последний обмен</div></div>
+            <div class="stock-cell"><div class="stock-num">1 240</div><div class="stock-label">Позиций номенклатуры</div></div>
+            <div class="stock-cell"><div class="stock-num">86</div><div class="stock-label">Контрагентов</div></div>
+            <div class="stock-cell reserved"><div class="stock-num">2</div><div class="stock-label">Расхождения, требуют решения</div></div>
+          </div>
+          <table class="doc-table res-table" style="margin-top:14px">
+            <thead><tr><th>Что синхронизируется</th><th>Направление</th><th>Последняя выгрузка</th><th>Статус</th></tr></thead>
+            <tbody>
+              <tr><td>Номенклатура и единицы измерения</td><td>1С → платформа</td><td>сегодня 06:00</td><td><span class="badge teal">ок</span></td></tr>
+              <tr><td>Контрагенты и реквизиты</td><td>двусторонне</td><td>сегодня 06:00</td><td><span class="badge teal">ок</span></td></tr>
+              <tr><td>Документы сделок (счета, акты)</td><td>платформа → 1С</td><td>сегодня 06:00</td><td><span class="badge gold">2 расхождения</span></td></tr>
+              <tr><td>Остатки по складу</td><td>1С → платформа</td><td>сегодня 06:00</td><td><span class="badge teal">ок</span></td></tr>
+            </tbody>
+          </table>
+          <p class="unit-hint" style="margin:12px 0 0">При расхождении источником истины считается 1С по деньгам и остаткам, платформа — по сделкам и отзывам. Это ещё не утверждённое решение, вопрос вынесен на <code>decentralized-dev</code>.</p>
+        </div>
+      </section>
+
+      <section class="module-pane" data-pane="kb" hidden>
+        <div class="card" style="padding:16px 18px">
+          <div class="section-title" style="margin-top:0">База знаний <span class="badge teal">модуль подключён</span></div>
+          <p style="color:var(--slate);font-size:12.5px;margin:0 0 12px">Устав, регламенты и инструкции с версиями — чтобы «как у нас принято» не жило в голове у одного человека.</p>
+          <table class="doc-table res-table">
+            <thead><tr><th>Документ</th><th>Раздел</th><th>Версия</th><th>Обновлён</th></tr></thead>
+            <tbody>
+              <tr><td>Устав организации</td><td>Учредительные документы</td><td>ред. 4</td><td>28.02.2026</td></tr>
+              <tr><td>Регламент приёмки сырья</td><td>Производство</td><td>ред. 7</td><td>14.08.2026</td></tr>
+              <tr><td>Инструкция по работе с термофургоном</td><td>Логистика</td><td>ред. 2</td><td>03.07.2026</td></tr>
+              <tr><td>Шаблон договора поставки</td><td>Документы</td><td>ред. 3</td><td>24.08.2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
   </main>
 </div>
 
@@ -374,5 +469,52 @@ document.querySelectorAll('.cat-nav').forEach(function (btn) {
 })();
 </script>
 <script src="app.js"></script>
+
+<script>
+(function () {
+  var M = window.CoopModules;
+  if (!M) return;
+  var tabs = document.getElementById('org-tabs');
+  var addBtn = document.getElementById('org-add-module');
+  var about = document.querySelector('.profile-layout');
+  var panes = document.getElementById('org-module-panes');
+
+  addBtn.addEventListener('click', function () { location.href = 'extensions.html'; });
+
+  /* Вкладку получает только подключённый модуль, помеченный как «для организации».
+     У модуля со своей страницей вкладка ведёт на неё, у остального — на панель здесь. */
+  M.all.forEach(function (m) {
+    if (!m.org || !M.isOn(m.id)) return;
+    var el;
+    if (m.page) {
+      el = document.createElement('a');
+      el.href = m.page;
+    } else {
+      el = document.createElement('a');
+      el.href = '#';
+      el.setAttribute('data-pane', m.id);
+    }
+    el.textContent = m.name;
+    tabs.insertBefore(el, addBtn);
+  });
+
+  function open(pane) {
+    tabs.querySelectorAll('[data-pane]').forEach(function (t) {
+      t.classList.toggle('active', t.getAttribute('data-pane') === pane);
+    });
+    about.hidden = pane !== 'about';
+    document.querySelectorAll('.cat-row').forEach(function (r) { r.hidden = pane !== 'about'; });
+    panes.querySelectorAll('.module-pane').forEach(function (s) {
+      s.hidden = s.getAttribute('data-pane') !== pane;
+    });
+  }
+  tabs.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-pane]');
+    if (!t) return;
+    e.preventDefault();
+    open(t.getAttribute('data-pane'));
+  });
+})();
+</script>
 </body>
 </html>

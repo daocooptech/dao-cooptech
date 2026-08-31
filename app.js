@@ -322,6 +322,68 @@
     onChange: function (fn) { favSubs.push(fn); }
   };
 
+
+  /* ── Каталог расширений ────────────────────────────────────
+     Единый список модулей платформы: из него рисуется каталог
+     (extensions.html) и вкладки подключённых модулей на странице
+     организации. Что подключено — в localStorage, как в Odoo Apps:
+     модуль ставится один раз и дальше живёт вкладкой в интерфейсе. */
+  var MODULES = [
+    { id: 'stock',    name: 'Склад',                  cat: 'Учёт',        page: 'ext-warehouse.html',             org: true,
+      desc: 'Остатки, партии и резервы. Показывает, сколько ресурса свободно, а сколько уже обещано по сделкам.' },
+    { id: 'docs',     name: 'Документы и ЭДО',        cat: 'Учёт',        page: '',                        org: true,
+      desc: 'Договоры, счета и акты из сделок, подписание обеими сторонами, хранение с номерами и датами.' },
+    { id: 'approve',  name: 'Согласования',           cat: 'Процессы',    page: '',                        org: true,
+      desc: 'Маршруты решений: приём в пайщики, выделение техники, выплаты. Видно, кто высказался и кто следующий.' },
+    { id: 'reports',  name: 'Отчёты',                 cat: 'Учёт',        page: 'ext-analytics.html',      org: true,
+      desc: 'Обороты по ресурсам, участникам и проектам за период, выгрузка в таблицу.' },
+    { id: 'booking',  name: 'Бронирование ресурсов',  cat: 'Процессы',    page: '',                        org: true,
+      desc: 'Календарь общей техники и помещений: трактор, цех, переговорная — без пересечений и споров.' },
+    { id: 'buying',   name: 'Совместные закупки',     cat: 'Сбыт',        page: 'ext-group-buying.html',   org: true,
+      desc: 'Общая закупка нескольких участников: чем больше объём, тем ниже цена за единицу.' },
+    { id: 'programs', name: 'Целевые программы ПК',   cat: 'Сбыт',        page: 'ext-programs.html',       org: false,
+      desc: 'Программы потребкооперации: участие, отчётность, распределение по участникам.' },
+    { id: 'assets',   name: 'Цифровые активы',        cat: 'Финансы',     page: 'digital-assets.html',     org: false,
+      desc: 'Учёт ЦФА и токенов платформы в кошельке организации.' },
+    { id: 'intang',   name: 'Нематериальные активы',  cat: 'Финансы',     page: 'intangible-assets.html',  org: false,
+      desc: 'Реестр прав, лицензий и разработок по ФСБУ 14/2022.' },
+    { id: 'events',   name: 'События',                cat: 'Сообщество',  page: 'ext-events.html',         org: false,
+      desc: 'Встречи, ярмарки, собрания: анонсы, запись участников, напоминания.' },
+    { id: 'edu',      name: 'Образование',            cat: 'Сообщество',  page: 'ext-education.html',      org: false,
+      desc: 'Курсы и обучение участников, зачёт пройденного в навыки профиля.' },
+    { id: 'auction',  name: 'Аукционы',               cat: 'Сбыт',        page: 'ext-auctions.html',       org: false,
+      desc: 'Продажа ресурсов на повышение и на понижение, когда цена неочевидна.' },
+    { id: 'library',  name: 'Библиотеки',             cat: 'Сообщество',  page: 'ext-libraries.html',      org: false,
+      desc: 'Библиотеки инструментов и вещей общего пользования с очередью и залогом.' },
+    { id: 'drive',    name: 'Диск',                   cat: 'Сообщество',  page: 'ext-drive.html',          org: false,
+      desc: 'Общие файлы организации и проектов с версиями.' },
+    { id: 'health',   name: 'Здоровье',               cat: 'Сообщество',  page: 'ext-health.html',         org: false,
+      desc: 'Медосмотры, страхование и взаимопомощь участников.' },
+    { id: 'exchange', name: 'Обмен с 1С',             cat: 'Интеграции',  page: '',                        org: true,
+      desc: 'Двусторонний обмен с 1С:Предприятием: номенклатура, контрагенты, документы. Бухгалтерия остаётся в 1С.' },
+    { id: 'api',      name: 'API и вебхуки',          cat: 'Интеграции',  page: '',                        org: false,
+      desc: 'Открытый REST API и уведомления во внешние системы кооператива.' },
+    { id: 'kb',       name: 'База знаний',            cat: 'Сообщество',  page: '',                        org: true,
+      desc: 'Устав, регламенты и инструкции организации с версиями и поиском.' }
+  ];
+  var DEFAULT_ON = ['stock', 'docs'];
+  window.CoopModules = {
+    all: MODULES,
+    connected: function () {
+      try {
+        var v = JSON.parse(localStorage.getItem('cooptech_modules') || 'null');
+        return v && v.length !== undefined ? v : DEFAULT_ON.slice();
+      } catch (e) { return DEFAULT_ON.slice(); }
+    },
+    isOn: function (id) { return this.connected().indexOf(id) >= 0; },
+    toggle: function (id) {
+      var list = this.connected(), i = list.indexOf(id);
+      if (i >= 0) list.splice(i, 1); else list.push(id);
+      try { localStorage.setItem('cooptech_modules', JSON.stringify(list)); } catch (e) {}
+      return list.indexOf(id) >= 0;
+    }
+  };
+
   function init() {
     var right = document.querySelector('.topbar-right');
     if (right) right.insertBefore(buildToggle(), right.firstChild);
@@ -353,7 +415,8 @@
         ea.type = 'button';
         ea.title = 'Подключить расширение';
         ea.innerHTML = I.plus;
-        ea.addEventListener('click', function (e) { e.preventDefault(); location.href = 'ext-programs.html'; });
+        ea.setAttribute('aria-label', 'Каталог расширений');
+        ea.addEventListener('click', function (e) { e.preventDefault(); location.href = 'extensions.html'; });
         extTitle.appendChild(ea);
       }
     }
