@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Склад — cooptech</title>
+<script src="theme-init.js"></script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="topbar-left">
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
+    <a class="topbar-bell" href="notifications.html" aria-label="Уведомления: 3 новых"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15.4V10a6 6 0 10-12 0v5.4L4.6 18h14.8M10 20.4a2 2 0 004 0"/></svg><span class="bell-count">3</span></a>
+    <a class="topbar-ico" href="settings.html" aria-label="Настройки" title="Настройки"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.1a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2M19.3 12c0-.4 0-.8-.1-1.2l1.9-1.5-1.9-3.3-2.3 1c-.6-.5-1.2-.9-1.9-1.1L14.6 3.4h-3.8l-.4 2.5c-.7.2-1.3.6-1.9 1.1l-2.3-1-1.9 3.3L6.2 10.8a7 7 0 000 2.4l-1.9 1.5 1.9 3.3 2.3-1c.6.5 1.2.9 1.9 1.1l.4 2.5h3.8l.4-2.5c.7-.2 1.3-.6 1.9-1.1l2.3 1 1.9-3.3-1.9-1.5c.1-.4.1-.8.1-1.2z"/></svg></a>
+    <a class="topbar-ico" href="index.html" aria-label="Выйти" title="Выйти"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.4 7.4V5.6a1.6 1.6 0 00-1.6-1.6H5.6A1.6 1.6 0 004 5.6v12.8a1.6 1.6 0 001.6 1.6h7.2a1.6 1.6 0 001.6-1.6v-1.8M9.6 12h10.8M17.4 8.8l3.2 3.2-3.2 3.2"/></svg></a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
+      <a href="my-page.html" data-icon="my-page">Моя страница</a>
+      <a href="messages.html" data-icon="messages">Сообщения</a>
+      <a href="people.html" data-icon="people">Люди</a>
+      <a href="skills.html" data-icon="skills">Навыки</a>
+      <a href="vacancies.html" data-icon="vacancies">Вакансии</a>
+      <a href="resources.html" data-icon="resources">Ресурсы</a>
+      <a href="projects.html" data-icon="projects">Проекты</a>
+      <a href="organizations.html" data-icon="organizations">Организации</a>
+      <a href="communities.html" data-icon="communities">Сообщества</a>
+      <a href="wallet.html" data-icon="wallet">Кошелёк</a>
+      <a href="deals.html" data-icon="deals">Сделки</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav aria-label="Расширения">
+      <a href="digital-assets.html">Цифровые активы</a>
+      <a href="intangible-assets.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-warehouse.html" class="active">Склад</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+
+    <h1 class="page-title" style="margin-bottom:14px">Склад</h1>
+
+    <div class="entity-tabs" id="wh-tabs">
+      <a href="#" class="active" data-tab="my">Мои склады <span class="badge outline">3</span></a>
+      <a href="#" data-tab="market">Биржа мощностей <span class="badge outline">13</span></a>
+      <a href="#" data-tab="agreements">Договорённости <span class="badge outline">6</span></a>
+    </div>
+
+    <!-- ==================== МОИ СКЛАДЫ ==================== -->
+    <div id="tab-my">
+
+      <div class="deal-strip">
+        <span><b>3</b> склада</span>
+        <span><b>1 820 м²</b> и <b>90</b> паллетомест всего</span>
+        <span>занято <b>71%</b></span>
+        <span>свободно <b>546 м²</b> и <b>16</b> паллетомест</span>
+        <span>поступления за август <b>148 000 ₽</b></span>
+        <a href="#" data-goto-tab="market">выставить свободное на биржу &rarr;</a>
+      </div>
+
+      <div class="search-row">
+        <input class="input" id="wh-my-search" placeholder="Название склада или город">
+        <button class="button" type="button" id="add-wh-btn" style="margin-left:auto">Добавить склад</button>
+      </div>
+
+      <div class="wh-list" id="wh-my-list"></div>
+      <div class="empty-state" id="wh-my-empty" hidden>Среди ваших складов ничего не нашлось. <a href="#" id="wh-my-reset">Сбросить поиск</a></div>
+
+    </div>
+
+    <!-- ==================== БИРЖА МОЩНОСТЕЙ ==================== -->
+    <div id="tab-market" hidden>
+
+      <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 18px">Биржа складских мощностей — обмен напрямую между участниками: у одного склад простаивает, другому негде хранить партию. Платформа не берёт мощности на себя и не перепродаёт их: она сводит стороны и фиксирует условия в обычной сделке.</p>
+
+      <div class="intro-cards">
+        <div class="intro-card">
+          <div class="intro-card-title">📅 Аренда</div>
+          <div class="intro-card-text">Платите за площадь или паллетоместо деньгами — помесячно или посуточно. Самый простой вариант, когда место нужно ненадолго.</div>
+        </div>
+        <div class="intro-card">
+          <div class="intro-card-title">📦 Ответственное хранение</div>
+          <div class="intro-card-text">Владелец не просто даёт место, а принимает, учитывает и отгружает ваш товар. Дороже аренды, зато не нужен свой кладовщик.</div>
+        </div>
+        <div class="intro-card">
+          <div class="intro-card-title">🤝 Участие в проекте</div>
+          <div class="intro-card-text">Вместо оплаты владелец склада берёт долю в вашем проекте. Место работает как вклад, а не как счёт — деньги остаются в обороте.</div>
+        </div>
+        <div class="intro-card">
+          <div class="intro-card-title">💰 Выкуп и пай</div>
+          <div class="intro-card-text">Блок склада можно выкупить целиком или войти паем вместе с другими: тогда мощности закрепляются за пайщиком бессрочно.</div>
+        </div>
+        <div class="intro-card">
+          <div class="intro-card-title">🔄 Обмен мощностями</div>
+          <div class="intro-card-text">Без денег вообще: у вас лишний сухой склад, у соседа — морозильная камера. Меняетесь на сопоставимый объём и срок.</div>
+        </div>
+      </div>
+
+      <div class="search-row" style="flex-wrap:wrap">
+        <input class="input" id="wh-search" placeholder="Что или где ищете, например «морозильная камера»">
+        <div class="chip-toggle-group" id="wh-side">
+          <button class="chip-toggle selected" type="button" data-side="offer">Предлагают мощности</button>
+          <button class="chip-toggle" type="button" data-side="demand">Ищут мощности</button>
+        </div>
+        <span style="color:var(--slate);font-size:12.5px">Найдено: <b id="wh-count">8</b></span>
+        <button class="button secondary" type="button" id="publish-btn" style="margin-left:auto">Выставить мощности</button>
+      </div>
+
+      <div class="content-with-filter">
+        <div style="flex:1;min-width:0">
+          <div class="wh-grid" id="wh-grid"></div>
+          <div class="empty-state" id="wh-empty" hidden>Ничего не нашлось по заданным фильтрам. <a href="#" id="wh-filter-reset">Сбросить фильтры</a></div>
+        </div>
+        <div class="filter-panel">
+          <div class="section-title">Фильтр</div>
+          <div class="field">
+            <label>Город</label>
+            <input class="input" id="f-city" list="city-options" placeholder="Начните вводить город">
+            <datalist id="city-options"><option value="Владивосток"><option value="Волгоград"><option value="Воронеж"><option value="Екатеринбург"><option value="Ишим"><option value="Казань"><option value="Кемерово"><option value="Краснодар"><option value="Красноярск"><option value="Москва"><option value="Нижний Новгород"><option value="Новосибирск"><option value="Омск"><option value="Пермь"><option value="Ростов-на-Дону"><option value="Самара"><option value="Санкт-Петербург"><option value="Тобольск"><option value="Тюмень"><option value="Уфа"><option value="Хабаровск"><option value="Челябинск"><option value="Ярославль"></datalist>
+          </div>
+          <div class="field">
+            <label>Тип хранения <span class="stat-note" title="Температурный режим и условия: от открытой площадки до морозильной камеры">ⓘ</span></label>
+            <select class="input" id="f-kind">
+              <option value="">Любой</option>
+              <option value="heated">Сухой отапливаемый</option>
+              <option value="dry">Сухой неотапливаемый</option>
+              <option value="chill">Холодильная камера, +2…+6 °C</option>
+              <option value="freeze">Морозильная камера, −18 °C</option>
+              <option value="open">Открытая площадка</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Условие <span class="stat-note" title="На каких условиях передаются мощности: деньгами, долей в проекте, паем, выкупом или обменом">ⓘ</span></label>
+            <select class="input" id="f-term">
+              <option value="">Любое</option>
+              <option value="rent">Аренда</option>
+              <option value="custody">Ответственное хранение</option>
+              <option value="project">Участие в проекте</option>
+              <option value="buyout">Выкуп</option>
+              <option value="share">Пай (долевой выкуп)</option>
+              <option value="barter">Обмен мощностями</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Срок</label>
+            <select class="input" id="f-period">
+              <option value="">Любой</option>
+              <option value="short">До 3 месяцев</option>
+              <option value="long">От 3 месяцев</option>
+              <option value="forever">Бессрочно</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Кто по ту сторону</label>
+            <select class="input" id="f-party">
+              <option value="">Любой</option>
+              <option value="Человек">Человек</option>
+              <option value="Организация">Организация</option>
+            </select>
+          </div>
+          <button class="button secondary" type="button" id="f-reset" style="width:100%">Сбросить</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================== ДОГОВОРЁННОСТИ ==================== -->
+    <div id="tab-agreements" hidden>
+
+      <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 18px">Всё, о чём вы договорились по складу: и то, что сдаёте вы, и то, что берёте у других. Каждая строка — обычная сделка платформы: она попадает в реестр, по ней идёт переписка, а после завершения обе стороны оставляют отзывы.</p>
+
+      <table class="res-table">
+        <thead>
+          <tr><th>Объект</th><th>Роль</th><th>Контрагент</th><th>Условие</th><th>Объём</th><th>Срок</th><th>Статус</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Склад на Мельникайте, зона A</td>
+            <td>Сдаю</td>
+            <td><a href="organization.html">ООО «Кооп-Маркет»</a></td>
+            <td>Аренда, 420 ₽/м² в месяц</td>
+            <td>200 м²</td>
+            <td>до 31.12.2026</td>
+            <td><span class="badge teal">Действует</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+          <tr>
+            <td>Морозильная камера при цехе</td>
+            <td>Сдаю</td>
+            <td><a href="person.html">Смирнова Екатерина Андреевна</a></td>
+            <td>Ответственное хранение, 240 ₽/паллетоместо в сутки</td>
+            <td>40 паллетомест</td>
+            <td>бессрочно</td>
+            <td><span class="badge teal">Действует</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+          <tr>
+            <td>Открытая площадка «Заводская»</td>
+            <td>Сдаю</td>
+            <td><a href="organization.html">Артель «Уральские мастера»</a></td>
+            <td>Аренда, 110 ₽/м² в месяц</td>
+            <td>550 м²</td>
+            <td>до 30.04.2027</td>
+            <td><span class="badge teal">Действует</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+          <tr>
+            <td>Складской модуль в технопарке, Новосибирск</td>
+            <td>Беру</td>
+            <td><a href="organization-nonprofit.html">Фонд «Территория 2020»</a></td>
+            <td>Участие в проекте, доля 12%</td>
+            <td>180 м²</td>
+            <td>12 месяцев</td>
+            <td><span class="badge gold">На согласовании</span></td>
+            <td><a class="deal-link" href="messages.html">Переписка →</a></td>
+          </tr>
+          <tr>
+            <td>Холодильная камера +2…+6 °C, Пермь</td>
+            <td>Беру</td>
+            <td><a href="organization.html">ООО «АгроСтрой»</a></td>
+            <td>Пай 1/20 в складском блоке</td>
+            <td>8 паллетомест</td>
+            <td>бессрочно</td>
+            <td><span class="badge outline">Заявка отправлена</span></td>
+            <td><a class="deal-link" href="messages.html">Переписка →</a></td>
+          </tr>
+          <tr>
+            <td>Гаражный бокс под инструмент, Ишим</td>
+            <td>Беру</td>
+            <td><a href="person.html">Лебедева Ольга Игоревна</a></td>
+            <td>Аренда, 300 ₽/м² в месяц</td>
+            <td>60 м²</td>
+            <td>завершён 31.07.2026</td>
+            <td><span class="badge slate">Завершена</span></td>
+            <td><a class="deal-link" href="deal.html">Открыть сделку →</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- Добавить свой склад -->
+<div class="modal-overlay" id="add-wh-modal" hidden>
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2>Добавить склад</h2>
+      <button class="modal-close" id="add-wh-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Склад — такой же ресурс платформы, как техника или помещение: он появится в вашем профиле и в каталоге ресурсов. Свободные мощности потом можно выставить на биржу — отдельным решением, а не автоматически.</p>
+    <div class="field">
+      <label>Название</label>
+      <input class="input" id="nw-name" placeholder="Например, Склад на Мельникайте">
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Город</label>
+        <input class="input" id="nw-city" list="city-options" placeholder="Начните вводить город">
+      </div>
+      <div class="field">
+        <label>Тип хранения</label>
+        <select class="input" id="nw-kind">
+          <option value="heated">Сухой отапливаемый</option>
+          <option value="dry">Сухой неотапливаемый</option>
+          <option value="chill">Холодильная камера, +2…+6 °C</option>
+          <option value="freeze">Морозильная камера, −18 °C</option>
+          <option value="open">Открытая площадка</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Ёмкость</label>
+        <input class="input" id="nw-total" type="number" min="1" placeholder="Например, 620">
+      </div>
+      <div class="field">
+        <label>Единица учёта</label>
+        <select class="input" id="nw-unit">
+          <option value="м²">м²</option>
+          <option value="паллетомест">паллетоместа</option>
+          <option value="т">тонны</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Сколько заняли под своё</label>
+      <input class="input" id="nw-own" type="number" min="0" placeholder="Остальное платформа посчитает свободным">
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="add-wh-cancel" type="button">Отмена</button>
+      <button class="button" id="add-wh-save" type="button">Добавить склад</button>
+    </div>
+  </div>
+</div>
+
+<!-- Выставить мощности на биржу -->
+<div class="modal-overlay" id="publish-modal" hidden>
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2 id="publish-title">Выставить мощности на биржу</h2>
+      <button class="modal-close" id="publish-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Отметьте условия, на которых вы готовы отдать свободное место. Можно указать сразу несколько — тот, кто откликнется, выберет подходящее, а окончательные цифры вы согласуете в переписке.</p>
+    <div class="field">
+      <label>Какой склад</label>
+      <select class="input" id="pb-warehouse"></select>
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label>Сколько выставляем</label>
+        <input class="input" id="pb-amount" type="number" min="1" placeholder="Не больше свободного остатка">
+      </div>
+      <div class="field">
+        <label>Срок</label>
+        <select class="input" id="pb-period">
+          <option value="short">До 3 месяцев</option>
+          <option value="long" selected>От 3 месяцев</option>
+          <option value="forever">Бессрочно</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Условия, которые готовы рассмотреть</label>
+      <div class="chip-toggle-group" id="pb-terms">
+        <button class="chip-toggle selected" type="button" data-term="rent">Аренда</button>
+        <button class="chip-toggle" type="button" data-term="custody">Ответственное хранение</button>
+        <button class="chip-toggle" type="button" data-term="project">Участие в проекте</button>
+        <button class="chip-toggle" type="button" data-term="buyout">Выкуп</button>
+        <button class="chip-toggle" type="button" data-term="share">Пай</button>
+        <button class="chip-toggle" type="button" data-term="barter">Обмен мощностями</button>
+      </div>
+    </div>
+    <div class="field">
+      <label>Цена или встречное условие</label>
+      <input class="input" id="pb-price" placeholder="Например, 420 ₽/м² в месяц, либо доля 8% в проекте">
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="publish-cancel" type="button">Отмена</button>
+      <button class="button" id="publish-save" type="button">Выставить на биржу</button>
+    </div>
+  </div>
+</div>
+
+<!-- Откликнуться на предложение -->
+<div class="modal-overlay" id="respond-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="respond-title">Отклик</h2>
+      <button class="modal-close" id="respond-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint" id="respond-hint"></p>
+    <div class="field">
+      <label>На каком условии</label>
+      <div class="chip-toggle-group" id="respond-terms"></div>
+    </div>
+    <div class="form-two-col">
+      <div class="field">
+        <label id="respond-amount-label">Сколько нужно</label>
+        <input class="input" id="respond-amount" type="number" min="1" value="100">
+      </div>
+      <div class="field">
+        <label>С какого месяца</label>
+        <select class="input" id="respond-start">
+          <option>Сентябрь 2026</option>
+          <option>Октябрь 2026</option>
+          <option>Ноябрь 2026</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Сообщение владельцу</label>
+      <textarea class="input" id="respond-text" rows="3" placeholder="Что храните, как часто отгружаете, нужен ли доступ по выходным"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="respond-cancel" type="button">Отмена</button>
+      <button class="button" id="respond-save" type="button">Отправить отклик</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="wh-toast">✓ Готово</div>
+
+<script>
+(function () {
+
+  /* ── Справочники ────────────────────────────────────────────
+     KINDS — тип хранения (он же значение фильтра «Тип хранения»),
+     TERMS — условия передачи мощностей: те же шесть, что в фильтре,
+     в модалке «Выставить мощности» и в подписях карточек. */
+  var KINDS = {
+    heated: 'Сухой отапливаемый',
+    dry: 'Сухой неотапливаемый',
+    chill: 'Холодильная камера, +2…+6 °C',
+    freeze: 'Морозильная камера, −18 °C',
+    open: 'Открытая площадка'
+  };
+  var TERMS = {
+    rent: 'Аренда',
+    custody: 'Ответственное хранение',
+    project: 'Участие в проекте',
+    buyout: 'Выкуп',
+    share: 'Пай (долевой выкуп)',
+    barter: 'Обмен мощностями'
+  };
+  var PERIODS = { short: 'до 3 месяцев', long: 'от 3 месяцев', forever: 'бессрочно' };
+
+  /* ── Мои склады ─────────────────────────────────────────── */
+  var MY = [
+    {
+      id: 'melnikayte',
+      name: 'Склад на Мельникайте',
+      city: 'Тюмень',
+      address: 'ул. Мельникайте, 100',
+      photo: 'images/photos/warehouse.jpg',
+      kind: 'heated',
+      unit: 'м²',
+      total: 620, own: 240, rented: 200,
+      published: 180,
+      income: '84 000 ₽ в месяц',
+      specs: ['Высота потолка <b>6 м</b>', 'Рампа и док-левеллер', 'Стеллажи, 3 яруса', 'Охрана <b>24/7</b>', 'Учёт по партиям'],
+      zones: [
+        { name: 'Зона A — стеллажное хранение', cap: '260 м²', busy: '200 м²', who: 'ООО «Кооп-Маркет»', link: 'organization.html', term: 'Аренда, 420 ₽/м² в месяц, до 31.12.2026' },
+        { name: 'Зона B — своё производство', cap: '240 м²', busy: '240 м²', who: 'Пельменный цех — ваша партия', link: 'resource.html', term: 'Своё, не сдаётся' },
+        { name: 'Зона C — напольное хранение', cap: '120 м²', busy: '0 м²', who: '—', link: '', term: 'Свободно, выставлено на биржу' }
+      ]
+    },
+    {
+      id: 'freezer',
+      name: 'Морозильная камера при цехе',
+      city: 'Тюмень',
+      address: 'ул. Мельникайте, 100, корпус 2',
+      photo: 'images/photos/chest-freezer.jpg',
+      kind: 'freeze',
+      unit: 'паллетомест',
+      total: 90, own: 34, rented: 40,
+      published: 16,
+      income: '288 000 ₽ в месяц',
+      specs: ['Режим <b>−18 °C</b>', 'Резервный дизель-генератор', 'Термограф с выгрузкой', 'Приёмка и отгрузка силами склада'],
+      zones: [
+        { name: 'Камера 1 — своя продукция', cap: '34 паллетоместа', busy: '34', who: 'Пельмени домашней лепки', link: 'resource.html', term: 'Своё, не сдаётся' },
+        { name: 'Камера 2 — ответственное хранение', cap: '40 паллетомест', busy: '40', who: 'Смирнова Екатерина Андреевна', link: 'person.html', term: 'Ответственное хранение, 240 ₽/паллетоместо в сутки' },
+        { name: 'Камера 3 — резерв', cap: '16 паллетомест', busy: '0', who: '—', link: '', term: 'Свободно, выставлено на биржу' }
+      ]
+    },
+    {
+      id: 'zavodskaya',
+      name: 'Открытая площадка «Заводская»',
+      city: 'Ишим',
+      address: 'ул. Заводская, 7',
+      photo: 'images/photos/brick-stack.jpg',
+      kind: 'open',
+      unit: 'м²',
+      total: 1200, own: 300, rented: 550,
+      published: 0,
+      income: '60 500 ₽ в месяц',
+      specs: ['Твёрдое покрытие', 'Круглосуточный въезд для фур', 'Освещение и видеонаблюдение', 'Погрузчик по заявке'],
+      zones: [
+        { name: 'Сектор 1 — щебень и песок', cap: '550 м²', busy: '550 м²', who: 'Артель «Уральские мастера»', link: 'organization.html', term: 'Аренда, 110 ₽/м² в месяц, до 30.04.2027' },
+        { name: 'Сектор 2 — свои стройматериалы', cap: '300 м²', busy: '300 м²', who: 'Закупка цемента М500', link: 'ext-group-buying.html', term: 'Своё, не сдаётся' },
+        { name: 'Сектор 3 — свободен', cap: '350 м²', busy: '0 м²', who: '—', link: '', term: 'Свободно, на биржу пока не выставлено' }
+      ]
+    }
+  ];
+
+  /* ── Биржа: предложения и заявки ───────────────────────────
+     side: offer — предлагают мощности, demand — ищут.
+     terms — на каких условиях владелец готов договариваться. */
+  var MARKET = [
+    {
+      side: 'offer', id: 'koopmarket', city: 'Тюмень', kind: 'heated', party: 'Организация', period: 'long',
+      title: 'Сухой отапливаемый склад класса B',
+      photo: 'images/photos/warehouse.jpg',
+      owner: { name: 'ООО «Кооп-Маркет»', avatar: 'img/org-logos/rostelecom.png', link: 'organization.html', trust: 86, logo: true },
+      unit: 'м²', total: 900, free: 320,
+      specs: ['Высота <b>8 м</b>', 'Две рампы', 'Стеллажи', 'Учёт партий'],
+      terms: [
+        { key: 'rent', value: '420 ₽/м² в месяц', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'custody', value: '28 ₽/паллетоместо в сутки', note: 'с приёмкой, учётом и отгрузкой' },
+        { key: 'project', value: 'доля до 10%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'offer', id: 'ural-freeze', city: 'Челябинск', kind: 'freeze', party: 'Организация', period: 'short',
+      title: 'Морозильная камера −18 °C',
+      photo: 'images/photos/chest-freezer.jpg',
+      owner: { name: 'Артель «Уральские мастера»', avatar: 'img/org-logos/tinkoff.png', link: 'organization.html', trust: 80, logo: true },
+      unit: 'паллетомест', total: 140, free: 60,
+      specs: ['Термограф', 'Резервное питание', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'rent', value: '190 ₽/паллетоместо в сутки', note: 'от одной недели' },
+        { key: 'custody', value: '240 ₽/паллетоместо в сутки', note: 'приёмка, маркировка, отгрузка' },
+        { key: 'barter', value: 'нужен сухой склад в Тюмени', note: 'меняем 60 паллетомест на 200 м² сухого' }
+      ]
+    },
+    {
+      side: 'offer', id: 'agrostroy-chill', city: 'Пермь', kind: 'chill', party: 'Организация', period: 'forever',
+      title: 'Холодильная камера +2…+6 °C',
+      photo: 'images/photos/potato-crate.jpg',
+      owner: { name: 'ООО «АгроСтрой»', avatar: 'img/org-logos/magnit.png', link: 'organization.html', trust: 84, logo: true },
+      unit: 'паллетомест', total: 160, free: 45,
+      specs: ['Овощной режим', 'Мойка тары', 'Рядом точка выдачи'],
+      terms: [
+        { key: 'rent', value: '150 ₽/паллетоместо в сутки', note: 'посуточно, без минимального срока' },
+        { key: 'share', value: 'пай 1/20 — 180 000 ₽', note: 'пай закрепляет 8 паллетомест бессрочно' },
+        { key: 'project', value: 'доля 7%', note: 'только для сельхозпроектов' }
+      ]
+    },
+    {
+      side: 'offer', id: 'semenov-yard', city: 'Екатеринбург', kind: 'open', party: 'Человек', period: 'long',
+      title: 'Открытая площадка под стройматериалы',
+      photo: 'images/photos/brick-stack.jpg',
+      owner: { name: 'Семёнов Николай Петрович', avatar: 'images/avatars/19.jpg', link: 'person.html', trust: 97 },
+      unit: 'м²', total: 2400, free: 1400,
+      specs: ['Твёрдое покрытие', 'Въезд для фур', 'Освещение'],
+      terms: [
+        { key: 'rent', value: '90 ₽/м² в месяц', note: 'от 6 месяцев' },
+        { key: 'buyout', value: '3 200 000 ₽ за блок 400 м²', note: 'с выделением доли в общей площадке' },
+        { key: 'project', value: 'доля 5%', note: 'для строительных проектов на платформе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'technopark', city: 'Новосибирск', kind: 'heated', party: 'Организация', period: 'long',
+      title: 'Складской модуль в технопарке',
+      photo: 'images/photos/tech-park.jpg',
+      owner: { name: 'Фонд «Территория 2020»', avatar: 'img/org-logos/sberbank.png', link: 'organization-nonprofit.html', trust: 81, logo: true },
+      unit: 'м²', total: 180, free: 180,
+      specs: ['Отопление и вентиляция', 'Пропускной режим', 'Погрузка с общего дока'],
+      terms: [
+        { key: 'project', value: 'доля 12% вместо оплаты', note: 'основной формат фонда — фонд входит в проект' },
+        { key: 'rent', value: '260 ₽/м² в месяц', note: 'льготная ставка для резидентов технопарка' }
+      ]
+    },
+    {
+      side: 'offer', id: 'kuznetsova-shop', city: 'Тюмень', kind: 'heated', party: 'Человек', period: 'short',
+      title: 'Цеховой склад с зоной комплектации',
+      photo: 'images/photos/craft-workshop.jpg',
+      owner: { name: 'Кузнецова Дарья Викторовна', avatar: 'images/avatars/16.jpg', link: 'person.html', trust: 91 },
+      unit: 'м²', total: 240, free: 140,
+      specs: ['Стол комплектации', 'Весы и упаковка', 'Доступ по будням'],
+      terms: [
+        { key: 'custody', value: '32 ₽/паллетоместо в сутки', note: 'с фасовкой и комплектацией заказов' },
+        { key: 'rent', value: '380 ₽/м² в месяц', note: 'от одного месяца' },
+        { key: 'barter', value: 'нужна морозильная камера', note: 'меняем 140 м² на 30 паллетомест −18 °C' }
+      ]
+    },
+    {
+      side: 'offer', id: 'lebedeva-garage', city: 'Ишим', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Гаражный бокс под инструмент и мелкую технику',
+      photo: 'images/photos/garage-building.jpg',
+      owner: { name: 'Лебедева Ольга Игоревна', avatar: 'images/avatars/10.jpg', link: 'person.html', trust: 88 },
+      unit: 'м²', total: 60, free: 60,
+      specs: ['Сухо, без отопления', 'Ворота 3 м', 'Свой замок арендатора'],
+      terms: [
+        { key: 'rent', value: '300 ₽/м² в месяц', note: 'помесячно, без депозита' },
+        { key: 'share', value: 'пай 1/8 — 120 000 ₽', note: 'пай даёт 7,5 м² бессрочно' },
+        { key: 'buyout', value: '900 000 ₽ целиком', note: 'с переоформлением на покупателя' }
+      ]
+    },
+    {
+      side: 'offer', id: 'mirital-msk', city: 'Москва', kind: 'heated', party: 'Организация', period: 'long',
+      title: 'Сухой склад при пункте выдачи',
+      photo: 'images/photos/office-rent.jpg',
+      owner: { name: 'ООО «Мириталь»', avatar: 'img/org-logos/ozon.png', link: 'organization.html', trust: 79, logo: true },
+      unit: 'м²', total: 400, free: 150,
+      specs: ['Пункт выдачи в том же здании', 'Приём курьеров', 'Работает без выходных'],
+      terms: [
+        { key: 'rent', value: '750 ₽/м² в месяц', note: 'от 3 месяцев' },
+        { key: 'custody', value: '45 ₽/паллетоместо в сутки', note: 'с выдачей заказов покупателям' },
+        { key: 'project', value: 'доля 9%', note: 'для проектов с доставкой по Москве' }
+      ]
+    },
+
+    {
+      side: 'demand', id: 'need-cement', city: 'Тюмень', kind: 'heated', party: 'Человек', period: 'short',
+      title: 'Нужно 200 м² сухого отапливаемого под цемент',
+      photo: 'images/photos/cement-bag.jpg',
+      mine: true,
+      owner: { name: 'Дашкевич Данил Игоревич', avatar: 'images/avatars/13.jpg', link: 'my-page.html', trust: 92 },
+      unit: 'м²', need: 200,
+      specs: ['Совместная закупка, 40 т', 'Нужен въезд для фуры', 'Срок — 4 месяца'],
+      terms: [
+        { key: 'rent', value: 'до 450 ₽/м² в месяц', note: 'плачу деньгами, помесячно' },
+        { key: 'project', value: 'доля 6% в закупке', note: 'вместо оплаты — участие в марже закупки' }
+      ]
+    },
+    {
+      side: 'demand', id: 'need-freeze', city: 'Тюмень', kind: 'freeze', party: 'Человек', period: 'long',
+      title: 'Ищем 40 паллетомест морозильного хранения',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'Смирнова Екатерина Андреевна', avatar: 'images/avatars/5.jpg', link: 'person.html', trust: 88 },
+      unit: 'паллетомест', need: 40,
+      specs: ['Полуфабрикаты, −18 °C', 'Отгрузка два раза в неделю', 'Нужен термограф'],
+      terms: [
+        { key: 'custody', value: 'до 260 ₽/паллетоместо в сутки', note: 'с приёмкой и отгрузкой' },
+        { key: 'barter', value: 'отдам 200 м² сухого склада', note: 'взамен, в Тюмени' }
+      ]
+    },
+    {
+      side: 'demand', id: 'need-yard', city: 'Екатеринбург', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Нужна площадка 800 м² под отсев и щебень',
+      photo: 'images/photos/scaffolding.jpg',
+      owner: { name: 'Артель «Уральские мастера»', avatar: 'img/org-logos/tinkoff.png', link: 'organization.html', trust: 80, logo: true },
+      unit: 'м²', need: 800,
+      specs: ['Навал, без крыши', 'Заезд самосвалов', 'Срок 6 месяцев'],
+      terms: [
+        { key: 'rent', value: '110 ₽/м² в месяц', note: 'оплата помесячно вперёд' },
+        { key: 'barter', value: 'встречные работы по благоустройству', note: 'зачтём стоимостью работ артели' }
+      ]
+    },
+    {
+      side: 'demand', id: 'need-picking', city: 'Пермь', kind: 'chill', party: 'Организация', period: 'long',
+      title: 'Ищем склад с зоной комплектации под овощные корзины',
+      photo: 'images/photos/vegbox-csa.jpg',
+      owner: { name: 'Проект «Круглогодичная теплица»', avatar: 'img/org-logos/magnit.png', link: 'project-greenhouse.html', trust: 90, logo: true },
+      unit: 'м²', need: 220,
+      specs: ['Фасовка корзин по подписке', 'Нужна мойка тары', 'Выдача три раза в неделю'],
+      terms: [
+        { key: 'project', value: 'доля 9% в проекте', note: 'основной вариант — склад входит в проект как вклад' },
+        { key: 'rent', value: 'до 320 ₽/м² в месяц', note: 'если владелец предпочитает деньги' }
+      ]
+    },
+    {
+      side: 'demand', id: 'need-buyout', city: 'Новосибирск', kind: 'heated', party: 'Организация', period: 'forever',
+      title: 'Собираем пайщиков на выкуп склада 500 м²',
+      photo: 'images/photos/makerspace.jpg',
+      owner: { name: 'Фонд «Территория 2020»', avatar: 'img/org-logos/sberbank.png', link: 'organization-nonprofit.html', trust: 81, logo: true },
+      unit: 'м²', need: 500,
+      specs: ['Объект найден, идёт сбор', 'Собрано 6 пайщиков из 10', 'Управление — общее собрание'],
+      terms: [
+        { key: 'share', value: 'пай от 200 000 ₽', note: 'один пай — 50 м² бессрочно' },
+        { key: 'buyout', value: '11 400 000 ₽ целиком', note: 'если найдётся один покупатель' }
+      ]
+    }
+  ];
+
+  function esc(s) {
+    return (s == null ? '' : String(s)).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fmt(n) { return Number(n).toLocaleString('ru-RU'); }
+
+  var toast = document.getElementById('wh-toast');
+  function say(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    setTimeout(function () { toast.classList.remove('show'); }, 3200);
+  }
+
+  function termsHtml(terms) {
+    return '<div class="term-list">' + terms.map(function (t) {
+      return '<div class="term-row"><span class="term-name">' + esc(TERMS[t.key]) + '</span>'
+        + '<span class="term-value">' + esc(t.value)
+        + (t.note ? '<span class="term-note">' + esc(t.note) + '</span>' : '')
+        + '</span></div>';
+    }).join('') + '</div>';
+  }
+
+  /* ── Вкладка «Мои склады» ──────────────────────────────── */
+  var myList = document.getElementById('wh-my-list');
+  var myEmpty = document.getElementById('wh-my-empty');
+  var mySearch = document.getElementById('wh-my-search');
+
+  function myCard(w) {
+    var free = w.total - w.own - w.rented;
+    var pc = function (v) { return Math.round(v / w.total * 100); };
+    var zones = w.zones.map(function (z) {
+      var who = z.link ? '<a href="' + z.link + '">' + esc(z.who) + '</a>' : esc(z.who);
+      return '<tr><td>' + esc(z.name) + '</td><td>' + esc(z.cap) + '</td><td>' + esc(z.busy) + '</td><td>' + who + '</td><td>' + esc(z.term) + '</td></tr>';
+    }).join('');
+    return '<article class="card wh-card" data-id="' + w.id + '">'
+      + '<div class="wh-head">'
+      + '<img class="wh-head-photo" src="' + w.photo + '" alt="' + esc(w.name) + '" loading="lazy">'
+      + '<div class="wh-head-main">'
+      + '<div class="wh-name-row"><div class="wh-name">' + esc(w.name) + '</div>'
+      + '<span class="badge outline">' + esc(KINDS[w.kind]) + '</span></div>'
+      + '<div class="wh-meta">📍 ' + esc(w.city) + ', ' + esc(w.address) + ' · ёмкость ' + fmt(w.total) + ' ' + esc(w.unit) + ' · поступления ' + esc(w.income) + '</div>'
+      + '<div class="wh-specs">' + w.specs.map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>'
+      + '<div class="wh-occupancy">'
+      + '<div class="share-bar" role="img" aria-label="Занятость склада: своё ' + pc(w.own) + '%, сдано ' + pc(w.rented) + '%, свободно ' + pc(free) + '%">'
+      + '<span class="seg-own" style="width:' + pc(w.own) + '%"></span>'
+      + '<span class="seg-rented" style="width:' + pc(w.rented) + '%"></span>'
+      + '<span class="seg-free" style="width:' + pc(free) + '%"></span>'
+      + '</div>'
+      + '<div class="share-legend">'
+      + '<span class="share-legend-item"><i class="share-dot seg-own"></i>Своё <b>' + fmt(w.own) + ' ' + esc(w.unit) + '</b></span>'
+      + '<span class="share-legend-item"><i class="share-dot seg-rented"></i>Сдано <b>' + fmt(w.rented) + ' ' + esc(w.unit) + '</b></span>'
+      + '<span class="share-legend-item"><i class="share-dot seg-free"></i>Свободно <b>' + fmt(free) + ' ' + esc(w.unit) + '</b></span>'
+      + '</div></div></div></div>'
+      + '<div class="wh-zones"><table class="res-table"><thead><tr><th>Зона</th><th>Ёмкость</th><th>Занято</th><th>Кто размещён</th><th>На каких условиях</th></tr></thead><tbody>' + zones + '</tbody></table></div>'
+      + '<div class="wh-foot">'
+      + '<button class="button" type="button" data-publish="' + w.id + '">Выставить свободные мощности</button>'
+      + '<a class="button secondary" href="resource-tracking.html">Остатки на складе</a>'
+      + '<a class="button secondary" href="resource.html">Карточка ресурса</a>'
+      + '<span class="wh-foot-note">' + (w.published ? 'На бирже: ' + fmt(w.published) + ' ' + esc(w.unit) : 'На бирже пока ничего не выставлено') + '</span>'
+      + '</div></article>';
+  }
+
+  function renderMy() {
+    var q = mySearch.value.trim().toLowerCase();
+    var rows = MY.filter(function (w) {
+      return !q || (w.name + ' ' + w.city + ' ' + w.address).toLowerCase().indexOf(q) >= 0;
+    });
+    myList.innerHTML = rows.map(myCard).join('');
+    myList.hidden = rows.length === 0;
+    myEmpty.hidden = rows.length !== 0;
+    myList.querySelectorAll('[data-publish]').forEach(function (b) {
+      b.addEventListener('click', function () { openPublish(b.dataset.publish); });
+    });
+  }
+  mySearch.addEventListener('input', renderMy);
+  document.getElementById('wh-my-reset').addEventListener('click', function (e) {
+    e.preventDefault(); mySearch.value = ''; renderMy();
+  });
+
+  /* ── Вкладка «Биржа мощностей» ─────────────────────────── */
+  var grid = document.getElementById('wh-grid');
+  var emptyBox = document.getElementById('wh-empty');
+  var countBox = document.getElementById('wh-count');
+  var side = 'offer';
+
+  var fCity = document.getElementById('f-city');
+  var fKind = document.getElementById('f-kind');
+  var fTerm = document.getElementById('f-term');
+  var fPeriod = document.getElementById('f-period');
+  var fParty = document.getElementById('f-party');
+  var search = document.getElementById('wh-search');
+
+  function offerCard(o) {
+    var isOffer = o.side === 'offer';
+    var pct = isOffer ? Math.round(o.free / o.total * 100) : 100;
+    var capacity = isOffer
+      ? '<div class="gb-progress-bar"><div class="gb-progress-fill" style="width:' + pct + '%"></div></div>'
+        + '<div class="wh-capacity-label">Свободно <b>' + fmt(o.free) + ' ' + esc(o.unit) + '</b> из ' + fmt(o.total) + ' ' + esc(o.unit) + ' (' + pct + '%)</div>'
+      : '<div class="wh-capacity-label">Требуется <b>' + fmt(o.need) + ' ' + esc(o.unit) + '</b> · срок ' + esc(PERIODS[o.period]) + '</div>';
+    return '<article class="card wh-offer" data-id="' + o.id + '">'
+      + '<img class="wh-offer-photo" src="' + o.photo + '" alt="' + esc(o.title) + '" loading="lazy">'
+      + '<div class="wh-offer-body">'
+      + '<div class="wh-offer-title-row"><div class="wh-offer-title">' + esc(o.title) + '</div>'
+      + '<span class="badge ' + (isOffer ? 'outline' : 'demand') + '">' + (isOffer ? 'Предлагают' : 'Ищут') + '</span></div>'
+      + '<div class="wh-offer-meta">📍 ' + esc(o.city) + ' · ' + esc(KINDS[o.kind]) + '</div>'
+      + '<div class="wh-owner">'
+      + '<a href="' + o.owner.link + '"><img class="avatar' + (o.owner.logo ? ' wh-owner-logo' : '') + '" src="' + o.owner.avatar + '" alt="' + esc(o.owner.name) + '" loading="lazy"></a>'
+      + '<div class="wh-owner-text"><span class="wh-owner-label">' + (isOffer ? 'Владелец мощностей' : 'Кто ищет') + (o.mine ? ' · это вы' : '') + '</span>'
+      + '<a class="wh-owner-name" href="' + o.owner.link + '">' + esc(o.owner.name) + '</a></div>'
+      + '<span class="badge teal" style="margin-left:auto">доверие ' + o.owner.trust + '%</span>'
+      + '</div>'
+      + '<div class="wh-specs">' + o.specs.map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>'
+      + '<div>' + capacity + '</div>'
+      + termsHtml(o.terms)
+      + '<div class="wh-offer-foot">'
+      + '<span class="wh-offer-note">' + (isOffer ? 'Срок: ' + esc(PERIODS[o.period]) : 'Готовы обсуждать любой из вариантов') + '</span>'
+      + (o.mine
+          ? '<a class="button secondary" href="messages.html">Отклики на вашу заявку</a>'
+          : '<button class="button" type="button" data-respond="' + o.id + '">' + (isOffer ? 'Откликнуться' : 'Предложить своё место') + '</button>')
+      + '</div></div></article>';
+  }
+
+  function applyFilters() {
+    var q = search.value.trim().toLowerCase();
+    var city = fCity.value.trim().toLowerCase();
+    var rows = MARKET.filter(function (o) {
+      if (o.side !== side) return false;
+      if (city && o.city.toLowerCase().indexOf(city) < 0) return false;
+      if (fKind.value && o.kind !== fKind.value) return false;
+      if (fPeriod.value && o.period !== fPeriod.value) return false;
+      if (fParty.value && o.party !== fParty.value) return false;
+      if (fTerm.value && !o.terms.some(function (t) { return t.key === fTerm.value; })) return false;
+      if (q) {
+        var hay = (o.title + ' ' + o.city + ' ' + KINDS[o.kind] + ' ' + o.owner.name + ' '
+          + o.terms.map(function (t) { return TERMS[t.key] + ' ' + t.value + ' ' + (t.note || ''); }).join(' ')).toLowerCase();
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+    grid.innerHTML = rows.map(offerCard).join('');
+    grid.hidden = rows.length === 0;
+    emptyBox.hidden = rows.length !== 0;
+    countBox.textContent = rows.length;
+    grid.querySelectorAll('[data-respond]').forEach(function (b) {
+      b.addEventListener('click', function () { openRespond(b.dataset.respond); });
+    });
+  }
+
+  [search, fCity, fKind, fTerm, fPeriod, fParty].forEach(function (el) {
+    el.addEventListener('input', applyFilters);
+    el.addEventListener('change', applyFilters);
+  });
+  document.getElementById('f-reset').addEventListener('click', function () {
+    search.value = ''; fCity.value = ''; fKind.value = ''; fTerm.value = ''; fPeriod.value = ''; fParty.value = '';
+    applyFilters();
+  });
+  document.getElementById('wh-filter-reset').addEventListener('click', function (e) {
+    e.preventDefault(); document.getElementById('f-reset').click();
+  });
+  document.getElementById('wh-side').addEventListener('click', function (e) {
+    var btn = e.target.closest('.chip-toggle');
+    if (!btn) return;
+    side = btn.dataset.side;
+    this.querySelectorAll('.chip-toggle').forEach(function (b) {
+      b.classList.toggle('selected', b === btn);
+      b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+    });
+    applyFilters();
+  });
+
+  /* ── Вкладки ────────────────────────────────────────────── */
+  var tabs = document.getElementById('wh-tabs');
+  var panes = { my: document.getElementById('tab-my'), market: document.getElementById('tab-market'), agreements: document.getElementById('tab-agreements') };
+  function showTab(name) {
+    Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== name; });
+    tabs.querySelectorAll('a').forEach(function (a) { a.classList.toggle('active', a.dataset.tab === name); });
+    window.scrollTo(0, 0);
+  }
+  tabs.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-tab]');
+    if (!a) return;
+    e.preventDefault();
+    showTab(a.dataset.tab);
+  });
+  document.querySelectorAll('[data-goto-tab]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); showTab(a.dataset.gotoTab); });
+  });
+
+  /* ── Модалка «Добавить склад» ──────────────────────────── */
+  var addModal = document.getElementById('add-wh-modal');
+  function closeAdd() { addModal.hidden = true; }
+  document.getElementById('add-wh-btn').addEventListener('click', function () { addModal.hidden = false; });
+  document.getElementById('add-wh-close').addEventListener('click', closeAdd);
+  document.getElementById('add-wh-cancel').addEventListener('click', closeAdd);
+  addModal.addEventListener('click', function (e) { if (e.target === addModal) closeAdd(); });
+  document.getElementById('add-wh-save').addEventListener('click', function () {
+    var name = document.getElementById('nw-name').value.trim();
+    var city = document.getElementById('nw-city').value.trim();
+    var total = parseFloat(document.getElementById('nw-total').value) || 0;
+    var own = parseFloat(document.getElementById('nw-own').value) || 0;
+    if (!name || !city || total <= 0) { alert('Укажите название, город и ёмкость склада'); return; }
+    if (own > total) { alert('Занято под своё не может быть больше ёмкости склада'); return; }
+    MY.push({
+      id: 'wh-' + Date.now(),
+      name: name, city: city, address: 'адрес уточняется',
+      photo: 'images/photos/warehouse.jpg',
+      kind: document.getElementById('nw-kind').value,
+      unit: document.getElementById('nw-unit').value,
+      total: total, own: own, rented: 0, published: 0,
+      income: '0 ₽ в месяц',
+      specs: ['Описание пока не заполнено'],
+      zones: [{ name: 'Зона 1 — всё пространство', cap: total + ' ' + document.getElementById('nw-unit').value, busy: own + '', who: own ? 'Ваше хранение' : '—', link: '', term: own >= total ? 'Своё, не сдаётся' : 'Свободно, на биржу пока не выставлено' }]
+    });
+    ['nw-name', 'nw-city', 'nw-total', 'nw-own'].forEach(function (id) { document.getElementById(id).value = ''; });
+    closeAdd();
+    renderMy();
+    say('✓ Склад «' + name + '» добавлен. Свободные мощности можно выставить на биржу.');
+  });
+
+  /* ── Модалка «Выставить мощности на биржу» ─────────────── */
+  var pubModal = document.getElementById('publish-modal');
+  var pubSelect = document.getElementById('pb-warehouse');
+  function fillPublishSelect(selectedId) {
+    pubSelect.innerHTML = MY.map(function (w) {
+      var free = w.total - w.own - w.rented;
+      return '<option value="' + w.id + '"' + (w.id === selectedId ? ' selected' : '') + '>'
+        + esc(w.name) + ' — свободно ' + fmt(free) + ' ' + esc(w.unit) + '</option>';
+    }).join('');
+  }
+  function openPublish(id) {
+    fillPublishSelect(id);
+    pubModal.hidden = false;
+  }
+  function closePublish() { pubModal.hidden = true; }
+  document.getElementById('publish-btn').addEventListener('click', function () { openPublish(MY[0] && MY[0].id); });
+  document.getElementById('publish-close').addEventListener('click', closePublish);
+  document.getElementById('publish-cancel').addEventListener('click', closePublish);
+  pubModal.addEventListener('click', function (e) { if (e.target === pubModal) closePublish(); });
+  document.getElementById('pb-terms').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip-toggle');
+    if (!b) return;
+    var on = b.classList.toggle('selected');
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  document.getElementById('publish-save').addEventListener('click', function () {
+    var w = MY.filter(function (x) { return x.id === pubSelect.value; })[0];
+    var amount = parseFloat(document.getElementById('pb-amount').value) || 0;
+    var picked = Array.prototype.map.call(
+      document.querySelectorAll('#pb-terms .chip-toggle.selected'),
+      function (b) { return TERMS[b.dataset.term]; });
+    if (!w) { alert('Сначала добавьте склад'); return; }
+    var free = w.total - w.own - w.rented;
+    if (amount <= 0) { alert('Укажите, сколько мощностей выставляете'); return; }
+    if (amount > free) { alert('Свободно только ' + fmt(free) + ' ' + w.unit + ' — больше выставить нельзя'); return; }
+    if (!picked.length) { alert('Отметьте хотя бы одно условие'); return; }
+    w.published = amount;
+    document.getElementById('pb-amount').value = '';
+    document.getElementById('pb-price').value = '';
+    closePublish();
+    renderMy();
+    say('✓ Выставлено на биржу: ' + fmt(amount) + ' ' + w.unit + ', ' + w.name + ' — ' + picked.join(', ').toLowerCase());
+  });
+
+  /* ── Модалка «Откликнуться» ────────────────────────────── */
+  var respModal = document.getElementById('respond-modal');
+  var respActive = null;
+  function openRespond(id) {
+    respActive = MARKET.filter(function (o) { return o.id === id; })[0];
+    if (!respActive) return;
+    var isOffer = respActive.side === 'offer';
+    document.getElementById('respond-title').textContent = isOffer ? 'Отклик: ' + respActive.title : 'Предложить своё место: ' + respActive.title;
+    document.getElementById('respond-hint').textContent = isOffer
+      ? 'Владелец — ' + respActive.owner.name + ', доверие ' + respActive.owner.trust + '%. Свободно ' + fmt(respActive.free) + ' ' + respActive.unit + ', ' + respActive.city + '. Выберите условие — окончательные цифры согласуете в переписке, а договорённость станет сделкой в общем реестре.'
+      : 'Заявку разместил ' + respActive.owner.name + ', доверие ' + respActive.owner.trust + '%. Требуется ' + fmt(respActive.need) + ' ' + respActive.unit + ', ' + respActive.city + '. Выберите условие, на котором готовы отдать своё место.';
+    document.getElementById('respond-amount-label').textContent = 'Сколько ' + (isOffer ? 'нужно' : 'готовы дать') + ', ' + respActive.unit;
+    document.getElementById('respond-amount').value = isOffer ? Math.min(100, respActive.free) : respActive.need;
+    document.getElementById('respond-terms').innerHTML = respActive.terms.map(function (t, i) {
+      return '<button class="chip-toggle' + (i === 0 ? ' selected' : '') + '" type="button" data-term="' + t.key + '">' + esc(TERMS[t.key]) + '</button>';
+    }).join('');
+    respModal.hidden = false;
+  }
+  function closeRespond() { respModal.hidden = true; }
+  document.getElementById('respond-terms').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip-toggle');
+    if (!b) return;
+    this.querySelectorAll('.chip-toggle').forEach(function (x) {
+      x.classList.toggle('selected', x === b);
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+    });
+  });
+  document.getElementById('respond-close').addEventListener('click', closeRespond);
+  document.getElementById('respond-cancel').addEventListener('click', closeRespond);
+  respModal.addEventListener('click', function (e) { if (e.target === respModal) closeRespond(); });
+  document.getElementById('respond-save').addEventListener('click', function () {
+    if (!respActive) return;
+    var amount = parseFloat(document.getElementById('respond-amount').value) || 0;
+    var picked = document.querySelector('#respond-terms .chip-toggle.selected');
+    if (amount <= 0) { alert('Укажите объём больше нуля'); return; }
+    if (respActive.side === 'offer' && amount > respActive.free) {
+      alert('Свободно только ' + fmt(respActive.free) + ' ' + respActive.unit); return;
+    }
+    var term = picked ? TERMS[picked.dataset.term].toLowerCase() : 'условие не выбрано';
+    var to = respActive.owner.name;
+    document.getElementById('respond-text').value = '';
+    closeRespond();
+    say('✓ Отклик отправлен: ' + to + ', ' + fmt(amount) + ' ' + respActive.unit + ', ' + term + '. Ответ придёт в «Сообщения».');
+  });
+
+  renderMy();
+  applyFilters();
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

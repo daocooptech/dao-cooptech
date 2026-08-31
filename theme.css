@@ -620,6 +620,11 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .seg-demand { background: var(--error); }
 .seg-skill { background: var(--gold); }
 .seg-vacancy { background: var(--slate-light); }
+/* Занятость склада (ext-warehouse.html) — те же сегменты .share-bar,
+   но про площадь: своё / сдано другим / свободно. */
+.seg-own { background: var(--teal); }
+.seg-rented { background: var(--gold); }
+.seg-free { background: var(--line); }
 
 /* Сделки (deals.html) — оформление реестра сделок и сводки доверия
    (структура и раскладка — в styles.css). */

@@ -1356,23 +1356,69 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .gb-progress-label { font-size: 11.5px; color: var(--slate); margin-top: 6px; }
 .gb-progress-label b { color: var(--teal-dark); }
 
-.gb-tiers { display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 6px; }
-.gb-tier-row { display: flex; justify-content: space-between; gap: 10px; padding: 6px 10px; border-radius: 7px; font-size: 12px; color: var(--slate); }
-.gb-tier-row span:last-child { font-weight: 600; color: var(--ink); font-family: 'Manrope', sans-serif; }
-.gb-tier-row.active { background: var(--teal-tint); color: var(--teal-dark); }
-.gb-tier-row.active span:last-child { color: var(--teal-dark); }
+.gb-tiers, .term-list { display: flex; flex-direction: column; gap: 4px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 6px; }
+.gb-tier-row, .term-row { display: flex; justify-content: space-between; gap: 10px; padding: 6px 10px; border-radius: 7px; font-size: 12px; color: var(--slate); }
+.gb-tier-row span:last-child, .term-row .term-value { font-weight: 600; color: var(--ink); font-family: 'Manrope', sans-serif; }
+.gb-tier-row.active, .term-row.active { background: var(--teal-tint); color: var(--teal-dark); }
+.gb-tier-row.active span:last-child, .term-row.active .term-value { color: var(--teal-dark); }
 .gb-tier-current-tag { font-size: 10px; font-weight: 600; background: var(--teal); color: #fff; padding: 1px 7px; border-radius: 999px; margin-left: 6px; }
 
 .gb-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 2px; border-top: 1px solid var(--line); padding-top: 12px; }
 .gb-pickup { font-size: 11.5px; color: var(--slate); }
-.gb-intro-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px; }
-.gb-intro-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px 16px; }
-.gb-intro-card-title { font-weight: 600; font-size: 12.5px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
-.gb-intro-card-text { color: var(--slate); font-size: 12px; line-height: 1.5; }
+.gb-intro-cards, .intro-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px; }
+.gb-intro-card, .intro-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px 16px; }
+.gb-intro-card-title, .intro-card-title { font-weight: 600; font-size: 12.5px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+.gb-intro-card-text, .intro-card-text { color: var(--slate); font-size: 12px; line-height: 1.5; }
 @media (max-width: 720px) {
   .gb-grid { grid-template-columns: 1fr; }
   .gb-people { flex-direction: column; align-items: flex-start; }
   .gb-supplier { text-align: left; }
+}
+
+/* #9 Склад: свои складские объекты и P2P-биржа мощностей (ext-warehouse.html) */
+.wh-list { display: flex; flex-direction: column; gap: 18px; }
+.wh-list[hidden], .wh-grid[hidden], .wh-card[hidden], .wh-offer[hidden] { display: none; }
+.wh-card { overflow: hidden; }
+.wh-head { display: flex; gap: 16px; padding: 16px 18px 0; align-items: flex-start; }
+.wh-head-photo { width: 148px; height: 104px; object-fit: cover; border-radius: var(--radius-sm); flex: none; display: block; }
+.wh-head-main { flex: 1; min-width: 0; }
+.wh-name-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+.wh-name { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px; color: var(--ink); line-height: 1.3; }
+.wh-meta { color: var(--slate); font-size: 12px; margin-top: 3px; }
+.wh-specs { display: flex; flex-wrap: wrap; gap: 3px 14px; color: var(--slate); font-size: 11.5px; margin-top: 8px; }
+.wh-specs b { color: var(--ink); font-weight: 500; }
+.wh-occupancy { margin-top: 12px; }
+.wh-occupancy .share-legend { margin-top: 8px; }
+.wh-zones { padding: 14px 18px 0; }
+.wh-zones .res-table { font-size: 12.5px; }
+.wh-zones .res-table td, .wh-zones .res-table th { padding: 8px 10px; }
+.wh-foot { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 14px 18px 16px; margin-top: 14px; border-top: 1px solid var(--line); }
+.wh-foot .wh-foot-note { margin-left: auto; color: var(--slate-light); font-size: 11.5px; }
+
+.wh-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 18px; }
+.wh-offer { overflow: hidden; display: flex; flex-direction: column; }
+.wh-offer-photo { width: 100%; height: 132px; object-fit: cover; display: block; background: linear-gradient(135deg, var(--teal-tint), var(--gold-tint)); }
+.wh-offer-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+.wh-offer-title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.wh-offer-title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--ink); line-height: 1.3; }
+.wh-offer-meta { color: var(--slate); font-size: 12px; margin-top: -6px; }
+.wh-owner { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 9px 11px; background: var(--paper); border-radius: var(--radius-sm); }
+.wh-owner img.avatar { width: 30px; height: 30px; flex: none; }
+.wh-owner-logo { object-fit: contain; }
+.wh-owner-text { min-width: 0; }
+.wh-owner-label { display: block; font-size: 10px; color: var(--slate-light); text-transform: uppercase; letter-spacing: .04em; }
+.wh-owner-name { font-size: 12.5px; font-weight: 500; }
+.wh-capacity-label { font-size: 11.5px; color: var(--slate); margin-top: 6px; }
+.wh-capacity-label b { color: var(--teal-dark); }
+.term-row .term-name { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.term-row .term-value { text-align: right; }
+.term-row .term-note { display: block; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; color: var(--slate-light); margin-top: 1px; }
+.wh-offer-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); }
+.wh-offer-foot .wh-offer-note { font-size: 11.5px; color: var(--slate); }
+@media (max-width: 720px) {
+  .wh-grid { grid-template-columns: 1fr; }
+  .wh-head { flex-direction: column; }
+  .wh-head-photo { width: 100%; height: 140px; }
 }
 
 /* Страница добавления объявления в стиле Авито (add-resource.html) */
