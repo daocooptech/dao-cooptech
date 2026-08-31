@@ -62,6 +62,7 @@
       <a href="#" class="active" data-tab="registry">Реестр сделок <span class="badge outline">40</span></a>
       <a href="#" data-tab="active">В работе <span class="badge outline">3</span></a>
       <a href="#" data-tab="await">Ждут вашего отзыва <span class="badge outline">2</span></a>
+      <a href="#" data-tab="funnel">Воронка</a>
       <a href="#" data-tab="trust">Уровень доверия <span class="badge outline">92%</span></a>
     </div>
 
@@ -1781,6 +1782,113 @@
     </div>
 
     <!-- ==================== УРОВЕНЬ ДОВЕРИЯ ==================== -->
+    <div id="tab-funnel" hidden>
+      <p style="color:var(--slate);font-size:12.5px;max-width:780px;margin:18px 0 16px">Тот же реестр, но по стадиям: видно, где сделки застревают и сколько денег стоит на каждом этапе. Карточку можно перетащить мышью в соседнюю колонку — стадия сменится, суммы пересчитаются.</p>
+
+      <div class="kanban" id="kanban">
+        <div class="kanban-col" data-stage="draft">
+          <div class="kanban-head"><span class="kanban-name">Черновики</span><span class="kanban-sum"></span></div>
+          <article class="kanban-card" draggable="true" data-amount="58000">
+            <div class="kc-title">Сено луговое, 12 тонн</div>
+            <div class="kc-meta">СПК «Заря» · Дербент</div>
+            <div class="kc-amount">58 000 ₽</div>
+          </article>
+          <article class="kanban-card" draggable="true" data-amount="24000">
+            <div class="kc-title">Ремонт кровли цеха</div>
+            <div class="kc-meta">Семёнов Н. П. · Тюмень</div>
+            <div class="kc-amount">24 000 ₽</div>
+          </article>
+        </div>
+
+        <div class="kanban-col" data-stage="approval">
+          <div class="kanban-head"><span class="kanban-name">Согласование</span><span class="kanban-sum"></span></div>
+          <article class="kanban-card" draggable="true" data-amount="310000">
+            <div class="kc-title">Доля 5% в проекте «3D-принтер»</div>
+            <div class="kc-meta">Кооператив «Шукты» · ждёт правления</div>
+            <div class="kc-amount">310 000 ₽</div>
+          </article>
+          <article class="kanban-card" draggable="true" data-amount="41400">
+            <div class="kc-title">Электромонтаж теплицы</div>
+            <div class="kc-meta">Семёнов Н. П. · смета согласована</div>
+            <div class="kc-amount">41 400 ₽</div>
+          </article>
+        </div>
+
+        <div class="kanban-col" data-stage="exec">
+          <div class="kanban-head"><span class="kanban-name">Исполняются</span><span class="kanban-sum"></span></div>
+          <article class="kanban-card" draggable="true" data-amount="92000">
+            <div class="kc-title"><a href="deal.html">Пельмени, 200 кг</a></div>
+            <div class="kc-meta">ООО «Мириталь» · СД-2026-000124</div>
+            <div class="kc-amount">92 000 ₽</div>
+          </article>
+          <article class="kanban-card" draggable="true" data-amount="63000">
+            <div class="kc-title">Экскаватор-погрузчик, 7 суток</div>
+            <div class="kc-meta">ЗАО «СтройТехно» · до 4 сентября</div>
+            <div class="kc-amount">63 000 ₽</div>
+          </article>
+          <article class="kanban-card" draggable="true" data-amount="24000">
+            <div class="kc-title">Грант на теплицу, второй транш</div>
+            <div class="kc-meta">Фонд «Территория 2020»</div>
+            <div class="kc-amount">24 000 ₽</div>
+          </article>
+        </div>
+
+        <div class="kanban-col" data-stage="act">
+          <div class="kanban-head"><span class="kanban-name">Ждут акта</span><span class="kanban-sum"></span></div>
+          <article class="kanban-card" draggable="true" data-amount="18600">
+            <div class="kc-title">Мёд натуральный, 30 кг</div>
+            <div class="kc-meta">Смирнова Е. А. · товар получен</div>
+            <div class="kc-amount">18 600 ₽</div>
+          </article>
+        </div>
+
+        <div class="kanban-col" data-stage="review">
+          <div class="kanban-head"><span class="kanban-name">Ждут отзывов</span><span class="kanban-sum"></span></div>
+          <article class="kanban-card" draggable="true" data-amount="7500">
+            <div class="kc-title">Консультация по электромонтажу</div>
+            <div class="kc-meta">Иванова М. П. · ваш отзыв не оставлен</div>
+            <div class="kc-amount">7 500 ₽</div>
+          </article>
+          <article class="kanban-card" draggable="true" data-amount="12800">
+            <div class="kc-title">Пиломатериалы, 3 м³</div>
+            <div class="kc-meta">Кооператив «Речной порт»</div>
+            <div class="kc-amount">12 800 ₽</div>
+          </article>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:22px;padding:16px 18px">
+        <div class="section-title" style="margin-top:0">Роботы <span class="stat-note" title="Правила «когда → что сделать», которые платформа применяет к сделкам без участия человека">ⓘ</span></div>
+        <p style="color:var(--slate);font-size:12.5px;max-width:780px;margin:0 0 6px">Рутина, которую иначе приходится держать в голове: напомнить о сроке, поймать просрочку, снять резерв. Правила общие для всех ваших сделок, их можно выключить.</p>
+        <div class="robot-row">
+          <input type="checkbox" id="robot-1" checked>
+          <div><label class="robot-when" for="robot-1">За 2 дня до конца аренды</label>
+            <div class="robot-then">Напомнить обеим сторонам в сообщениях и уведомлениях. Сейчас сработает по сделке «Экскаватор-погрузчик» — 2 сентября.</div></div>
+        </div>
+        <div class="robot-row">
+          <input type="checkbox" id="robot-2" checked>
+          <div><label class="robot-when" for="robot-2">Через 7 дней после закрытия сделки без отзыва</label>
+            <div class="robot-then">Напомнить тому, кто не оставил отзыв. Пока отзыва нет, сделка не входит в расчёт уровня доверия ни одной из сторон.</div></div>
+        </div>
+        <div class="robot-row">
+          <input type="checkbox" id="robot-3" checked>
+          <div><label class="robot-when" for="robot-3">Платёж по графику просрочен на 1 день</label>
+            <div class="robot-then">Пометить сделку как просроченную, уведомить обе стороны и показать её в «Ждут решения» у ответственного.</div></div>
+        </div>
+        <div class="robot-row">
+          <input type="checkbox" id="robot-4" checked>
+          <div><label class="robot-when" for="robot-4">Сделка перешла в «Исполняется»</label>
+            <div class="robot-then">Зарезервировать количество на складе поставщика, чтобы тот же товар не пообещали второму покупателю.</div></div>
+        </div>
+        <div class="robot-row">
+          <input type="checkbox" id="robot-5">
+          <div><label class="robot-when" for="robot-5">Раз в квартал</label>
+            <div class="robot-then">Напомнить правлению о закрытии периода и сверке взаиморасчётов. Выключено — включите, если ведёте учёт поквартально.</div></div>
+        </div>
+        <p class="unit-hint" style="margin:12px 0 0">В прототипе роботы не запускаются по времени — показано, какие правила существуют и как они выглядят в настройке.</p>
+      </div>
+    </div>
+
     <div id="tab-trust" hidden>
 
       <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 16px">Уровень доверия — не оценка платформы и не рейтинг активности. Это только отзывы участников, с которыми вы реально закрыли сделку. Ниже — вся арифметика целиком.</p>
@@ -1936,6 +2044,49 @@
   /* Вкладки. «Реестр» и «Ждут отзыва» — один и тот же список: вторая вкладка
      сужает его до сделок без второго отзыва и объясняет, почему они не в счёт
      (тот же приём, что вкладка «Избранное» в каталогах). */
+
+  /* Воронка: перенос карточки между стадиями и пересчёт сумм по колонкам */
+  (function () {
+    var board = document.getElementById('kanban');
+    if (!board) return;
+    function money(n) { return n.toLocaleString('ru-RU') + ' ₽'; }
+    function recount() {
+      board.querySelectorAll('.kanban-col').forEach(function (col) {
+        var cards = col.querySelectorAll('.kanban-card');
+        var sum = 0;
+        cards.forEach(function (c) { sum += parseInt(c.getAttribute('data-amount'), 10) || 0; });
+        col.querySelector('.kanban-sum').textContent = cards.length + ' · ' + money(sum);
+      });
+    }
+    var dragged = null;
+    board.addEventListener('dragstart', function (e) {
+      var card = e.target.closest('.kanban-card');
+      if (!card) return;
+      dragged = card;
+      card.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    board.addEventListener('dragend', function () {
+      if (dragged) dragged.classList.remove('dragging');
+      dragged = null;
+      board.querySelectorAll('.kanban-col').forEach(function (c) { c.classList.remove('drop-target'); });
+    });
+    board.addEventListener('dragover', function (e) {
+      var col = e.target.closest('.kanban-col');
+      if (!col || !dragged) return;
+      e.preventDefault();
+      board.querySelectorAll('.kanban-col').forEach(function (c) { c.classList.toggle('drop-target', c === col); });
+    });
+    board.addEventListener('drop', function (e) {
+      var col = e.target.closest('.kanban-col');
+      if (!col || !dragged) return;
+      e.preventDefault();
+      col.appendChild(dragged);
+      recount();
+    });
+    recount();
+  })();
+
   var tabs = Array.prototype.slice.call(document.querySelectorAll('#deal-tabs a'));
   var strip = document.getElementById('trust-strip');
   var hints = { await: document.getElementById('await-hint'), active: document.getElementById('active-hint') };
@@ -1948,8 +2099,9 @@
 
   function openTab(key) {
     tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.tab === key); });
-    document.getElementById('tab-registry').hidden = (key === 'trust');
+    document.getElementById('tab-registry').hidden = (key === 'trust' || key === 'funnel');
     document.getElementById('tab-trust').hidden = (key !== 'trust');
+    document.getElementById('tab-funnel').hidden = (key !== 'funnel');
     if (key === 'await' || key === 'active') {
       Object.keys(f).forEach(function (k) { f[k].value = ''; });
       search.value = '';

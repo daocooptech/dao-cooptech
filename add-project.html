@@ -64,6 +64,18 @@
         <form data-demo-form="" class="ar-form"><div class="ar-main">
 
           <!-- 1. Название и направление -->
+          <div class="card ar-section" id="field-template">
+            <div class="ar-section-title"><span class="ar-section-num">0</span>Начать из шаблона</div>
+            <p class="ar-section-hint">Типовые проекты, которые кооперативы уже собирали на платформе: шаблон подставит название, направление, этапы работ и типовой список нужных ресурсов — останется поправить под себя. Можно пропустить и заполнять с нуля.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="button secondary tpl-btn" type="button" data-title="Круглогодичная теплица" data-cat="Сельское хозяйство" data-stages="6 этапов · 94 дня" data-res="каркас, поликарбонат, отопление, автополив">Круглогодичная теплица</button>
+              <button class="button secondary tpl-btn" type="button" data-title="Строительный 3D-принтер" data-cat="Технологии и инновации" data-stages="8 этапов · 145 дней" data-res="портал, привод, ЧПУ, бетононасос">Строительный 3D-принтер</button>
+              <button class="button secondary tpl-btn" type="button" data-title="Сыроварня кооператива" data-cat="Переработка" data-stages="5 этапов · 70 дней" data-res="ванна, пресс, камера созревания">Сыроварня</button>
+              <button class="button secondary tpl-btn" type="button" data-title="Солнечная станция посёлка" data-cat="Энергетика" data-stages="4 этапа · 52 дня" data-res="панели, инвертор, накопитель, монтаж">Солнечная станция</button>
+            </div>
+            <p class="unit-hint" id="tpl-note" style="margin:12px 0 0" hidden></p>
+          </div>
+
           <div class="card ar-section" id="field-title">
             <div class="ar-section-title"><span class="ar-section-num">1</span>Название и направление</div>
             <p class="ar-section-hint">Направление определяет, в какой витрине каталога появится проект.</p>
@@ -561,5 +573,23 @@ function escapeHtml(s) {
 })();
 </script>
 <script src="app.js"></script>
+
+<script>
+(function () {
+  /* Шаблон проекта: подставляем название и показываем, что придёт следом */
+  document.querySelectorAll('.tpl-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = document.getElementById('proj-title');
+      if (t) { t.value = b.getAttribute('data-title'); t.dispatchEvent(new Event('input', { bubbles: true })); }
+      var note = document.getElementById('tpl-note');
+      note.hidden = false;
+      note.innerHTML = 'Взят шаблон «' + b.getAttribute('data-title') + '»: направление «' + b.getAttribute('data-cat')
+        + '», план работ — ' + b.getAttribute('data-stages') + ', типовые ресурсы — ' + b.getAttribute('data-res')
+        + '. Всё это можно менять: шаблон только заполняет форму, дальше проект живёт своей жизнью.';
+      document.querySelectorAll('.tpl-btn').forEach(function (x) { x.classList.toggle('active', x === b); });
+    });
+  });
+})();
+</script>
 </body>
 </html>

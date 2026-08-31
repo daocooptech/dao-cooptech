@@ -1619,3 +1619,42 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
   .modal { box-shadow: none; border: none; max-width: none; width: auto; }
   .modal-head button, .modal-actions { display: none !important; }
 }
+
+/* Воронка сделок и роботы (идеи 19–20). Колонки скроллятся вбок,
+   карточки переносятся мышью между стадиями. */
+.kanban { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; }
+.kanban-col { flex: 0 0 236px; background: var(--surface-2); border-radius: var(--radius); padding: 10px; min-height: 200px; }
+.kanban-col.drop-target { outline: 2px dashed var(--teal); outline-offset: -2px; }
+.kanban-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 9px; }
+.kanban-name { font: 700 10.5px/1.3 'JetBrains Mono', monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--slate-light); }
+.kanban-sum { font: 600 11.5px/1 'Manrope', sans-serif; color: var(--slate); white-space: nowrap; }
+.kanban-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 9px 11px; margin-bottom: 8px; cursor: grab; }
+.kanban-card:hover { border-color: var(--teal); }
+.kanban-card.dragging { opacity: .5; }
+.kanban-card .kc-title { font-weight: 600; font-size: 12.5px; margin-bottom: 3px; }
+.kanban-card .kc-meta { color: var(--slate); font-size: 11px; }
+.kanban-card .kc-amount { font: 700 12.5px/1 'Manrope', sans-serif; margin-top: 5px; }
+
+/* Правила-роботы: «когда → что делает» */
+.robot-row { display: flex; gap: 12px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.robot-row:last-child { border-bottom: none; }
+.robot-when { font-weight: 600; font-size: 12.5px; }
+.robot-then { color: var(--slate); font-size: 12px; margin-top: 2px; }
+.robot-row input { margin-top: 3px; flex: none; }
+
+/* Лента объекта: события и комментарии (идеи 22–23) */
+.thread-item-log { display: flex; gap: 11px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.thread-item-log:last-child { border-bottom: none; }
+.thread-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex: none; margin-top: 6px; }
+.thread-dot.sys { background: var(--line); }
+.thread-body { flex: 1; min-width: 0; }
+.thread-who { font-weight: 600; font-size: 12.5px; }
+.thread-when { color: var(--slate-light); font-size: 11px; margin-left: 6px; font-weight: 500; }
+.thread-text { color: var(--slate); font-size: 12.5px; margin-top: 2px; }
+
+/* Чек-листы этапов проекта (идея 25) */
+.checklist { margin: 8px 0 0; padding: 0; list-style: none; }
+.checklist li { display: flex; gap: 8px; align-items: flex-start; padding: 4px 0; font-size: 12.5px; color: var(--slate); }
+.checklist li.done { color: var(--slate-light); text-decoration: line-through; }
+.checklist input { margin-top: 2px; flex: none; }
+.checklist-progress { font: 600 11.5px/1 'Manrope', sans-serif; color: var(--teal-dark); margin-top: 6px; }
