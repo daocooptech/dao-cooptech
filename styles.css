@@ -1714,3 +1714,11 @@ button.track-hash:hover { border-color: var(--teal); color: var(--teal-dark); }
 
 /* Карточка, не влезающая в полную строку полки, прячется — см. fitShelves() */
 .shelf-off { display: none !important; }
+
+/* Краткое описание в плитке проекта: ровно три строки, дальше многоточие —
+   иначе плитки в ряду разъезжаются по высоте. */
+.ptile-desc {
+  color: var(--slate); font-size: 12px; line-height: 1.45; margin-top: 6px;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
