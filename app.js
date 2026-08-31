@@ -573,6 +573,117 @@
     if (exit) right.insertBefore(wrap, exit); else right.appendChild(wrap);
   }
 
+
+  /* ── Постраничный просмотр каталогов ───────────────────────
+     В каталогах по сотне объектов, показывать их одной лентой — значит
+     заставить человека крутить экран минуту. Показываем по 20 и даём
+     перелистывание.
+
+     Как это уживается с фильтрами: фильтры на страницах прячут карточки
+     через свойство hidden, поэтому страница считается только по тем, что
+     фильтр оставил. Сам листатель прячет лишнее классом pager-off — так две
+     механики не спорят друг с другом и не зацикливаются. */
+  var PAGE_SIZE = 20;
+  /* #deal-list сюда не входит: у реестра сделок свой листатель, встроенный
+     в его фильтры, — второй поверх него только мешал бы. */
+  var GRIDS = ['#people-grid', '#resumes-list', '#vacancies-list', '#projects-grid',
+               '#orgs-grid', '#resources-grid', '#groups-grid',
+               '#cfa-list', '#nma-list'];
+
+  function setupPager(box) {
+    if (box.__pager) return;
+    box.__pager = true;
+    var page = 1;
+
+    var nav = document.createElement('nav');
+    nav.className = 'pager';
+    nav.setAttribute('aria-label', 'Страницы каталога');
+    box.parentNode.insertBefore(nav, box.nextSibling);
+
+    function items() {
+      return Array.prototype.filter.call(box.children, function (el) {
+        return el.nodeType === 1 && !el.classList.contains('pager-off') ? true : el.nodeType === 1;
+      });
+    }
+    /* «Живые» — те, что не спрятаны фильтром страницы */
+    function live() {
+      return Array.prototype.filter.call(box.children, function (el) {
+        if (el.nodeType !== 1) return false;
+        if (el.hasAttribute('hidden')) return false;
+        if (el.style && el.style.display === 'none') return false;
+        return true;
+      });
+    }
+
+    function render() {
+      var list = live();
+      var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+      if (page > pages) page = pages;
+      var from = (page - 1) * PAGE_SIZE;
+      var to = from + PAGE_SIZE;
+      list.forEach(function (el, i) {
+        el.classList.toggle('pager-off', i < from || i >= to);
+      });
+
+      if (list.length <= PAGE_SIZE) { nav.innerHTML = ''; return; }
+
+      var html = '<span class="pager-info">Показано ' + (from + 1) + '–'
+        + Math.min(to, list.length) + ' из ' + list.length + '</span>'
+        + '<button type="button" class="pager-btn" data-go="prev"'
+        + (page === 1 ? ' disabled' : '') + '>Назад</button>';
+
+      var nums = [];
+      for (var p = 1; p <= pages; p++) {
+        if (p === 1 || p === pages || Math.abs(p - page) <= 1) nums.push(p);
+        else if (nums[nums.length - 1] !== '…') nums.push('…');
+      }
+      nums.forEach(function (p) {
+        html += p === '…'
+          ? '<span class="pager-gap">…</span>'
+          : '<button type="button" class="pager-btn pager-num' + (p === page ? ' active' : '')
+            + '" data-go="' + p + '"' + (p === page ? ' aria-current="page"' : '') + '>' + p + '</button>';
+      });
+      html += '<button type="button" class="pager-btn" data-go="next"'
+        + (page === pages ? ' disabled' : '') + '>Вперёд</button>';
+      nav.innerHTML = html;
+    }
+
+    nav.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-go]');
+      if (!b) return;
+      var go = b.getAttribute('data-go');
+      var pages = Math.max(1, Math.ceil(live().length / PAGE_SIZE));
+      if (go === 'prev') page = Math.max(1, page - 1);
+      else if (go === 'next') page = Math.min(pages, page + 1);
+      else page = parseInt(go, 10);
+      render();
+      var top = box.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+
+    /* Фильтр отработал — пересобираем страницы и возвращаемся на первую */
+    var timer = null;
+    new MutationObserver(function (recs) {
+      var byFilter = recs.some(function (r) {
+        return r.type === 'childList'
+          || (r.type === 'attributes' && r.attributeName !== 'class');
+      });
+      if (!byFilter) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () { page = 1; render(); }, 30);
+    }).observe(box, { childList: true, subtree: true, attributes: true,
+                      attributeFilter: ['hidden', 'style'] });
+
+    render();
+  }
+
+  function initPager() {
+    GRIDS.forEach(function (sel) {
+      var box = document.querySelector(sel);
+      if (box) setupPager(box);
+    });
+  }
+
   function init() {
     var right = document.querySelector('.topbar-right');
     if (right) right.insertBefore(buildToggle(), right.firstChild);
@@ -768,6 +879,7 @@
     a11y();
     initChain();
     initContext();
+    initPager();
 
     /* 6. Эмодзи → SVG */
     var BLOCK_SEL = '.cat-icon, .out-icon, .f-icon, .thumb, .cat-icon.line-icon';
