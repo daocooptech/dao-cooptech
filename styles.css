@@ -575,7 +575,11 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .ptile .img-wrap,
 .vacancy-list.tile-mode .card-row > .img-wrap { overflow: hidden; aspect-ratio: 1.2; }
 .ptile .img-wrap svg, .ptile .img-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; }
-.ptile .pname { -webkit-line-clamp: 2; line-clamp: 2; }
+.ptile .pname {
+  display: -webkit-box; -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+  min-height: calc(2 * 1.35em);
+}
 .ptile .img-wrap .org-logo {
   width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
   font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: .02em;
@@ -585,13 +589,9 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
   padding: 14% 16% 32% 16%; box-sizing: border-box; background: var(--white);
 }
 .ptile-grid.list-mode .ptile .img-wrap .org-logo-img { padding: 10% 12% 42% 12%; }
-.ptile .tile-bottom { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; }
-.ptile .readiness-strip { padding: 10px 10px 6px; background: linear-gradient(to top, rgba(20,23,26,.5), rgba(20,23,26,0)); }
-.ptile .readiness-pct {
-  text-align: right; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px;
-  color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.45); margin-bottom: 5px;
-}
-.ptile .readiness-bar { height: 4px; border-radius: 2px; overflow: hidden; }
+.ptile-progress { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.ptile .readiness-pct { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 11.5px; }
+.ptile .readiness-bar { flex: 1; height: 4px; border-radius: 2px; overflow: hidden; }
 .ptile .readiness-bar-fill { height: 100%; border-radius: 2px; }
 .loc-bar {
   position: absolute; left: 0; right: 0; bottom: 0;
@@ -603,12 +603,12 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .ptile-grid.list-mode .loc-bar { display: none; }
 /* Обратное: в плитке город уже есть на фото — из мета-строки его убираем. */
 .vacancy-list.tile-mode .meta-city { display: none; }
-.ptile .tile-bottom .loc-bar { position: static; }
 .ptile .type-badge { position: absolute; top: 10px; left: 10px; font-size: 10px; padding: 3px 9px; }
-.ptile .pname { margin-top: 11px; font-weight: 500; font-size: 13.5px; }
+.ptile .pname { margin-top: 11px; }
 .ptile .price-line { margin-top: 6px; font-size: 15px; }
 /* .ptile — карточка без padding по бокам, отступ даём самим строкам текста. */
-.ptile .pname, .ptile .price-line, .ptile .skill-owner, .ptile .list-meta { padding: 0 12px; }
+.ptile .pname, .ptile .price-line, .ptile .skill-owner, .ptile .list-meta,
+.ptile .ptile-desc, .ptile .ptile-progress { padding: 0 12px; }
 .ptile-grid.list-mode .ptile .price-line { display: none; }
 .ptile .skill-owner { margin-top: 2px; }
 .ptile:hover .pname { text-decoration: underline; }
@@ -1170,9 +1170,14 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .ptile-grid.list-mode .ptile .pname,
 .ptile-grid.list-mode .ptile .list-meta { padding: 0; }
 .ptile-grid.list-mode .ptile .img-wrap .org-logo { font-size: 16px; }
-.ptile-grid.list-mode .ptile .tile-bottom,
+.ptile-grid.list-mode .ptile .ptile-progress,
 .ptile-grid.list-mode .ptile .type-badge { display: none; }
-.ptile-grid.list-mode .ptile .pname { margin-top: 0; font-size: 14px; }
+/* В списке имя и мета-строка стоят колонками фиксированной ширины, описание
+   забирает остаток: иначе длинное описание съедало место у названия и то
+   обрывалось многоточием на третьем слове. */
+.ptile-grid.list-mode .ptile .pname { margin-top: 0; min-height: 0; flex: 0 0 230px; }
+.ptile-grid.list-mode .ptile .list-meta { flex: 0 0 170px; }
+.ptile-grid.list-mode .ptile-desc { flex: 1 1 auto; min-width: 0; }
 .ptile-grid.list-mode .ptile .list-meta { display: block; color: var(--slate); font-size: 12px; margin-top: 2px; }
 .ptile-grid .list-meta { display: none; }
 
@@ -1727,5 +1732,7 @@ button.track-hash:hover { border-color: var(--teal); color: var(--teal-dark); }
 .ptile-desc {
   color: var(--slate); font-size: 12px; line-height: 1.45; margin-top: 6px;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow: hidden; min-height: calc(3 * 1.45em);
 }
+/* В списке описание идёт одной строкой: там карточка низкая и широкая. */
+.ptile-grid.list-mode .ptile-desc { min-height: 0; -webkit-line-clamp: 1; margin-top: 3px; }
