@@ -68,16 +68,18 @@
   <main class="main" id="main">
     <h1 class="sr-only">Сообщения</h1>
 
-    <div class="entity-tabs">
-      <a href="messages.html" class="active">Сообщения</a>
-    </div>
-    <div class="search-row">
-      <input class="input" id="thread-search" placeholder="Найти диалог, человека или организацию...">
-    </div>
-    <div class="chip-toggle-group thread-filters" id="thread-filters"></div>
-    <div class="messages-body">
-      <div class="thread-list" id="thread-list"></div>
-      <div class="chat-pane" id="chat-pane"></div>
+    <div class="messages-page">
+      <div class="entity-tabs">
+        <a href="messages.html" class="active">Сообщения</a>
+      </div>
+      <div class="search-row">
+        <input class="input" id="thread-search" placeholder="Найти по диалогам и сообщениям...">
+      </div>
+      <div class="chip-toggle-group thread-filters" id="thread-filters"></div>
+      <div class="messages-body">
+        <div class="thread-list" id="thread-list"></div>
+        <div class="chat-pane" id="chat-pane"></div>
+      </div>
     </div>
     <input type="file" id="attach-photo-input" accept="image/*" style="display:none">
     <input type="file" id="attach-doc-input" style="display:none">
@@ -664,9 +666,22 @@ var activeId = 'maria';
 var activeCategory = 'all';
 var pendingAttachment = null;
 
-function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-function isGroup(t) { return t.kind === 'project' || t.kind === 'community'; }
+/* Состояние поиска и фильтра внутри открытой переписки. Сбрасывается при
+   переключении треда — иначе новый чат открывался бы уже отфильтрованным. */
+var chatQuery = '';
+var chatType = 'all';
+var searchOpen = false;
+
+var MSG_TYPES = [
+  { id: 'all', label: 'Все' },
+  { id: 'photo', label: '📷 Фото' },
+  { id: 'document', label: '📄 Документы' },
+  { id: 'extension', label: '🧩 Расширения' },
+  { id: 'place', label: '📍 Гео и контакты' }
+];
+
+function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
 function threadAvatarHTML(t, size) {
   var cls = 'avatar' + (size === 'sm' ? ' sm' : '') + (t.logo ? ' deal-org-logo' : '');
@@ -690,11 +705,27 @@ function previewLabel(m) {
 
 function lastMessage(t) { return t.messages[t.messages.length - 1]; }
 
-function lastMessagePreview(t) {
-  var m = lastMessage(t);
+function messageHaystack(m) {
+  return [m.text, m.name, m.author].filter(Boolean).join(' ');
+}
+
+/* Сообщение треда, попавшее под запрос верхнего поиска. Именно его показываем
+   в превью вместо последнего — иначе непонятно, почему диалог нашёлся. */
+function firstMatchingMessage(t, filter) {
+  if (!filter) return null;
+  var q = filter.toLowerCase();
+  for (var i = t.messages.length - 1; i >= 0; i--) {
+    if (messageHaystack(t.messages[i]).toLowerCase().indexOf(q) !== -1) return t.messages[i];
+  }
+  return null;
+}
+
+function previewOf(t, m) {
   var who = m.author ? m.author.split(' ')[0] + ': ' : (m.dir === 'out' ? 'Вы: ' : '');
   return who + previewLabel(m);
 }
+
+function lastMessagePreview(t) { return previewOf(t, lastMessage(t)); }
 
 /* В списке диалогов показываем время последнего сообщения, если оно сегодняшнее,
    иначе — день («Вчера», «27 августа»). */
@@ -716,11 +747,30 @@ function inCategory(t, cat) {
   return t.kind === cat;
 }
 
+/* Верхний поиск идёт по названию, подписи, предмету сделки И по тексту всех
+   сообщений треда — то есть ищет по переписке, а не только по её заголовку. */
 function matchesSearch(t, filter) {
   if (!filter) return true;
   var q = filter.toLowerCase();
-  var hay = t.name + ' ' + (t.sub || '') + ' ' + (t.deal ? t.deal.title : '') + ' ' + lastMessagePreview(t);
-  return hay.toLowerCase().indexOf(q) !== -1;
+  var head = t.name + ' ' + (t.sub || '') + ' ' + (t.deal ? t.deal.title : '');
+  if (head.toLowerCase().indexOf(q) !== -1) return true;
+  return !!firstMatchingMessage(t, filter);
+}
+
+/* Подсветка совпадений: экранируем текст, потом оборачиваем найденное в <mark>. */
+function highlight(text, query) {
+  var safe = escapeHtml(text);
+  if (!query) return safe;
+  var q = escapeHtml(query);
+  var i = safe.toLowerCase().indexOf(q.toLowerCase());
+  if (i === -1) return safe;
+  var out = '', rest = safe;
+  while (i !== -1) {
+    out += rest.slice(0, i) + '<mark>' + rest.slice(i, i + q.length) + '</mark>';
+    rest = rest.slice(i + q.length);
+    i = rest.toLowerCase().indexOf(q.toLowerCase());
+  }
+  return out + rest;
 }
 
 /* Закреплённые диалоги всегда наверху, остальные — в порядке свежести
@@ -753,6 +803,8 @@ function renderThreadList(filter) {
   sortedThreads().forEach(function (t) {
     if (!inCategory(t, activeCategory) || !matchesSearch(t, filter)) return;
     shown++;
+    var hit = firstMatchingMessage(t, filter);
+    var preview = hit ? previewOf(t, hit) : lastMessagePreview(t);
     var item = document.createElement('div');
     item.className = 'thread-item' + (t.id === activeId ? ' active' : '') + (t.unread ? ' unread' : '');
     item.dataset.id = t.id;
@@ -760,11 +812,11 @@ function renderThreadList(filter) {
       threadAvatarHTML(t, 'sm') +
       '<div class="tmain">' +
         '<div class="thread-row">' +
-          '<span class="tname">' + (t.pinned ? '📌 ' : '') + escapeHtml(t.name) + kindIcon(t) + '</span>' +
+          '<span class="tname">' + (t.pinned ? '📌 ' : '') + highlight(t.name, filter) + kindIcon(t) + '</span>' +
           '<span class="ttime">' + lastStamp(t) + '</span>' +
         '</div>' +
         '<div class="thread-row">' +
-          '<span class="tlast">' + escapeHtml(lastMessagePreview(t)) + (t.scheduled.length ? ' · 🕒' + t.scheduled.length : '') + '</span>' +
+          '<span class="tlast">' + highlight(preview, filter) + (t.scheduled.length ? ' · 🕒' + t.scheduled.length : '') + '</span>' +
           (t.unread ? '<span class="tcount">' + t.unread + '</span>' : '') +
         '</div>' +
       '</div>';
@@ -772,6 +824,8 @@ function renderThreadList(filter) {
       t.unread = 0;
       activeId = t.id;
       pendingAttachment = null;
+      chatQuery = '';
+      chatType = 'all';
       renderFilters();
       renderThreadList(document.getElementById('thread-search').value);
       renderChatPane();
@@ -783,20 +837,20 @@ function renderThreadList(filter) {
   }
 }
 
-function renderBubbleContent(m) {
+function renderBubbleContent(m, q) {
   switch (m.type) {
     case 'photo':
-      return '<img src="' + m.src + '" alt="фото" style="max-width:220px;border-radius:10px;display:block">' + (m.text ? '<div style="margin-top:6px">' + escapeHtml(m.text) + '</div>' : '');
+      return '<img src="' + m.src + '" alt="фото" style="max-width:220px;border-radius:10px;display:block">' + (m.text ? '<div style="margin-top:6px">' + highlight(m.text, q) + '</div>' : '');
     case 'document':
-      return '<div class="msg-doc">📄<div><div class="msg-doc-name">' + escapeHtml(m.name) + '</div><div class="msg-doc-size">' + m.size + '</div></div></div>';
+      return '<div class="msg-doc">📄<div><div class="msg-doc-name">' + highlight(m.name, q) + '</div><div class="msg-doc-size">' + m.size + '</div></div></div>';
     case 'location':
-      return '<div class="msg-location">📍 <span>' + escapeHtml(m.text) + '</span></div>';
+      return '<div class="msg-location">📍 <span>' + highlight(m.text, q) + '</span></div>';
     case 'contact':
-      return '<div class="msg-contact"><img class="avatar sm" src="' + m.avatar + '" alt=""><div><div style="font-weight:600">' + escapeHtml(m.name) + '</div><div style="font-size:11px;color:var(--slate)">' + m.phone + '</div></div></div>';
+      return '<div class="msg-contact"><img class="avatar sm" src="' + m.avatar + '" alt=""><div><div style="font-weight:600">' + highlight(m.name, q) + '</div><div style="font-size:11px;color:var(--slate)">' + m.phone + '</div></div></div>';
     case 'extension':
-      return '<a href="' + m.href + '" class="msg-doc" style="text-decoration:none;color:inherit"><span style="font-size:20px">' + m.icon + '</span><div><div class="msg-doc-name">' + escapeHtml(m.name) + '</div><div class="msg-doc-size">Расширение платформы →</div></div></a>' + (m.text ? '<div style="margin-top:6px">' + escapeHtml(m.text) + '</div>' : '');
+      return '<a href="' + m.href + '" class="msg-doc" style="text-decoration:none;color:inherit"><span style="font-size:20px">' + m.icon + '</span><div><div class="msg-doc-name">' + highlight(m.name, q) + '</div><div class="msg-doc-size">Расширение платформы →</div></div></a>' + (m.text ? '<div style="margin-top:6px">' + highlight(m.text, q) + '</div>' : '');
     default:
-      return escapeHtml(m.text);
+      return highlight(m.text, q);
   }
 }
 
@@ -806,15 +860,54 @@ function bubbleMetaHTML(m) {
   return '<span class="msg-meta">' + (m.t || '') + tick + '</span>';
 }
 
+function typeMatches(m) {
+  if (chatType === 'all') return true;
+  if (chatType === 'place') return m.type === 'location' || m.type === 'contact';
+  return m.type === chatType;
+}
+
+function visibleMessages(t) {
+  var q = chatQuery.toLowerCase();
+  return t.messages.filter(function (m) {
+    if (!typeMatches(m)) return false;
+    if (!q) return true;
+    return messageHaystack(m).toLowerCase().indexOf(q) !== -1;
+  });
+}
+
 function renderStream(t) {
+  var list = visibleMessages(t);
+  if (!list.length) {
+    return '<div class="stream-empty">В этой переписке ничего не найдено.<br>Измените запрос или выберите «Все».</div>';
+  }
   var day = '';
-  return t.messages.map(function (m) {
+  return list.map(function (m) {
     var out = '';
     if (m.d && m.d !== day) { day = m.d; out += '<div class="chat-day"><span>' + escapeHtml(day) + '</span></div>'; }
-    if (m.dir === 'in' && m.author) out += '<div class="msg-author">' + escapeHtml(m.author) + '</div>';
-    out += '<div class="bubble ' + m.dir + '">' + renderBubbleContent(m) + bubbleMetaHTML(m) + '</div>';
+    if (m.dir === 'in' && m.author) out += '<div class="msg-author">' + highlight(m.author, chatQuery) + '</div>';
+    out += '<div class="bubble ' + m.dir + '">' + renderBubbleContent(m, chatQuery) + bubbleMetaHTML(m) + '</div>';
     return out;
   }).join('');
+}
+
+/* Панель поиска и фильтров внутри переписки — раскрывается кнопкой в шапке
+   чата, чтобы в свёрнутом виде не отъедать высоту у ленты сообщений. */
+function renderChatSearch(t) {
+  if (!searchOpen) return '';
+  var total = t.messages.length;
+  var shown = visibleMessages(t).length;
+  var note = (chatQuery || chatType !== 'all')
+    ? 'Найдено: ' + shown + ' из ' + total
+    : 'Всего сообщений: ' + total;
+  return '<div class="chat-search" id="chat-search">' +
+    '<input class="input" id="chat-search-input" placeholder="Поиск по сообщениям этой переписки..." value="' + escapeHtml(chatQuery) + '">' +
+    '<span class="chat-search-count" id="chat-search-count">' + note + '</span>' +
+    '<div class="chip-toggle-group chat-type-filters">' +
+      MSG_TYPES.map(function (x) {
+        return '<button type="button" class="chip chip-toggle' + (chatType === x.id ? ' selected' : '') + '" data-mtype="' + x.id + '">' + x.label + '</button>';
+      }).join('') +
+    '</div>' +
+  '</div>';
 }
 
 /* Контекстная плашка под шапкой чата: у сделок — предмет и статус,
@@ -864,11 +957,17 @@ function renderChatPane() {
       '<div class="chat-head-text">' +
         '<div class="section-title" style="margin:0">' + escapeHtml(t.name) + '</div>' +
         '<div class="chat-sub">' + statusHTML + (statusHTML && t.sub ? '<span class="deal-sep">·</span>' : '') + escapeHtml(t.sub || '') + '</div>' +
-      '</div>' + linkHTML +
+      '</div>' +
+      '<button class="icon-btn chat-search-btn' + (searchOpen ? ' active' : '') + '" id="chat-search-btn" type="button" title="Поиск и фильтры по сообщениям">🔍</button>' +
+      linkHTML +
     '</div>' +
+    renderChatSearch(t) +
     renderContext(t) +
     '<div id="bubble-stream">' + renderStream(t) + '</div>' +
     '<div id="pending-attachment"></div>' +
+    renderScheduledPanel(t) +
+    /* Композер — одна строка: вложения, эмодзи, отложенная отправка, поле и кнопка.
+       Раньше панель иконок стояла отдельной строкой над полем и уводила ввод вниз. */
     '<div class="composer-toolbar">' +
       '<div class="attach-wrap"><button class="icon-btn" id="attach-btn" type="button" title="Прикрепить">📎</button>' +
         '<div class="popover" id="attach-menu" hidden>' +
@@ -891,21 +990,28 @@ function renderChatPane() {
           '<input type="datetime-local" class="input" id="schedule-time" style="font-size:12px;padding:6px 8px">' +
           '<button type="button" class="button secondary" id="schedule-confirm" style="margin-top:8px;width:100%;padding:7px">Запланировать</button>' +
         '</div></div>' +
-    '</div>' +
-    '<div style="display:flex;gap:8px;margin-top:8px">' +
-      '<input class="input" id="chat-input" placeholder="Написать сообщение...">' +
-      '<button class="button" id="chat-send" style="flex:none">Отправить</button>' +
-    '</div>' +
-    renderScheduledPanel(t);
+      '<textarea class="input chat-textarea" id="chat-input" rows="1" placeholder="Написать сообщение...  Enter — отправить"></textarea>' +
+      '<button class="button" id="chat-send" type="button">Отправить</button>' +
+    '</div>';
 
-  var stream = document.getElementById('bubble-stream');
-  stream.scrollTop = stream.scrollHeight;
+  scrollStreamToBottom();
   renderPendingAttachment();
 
+  var input = document.getElementById('chat-input');
   document.getElementById('chat-send').addEventListener('click', sendMessage);
-  document.getElementById('chat-input').addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') sendMessage();
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   });
+  input.addEventListener('input', autoGrow);
+
+  document.getElementById('chat-search-btn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    searchOpen = !searchOpen;
+    if (!searchOpen) { chatQuery = ''; chatType = 'all'; }
+    renderChatPane();
+    if (searchOpen) document.getElementById('chat-search-input').focus();
+  });
+  bindChatSearch();
 
   document.getElementById('attach-btn').addEventListener('click', function (e) {
     e.stopPropagation();
@@ -961,9 +1067,10 @@ function renderChatPane() {
   });
   document.querySelectorAll('#emoji-menu [data-emoji]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var input = document.getElementById('chat-input');
-      input.value += btn.dataset.emoji;
-      input.focus();
+      var box = document.getElementById('chat-input');
+      box.value += btn.dataset.emoji;
+      box.focus();
+      autoGrow.call(box);
       closeAllPopovers();
     });
   });
@@ -1001,6 +1108,51 @@ function renderChatPane() {
   });
 }
 
+/* Поиск внутри переписки перерисовывает только ленту и счётчик — если
+   перерисовывать всю панель, поле ввода теряет фокус на каждом символе. */
+function bindChatSearch() {
+  var box = document.getElementById('chat-search');
+  if (!box) return;
+  var t = threads.find(function (x) { return x.id === activeId; });
+  var field = document.getElementById('chat-search-input');
+  field.addEventListener('input', function () {
+    chatQuery = field.value;
+    refreshStream(t);
+  });
+  field.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { chatQuery = ''; field.value = ''; refreshStream(t); }
+  });
+  box.querySelectorAll('[data-mtype]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      chatType = btn.dataset.mtype;
+      box.querySelectorAll('[data-mtype]').forEach(function (b) { b.classList.toggle('selected', b.dataset.mtype === chatType); });
+      refreshStream(t);
+    });
+  });
+}
+
+function refreshStream(t) {
+  document.getElementById('bubble-stream').innerHTML = renderStream(t);
+  var count = document.getElementById('chat-search-count');
+  if (count) {
+    var shown = visibleMessages(t).length;
+    count.textContent = (chatQuery || chatType !== 'all')
+      ? 'Найдено: ' + shown + ' из ' + t.messages.length
+      : 'Всего сообщений: ' + t.messages.length;
+  }
+}
+
+function scrollStreamToBottom() {
+  var stream = document.getElementById('bubble-stream');
+  if (stream) stream.scrollTop = stream.scrollHeight;
+}
+
+/* Поле ввода растёт под текст до 5 строк, дальше прокручивается внутри себя. */
+function autoGrow() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+}
+
 function nowTime() {
   return new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
 }
@@ -1036,9 +1188,14 @@ function sendMessage() {
   } else {
     return;
   }
+  /* Новое сообщение должно быть видно сразу, даже если открыт фильтр по типу
+     или поиск — поэтому фильтр сбрасываем. */
+  chatQuery = '';
+  chatType = 'all';
   input.value = '';
   renderChatPane();
   renderThreadList(document.getElementById('thread-search').value);
+  document.getElementById('chat-input').focus();
 }
 
 function formatBytes(bytes) {
