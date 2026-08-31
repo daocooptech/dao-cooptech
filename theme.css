@@ -547,6 +547,7 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   .deal-side { align-items: flex-start; text-align: left; }
   .deal-party, .deal-foot { row-gap: 8px; }
   .deal-strip a { margin-left: 0; }
+  .pager-info { margin-left: 0; flex: 1 1 100%; }
   .trust-row .t-label { width: 96px; }
 }
 @media (min-width: 901px) {
@@ -632,6 +633,14 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .deal-strip a { color: var(--teal); text-decoration: none; }
 .deal-strip a:hover { text-decoration: underline; }
 .deal-hint { color: var(--slate); }
+.pager-btn, .pager-page {
+  background: var(--white); color: var(--ink);
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+}
+.pager-btn:hover:not(:disabled), .pager-page:hover:not(.active) { border-color: var(--teal); color: var(--teal-dark); }
+.pager-page.active { background: var(--teal); border-color: var(--teal); color: var(--btn-fg); cursor: default; }
+.pager-btn:disabled { color: var(--slate-light); cursor: default; }
+.pager-info { color: var(--slate); }
 .deal-hint b { color: var(--ink); }
 .deal-hint a { color: var(--teal); }
 .deal-title { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--ink); text-decoration: none; }
