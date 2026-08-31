@@ -370,6 +370,24 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   background: var(--white); border-color: var(--line);
 }
 
+.thread-item.unread .tname { font-weight: 700; }
+.thread-item .ttime { color: var(--slate-light); }
+.tcount { background: var(--teal); color: var(--btn-fg); }
+.thread-empty { color: var(--slate); }
+.chat-sub { color: var(--slate); }
+.online-dot { background: var(--teal); }
+.online-dot.off { background: var(--slate-light); }
+.chat-context { background: var(--surface-2); color: var(--slate); }
+.chat-context a { color: var(--teal-dark); }
+.deal-sep { color: var(--slate-light); }
+.deal-state.active { background: var(--teal-tint); color: var(--teal-dark); }
+.deal-state.pending { background: var(--gold-tint); color: var(--gold-text); }
+.deal-state.done { background: var(--surface-2); color: var(--slate); }
+.chat-day span { background: var(--surface-2); color: var(--slate); }
+.msg-author { color: var(--slate-light); }
+.msg-meta { color: var(--slate-light); }
+.bubble.out .msg-meta { color: var(--btn-fg); }
+
 /* ── Футер ────────────────────────────────────────────────── */
 .site-footer {
   gap: 18px; margin-top: 32px; padding-top: 16px;
