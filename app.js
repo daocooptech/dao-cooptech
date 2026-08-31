@@ -426,11 +426,18 @@
         var accNav = document.createElement('nav');
         for (var k = 0; k < accLinks.length; k++) {
           var copy = accLinks[k].cloneNode(true);
+          var href = copy.getAttribute('href') || '';
+          /* В шапке эти ссылки — только иконки; в выдвижном меню нужна подпись.
+             Берём её из aria-label и выкидываем скопированную из шапки svg. */
+          copy.textContent = copy.getAttribute('aria-label') || copy.textContent;
+          copy.removeAttribute('aria-label');
+          copy.removeAttribute('title');
+          copy.removeAttribute('class');
           var ic = document.createElement('span');
           ic.className = 'nav-ico';
           /* Иконку выбираем по адресу ссылки, а не по её тексту: переименование
              подписи не должно молча ломать иконку. */
-          ic.innerHTML = ico((copy.getAttribute('href') || '').indexOf('login') >= 0 ? I.exitPath : I.gearPath);
+          ic.innerHTML = ico(href.indexOf('settings') >= 0 ? I.gearPath : I.exitPath);
           copy.insertBefore(ic, copy.firstChild);
           accNav.appendChild(copy);
         }

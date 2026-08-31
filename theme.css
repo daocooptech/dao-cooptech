@@ -89,6 +89,15 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .topbar-right a { color: var(--ink-2); font-weight: 500; font-size: 12.5px; }
 .topbar-right a:hover { color: var(--teal); }
 
+/* Ссылки аккаунта в шапке — только иконки (шестерёнка и выход): подписи
+   словами занимали место и на узком экране первыми уезжали за край.
+   Подпись остаётся в aria-label/title — и для скринридера, и как всплывающая. */
+.topbar-ico {
+  display: inline-flex; align-items: center;
+  color: var(--ink-2); padding: 4px;
+}
+.topbar-ico:hover { color: var(--teal); }
+
 /* Колокольчик уведомлений в шапке (п.14 аудита: страница уведомлений была
    доступна только по прямому адресу — ссылки на неё не было нигде). */
 .topbar-bell {
@@ -658,3 +667,15 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .deal-link:hover { text-decoration: underline; }
 /* Сторона с отзывом, который считается в уровень доверия владельца страницы */
 .deal-reviews .mutual-review-side.counts { border-color: var(--teal); }
+
+/* ── Настройки (settings.html) ─────────────────────────────── */
+.set-hint { color: var(--slate); }
+.set-hint a { color: var(--teal); }
+.set-note { color: var(--slate-light); }
+.set-row { border-bottom: 1px solid var(--line); }
+.set-row:last-of-type { border-bottom: none; }
+.set-matrix input[type="checkbox"] { accent-color: var(--teal); }
+/* Опасная зона: рамка предупреждает, но не кричит — действия внутри
+   всё равно требуют подтверждения в модальном окне. */
+.set-danger { border-color: var(--error); }
+.set-danger .section-title { color: var(--error); }
