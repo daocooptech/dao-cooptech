@@ -310,12 +310,13 @@
             <div class="stock-cell"><div class="stock-num">86</div><div class="stock-label">Контрагентов</div></div>
             <div class="stock-cell reserved"><div class="stock-num">2</div><div class="stock-label">Расхождения, требуют решения</div></div>
           </div>
+          <p class="sync-note stale" role="status"><span class="sync-dot" aria-hidden="true"></span>Организация ведёт учёт в своей программе — данные приходят с задержкой. Последний обмен сегодня в 06:00. <button class="sync-refresh" type="button" id="sync-refresh-1c">Обновить</button></p>
           <table class="doc-table res-table" style="margin-top:14px">
             <thead><tr><th>Что синхронизируется</th><th>Направление</th><th>Последняя выгрузка</th><th>Статус</th></tr></thead>
             <tbody>
               <tr><td>Номенклатура и единицы измерения</td><td>1С → платформа</td><td>сегодня 06:00</td><td><span class="badge teal">ок</span></td></tr>
               <tr><td>Контрагенты и реквизиты</td><td>двусторонне</td><td>сегодня 06:00</td><td><span class="badge teal">ок</span></td></tr>
-              <tr><td>Документы сделок (счета, акты)</td><td>платформа → 1С</td><td>сегодня 06:00</td><td><span class="badge gold">2 расхождения</span></td></tr>
+              <tr><td>Документы сделок (счета, акты)</td><td>платформа → 1С</td><td>сегодня 06:00</td><td><button class="badge gold" type="button" id="diff-open" style="border:none;cursor:pointer;font:inherit">2 расхождения</button></td></tr>
               <tr><td>Остатки по складу</td><td>1С → платформа</td><td>сегодня 06:00</td><td><span class="badge teal">ок</span></td></tr>
             </tbody>
           </table>
@@ -605,6 +606,71 @@ document.querySelectorAll('.cat-nav').forEach(function (btn) {
       if (hit) n++;
     });
     count.textContent = n;
+  });
+})();
+</script>
+
+<!-- Что разошлось при обмене. Показываем обе версии и не выбираем правильную
+     за человека: расхождение — это разговор с контрагентом, а не задача для
+     алгоритма. -->
+<div class="modal-overlay" id="diff-modal" hidden>
+  <div class="modal wide">
+    <div class="modal-head">
+      <h2>Что разошлось с 1С</h2>
+      <button class="modal-close" id="diff-modal-close" type="button" aria-label="Закрыть">✕</button>
+    </div>
+    <p class="modal-hint">По двум документам данные на платформе и в 1С не совпали. Пока расхождение не снято, документы не уходят в обмен.</p>
+    <table class="doc-table">
+      <thead><tr><th>Документ</th><th>Что</th><th>На платформе</th><th>В 1С</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Акт СД-2026-000124</td><td>Количество, кг</td>
+          <td class="diff-mine">200</td><td class="diff-theirs">195</td>
+          <td><button class="button secondary" type="button" style="padding:5px 10px;font-size:12px"
+                      data-confirm="Принять количество из 1С?"
+                      data-confirm-text="На платформе станет 195 кг вместо 200. Поставщик увидит изменение, документ уйдёт в обмен заново."
+                      data-confirm-ok="Принять 195 кг"
+                      data-confirm-done="Расхождение снято">Принять из 1С</button></td>
+        </tr>
+        <tr>
+          <td>Счёт СЧ-2026-000311</td><td>Сумма, ₽</td>
+          <td class="diff-mine">92 000,00</td><td class="diff-theirs">92 460,00</td>
+          <td><button class="button secondary" type="button" style="padding:5px 10px;font-size:12px"
+                      data-confirm="Обсудить расхождение с поставщиком?"
+                      data-confirm-text="Откроется переписка по сделке СД-2026-000124. Документ останется в расхождении, пока стороны не договорятся."
+                      data-confirm-ok="Написать поставщику">Обсудить</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="modal-actions">
+      <button class="button secondary" id="diff-modal-cancel" type="button">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var overlay = document.getElementById('diff-modal');
+  var open = document.getElementById('diff-open');
+  if (!overlay || !open) return;
+  function close() { overlay.hidden = true; }
+  open.addEventListener('click', function () { overlay.hidden = false; });
+  document.getElementById('diff-modal-close').addEventListener('click', close);
+  document.getElementById('diff-modal-cancel').addEventListener('click', close);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+
+  /* Кнопка «Обновить» под таблицей обмена: показываем работу и результат,
+     а не делаем вид, что данные появились мгновенно. */
+  var btn = document.getElementById('sync-refresh-1c');
+  if (btn) btn.addEventListener('click', function () {
+    btn.disabled = true;
+    btn.textContent = 'Обновляем…';
+    if (window.Coop) Coop.say('Запрошено обновление данных');
+    setTimeout(function () {
+      btn.disabled = false;
+      btn.textContent = 'Обновить';
+      if (window.Coop) Coop.toast('Данные обновлены минуту назад');
+    }, 1200);
   });
 })();
 </script>

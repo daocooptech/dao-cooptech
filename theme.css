@@ -30,6 +30,8 @@
   --moon: #c4c4bd;
   --error: #b3413a;   /* перенесён из styles.css: все токены живут здесь */
   --focus: #0e4f4a;   /* обводка фокуса с клавиатуры */
+  --error-tint: #f7e7e6;  /* подложка под сообщением об ошибке */
+  --error-text: #8e2f2a;  /* текст на этой подложке */
 }
 
 html[data-theme="dark"] {
@@ -55,6 +57,8 @@ html[data-theme="dark"] {
   --sun: #4d5854;
   --moon: #e0b061;
   --focus: #7fd8cd;
+  --error-tint: #2a1614;
+  --error-text: #e58b84;
   color-scheme: dark;
 }
 
@@ -563,6 +567,14 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   .deal-strip a { margin-left: 0; }
   .pager-info { margin-left: 0; flex: 1 1 100%; }
   .trust-row .t-label { width: 96px; }
+  /* Состояния на узком экране. Тост стоял на 26px от низа и уходил под
+     нижнюю панель вкладок — поднимаем над ней и растягиваем по ширине. */
+  .toast { left: 12px; right: 12px; bottom: 74px; justify-content: space-between; }
+  .notice-actions .button,
+  .empty-actions .button { flex: 1 1 100%; }
+  /* Диалог — нижней шторкой, тем же приёмом, что уже применён к фильтрам. */
+  .modal-overlay { align-items: flex-end; }
+  .modal { width: 100%; max-width: none; border-radius: 16px 16px 0 0; max-height: 88vh; overflow-y: auto; }
 }
 @media (min-width: 901px) {
   .burger, .filter-sheet-btn, .filter-scrim { display: none; }
@@ -689,3 +701,49 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
    всё равно требуют подтверждения в модальном окне. */
 .set-danger { border-color: var(--error); }
 .set-danger .section-title { color: var(--error); }
+
+/* ============================================================
+   СОСТОЯНИЯ ЭКРАНА — оформление. Раскладка в styles.css.
+   ============================================================ */
+.notice { border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--slate); font-size: 12.5px; line-height: 1.5; }
+.notice-title { font: 700 12.5px/1.35 'Manrope', sans-serif; color: var(--ink); }
+.notice.wait { background: var(--gold-tint); border-color: var(--gold); color: var(--gold-text); }
+.notice.wait .notice-title { color: var(--gold-text); }
+.notice.error { background: var(--error-tint); border-color: var(--error); color: var(--error-text); }
+.notice.error .notice-title { color: var(--error-text); }
+.notice.ok { background: var(--teal-tint); border-color: var(--teal); color: var(--teal-dark); }
+.notice.ok .notice-title { color: var(--teal-dark); }
+
+.sync-note { color: var(--slate-light); font-size: 11.5px; }
+.sync-dot { background: var(--teal); }
+.sync-note.stale { color: var(--slate); }
+.sync-note.stale .sync-dot { background: var(--gold); }
+.sync-note.offline .sync-dot { background: var(--slate-light); }
+.sync-refresh { color: var(--teal); text-decoration: underline; }
+.sync-refresh:hover { color: var(--teal-dark); }
+
+.skeleton { background: linear-gradient(90deg, var(--surface-2) 25%, var(--line) 37%, var(--surface-2) 63%); background-size: 400% 100%; animation: skeletonSweep 1.4s ease infinite; }
+.button[aria-busy="true"]::after { border: 2px solid rgba(255,255,255,.3); border-top-color: var(--btn-fg); }
+.button.secondary[aria-busy="true"]::after,
+.button.ghost[aria-busy="true"]::after { border-color: var(--line); border-top-color: var(--teal); }
+
+.empty-ico { border-radius: 50%; background: var(--surface-2); color: var(--slate-light); }
+.empty-title { font: 700 14px/1.3 'Manrope', sans-serif; color: var(--ink); }
+.empty-text { color: var(--slate); font-size: 12.5px; line-height: 1.55; }
+.empty-state.is-error { border-style: solid; border-color: var(--error); background: var(--error-tint); color: var(--error-text); }
+.empty-state.is-error .empty-title { color: var(--error-text); }
+.empty-state.is-error .empty-ico { background: var(--white); color: var(--error); }
+.empty-state.is-loading { border-style: solid; }
+
+.toast-undo { color: var(--gold); font-weight: 700; text-decoration: underline; }
+
+/* Расхождение при обмене: своя версия обычная, чужая подсвечена. Правильную
+   за человека не выбираем — это разговор с контрагентом, а не задача для
+   алгоритма. */
+.diff-mine, .diff-theirs { white-space: nowrap; }
+.diff-mine { font-weight: 700; }
+.diff-theirs { background: var(--gold-tint); color: var(--gold-text); font-weight: 700; }
+
+/* Необратимое действие обязано выглядеть иначе, чем «Отмена» рядом с ним. */
+.button.danger { background: var(--error); color: #fff; border-color: var(--error); }
+.button.danger:hover { background: var(--error-text); border-color: var(--error-text); }
