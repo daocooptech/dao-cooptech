@@ -1653,3 +1653,15 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
   cursor: pointer; font: 700 14px/1 'Manrope', sans-serif;
 }
 .tab-add:hover { border-color: var(--teal); color: var(--teal); }
+
+/* Запись документа в блокчейне: кликабельный отпечаток и карточка записи */
+button.track-hash { cursor: pointer; font-family: 'JetBrains Mono', monospace; }
+button.track-hash:hover { border-color: var(--teal); color: var(--teal-dark); }
+.chain-grid { display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr); gap: 8px 16px; margin: 0 0 16px; font-size: 12.5px; }
+.chain-grid dt { color: var(--slate); }
+.chain-grid dd { margin: 0; }
+.chain-hash { word-break: break-all; }
+.chain-hash { font: 500 12px/1.5 'JetBrains Mono', monospace; color: var(--ink); }
+.chain-verdict { margin-top: 10px; font-size: 12.5px; font-weight: 600; }
+.chain-verdict.ok { color: var(--teal-dark); }
+.chain-verdict.no { color: var(--gold-text); }
