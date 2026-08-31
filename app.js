@@ -166,7 +166,9 @@
   function setupModal(overlay, idx) {
     var box = overlay.querySelector('.modal');
     if (!box) return;
-    box.setAttribute('role', 'dialog');
+    /* Роль не перезаписываем: диалог подтверждения объявляет себя alertdialog,
+       а a11y() проходит по всем окнам ещё раз и затирал её обратно. */
+    if (!box.getAttribute('role')) box.setAttribute('role', 'dialog');
     box.setAttribute('aria-modal', 'true');
     var head = box.querySelector('h1, h2, h3, .modal-head');
     if (head) {
@@ -196,8 +198,9 @@
       if (!overlay.hasAttribute('hidden')) {
         opener = document.activeElement;
         document.addEventListener('keydown', onKey);
-        var f = focusables();
-        if (f.length) f[0].focus();
+        var safe = box.querySelector('[data-focus-first]');
+        if (safe) safe.focus();
+        else { var f = focusables(); if (f.length) f[0].focus(); }
       } else {
         document.removeEventListener('keydown', onKey);
         if (opener && opener.focus) opener.focus();
@@ -738,7 +741,169 @@
     schedule();
   }
 
+
+  /* ============================================================
+     Состояния экрана: озвучивание, подтверждение действия, тост.
+     Разметку компонентов см. в styles.css и theme.css.
+     ============================================================ */
+
+  /* Живые области создаются пустыми и заранее: если вставить область вместе
+     с текстом, часть программ чтения с экрана ничего не прочитает. */
+  function initLive() {
+    if (document.getElementById('live-polite')) return;
+    ['polite', 'alert'].forEach(function (kind) {
+      var el = document.createElement('div');
+      el.id = 'live-' + kind;
+      el.className = 'live-region';
+      el.setAttribute('role', kind === 'alert' ? 'alert' : 'status');
+      el.setAttribute('aria-live', kind === 'alert' ? 'assertive' : 'polite');
+      el.setAttribute('aria-atomic', 'true');
+      document.body.appendChild(el);
+    });
+  }
+
+  /* Говорит вслух для тех, кто не видит экрана. Только о завершённых
+     изменениях: не на каждый символ в поиске и не на наведение мыши. */
+  function say(text, urgent) {
+    var el = document.getElementById(urgent ? 'live-alert' : 'live-polite');
+    if (!el) return;
+    el.textContent = '';
+    setTimeout(function () { el.textContent = text; }, 50);
+  }
+
+  /* Тост — для действий, ради которых не стоит спрашивать заранее:
+     избранное, подписка, снятие с публикации. Отмена вместо вопроса. */
+  var toastTimer = null;
+  function toast(text, undo) {
+    var el = document.querySelector('.toast.shared-toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'toast shared-toast';
+      document.body.appendChild(el);
+    }
+    el.innerHTML = '';
+    el.appendChild(document.createTextNode(text));
+    if (undo) {
+      var btn = document.createElement('button');
+      btn.className = 'toast-undo';
+      btn.type = 'button';
+      btn.textContent = 'Отменить';
+      btn.addEventListener('click', function () {
+        el.classList.remove('show');
+        undo();
+        say('Действие отменено');
+      });
+      el.appendChild(btn);
+    }
+    el.classList.add('show');
+    say(text);
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('show'); }, undo ? 7000 : 4000);
+  }
+
+  /* Один диалог подтверждения на весь прототип. Страницы объявляют намерение
+     атрибутами, разметку не пишут:
+
+       data-confirm      — заголовок вопроса (наличие атрибута включает диалог)
+       data-confirm-text — пояснение: что произойдёт и можно ли откатить
+       data-confirm-ok   — подпись кнопки согласия
+       data-confirm-word — необратимое: требует ввести это слово
+       data-confirm-done — текст тоста после подтверждения
+
+     Подтверждаем то, что меняет обязательства: приёмку, отзыв подтверждения,
+     отмену сделки, спор, отклик, заявление в пайщики, выход из кооператива,
+     взаимозачёт. Для обратимого — тост с отменой, а не вопрос. */
+  function initConfirm() {
+    var triggers = document.querySelectorAll('[data-confirm]');
+    if (!triggers.length) return;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    overlay.id = 'confirm-modal';
+    overlay.hidden = true;
+    overlay.innerHTML =
+      '<div class="modal">' +
+        '<div class="modal-head"><h2 id="confirm-title"></h2>' +
+        '<button class="modal-close" type="button" aria-label="Закрыть">✕</button></div>' +
+        '<p class="modal-hint" id="confirm-text"></p>' +
+        '<div class="field" id="confirm-word-field" hidden>' +
+          '<label class="label" for="confirm-word"></label>' +
+          '<input class="input" id="confirm-word" type="text" autocomplete="off">' +
+        '</div>' +
+        '<div class="modal-actions">' +
+          '<button class="button secondary" type="button" data-focus-first id="confirm-cancel">Отмена</button>' +
+          '<button class="button" type="button" id="confirm-ok">Подтвердить</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var title = overlay.querySelector('#confirm-title');
+    var text = overlay.querySelector('#confirm-text');
+    var wordField = overlay.querySelector('#confirm-word-field');
+    var wordLabel = wordField.querySelector('label');
+    var wordInput = overlay.querySelector('#confirm-word');
+    var okBtn = overlay.querySelector('#confirm-ok');
+    var current = null;
+
+    function close() {
+      overlay.hidden = true;
+      current = null;
+    }
+    overlay.querySelector('.modal-close').addEventListener('click', close);
+    overlay.querySelector('#confirm-cancel').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+
+    wordInput.addEventListener('input', function () {
+      var need = current && current.getAttribute('data-confirm-word');
+      okBtn.disabled = !!need && wordInput.value.trim().toLowerCase() !== need.toLowerCase();
+    });
+
+    okBtn.addEventListener('click', function () {
+      var trigger = current;
+      close();
+      if (!trigger) return;
+      var done = trigger.getAttribute('data-confirm-done');
+      if (done) toast(done);
+      /* Страница может перехватить событие и сделать своё; если никто не
+         перехватил, а кнопка была ссылкой — переходим по ней. */
+      var ev = new CustomEvent('coop:confirmed', { bubbles: true, cancelable: true });
+      var proceed = trigger.dispatchEvent(ev);
+      if (proceed && trigger.tagName === 'A' && trigger.getAttribute('href')) {
+        location.href = trigger.getAttribute('href');
+      }
+    });
+
+    for (var i = 0; i < triggers.length; i++) {
+      triggers[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        current = e.currentTarget;
+        title.textContent = current.getAttribute('data-confirm') || 'Подтвердите действие';
+        text.textContent = current.getAttribute('data-confirm-text') || '';
+        text.hidden = !text.textContent;
+        okBtn.textContent = current.getAttribute('data-confirm-ok') || 'Подтвердить';
+        okBtn.className = 'button' + (current.classList.contains('danger') ? ' danger' : '');
+        var word = current.getAttribute('data-confirm-word');
+        wordField.hidden = !word;
+        wordInput.value = '';
+        okBtn.disabled = !!word;
+        if (word) wordLabel.innerHTML = 'Введите «' + word + '», чтобы подтвердить';
+        overlay.hidden = false;
+      });
+    }
+    setupModal(overlay, 'confirm');
+    /* Роль ставится после setupModal: тот назначает обычный dialog, а вопрос
+       о необратимом действии — это alertdialog, его читают настойчивее. */
+    overlay.querySelector('.modal').setAttribute('role', 'alertdialog');
+    overlay.querySelector('.modal').setAttribute('aria-describedby', 'confirm-text');
+  }
+
+  window.Coop = window.Coop || {};
+  window.Coop.say = say;
+  window.Coop.toast = toast;
+
   function init() {
+    initLive();
+    initConfirm();
     var right = document.querySelector('.topbar-right');
     if (right) right.insertBefore(buildToggle(), right.firstChild);
 
