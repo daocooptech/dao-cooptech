@@ -402,8 +402,11 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 }
 .chat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .chat-pane { flex: 1; min-width: 0; min-height: 0; border: 1px solid var(--line); padding: 18px; display: flex; flex-direction: column; }
-/* Лента сообщений забирает всю свободную высоту панели, композер прижат к низу. */
-#bubble-stream { flex: 1; overflow-y: auto; }
+/* Лента сообщений забирает всю свободную высоту панели, композер прижат к низу.
+   min-height: 0 обязателен: без него flex-элемент не сжимается ниже высоты
+   своего содержимого, лента распирает панель, и вместо неё прокручивается
+   весь чат — из-за этого переписка открывалась на первом сообщении. */
+#bubble-stream { flex: 1; min-height: 0; overflow-y: auto; }
 /* Пузырь по ширине текста, но не шире 70% широкой панели чата. */
 .bubble { width: fit-content; max-width: min(560px, 70%); padding: 10px 14px; border-radius: 14px; margin-bottom: 10px; font-size: 13px; line-height: 1.5; }
 .bubble.in { border-bottom-left-radius: 4px; }
