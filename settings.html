@@ -3,11 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Настройки — cooptech</title>
+<title>Настройки и безопасность — cooptech</title>
 <script src="theme-init.js"></script>
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="theme.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
 </head>
 <body>
 <header class="topbar">
@@ -55,507 +67,123 @@
     </nav>
   </aside>
   <main class="main" id="main">
+    <h1 class="sr-only">Настройки и безопасность</h1>
 
-    <h1 class="page-title" style="margin-bottom:14px">Настройки</h1>
-
-    <div class="entity-tabs" id="settings-tabs">
-      <a href="#" class="active" data-tab="profile">Профиль</a>
-      <a href="#" data-tab="privacy">Приватность</a>
-      <a href="#" data-tab="notifications">Уведомления</a>
-      <a href="#" data-tab="security">Безопасность</a>
-      <a href="#" data-tab="appearance">Оформление</a>
-      <a href="#" data-tab="account">Аккаунт</a>
+    <div class="entity-tabs">
+      <a href="settings.html" class="active">Настройки и безопасность</a>
     </div>
 
-    <!-- ==================== ПРОФИЛЬ ==================== -->
-    <div id="set-profile" class="set-pane">
-      <form data-demo-form="" class="set-form">
-
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Основные данные</div>
-          <p class="set-hint">Так вас видят другие участники в каталоге «Люди» и на странице профиля.</p>
-
-          <div class="field">
-            <label for="set-name">Имя, фамилия и отчество *</label>
-            <input class="input" id="set-name" type="text" value="Дашкевич Данил Игоревич" required>
-          </div>
-          <div class="form-two-col">
-            <div class="field">
-              <label for="set-birth">День рождения</label>
-              <input class="input" id="set-birth" type="date" value="1986-10-15">
-            </div>
-            <div class="field">
-              <label for="set-city">Город</label>
-              <input class="input" id="set-city" type="text" list="city-options" value="Сочи">
-            </div>
-          </div>
-          <div class="field" style="margin-bottom:0">
-            <label for="set-about">О себе</label>
-            <textarea class="input" id="set-about" rows="3">Инженер-механик, делаю оснастку для малых производств. Собираю кооперацию вокруг строительной 3D-печати.</textarea>
+    <div class="profile-layout">
+      <div class="profile-side">
+        <div class="info-box">
+          <div class="info-title">Вход выполнен</div>
+          <div class="info-body">
+            Дашкевич Данил Игоревич<br>
+            dashkevich@cooptech.su<br>
+            +7-928-233-2324
           </div>
         </div>
-
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Контакты</div>
-          <p class="set-hint">Кому именно они видны — настраивается во вкладке «Приватность».</p>
-
-          <div class="form-two-col">
-            <div class="field">
-              <label for="set-email">E-mail</label>
-              <input class="input" id="set-email" type="email" value="dashkevich@cooptech.su">
-            </div>
-            <div class="field">
-              <label for="set-phone">Телефон</label>
-              <input class="input" id="set-phone" type="tel" value="+7-928-233-2324">
-            </div>
-            <div class="field">
-              <label for="set-tg">Мессенджер (Telegram)</label>
-              <input class="input" id="set-tg" type="text" value="@dashkevich_danil">
-            </div>
-            <div class="field">
-              <label for="set-site">Веб-сайт</label>
-              <input class="input" id="set-site" type="text" value="cooptech.hypercube.su">
-            </div>
+        <div class="info-box">
+          <div class="info-title">Мои роли <span class="stat-note" title="От чьего имени вы можете действовать — переключается в шапке">ⓘ</span></div>
+          <div class="info-body">
+            Физическое лицо<br>
+            Кооператив «Шукты» — пайщик<br>
+            ООО «Мириталь» — учредитель<br>
+            Фонд «Территория 2020» — подрядчик
           </div>
         </div>
+      </div>
 
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Язык и регион</div>
-          <div class="form-two-col">
-            <div class="field">
-              <label for="set-lang">Язык интерфейса</label>
-              <select class="input" id="set-lang">
-                <option selected>Русский</option>
-                <option>English</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="set-tz">Часовой пояс</label>
-              <select class="input" id="set-tz">
-                <option>UTC+2 — Калининград</option>
-                <option selected>UTC+3 — Москва, Санкт-Петербург, Сочи</option>
-                <option>UTC+5 — Екатеринбург, Уфа</option>
-                <option>UTC+7 — Новосибирск, Красноярск</option>
-                <option>UTC+10 — Владивосток, Хабаровск</option>
-              </select>
-            </div>
-            <div class="field" style="margin-bottom:0">
-              <label for="set-currency">В какой единице показывать цены</label>
-              <select class="input" id="set-currency">
-                <option selected>Рубли (₽)</option>
-                <option>КООП — внутренняя единица платформы</option>
-                <option>Часы труда</option>
-              </select>
+      <div class="profile-main">
+
+        <section class="card" style="padding:16px 18px;margin-bottom:18px">
+          <div class="section-title" style="margin-top:0">Двухфакторная аутентификация <span class="badge gold" id="tfa-badge">выключена</span></div>
+          <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 12px">На платформе лежат деньги, паи и подписанные документы, поэтому одного пароля мало: если он утечёт, посторонний сможет подписать акт от вашего имени. Второй фактор — код из приложения на телефоне, который меняется каждые 30 секунд.</p>
+          <div class="sign-box" style="margin:0 0 10px">
+            <div class="sign-side" id="tfa-box" style="flex:1 1 100%">
+              <div class="sign-who">Код из приложения-аутентификатора</div>
+              <div class="sign-when" id="tfa-state">Не настроена. Рекомендуем включить — особенно если вы подписываете документы или распоряжаетесь деньгами организации.</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px" id="tfa-actions">
+                <button class="button" type="button" id="tfa-on">Включить</button>
+              </div>
             </div>
           </div>
-        </div>
+          <p class="unit-hint">Резервные коды выдаются при включении: они нужны, если телефон потерян. В прототипе настройка показана без реального кода.</p>
+        </section>
 
-        <div class="set-actions">
-          <button class="button" type="submit">Сохранить</button>
-          <button class="button secondary" type="reset">Отменить изменения</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- ==================== ПРИВАТНОСТЬ ==================== -->
-    <div id="set-privacy" class="set-pane" hidden>
-      <form data-demo-form="" class="set-form">
-
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Кто видит мою страницу</div>
-          <div class="field" style="margin-bottom:0">
-            <div class="radio-group stacked" role="radiogroup" aria-label="Кто видит мою страницу">
-              <label class="radio-option"><input type="radio" name="set-audience" value="all" checked> Все, включая незарегистрированных посетителей</label>
-              <label class="radio-option"><input type="radio" name="set-audience" value="members"> Только участники платформы</label>
-              <label class="radio-option"><input type="radio" name="set-audience" value="links"> Только мои связи и стороны совместных сделок</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Что показывать в профиле</div>
-          <p class="set-hint">Скрытые поля остаются в вашей анкете, но не показываются другим и не участвуют в поиске по каталогу.</p>
-
-          <div class="toggle-row"><input type="checkbox" id="pv-phone"><label for="pv-phone">Телефон <span class="set-note">— сейчас виден только сторонам активной сделки</span></label></div>
-          <div class="toggle-row"><input type="checkbox" id="pv-email"><label for="pv-email">E-mail</label></div>
-          <div class="toggle-row"><input type="checkbox" id="pv-msg" checked><label for="pv-msg">Мессенджеры и веб-сайт</label></div>
-          <div class="toggle-row"><input type="checkbox" id="pv-birth"><label for="pv-birth">День рождения</label></div>
-          <div class="toggle-row"><input type="checkbox" id="pv-city" checked><label for="pv-city">Город <span class="set-note">— без точного адреса</span></label></div>
-          <div class="toggle-row"><input type="checkbox" id="pv-trust" checked><label for="pv-trust">Уровень доверия и число сделок <span class="set-note">— если скрыть, откликаться на ваши объявления будут заметно реже</span></label></div>
-          <div class="toggle-row"><input type="checkbox" id="pv-balance"><label for="pv-balance">Баланс кошелька</label></div>
-          <div class="toggle-row"><input type="checkbox" id="pv-orgs" checked><label for="pv-orgs">Организации, в которых я состою</label></div>
-        </div>
-
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Блоки профиля, раскрытые по умолчанию</div>
-          <p class="set-hint">Какие карусели («Связи», «Навыки», «Проекты» и другие) открыты сразу при заходе на страницу — и у вас, и у посетителей. Настраивается прямо на профиле: <a href="my-page.html">Моя страница → «Что видят другие по умолчанию»</a>.</p>
-        </div>
-
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Чёрный список</div>
-          <p class="set-hint">Заблокированные не могут написать вам, откликнуться на объявление или подать заявку в ваш проект.</p>
-          <div class="set-row"><span>Круглов Артём Сергеевич <span class="set-note">— заблокирован 4 июня 2026</span></span><button class="button secondary" type="button">Разблокировать</button></div>
-          <div class="set-row" style="border-bottom:none"><span>ООО «Скиф-Трейд» <span class="set-note">— заблокирован 12 июля 2026</span></span><button class="button secondary" type="button">Разблокировать</button></div>
-        </div>
-
-        <div class="set-actions">
-          <button class="button" type="submit">Сохранить</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- ==================== УВЕДОМЛЕНИЯ ==================== -->
-    <div id="set-notifications" class="set-pane" hidden>
-      <form data-demo-form="" class="set-form">
-
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">О чём и куда сообщать</div>
-          <p class="set-hint">«В платформе» — <a href="notifications.html">колокольчик в шапке</a>. Push приходит в браузер, письма — на адрес из вкладки «Профиль».</p>
-
-          <table class="res-table set-matrix">
-            <tr><th>Событие</th><th>В платформе</th><th>E-mail</th><th>Push</th></tr>
-            <tr>
-              <td class="stage-head">Новое сообщение</td>
-              <td><input type="checkbox" checked aria-label="Новое сообщение — в платформе"></td>
-              <td><input type="checkbox" aria-label="Новое сообщение — e-mail"></td>
-              <td><input type="checkbox" checked aria-label="Новое сообщение — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Отклик на моё объявление</td>
-              <td><input type="checkbox" checked aria-label="Отклик на объявление — в платформе"></td>
-              <td><input type="checkbox" checked aria-label="Отклик на объявление — e-mail"></td>
-              <td><input type="checkbox" checked aria-label="Отклик на объявление — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Заявка на участие в моём проекте</td>
-              <td><input type="checkbox" checked aria-label="Заявка в проект — в платформе"></td>
-              <td><input type="checkbox" checked aria-label="Заявка в проект — e-mail"></td>
-              <td><input type="checkbox" aria-label="Заявка в проект — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Изменение статуса сделки</td>
-              <td><input type="checkbox" checked aria-label="Статус сделки — в платформе"></td>
-              <td><input type="checkbox" checked aria-label="Статус сделки — e-mail"></td>
-              <td><input type="checkbox" checked aria-label="Статус сделки — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Новый отзыв обо мне<div class="stage-sub" style="padding-left:0;font-weight:400">и изменение уровня доверия</div></td>
-              <td><input type="checkbox" checked aria-label="Новый отзыв — в платформе"></td>
-              <td><input type="checkbox" checked aria-label="Новый отзыв — e-mail"></td>
-              <td><input type="checkbox" aria-label="Новый отзыв — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Операции по кошельку</td>
-              <td><input type="checkbox" checked aria-label="Операции по кошельку — в платформе"></td>
-              <td><input type="checkbox" checked aria-label="Операции по кошельку — e-mail"></td>
-              <td><input type="checkbox" checked aria-label="Операции по кошельку — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Приглашение в организацию или сообщество</td>
-              <td><input type="checkbox" checked aria-label="Приглашение — в платформе"></td>
-              <td><input type="checkbox" aria-label="Приглашение — e-mail"></td>
-              <td><input type="checkbox" aria-label="Приглашение — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Новости в лентах, на которые я подписан</td>
-              <td><input type="checkbox" checked aria-label="Новости лент — в платформе"></td>
-              <td><input type="checkbox" aria-label="Новости лент — e-mail"></td>
-              <td><input type="checkbox" aria-label="Новости лент — push"></td>
-            </tr>
-            <tr>
-              <td class="stage-head">Еженедельный дайджест платформы</td>
-              <td><input type="checkbox" aria-label="Дайджест — в платформе"></td>
-              <td><input type="checkbox" checked aria-label="Дайджест — e-mail"></td>
-              <td><input type="checkbox" aria-label="Дайджест — push"></td>
-            </tr>
+        <section class="card" style="padding:16px 18px;margin-bottom:18px">
+          <div class="section-title" style="margin-top:0">Журнал входов</div>
+          <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 12px">Где и когда открывали ваш аккаунт. Если видите незнакомый вход — завершите сеанс и смените пароль.</p>
+          <table class="doc-table res-table">
+            <thead><tr><th>Когда</th><th>Устройство</th><th>Откуда</th><th>Статус</th><th></th></tr></thead>
+            <tbody id="session-rows">
+              <tr><td>сейчас</td><td>Chrome, Windows</td><td>Сочи</td><td><span class="badge teal">текущий сеанс</span></td><td></td></tr>
+              <tr><td>сегодня, 08:12</td><td>Приложение, Android</td><td>Сочи</td><td><span class="badge outline">активен</span></td><td><button class="button secondary session-end" type="button" style="padding:5px 12px;font-size:11.5px">Завершить</button></td></tr>
+              <tr><td>28.08, 19:40</td><td>Safari, iPhone</td><td>Тюмень</td><td><span class="badge outline">активен</span></td><td><button class="button secondary session-end" type="button" style="padding:5px 12px;font-size:11.5px">Завершить</button></td></tr>
+              <tr><td>24.08, 11:02</td><td>Chrome, Windows</td><td>Сочи</td><td><span class="badge outline">завершён</span></td><td></td></tr>
+            </tbody>
           </table>
-        </div>
+          <button class="button secondary" type="button" id="session-end-all" style="margin-top:12px">Завершить все сеансы, кроме текущего</button>
+        </section>
 
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Тихие часы</div>
-          <div class="toggle-row"><input type="checkbox" id="quiet-on" checked><label for="quiet-on">Не присылать push ночью</label></div>
-          <div class="form-two-col" style="margin-top:12px">
-            <div class="field" style="margin-bottom:0">
-              <label for="quiet-from">С</label>
-              <input class="input" id="quiet-from" type="time" value="22:00">
-            </div>
-            <div class="field" style="margin-bottom:0">
-              <label for="quiet-to">До</label>
-              <input class="input" id="quiet-to" type="time" value="08:00">
-            </div>
-          </div>
-          <p class="set-hint" style="margin:12px 0 0">Уведомления не пропадают — они копятся и показываются утром. О сделке с истекающим сроком сообщаем всегда.</p>
-        </div>
+        <section class="card" style="padding:16px 18px;margin-bottom:18px">
+          <div class="section-title" style="margin-top:0">Передача полномочий на время отсутствия</div>
+          <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 12px">Уезжаете — работа не должна вставать. Полномочия передаются конкретному человеку, на срок и в конкретной организации; по окончании срока возвращаются сами.</p>
+          <table class="doc-table res-table">
+            <thead><tr><th>Организация</th><th>Что передаёте</th><th>Кому</th><th>Срок</th><th>Статус</th></tr></thead>
+            <tbody>
+              <tr><td>ООО «Мириталь»</td><td>Согласование закупок до 200 000 ₽</td><td>Водянов А. П.</td><td>1–14 сентября</td><td><span class="badge teal">действует</span></td></tr>
+              <tr><td>Кооператив «Шукты»</td><td>Голос на общем собрании</td><td>—</td><td>—</td><td><span class="badge outline">не передаётся</span></td></tr>
+            </tbody>
+          </table>
+          <p class="unit-hint" style="margin:10px 0 0"><b>Голос на общем собрании не передаётся.</b> Полномочия по операционной работе — да, право голоса пайщика — нет: иначе принцип «один участник — один голос» превращается в сбор доверенностей. Это ограничение платформы, а не настройка.</p>
+          <button class="button" type="button" style="margin-top:12px">Передать полномочия</button>
+        </section>
 
-        <div class="set-actions">
-          <button class="button" type="submit">Сохранить</button>
-        </div>
-      </form>
-    </div>
+        <section class="card" style="padding:16px 18px">
+          <div class="section-title" style="margin-top:0">Приватность</div>
+          <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0 0 10px">Что видят другие участники в вашем профиле. Хозяйственная часть — сделки, ресурсы, проекты — видна всем: на этом держится доверие в кооперативе. Скрыть можно личное.</p>
+          <div class="field"><label><input type="checkbox" checked> Телефон виден участникам, с которыми есть общая сделка</label></div>
+          <div class="field"><label><input type="checkbox"> Телефон виден всем участникам платформы</label></div>
+          <div class="field"><label><input type="checkbox" checked> Показывать город</label></div>
+          <div class="field"><label><input type="checkbox" checked> Показывать дату рождения</label></div>
+          <p class="unit-hint" style="margin:6px 0 0">Уровень доверия, число сделок и отзывы скрыть нельзя — иначе они теряют смысл: репутация работает, только когда её видно всем.</p>
+        </section>
 
-    <!-- ==================== БЕЗОПАСНОСТЬ ==================== -->
-    <div id="set-security" class="set-pane" hidden>
-
-      <form data-demo-form="" class="set-form">
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Пароль</div>
-          <p class="set-hint">Последняя смена — 3 марта 2026.</p>
-          <div class="field">
-            <label for="set-pass-old">Текущий пароль</label>
-            <input class="input" id="set-pass-old" type="password" autocomplete="current-password">
-          </div>
-          <div class="form-two-col">
-            <div class="field">
-              <label for="set-pass-new">Новый пароль</label>
-              <input class="input" id="set-pass-new" type="password" autocomplete="new-password">
-            </div>
-            <div class="field">
-              <label for="set-pass-rep">Повторите новый пароль</label>
-              <input class="input" id="set-pass-rep" type="password" autocomplete="new-password">
-            </div>
-          </div>
-          <div class="set-actions" style="margin-top:2px">
-            <button class="button" type="submit">Сменить пароль</button>
-          </div>
-        </div>
-      </form>
-
-      <div class="card set-section">
-        <div class="section-title" style="margin-top:0">Двухфакторная аутентификация</div>
-        <p class="set-hint">Второй фактор запрашивается при входе с нового устройства и при выводе средств из кошелька.</p>
-        <div class="toggle-row"><input type="checkbox" id="tfa-app" checked><label for="tfa-app">Приложение-аутентификатор <span class="set-note">— подключено 3 марта 2026</span></label></div>
-        <div class="toggle-row"><input type="checkbox" id="tfa-sms"><label for="tfa-sms">SMS на +7-928-233-2324</label></div>
-        <div class="set-row" style="border-bottom:none">
-          <span>Резервные коды <span class="set-note">— 8 из 10 не использованы</span></span>
-          <button class="button secondary" type="button">Показать коды</button>
-        </div>
-      </div>
-
-      <div class="card set-section">
-        <div class="section-title" style="margin-top:0">Ключи кошелька</div>
-        <p class="set-hint">Кошелёк некастодиальный: seed-фраза хранится только у вас — платформа её не знает и восстановить не сможет. Проверьте, что резервная копия сделана: <a href="wallet.html">открыть кошелёк</a>.</p>
-        <div class="set-row" style="border-bottom:none">
-          <span>Резервная копия seed-фразы <span class="set-note">— подтверждена 21 января 2026</span></span>
-          <button class="button secondary" type="button">Проверить фразу</button>
-        </div>
-      </div>
-
-      <div class="card set-section">
-        <div class="section-title" style="margin-top:0">Активные сессии</div>
-        <table class="res-table">
-          <tr><th>Устройство</th><th>Место</th><th>Последняя активность</th><th></th></tr>
-          <tr>
-            <td class="stage-head">Chrome, Windows 11<div class="stage-sub" style="padding-left:0;font-weight:400">текущая сессия</div></td>
-            <td>Сочи</td><td>сейчас</td><td></td>
-          </tr>
-          <tr>
-            <td class="stage-head">Safari, iPhone</td>
-            <td>Сочи</td><td>вчера, 21:40</td>
-            <td><button class="button secondary" type="button">Завершить</button></td>
-          </tr>
-          <tr>
-            <td class="stage-head">Firefox, Ubuntu</td>
-            <td>Краснодар</td><td>18 августа 2026</td>
-            <td><button class="button secondary" type="button">Завершить</button></td>
-          </tr>
-        </table>
-        <div class="set-actions">
-          <button class="button secondary" type="button">Завершить все сессии, кроме текущей</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== ОФОРМЛЕНИЕ ==================== -->
-    <div id="set-appearance" class="set-pane" hidden>
-
-      <div class="card set-section">
-        <div class="section-title" style="margin-top:0">Тема</div>
-        <p class="set-hint">Применяется сразу, сохранять не нужно. «Системная» — платформа следует за настройкой операционной системы и переключается вместе с ней.</p>
-        <div class="field" style="margin-bottom:0">
-          <div class="radio-group" role="radiogroup" aria-label="Тема оформления">
-            <label class="radio-option"><input type="radio" name="set-theme" value="system"> Системная</label>
-            <label class="radio-option"><input type="radio" name="set-theme" value="light"> Светлая</label>
-            <label class="radio-option"><input type="radio" name="set-theme" value="dark"> Тёмная</label>
-          </div>
-        </div>
-      </div>
-
-      <form data-demo-form="" class="set-form">
-        <div class="card set-section">
-          <div class="section-title" style="margin-top:0">Каталоги</div>
-          <div class="field">
-            <label id="set-view-label">Вид по умолчанию</label>
-            <div class="radio-group stacked" role="radiogroup" aria-labelledby="set-view-label">
-              <label class="radio-option"><input type="radio" name="set-view" value="tile" checked> Плитками — с фотографиями</label>
-              <label class="radio-option"><input type="radio" name="set-view" value="list"> Списком — компактно, больше строк на экран</label>
-            </div>
-          </div>
-          <div class="form-two-col">
-            <div class="field" style="margin-bottom:0">
-              <label for="set-per-page">Объявлений на странице</label>
-              <select class="input" id="set-per-page">
-                <option selected>20</option>
-                <option>40</option>
-                <option>60</option>
-              </select>
-            </div>
-            <div class="field" style="margin-bottom:0">
-              <label for="set-home">Открывать при входе</label>
-              <select class="input" id="set-home">
-                <option selected>Моя страница</option>
-                <option>Лента</option>
-                <option>Сообщения</option>
-                <option>Сделки</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="set-actions">
-          <button class="button" type="submit">Сохранить</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- ==================== АККАУНТ ==================== -->
-    <div id="set-account" class="set-pane" hidden>
-
-      <div class="card set-section">
-        <div class="section-title" style="margin-top:0">Членство и статус</div>
-        <div class="set-row"><span>Участник платформы с <b>12 ноября 2024</b></span></div>
-        <div class="set-row"><span>Членство: ПК «Гиперкуб» <span class="set-note">— пайщик с 3 февраля 2025</span></span><a class="button secondary" href="organizations.html">К организациям</a></div>
-        <div class="set-row" style="border-bottom:none"><span>Личность подтверждена <span class="set-note">— паспорт, 14 февраля 2025</span></span><span class="badge teal">Верифицирован</span></div>
-      </div>
-
-      <div class="card set-section">
-        <div class="section-title" style="margin-top:0">Мои данные</div>
-        <p class="set-hint">Выгрузка содержит профиль, объявления, переписку, историю сделок и отзывы — в формате JSON. Записи в блокчейне (сделки и отзывы) остаются неизменными: удалить их нельзя ни вам, ни платформе.</p>
-        <div class="set-row" style="border-bottom:none">
-          <span>Архив всех моих данных</span>
-          <button class="button secondary" type="button">Скачать архив</button>
-        </div>
-      </div>
-
-      <div class="card set-section set-danger">
-        <div class="section-title" style="margin-top:0">Опасная зона</div>
-        <div class="set-row">
-          <span>Скрыть профиль <span class="set-note">— объявления снимаются с публикации, данные сохраняются, вернуться можно в любой момент</span></span>
-          <button class="button secondary" type="button">Скрыть профиль</button>
-        </div>
-        <div class="set-row" style="border-bottom:none">
-          <span>Удалить аккаунт <span class="set-note">— необратимо: профиль, объявления и переписка удаляются</span></span>
-          <button class="button secondary" id="delete-account-btn" type="button">Удалить аккаунт</button>
-        </div>
       </div>
     </div>
 
   </main>
 </div>
-
-<datalist id="city-options">
-  <option value="Москва"><option value="Санкт-Петербург"><option value="Новосибирск"><option value="Екатеринбург">
-  <option value="Казань"><option value="Нижний Новгород"><option value="Челябинск"><option value="Самара">
-  <option value="Уфа"><option value="Ростов-на-Дону"><option value="Краснодар"><option value="Омск">
-  <option value="Пермь"><option value="Воронеж"><option value="Волгоград"><option value="Красноярск">
-  <option value="Тюмень"><option value="Сочи"><option value="Калининград"><option value="Владивосток">
-  <option value="Хабаровск"><option value="Архангельск"><option value="Вологда"><option value="Ярославль">
-  <option value="Кемерово"><option value="Магнитогорск"><option value="Нижний Тагил"><option value="Тобольск">
-  <option value="Ишим"><option value="Дербент"><option value="Алтайский край">
-</datalist>
-
-<div class="modal-overlay" id="delete-modal" hidden>
-  <div class="modal">
-    <div class="modal-head">
-      <h2>Удалить аккаунт?</h2>
-      <button class="modal-close" id="delete-modal-close" type="button">✕</button>
-    </div>
-    <p class="modal-hint">Профиль, объявления и переписка будут удалены безвозвратно. Уже состоявшиеся сделки и отзывы о них останутся в реестре — они записаны в блокчейн и не могут быть изменены задним числом. Средства с кошелька выведите заранее: доступ к нему после удаления пропадёт.</p>
-    <div class="field" style="margin-bottom:0">
-      <label for="delete-confirm">Чтобы подтвердить, введите слово «удалить»</label>
-      <input class="input" id="delete-confirm" type="text" autocomplete="off">
-    </div>
-    <div class="modal-actions">
-      <button class="button secondary" id="delete-modal-cancel" type="button">Отмена</button>
-      <button class="button" id="delete-modal-confirm" type="button" disabled>Удалить аккаунт</button>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="settings-toast">Настройки сохранены</div>
-
+<script src="app.js"></script>
 <script>
-// Вкладки настроек
 (function () {
-  var tabs = document.querySelectorAll('#settings-tabs a');
-  var panes = document.querySelectorAll('.set-pane');
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function (e) {
-      e.preventDefault();
-      tabs.forEach(function (t) { t.classList.remove('active'); });
-      tab.classList.add('active');
-      var id = 'set-' + tab.dataset.tab;
-      panes.forEach(function (p) { p.hidden = (p.id !== id); });
-    });
+  var on = document.getElementById('tfa-on');
+  on.addEventListener('click', function () {
+    document.getElementById('tfa-box').classList.add('signed');
+    document.getElementById('tfa-badge').className = 'badge teal';
+    document.getElementById('tfa-badge').textContent = 'включена';
+    document.getElementById('tfa-state').textContent =
+      'Включена сегодня · приложение-аутентификатор · выдано 10 резервных кодов';
+    document.getElementById('tfa-actions').innerHTML =
+      '<button class="button secondary" type="button">Показать резервные коды</button>'
+      + '<button class="button secondary" type="button">Отключить</button>';
   });
-})();
 
-// Сохранение — бэкенда нет, поэтому просто подтверждаем действие тостом
-(function () {
-  var toast = document.getElementById('settings-toast');
-  document.querySelectorAll('.set-form').forEach(function (form) {
-    form.addEventListener('submit', function () {
-      toast.classList.add('show');
-      setTimeout(function () { toast.classList.remove('show'); }, 2600);
-    });
-  });
-})();
-
-// Тема. Значение хранит theme-init.js в localStorage: 'light' / 'dark',
-// а «системная» — это отсутствие ключа (тогда страница идёт за ОС).
-(function () {
-  var radios = document.querySelectorAll('input[name="set-theme"]');
-  function saved() {
-    try { return localStorage.getItem('cooptech_theme'); } catch (e) { return null; }
+  function endRow(row) {
+    row.querySelector('.badge').className = 'badge outline';
+    row.querySelector('.badge').textContent = 'завершён';
+    var b = row.querySelector('.session-end');
+    if (b) b.remove();
   }
-  function sync() {
-    var mode = saved() || 'system';
-    radios.forEach(function (r) { r.checked = (r.value === mode); });
-  }
-  radios.forEach(function (r) {
-    r.addEventListener('change', function () {
-      var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
-      var mode = r.value;
-      try {
-        if (mode === 'system') localStorage.removeItem('cooptech_theme');
-        else localStorage.setItem('cooptech_theme', mode);
-      } catch (e) {}
-      if (mode === 'system') mode = (mq && mq.matches) ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', mode);
-      var toggle = document.querySelector('.theme-toggle');
-      if (toggle) toggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
-    });
+  document.getElementById('session-rows').addEventListener('click', function (e) {
+    var b = e.target.closest('.session-end');
+    if (b) endRow(b.closest('tr'));
   });
-  sync();
-  // Тему можно переключить и тумблером в шапке — держим радиокнопки в курсе
-  new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-})();
-
-// Удаление аккаунта — подтверждение словом, чтобы не снести профиль случайно
-(function () {
-  var overlay = document.getElementById('delete-modal');
-  var input = document.getElementById('delete-confirm');
-  var confirm = document.getElementById('delete-modal-confirm');
-  function open() { overlay.hidden = false; input.value = ''; confirm.disabled = true; input.focus(); }
-  function close() { overlay.hidden = true; }
-  document.getElementById('delete-account-btn').addEventListener('click', open);
-  document.getElementById('delete-modal-close').addEventListener('click', close);
-  document.getElementById('delete-modal-cancel').addEventListener('click', close);
-  input.addEventListener('input', function () {
-    confirm.disabled = input.value.trim().toLowerCase() !== 'удалить';
+  document.getElementById('session-end-all').addEventListener('click', function () {
+    document.querySelectorAll('#session-rows .session-end').forEach(function (b) { endRow(b.closest('tr')); });
   });
-  confirm.addEventListener('click', function () { location.href = 'index.html'; });
 })();
 </script>
-<script src="app.js"></script>
 </body>
 </html>
