@@ -1402,6 +1402,16 @@ button.chip-toggle.selected { background: var(--teal); border-color: var(--teal)
 .term-row .term-name { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .term-row .term-value { text-align: right; }
 .term-row .term-note { display: block; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; color: var(--slate-light); margin-top: 1px; }
+/* Редактор зон в модалке «Управление складом»: та же .res-table,
+   но в ячейках поля ввода — строки должны быть компактнее. */
+.wh-zone-editor { margin-bottom: 0; }
+.wh-zone-editor th { padding: 6px 6px; font-size: 11px; }
+.wh-zone-editor td { padding: 4px 6px; }
+.wh-zone-editor td:last-child, .wh-zone-editor th:last-child { width: 36px; padding-right: 0; }
+.wh-zone-editor .input { padding: 7px 9px; font-size: 12px; }
+.wh-zone-editor .button.ghost { padding: 6px 9px; font-size: 12px; }
+.wh-zone-editor tr:hover td { background: none; }
+
 @media (max-width: 720px) {
   .wh-head { flex-direction: column; }
   .wh-head-photo { width: 100%; height: 140px; }
