@@ -61,6 +61,8 @@
       <a href="#" class="active" data-tab="crypto">Крипто кошелёк</a>
       <a href="#" data-tab="fiat">Фиатный кошелёк</a>
       <a href="#" data-tab="lets">Взаимный кредит</a>
+      <a href="#" data-tab="settle">Взаиморасчёты</a>
+      <a href="#" data-tab="share">Паевой счёт</a>
     </div>
 
     <!-- ==================== КРИПТО КОШЕЛЁК ==================== -->
@@ -242,6 +244,24 @@
         </div>
         <div class="profile-main">
 
+          <div class="card" id="clearing-card" style="padding:16px 18px;margin-bottom:24px;border-color:var(--teal)">
+            <div class="section-title" style="margin-top:0">Найден круг взаимных долгов <span class="stat-note" title="Клиринг: когда долги идут по кругу, их можно погасить взаимозачётом, не передавая ничего">ⓘ</span></div>
+            <p style="color:var(--slate);font-size:12.5px;margin:0 0 12px">Три участника должны друг другу по кругу. Минимальное звено круга — <b>10 кредитов</b>: на эту сумму долги можно погасить сразу, ничего никому не передавая.</p>
+            <div class="deal-flow" style="margin-bottom:10px">
+              <li class="done" style="list-style:none">Вы → <a href="person.html">Дашкевич Д. И.</a><span class="flow-date">25 кредитов</span></li>
+              <li class="done" style="list-style:none">Дашкевич Д. И. → <a href="person.html">Смирнова Е. А.</a><span class="flow-date">18 кредитов</span></li>
+              <li class="done" style="list-style:none">Смирнова Е. А. → вы<span class="flow-date">10 кредитов</span></li>
+            </div>
+            <div id="clearing-before">
+              <p class="unit-hint" style="margin:0 0 12px">После взаимозачёта: ваш долг станет 15 кредитов, долг Дашкевича — 8, долг Смирновой — 0. Ни один баланс не ухудшится — это свойство клиринга.</p>
+              <button class="button" type="button" id="clearing-run">Провести взаимозачёт</button>
+            </div>
+            <div id="clearing-after" hidden>
+              <p style="color:var(--teal-dark);font-size:12.5px;font-weight:600;margin:0 0 6px">Взаимозачёт проведён: круг погашен на 10 кредитов.</p>
+              <p class="unit-hint" style="margin:0">Ваш баланс изменился с −18 на −8 кредитов. Операция записана в историю обеим сторонам каждого звена; передачи кредитов не происходило.</p>
+            </div>
+          </div>
+
           <div class="section-title">История операций</div>
           <table class="res-table">
             <tr><th>Дата</th><th>Операция</th><th>Контрагент</th><th>Кредиты</th></tr>
@@ -257,6 +277,80 @@
           </div>
 
         </div>
+      </div>
+    </div>
+
+    <div id="tab-settle" hidden>
+      <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:18px 0 16px">Одно число «Баланс» не отвечает на главный вопрос: <b>кто кому должен и когда</b>. Здесь тот же оборот разложен по контрагентам — по неоплаченным позициям графиков платежей в сделках. Сальдо со знаком «плюс» означает, что должны вам.</p>
+
+      <div class="stock-row">
+        <div class="stock-cell free"><div class="stock-num">128 400 ₽</div><div class="stock-label">Должны вам</div></div>
+        <div class="stock-cell reserved"><div class="stock-num">46 000 ₽</div><div class="stock-label">Должны вы</div></div>
+        <div class="stock-cell"><div class="stock-num">+82 400 ₽</div><div class="stock-label">Чистое сальдо</div></div>
+        <div class="stock-cell"><div class="stock-num">10 сентября</div><div class="stock-label">Ближайший платёж</div></div>
+      </div>
+
+      <div class="section-title" style="margin-top:24px">Сальдо по контрагентам</div>
+      <table class="doc-table res-table">
+        <thead><tr><th>Контрагент</th><th class="num">Сделок</th><th class="num">Должны вам</th><th class="num">Должны вы</th><th class="num">Сальдо</th><th>Ближайший срок</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="organization.html">ООО «Мириталь»</a><span class="pos-sub">поставка пельменей, тара</span></td>
+            <td class="num">4</td><td class="num">—</td><td class="num">46 000 ₽</td>
+            <td class="num" style="color:var(--gold-text);font-weight:700">−46 000 ₽</td>
+            <td>10.09.2026 · <a href="deal.html">СД-2026-000124</a></td>
+          </tr>
+          <tr>
+            <td><a href="organization-coop.html">Кооператив «Шукты»</a><span class="pos-sub">аренда техники</span></td>
+            <td class="num">6</td><td class="num">63 000 ₽</td><td class="num">—</td>
+            <td class="num" style="color:var(--teal-dark);font-weight:700">+63 000 ₽</td>
+            <td>04.09.2026</td>
+          </tr>
+          <tr>
+            <td><a href="person.html">Семёнов Николай Петрович</a><span class="pos-sub">электромонтаж по проекту</span></td>
+            <td class="num">2</td><td class="num">41 400 ₽</td><td class="num">—</td>
+            <td class="num" style="color:var(--teal-dark);font-weight:700">+41 400 ₽</td>
+            <td>15.09.2026</td>
+          </tr>
+          <tr>
+            <td><a href="organization-nonprofit.html">Фонд «Территория 2020»</a><span class="pos-sub">грант на теплицу, второй транш</span></td>
+            <td class="num">1</td><td class="num">24 000 ₽</td><td class="num">—</td>
+            <td class="num" style="color:var(--teal-dark);font-weight:700">+24 000 ₽</td>
+            <td>30.09.2026</td>
+          </tr>
+          <tr class="doc-total-row">
+            <td colspan="2">Итого</td><td class="num">128 400 ₽</td><td class="num">46 000 ₽</td>
+            <td class="num">+82 400 ₽</td><td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin:12px 0 0">Сальдо считается только по сделкам с наступившими или будущими платежами. Закрытые и полностью оплаченные сделки в него не входят, но остаются в <a href="deals.html">реестре сделок</a>.</p>
+    </div>
+
+    <div id="tab-share" hidden>
+      <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:18px 0 16px">Паевой счёт — это <b>не</b> кошелёк: пай нельзя потратить внутри платформы. Он показывает вашу долю в кооперативе: сколько вы внесли, что начислено по итогам работы и что уже выплачено на руки.</p>
+
+      <div class="stock-row">
+        <div class="stock-cell"><div class="stock-num">150 000 ₽</div><div class="stock-label">Паевые взносы</div></div>
+        <div class="stock-cell free"><div class="stock-num">18 400 ₽</div><div class="stock-label">Начислено за 2026 год</div></div>
+        <div class="stock-cell reserved"><div class="stock-num">6 000 ₽</div><div class="stock-label">Выплачено на руки</div></div>
+        <div class="stock-cell"><div class="stock-num">162 400 ₽</div><div class="stock-label">Текущий пай</div></div>
+      </div>
+
+      <div class="section-title" style="margin-top:24px">Движение по паевому счёту</div>
+      <table class="doc-table res-table">
+        <thead><tr><th>Дата</th><th>Операция</th><th>Основание</th><th class="num">Сумма</th><th class="num">Пай после операции</th></tr></thead>
+        <tbody>
+          <tr><td>18.03.2024</td><td>Вступительный паевой взнос</td><td>Протокол общего собрания №4</td><td class="num">100 000 ₽</td><td class="num">100 000 ₽</td></tr>
+          <tr><td>12.09.2025</td><td>Дополнительный паевой взнос</td><td>Заявление участника</td><td class="num">50 000 ₽</td><td class="num">150 000 ₽</td></tr>
+          <tr><td>28.02.2026</td><td>Кооперативная выплата по итогам 2025 года</td><td><a href="organization-coop.html">Протокол общего собрания №11</a></td><td class="num">18 400 ₽</td><td class="num">168 400 ₽</td></tr>
+          <tr><td>14.04.2026</td><td>Выплата на руки по заявлению</td><td>Заявление участника</td><td class="num">−6 000 ₽</td><td class="num">162 400 ₽</td></tr>
+        </tbody>
+      </table>
+
+      <div class="card" style="margin-top:24px;padding:16px 18px">
+        <div class="section-title" style="margin-top:0">Что здесь пока условно</div>
+        <p style="color:var(--slate);font-size:12.5px;max-width:760px;margin:0">Правило начисления кооперативных выплат (пропорционально участию в работе, а не размеру пая) и порядок возврата пая при выходе из кооператива в прототипе показаны демо-цифрами: окончательные правила утверждает общее собрание, и они пока обсуждаются. Само разделение «пай ≠ деньги на кошельке» — сознательное и меняться не должно.</p>
       </div>
     </div>
 
@@ -335,8 +429,21 @@
 <script>
 // Переключатель вкладок «Крипто кошелёк» / «Фиатный кошелёк» — обе на одной странице
 (function () {
+  /* Клиринг цепочкой: гасим минимальное звено круга взаимных долгов */
+  var clearBtn = document.getElementById('clearing-run');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      document.getElementById('clearing-before').hidden = true;
+      document.getElementById('clearing-after').hidden = false;
+      var bal = document.getElementById('lets-balance');
+      if (bal) bal.textContent = '−8 кредитов';
+    });
+  }
+
   var tabs = document.querySelectorAll('#wallet-tabs a');
-  var panels = { crypto: document.getElementById('tab-crypto'), fiat: document.getElementById('tab-fiat'), lets: document.getElementById('tab-lets') };
+  var panels = { crypto: document.getElementById('tab-crypto'), fiat: document.getElementById('tab-fiat'),
+                lets: document.getElementById('tab-lets'), settle: document.getElementById('tab-settle'),
+                share: document.getElementById('tab-share') };
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function (e) {
       e.preventDefault();
