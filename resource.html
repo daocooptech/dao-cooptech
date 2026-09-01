@@ -98,15 +98,18 @@
         <div style="margin-top:20px">
           <div class="price-row">
             <div class="price-main" id="price-main">450 ₽</div>
-            <select class="input" id="currency-select" style="max-width:170px">
+            <select class="input" id="currency-select" style="max-width:190px"
+                    aria-label="Валюта, в которой показана цена">
               <option value="RUB" selected>₽ Рубль</option>
               <option value="USD">$ Доллар США</option>
               <option value="EUR">€ Евро</option>
-              <option value="BTC">₿ Bitcoin</option>
-              <option value="USDT">₮ USDT</option>
-              <option value="CFA">◆ ЦФА платформы</option>
+              <option value="CNY">¥ Юань</option>
+              <option value="TRY">₺ Турецкая лира</option>
+              <option value="RSD">дин. Сербский динар</option>
             </select>
           </div>
+          <p class="sync-note" role="status" id="settle-note"><span class="sync-dot" aria-hidden="true"></span>
+            Расчёт в рублях: продавец и вы — резиденты России.</p>
           <table class="doc-table" style="margin-top:12px;max-width:420px">
             <tbody>
               <tr><td>Членам кооператива<span class="pos-sub">подтверждённое членство в любом кооперативе платформы</span></td><td class="num" style="font-weight:700;color:var(--teal-dark)">405 ₽<span class="pos-sub unit-hint">−10%</span></td></tr>
@@ -136,8 +139,9 @@
 
     <div class="section-title">Способы оплаты <span class="stat-note" title="Платёжные инструменты, которыми можно расплатиться за ресурс">ⓘ</span></div>
     <div class="filter-chips" style="margin-bottom:28px">
-      <span class="chip">💵 Наличные</span><span class="chip">💳 Банковский перевод</span><span class="chip">◆ Токены платформы (ЦФА)</span><span class="chip">₿ Криптовалюта</span>
+      <span class="chip">💵 Наличные</span><span class="chip">💳 Банковский перевод</span><span class="chip">🤝 Взаимозачёт</span><span class="chip">📄 Рассрочка</span>
     </div>
+    <p class="unit-hint" style="margin:-20px 0 28px">Показаны способы, доступные вам и продавцу: оба резиденты России и рассчитываются в рублях. У участника из другой страны набор будет другим — платформа не предлагает способ, незаконный для его юрисдикции и статуса.</p>
 
     <div class="section-title">Состав/Комплектация</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
@@ -376,14 +380,26 @@
 
     <script>
     (function () {
-      var RATES = { RUB: 1, USD: 93, EUR: 101, BTC: 6300000, USDT: 93, CFA: 1 };
-      var LABELS = { RUB: '₽', USD: '$', EUR: '€', BTC: '₿', USDT: '₮ USDT', CFA: '◆ ЦФА' };
+      /* Валюта ЦЕНЫ и валюта РАСЧЁТА — разные вещи (п. 2 ст. 317 ГК).
+         Цену можно назвать хоть в юанях, а рассчитываются резиденты России
+         между собой в рублях: расчёты в иностранной валюте между ними
+         запрещены (ч. 1 ст. 9 ФЗ-173). Поэтому переключатель меняет только
+         то, как показана цена, и честно об этом говорит. */
+      var RATES = { RUB: 1, USD: 93, EUR: 101, CNY: 13, TRY: 2.7, RSD: 0.86 };
+      var LABELS = { RUB: '₽', USD: '$', EUR: '€', CNY: '¥', TRY: '₺', RSD: 'дин.' };
       var BASE_RUB = 450;
+      var note = document.getElementById('settle-note');
       document.getElementById('currency-select').addEventListener('change', function (e) {
         var code = e.target.value;
         var amount = BASE_RUB / RATES[code];
-        var formatted = code === 'BTC' ? amount.toFixed(6) : Math.round(amount).toLocaleString('ru-RU');
-        document.getElementById('price-main').textContent = formatted + ' ' + LABELS[code];
+        document.getElementById('price-main').textContent =
+          Math.round(amount).toLocaleString('ru-RU') + ' ' + LABELS[code];
+        note.textContent = code === 'RUB'
+          ? 'Расчёт в рублях: продавец и вы — резиденты России.'
+          : 'Цена показана в другой валюте, расчёт всё равно в рублях по курсу на день платежа: между резидентами России иначе нельзя.';
+        note.insertBefore(Object.assign(document.createElement('span'),
+          { className: 'sync-dot' }), note.firstChild).setAttribute('aria-hidden', 'true');
+        if (window.Coop) Coop.say(note.textContent);
       });
     })();
     </script>

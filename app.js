@@ -901,9 +901,48 @@
   window.Coop.say = say;
   window.Coop.toast = toast;
 
+  /* Ошибка поля: раньше это был просто <div>, который программа чтения с
+     экрана не озвучивала и не связывала с полем — человек слышал название
+     поля и не слышал причину отказа. Здесь связь проставляется один раз для
+     всех форм сразу, а `aria-invalid` едет следом за классом .invalid,
+     который страницы уже переключают своими скриптами. */
+  function initFieldErrors() {
+    var errors = document.querySelectorAll('.field-error');
+    var seq = 0;
+    for (var i = 0; i < errors.length; i++) {
+      var err = errors[i];
+      if (!err.id) err.id = 'field-error-' + (++seq);
+      err.setAttribute('role', 'alert');
+      var field = err.closest ? err.closest('.field') : null;
+      if (!field) field = err.parentElement;
+      if (!field) continue;
+      var controls = field.querySelectorAll('input, select, textarea');
+      for (var c = 0; c < controls.length; c++) {
+        var had = controls[c].getAttribute('aria-describedby');
+        if (!had || had.indexOf(err.id) === -1) {
+          controls[c].setAttribute('aria-describedby', had ? had + ' ' + err.id : err.id);
+        }
+      }
+      watchInvalid(field);
+    }
+  }
+
+  function watchInvalid(field) {
+    var apply = function () {
+      var bad = field.classList.contains('invalid');
+      var controls = field.querySelectorAll('input, select, textarea');
+      for (var c = 0; c < controls.length; c++) {
+        controls[c].setAttribute('aria-invalid', bad ? 'true' : 'false');
+      }
+    };
+    apply();
+    new MutationObserver(apply).observe(field, { attributes: true, attributeFilter: ['class'] });
+  }
+
   function init() {
     initLive();
     initConfirm();
+    initFieldErrors();
     var right = document.querySelector('.topbar-right');
     if (right) right.insertBefore(buildToggle(), right.firstChild);
 
