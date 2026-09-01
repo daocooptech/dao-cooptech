@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Токеномика — cooptech</title>
+<script src="theme-init.js"></script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="topbar-left">
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
+    <a class="topbar-bell" href="notifications.html" aria-label="Уведомления: 3 новых"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15.4V10a6 6 0 10-12 0v5.4L4.6 18h14.8M10 20.4a2 2 0 004 0"/></svg><span class="bell-count">3</span></a>
+    <a class="topbar-ico" href="settings.html" aria-label="Настройки" title="Настройки"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.1a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2M19.3 12c0-.4 0-.8-.1-1.2l1.9-1.5-1.9-3.3-2.3 1c-.6-.5-1.2-.9-1.9-1.1L14.6 3.4h-3.8l-.4 2.5c-.7.2-1.3.6-1.9 1.1l-2.3-1-1.9 3.3L6.2 10.8a7 7 0 000 2.4l-1.9 1.5 1.9 3.3 2.3-1c.6.5 1.2.9 1.9 1.1l.4 2.5h3.8l.4-2.5c.7-.2 1.3-.6 1.9-1.1l2.3 1 1.9-3.3-1.9-1.5c.1-.4.1-.8.1-1.2z"/></svg></a>
+    <a class="topbar-ico" href="index.html" aria-label="Выйти" title="Выйти"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.4 7.4V5.6a1.6 1.6 0 00-1.6-1.6H5.6A1.6 1.6 0 004 5.6v12.8a1.6 1.6 0 001.6 1.6h7.2a1.6 1.6 0 001.6-1.6v-1.8M9.6 12h10.8M17.4 8.8l3.2 3.2-3.2 3.2"/></svg></a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
+      <a href="my-page.html" data-icon="my-page">Моя страница</a>
+      <a href="messages.html" data-icon="messages">Сообщения</a>
+      <a href="people.html" data-icon="people">Люди</a>
+      <a href="skills.html" data-icon="skills">Навыки</a>
+      <a href="vacancies.html" data-icon="vacancies">Вакансии</a>
+      <a href="resources.html" data-icon="resources">Ресурсы</a>
+      <a href="projects.html" data-icon="projects">Проекты</a>
+      <a href="organizations.html" data-icon="organizations">Организации</a>
+      <a href="communities.html" data-icon="communities">Сообщества</a>
+      <a href="wallet.html" data-icon="wallet">Кошелёк</a>
+      <a href="deals.html" data-icon="deals">Сделки</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav aria-label="Расширения">
+      <a href="tokenomics.html" class="active">Токеномика</a>
+      <a href="cfa-catalog.html">Цифровые активы</a>
+      <a href="nma-catalog.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html">Совместные закупки</a>
+      <a href="ext-warehouse.html">Склад</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+
+    <h1 class="sr-only">Токеномика</h1>
+
+    <div class="entity-tabs">
+      <a href="tokenomics.html" class="active">Токеномика</a>
+    </div>
+
+    <div class="notice" role="status" style="max-width:900px">
+      <span class="notice-ico" aria-hidden="true">§</span>
+      <div class="notice-body">
+        <div class="notice-title">Как это устроено и почему именно так</div>
+        <p class="notice-text">Раздел собран по российскому праву, а не по тому, как хотелось бы. Здесь <b>ничего не эмитируется</b>: платформа ведёт учёт встречных требований и активов, а не выпускает собственную единицу. Выпуск своей «валюты» со свободным обращением и курсом — это денежный суррогат (ч. 1 ст. 75 Конституции РФ, ст. 27 ФЗ «О Банке России»), и обойти это договором нельзя. Зато всё, что участнику действительно нужно, получается законными средствами — они и перечислены ниже.</p>
+      </div>
+    </div>
+
+    <div class="sub-tabs" role="tablist" aria-label="Разделы токеномики">
+      <button type="button" role="tab" aria-selected="true" aria-controls="pane-oblig" id="tab-oblig">Мои обязательства</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="pane-cession" id="tab-cession">Витрина уступок</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="pane-nma" id="tab-nma">Реестр НМА</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="pane-cfa" id="tab-cfa">ЦФА</button>
+    </div>
+
+    <!-- ==================== МОИ ОБЯЗАТЕЛЬСТВА ==================== -->
+    <div id="pane-oblig" role="tabpanel" aria-labelledby="tab-oblig">
+      <p class="unit-hint" style="max-width:820px;margin:16px 0">Обязательство — это требование к <b>конкретному контрагенту</b>, а не абстрактный баланс в сообществе. Оно возникает из поставки или работы и действительно, только когда его подтвердили обе стороны: односторонняя запись «ты мне должен» силы не имеет. По сути это акт сверки, подписываемый после каждой операции.</p>
+
+      <div class="stock-row" style="max-width:820px">
+        <div class="stock-cell free"><div class="stock-num">312 400 ₽</div><div class="stock-label">Вам должны, подтверждено</div></div>
+        <div class="stock-cell reserved"><div class="stock-num">148 000 ₽</div><div class="stock-label">Должны вы, подтверждено</div></div>
+        <div class="stock-cell"><div class="stock-num">45 000 ₽</div><div class="stock-label">Ждёт подтверждения контрагента</div></div>
+      </div>
+
+      <div class="section-title" style="margin-top:24px">Линии по контрагентам</div>
+      <table class="doc-table res-table">
+        <thead><tr><th>Контрагент</th><th>Основание</th><th class="num">Сальдо</th><th>Состояние</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>ООО «Мириталь»</td><td>СД-2026-000124, акт от 28 августа</td>
+            <td class="num" style="color:var(--teal-dark);font-weight:700">+ 92 000 ₽</td>
+            <td><span class="badge teal">подтверждено обеими</span></td>
+            <td><a href="#" data-goto="cession">предложить уступку →</a></td>
+          </tr>
+          <tr>
+            <td>Кооператив «Сыродел»</td><td>СД-2026-000145, поставка комбикорма</td>
+            <td class="num" style="color:var(--teal-dark);font-weight:700">+ 220 400 ₽</td>
+            <td><span class="badge teal">подтверждено обеими</span></td>
+            <td><a href="#" data-goto="cession">предложить уступку →</a></td>
+          </tr>
+          <tr>
+            <td>ПК «Гончар»</td><td>СД-2026-000166, электромонтаж</td>
+            <td class="num" style="color:var(--gold-text);font-weight:700">− 148 000 ₽</td>
+            <td><span class="badge gold">подтверждено обеими</span></td>
+            <td><span class="unit-hint">срок 12 октября</span></td>
+          </tr>
+          <tr>
+            <td>Артель «Северный лес»</td><td>СД-2026-000171, брус 20×20</td>
+            <td class="num" style="font-weight:700">+ 45 000 ₽</td>
+            <td><span class="badge gold">ждём подтверждения</span></td>
+            <td><a href="messages.html">напомнить →</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="notice" role="status" style="max-width:900px;margin-top:20px">
+        <span class="notice-ico" aria-hidden="true">↻</span>
+        <div class="notice-body">
+          <div class="notice-title">Взаимозачёт по кругу</div>
+          <p class="notice-text">Когда долги замыкаются в кольцо, их можно погасить встречно, без движения денег. Такой зачёт не проводится автоматически: односторонний зачёт по ст. 410 ГК работает только между двумя лицами со встречными требованиями, а круг — это многостороннее соглашение. Платформа предлагает круг и собирает подписи; не подписал хотя бы один — раунд отменяется целиком.</p>
+          <p class="notice-text"><b>Перед подписью вам покажут налоговый эффект.</b> На упрощённой системе зачёт — это получение дохода в день подписания (п. 1 ст. 346.17 НК), то есть налог придётся заплатить живыми деньгами с суммы, которую живыми деньгами вы не получали.</p>
+          <div class="notice-actions">
+            <a class="button secondary" href="wallet.html">Открыть взаиморасчёты</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== ВИТРИНА УСТУПОК ==================== -->
+    <div id="pane-cession" role="tabpanel" aria-labelledby="tab-cession" hidden>
+      <p class="unit-hint" style="max-width:820px;margin:16px 0">Здесь можно предложить своё требование другому участнику: например, вам должны 92 000 ₽ через месяц, а деньги нужны сейчас. Юридически это <b>уступка требования</b> (гл. 24 ГК): должника уведомляют, а принять требование может только участник платформы — так требование не уходит к постороннему без ведома того, кто по нему платит.</p>
+
+      <div class="notice" role="status" style="max-width:900px">
+        <span class="notice-ico" aria-hidden="true">≠</span>
+        <div class="notice-body">
+          <div class="notice-title">Почему здесь нет биржевого стакана</div>
+          <p class="notice-text">Как только заявки начинают сводиться по цене автоматически, это организованные торги: их вправе проводить только биржа по лицензии Банка России (ст. 5 ФЗ «Об организованных торгах»). Поэтому здесь доска предложений: вы называете условия, откликнувшийся участник договаривается с вами, и дальше это обычная сделка с подписями обеих сторон. Экономический результат тот же, лицензия не нужна.</p>
+        </div>
+      </div>
+
+      <div class="search-row">
+        <input class="input" id="cession-search" placeholder="Контрагент или номер сделки">
+        <button class="button" type="button" style="margin-left:auto"
+                data-confirm="Разместить предложение об уступке?"
+                data-confirm-text="Предложение увидят участники платформы. Должник по требованию получит уведомление о том, что требование выставлено к уступке, — это обязательное условие, а не наша добрая воля."
+                data-confirm-ok="Разместить"
+                data-confirm-done="Предложение размещено">Предложить уступку</button>
+      </div>
+
+      <table class="doc-table res-table">
+        <thead><tr><th>Требование к</th><th>Основание</th><th class="num">Сумма</th><th>Срок</th><th>Условия</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>ЗАО «Стройтехно»</td><td>СД-2026-000101, аренда экскаватора</td>
+            <td class="num">63 000 ₽</td><td>до 4 октября</td>
+            <td>предлагает уступить за 60 000 ₽</td>
+            <td><button class="button secondary" type="button" style="padding:5px 10px;font-size:12px"
+                        data-confirm="Откликнуться на предложение?"
+                        data-confirm-text="Откроется переписка с текущим кредитором. Уступка оформляется договором и вступает в силу после уведомления должника — до этого никаких прав у вас не возникает."
+                        data-confirm-ok="Откликнуться"
+                        data-confirm-done="Отклик отправлен">Откликнуться</button></td>
+          </tr>
+          <tr>
+            <td>Кооператив «Борозда»</td><td>СД-2026-000138, поставка зерна</td>
+            <td class="num">185 000 ₽</td><td>до 20 ноября</td>
+            <td>готовы обсуждать</td>
+            <td><button class="button secondary" type="button" style="padding:5px 10px;font-size:12px"
+                        data-confirm="Откликнуться на предложение?"
+                        data-confirm-text="Откроется переписка с текущим кредитором. Уступка оформляется договором и вступает в силу после уведомления должника."
+                        data-confirm-ok="Откликнуться"
+                        data-confirm-done="Отклик отправлен">Откликнуться</button></td>
+          </tr>
+          <tr>
+            <td>ПК «Гончар»</td><td>СД-2026-000159, обжиг партии</td>
+            <td class="num">41 500 ₽</td><td>до 30 сентября</td>
+            <td>в обмен на встречную поставку</td>
+            <td><button class="button secondary" type="button" style="padding:5px 10px;font-size:12px"
+                        data-confirm="Откликнуться на предложение?"
+                        data-confirm-text="Откроется переписка с текущим кредитором."
+                        data-confirm-ok="Откликнуться"
+                        data-confirm-done="Отклик отправлен">Откликнуться</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="unit-hint" style="margin-top:12px">Требования, которые уступить нельзя: связанные с личностью кредитора, а также те, по которым уступка запрещена договором. Платформа такие к размещению не принимает.</p>
+    </div>
+
+    <!-- ==================== РЕЕСТР НМА ==================== -->
+    <div id="pane-nma" role="tabpanel" aria-labelledby="tab-nma" hidden>
+      <p class="unit-hint" style="max-width:820px;margin:16px 0">Реестр прав, разработок и лицензий: что кооперативу принадлежит, чем это подтверждено и во сколько оценено. Признание и амортизация — по ФСБУ 14/2022.</p>
+
+      <div class="notice wait" role="status" style="max-width:900px">
+        <span class="notice-ico" aria-hidden="true">!</span>
+        <div class="notice-body">
+          <div class="notice-title">«Обеспеченность активом» без залога — это только слово</div>
+          <p class="notice-text">Оценка нематериального актива показывает его стоимость в балансе, но сама по себе ничего не обеспечивает. Обеспечение — это залог, зарегистрированный там, где велит закон: для движимого имущества уведомление у нотариуса, для недвижимости запись в ЕГРН. Поэтому в реестре видно отдельно оценку и отдельно залог — и второе не подменяется первым.</p>
+        </div>
+      </div>
+
+      <table class="doc-table res-table">
+        <thead><tr><th>Актив</th><th>Правовое основание</th><th class="num">Оценка</th><th>Залог</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Рецептура и технология сыра «Дербентский»</td><td>режим коммерческой тайны, приказ от 12.03.2025</td><td class="num">840 000 ₽</td><td><span class="badge slate">не оформлен</span></td><td><a href="nma-asset.html">карточка →</a></td></tr>
+          <tr><td>Программа учёта смен «Артель»</td><td>свидетельство о регистрации ПрЭВМ № 2025618842</td><td class="num">1 200 000 ₽</td><td><span class="badge teal">уведомление у нотариуса</span></td><td><a href="nma-asset.html">карточка →</a></td></tr>
+          <tr><td>Товарный знак «Шукты»</td><td>свидетельство № 812344, класс 29</td><td class="num">460 000 ₽</td><td><span class="badge slate">не оформлен</span></td><td><a href="nma-asset.html">карточка →</a></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px"><a class="button secondary" href="nma-catalog.html">Весь каталог НМА</a></div>
+    </div>
+
+    <!-- ==================== ЦФА ==================== -->
+    <div id="pane-cfa" role="tabpanel" aria-labelledby="tab-cfa" hidden>
+      <div class="notice wait" role="status" style="max-width:900px;margin-top:16px">
+        <span class="notice-ico" aria-hidden="true">§</span>
+        <div class="notice-body">
+          <div class="notice-title">Выпускать цифровые финансовые активы платформа сама не может</div>
+          <p class="notice-text">Выпуск и обращение ЦФА возможны только в информационной системе оператора, включённого в реестр Банка России. Платформа подключается к такому оператору: у нас остаются витрина, учёт и документы, выпуск и оборот — у него. Это не обход требования, а его исполнение.</p>
+          <p class="notice-text">С 1 сентября 2026 года действует новый закон о цифровых валютах и цифровых правах, заменяющий прежний режим. Пока подзаконные акты по нему не приняты, конкретные лимиты и перечни в интерфейсе не показываем: лучше не показать, чем показать устаревшее.</p>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:24px">Что можно уже сейчас</div>
+      <table class="doc-table res-table">
+        <thead><tr><th>Задача участника</th><th>Как решается законно</th><th>Готовность</th></tr></thead>
+        <tbody>
+          <tr><td>Получить деньги за работу раньше срока оплаты</td><td>Уступка требования участнику платформы</td><td><span class="badge teal">работает</span></td></tr>
+          <tr><td>Погасить встречные долги без денег</td><td>Взаимозачёт по кругу с подписями всех участников</td><td><span class="badge teal">работает</span></td></tr>
+          <tr><td>Показать, чем обеспечен кооператив</td><td>Реестр НМА с оценками и залогами</td><td><span class="badge teal">работает</span></td></tr>
+          <tr><td>Дать участнику долю в результате проекта</td><td>Корпоративный договор и опцион на вхождение</td><td><span class="badge gold">проектируется</span></td></tr>
+          <tr><td>Выпустить ЦФА</td><td>Через оператора из реестра Банка России</td><td><span class="badge slate">ждёт партнёрства</span></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px"><a class="button secondary" href="cfa-catalog.html">Каталог ЦФА</a></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+/* Переключение разделов. Панели прячутся атрибутом hidden — глобальное
+   правило [hidden] { display: none !important } не даёт им всплыть. */
+(function () {
+  var tabs = document.querySelectorAll('.sub-tabs [role="tab"]');
+  function show(id) {
+    for (var i = 0; i < tabs.length; i++) {
+      var on = tabs[i].getAttribute('aria-controls') === id;
+      tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
+      document.getElementById(tabs[i].getAttribute('aria-controls')).hidden = !on;
+    }
+  }
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', function (e) {
+      show(e.currentTarget.getAttribute('aria-controls'));
+    });
+  }
+  var links = document.querySelectorAll('[data-goto="cession"]');
+  for (var j = 0; j < links.length; j++) {
+    links[j].addEventListener('click', function (e) {
+      e.preventDefault();
+      show('pane-cession');
+      if (window.Coop) Coop.say('Открыта витрина уступок');
+    });
+  }
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>
