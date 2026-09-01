@@ -26,12 +26,20 @@
 поля конверта.
 """
 import base64
+import datetime
 import re
 
 from . import canonical, ed25519
 
 VERSION = 1
-ENVELOPE = ('v', 'node', 'kid', 'seq', 'prev', 'ts', 'type', 'subject', 'to', 'body_hash')
+ALG = 'Ed25519'
+# Алгоритм подписи входит в конверт и под подпись: иначе его можно было бы
+# подменить. Ed25519 обязателен к поддержке всеми; ГОСТ заложен опцией,
+# потому что российская первичка рано или поздно потребует отечественной
+# криптографии, а менять формат конверта ради этого нельзя.
+ALGS = ('Ed25519', 'GOST3410-2012-256')
+ENVELOPE = ('v', 'alg', 'node', 'kid', 'seq', 'prev', 'ts', 'type', 'subject', 'to', 'body_hash')
+FUTURE_TOLERANCE = 300      # секунд: часы у узлов расходятся, но не на час
 TS_RE = re.compile(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$')
 DID_RE = re.compile(r'^did:web:[a-z0-9.\-]+(:[A-Za-z0-9.\-_%]+)*$')
 
@@ -59,6 +67,7 @@ def envelope(event):
 def make(node, kid, seq, prev, ts, type_, subject, body, to=None):
     event = {
         'v': VERSION,
+        'alg': ALG,
         'node': node,
         'kid': kid,
         'seq': seq,
@@ -88,10 +97,18 @@ def redact(event):
     return {k: v for k, v in event.items() if k != 'body'}
 
 
-def check(event, keyring):
-    """Проверить одно событие. Возвращает OK или SUSPECT, иначе бросает Invalid."""
+def check(event, keyring, now=None):
+    """Проверить одно событие. Возвращает OK или SUSPECT, иначе бросает Invalid.
+
+    `now` — момент проверки в формате ts; по умолчанию текущее время UTC.
+    Нужен, чтобы тесты были детерминированными.
+    """
     if event.get('v') != VERSION:
         raise Invalid('версия конверта %r, поддерживается %d' % (event.get('v'), VERSION))
+    if event.get('alg') not in ALGS:
+        raise Invalid('неизвестный алгоритм подписи %r' % event.get('alg'))
+    if event.get('alg') != ALG:
+        raise Invalid('алгоритм %s этим узлом не поддерживается' % event['alg'])
     for field in ('node', 'kid', 'seq', 'ts', 'type', 'subject', 'body_hash', 'id', 'sig'):
         if field not in event:
             raise Invalid('нет обязательного поля %s' % field)
@@ -105,6 +122,16 @@ def check(event, keyring):
         raise Invalid('время не в формате 2026-09-01T10:00:00Z: %r' % event['ts'])
     if (event['seq'] == 0) != (event.get('prev') is None):
         raise Invalid('первое событие журнала и только оно имеет prev = null')
+
+    # Время — заявление автора, а не доверенный источник. Порядок задаёт seq,
+    # но событие из далёкого будущего принимать нельзя: им можно было бы
+    # застолбить срок, который ещё не наступил.
+    if now is None:
+        now = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    limit = (datetime.datetime.strptime(now, '%Y-%m-%dT%H:%M:%SZ')
+             + datetime.timedelta(seconds=FUTURE_TOLERANCE)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    if event['ts'] > limit:
+        raise Invalid('событие датировано будущим: %s против %s' % (event['ts'], now))
 
     head = envelope(event)
     if canonical.digest(head) != event['id']:
@@ -122,11 +149,11 @@ def check(event, keyring):
     return status
 
 
-def check_chain(events, keyring):
+def check_chain(events, keyring, now=None):
     """Проверить непрерывность и подлинность журнала целиком."""
     previous, statuses = None, []
     for index, event in enumerate(events):
-        statuses.append(check(event, keyring))
+        statuses.append(check(event, keyring, now))
         if previous is None:
             if event['seq'] != 0:
                 raise Invalid('журнал начинается с seq %d, а не с нуля' % event['seq'])
@@ -233,8 +260,8 @@ class Log(object):
             {k: v for k, v in head.items() if k != 'sig'})))
         return head
 
-    def verify(self, keyring=None):
-        return check_chain(self.events, keyring or self.keyring())
+    def verify(self, keyring=None, now=None):
+        return check_chain(self.events, keyring or self.keyring(), now)
 
 
 def check_head(head, keyring):
