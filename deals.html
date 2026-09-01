@@ -75,6 +75,17 @@
         <a href="#" data-goto-tab="trust">из чего это сложилось &rarr;</a>
       </div>
 
+      <div class="notice wait" id="turn-notice" role="status" hidden>
+        <span class="notice-ico" aria-hidden="true">⏳</span>
+        <div class="notice-body">
+          <div class="notice-title" id="turn-title"></div>
+          <p class="notice-text" id="turn-text"></p>
+          <div class="notice-actions">
+            <button class="button secondary" type="button" id="turn-filter">Показать только их</button>
+          </div>
+        </div>
+      </div>
+
       <div class="card deal-hint" id="await-hint" hidden>
         ⏳ <b>Две сделки ждут вашей оценки.</b> Пока вы не оставите отзыв, отзыв контрагента о вас остаётся закрытым, а сама сделка не входит ни в числитель, ни в знаменатель уровня доверия — она не поднимает и не опускает ваши 92%. Оценки раскрываются обеим сторонам одновременно, поэтому подстроить свой отзыв под чужой невозможно.
       </div>
@@ -4459,5 +4470,57 @@
 })();
 </script>
 <script src="app.js"></script>
+<script>
+/* Ход за вами: сделки в состоянии await-mine ждут вашего действия, в
+   await-theirs — второй стороны. Разница между «моя очередь» и «их очередь»
+   уже была в данных карточек, но человек её не видел и узнавал о просрочке
+   от контрагента. */
+(function () {
+  var notice = document.getElementById('turn-notice');
+  if (!notice) return;
+  var mine = document.querySelectorAll('.deal-card[data-status="await-mine"]').length;
+  var theirs = document.querySelectorAll('.deal-card[data-status="await-theirs"]').length;
+  if (!mine && !theirs) return;
+
+  function plural(n, one, few, many) {
+    var d10 = n % 10, d100 = n % 100;
+    if (d10 === 1 && d100 !== 11) return one;
+    if (d10 >= 2 && d10 <= 4 && (d100 < 12 || d100 > 14)) return few;
+    return many;
+  }
+
+  var title = document.getElementById('turn-title');
+  var text = document.getElementById('turn-text');
+  if (mine) {
+    title.textContent = 'Ход за вами: ' + mine + ' ' + plural(mine, 'сделка ждёт', 'сделки ждут', 'сделок ждут') + ' вашего действия';
+    text.textContent = theirs
+      ? 'Ещё ' + theirs + ' ' + plural(theirs, 'сделка ждёт', 'сделки ждут', 'сделок ждут') + ' второй стороны — там от вас ничего не требуется.'
+      : 'По остальным сделкам от вас сейчас ничего не требуется.';
+  } else {
+    title.textContent = 'Ждём вторую сторону по ' + theirs + ' ' + plural(theirs, 'сделке', 'сделкам', 'сделкам');
+    text.textContent = 'От вас сейчас ничего не требуется. Если ответа долго нет, напомните в переписке по сделке.';
+    notice.className = 'notice';
+  }
+  notice.hidden = false;
+
+  /* Фильтр — без перезагрузки: прячем всё, кроме тех, где ход за нами. */
+  var btn = document.getElementById('turn-filter');
+  if (!mine) { btn.remove(); return; }
+  var on = false;
+  btn.addEventListener('click', function () {
+    on = !on;
+    var cards = document.querySelectorAll('.deal-card');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].hidden = on && cards[i].getAttribute('data-status') !== 'await-mine';
+    }
+    btn.textContent = on ? 'Показать все сделки' : 'Показать только их';
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    if (window.Coop) {
+      Coop.say(on ? 'Показаны ' + mine + ' ' + plural(mine, 'сделка', 'сделки', 'сделок') + ', где ход за вами'
+                  : 'Показаны все сделки');
+    }
+  });
+})();
+</script>
 </body>
 </html>
