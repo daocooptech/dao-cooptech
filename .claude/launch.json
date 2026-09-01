@@ -30,6 +30,16 @@
         "8795"
       ],
       "port": 8795
+    },
+    {
+      "name": "rudoo",
+      "runtimeExecutable": "D:/dao cooptech/rudoo/venv/Scripts/python.exe",
+      "runtimeArgs": [
+        "D:/dao cooptech/rudoo/odoo/odoo-bin",
+        "-c",
+        "D:/dao cooptech/rudoo/odoo.conf"
+      ],
+      "port": 8069
     }
   ]
 }
