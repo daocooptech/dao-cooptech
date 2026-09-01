@@ -94,6 +94,8 @@ class Canonical(unittest.TestCase):
         self.assertEqual(canonical.encode('пай'), '"пай"'.encode('utf-8'))
 
 
+NOW = '2026-09-30T00:00:00Z'   # момент проверки: тесты не должны зависеть от часов машины
+
 NODE_A = 'did:web:coop-borozda.example.ru'
 NODE_B = 'did:web:artel-severnyy-les.example.ru'
 NODE_C = 'did:web:storonniy.example.ru'
@@ -115,7 +117,7 @@ class Envelope(unittest.TestCase):
     def test_sign_and_check(self):
         event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL,
                                 {'сумма': '150000.00', 'валюта': 'RUB'})
-        self.assertEqual(log.check(event, self.ring), log.OK)
+        self.assertEqual(log.check(event, self.ring, NOW), log.OK)
 
     def test_id_is_digest_of_envelope(self):
         event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
@@ -132,30 +134,52 @@ class Envelope(unittest.TestCase):
                                 {'сумма': '150000.00'})
         event['body']['сумма'] = '15000.00'
         with self.assertRaises(log.Invalid):
-            log.check(event, self.ring)
+            log.check(event, self.ring, NOW)
 
     def test_foreign_key_rejected(self):
         event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
         other = log.KeyRing().add(self.log.kid, ed25519.public_key(SECRET_B))
         with self.assertRaises(log.Invalid):
-            log.check(event, other)
+            log.check(event, other, NOW)
 
     def test_unknown_key_rejected(self):
         event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
         with self.assertRaises(log.Invalid):
-            log.check(event, log.KeyRing())
+            log.check(event, log.KeyRing(), NOW)
 
     def test_key_must_belong_to_node(self):
         event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
         event['kid'] = NODE_B + '#key-1'
         with self.assertRaises(log.Invalid):
-            log.check(event, self.ring)
+            log.check(event, self.ring, NOW)
+
+    def test_event_from_the_future_rejected(self):
+        """Датой в будущем можно застолбить ещё не наступивший срок."""
+        event = self.log.append('2026-12-31T10:00:00Z', 'deal.proposed', DEAL, {})
+        with self.assertRaises(log.Invalid):
+            log.check(event, self.ring, NOW)
+
+    def test_small_clock_drift_is_tolerated(self):
+        """Часы узлов расходятся на секунды — это не повод отвергать событие."""
+        event = self.log.append('2026-09-30T00:02:00Z', 'deal.proposed', DEAL, {})
+        self.assertEqual(log.check(event, self.ring, NOW), log.OK)
+
+    def test_unknown_algorithm_rejected(self):
+        event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
+        event['alg'] = 'RSA-2048'
+        with self.assertRaises(log.Invalid):
+            log.check(event, self.ring, NOW)
+
+    def test_algorithm_is_signed(self):
+        """Алгоритм внутри конверта: подменить его молча нельзя."""
+        event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
+        self.assertIn('alg', log.envelope(event))
 
     def test_timestamp_format(self):
         event = self.log.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
         event['ts'] = '01.09.2026 10:00'
         with self.assertRaises(log.Invalid):
-            log.check(event, self.ring)
+            log.check(event, self.ring, NOW)
 
 
 class Redaction(unittest.TestCase):
@@ -184,13 +208,13 @@ class Redaction(unittest.TestCase):
 
     def test_redacted_chain_still_verifies(self):
         """Главное свойство: вымарывание не ломает проверку полноты журнала."""
-        self.assertEqual(log.check_chain(self.log.since(reader=NODE_C), self.ring), log.OK)
+        self.assertEqual(log.check_chain(self.log.since(reader=NODE_C), self.ring, NOW), log.OK)
 
     def test_hidden_body_cannot_be_guessed_back(self):
         outsider = self.log.since(reader=NODE_C)[1]
         outsider['body'] = {'сумма': '1.00'}
         with self.assertRaises(log.Invalid):
-            log.check(outsider, self.ring)
+            log.check(outsider, self.ring, NOW)
 
 
 class Keys(unittest.TestCase):
@@ -203,26 +227,26 @@ class Keys(unittest.TestCase):
     def test_planned_rotation_does_not_break_history(self):
         ring = log.KeyRing().add(self.log.kid, self.log.public_key,
                                  revoked='2026-12-31T00:00:00Z')
-        self.assertEqual(log.check(self.event, ring), log.OK)
+        self.assertEqual(log.check(self.event, ring, NOW), log.OK)
 
     def test_signature_after_revocation_rejected(self):
         ring = log.KeyRing().add(self.log.kid, self.log.public_key,
                                  revoked='2026-08-01T00:00:00Z')
         with self.assertRaises(log.Invalid):
-            log.check(self.event, ring)
+            log.check(self.event, ring, NOW)
 
     def test_signature_before_key_existed_rejected(self):
         ring = log.KeyRing().add(self.log.kid, self.log.public_key,
                                  since='2026-10-01T00:00:00Z')
         with self.assertRaises(log.Invalid):
-            log.check(self.event, ring)
+            log.check(self.event, ring, NOW)
 
     def test_compromised_key_marks_events_suspect_not_deleted(self):
         """След взлома остаётся в журнале: событие сомнительно, но не стёрто."""
         ring = log.KeyRing().add(self.log.kid, self.log.public_key,
                                  compromised='2026-08-01T00:00:00Z')
-        self.assertEqual(log.check(self.event, ring), log.SUSPECT)
-        self.assertEqual(log.check_chain(self.log.events, ring), log.SUSPECT)
+        self.assertEqual(log.check(self.event, ring, NOW), log.SUSPECT)
+        self.assertEqual(log.check_chain(self.log.events, ring, NOW), log.SUSPECT)
 
 
 class Head(unittest.TestCase):
@@ -267,7 +291,7 @@ class Chain(unittest.TestCase):
                             NODE_A + '/offer/%d' % index, {'название': 'Мука в/с'})
 
     def test_chain_verifies(self):
-        self.assertEqual(self.log.verify(), log.OK)
+        self.assertEqual(self.log.verify(now=NOW), log.OK)
 
     def test_first_event_has_no_prev(self):
         self.assertIsNone(self.log.events[0]['prev'])
@@ -276,13 +300,13 @@ class Chain(unittest.TestCase):
     def test_removed_event_breaks_chain(self):
         broken = self.log.events[:2] + self.log.events[3:]
         with self.assertRaises(log.Invalid):
-            log.check_chain(broken, self.ring)
+            log.check_chain(broken, self.ring, NOW)
 
     def test_reordered_events_break_chain(self):
         broken = list(self.log.events)
         broken[2], broken[3] = broken[3], broken[2]
         with self.assertRaises(log.Invalid):
-            log.check_chain(broken, self.ring)
+            log.check_chain(broken, self.ring, NOW)
 
     def test_since_paginates(self):
         self.assertEqual([e['seq'] for e in self.log.since(2, limit=2)], [2, 3])
@@ -291,7 +315,7 @@ class Chain(unittest.TestCase):
         """Узел был офлайн, догоняет с той позиции, на которой остановился."""
         seen = self.log.since(0, limit=2)
         rest = self.log.since(seen[-1]['seq'] + 1, limit=100)
-        self.assertEqual(log.check_chain(seen + rest, self.ring), log.OK)
+        self.assertEqual(log.check_chain(seen + rest, self.ring, NOW), log.OK)
         self.assertEqual(len(seen) + len(rest), 5)
 
 
@@ -364,7 +388,7 @@ class BilateralDeal(unittest.TestCase):
         forged['kid'] = NODE_B + '#key-1'
         ring = log.KeyRing().add(NODE_B + '#key-1', ed25519.public_key(SECRET_B))
         with self.assertRaises(log.Invalid):
-            log.check(forged, ring)
+            log.check(forged, ring, NOW)
 
 
 if __name__ == '__main__':
