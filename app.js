@@ -442,7 +442,7 @@
       grid.innerHTML =
         row('Документ', btn.getAttribute('data-doc') || '—')
         + row('Отпечаток документа', '<span class="chain-hash">' + current + '</span>')
-        + row('Сеть', btn.getAttribute('data-net') || 'ДАО КООПЕХ Chain')
+        + row('Сеть', btn.getAttribute('data-net') || 'ДАО КООПТЕХ Chain')
         + row('Блок', btn.getAttribute('data-block') || '—')
         + row('Записано', btn.getAttribute('data-time') || '—')
         + row('Подтверждений', btn.getAttribute('data-conf') || '—')
