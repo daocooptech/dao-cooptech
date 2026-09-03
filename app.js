@@ -101,8 +101,8 @@
     b.innerHTML = '<span class="tt-sun">' + I.sun + '</span><span class="tt-moon">' + I.moon + '</span><span class="tt-knob"></span>';
     b.addEventListener('click', function () {
       var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-      /* Явный выбор пользователя записываем — с этого момента страница
-         перестаёт следовать за системной темой (см. theme-init.js). */
+      /* Явный выбор пользователя записываем в localStorage —
+         по умолчанию (без выбора) тема всегда светлая, см. theme-init.js. */
       document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
       b.setAttribute('aria-pressed', dark ? 'false' : 'true');
       try { localStorage.setItem('cooptech_theme', dark ? 'light' : 'dark'); } catch (e) {}
