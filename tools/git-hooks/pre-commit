@@ -28,15 +28,17 @@ if ! command -v "$PY" >/dev/null 2>&1; then
   exit 0
 fi
 
-if OUT=$("$PY" tools/sync-shell.py --check 2>&1); then
+if OUT=$("$PY" tools/check.py --quiet 2>&1); then
   exit 0
 fi
 
 echo "─────────────────────────────────────────────────────────" >&2
-echo "Коммит остановлен: шапка/сайдбар разошлись с эталоном." >&2
+echo "Коммит остановлен: проверка прототипа нашла замечания." >&2
+echo "" >&2
 echo "$OUT" >&2
 echo "" >&2
-echo "Почини так:  python tools/sync-shell.py" >&2
-echo "и добавь изменившиеся страницы в коммит." >&2
+echo "Шапка разошлась    → python tools/sync-shell.py" >&2
+echo "Остальное          → см. список выше, чинится руками" >&2
+echo "Осознанно обойти   → git commit --no-verify" >&2
 echo "─────────────────────────────────────────────────────────" >&2
 exit 1
