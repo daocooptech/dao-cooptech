@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Pre-commit: шапка и сайдбар должны совпадать с эталонами.
+#
+# Расхождение шапки/сайдбара — грабли, на которых уже стояли: правка в одной
+# HTML-странице вместо эталона расползается тихо и обнаруживается через неделю.
+# Эталоны: tools/shell.html (авторизованный), tools/shell-public.html (публичный).
+#
+# Подключение (один раз на машину):
+#     git config core.hooksPath tools/git-hooks
+#
+# Обойти осознанно: git commit --no-verify
+
+set -u
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT" || exit 0
+
+# страницы не трогали — проверять нечего
+if ! git diff --cached --name-only --diff-filter=ACM | grep -qE '\.html$|tools/(shell|shell-public)\.html|tools/_active\.json'; then
+  exit 0
+fi
+
+for PY in python python3 py; do
+  command -v "$PY" >/dev/null 2>&1 && break
+done
+if ! command -v "$PY" >/dev/null 2>&1; then
+  echo "pre-commit: python не найден, проверка шапки пропущена" >&2
+  exit 0
+fi
+
+if OUT=$("$PY" tools/sync-shell.py --check 2>&1); then
+  exit 0
+fi
+
+echo "─────────────────────────────────────────────────────────" >&2
+echo "Коммит остановлен: шапка/сайдбар разошлись с эталоном." >&2
+echo "$OUT" >&2
+echo "" >&2
+echo "Почини так:  python tools/sync-shell.py" >&2
+echo "и добавь изменившиеся страницы в коммит." >&2
+echo "─────────────────────────────────────────────────────────" >&2
+exit 1
