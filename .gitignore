@@ -1,5 +1,14 @@
-# Локальные/машинно-зависимые настройки Claude Code — не для общего репозитория
+# ── Методика работы — в приватном репозитории dao-cooptech-method ──────────
+# Файлы лежат здесь же, в рабочей копии, но этот (публичный) репозиторий их
+# не отслеживает. Их версионирует второй git в .method.git; см. .claude/method.sh.
+.claude/
+CLAUDE.md
+docs/mvp-spec.md
+.method.git/
+
+# Локальные/машинно-зависимые настройки Claude Code
 .claude/settings.local.json
+.claude/settings.local.json.backup-*
 .claude/hooks/.vault-reminder-last
 .claude/hooks/.git-backup-reminder-last
 
