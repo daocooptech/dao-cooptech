@@ -237,7 +237,12 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
   border: 1px solid var(--line); border-radius: var(--radius-sm);
   padding: 9px 11px; font-size: 13px;
 }
-.input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-tint); }
+/* Клик в поле не красит его в фирменный цвет: бирюзовая рамка с подложкой
+   читалась как «здесь что-то не так», а не как «сюда можно писать», и
+   владелец просил её убрать. Остаётся линия потемнее — этого хватает,
+   чтобы увидеть, где курсор. Обводка при навигации с клавиатуры
+   (:focus-visible ниже) не трогается: без неё Tab'ом не сориентироваться. */
+.input:focus { border-color: var(--slate-light); box-shadow: none; }
 .field label {
   font: 600 11.5px/1 'Manrope', sans-serif;
   color: var(--slate); text-transform: none; letter-spacing: 0;
