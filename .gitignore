@@ -4,6 +4,8 @@
 .claude/
 CLAUDE.md
 docs/mvp-spec.md
+docs/architecture-federation.md
+docs/odoo-map.md
 .method.git/
 
 # Локальные/машинно-зависимые настройки Claude Code
