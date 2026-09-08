@@ -83,12 +83,12 @@
         <div class="gallery-main"><img id="gallery-main-img" src="images/photos/pelmeni.jpg" alt="Пельмени домашней лепки"></div>
         <div class="gallery-thumbs">
           <img src="images/photos/pelmeni.jpg" alt="" class="active">
-          <img src="images/photos/pelmeni-making.jpg" alt="">
+          <img src="images/photos/pelmeni-making.jpg" alt="" data-p="hero">
           <img src="images/photos/wheat-flour.jpg" alt="">
         </div>
       </div>
       <div style="flex:1">
-        <h1 class="page-title" style="margin-bottom:6px">Пельмени домашней лепки</h1>
+        <h1 class="page-title" style="margin-bottom:6px"><span data-p="title">Пельмени домашней лепки</span></h1>
         <span class="badge gold">Продовольственные товары</span>
         <div style="display:flex;gap:12px;align-items:center;margin-top:20px">
           <a href="person.html" style="display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit">
@@ -124,7 +124,7 @@
     </div>
     <div class="stats-row">
       <div class="stat"><div class="label">Единица измерения</div><div class="value" style="font-size:14px">1 кг</div></div>
-      <div class="stat"><div class="label">Город</div><div class="value" style="font-size:14px">📍 Тюмень</div></div>
+      <div class="stat"><div class="label">Город</div><div class="value" style="font-size:14px">📍 <span data-p="city">Тюмень</span></div></div>
       <div class="stat"><div class="label">Свободно к заказу</div><div class="value" style="font-size:14px">340 кг</div></div>
     </div>
     <hr class="divider">
@@ -408,5 +408,29 @@
   </main>
 </div>
 <script src="app.js"></script>
+
+<script src="data/resources.js"></script>
+<script>
+/* Страница показывает ту запись, на которую нажали в каталоге:
+   resource.html?id=<идентификатор карточки>. Без параметра остаётся демо-запись
+   из разметки — так страница читаема и без данных. */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var list = window.RESOURCES || [];
+  var r = id ? list.find(function (x) { return x.id === id; }) : null;
+  if (!r) return;
+
+  function set(f, v) {
+    var el = document.querySelector('[data-p="' + f + '"]');
+    if (el && v) el.textContent = v;
+  }
+  document.title = r.title + ' — cooptech';
+  set('title', r.title);
+  set('city', r.city);
+
+  var hero = document.querySelector('[data-p="hero"]');
+  if (hero && r.img) { hero.src = r.img; hero.alt = r.alt || r.title; }
+})();
+</script>
 </body>
 </html>

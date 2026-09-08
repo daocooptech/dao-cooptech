@@ -79,7 +79,7 @@
     <div class="profile-layout">
       <div class="profile-side">
         <div class="profile-cover">
-          <img class="org-logo-img" src="img/org-logos/yandex.png" alt="ООО «Мириталь»">
+          <img class="org-logo-img" src="img/org-logos/yandex.png" alt="ООО «Мириталь»" data-p="hero">
         </div>
         <div class="profile-stats-text">
           Уровень доверия: <b>92% (33/35)</b> <a href="#" class="stat-note" title="Двусторонние отзывы после каждой сделки, записываются в блокчейн и не могут быть изменены задним числом. 33 положительных отзыва из 35 оценённых сделок.">как считается?</a><br>
@@ -90,7 +90,7 @@
         <div class="info-box">
           <div class="info-title">Контакты</div>
           <div class="info-body">
-            Город: Москва<br>
+            Город: <span data-p="city">Москва</span><br>
             Адрес: Торговая д.7<br>
             Телефон: +7-950-988-8288<br>
             Сайт: cooptech.hypercube.su
@@ -109,7 +109,7 @@
       <div class="profile-main">
         <div class="name-row" style="margin-bottom:16px;justify-content:space-between">
           <div>
-            <h1 class="page-title" style="margin-bottom:6px">ООО «Мириталь»</h1>
+            <h1 class="page-title" style="margin-bottom:6px"><span data-p="title">ООО «Мириталь»</span></h1>
             <span class="badge gold">Коммерческая организация</span>
           </div>
           <div style="display:flex;gap:10px;flex:none">
@@ -673,6 +673,30 @@ document.querySelectorAll('.cat-nav').forEach(function (btn) {
       if (window.Coop) Coop.toast('Данные обновлены минуту назад');
     }, 1200);
   });
+})();
+</script>
+
+<script src="data/organizations.js"></script>
+<script>
+/* Страница показывает ту запись, на которую нажали в каталоге:
+   organization.html?id=<идентификатор карточки>. Без параметра остаётся демо-запись
+   из разметки — так страница читаема и без данных. */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var list = window.ORGANIZATIONS || [];
+  var r = id ? list.find(function (x) { return x.id === id; }) : null;
+  if (!r) return;
+
+  function set(f, v) {
+    var el = document.querySelector('[data-p="' + f + '"]');
+    if (el && v) el.textContent = v;
+  }
+  document.title = r.title + ' — cooptech';
+  set('title', r.title);
+  set('city', r.city);
+
+  var hero = document.querySelector('[data-p="hero"]');
+  if (hero && r.img) { hero.src = r.img; hero.alt = r.alt || r.title; }
 })();
 </script>
 </body>

@@ -64,17 +64,17 @@
     </div>
     <div class="detail-head" style="align-items:stretch">
       <div class="res-gallery" style="margin:0;flex:0 0 340px">
-        <div class="gallery-main"><img src="images/photos/electrician.jpg" alt="Электромонтажник за работой на щитовом оборудовании"></div>
+        <div class="gallery-main"><img src="images/photos/electrician.jpg" alt="Электромонтажник за работой на щитовом оборудовании" data-p="hero"></div>
       </div>
       <div style="flex:1;min-width:0">
-        <h1 class="page-title" style="margin-bottom:6px">Электромонтажник</h1>
+        <h1 class="page-title" style="margin-bottom:6px"><span data-p="title">Электромонтажник</span></h1>
         <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px">60 000 – 90 000 ₽</div>
         <span class="badge gold">Деньги</span> <span class="badge outline">Полная занятость</span> <span class="badge outline">Полный день</span> <span class="badge outline">Опыт от 1 года</span>
         <div style="display:flex;align-items:center;gap:14px;margin-top:20px">
           <img class="org-mini-logo" src="img/org-logos/yandex.png" alt="" style="width:52px;height:52px" loading="lazy">
           <div>
             <a class="chip" href="organization.html" style="margin:0 0 4px">ООО «Мириталь»</a>
-            <div style="color:var(--slate);font-size:12.5px">📍 Москва · Коммерческая организация · доверие 92%</div>
+            <div style="color:var(--slate);font-size:12.5px">📍 <span data-p="city">Москва</span> · Коммерческая организация · доверие 92%</div>
           </div>
         </div>
         <div style="margin-top:14px">
@@ -124,5 +124,29 @@
   </main>
 </div>
 <script src="app.js"></script>
+
+<script src="data/vacancies.js"></script>
+<script>
+/* Страница показывает ту запись, на которую нажали в каталоге:
+   vacancy.html?id=<идентификатор карточки>. Без параметра остаётся демо-запись
+   из разметки — так страница читаема и без данных. */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var list = window.VACANCIES || [];
+  var r = id ? list.find(function (x) { return x.id === id; }) : null;
+  if (!r) return;
+
+  function set(f, v) {
+    var el = document.querySelector('[data-p="' + f + '"]');
+    if (el && v) el.textContent = v;
+  }
+  document.title = r.title + ' — cooptech';
+  set('title', r.title);
+  set('city', r.city);
+
+  var hero = document.querySelector('[data-p="hero"]');
+  if (hero && r.img) { hero.src = r.img; hero.alt = r.alt || r.title; }
+})();
+</script>
 </body>
 </html>

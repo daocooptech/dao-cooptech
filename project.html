@@ -88,12 +88,12 @@
         <div class="gallery-main"><img id="gallery-main-img" src="images/photos/printer3d-construction.jpg" alt="Строительный 3д принтер"></div>
         <div class="gallery-thumbs">
           <img src="images/photos/printer3d-construction.jpg" alt="" class="active">
-          <img src="images/photos/printer3d-arm.jpg" alt="">
+          <img src="images/photos/printer3d-arm.jpg" alt="" data-p="hero">
           <img src="images/photos/printer3d-nozzle.jpg" alt="">
         </div>
       </div>
       <div style="flex:1">
-        <h1 class="page-title" style="margin-bottom:6px">Строительный 3д принтер. Печать бетоном.</h1>
+        <h1 class="page-title" style="margin-bottom:6px"><span data-p="title">Строительный 3д принтер. Печать бетоном.</span></h1>
         <span class="badge gold">Кооперативный проект</span>
         <div style="display:flex;gap:12px;align-items:center;margin-top:20px">
           <a href="person.html" style="display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit">
@@ -311,7 +311,7 @@
 
     <hr class="divider">
     <div class="section-title">Населённые пункты реализации проекта</div>
-    <span class="chip">📍 Москва</span><span class="chip">📍 Красноярск</span>
+    <span class="chip">📍 <span data-p="city">Москва</span></span><span class="chip">📍 Красноярск</span>
 
     <hr class="divider">
     <div class="section-title">Сроки и этапы реализации проекта</div>
@@ -486,5 +486,29 @@
   </main>
 </div>
 <script src="app.js"></script>
+
+<script src="data/projects.js"></script>
+<script>
+/* Страница показывает ту запись, на которую нажали в каталоге:
+   project.html?id=<идентификатор карточки>. Без параметра остаётся демо-запись
+   из разметки — так страница читаема и без данных. */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var list = window.PROJECTS || [];
+  var r = id ? list.find(function (x) { return x.id === id; }) : null;
+  if (!r) return;
+
+  function set(f, v) {
+    var el = document.querySelector('[data-p="' + f + '"]');
+    if (el && v) el.textContent = v;
+  }
+  document.title = r.title + ' — cooptech';
+  set('title', r.title);
+  set('city', r.city);
+
+  var hero = document.querySelector('[data-p="hero"]');
+  if (hero && r.img) { hero.src = r.img; hero.alt = r.alt || r.title; }
+})();
+</script>
 </body>
 </html>

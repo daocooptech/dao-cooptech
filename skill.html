@@ -64,11 +64,11 @@
     </div>
 
     <div class="resume-header">
-      <img class="resume-photo" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич">
+      <img class="resume-photo" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" data-p="hero">
       <div style="flex:1">
-        <h1 class="resume-title">Электромонтажник</h1>
+        <h1 class="resume-title"><span data-p="title">Электромонтажник</span></h1>
         <div class="resume-salary">от 70 000 ₽</div>
-        <div class="resume-name"><a href="person.html">Дашкевич Данил Игоревич</a>, 39 лет · 📍 Сочи, готов к командировкам · обновлено 2 дня назад</div>
+        <div class="resume-name"><a href="person.html">Дашкевич Данил Игоревич</a>, 39 лет · 📍 <span data-p="city">Сочи</span>, готов к командировкам · обновлено 2 дня назад</div>
         <span class="badge outline">Полная занятость</span> <span class="badge outline">Полный день</span> <span class="badge outline">Опыт 3 года 2 месяца</span>
       </div>
       <div class="action-stack">
@@ -140,5 +140,29 @@ document.getElementById('show-contacts-btn').addEventListener('click', function 
 });
 </script>
 <script src="app.js"></script>
+
+<script src="data/skills.js"></script>
+<script>
+/* Страница показывает ту запись, на которую нажали в каталоге:
+   skill.html?id=<идентификатор карточки>. Без параметра остаётся демо-запись
+   из разметки — так страница читаема и без данных. */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var list = window.SKILLS || [];
+  var r = id ? list.find(function (x) { return x.id === id; }) : null;
+  if (!r) return;
+
+  function set(f, v) {
+    var el = document.querySelector('[data-p="' + f + '"]');
+    if (el && v) el.textContent = v;
+  }
+  document.title = r.title + ' — cooptech';
+  set('title', r.title);
+  set('city', r.city);
+
+  var hero = document.querySelector('[data-p="hero"]');
+  if (hero && r.img) { hero.src = r.img; hero.alt = r.alt || r.title; }
+})();
+</script>
 </body>
 </html>
