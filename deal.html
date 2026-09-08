@@ -68,7 +68,7 @@
     </nav>
   </aside>
   <main class="main" id="main">
-    <h1 class="sr-only">Сделка СД-2026-000124 — поставка пельменей</h1>
+    <h1 class="sr-only"><span data-p="title">Сделка СД-2026-000124 — поставка пельменей</span></h1>
 
     <div class="entity-tabs">
       <a href="deals.html">Реестр сделок</a>
@@ -527,6 +527,24 @@
   document.getElementById('print-cancel').addEventListener('click', closeModal);
   document.getElementById('print-do').addEventListener('click', function () { window.print(); });
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+})();
+</script>
+
+<script src="data/deals.js"></script>
+<script>
+/* Страница показывает ту сделку, на которую нажали в реестре:
+   deal.html?id=СД-2026-000102. Без параметра остаётся демо-сделка из разметки. */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var list = window.DEALS || [];
+  var r = id ? list.find(function (x) { return x.id === id; }) : null;
+  if (!r) return;
+  var head = 'Сделка ' + r.id + ' — ' + r.title;
+  var t = document.querySelector('[data-p="title"]');
+  if (t) t.textContent = head;
+  document.title = head + ' — cooptech';
+  var c = document.querySelector('[data-p="city"]');
+  if (c && r.city) c.textContent = r.city;
 })();
 </script>
 </body>
