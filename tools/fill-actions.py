@@ -313,4 +313,110 @@ for page, gen, label in [("digital-assets.html", rows_cfa, "ЦФА"),
     wr(page, s)
     print(f"{page}: строк {label} {body.count('<tr>')}")
 
+
+# ── 4. лента новостей проектов ─────────────────────────────────────────
+# Лента рисуется из PROJECT_NEWS и показывает только те проекты, на которые
+# участник подписан. Пустой она была не из-за логики, а из-за того, что
+# новости были всего у двух проектов из ста.
+POST_TEXTS = [
+    "Присоединил{a}сь к проекту — буду отвечать за {role}.",
+    "Поставлена новая задача: {task}. Срок — {weeks}.",
+    "Задача выполнена: {task}. Переходим к следующему этапу.",
+    "Провели встречу на площадке: обсудили {topic}, наметили план на месяц.",
+    "Закупили {stuff} — как и планировали в разделе «Необходимые ресурсы».",
+    "Этап завершён. Готовность проекта — {ready}%.",
+    "Ищем {role}: если умеете и готовы вложиться временем, откликайтесь.",
+    "Сдвигаем срок на {weeks}: поставщик задержал {stuff}.",
+    "Открыто голосование по смете. Голоса считаем до конца недели.",
+    "Отчёт за месяц: потратили {money}, остаток на паевом счёте виден в кошельке.",
+    "Проблема: {problem}. Нужна помощь тех, кто сталкивался.",
+    "Первая партия ушла заказчикам — спасибо всем, кто участвовал.",
+]
+ROLES = ["сварку каркаса", "закупки", "документы и отчётность", "логистику",
+         "подбор материалов", "монтаж оборудования", "проектирование",
+         "связь с пайщиками", "приёмку работ", "испытания"]
+TASKS = ["рассчитать смету", "подготовить площадку", "собрать каркас",
+         "заказать материалы", "согласовать документы", "провести испытания",
+         "настроить оборудование", "нанять бригаду", "оформить приёмку"]
+TOPICS = ["результаты испытаний", "смету на второй этап", "график поставок",
+          "распределение долей", "план работ на осень"]
+STUFF = ["двигатели", "профильную трубу", "кабель", "цемент", "утеплитель",
+         "фурнитуру", "семена", "оборудование", "инструмент"]
+PROBLEMS = ["не сходится смета по электрике", "поставщик поднял цену на 12%",
+            "нужен второй сварщик на неделю", "не хватает места на складе",
+            "задерживается подключение к сети"]
+WEEKS = ["две недели", "месяц", "три недели", "десять дней"]
+
+
+def feed_posts(pr, n):
+    out = []
+    hours = 1
+    for k in range(n):
+        p = random.choice(PEOPLE)
+        parts = p["name"].split()
+        fem = len(parts) > 2 and parts[2].endswith("на")
+        txt = random.choice(POST_TEXTS).format(
+            a="а" if fem else "", role=random.choice(ROLES), task=random.choice(TASKS),
+            topic=random.choice(TOPICS), stuff=random.choice(STUFF),
+            problem=random.choice(PROBLEMS), weeks=random.choice(WEEKS),
+            ready=pr.get("readiness", "50"), money=money(random.randint(20, 900) * 1000))
+        hours += random.choice([2, 5, 9, 20, 30, 48, 72, 120])
+        d = 8 - min(30, hours // 24)
+        date = f"2026-09-{d:02d}" if d >= 1 else "2026-08-" + f"{31 + d:02d}"
+        label = (ago(hours, "час", "часа", "часов") if hours < 24 else
+                 "вчера" if hours < 48 else ago(hours // 24, "день", "дня", "дней"))
+        out.append("        { avatar: '%s', name: '%s', time: '%s', date: '%s', hoursAgo: %d, "
+                   "text: '%s', likes: %d, comments: %d }"
+                   % (p["avatar"], p["name"].replace("'", "\\'"), label, date, hours,
+                      txt.replace("'", "\\'"), random.randint(0, 24), random.randint(0, 9)))
+    return ",\n".join(out)
+
+
+s = rd("feed.html")
+m = re.search(r"var PROJECT_NEWS = \{", s)
+depth, i = 1, m.end()
+while depth:
+    ch = s[i]
+    depth += 1 if ch == "{" else -1 if ch == "}" else 0
+    i += 1
+end = i
+old = s[m.end():end - 1]
+keep = []
+for key in ("printer3d", "greenhouse"):
+    km = re.search(rf"\n    {key}: \{{", old)
+    if km:
+        d2, j = 1, km.end()
+        while d2:
+            d2 += 1 if old[j] == "{" else -1 if old[j] == "}" else 0
+            j += 1
+        keep.append(old[km.start():j].rstrip())
+
+blocks = list(keep)
+TRANSLIT = {"а": "a", "б": "b", "в": "v", "г": "g", "д": "d", "е": "e", "ё": "e",
+            "ж": "zh", "з": "z", "и": "i", "й": "y", "к": "k", "л": "l", "м": "m",
+            "н": "n", "о": "o", "п": "p", "р": "r", "с": "s", "т": "t", "у": "u",
+            "ф": "f", "х": "h", "ц": "c", "ч": "ch", "ш": "sh", "щ": "sch",
+            "ъ": "", "ы": "y", "ь": "", "э": "e", "ю": "yu", "я": "ya", "-": "_"}
+
+used_keys = set()
+for pr in random.sample(PROJ, 28):
+    # идентификаторы проектов бывают кириллическими; без транслитерации от них
+    # оставались одни цифры и ключи выходили вида p_17 — нечитаемо в коде
+    key = "".join(TRANSLIT.get(c, c if c.isalnum() and c.isascii() else "") for c in pr["id"].lower())
+    key = re.sub(r"_+", "_", key).strip("_")[:28] or "proj"
+    if key[:1].isdigit():
+        key = "p_" + key
+    if key in used_keys or any(f"\n    {key}: " in b for b in blocks):
+        continue
+    used_keys.add(key)
+    blocks.append(
+        "\n    %s: {\n      title: '%s',\n      link: 'project.html?id=%s',\n      image: '%s',\n"
+        "      posts: [\n%s\n      ]\n    }"
+        % (key, pr["title"].replace("'", "\\'"), pr["id"], pr.get("img", "images/photos/toolbox.jpg"),
+           feed_posts(pr, random.randint(4, 6))))
+
+s = s[:m.end()] + ",".join(blocks) + "\n  " + s[end - 1:]
+wr("feed.html", s)
+print(f"feed.html: проектов с новостями {len(blocks)}, постов {s.count('{ avatar:')}")
+
 print("готово")
