@@ -72,38 +72,38 @@
     <div class="profile-layout">
       <div class="profile-side">
         <div class="profile-cover">
-          <img src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич">
+          <img src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" data-p="avatar">
         </div>
         <div class="profile-stats-text">
-          Уровень доверия: <b><a href="deals.html" style="color:inherit">92% (33/35)</a></b> <a href="deals.html" class="stat-note" title="Двусторонние отзывы после каждой сделки, записываются в блокчейн и не могут быть изменены задним числом. 33 положительных отзыва из 35 оценённых сделок. Открыть реестр всех сделок.">как считается?</a><br>
-          Баланс: <b>1 500 000 р.</b><br>
-          Сделки: <b><a href="deals.html" style="color:inherit">40</a></b> <a href="deals.html" class="stat-note">реестр сделок &rarr;</a><br>
-          Подписчиков: <b>321</b>
+          Уровень доверия: <b><a href="deals.html" style="color:inherit" data-p="trust">92% (33/35)</a></b> <a href="deals.html" class="stat-note" title="Двусторонние отзывы после каждой сделки, записываются в блокчейн и не могут быть изменены задним числом. 33 положительных отзыва из 35 оценённых сделок. Открыть реестр всех сделок.">как считается?</a><br>
+          Баланс: <b data-p="balance">1 500 000 р.</b><br>
+          Сделки: <b><a href="deals.html" style="color:inherit" data-p="deals">40</a></b> <a href="deals.html" class="stat-note">реестр сделок &rarr;</a><br>
+          Подписчиков: <b data-p="subs">321</b>
         </div>
         <div class="info-box">
           <div class="info-title">Контакты</div>
           <div class="info-body">
-            Город: Сочи<br>
-            Телефон: +7-928-233-2324<br>
-            Skype: dashkevich-danil<br>
+            Город: <span data-p="city">Сочи</span><br>
+            Телефон: <span data-p="phone">+7-928-233-2324</span><br>
+            Skype: <span data-p="skype">dashkevich-danil</span><br>
             <b style="color:var(--ink)">Социальные сети:</b><br>
             Веб-сайт: cooptech.hypercube.su<br>
-            Мессенджеры: Whatsapp, Viber, Telegram<br>
+            Мессенджеры: <span data-p="msg">Whatsapp, Viber, Telegram</span><br>
             <b style="color:var(--ink)">Приложения:</b><br>
-            GitHub, Habrahabr
+            <span data-p="apps">GitHub, Habrahabr</span>
           </div>
         </div>
         <div class="info-box">
           <div class="info-title">Личная информация</div>
           <div class="info-body">
-            День рождения: 15 октября 1986<br>
-            Языки: Русский, Украинский, Якутский
+            День рождения: <span data-p="bday">15 октября 1986</span><br>
+            Языки: <span data-p="langs">Русский, Украинский, Якутский</span>
           </div>
         </div>
       </div>
       <div class="profile-main">
         <div class="name-row" style="margin-bottom:16px;justify-content:space-between">
-          <h1 class="page-title profile-name" style="margin:0">Дашкевич Данил Игоревич <span class="badge verified" style="vertical-align:middle;margin-left:6px;font-size:12px" title="Подтверждён телефон и паспортные данные — не влияет на уровень доверия, это отдельная проверка личности">✓ Верифицирован</span></h1>
+          <h1 class="page-title profile-name" style="margin:0"><span data-p="name">Дашкевич Данил Игоревич</span> <span data-p="verified" class="badge verified" style="vertical-align:middle;margin-left:6px;font-size:12px" title="Подтверждён телефон и паспортные данные — не влияет на уровень доверия, это отдельная проверка личности">✓ Верифицирован</span></h1>
           <div style="display:flex;gap:10px;flex:none">
             <a class="button" href="messages.html">Написать</a>
             <button class="button secondary" id="subscribe-btn" data-person-slug="danil">Подписаться на новости</button>
@@ -379,5 +379,65 @@ document.querySelectorAll('.cat-nav').forEach(function (btn) {
 })();
 </script>
 <script src="app.js"></script>
+
+<script src="data/people.js"></script>
+<script>
+/* Детальная страница показывает того человека, на которого нажали в каталоге:
+   person.html?id=<идентификатор карточки>. Без параметра остаётся демо-профиль,
+   который лежит в разметке, — так страница читаема и без данных. */
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var list = window.PEOPLE || [];
+  var p = id ? list.find(function (x) { return x.id === id; }) : null;
+  if (!p) return;
+
+  function set(field, value) {
+    var el = document.querySelector('[data-p="' + field + '"]');
+    if (el) el.textContent = value;
+  }
+  var money = function (n) { return n.toLocaleString('ru-RU') + ' р.'; };
+
+  document.title = p.name + ' — cooptech';
+  set('name', p.name);
+  set('city', p.city);
+  set('phone', p.phone);
+  set('skype', p.skype);
+  set('bday', p.birthday);
+  set('langs', p.languages.join(', '));
+  set('msg', p.messengers.join(', '));
+  set('apps', p.apps.length ? p.apps.join(', ') : '—');
+  set('balance', money(p.balance));
+  set('deals', String(p.deals));
+  set('subs', String(p.subscribers));
+  set('trust', p.trust + '% (' + p.positive + '/' + p.rated + ')');
+
+  var av = document.querySelector('[data-p="avatar"]');
+  if (av) { av.src = p.avatar; av.alt = p.name; }
+
+  var badge = document.querySelector('[data-p="verified"]');
+  if (badge && !p.verified) badge.remove();
+
+  var note = document.querySelector('.stat-note[title]');
+  if (note) note.title = 'Двусторонние отзывы после каждой сделки, записываются в блокчейн '
+    + 'и не могут быть изменены задним числом. ' + p.positive + ' положительных отзыва из '
+    + p.rated + ' оценённых сделок. Открыть реестр всех сделок.';
+
+  var sub = document.getElementById('subscribe-btn');
+  if (sub) sub.setAttribute('data-person-slug', p.id);
+
+  /* Навыки в карусели — те, что указаны в карточке каталога. */
+  var row = [].slice.call(document.querySelectorAll('.cat-row')).find(function (r) {
+    return r.dataset.kind === 'Навыки';
+  });
+  if (row && p.skills.length) {
+    var tiles = [].slice.call(row.querySelectorAll('.cat-tile:not(.add-tile)'));
+    tiles.forEach(function (t, i) {
+      var label = t.querySelector('.cat-label');
+      if (i < p.skills.length) { if (label) label.textContent = p.skills[i]; }
+      else { t.remove(); }
+    });
+  }
+})();
+</script>
 </body>
 </html>
