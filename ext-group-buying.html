@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="theme.css">
+<script src="data/group-buys.js"></script>
 <script>
 (function () {
   var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
@@ -168,68 +169,7 @@
 
 <script>
 (function () {
-  var GROUP_BUYS = [
-    {
-      id: 'cement',
-      title: 'Цемент М500 навалом',
-      image: 'images/photos/cement-bag.jpg',
-      category: 'Для дома и дачи · стройматериалы',
-      organizer: { name: 'Дашкевич Данил Игоревич', avatar: 'images/avatars/13.jpg', link: 'person.html' },
-      supplier: 'ООО «Мириталь»',
-      unit: 'тонна',
-      collected: 27,
-      goal: 40,
-      participants: 14,
-      stopDate: '25 августа 2026',
-      pickupPoint: 'Цех кооператива, Тюмень',
-      pickupLink: 'pickup-points.html',
-      tiers: [
-        { upTo: 10, price: 12000, label: 'до 10 т' },
-        { upTo: 25, price: 10500, label: '10–25 т' },
-        { upTo: Infinity, price: 9200, label: '25 т и больше' }
-      ]
-    },
-    {
-      id: 'kidswear',
-      title: 'Детские зимние комбинезоны',
-      image: 'images/photos/warehouse.jpg',
-      category: 'Личные вещи · товары для детей',
-      organizer: { name: 'Кузнецова Дарья Викторовна', avatar: 'images/avatars/16.jpg', link: 'person.html' },
-      supplier: 'Фабрика «Kids Warm»',
-      unit: 'шт.',
-      collected: 42,
-      goal: 60,
-      participants: 31,
-      stopDate: '22 августа 2026',
-      pickupPoint: 'Точка выдачи — Центральный рынок, Тюмень',
-      pickupLink: 'pickup-points.html',
-      tiers: [
-        { upTo: 30, price: 3200, label: 'до 30 шт.' },
-        { upTo: 60, price: 2850, label: '30–60 шт.' },
-        { upTo: Infinity, price: 2500, label: '60 шт. и больше' }
-      ]
-    },
-    {
-      id: 'seeds',
-      title: 'Семена и рассада для теплиц',
-      image: 'images/photos/carrot.jpg',
-      category: 'Сельское хозяйство и еда',
-      organizer: { name: 'Лебедева Ольга Игоревна', avatar: 'images/avatars/10.jpg', link: 'person.html' },
-      supplier: 'Агрофирма «Седек»',
-      unit: 'набор',
-      collected: 18,
-      goal: 50,
-      participants: 12,
-      stopDate: '1 сентября 2026',
-      pickupPoint: 'Склад ООО «АгроСтрой», Пермь',
-      pickupLink: 'pickup-points.html',
-      tiers: [
-        { upTo: 20, price: 890, label: 'до 20 наборов' },
-        { upTo: 50, price: 690, label: '20–50 наборов' },
-        { upTo: Infinity, price: 540, label: '50 наборов и больше' }
-      ]
-    }
-  ];
+  var GROUP_BUYS = window.GROUP_BUYS || [];
 
   function escapeHtml(s) {
     return (s || '').toString().replace(/[&<>"']/g, function (c) {
@@ -244,6 +184,32 @@
   }
   function fmt(n) { return n.toLocaleString('ru-RU'); }
 
+  /* «450 штука» и «40 тонна» — так было и в исходных данных. Единица хранится
+     в именительном падеже, а рядом с числом нужна нужная форма. */
+  var UNIT_FORMS = {
+    'тонна': ['тонна', 'тонны', 'тонн'], 'мешок': ['мешок', 'мешка', 'мешков'],
+    'упаковка': ['упаковка', 'упаковки', 'упаковок'], 'штука': ['штука', 'штуки', 'штук'],
+    'литр': ['литр', 'литра', 'литров'], 'рулон': ['рулон', 'рулона', 'рулонов'],
+    'комплект': ['комплект', 'комплекта', 'комплектов'], 'пара': ['пара', 'пары', 'пар'],
+    'кг': ['кг', 'кг', 'кг'], 'набор': ['набор', 'набора', 'наборов'], 'куб. м': ['куб. м', 'куб. м', 'куб. м']
+  };
+
+  function peopleForm(n) {
+    var a = Math.abs(n) % 100;
+    if (a >= 11 && a <= 14) return 'участников';
+    a %= 10;
+    return a === 1 ? 'участник' : (a >= 2 && a <= 4) ? 'участника' : 'участников';
+  }
+  function unitForm(n, unit) {
+    var f = UNIT_FORMS[unit];
+    if (!f) return unit;
+    var a = Math.abs(Math.round(n)) % 100;
+    if (a >= 11 && a <= 14) return f[2];
+    a %= 10;
+    return a === 1 ? f[0] : (a >= 2 && a <= 4) ? f[1] : f[2];
+  }
+
+
   function renderCard(gb) {
     var pct = Math.min(100, Math.round(gb.collected / gb.goal * 100));
     var tier = currentTier(gb);
@@ -256,7 +222,7 @@
       '<div class="gb-body">' +
 
       '<div class="gb-title-row">' +
-      '<div class="gb-title">' + escapeHtml(gb.title) + '</div>' +
+      '<div class="gb-title"><a href="group-buy.html?id=' + encodeURIComponent(gb.id) + '">' + escapeHtml(gb.title) + '</a></div>' +
       '<span class="badge outline">до «стопа»: ' + escapeHtml(gb.stopDate) + '</span>' +
       '</div>' +
       '<div class="gb-category">' + escapeHtml(gb.category) + '</div>' +
@@ -271,7 +237,7 @@
 
       '<div class="gb-progress-block">' +
       '<div class="gb-progress-bar"><div class="gb-progress-fill" style="width:' + pct + '%"></div></div>' +
-      '<div class="gb-progress-label"><b>' + fmt(gb.collected) + ' из ' + fmt(gb.goal) + ' ' + escapeHtml(gb.unit) + '</b> собрано (' + pct + '%) · ' + gb.participants + ' участников</div>' +
+      '<div class="gb-progress-label"><b>' + fmt(gb.collected) + ' из ' + fmt(gb.goal) + ' ' + escapeHtml(unitForm(gb.goal, gb.unit)) + '</b> собрано (' + pct + '%) · ' + gb.participants + ' ' + peopleForm(gb.participants) + '</div>' +
       '</div>' +
 
       '<div class="gb-tiers">' + tiersHtml + '</div>' +

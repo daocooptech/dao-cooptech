@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Совместная закупка — cooptech</title>
+<script src="theme-init.js"></script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme.css">
+<script>
+(function () {
+  var FALLBACK = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%23E3EFED%27/><circle cx=%2735%27 cy=%2734%27 r=%278%27 fill=%27%23146B64%27 opacity=%270.55%27/><path d=%27M14 78 L38 50 L54 66 L68 46 L88 78 Z%27 fill=%27%23146B64%27 opacity=%270.55%27/></svg>";
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.src !== FALLBACK && !t.dataset.imgFallback) {
+      t.dataset.imgFallback = "1";
+      t.src = FALLBACK;
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="topbar-left">
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПТЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <span class="platform-name">Социально-экономическая платформа</span>
+  </div>
+  <div class="topbar-right">
+    <input class="topbar-search" type="search" aria-label="Поиск по платформе" placeholder="Поиск по платформе...">
+    <a class="topbar-bell" href="notifications.html" aria-label="Уведомления: 3 новых"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15.4V10a6 6 0 10-12 0v5.4L4.6 18h14.8M10 20.4a2 2 0 004 0"/></svg><span class="bell-count">3</span></a>
+    <a class="topbar-ico" href="settings.html" aria-label="Настройки" title="Настройки"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15.1a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2M19.3 12c0-.4 0-.8-.1-1.2l1.9-1.5-1.9-3.3-2.3 1c-.6-.5-1.2-.9-1.9-1.1L14.6 3.4h-3.8l-.4 2.5c-.7.2-1.3.6-1.9 1.1l-2.3-1-1.9 3.3L6.2 10.8a7 7 0 000 2.4l-1.9 1.5 1.9 3.3 2.3-1c.6.5 1.2.9 1.9 1.1l.4 2.5h3.8l.4-2.5c.7-.2 1.3-.6 1.9-1.1l2.3 1 1.9-3.3-1.9-1.5c.1-.4.1-.8.1-1.2z"/></svg></a>
+    <a class="topbar-ico" href="index.html" aria-label="Выйти" title="Выйти"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.4 7.4V5.6a1.6 1.6 0 00-1.6-1.6H5.6A1.6 1.6 0 004 5.6v12.8a1.6 1.6 0 001.6 1.6h7.2a1.6 1.6 0 001.6-1.6v-1.8M9.6 12h10.8M17.4 8.8l3.2 3.2-3.2 3.2"/></svg></a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav aria-label="Основные разделы">
+      <a href="my-page.html" data-icon="my-page">Моя страница</a>
+      <a href="messages.html" data-icon="messages">Сообщения</a>
+      <a href="people.html" data-icon="people">Люди</a>
+      <a href="skills.html" data-icon="skills">Навыки</a>
+      <a href="vacancies.html" data-icon="vacancies">Вакансии</a>
+      <a href="resources.html" data-icon="resources">Ресурсы</a>
+      <a href="projects.html" data-icon="projects">Проекты</a>
+      <a href="organizations.html" data-icon="organizations">Организации</a>
+      <a href="communities.html" data-icon="communities">Сообщества</a>
+      <a href="wallet.html" data-icon="wallet">Кошелёк</a>
+      <a href="deals.html" data-icon="deals">Сделки</a>
+    </nav>
+    <div class="ext-title">Расширения</div>
+    <nav aria-label="Расширения">
+      <a href="tokenomics.html">Токеномика</a>
+      <a href="cfa-catalog.html">Цифровые активы</a>
+      <a href="nma-catalog.html">Нематериальные активы</a>
+      <a href="ext-programs.html">Целевые программы ПК</a>
+      <a href="ext-group-buying.html" class="active">Совместные закупки</a>
+      <a href="ext-warehouse.html">Склад</a>
+      <a href="ext-events.html">События</a>
+      <a href="ext-analytics.html">Аналитика</a>
+      <a href="ext-education.html">Образование</a>
+      <a href="ext-auctions.html">Аукционы</a>
+      <a href="ext-libraries.html">Библиотеки</a>
+      <a href="ext-drive.html">Диск</a>
+      <a href="ext-health.html">Здоровье</a>
+    </nav>
+  </aside>
+  <main class="main" id="main">
+      <h1 class="sr-only">Совместная закупка</h1>
+      <div class="entity-tabs">
+        <a href="ext-group-buying.html">Совместные закупки</a>
+        <a href="group-buy.html" class="active">Закупка</a>
+      </div>
+
+      <div class="notice wait" id="gb-notice" hidden></div>
+
+      <div class="gb-head card" style="padding:0;overflow:hidden;margin-bottom:18px">
+        <img id="gb-photo" src="images/photos/cement-bag.jpg" alt="" style="width:100%;max-height:260px;object-fit:cover;display:block">
+        <div style="padding:16px 18px">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start">
+            <div>
+              <h2 class="page-title" style="margin:0" id="gb-title">Цемент М500 навалом</h2>
+              <div style="color:var(--slate);font-size:12.5px;margin-top:4px" id="gb-category">Для дома и дачи · стройматериалы</div>
+            </div>
+            <span class="badge outline" id="gb-stop">до «стопа»: 25 августа 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-layout">
+        <div class="profile-main">
+
+          <div class="card" style="padding:16px 18px;margin-bottom:18px">
+            <div class="section-title">Набор партии</div>
+            <div class="gb-progress-block" style="margin-top:10px">
+              <div class="gb-progress-bar"><div class="gb-progress-fill" id="gb-fill" style="width:0%"></div></div>
+              <div class="gb-progress-label" id="gb-progress">—</div>
+            </div>
+            <p style="color:var(--slate);font-size:12px;margin:10px 0 0">
+              Пока партия не набрана, заказ не уходит поставщику. Если к дате «стопа» объём
+              не собран, деньги возвращаются на паевой счёт участников.
+            </p>
+          </div>
+
+          <div class="card" style="padding:16px 18px;margin-bottom:18px">
+            <div class="section-title">Из чего складывается цена</div>
+            <table class="res-table" style="margin-top:10px">
+              <tr><th>Строка</th><th>За единицу</th><th>Куда идёт</th></tr>
+              <tr><td class="stage-head">Цена поставщика<div class="stage-sub" style="padding-left:0;font-weight:400">по текущему уровню объёма</div></td>
+                  <td id="gb-price-base">—</td><td id="gb-price-who">поставщику</td></tr>
+              <tr><td class="stage-head">Оргсбор<div class="stage-sub" style="padding-left:0;font-weight:400">на хозяйственную деятельность кооператива и работу организатора</div></td>
+                  <td id="gb-price-fee">—</td><td>кооперативу</td></tr>
+              <tr><td class="stage-head"><b>Итого</b></td><td id="gb-price-total"><b>—</b></td><td>—</td></tr>
+            </table>
+            <p style="color:var(--slate);font-size:12px;margin:10px 0 0">
+              Оргсбор показан отдельно намеренно: это не торговая наценка посредника,
+              а взнос на общее хозяйство. Вы видите, сколько и за что платите.
+            </p>
+          </div>
+
+          <div class="card" style="padding:16px 18px;margin-bottom:18px">
+            <div class="section-title">Ход заказа</div>
+            <div id="gb-stages" style="margin-top:10px"></div>
+          </div>
+
+          <div class="card" style="padding:16px 18px;margin-bottom:18px">
+            <div class="section-title">Кто что делает</div>
+            <p style="color:var(--slate);font-size:12px;margin:6px 0 12px">
+              Кнопки стоят только там, где действие ваше. Остальное показано состоянием —
+              видно, чей сейчас ход.
+            </p>
+            <div id="gb-roles"></div>
+          </div>
+
+          <div class="card" style="padding:16px 18px">
+            <div class="section-title">Документы</div>
+            <table class="res-table" style="margin-top:10px">
+              <tr><th>Документ</th><th>Между кем</th><th>Состояние</th></tr>
+              <tr><td class="stage-head">Акт приёмки партии</td><td>поставщик ↔ оператор пункта выдачи</td><td id="gb-doc-1">—</td></tr>
+              <tr><td class="stage-head">Закрывающий документ по заказу</td><td>оператор пункта выдачи ↔ вы</td><td id="gb-doc-2">—</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="profile-side">
+          <div class="info-box">
+            <div class="info-title">Участники</div>
+            <div class="info-body" id="gb-people">—</div>
+          </div>
+          <div class="info-box">
+            <div class="info-title">Где забирать</div>
+            <div class="info-body" id="gb-pickup">—</div>
+          </div>
+          <div class="info-box" id="gb-qr-box" hidden>
+            <div class="info-title">Код получения</div>
+            <div class="info-body">
+              <div id="gb-qr" style="margin:6px 0 8px"></div>
+              <span id="gb-qr-code" style="font-family:'JetBrains Mono',monospace;font-size:12px"></span><br>
+              Покажите код на пункте выдачи. Оператор отметит выдачу, и вы подпишете закрывающий документ.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+</div>
+
+<div class="modal-overlay" id="add-point-modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Добавить точку самовывоза</h2>
+      <button class="modal-close" id="add-point-close" type="button">✕</button>
+    </div>
+    <p class="modal-hint">Точка появится в общем реестре — её можно будет выбрать при оформлении любого объявления или совместной закупки, не описывая адрес заново.</p>
+    <div class="field">
+      <label>Название точки</label>
+      <input class="input" id="point-name" placeholder="Например, Склад в центре">
+    </div>
+    <div class="field">
+      <label>Город</label>
+      <input class="input" id="point-city" list="point-city-options" placeholder="Начните вводить город">
+      <datalist id="point-city-options">
+        <option value="Москва"><option value="Тюмень"><option value="Пермь"><option value="Красноярск"><option value="Новосибирск"><option value="Екатеринбург">
+      </datalist>
+    </div>
+    <div class="field">
+      <label>Адрес</label>
+      <input class="input" id="point-address" placeholder="Улица, дом">
+    </div>
+    <div class="field">
+      <label>Часы работы</label>
+      <input class="input" id="point-hours" placeholder="Например, Пн–Пт 9:00–18:00">
+    </div>
+    <div class="field">
+      <label>Комментарий (необязательно)</label>
+      <textarea class="input" id="point-comment" rows="2" placeholder="Что можно забрать в этой точке"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="button secondary" id="add-point-cancel" type="button">Отмена</button>
+      <button class="button" id="add-point-save" type="button">Добавить точку</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="point-toast">✓ Точка добавлена в реестр</div>
+
+
+<script src="app.js"></script>
+
+<script src="data/group-buys.js"></script>
+<script>
+/* Экран одной совместной закупки: group-buy.html?id=<идентификатор>.
+   Решение 262: все пять ролей видны сразу, но кнопки стоят только там, где
+   действие ваше; чужие показаны состоянием. Решение 261: оргсбор — отдельная
+   строка в разбивке цены, а не спрятанная надбавка. */
+(function () {
+  var list = window.GROUP_BUYS || [];
+  var id = new URLSearchParams(location.search).get('id');
+  var gb = (id && list.find(function (x) { return x.id === id; })) || list[0];
+  if (!gb) return;
+
+  var $ = function (s) { return document.getElementById(s); };
+
+  /* «450 штука» и «40 тонна» — так было и в исходных данных. Единица хранится
+     в именительном падеже, а рядом с числом нужна нужная форма. */
+  var UNIT_FORMS = {
+    'тонна': ['тонна', 'тонны', 'тонн'], 'мешок': ['мешок', 'мешка', 'мешков'],
+    'упаковка': ['упаковка', 'упаковки', 'упаковок'], 'штука': ['штука', 'штуки', 'штук'],
+    'литр': ['литр', 'литра', 'литров'], 'рулон': ['рулон', 'рулона', 'рулонов'],
+    'комплект': ['комплект', 'комплекта', 'комплектов'], 'пара': ['пара', 'пары', 'пар'],
+    'кг': ['кг', 'кг', 'кг'], 'набор': ['набор', 'набора', 'наборов'], 'куб. м': ['куб. м', 'куб. м', 'куб. м']
+  };
+
+  function peopleForm(n) {
+    var a = Math.abs(n) % 100;
+    if (a >= 11 && a <= 14) return 'участников';
+    a %= 10;
+    return a === 1 ? 'участник' : (a >= 2 && a <= 4) ? 'участника' : 'участников';
+  }
+  function unitForm(n, unit) {
+    var f = UNIT_FORMS[unit];
+    if (!f) return unit;
+    var a = Math.abs(Math.round(n)) % 100;
+    if (a >= 11 && a <= 14) return f[2];
+    a %= 10;
+    return a === 1 ? f[0] : (a >= 2 && a <= 4) ? f[1] : f[2];
+  }
+
+  var esc = function (s) {
+    return (s || '').toString().replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+  var fmt = function (n) { return Math.round(n).toLocaleString('ru-RU'); };
+
+  function tier() {
+    for (var i = 0; i < gb.tiers.length; i++) {
+      if (gb.collected < gb.tiers[i].upTo || i === gb.tiers.length - 1) return gb.tiers[i];
+    }
+    return gb.tiers[gb.tiers.length - 1];
+  }
+
+  document.title = gb.title + ' — совместная закупка — cooptech';
+  $('gb-title').textContent = gb.title;
+  $('gb-category').textContent = gb.category;
+  $('gb-stop').textContent = 'до «стопа»: ' + gb.stopDate;
+  $('gb-photo').src = gb.image;
+  $('gb-photo').alt = gb.title;
+
+  var pct = Math.min(100, Math.round(gb.collected / gb.goal * 100));
+  $('gb-fill').style.width = pct + '%';
+  $('gb-progress').innerHTML = '<b>' + fmt(gb.collected) + ' из ' + fmt(gb.goal) + ' ' +
+    esc(unitForm(gb.goal, gb.unit)) + '</b> собрано (' + pct + '%) · ' + gb.participants + ' ' + peopleForm(gb.participants);
+
+  /* цена: база по текущему уровню объёма плюс оргсбор */
+  var base = tier().price;
+  var feePct = gb.orgFeePct || 3;
+  var fee = Math.round(base * feePct / 100);
+  $('gb-price-base').textContent = fmt(base) + ' ₽ / ' + gb.unit;
+  $('gb-price-fee').textContent = fmt(fee) + ' ₽ / ' + gb.unit + ' (' +
+    String(feePct).replace('.', ',') + '%)';
+  $('gb-price-total').innerHTML = '<b>' + fmt(base + fee) + ' ₽ / ' + gb.unit + '</b>';
+  $('gb-price-who').textContent = esc(gb.supplier);
+
+  /* состояние закупки определяет, до какого этапа дошёл заказ */
+  var state = gb.state || (gb.collected >= gb.goal ? 'full' : 'idle');
+  var reached = { weak: 1, idle: 1, near: 1, full: 4 }[state] || 1;
+
+  var STAGES = [
+    ['Витрина', 'администратор допустил поставщика и товар к закупке'],
+    ['Сбор заказов', 'участники набирают объём до минимальной партии'],
+    ['Стоп', 'сбор закрыт, объём зафиксирован'],
+    ['Отгрузка', 'поставщик собрал и отправил партию'],
+    ['Приёмка', 'оператор пункта выдачи принял партию и подписал акт'],
+    ['Выдача', 'вы забрали заказ по коду и подписали закрывающий документ'],
+    ['Расчёт', 'оплата ушла поставщику через паевые кошельки']
+  ];
+  $('gb-stages').innerHTML = STAGES.map(function (s, i) {
+    var done = i < reached, now = i === reached;
+    var mark = done ? '✓' : now ? '•' : '·';
+    var color = done ? 'var(--teal-dark)' : now ? 'var(--gold)' : 'var(--slate-light)';
+    return '<div style="display:flex;gap:10px;padding:6px 0;align-items:baseline">' +
+      '<span style="color:' + color + ';font-weight:700;width:14px;flex:none">' + mark + '</span>' +
+      '<div><b style="font-size:13px' + (done || now ? '' : ';color:var(--slate-light)') + '">' +
+      s[0] + (now ? ' — сейчас' : '') + '</b>' +
+      '<div style="color:var(--slate);font-size:12px">' + s[1] + '</div></div></div>';
+  }).join('');
+
+  /* пять ролей: своё — кнопкой, чужое — состоянием */
+  var waiting = state === 'full' ? 'Партия набрана, ждём отгрузку.' :
+                state === 'weak' ? 'Объём набирается медленно.' : 'Идёт сбор заказов.';
+  var ROLES = [
+    ['Вы — заказчик', 'own',
+      state === 'full'
+        ? 'Ваш заказ в партии. Заберёте на пункте выдачи по коду.'
+        : 'Можно участвовать: заказ попадёт в партию, если она наберётся к «стопу».',
+      state === 'full'
+        ? '<a class="button" href="#gb-qr-box">Показать код получения</a>' +
+          '<a class="button secondary" href="deals.html">Открыть в сделках</a>'
+        : '<a class="button" href="ext-group-buying.html">Участвовать</a>' +
+          '<a class="button secondary" href="#" data-confirm data-confirm-text="Отменить участие в закупке?" data-confirm-ok="Отменить">Отменить участие</a>'],
+    ['Организатор', 'other',
+      'Нашёл поставщика, договорился об объёме и ведёт сбор. ' + waiting, ''],
+    ['Поставщик', 'other',
+      state === 'full' ? 'Партия подтверждена, собирает отгрузку.'
+                       : 'Ждёт, пока наберётся минимальный объём.', ''],
+    ['Оператор пункта выдачи', 'other',
+      state === 'full' ? 'Готовится принять партию и подписать акт приёмки.'
+                       : 'Пока не задействован — партия не отгружена.', ''],
+    ['Администратор витрины', 'other',
+      'Допустил поставщика и товар к закупке. Следит за спорами и возвратами.', '']
+  ];
+  $('gb-roles').innerHTML = ROLES.map(function (r) {
+    var own = r[1] === 'own';
+    return '<div style="border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px' +
+      (own ? ';background:var(--teal-tint)' : '') + '">' +
+      '<div style="font-weight:600;font-size:13px">' + r[0] + '</div>' +
+      '<div style="color:var(--slate);font-size:12.5px;margin-top:4px">' + r[2] + '</div>' +
+      (r[3] ? '<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">' + r[3] + '</div>' : '') +
+      '</div>';
+  }).join('');
+
+  $('gb-doc-1').textContent = state === 'full' ? 'ожидает подписи оператора' : 'появится после отгрузки';
+  $('gb-doc-2').textContent = state === 'full' ? 'появится при выдаче' : 'появится при выдаче';
+
+  $('gb-people').innerHTML =
+    'Организатор: <a href="' + gb.organizer.link + '">' + esc(gb.organizer.name) + '</a><br>' +
+    'Поставщик: <a href="' + (gb.supplierLink || 'organizations.html') + '">' + esc(gb.supplier) + '</a><br>' +
+    'Участников: <b>' + gb.participants + '</b>';
+  $('gb-pickup').innerHTML = '📍 <a href="' + gb.pickupLink + '">' + esc(gb.pickupPoint) + '</a><br>' +
+    'Забрать можно после того, как оператор примет партию.';
+
+  /* код получения показываем только когда есть что получать */
+  if (state === 'full') {
+    var code = 'ЗК-' + String(Math.abs(gb.id.split('').reduce(function (a, c) {
+      return (a * 31 + c.charCodeAt(0)) | 0; }, 7)) % 1000000).padStart(6, '0');
+    $('gb-qr-code').textContent = code;
+    var n = 21, seed = 0;
+    for (var i = 0; i < code.length; i++) seed = (seed * 131 + code.charCodeAt(i)) >>> 0;
+    var cells = '';
+    for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+      seed = (seed * 1103515245 + 12345) >>> 0;
+      var corner = (x < 7 && y < 7) || (x > n - 8 && y < 7) || (x < 7 && y > n - 8);
+      var on = corner ? ((x === 0 || x === 6 || y === 0 || y === 6 ||
+                          (x > 1 && x < 5 && y > 1 && y < 5)) ||
+                         (x > n - 8 && (x === n - 7 || x === n - 1)) ) : (seed >>> 28) > 7;
+      if (on) cells += '<rect x="' + x + '" y="' + y + '" width="1" height="1"/>';
+    }
+    $('gb-qr').innerHTML = '<svg viewBox="0 0 ' + n + ' ' + n + '" width="132" height="132" ' +
+      'role="img" aria-label="Код получения ' + code + '" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px">' +
+      '<g fill="#14171a">' + cells + '</g></svg>';
+    $('gb-qr-box').hidden = false;
+    var nt = $('gb-notice');
+    nt.className = 'notice ok';
+    nt.textContent = 'Партия набрана. Как только оператор примет её на пункте выдачи, заказ можно забрать.';
+    nt.hidden = false;
+  } else if (state === 'weak') {
+    var nt2 = $('gb-notice');
+    nt2.className = 'notice wait';
+    nt2.textContent = 'Объём набирается медленно. Если к «стопу» партия не наберётся, деньги вернутся на паевые счета.';
+    nt2.hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
