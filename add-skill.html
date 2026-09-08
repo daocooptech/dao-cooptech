@@ -13,7 +13,7 @@
 <header class="topbar">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
   <div class="topbar-left">
-    <a class="logo" href="my-page.html" aria-label="ДАО КООПТЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech"></a>
+    <a class="logo" href="my-page.html" aria-label="ДАО КООПТЕХ — на главную"><img class="logo-img" src="assets/cooptech-logo.png" alt="cooptech" width="100" height="32"></a>
     <span class="platform-name">Социально-экономическая платформа</span>
   </div>
   <div class="topbar-right">
@@ -190,7 +190,7 @@
               <label for="skill-relocate">Готов(а) к переезду и командировкам</label>
             </div>
             <div class="ar-contact-box">
-              <img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич">
+              <img class="avatar" src="images/avatars/13.jpg" alt="Дашкевич Данил Игоревич" width="600" height="600">
               <div>
                 <div class="ar-contact-name">Дашкевич Данил Игоревич</div>
                 <div class="ar-contact-meta">Как в профиле · работодатели увидят контакты после отклика</div>
@@ -507,7 +507,7 @@ function escapeHtml(s) {
       return;
     }
     var imgHtml = skillPhotos.length
-      ? '<img src="' + skillPhotos[0] + '" alt="">'
+      ? '<img src="' + skillPhotos[0] + '" alt="" loading="lazy">'
       : escapeHtml((title || '?').slice(0, 2).toUpperCase());
     box.innerHTML =
       '<div class="ar-preview-img">' + imgHtml + '</div>' +
