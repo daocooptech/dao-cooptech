@@ -1177,3 +1177,150 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* ── Постраничная навигация каталогов ───────────────────────────────────
+   Пункт 1 аудита от 2026-09-08: ни в одном из каталогов её не было, а навыки
+   и вакансии отдавали по сотне карточек одной страницей. Правило владельца
+   про 100–200 записей существует ровно затем, чтобы постраничную навигацию
+   было видно.
+
+   Устройство. Фильтры на страницах прячут карточки через style.display, и
+   постраничность работает поверх них: перед каждым пересчётом она снимает
+   своё скрытие, смотрит, что оставил фильтр, и прячет лишние страницы заново.
+   Собственное скрытие помечается data-pg-hidden, чтобы не спутать со скрытым
+   фильтром. Пересчёт вызывается наблюдателем за style у карточек — своих
+   изменений наблюдатель не слушает, иначе получилась бы петля. */
+(function () {
+  var PER_PAGE = 24;
+  var SELECTORS = ['a.vacancy-card', 'div.vacancy-card', 'a.ptile', 'article.deal-card'];
+
+  /* Кроме основного списка на странице есть полки по категориям — те же
+     карточки в .shelf-row по пять-восемь штук. Брать первый попавшийся
+     контейнер нельзя: постраничность уедет на полку. Берём тот, где карточек
+     больше всего, — это и есть каталог. */
+  function findList() {
+    var best = null;
+    SELECTORS.forEach(function (sel) {
+      var byParent = [];
+      Array.prototype.forEach.call(document.querySelectorAll(sel), function (n) {
+        var p = n.parentElement;
+        if (!p) return;
+        var rec = null;
+        byParent.forEach(function (r) { if (r.parent === p) rec = r; });
+        if (rec) rec.count++;
+        else byParent.push({ parent: p, count: 1 });
+      });
+      byParent.forEach(function (r) {
+        if (r.count > PER_PAGE && (!best || r.count > best.count)) {
+          best = { parent: r.parent, sel: sel, count: r.count };
+        }
+      });
+    });
+    return best;
+  }
+
+  function make(tag, cls, text) {
+    var el = document.createElement(tag);
+    if (cls) el.className = cls;
+    if (text != null) el.textContent = text;
+    return el;
+  }
+
+  function init() {
+    var found = findList();
+    if (!found) return;
+
+    var page = 1, muted = false;
+    var items = function () {
+      return Array.prototype.filter.call(found.parent.children, function (c) {
+        return c.matches && c.matches(found.sel);
+      });
+    };
+
+    var nav = make('nav', 'pagination');
+    nav.setAttribute('aria-label', 'Постраничная навигация');
+    var prev = make('button', 'pg-btn', '‹ Назад');
+    var next = make('button', 'pg-btn', 'Вперёд ›');
+    var pages = make('div', 'pg-pages');
+    var info = make('div', 'pg-info');
+    info.setAttribute('aria-live', 'polite');
+    prev.type = next.type = 'button';
+    nav.appendChild(prev); nav.appendChild(pages); nav.appendChild(next); nav.appendChild(info);
+    found.parent.parentNode.insertBefore(nav, found.parent.nextSibling);
+
+    function apply() {
+      muted = true;
+      var all = items();
+      all.forEach(function (el) {
+        if (el.dataset.pgHidden) { el.style.display = ''; delete el.dataset.pgHidden; }
+      });
+      var live = all.filter(function (el) { return el.style.display !== 'none'; });
+      var total = live.length;
+      var last = Math.max(1, Math.ceil(total / PER_PAGE));
+      if (page > last) page = last;
+      var from = (page - 1) * PER_PAGE;
+      live.forEach(function (el, i) {
+        if (i < from || i >= from + PER_PAGE) {
+          el.style.display = 'none';
+          el.dataset.pgHidden = '1';
+        }
+      });
+
+      nav.hidden = total <= PER_PAGE;
+      prev.disabled = page === 1;
+      next.disabled = page === last;
+      info.textContent = total
+        ? (from + 1) + '–' + Math.min(from + PER_PAGE, total) + ' из ' + total
+        : '';
+
+      pages.innerHTML = '';
+      var nums = [];
+      for (var i = 1; i <= last; i++) {
+        if (i === 1 || i === last || Math.abs(i - page) <= 1) nums.push(i);
+        else if (nums[nums.length - 1] !== '…') nums.push('…');
+      }
+      nums.forEach(function (n) {
+        if (n === '…') { pages.appendChild(make('span', 'pg-gap', '…')); return; }
+        var b = make('button', 'pg-num' + (n === page ? ' current' : ''), String(n));
+        b.type = 'button';
+        if (n === page) b.setAttribute('aria-current', 'page');
+        b.addEventListener('click', function () { go(n); });
+        pages.appendChild(b);
+      });
+      setTimeout(function () { muted = false; }, 0);
+    }
+
+    function go(n) {
+      page = n;
+      apply();
+      var top = found.parent.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      if (window.Coop && Coop.say) Coop.say('Страница ' + n + '. ' + info.textContent);
+    }
+
+    prev.addEventListener('click', function () { if (page > 1) go(page - 1); });
+    next.addEventListener('click', function () { go(page + 1); });
+
+    /* фильтры страницы меняют style у карточек — пересчитываем следом */
+    var timer = null;
+    new MutationObserver(function () {
+      if (muted) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () { page = 1; apply(); }, 30);
+    }).observe(found.parent, { attributes: true, attributeFilter: ['style'], subtree: true });
+
+    apply();
+    window.Coop = window.Coop || {};
+    window.Coop.paginate = apply;
+  }
+
+  /* Карточки часто досоздаются собственным скриптом страницы уже после
+     DOMContentLoaded, поэтому пробуем несколько раз, пока каталог не найдётся. */
+  var tries = 0;
+  function start() {
+    if (findList()) { init(); return; }
+    if (++tries < 12) setTimeout(start, 120);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
