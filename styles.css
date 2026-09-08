@@ -549,7 +549,6 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
 .cat-tile .cat-icon svg, .cat-tile .cat-icon img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .cat-tile .cat-icon.line-icon { display: flex; align-items: center; justify-content: center; }
 .cat-tile .cat-icon.line-icon svg { width: 85%; height: 85%; }
-.cat-tile .cat-label { font-size: 12px; font-weight: 500; }
 .cat-tile .cat-icon .org-logo {
   width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
   font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: .02em;
