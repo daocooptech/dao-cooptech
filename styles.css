@@ -432,6 +432,8 @@ img.avatar { object-fit: cover; display: block; background: var(--paper); }
   align-items: flex-start;
 }
 .notif-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); margin-top: 5px; flex: none; }
+/* Прочитанное: точка сохраняет место, чтобы строки не разъезжались. */
+.notif-dot.read { background: transparent; }
 .notif-item img.avatar { margin-top: 1px; }
 .notif-item .ntime { color: var(--slate-light); font-size: 11px; margin-top: 4px; }
 
