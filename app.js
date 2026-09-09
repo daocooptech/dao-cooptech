@@ -593,7 +593,7 @@
      в его фильтры, — второй поверх него только мешал бы. */
   var GRIDS = ['#people-grid', '#resumes-list', '#vacancies-list', '#projects-grid',
                '#orgs-grid', '#resources-grid', '#groups-grid',
-               '#cfa-list', '#nma-list', '#events-list'];
+               '#cfa-list', '#nma-list', '#events-list', '#wh-grid'];
 
   function setupPager(box) {
     if (box.__pager) return;

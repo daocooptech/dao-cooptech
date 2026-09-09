@@ -74,7 +74,7 @@
     <div class="entity-tabs" id="wh-tabs">
       <a href="#" class="active" data-tab="my">Мои склады <span class="badge outline">3</span></a>
       <a href="#" data-tab="agreements">Договорённости <span class="badge outline">6</span></a>
-      <a href="#" data-tab="market">Биржа мощностей <span class="badge outline">13</span></a>
+      <a href="#" data-tab="market">Биржа мощностей <span class="badge outline">125</span></a>
       <a href="ext-warehouse.html?tab=favorites" data-fav-tab="warehouse">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
 
@@ -588,6 +588,1409 @@
      side: offer — предлагают мощности, demand — ищут.
      terms — на каких условиях владелец готов договариваться. */
   var MARKET = [
+    /* ── ниже собрано tools/gen-warehouse.py, руками не правим ── */
+    {
+      side: 'offer', id: 'wh-36-heated-1', city: 'Санкт-Петербург', kind: 'heated', party: 'Человек', period: 'short',
+      title: 'Отапливаемое помещение под мастерскую',
+      photo: 'images/photos/sewing-workshop.jpg',
+      owner: { name: 'Логинов Алексей Андреевич', avatar: 'images/avatars/61.jpg', link: 'person.html?id=логинов-алексей-андреевич-36', trust: 76 },
+      unit: 'м²', total: 150, free: 40,
+      specs: ['Пожарная сигнализация', 'Одна рампа', 'Высота <b>6 м</b>'],
+      terms: [
+        { key: 'custody', value: '684 ₽/м² в месяц', note: 'с погрузчиком и оператором' },
+        { key: 'share', value: 'пай от 1 270 000 ₽', note: 'паевой взнос вместо аренды' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-1-freeze-2', city: 'Санкт-Петербург', kind: 'freeze', party: 'Организация', period: 'forever',
+      title: 'Нужно 340 тонн морозильного хранения под мясо',
+      photo: 'images/photos/chest-freezer.jpg',
+      owner: { name: 'АО «Кедр»', avatar: 'img/org-logos/tinkoff.png', link: 'organization.html?id=ао-кедр-1', trust: 85, logo: true },
+      unit: 'тонн', need: 340,
+      specs: ['Резервное питание', 'Термограф'],
+      terms: [
+        { key: 'share', value: 'пай от 730 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'buyout', value: '1 250 000 ₽ за блок 40 тонн', note: 'с оформлением через кооператив' },
+        { key: 'custody', value: '1 150 ₽/тонну в месяц', note: 'с погрузчиком и оператором' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-28-heated-3', city: 'Краснодар', kind: 'heated', party: 'Человек', period: 'long',
+      title: 'Отапливаемое помещение под мастерскую',
+      photo: 'images/photos/craft-workshop.jpg',
+      owner: { name: 'Щербаков Андрей Иванович', avatar: 'images/avatars/45.jpg', link: 'person.html?id=щербаков-андрей-иванович-28', trust: 65 },
+      unit: 'м²', total: 2150, free: 1010,
+      specs: ['Погрузчик на месте', 'Видеонаблюдение', 'Одна рампа'],
+      terms: [
+        { key: 'buyout', value: '2 900 000 ₽ за блок 340 м²', note: 'с оформлением через кооператив' },
+        { key: 'rent', value: '480 ₽/м² в месяц', note: 'помесячно, без депозита' },
+        { key: 'share', value: 'пай от 990 000 ₽', note: 'паевой взнос вместо аренды' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-4-chill-4', city: 'Новосибирск', kind: 'chill', party: 'Организация', period: 'short',
+      title: 'Камера охлаждения под молочное',
+      photo: 'images/photos/berry-harvest.jpg',
+      owner: { name: 'ООО «Поморье»', avatar: 'img/org-logos/severstal.png', link: 'organization.html?id=ооо-поморье-4', trust: 63, logo: true },
+      unit: 'тонн', total: 350, free: 260,
+      specs: ['Мойка тары', 'Приёмка по температуре', 'Термограф'],
+      terms: [
+        { key: 'share', value: 'пай от 1 120 000 ₽', note: 'с правом пользования по графику' },
+        { key: 'rent', value: '700 ₽/тонну в месяц', note: 'помесячно, без депозита' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ooo-ekoplast-heated-5', city: 'Воронеж', kind: 'heated', party: 'Организация', period: 'short',
+      title: 'Отапливаемый склад с рампой',
+      photo: 'images/photos/carpentry-shop.jpg',
+      owner: { name: 'ООО «ЭкоПласт»', avatar: 'img/org-logos/nornickel.png', link: 'organization.html?id=ooo-ekoplast', trust: 77, logo: true },
+      unit: 'м²', total: 820, free: 590,
+      specs: ['Круглосуточный доступ', 'Учёт партий', 'Стеллажи'],
+      terms: [
+        { key: 'custody', value: '324 ₽/м² в месяц', note: 'с погрузчиком и оператором' },
+        { key: 'project', value: 'доля 5%', note: 'вместо оплаты — участие в марже' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-10-freeze-6', city: 'Казань', kind: 'freeze', party: 'Организация', period: 'short',
+      title: 'Нужно 310 тонн морозильного хранения под рыбу',
+      photo: 'images/photos/beef-meat.jpg',
+      owner: { name: 'АО «Родник»', avatar: 'img/org-logos/s7.png', link: 'organization.html?id=ао-родник-10', trust: 71, logo: true },
+      unit: 'тонн', need: 310,
+      specs: ['Отгрузка по заявке за сутки', 'Резервное питание', 'Раздельные камеры', 'Шоковая заморозка'],
+      terms: [
+        { key: 'barter', value: 'обмен на 30 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'custody', value: '660 ₽/тонну в месяц', note: 'с погрузчиком и оператором' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-28-chill-7', city: 'Волгоград', kind: 'chill', party: 'Организация', period: 'short',
+      title: 'Холодильное хранение ягоды',
+      photo: 'images/photos/meat-shop.jpg',
+      owner: { name: 'ООО «Тайга»', avatar: 'img/org-logos/aeroflot.png', link: 'organization.html?id=ооо-тайга-28', trust: 65, logo: true },
+      unit: 'паллетомест', total: 560, free: 210,
+      specs: ['Отгрузка по заявке за сутки', 'Термограф', 'Санитарный паспорт', 'Две камеры'],
+      terms: [
+        { key: 'rent', value: '118 ₽/паллетоместо в сутки', note: 'от 6 месяцев' },
+        { key: 'barter', value: 'обмен на 50 паллетомест', note: 'встречное хранение в другом городе' },
+        { key: 'custody', value: '81 ₽/паллетоместо в сутки', note: 'с приёмкой, учётом и отгрузкой' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-52-open-8', city: 'Архангельск', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Площадка с твёрдым покрытием',
+      photo: 'images/photos/scaffolding.jpg',
+      owner: { name: 'АО «Родник»', avatar: 'img/org-logos/rosneft.png', link: 'organization.html?id=ао-родник-52', trust: 58, logo: true },
+      unit: 'тонн', total: 120, free: 70,
+      specs: ['Въезд для фур', 'Твёрдое покрытие'],
+      terms: [
+        { key: 'buyout', value: '4 700 000 ₽ за блок 60 тонн', note: 'с оформлением через кооператив' },
+        { key: 'project', value: 'доля 3%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'rent', value: '330 ₽/тонну в месяц', note: 'от 6 месяцев' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-20-dry-9', city: 'Кемерово', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Ангар под сезонное хранение',
+      photo: 'images/photos/wood-planks.jpg',
+      owner: { name: 'Савельев Артём Михайлович', avatar: 'images/avatars/40.jpg', link: 'person.html?id=савельев-артём-михайлович-20', trust: 62 },
+      unit: 'м³', total: 1140, free: 520,
+      specs: ['Отдельный въезд', 'Сухая вентиляция', 'Бетонный пол'],
+      terms: [
+        { key: 'buyout', value: '3 650 000 ₽ за блок 230 м³', note: 'рассрочка до года' },
+        { key: 'project', value: 'доля 11%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-ooo-koop-market-dry-10', city: 'Краснодар', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Нужно 140 м² сухого неотапливаемого хранения под кирпич',
+      photo: 'images/photos/cattle-barn.jpg',
+      owner: { name: 'ООО «Кооп-Маркет»', avatar: 'img/org-logos/alfabank.png', link: 'organization.html?id=ooo-koop-market', trust: 81, logo: true },
+      unit: 'м²', need: 140,
+      specs: ['Сухая вентиляция', 'Бетонный пол', 'Охрана по периметру'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'вместо оплаты — участие в марже' },
+        { key: 'barter', value: 'обмен на 380 м²', note: 'обмен мощностями по сезону' },
+        { key: 'rent', value: '460 ₽/м² в месяц', note: 'от одной недели' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-5-chill-11', city: 'Магнитогорск', kind: 'chill', party: 'Организация', period: 'long',
+      title: 'Нужно 410 м² холодильного хранения под молочное',
+      photo: 'images/photos/milk-tank.jpg',
+      owner: { name: 'АО «Взаимопомощь»', avatar: 'img/org-logos/avito.png', link: 'organization.html?id=ао-взаимопомощь-5', trust: 87, logo: true },
+      unit: 'м²', need: 410,
+      specs: ['Санитарный паспорт', 'Две камеры'],
+      terms: [
+        { key: 'barter', value: 'обмен на 470 м²', note: 'обмен мощностями по сезону' },
+        { key: 'share', value: 'пай от 1 270 000 ₽', note: 'паевой взнос вместо аренды' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-kuznetsova-darya-viktorovna-freeze-12', city: 'Воронеж', kind: 'freeze', party: 'Человек', period: 'forever',
+      title: 'Камера шоковой заморозки',
+      photo: 'images/photos/meat-band-saw.jpg',
+      owner: { name: 'Кузнецова Дарья Викторовна', avatar: 'images/avatars/53.jpg', link: 'person.html?id=kuznetsova-darya-viktorovna', trust: 77 },
+      unit: 'тонн', total: 690, free: 410,
+      specs: ['Резервное питание', 'Шоковая заморозка'],
+      terms: [
+        { key: 'barter', value: 'обмен на 100 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'custody', value: '620 ₽/тонну в месяц', note: 'приёмка по температуре' },
+        { key: 'share', value: 'пай от 210 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-zimin-kirill-dmitrievich-dry-13', city: 'Новосибирск', kind: 'dry', party: 'Человек', period: 'long',
+      title: 'Гараж-склад под инвентарь',
+      photo: 'images/photos/grain-silo.jpg',
+      owner: { name: 'Зимин Кирилл Дмитриевич', avatar: 'images/avatars/33.jpg', link: 'person.html?id=zimin-kirill-dmitrievich', trust: 80 },
+      unit: 'м²', total: 340, free: 130,
+      specs: ['Ворота 4 м', 'Охрана по периметру', 'Бетонный пол'],
+      terms: [
+        { key: 'rent', value: '470 ₽/м² в месяц', note: 'от 6 месяцев' },
+        { key: 'buyout', value: '3 200 000 ₽ за блок 310 м²', note: 'с выделением доли в общей площадке' },
+        { key: 'project', value: 'доля 10%', note: 'вместо оплаты — участие в марже' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-35-open-14', city: 'Тобольск', kind: 'open', party: 'Организация', period: 'forever',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/land-plot.jpg',
+      owner: { name: 'АО «Гостевой двор»', avatar: 'img/org-logos/vk.png', link: 'organization.html?id=ао-гостевой-двор-35', trust: 93, logo: true },
+      unit: 'м²', total: 420, free: 80,
+      specs: ['Ограждение', 'Твёрдое покрытие', 'Охрана', 'Освещение'],
+      terms: [
+        { key: 'buyout', value: '4 550 000 ₽ за блок 270 м²', note: 'рассрочка до года' },
+        { key: 'rent', value: '370 ₽/м² в месяц', note: 'помесячно, без депозита' },
+        { key: 'custody', value: '304 ₽/м² в месяц', note: 'с приёмкой, учётом и отгрузкой' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-26-freeze-15', city: 'Нижний Новгород', kind: 'freeze', party: 'Человек', period: 'forever',
+      title: 'Нужно 20 паллетомест морозильного хранения под мясо',
+      photo: 'images/photos/meat-band-saw.jpg',
+      owner: { name: 'Соколова Ирина Викторовна', avatar: 'images/avatars/2.jpg', link: 'person.html?id=соколова-ирина-викторовна-26', trust: 83 },
+      unit: 'паллетомест', need: 20,
+      specs: ['Термограф', 'Резервное питание'],
+      terms: [
+        { key: 'buyout', value: '3 850 000 ₽ за блок 30 паллетомест', note: 'рассрочка до года' },
+        { key: 'share', value: 'пай от 1 190 000 ₽', note: 'с правом пользования по графику' },
+        { key: 'custody', value: '261 ₽/паллетоместо в сутки', note: 'приёмка по температуре' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-6-open-16', city: 'Ростов-на-Дону', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/land-plot.jpg',
+      owner: { name: 'АО «Речной порт»', avatar: 'img/org-logos/rusal.png', link: 'organization.html?id=ао-речной-порт-6', trust: 96, logo: true },
+      unit: 'тонн', total: 370, free: 70,
+      specs: ['Въезд для фур', 'Освещение', 'Твёрдое покрытие', 'Ограждение'],
+      terms: [
+        { key: 'barter', value: 'обмен на 80 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'project', value: 'доля 11%', note: 'доля в результате, а не в имуществе' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-melnikov-grigoriy-olegovich-chill-17', city: 'Пермь', kind: 'chill', party: 'Человек', period: 'long',
+      title: 'Нужно 820 м² холодильного хранения под саженцы',
+      photo: 'images/photos/berry-harvest.jpg',
+      owner: { name: 'Мельников Григорий Олегович', avatar: 'images/avatars/36.jpg', link: 'person.html?id=melnikov-grigoriy-olegovich', trust: 82 },
+      unit: 'м²', need: 820,
+      specs: ['Приёмка по температуре', 'Санитарный паспорт'],
+      terms: [
+        { key: 'barter', value: 'обмен на 440 м²', note: 'встречное хранение в другом городе' },
+        { key: 'share', value: 'пай от 1 200 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-6-heated-18', city: 'Ростов-на-Дону', kind: 'heated', party: 'Организация', period: 'forever',
+      title: 'Нужно 200 паллетомест сухого отапливаемого хранения под фасованный товар',
+      photo: 'images/photos/carpentry-shop.jpg',
+      owner: { name: 'АО «Речной порт»', avatar: 'img/org-logos/rusal.png', link: 'organization.html?id=ао-речной-порт-6', trust: 96, logo: true },
+      unit: 'паллетомест', need: 200,
+      specs: ['Учёт партий', 'Погрузчик на месте', 'Видеонаблюдение', 'Стеллажи'],
+      terms: [
+        { key: 'custody', value: '191 ₽/паллетоместо в сутки', note: 'с приёмкой, учётом и отгрузкой' },
+        { key: 'project', value: 'доля 9%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'barter', value: 'обмен на 90 паллетомест', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-23-chill-19', city: 'Магнитогорск', kind: 'chill', party: 'Организация', period: 'long',
+      title: 'Нужно 230 паллетомест холодильного хранения под саженцы',
+      photo: 'images/photos/berry-harvest.jpg',
+      owner: { name: 'ООО «Улей»', avatar: 'img/org-logos/ozon.png', link: 'organization.html?id=ооо-улей-23', trust: 87, logo: true },
+      unit: 'паллетомест', need: 230,
+      specs: ['Приёмка по температуре', 'Две камеры', 'Санитарный паспорт', 'Термограф'],
+      terms: [
+        { key: 'custody', value: '191 ₽/паллетоместо в сутки', note: 'с погрузчиком и оператором' },
+        { key: 'barter', value: 'обмен на 30 паллетомест', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-semenov-nikolay-petrovich-dry-20', city: 'Нижний Новгород', kind: 'dry', party: 'Человек', period: 'short',
+      title: 'Нужно 440 тонн сухого неотапливаемого хранения под инвентарь',
+      photo: 'images/photos/timber-beam.jpg',
+      owner: { name: 'Семёнов Николай Петрович', avatar: 'images/avatars/39.jpg', link: 'person.html?id=semenov-nikolay-petrovich', trust: 97 },
+      unit: 'тонн', need: 440,
+      specs: ['Отдельный въезд', 'Бетонный пол', 'Охрана по периметру'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'доля в результате, а не в имуществе' },
+        { key: 'buyout', value: '1 750 000 ₽ за блок 20 тонн', note: 'с оформлением через кооператив' },
+        { key: 'barter', value: 'обмен на 50 тонн', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-6-chill-21', city: 'Ростов-на-Дону', kind: 'chill', party: 'Организация', period: 'forever',
+      title: 'Холодильная камера +2…+6 °C',
+      photo: 'images/photos/meat-shop.jpg',
+      owner: { name: 'АО «Речной порт»', avatar: 'img/org-logos/rusal.png', link: 'organization.html?id=ао-речной-порт-6', trust: 96, logo: true },
+      unit: 'паллетомест', total: 550, free: 310,
+      specs: ['Две камеры', 'Приёмка по температуре', 'Отгрузка по заявке за сутки', 'Термограф'],
+      terms: [
+        { key: 'custody', value: '251 ₽/паллетоместо в сутки', note: 'приёмка по температуре' },
+        { key: 'share', value: 'пай от 170 000 ₽', note: 'паевой взнос вместо аренды' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-kozlov-artem-viktorovich-chill-22', city: 'Новосибирск', kind: 'chill', party: 'Человек', period: 'forever',
+      title: 'Нужно 120 м² холодильного хранения под молочное',
+      photo: 'images/photos/berry-harvest.jpg',
+      owner: { name: 'Козлов Артём Викторович', avatar: 'images/avatars/34.jpg', link: 'person.html?id=kozlov-artem-viktorovich', trust: 70 },
+      unit: 'м²', need: 120,
+      specs: ['Мойка тары', 'Санитарный паспорт', 'Отгрузка по заявке за сутки', 'Термограф'],
+      terms: [
+        { key: 'rent', value: '410 ₽/м² в месяц', note: 'от 6 месяцев' },
+        { key: 'buyout', value: '3 500 000 ₽ за блок 460 м²', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-volkov-igor-nikolaevich-chill-23', city: 'Екатеринбург', kind: 'chill', party: 'Человек', period: 'forever',
+      title: 'Холодильник под овощи и корнеплоды',
+      photo: 'images/photos/berry-harvest.jpg',
+      owner: { name: 'Волков Игорь Николаевич', avatar: 'images/avatars/68.jpg', link: 'person.html?id=volkov-igor-nikolaevich', trust: 95 },
+      unit: 'м²', total: 1410, free: 550,
+      specs: ['Термограф', 'Две камеры', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'buyout', value: '6 350 000 ₽ за блок 260 м²', note: 'с выделением доли в общей площадке' },
+        { key: 'barter', value: 'обмен на 450 м²', note: 'встречное хранение в другом городе' },
+        { key: 'custody', value: '534 ₽/м² в месяц', note: 'с погрузчиком и оператором' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-11-open-24', city: 'Вологда', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Площадка с твёрдым покрытием',
+      photo: 'images/photos/waste-sorting.jpg',
+      owner: { name: 'АО «Шукты»', avatar: 'img/org-logos/rzd.png', link: 'organization.html?id=ао-шукты-11', trust: 60, logo: true },
+      unit: 'м²', total: 1160, free: 620,
+      specs: ['Ограждение', 'Въезд для фур', 'Твёрдое покрытие'],
+      terms: [
+        { key: 'buyout', value: '4 550 000 ₽ за блок 220 м²', note: 'рассрочка до года' },
+        { key: 'custody', value: '674 ₽/м² в месяц', note: 'с погрузчиком и оператором' },
+        { key: 'barter', value: 'обмен на 450 м²', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-60-open-25', city: 'Омск', kind: 'open', party: 'Организация', period: 'forever',
+      title: 'Нужно 240 тонн открытой площадки под стройматериалы',
+      photo: 'images/photos/waste-sorting.jpg',
+      owner: { name: 'АО «Гончар»', avatar: 'img/org-logos/beeline.png', link: 'organization.html?id=ао-гончар-60', trust: 97, logo: true },
+      unit: 'тонн', need: 240,
+      specs: ['Твёрдое покрытие', 'Въезд для фур'],
+      terms: [
+        { key: 'barter', value: 'обмен на 90 тонн', note: 'обмен мощностями по сезону' },
+        { key: 'rent', value: '840 ₽/тонну в месяц', note: 'с правом досрочного расторжения' },
+        { key: 'project', value: 'доля 6%', note: 'вместо оплаты — участие в марже' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-4-dry-26', city: 'Новосибирск', kind: 'dry', party: 'Организация', period: 'forever',
+      title: 'Сухой склад под зерно',
+      photo: 'images/photos/hay-bales.jpg',
+      owner: { name: 'ООО «Поморье»', avatar: 'img/org-logos/severstal.png', link: 'organization.html?id=ооо-поморье-4', trust: 63, logo: true },
+      unit: 'м²', total: 360, free: 60,
+      specs: ['Навес над разгрузкой', 'Ворота 4 м'],
+      terms: [
+        { key: 'rent', value: '180 ₽/м² в месяц', note: 'от одной недели' },
+        { key: 'share', value: 'пай от 790 000 ₽', note: 'возврат пая при выходе' },
+        { key: 'custody', value: '704 ₽/м² в месяц', note: 'учёт по партиям, отчёт раз в неделю' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-grishin-oleg-valentinovich-freeze-27', city: 'Екатеринбург', kind: 'freeze', party: 'Человек', period: 'forever',
+      title: 'Низкотемпературное хранение мяса',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'Гришин Олег Валентинович', avatar: 'images/avatars/38.jpg', link: 'person.html?id=grishin-oleg-valentinovich', trust: 91 },
+      unit: 'паллетомест', total: 480, free: 190,
+      specs: ['Раздельные камеры', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'barter', value: 'обмен на 30 паллетомест', note: 'обмен мощностями по сезону' },
+        { key: 'project', value: 'доля 6%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-57-open-28', city: 'Кемерово', kind: 'open', party: 'Человек', period: 'short',
+      title: 'Площадка с твёрдым покрытием',
+      photo: 'images/photos/rebar-steel.jpg',
+      owner: { name: 'Комаров Илья Алексеевич', avatar: 'images/avatars/42.jpg', link: 'person.html?id=комаров-илья-алексеевич-57', trust: 66 },
+      unit: 'тонн', total: 290, free: 150,
+      specs: ['Твёрдое покрытие', 'Отсыпка щебнем', 'Охрана', 'Кран-балка'],
+      terms: [
+        { key: 'share', value: 'пай от 410 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'project', value: 'доля 8%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'barter', value: 'обмен на 40 тонн', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-pao-severtrans-heated-29', city: 'Владивосток', kind: 'heated', party: 'Организация', period: 'long',
+      title: 'Сухой отапливаемый склад класса B',
+      photo: 'images/photos/flour-mill.jpg',
+      owner: { name: 'ПАО «СеверТранс»', avatar: 'img/org-logos/wildberries.png', link: 'organization.html?id=pao-severtrans', trust: 86, logo: true },
+      unit: 'м²', total: 610, free: 310,
+      specs: ['Высота <b>8 м</b>', 'Пожарная сигнализация', 'Две рампы', 'Круглосуточный доступ'],
+      terms: [
+        { key: 'barter', value: 'обмен на 220 м²', note: 'встречное хранение в другом городе' },
+        { key: 'buyout', value: '3 300 000 ₽ за блок 220 м²', note: 'рассрочка до года' },
+        { key: 'project', value: 'доля 6%', note: 'вместо оплаты — участие в марже' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-32-freeze-30', city: 'Архангельск', kind: 'freeze', party: 'Организация', period: 'long',
+      title: 'Нужно 20 паллетомест морозильного хранения под мясо',
+      photo: 'images/photos/pork-meat.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/dao-cooptech.svg', link: 'organization.html?id=ао-пасека-32', trust: 76, logo: true },
+      unit: 'паллетомест', need: 20,
+      specs: ['Резервное питание', 'Шоковая заморозка', 'Раздельные камеры', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'buyout', value: '2 450 000 ₽ за блок 40 паллетомест', note: 'рассрочка до года' },
+        { key: 'share', value: 'пай от 510 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'rent', value: '198 ₽/паллетоместо в сутки', note: 'от 3 месяцев, депозит один месяц' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-4-dry-31', city: 'Калининград', kind: 'dry', party: 'Человек', period: 'short',
+      title: 'Нужно 170 тонн сухого неотапливаемого хранения под сено',
+      photo: 'images/photos/garage-building.jpg',
+      owner: { name: 'Никитина Полина Юрьевна', avatar: 'images/avatars/12.jpg', link: 'person.html?id=никитина-полина-юрьевна-4', trust: 56 },
+      unit: 'тонн', need: 170,
+      specs: ['Ворота 4 м', 'Бетонный пол', 'Весовая на въезде', 'Охрана по периметру'],
+      terms: [
+        { key: 'rent', value: '1 800 ₽/тонну в месяц', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'buyout', value: '1 500 000 ₽ за блок 40 тонн', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-11-open-32', city: 'Вологда', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/brick-stack.jpg',
+      owner: { name: 'АО «Шукты»', avatar: 'img/org-logos/rzd.png', link: 'organization.html?id=ао-шукты-11', trust: 60, logo: true },
+      unit: 'тонн', total: 520, free: 340,
+      specs: ['Отсыпка щебнем', 'Освещение', 'Ограждение'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'вместо оплаты — участие в марже' },
+        { key: 'buyout', value: '4 300 000 ₽ за блок 40 тонн', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-4-open-33', city: 'Новосибирск', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/cement-bag.jpg',
+      owner: { name: 'ООО «Поморье»', avatar: 'img/org-logos/severstal.png', link: 'organization.html?id=ооо-поморье-4', trust: 63, logo: true },
+      unit: 'тонн', total: 570, free: 220,
+      specs: ['Освещение', 'Въезд для фур'],
+      terms: [
+        { key: 'barter', value: 'обмен на 90 тонн', note: 'обмен мощностями по сезону' },
+        { key: 'rent', value: '1 090 ₽/тонну в месяц', note: 'от 3 месяцев, депозит один месяц' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-60-dry-34', city: 'Казань', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Нужно 300 м² сухого неотапливаемого хранения под кирпич',
+      photo: 'images/photos/cattle-barn.jpg',
+      owner: { name: 'Никитина Екатерина Петровна', avatar: 'images/avatars/6.jpg', link: 'person.html?id=никитина-екатерина-петровна-60', trust: 73 },
+      unit: 'м²', need: 300,
+      specs: ['Отдельный въезд', 'Ворота 4 м', 'Сухая вентиляция'],
+      terms: [
+        { key: 'custody', value: '554 ₽/м² в месяц', note: 'учёт по партиям, отчёт раз в неделю' },
+        { key: 'rent', value: '260 ₽/м² в месяц', note: 'помесячно, без депозита' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-35-heated-35', city: 'Тобольск', kind: 'heated', party: 'Организация', period: 'short',
+      title: 'Сухой отапливаемый склад класса B',
+      photo: 'images/photos/sewing-workshop.jpg',
+      owner: { name: 'АО «Гостевой двор»', avatar: 'img/org-logos/vk.png', link: 'organization.html?id=ао-гостевой-двор-35', trust: 93, logo: true },
+      unit: 'м²', total: 1080, free: 200,
+      specs: ['Одна рампа', 'Две рампы', 'Учёт партий'],
+      terms: [
+        { key: 'barter', value: 'обмен на 430 м²', note: 'встречное хранение в другом городе' },
+        { key: 'custody', value: '424 ₽/м² в месяц', note: 'учёт по партиям, отчёт раз в неделю' },
+        { key: 'buyout', value: '1 950 000 ₽ за блок 220 м²', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-35-heated-36', city: 'Тобольск', kind: 'heated', party: 'Организация', period: 'short',
+      title: 'Отапливаемое помещение под мастерскую',
+      photo: 'images/photos/carpentry-shop.jpg',
+      owner: { name: 'АО «Гостевой двор»', avatar: 'img/org-logos/vk.png', link: 'organization.html?id=ао-гостевой-двор-35', trust: 93, logo: true },
+      unit: 'паллетомест', total: 60, free: 30,
+      specs: ['Погрузчик на месте', 'Высота <b>6 м</b>'],
+      terms: [
+        { key: 'barter', value: 'обмен на 90 паллетомест', note: 'встречное хранение в другом городе' },
+        { key: 'rent', value: '78 ₽/паллетоместо в сутки', note: 'с правом досрочного расторжения' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-35-heated-37', city: 'Тобольск', kind: 'heated', party: 'Организация', period: 'forever',
+      title: 'Отапливаемый склад с рампой',
+      photo: 'images/photos/bakery.jpg',
+      owner: { name: 'АО «Гостевой двор»', avatar: 'img/org-logos/vk.png', link: 'organization.html?id=ао-гостевой-двор-35', trust: 93, logo: true },
+      unit: 'м²', total: 2240, free: 760,
+      specs: ['Пожарная сигнализация', 'Две рампы', 'Одна рампа'],
+      terms: [
+        { key: 'barter', value: 'обмен на 220 м²', note: 'обмен мощностями по сезону' },
+        { key: 'rent', value: '540 ₽/м² в месяц', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'custody', value: '104 ₽/м² в месяц', note: 'с приёмкой, учётом и отгрузкой' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-56-freeze-38', city: 'Кемерово', kind: 'freeze', party: 'Человек', period: 'forever',
+      title: 'Нужно 210 тонн морозильного хранения под полуфабрикаты',
+      photo: 'images/photos/cold-storage.jpg',
+      owner: { name: 'Савельева Анна Сергеевна', avatar: 'images/avatars/37.jpg', link: 'person.html?id=савельева-анна-сергеевна-56', trust: 82 },
+      unit: 'тонн', need: 210,
+      specs: ['Раздельные камеры', 'Отгрузка по заявке за сутки', 'Шоковая заморозка'],
+      terms: [
+        { key: 'rent', value: '1 130 ₽/тонну в месяц', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'share', value: 'пай от 360 000 ₽', note: 'паевой взнос вместо аренды' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-24-dry-39', city: 'Самара', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Гараж-склад под инвентарь',
+      photo: 'images/photos/sawmill-logs.jpg',
+      owner: { name: 'Ильин Михаил Сергеевич', avatar: 'images/avatars/35.jpg', link: 'person.html?id=ильин-михаил-сергеевич-24', trust: 66 },
+      unit: 'тонн', total: 660, free: 440,
+      specs: ['Весовая на въезде', 'Отдельный въезд', 'Ворота 4 м', 'Охрана по периметру'],
+      terms: [
+        { key: 'project', value: 'доля 7%', note: 'вместо оплаты — участие в марже' },
+        { key: 'share', value: 'пай от 230 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'custody', value: '1 530 ₽/тонну в месяц', note: 'учёт по партиям, отчёт раз в неделю' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-68-heated-40', city: 'Челябинск', kind: 'heated', party: 'Организация', period: 'long',
+      title: 'Отапливаемое помещение под мастерскую',
+      photo: 'images/photos/sewing-workshop.jpg',
+      owner: { name: 'ООО «Рыбак»', avatar: 'img/org-logos/lukoil.png', link: 'organization.html?id=ооо-рыбак-68', trust: 78, logo: true },
+      unit: 'паллетомест', total: 250, free: 70,
+      specs: ['Погрузчик на месте', 'Видеонаблюдение'],
+      terms: [
+        { key: 'project', value: 'доля 6%', note: 'вместо оплаты — участие в марже' },
+        { key: 'rent', value: '108 ₽/паллетоместо в сутки', note: 'с правом досрочного расторжения' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-60-dry-41', city: 'Омск', kind: 'dry', party: 'Организация', period: 'short',
+      title: 'Нужно 223 м³ сухого неотапливаемого хранения под кирпич',
+      photo: 'images/photos/sawmill-logs.jpg',
+      owner: { name: 'АО «Гончар»', avatar: 'img/org-logos/beeline.png', link: 'organization.html?id=ао-гончар-60', trust: 97, logo: true },
+      unit: 'м³', need: 223,
+      specs: ['Бетонный пол', 'Сухая вентиляция', 'Навес над разгрузкой', 'Отдельный въезд'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'barter', value: 'обмен на 70 м³', note: 'обмен мощностями по сезону' },
+        { key: 'share', value: 'пай от 1 250 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-dao-koopeh-open-42', city: '', kind: 'open', party: 'Организация', period: 'short',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/cement-bag.jpg',
+      owner: { name: 'ДАО КООПТЕХ', avatar: 'img/org-logos/nlmk.png', link: 'organization.html?id=dao-koopeh', trust: 95, logo: true },
+      unit: 'тонн', total: 660, free: 350,
+      specs: ['Отсыпка щебнем', 'Въезд для фур', 'Твёрдое покрытие'],
+      terms: [
+        { key: 'share', value: 'пай от 680 000 ₽', note: 'возврат пая при выходе' },
+        { key: 'custody', value: '950 ₽/тонну в месяц', note: 'учёт по партиям, отчёт раз в неделю' },
+        { key: 'project', value: 'доля 6%', note: 'доля в результате, а не в имуществе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-semenov-nikolay-petrovich-open-43', city: 'Нижний Новгород', kind: 'open', party: 'Человек', period: 'short',
+      title: 'Открытая площадка под стройматериалы',
+      photo: 'images/photos/rebar-steel.jpg',
+      owner: { name: 'Семёнов Николай Петрович', avatar: 'images/avatars/39.jpg', link: 'person.html?id=semenov-nikolay-petrovich', trust: 97 },
+      unit: 'м²', total: 1930, free: 980,
+      specs: ['Освещение', 'Въезд для фур', 'Кран-балка'],
+      terms: [
+        { key: 'project', value: 'доля 7%', note: 'доля в результате, а не в имуществе' },
+        { key: 'share', value: 'пай от 910 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'buyout', value: '3 900 000 ₽ за блок 310 м²', note: 'с оформлением через кооператив' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-64-chill-44', city: 'Кемерово', kind: 'chill', party: 'Человек', period: 'long',
+      title: 'Нужно 200 тонн холодильного хранения под овощи',
+      photo: 'images/photos/berry-harvest.jpg',
+      owner: { name: 'Носов Илья Михайлович', avatar: 'images/avatars/62.jpg', link: 'person.html?id=носов-илья-михайлович-64', trust: 55 },
+      unit: 'тонн', need: 200,
+      specs: ['Термограф', 'Две камеры', 'Мойка тары', 'Приёмка по температуре'],
+      terms: [
+        { key: 'barter', value: 'обмен на 30 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'share', value: 'пай от 130 000 ₽', note: 'возврат пая при выходе' },
+        { key: 'custody', value: '740 ₽/тонну в месяц', note: 'приёмка по температуре' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-60-heated-45', city: 'Омск', kind: 'heated', party: 'Организация', period: 'long',
+      title: 'Склад класса C с отоплением',
+      photo: 'images/photos/flour-mill.jpg',
+      owner: { name: 'АО «Гончар»', avatar: 'img/org-logos/beeline.png', link: 'organization.html?id=ао-гончар-60', trust: 97, logo: true },
+      unit: 'м²', total: 590, free: 300,
+      specs: ['Видеонаблюдение', 'Высота <b>6 м</b>', 'Круглосуточный доступ'],
+      terms: [
+        { key: 'buyout', value: '4 150 000 ₽ за блок 470 м²', note: 'с оформлением через кооператив' },
+        { key: 'custody', value: '454 ₽/м² в месяц', note: 'с погрузчиком и оператором' },
+        { key: 'project', value: 'доля 11%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-golubeva-mariya-aleksandrovna-open-46', city: 'Волгоград', kind: 'open', party: 'Человек', period: 'short',
+      title: 'Площадка с твёрдым покрытием',
+      photo: 'images/photos/scaffolding.jpg',
+      owner: { name: 'Голубева Мария Александровна', avatar: 'images/avatars/7.jpg', link: 'person.html?id=golubeva-mariya-aleksandrovna', trust: 55 },
+      unit: 'тонн', total: 130, free: 70,
+      specs: ['Ограждение', 'Твёрдое покрытие', 'Кран-балка'],
+      terms: [
+        { key: 'share', value: 'пай от 810 000 ₽', note: 'возврат пая при выходе' },
+        { key: 'custody', value: '1 790 ₽/тонну в месяц', note: 'с приёмкой, учётом и отгрузкой' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-28-chill-47', city: 'Волгоград', kind: 'chill', party: 'Организация', period: 'forever',
+      title: 'Камера охлаждения под молочное',
+      photo: 'images/photos/potato-crate.jpg',
+      owner: { name: 'ООО «Тайга»', avatar: 'img/org-logos/aeroflot.png', link: 'organization.html?id=ооо-тайга-28', trust: 65, logo: true },
+      unit: 'паллетомест', total: 170, free: 70,
+      specs: ['Санитарный паспорт', 'Термограф'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'вместо оплаты — участие в марже' },
+        { key: 'custody', value: '261 ₽/паллетоместо в сутки', note: 'приёмка по температуре' },
+        { key: 'barter', value: 'обмен на 40 паллетомест', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-32-dry-48', city: 'Архангельск', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Гараж-склад под инвентарь',
+      photo: 'images/photos/timber-beam.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/dao-cooptech.svg', link: 'organization.html?id=ао-пасека-32', trust: 76, logo: true },
+      unit: 'м³', total: 1080, free: 750,
+      specs: ['Навес над разгрузкой', 'Сухая вентиляция', 'Ворота 4 м', 'Бетонный пол'],
+      terms: [
+        { key: 'rent', value: '320 ₽/м³ в месяц', note: 'от одной недели' },
+        { key: 'project', value: 'доля 11%', note: 'доля в результате, а не в имуществе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-6-heated-49', city: 'Ростов-на-Дону', kind: 'heated', party: 'Организация', period: 'short',
+      title: 'Склад класса C с отоплением',
+      photo: 'images/photos/craft-workshop.jpg',
+      owner: { name: 'АО «Речной порт»', avatar: 'img/org-logos/rusal.png', link: 'organization.html?id=ао-речной-порт-6', trust: 96, logo: true },
+      unit: 'паллетомест', total: 70, free: 40,
+      specs: ['Учёт партий', 'Стеллажи', 'Видеонаблюдение', 'Высота <b>8 м</b>'],
+      terms: [
+        { key: 'buyout', value: '5 400 000 ₽ за блок 90 паллетомест', note: 'с выделением доли в общей площадке' },
+        { key: 'rent', value: '38 ₽/паллетоместо в сутки', note: 'от 6 месяцев' },
+        { key: 'share', value: 'пай от 790 000 ₽', note: 'возврат пая при выходе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-1-dry-50', city: 'Санкт-Петербург', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Неотапливаемый склад под стройматериалы',
+      photo: 'images/photos/hay-bales.jpg',
+      owner: { name: 'АО «Кедр»', avatar: 'img/org-logos/tinkoff.png', link: 'organization.html?id=ао-кедр-1', trust: 85, logo: true },
+      unit: 'тонн', total: 650, free: 420,
+      specs: ['Охрана по периметру', 'Навес над разгрузкой', 'Бетонный пол'],
+      terms: [
+        { key: 'project', value: 'доля 3%', note: 'вместо оплаты — участие в марже' },
+        { key: 'custody', value: '1 350 ₽/тонну в месяц', note: 'с погрузчиком и оператором' },
+        { key: 'buyout', value: '2 400 000 ₽ за блок 50 тонн', note: 'рассрочка до года' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-zhukova-natalya-aleksandrovna-dry-51', city: 'Москва', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Ангар под сезонное хранение',
+      photo: 'images/photos/cattle-barn.jpg',
+      owner: { name: 'Жукова Наталья Александровна', avatar: 'images/avatars/62.jpg', link: 'person.html?id=zhukova-natalya-aleksandrovna', trust: 93 },
+      unit: 'м²', total: 1090, free: 480,
+      specs: ['Отдельный въезд', 'Сухая вентиляция', 'Навес над разгрузкой'],
+      terms: [
+        { key: 'custody', value: '544 ₽/м² в месяц', note: 'учёт по партиям, отчёт раз в неделю' },
+        { key: 'barter', value: 'обмен на 470 м²', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-6-heated-52', city: 'Ростов-на-Дону', kind: 'heated', party: 'Организация', period: 'long',
+      title: 'Нужно 60 паллетомест сухого отапливаемого хранения под цемент',
+      photo: 'images/photos/carpentry-shop.jpg',
+      owner: { name: 'АО «Речной порт»', avatar: 'img/org-logos/rusal.png', link: 'organization.html?id=ао-речной-порт-6', trust: 96, logo: true },
+      unit: 'паллетомест', need: 60,
+      specs: ['Пожарная сигнализация', 'Погрузчик на месте', 'Высота <b>8 м</b>'],
+      terms: [
+        { key: 'rent', value: '48 ₽/паллетоместо в сутки', note: 'от одной недели' },
+        { key: 'barter', value: 'обмен на 50 паллетомест', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-10-open-53', city: 'Казань', kind: 'open', party: 'Организация', period: 'forever',
+      title: 'Нужно 460 м² открытой площадки под стройматериалы',
+      photo: 'images/photos/scaffolding.jpg',
+      owner: { name: 'АО «Родник»', avatar: 'img/org-logos/s7.png', link: 'organization.html?id=ао-родник-10', trust: 71, logo: true },
+      unit: 'м²', need: 460,
+      specs: ['Ограждение', 'Кран-балка'],
+      terms: [
+        { key: 'rent', value: '580 ₽/м² в месяц', note: 'с правом досрочного расторжения' },
+        { key: 'share', value: 'пай от 930 000 ₽', note: 'возврат пая при выходе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-32-chill-54', city: 'Архангельск', kind: 'chill', party: 'Организация', period: 'forever',
+      title: 'Камера охлаждения под молочное',
+      photo: 'images/photos/potato-crate.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/dao-cooptech.svg', link: 'organization.html?id=ао-пасека-32', trust: 76, logo: true },
+      unit: 'м²', total: 190, free: 30,
+      specs: ['Санитарный паспорт', 'Приёмка по температуре'],
+      terms: [
+        { key: 'rent', value: '230 ₽/м² в месяц', note: 'помесячно, без депозита' },
+        { key: 'custody', value: '194 ₽/м² в месяц', note: 'с приёмкой, учётом и отгрузкой' },
+        { key: 'barter', value: 'обмен на 220 м²', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-60-dry-55', city: 'Омск', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Нужно 53 м³ сухого неотапливаемого хранения под сено',
+      photo: 'images/photos/garage-building.jpg',
+      owner: { name: 'АО «Гончар»', avatar: 'img/org-logos/beeline.png', link: 'organization.html?id=ао-гончар-60', trust: 97, logo: true },
+      unit: 'м³', need: 53,
+      specs: ['Сухая вентиляция', 'Охрана по периметру'],
+      terms: [
+        { key: 'rent', value: '810 ₽/м³ в месяц', note: 'от одной недели' },
+        { key: 'project', value: 'доля 5%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-51-dry-56', city: 'Новосибирск', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Неотапливаемый склад под стройматериалы',
+      photo: 'images/photos/grain-silo.jpg',
+      owner: { name: 'Ковалёв Андрей Дмитриевич', avatar: 'images/avatars/59.jpg', link: 'person.html?id=ковалёв-андрей-дмитриевич-51', trust: 64 },
+      unit: 'тонн', total: 710, free: 320,
+      specs: ['Ворота 4 м', 'Навес над разгрузкой', 'Отдельный въезд', 'Бетонный пол'],
+      terms: [
+        { key: 'project', value: 'доля 9%', note: 'доля в результате, а не в имуществе' },
+        { key: 'barter', value: 'обмен на 50 тонн', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-29-freeze-57', city: 'Тобольск', kind: 'freeze', party: 'Человек', period: 'long',
+      title: 'Низкотемпературное хранение мяса',
+      photo: 'images/photos/pork-meat.jpg',
+      owner: { name: 'Ефимова Татьяна Викторовна', avatar: 'images/avatars/46.jpg', link: 'person.html?id=ефимова-татьяна-викторовна-29', trust: 91 },
+      unit: 'паллетомест', total: 510, free: 180,
+      specs: ['Термограф', 'Шоковая заморозка'],
+      terms: [
+        { key: 'project', value: 'доля 9%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'rent', value: '158 ₽/паллетоместо в сутки', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'share', value: 'пай от 1 250 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-32-chill-58', city: 'Архангельск', kind: 'chill', party: 'Организация', period: 'long',
+      title: 'Нужно 20 тонн холодильного хранения под саженцы',
+      photo: 'images/photos/potato-crate.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/dao-cooptech.svg', link: 'organization.html?id=ао-пасека-32', trust: 76, logo: true },
+      unit: 'тонн', need: 20,
+      specs: ['Приёмка по температуре', 'Санитарный паспорт', 'Две камеры'],
+      terms: [
+        { key: 'buyout', value: '6 100 000 ₽ за блок 110 тонн', note: 'с выделением доли в общей площадке' },
+        { key: 'barter', value: 'обмен на 90 тонн', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-novikov-maksim-olegovich-novyy-uchastnik-59', city: 'Владивосток', kind: 'open', party: 'Человек', period: 'forever',
+      title: 'Открытая площадка под стройматериалы',
+      photo: 'images/photos/waste-sorting.jpg',
+      owner: { name: 'Новиков Максим Олегович', avatar: 'images/avatars/29.jpg', link: 'person.html?id=novikov-maksim-olegovich-novyy-uchastnik', trust: 60 },
+      unit: 'тонн', total: 580, free: 140,
+      specs: ['Твёрдое покрытие', 'Въезд для фур'],
+      terms: [
+        { key: 'project', value: 'доля 6%', note: 'вместо оплаты — участие в марже' },
+        { key: 'buyout', value: '2 900 000 ₽ за блок 50 тонн', note: 'с оформлением через кооператив' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-48-heated-60', city: 'Вологда', kind: 'heated', party: 'Человек', period: 'short',
+      title: 'Отапливаемое помещение под мастерскую',
+      photo: 'images/photos/warehouse-shelves.jpg',
+      owner: { name: 'Макаров Андрей Викторович', avatar: 'images/avatars/3.jpg', link: 'person.html?id=макаров-андрей-викторович-48', trust: 60 },
+      unit: 'м²', total: 430, free: 90,
+      specs: ['Две рампы', 'Стеллажи', 'Одна рампа', 'Учёт партий'],
+      terms: [
+        { key: 'buyout', value: '1 000 000 ₽ за блок 350 м²', note: 'с оформлением через кооператив' },
+        { key: 'rent', value: '150 ₽/м² в месяц', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'barter', value: 'обмен на 330 м²', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-dao-koopeh-freeze-61', city: '', kind: 'freeze', party: 'Организация', period: 'forever',
+      title: 'Низкотемпературное хранение мяса',
+      photo: 'images/photos/chest-freezer.jpg',
+      owner: { name: 'ДАО КООПТЕХ', avatar: 'img/org-logos/nlmk.png', link: 'organization.html?id=dao-koopeh', trust: 95, logo: true },
+      unit: 'тонн', total: 60, free: 40,
+      specs: ['Шоковая заморозка', 'Термограф'],
+      terms: [
+        { key: 'buyout', value: '4 400 000 ₽ за блок 100 тонн', note: 'с выделением доли в общей площадке' },
+        { key: 'barter', value: 'обмен на 70 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'rent', value: '1 680 ₽/тонну в месяц', note: 'от одной недели' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-52-heated-62', city: 'Архангельск', kind: 'heated', party: 'Организация', period: 'forever',
+      title: 'Склад класса C с отоплением',
+      photo: 'images/photos/sewing-workshop.jpg',
+      owner: { name: 'АО «Родник»', avatar: 'img/org-logos/rosneft.png', link: 'organization.html?id=ао-родник-52', trust: 58, logo: true },
+      unit: 'паллетомест', total: 590, free: 170,
+      specs: ['Две рампы', 'Стеллажи', 'Круглосуточный доступ', 'Погрузчик на месте'],
+      terms: [
+        { key: 'share', value: 'пай от 270 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'project', value: 'доля 11%', note: 'вместо оплаты — участие в марже' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-lebedeva-olga-igorevna-heated-63', city: 'Пермь', kind: 'heated', party: 'Человек', period: 'long',
+      title: 'Нужно 210 м² сухого отапливаемого хранения под готовую продукцию',
+      photo: 'images/photos/warehouse-shelves.jpg',
+      owner: { name: 'Лебедева Ольга Игоревна', avatar: 'images/avatars/49.jpg', link: 'person.html?id=lebedeva-olga-igorevna', trust: 90 },
+      unit: 'м²', need: 210,
+      specs: ['Пожарная сигнализация', 'Погрузчик на месте', 'Одна рампа', 'Стеллажи'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'доля в результате, а не в имуществе' },
+        { key: 'custody', value: '524 ₽/м² в месяц', note: 'с погрузчиком и оператором' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-4-heated-64', city: 'Новосибирск', kind: 'heated', party: 'Организация', period: 'forever',
+      title: 'Нужно 50 паллетомест сухого отапливаемого хранения под сухие смеси',
+      photo: 'images/photos/carpentry-shop.jpg',
+      owner: { name: 'ООО «Поморье»', avatar: 'img/org-logos/severstal.png', link: 'organization.html?id=ооо-поморье-4', trust: 63, logo: true },
+      unit: 'паллетомест', need: 50,
+      specs: ['Две рампы', 'Одна рампа', 'Стеллажи', 'Учёт партий'],
+      terms: [
+        { key: 'rent', value: '168 ₽/паллетоместо в сутки', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'share', value: 'пай от 550 000 ₽', note: 'возврат пая при выходе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ooo-mirital-freeze-65', city: 'Москва', kind: 'freeze', party: 'Организация', period: 'long',
+      title: 'Низкотемпературное хранение мяса',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'ООО «Мириталь»', avatar: 'img/org-logos/pochta.png', link: 'organization.html?id=ooo-mirital', trust: 92, logo: true },
+      unit: 'паллетомест', total: 260, free: 70,
+      specs: ['Отгрузка по заявке за сутки', 'Раздельные камеры'],
+      terms: [
+        { key: 'project', value: 'доля 5%', note: 'доля в результате, а не в имуществе' },
+        { key: 'buyout', value: '3 750 000 ₽ за блок 50 паллетомест', note: 'с оформлением через кооператив' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-48-dry-66', city: 'Вологда', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Нужно 953 м³ сухого неотапливаемого хранения под сено',
+      photo: 'images/photos/hay-bales.jpg',
+      owner: { name: 'Макаров Андрей Викторович', avatar: 'images/avatars/3.jpg', link: 'person.html?id=макаров-андрей-викторович-48', trust: 60 },
+      unit: 'м³', need: 953,
+      specs: ['Ворота 4 м', 'Отдельный въезд'],
+      terms: [
+        { key: 'custody', value: '430 ₽/м³ в месяц', note: 'с погрузчиком и оператором' },
+        { key: 'share', value: 'пай от 370 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'buyout', value: '4 650 000 ₽ за блок 140 м³', note: 'рассрочка до года' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ignateva-oksana-romanovna-chill-67', city: 'Красноярск', kind: 'chill', party: 'Человек', period: 'forever',
+      title: 'Холодильник под овощи и корнеплоды',
+      photo: 'images/photos/cold-storage.jpg',
+      owner: { name: 'Игнатьева Оксана Романовна', avatar: 'images/avatars/26.jpg', link: 'person.html?id=ignateva-oksana-romanovna', trust: 96 },
+      unit: 'паллетомест', total: 190, free: 20,
+      specs: ['Термограф', 'Санитарный паспорт', 'Две камеры', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'rent', value: '178 ₽/паллетоместо в сутки', note: 'с правом досрочного расторжения' },
+        { key: 'buyout', value: '1 400 000 ₽ за блок 30 паллетомест', note: 'рассрочка до года' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-35-open-68', city: 'Тобольск', kind: 'open', party: 'Организация', period: 'forever',
+      title: 'Открытое хранение сыпучих',
+      photo: 'images/photos/cement-bag.jpg',
+      owner: { name: 'АО «Гостевой двор»', avatar: 'img/org-logos/vk.png', link: 'organization.html?id=ао-гостевой-двор-35', trust: 93, logo: true },
+      unit: 'м²', total: 1650, free: 720,
+      specs: ['Освещение', 'Ограждение', 'Кран-балка', 'Въезд для фур'],
+      terms: [
+        { key: 'buyout', value: '5 450 000 ₽ за блок 210 м²', note: 'рассрочка до года' },
+        { key: 'share', value: 'пай от 790 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'project', value: 'доля 7%', note: 'доля в результате, а не в имуществе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-6-open-69', city: 'Омск', kind: 'open', party: 'Человек', period: 'long',
+      title: 'Площадка с твёрдым покрытием',
+      photo: 'images/photos/rebar-steel.jpg',
+      owner: { name: 'Ильина Татьяна Алексеевна', avatar: 'images/avatars/4.jpg', link: 'person.html?id=ильина-татьяна-алексеевна-6', trust: 85 },
+      unit: 'тонн', total: 530, free: 230,
+      specs: ['Твёрдое покрытие', 'Кран-балка', 'Отсыпка щебнем'],
+      terms: [
+        { key: 'share', value: 'пай от 230 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'project', value: 'доля 8%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'custody', value: '950 ₽/тонну в месяц', note: 'учёт по партиям, отчёт раз в неделю' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ooo-ekoplast-dry-70', city: 'Воронеж', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Неотапливаемый склад под стройматериалы',
+      photo: 'images/photos/hay-bales.jpg',
+      owner: { name: 'ООО «ЭкоПласт»', avatar: 'img/org-logos/nornickel.png', link: 'organization.html?id=ooo-ekoplast', trust: 77, logo: true },
+      unit: 'м³', total: 800, free: 550,
+      specs: ['Сухая вентиляция', 'Бетонный пол'],
+      terms: [
+        { key: 'rent', value: '320 ₽/м³ в месяц', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'share', value: 'пай от 500 000 ₽', note: 'возврат пая при выходе' },
+        { key: 'custody', value: '700 ₽/м³ в месяц', note: 'учёт по партиям, отчёт раз в неделю' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-1-freeze-71', city: 'Санкт-Петербург', kind: 'freeze', party: 'Организация', period: 'short',
+      title: 'Нужно 40 паллетомест морозильного хранения под рыбу',
+      photo: 'images/photos/chest-freezer.jpg',
+      owner: { name: 'АО «Кедр»', avatar: 'img/org-logos/tinkoff.png', link: 'organization.html?id=ао-кедр-1', trust: 85, logo: true },
+      unit: 'паллетомест', need: 40,
+      specs: ['Резервное питание', 'Термограф'],
+      terms: [
+        { key: 'barter', value: 'обмен на 90 паллетомест', note: 'встречное хранение в другом городе' },
+        { key: 'project', value: 'доля 9%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'custody', value: '281 ₽/паллетоместо в сутки', note: 'приёмка по температуре' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-zhukova-natalya-aleksandrovna-dry-72', city: 'Москва', kind: 'dry', party: 'Человек', period: 'short',
+      title: 'Ангар под сезонное хранение',
+      photo: 'images/photos/timber-beam.jpg',
+      owner: { name: 'Жукова Наталья Александровна', avatar: 'images/avatars/62.jpg', link: 'person.html?id=zhukova-natalya-aleksandrovna', trust: 93 },
+      unit: 'м²', total: 1410, free: 690,
+      specs: ['Сухая вентиляция', 'Навес над разгрузкой'],
+      terms: [
+        { key: 'buyout', value: '4 000 000 ₽ за блок 300 м²', note: 'рассрочка до года' },
+        { key: 'rent', value: '70 ₽/м² в месяц', note: 'от 3 месяцев, депозит один месяц' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ooo-agrostroy-freeze-73', city: 'Ростов-на-Дону', kind: 'freeze', party: 'Организация', period: 'forever',
+      title: 'Низкотемпературное хранение мяса',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'ООО «АгроСтрой»', avatar: 'img/org-logos/gazprom.png', link: 'organization.html?id=ooo-agrostroy', trust: 82, logo: true },
+      unit: 'тонн', total: 400, free: 160,
+      specs: ['Термограф', 'Раздельные камеры'],
+      terms: [
+        { key: 'project', value: 'доля 9%', note: 'вместо оплаты — участие в марже' },
+        { key: 'barter', value: 'обмен на 70 тонн', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-29-heated-74', city: 'Тобольск', kind: 'heated', party: 'Человек', period: 'long',
+      title: 'Отапливаемый склад с рампой',
+      photo: 'images/photos/craft-workshop.jpg',
+      owner: { name: 'Ефимова Татьяна Викторовна', avatar: 'images/avatars/46.jpg', link: 'person.html?id=ефимова-татьяна-викторовна-29', trust: 91 },
+      unit: 'паллетомест', total: 490, free: 300,
+      specs: ['Одна рампа', 'Высота <b>8 м</b>'],
+      terms: [
+        { key: 'share', value: 'пай от 630 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'rent', value: '38 ₽/паллетоместо в сутки', note: 'помесячно, без депозита' },
+        { key: 'custody', value: '151 ₽/паллетоместо в сутки', note: 'учёт по партиям, отчёт раз в неделю' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-31-chill-75', city: 'Нижний Тагил', kind: 'chill', party: 'Человек', period: 'long',
+      title: 'Холодильное хранение ягоды',
+      photo: 'images/photos/potato-crate.jpg',
+      owner: { name: 'Комаров Андрей Петрович', avatar: 'images/avatars/30.jpg', link: 'person.html?id=комаров-андрей-петрович-31', trust: 75 },
+      unit: 'паллетомест', total: 400, free: 290,
+      specs: ['Мойка тары', 'Санитарный паспорт', 'Приёмка по температуре', 'Две камеры'],
+      terms: [
+        { key: 'barter', value: 'обмен на 80 паллетомест', note: 'обмен мощностями по сезону' },
+        { key: 'rent', value: '218 ₽/паллетоместо в сутки', note: 'от 6 месяцев' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-28-dry-76', city: 'Волгоград', kind: 'dry', party: 'Организация', period: 'short',
+      title: 'Неотапливаемый склад под стройматериалы',
+      photo: 'images/photos/grain-silo.jpg',
+      owner: { name: 'ООО «Тайга»', avatar: 'img/org-logos/aeroflot.png', link: 'organization.html?id=ооо-тайга-28', trust: 65, logo: true },
+      unit: 'м³', total: 1850, free: 630,
+      specs: ['Ворота 4 м', 'Отдельный въезд', 'Охрана по периметру'],
+      terms: [
+        { key: 'custody', value: '630 ₽/м³ в месяц', note: 'приёмка по температуре' },
+        { key: 'share', value: 'пай от 740 000 ₽', note: 'возврат пая при выходе' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-zhukova-natalya-aleksandrovna-freeze-77', city: 'Москва', kind: 'freeze', party: 'Человек', period: 'forever',
+      title: 'Нужно 20 тонн морозильного хранения под рыбу',
+      photo: 'images/photos/meat-band-saw.jpg',
+      owner: { name: 'Жукова Наталья Александровна', avatar: 'images/avatars/62.jpg', link: 'person.html?id=zhukova-natalya-aleksandrovna', trust: 93 },
+      unit: 'тонн', need: 20,
+      specs: ['Резервное питание', 'Термограф', 'Шоковая заморозка'],
+      terms: [
+        { key: 'rent', value: '1 540 ₽/тонну в месяц', note: 'от одной недели' },
+        { key: 'buyout', value: '5 500 000 ₽ за блок 70 тонн', note: 'рассрочка до года' },
+        { key: 'share', value: 'пай от 900 000 ₽', note: 'возврат пая при выходе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-10-chill-78', city: 'Казань', kind: 'chill', party: 'Организация', period: 'forever',
+      title: 'Холодильник под овощи и корнеплоды',
+      photo: 'images/photos/cheese-making.jpg',
+      owner: { name: 'АО «Родник»', avatar: 'img/org-logos/s7.png', link: 'organization.html?id=ао-родник-10', trust: 71, logo: true },
+      unit: 'тонн', total: 630, free: 120,
+      specs: ['Отгрузка по заявке за сутки', 'Приёмка по температуре'],
+      terms: [
+        { key: 'rent', value: '1 750 ₽/тонну в месяц', note: 'от 6 месяцев' },
+        { key: 'project', value: 'доля 7%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-11-dry-79', city: 'Вологда', kind: 'dry', party: 'Организация', period: 'short',
+      title: 'Неотапливаемый склад под стройматериалы',
+      photo: 'images/photos/cattle-barn.jpg',
+      owner: { name: 'АО «Шукты»', avatar: 'img/org-logos/rzd.png', link: 'organization.html?id=ао-шукты-11', trust: 60, logo: true },
+      unit: 'тонн', total: 40, free: 20,
+      specs: ['Бетонный пол', 'Навес над разгрузкой', 'Отдельный въезд'],
+      terms: [
+        { key: 'barter', value: 'обмен на 100 тонн', note: 'обмен мощностями по сезону' },
+        { key: 'rent', value: '310 ₽/тонну в месяц', note: 'с правом досрочного расторжения' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-zimin-kirill-dmitrievich-heated-80', city: 'Новосибирск', kind: 'heated', party: 'Человек', period: 'long',
+      title: 'Отапливаемый склад с рампой',
+      photo: 'images/photos/bakery.jpg',
+      owner: { name: 'Зимин Кирилл Дмитриевич', avatar: 'images/avatars/33.jpg', link: 'person.html?id=zimin-kirill-dmitrievich', trust: 80 },
+      unit: 'м²', total: 1610, free: 520,
+      specs: ['Высота <b>6 м</b>', 'Две рампы', 'Одна рампа', 'Видеонаблюдение'],
+      terms: [
+        { key: 'project', value: 'доля 6%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'rent', value: '580 ₽/м² в месяц', note: 'от 6 месяцев' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-32-open-81', city: 'Архангельск', kind: 'open', party: 'Организация', period: 'forever',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/scaffolding.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/dao-cooptech.svg', link: 'organization.html?id=ао-пасека-32', trust: 76, logo: true },
+      unit: 'тонн', total: 50, free: 30,
+      specs: ['Въезд для фур', 'Охрана', 'Ограждение'],
+      terms: [
+        { key: 'rent', value: '1 040 ₽/тонну в месяц', note: 'с правом досрочного расторжения' },
+        { key: 'share', value: 'пай от 1 290 000 ₽', note: 'возврат пая при выходе' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-27-open-82', city: 'Архангельск', kind: 'open', party: 'Человек', period: 'long',
+      title: 'Нужно 60 тонн открытой площадки под стройматериалы',
+      photo: 'images/photos/scaffolding.jpg',
+      owner: { name: 'Токарев Дмитрий Николаевич', avatar: 'images/avatars/55.jpg', link: 'person.html?id=токарев-дмитрий-николаевич-27', trust: 60 },
+      unit: 'тонн', need: 60,
+      specs: ['Твёрдое покрытие', 'Охрана', 'Отсыпка щебнем'],
+      terms: [
+        { key: 'barter', value: 'обмен на 40 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'share', value: 'пай от 1 060 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-vinogradov-denis-igorevich-dry-83', city: 'Краснодар', kind: 'dry', party: 'Человек', period: 'forever',
+      title: 'Гараж-склад под инвентарь',
+      photo: 'images/photos/cattle-barn.jpg',
+      owner: { name: 'Виноградов Денис Игоревич', avatar: 'images/avatars/21.jpg', link: 'person.html?id=vinogradov-denis-igorevich', trust: 89 },
+      unit: 'м²', total: 740, free: 390,
+      specs: ['Навес над разгрузкой', 'Сухая вентиляция', 'Бетонный пол'],
+      terms: [
+        { key: 'buyout', value: '5 650 000 ₽ за блок 510 м²', note: 'рассрочка до года' },
+        { key: 'share', value: 'пай от 500 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'project', value: 'доля 5%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-56-freeze-84', city: 'Кемерово', kind: 'freeze', party: 'Человек', period: 'long',
+      title: 'Морозильная камера −18 °C',
+      photo: 'images/photos/meat-band-saw.jpg',
+      owner: { name: 'Савельева Анна Сергеевна', avatar: 'images/avatars/37.jpg', link: 'person.html?id=савельева-анна-сергеевна-56', trust: 82 },
+      unit: 'тонн', total: 120, free: 20,
+      specs: ['Резервное питание', 'Шоковая заморозка'],
+      terms: [
+        { key: 'buyout', value: '5 300 000 ₽ за блок 60 тонн', note: 'с оформлением через кооператив' },
+        { key: 'share', value: 'пай от 1 320 000 ₽', note: 'паевой взнос вместо аренды' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ooo-mirital-open-85', city: 'Москва', kind: 'open', party: 'Организация', period: 'short',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/cargo-truck.jpg',
+      owner: { name: 'ООО «Мириталь»', avatar: 'img/org-logos/pochta.png', link: 'organization.html?id=ooo-mirital', trust: 92, logo: true },
+      unit: 'м²', total: 1570, free: 570,
+      specs: ['Ограждение', 'Освещение', 'Твёрдое покрытие'],
+      terms: [
+        { key: 'buyout', value: '1 500 000 ₽ за блок 420 м²', note: 'рассрочка до года' },
+        { key: 'barter', value: 'обмен на 350 м²', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-5-chill-86', city: 'Магнитогорск', kind: 'chill', party: 'Организация', period: 'short',
+      title: 'Камера охлаждения под молочное',
+      photo: 'images/photos/milk-tank.jpg',
+      owner: { name: 'АО «Взаимопомощь»', avatar: 'img/org-logos/avito.png', link: 'organization.html?id=ао-взаимопомощь-5', trust: 87, logo: true },
+      unit: 'м²', total: 2310, free: 1450,
+      specs: ['Приёмка по температуре', 'Отгрузка по заявке за сутки', 'Санитарный паспорт'],
+      terms: [
+        { key: 'barter', value: 'обмен на 380 м²', note: 'обмен мощностями по сезону' },
+        { key: 'share', value: 'пай от 620 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-36-freeze-87', city: 'Красноярск', kind: 'freeze', party: 'Организация', period: 'long',
+      title: 'Камера шоковой заморозки',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'ООО «Пасека»', avatar: 'img/org-logos/rostelecom.png', link: 'organization.html?id=ооо-пасека-36', trust: 58, logo: true },
+      unit: 'тонн', total: 670, free: 310,
+      specs: ['Термограф', 'Резервное питание'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'доля в результате, а не в имуществе' },
+        { key: 'rent', value: '1 470 ₽/тонну в месяц', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'barter', value: 'обмен на 100 тонн', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ooo-agrostroy-open-88', city: 'Ростов-на-Дону', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Открытое хранение сыпучих',
+      photo: 'images/photos/land-plot.jpg',
+      owner: { name: 'ООО «АгроСтрой»', avatar: 'img/org-logos/gazprom.png', link: 'organization.html?id=ooo-agrostroy', trust: 82, logo: true },
+      unit: 'м²', total: 530, free: 380,
+      specs: ['Освещение', 'Охрана', 'Въезд для фур', 'Твёрдое покрытие'],
+      terms: [
+        { key: 'share', value: 'пай от 410 000 ₽', note: 'с правом пользования по графику' },
+        { key: 'rent', value: '470 ₽/м² в месяц', note: 'от одной недели' },
+        { key: 'project', value: 'доля 10%', note: 'вместо оплаты — участие в марже' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-volkov-igor-nikolaevich-chill-89', city: 'Екатеринбург', kind: 'chill', party: 'Человек', period: 'long',
+      title: 'Камера охлаждения под молочное',
+      photo: 'images/photos/cheese-making.jpg',
+      owner: { name: 'Волков Игорь Николаевич', avatar: 'images/avatars/68.jpg', link: 'person.html?id=volkov-igor-nikolaevich', trust: 95 },
+      unit: 'паллетомест', total: 450, free: 120,
+      specs: ['Мойка тары', 'Две камеры', 'Отгрузка по заявке за сутки', 'Термограф'],
+      terms: [
+        { key: 'rent', value: '28 ₽/паллетоместо в сутки', note: 'от 3 месяцев, депозит один месяц' },
+        { key: 'custody', value: '91 ₽/паллетоместо в сутки', note: 'приёмка по температуре' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-kuznetsova-darya-viktorovna-open-90', city: 'Воронеж', kind: 'open', party: 'Человек', period: 'short',
+      title: 'Открытое хранение сыпучих',
+      photo: 'images/photos/cargo-truck.jpg',
+      owner: { name: 'Кузнецова Дарья Викторовна', avatar: 'images/avatars/53.jpg', link: 'person.html?id=kuznetsova-darya-viktorovna', trust: 77 },
+      unit: 'тонн', total: 70, free: 40,
+      specs: ['Кран-балка', 'Твёрдое покрытие', 'Въезд для фур'],
+      terms: [
+        { key: 'barter', value: 'обмен на 50 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'rent', value: '1 580 ₽/тонну в месяц', note: 'с правом досрочного расторжения' },
+        { key: 'buyout', value: '1 050 000 ₽ за блок 110 тонн', note: 'с оформлением через кооператив' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-1-heated-91', city: 'Санкт-Петербург', kind: 'heated', party: 'Организация', period: 'forever',
+      title: 'Склад класса C с отоплением',
+      photo: 'images/photos/warehouse-shelves.jpg',
+      owner: { name: 'АО «Кедр»', avatar: 'img/org-logos/tinkoff.png', link: 'organization.html?id=ао-кедр-1', trust: 85, logo: true },
+      unit: 'м²', total: 1970, free: 450,
+      specs: ['Стеллажи', 'Одна рампа', 'Высота <b>6 м</b>', 'Видеонаблюдение'],
+      terms: [
+        { key: 'share', value: 'пай от 720 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'buyout', value: '5 150 000 ₽ за блок 200 м²', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-krylov-vitaliy-andreevich-freeze-92', city: 'Воронеж', kind: 'freeze', party: 'Человек', period: 'long',
+      title: 'Морозильник под полуфабрикаты',
+      photo: 'images/photos/pork-meat.jpg',
+      owner: { name: 'Крылов Виталий Андреевич', avatar: 'images/avatars/22.jpg', link: 'person.html?id=krylov-vitaliy-andreevich', trust: 72 },
+      unit: 'тонн', total: 570, free: 380,
+      specs: ['Шоковая заморозка', 'Раздельные камеры'],
+      terms: [
+        { key: 'barter', value: 'обмен на 80 тонн', note: 'встречное хранение в другом городе' },
+        { key: 'buyout', value: '1 250 000 ₽ за блок 100 тонн', note: 'с выделением доли в общей площадке' },
+        { key: 'rent', value: '1 430 ₽/тонну в месяц', note: 'с правом досрочного расторжения' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-35-heated-93', city: 'Тобольск', kind: 'heated', party: 'Организация', period: 'short',
+      title: 'Отапливаемый склад с рампой',
+      photo: 'images/photos/flour-mill.jpg',
+      owner: { name: 'АО «Гостевой двор»', avatar: 'img/org-logos/vk.png', link: 'organization.html?id=ао-гостевой-двор-35', trust: 93, logo: true },
+      unit: 'паллетомест', total: 50, free: 10,
+      specs: ['Учёт партий', 'Высота <b>8 м</b>'],
+      terms: [
+        { key: 'share', value: 'пай от 1 210 000 ₽', note: 'с правом пользования по графику' },
+        { key: 'custody', value: '111 ₽/паллетоместо в сутки', note: 'приёмка по температуре' },
+        { key: 'barter', value: 'обмен на 50 паллетомест', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-ooo-koop-market-dry-94', city: 'Краснодар', kind: 'dry', party: 'Организация', period: 'short',
+      title: 'Сухой склад под зерно',
+      photo: 'images/photos/grain-silo.jpg',
+      owner: { name: 'ООО «Кооп-Маркет»', avatar: 'img/org-logos/alfabank.png', link: 'organization.html?id=ooo-koop-market', trust: 81, logo: true },
+      unit: 'тонн', total: 130, free: 50,
+      specs: ['Сухая вентиляция', 'Отдельный въезд'],
+      terms: [
+        { key: 'barter', value: 'обмен на 100 тонн', note: 'обмен мощностями по сезону' },
+        { key: 'buyout', value: '4 900 000 ₽ за блок 60 тонн', note: 'рассрочка до года' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-36-heated-95', city: 'Санкт-Петербург', kind: 'heated', party: 'Человек', period: 'long',
+      title: 'Отапливаемый склад с рампой',
+      photo: 'images/photos/warehouse-shelves.jpg',
+      owner: { name: 'Логинов Алексей Андреевич', avatar: 'images/avatars/61.jpg', link: 'person.html?id=логинов-алексей-андреевич-36', trust: 76 },
+      unit: 'м²', total: 1270, free: 890,
+      specs: ['Пожарная сигнализация', 'Высота <b>8 м</b>'],
+      terms: [
+        { key: 'rent', value: '330 ₽/м² в месяц', note: 'от 6 месяцев' },
+        { key: 'buyout', value: '6 000 000 ₽ за блок 270 м²', note: 'с выделением доли в общей площадке' },
+        { key: 'barter', value: 'обмен на 420 м²', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-68-dry-96', city: 'Челябинск', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Ангар под сезонное хранение',
+      photo: 'images/photos/garage-building.jpg',
+      owner: { name: 'ООО «Рыбак»', avatar: 'img/org-logos/lukoil.png', link: 'organization.html?id=ооо-рыбак-68', trust: 78, logo: true },
+      unit: 'тонн', total: 580, free: 180,
+      specs: ['Навес над разгрузкой', 'Ворота 4 м', 'Охрана по периметру'],
+      terms: [
+        { key: 'share', value: 'пай от 260 000 ₽', note: 'с правом пользования по графику' },
+        { key: 'rent', value: '1 170 ₽/тонну в месяц', note: 'помесячно, без депозита' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-61-dry-97', city: 'Хабаровск', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Ангар под сезонное хранение',
+      photo: 'images/photos/hay-bales.jpg',
+      owner: { name: 'СПК «Двор»', avatar: 'img/org-logos/yandex.png', link: 'organization.html?id=спк-двор-61', trust: 90, logo: true },
+      unit: 'м²', total: 2120, free: 1540,
+      specs: ['Навес над разгрузкой', 'Охрана по периметру', 'Ворота 4 м'],
+      terms: [
+        { key: 'custody', value: '694 ₽/м² в месяц', note: 'учёт по партиям, отчёт раз в неделю' },
+        { key: 'rent', value: '310 ₽/м² в месяц', note: 'от 6 месяцев' },
+        { key: 'share', value: 'пай от 420 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-ooo-ekoplast-dry-98', city: 'Воронеж', kind: 'dry', party: 'Организация', period: 'long',
+      title: 'Нужно 340 тонн сухого неотапливаемого хранения под пиломатериалы',
+      photo: 'images/photos/grain-silo.jpg',
+      owner: { name: 'ООО «ЭкоПласт»', avatar: 'img/org-logos/nornickel.png', link: 'organization.html?id=ooo-ekoplast', trust: 77, logo: true },
+      unit: 'тонн', need: 340,
+      specs: ['Отдельный въезд', 'Ворота 4 м'],
+      terms: [
+        { key: 'rent', value: '320 ₽/тонну в месяц', note: 'помесячно, без депозита' },
+        { key: 'custody', value: '2 360 ₽/тонну в месяц', note: 'с приёмкой, учётом и отгрузкой' },
+        { key: 'buyout', value: '900 000 ₽ за блок 50 тонн', note: 'рассрочка до года' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-29-freeze-99', city: 'Вологда', kind: 'freeze', party: 'Организация', period: 'forever',
+      title: 'Низкотемпературное хранение мяса',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/rostec.png', link: 'organization.html?id=ао-пасека-29', trust: 61, logo: true },
+      unit: 'тонн', total: 890, free: 510,
+      specs: ['Термограф', 'Шоковая заморозка', 'Резервное питание'],
+      terms: [
+        { key: 'project', value: 'доля 7%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'barter', value: 'обмен на 110 тонн', note: 'встречное хранение в другом городе' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-lavrova-svetlana-igorevna-chill-100', city: 'Уфа', kind: 'chill', party: 'Человек', period: 'short',
+      title: 'Холодильное хранение ягоды',
+      photo: 'images/photos/cold-storage.jpg',
+      owner: { name: 'Лаврова Светлана Игоревна', avatar: 'images/avatars/28.jpg', link: 'person.html?id=lavrova-svetlana-igorevna', trust: 87 },
+      unit: 'м²', total: 930, free: 550,
+      specs: ['Мойка тары', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'custody', value: '164 ₽/м² в месяц', note: 'с приёмкой, учётом и отгрузкой' },
+        { key: 'project', value: 'доля 7%', note: 'вместо оплаты — участие в марже' },
+        { key: 'buyout', value: '4 650 000 ₽ за блок 500 м²', note: 'с оформлением через кооператив' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-23-dry-101', city: 'Магнитогорск', kind: 'dry', party: 'Организация', period: 'short',
+      title: 'Нужно 190 м² сухого неотапливаемого хранения под сено',
+      photo: 'images/photos/wood-planks.jpg',
+      owner: { name: 'ООО «Улей»', avatar: 'img/org-logos/ozon.png', link: 'organization.html?id=ооо-улей-23', trust: 87, logo: true },
+      unit: 'м²', need: 190,
+      specs: ['Охрана по периметру', 'Ворота 4 м', 'Весовая на въезде', 'Бетонный пол'],
+      terms: [
+        { key: 'project', value: 'доля 11%', note: 'вместо оплаты — участие в марже' },
+        { key: 'buyout', value: '2 500 000 ₽ за блок 530 м²', note: 'с оформлением через кооператив' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-55-freeze-102', city: 'Уфа', kind: 'freeze', party: 'Организация', period: 'forever',
+      title: 'Нужно 310 тонн морозильного хранения под рыбу',
+      photo: 'images/photos/meat-band-saw.jpg',
+      owner: { name: 'ООО «Гончар»', avatar: 'img/org-logos/megafon.png', link: 'organization.html?id=ооо-гончар-55', trust: 95, logo: true },
+      unit: 'тонн', need: 310,
+      specs: ['Резервное питание', 'Шоковая заморозка', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'custody', value: '450 ₽/тонну в месяц', note: 'с приёмкой, учётом и отгрузкой' },
+        { key: 'buyout', value: '5 750 000 ₽ за блок 30 тонн', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-29-chill-103', city: 'Вологда', kind: 'chill', party: 'Организация', period: 'long',
+      title: 'Нужно 960 м² холодильного хранения под сыр',
+      photo: 'images/photos/berry-harvest.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/rostec.png', link: 'organization.html?id=ао-пасека-29', trust: 61, logo: true },
+      unit: 'м²', need: 960,
+      specs: ['Отгрузка по заявке за сутки', 'Приёмка по температуре'],
+      terms: [
+        { key: 'rent', value: '460 ₽/м² в месяц', note: 'помесячно, без депозита' },
+        { key: 'buyout', value: '4 150 000 ₽ за блок 290 м²', note: 'с оформлением через кооператив' },
+        { key: 'project', value: 'доля 10%', note: 'для проектов на платформе, вместо оплаты' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-morozova-anna-sergeevna-heated-104', city: 'Казань', kind: 'heated', party: 'Человек', period: 'short',
+      title: 'Нужно 710 м² сухого отапливаемого хранения под утеплитель',
+      photo: 'images/photos/carpentry-shop.jpg',
+      owner: { name: 'Морозова Анна Сергеевна', avatar: 'images/avatars/25.jpg', link: 'person.html?id=morozova-anna-sergeevna', trust: 73 },
+      unit: 'м²', need: 710,
+      specs: ['Две рампы', 'Учёт партий', 'Стеллажи'],
+      terms: [
+        { key: 'project', value: 'доля 7%', note: 'вместо оплаты — участие в марже' },
+        { key: 'rent', value: '430 ₽/м² в месяц', note: 'от одной недели' },
+        { key: 'share', value: 'пай от 750 000 ₽', note: 'паевой взнос вместо аренды' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-54-freeze-105', city: 'Нижний Новгород', kind: 'freeze', party: 'Человек', period: 'long',
+      title: 'Низкотемпературное хранение мяса',
+      photo: 'images/photos/chest-freezer.jpg',
+      owner: { name: 'Мельник Сергей Дмитриевич', avatar: 'images/avatars/21.jpg', link: 'person.html?id=мельник-сергей-дмитриевич-54', trust: 86 },
+      unit: 'тонн', total: 200, free: 60,
+      specs: ['Шоковая заморозка', 'Резервное питание', 'Термограф'],
+      terms: [
+        { key: 'share', value: 'пай от 1 120 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'custody', value: '1 160 ₽/тонну в месяц', note: 'приёмка по температуре' },
+        { key: 'buyout', value: '1 750 000 ₽ за блок 20 тонн', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-1-chill-106', city: 'Москва', kind: 'chill', party: 'Человек', period: 'forever',
+      title: 'Нужно 120 тонн холодильного хранения под сыр',
+      photo: 'images/photos/potato-crate.jpg',
+      owner: { name: 'Панов Илья Юрьевич', avatar: 'images/avatars/23.jpg', link: 'person.html?id=панов-илья-юрьевич-1', trust: 70 },
+      unit: 'тонн', need: 120,
+      specs: ['Санитарный паспорт', 'Приёмка по температуре', 'Отгрузка по заявке за сутки', 'Мойка тары'],
+      terms: [
+        { key: 'share', value: 'пай от 920 000 ₽', note: 'с правом пользования по графику' },
+        { key: 'rent', value: '1 560 ₽/тонну в месяц', note: 'от 6 месяцев' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-68-freeze-107', city: 'Челябинск', kind: 'freeze', party: 'Организация', period: 'short',
+      title: 'Морозильная камера −18 °C',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'ООО «Рыбак»', avatar: 'img/org-logos/lukoil.png', link: 'organization.html?id=ооо-рыбак-68', trust: 78, logo: true },
+      unit: 'тонн', total: 630, free: 190,
+      specs: ['Раздельные камеры', 'Резервное питание', 'Термограф', 'Отгрузка по заявке за сутки'],
+      terms: [
+        { key: 'project', value: 'доля 10%', note: 'доля в результате, а не в имуществе' },
+        { key: 'share', value: 'пай от 670 000 ₽', note: 'паевой взнос вместо аренды' },
+        { key: 'rent', value: '630 ₽/тонну в месяц', note: 'с правом досрочного расторжения' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-pao-severtrans-freeze-108', city: 'Владивосток', kind: 'freeze', party: 'Организация', period: 'forever',
+      title: 'Нужно 100 паллетомест морозильного хранения под мясо',
+      photo: 'images/photos/pelmeni.jpg',
+      owner: { name: 'ПАО «СеверТранс»', avatar: 'img/org-logos/wildberries.png', link: 'organization.html?id=pao-severtrans', trust: 86, logo: true },
+      unit: 'паллетомест', need: 100,
+      specs: ['Шоковая заморозка', 'Термограф', 'Резервное питание'],
+      terms: [
+        { key: 'project', value: 'доля 6%', note: 'доля в результате, а не в имуществе' },
+        { key: 'buyout', value: '4 850 000 ₽ за блок 20 паллетомест', note: 'с выделением доли в общей площадке' },
+        { key: 'share', value: 'пай от 340 000 ₽', note: 'с правом пользования по графику' }
+      ]
+    },
+    {
+      side: 'demand', id: 'wh-32-dry-109', city: 'Архангельск', kind: 'dry', party: 'Организация', period: 'forever',
+      title: 'Нужно 1443 м³ сухого неотапливаемого хранения под сено',
+      photo: 'images/photos/wood-planks.jpg',
+      owner: { name: 'АО «Пасека»', avatar: 'img/org-logos/dao-cooptech.svg', link: 'organization.html?id=ао-пасека-32', trust: 76, logo: true },
+      unit: 'м³', need: 1443,
+      specs: ['Бетонный пол', 'Охрана по периметру', 'Весовая на въезде', 'Навес над разгрузкой'],
+      terms: [
+        { key: 'rent', value: '170 ₽/м³ в месяц', note: 'от 6 месяцев' },
+        { key: 'share', value: 'пай от 440 000 ₽', note: 'с правом пользования по графику' },
+        { key: 'buyout', value: '1 950 000 ₽ за блок 120 м³', note: 'с выделением доли в общей площадке' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-4-open-110', city: 'Новосибирск', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Открытое хранение сыпучих',
+      photo: 'images/photos/cargo-truck.jpg',
+      owner: { name: 'ООО «Поморье»', avatar: 'img/org-logos/severstal.png', link: 'organization.html?id=ооо-поморье-4', trust: 63, logo: true },
+      unit: 'м²', total: 160, free: 90,
+      specs: ['Ограждение', 'Твёрдое покрытие', 'Въезд для фур', 'Освещение'],
+      terms: [
+        { key: 'project', value: 'доля 3%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'barter', value: 'обмен на 530 м²', note: 'встречное хранение в другом городе' },
+        { key: 'custody', value: '734 ₽/м² в месяц', note: 'приёмка по температуре' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-5-open-111', city: 'Магнитогорск', kind: 'open', party: 'Организация', period: 'long',
+      title: 'Площадка под технику и контейнеры',
+      photo: 'images/photos/brick-stack.jpg',
+      owner: { name: 'АО «Взаимопомощь»', avatar: 'img/org-logos/avito.png', link: 'organization.html?id=ао-взаимопомощь-5', trust: 87, logo: true },
+      unit: 'м²', total: 1860, free: 490,
+      specs: ['Охрана', 'Отсыпка щебнем', 'Кран-балка'],
+      terms: [
+        { key: 'custody', value: '504 ₽/м² в месяц', note: 'учёт по партиям, отчёт раз в неделю' },
+        { key: 'rent', value: '220 ₽/м² в месяц', note: 'с правом досрочного расторжения' }
+      ]
+    },
+    {
+      side: 'offer', id: 'wh-11-chill-112', city: 'Вологда', kind: 'chill', party: 'Организация', period: 'forever',
+      title: 'Камера охлаждения под молочное',
+      photo: 'images/photos/meat-shop.jpg',
+      owner: { name: 'АО «Шукты»', avatar: 'img/org-logos/rzd.png', link: 'organization.html?id=ао-шукты-11', trust: 60, logo: true },
+      unit: 'м²', total: 2130, free: 1320,
+      specs: ['Две камеры', 'Приёмка по температуре', 'Отгрузка по заявке за сутки', 'Термограф'],
+      terms: [
+        { key: 'project', value: 'доля 9%', note: 'для проектов на платформе, вместо оплаты' },
+        { key: 'barter', value: 'обмен на 400 м²', note: 'обмен мощностями по сезону' }
+      ]
+    },
+    /* ── конец собранного ── */
     {
       side: 'offer', id: 'koopmarket', city: 'Тюмень', kind: 'heated', party: 'Организация', period: 'long',
       title: 'Сухой отапливаемый склад класса B',
