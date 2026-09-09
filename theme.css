@@ -334,7 +334,11 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .vacancy-list.tile-mode .vacancy-salary {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.vacancy-list.tile-mode .vacancy-meta { min-height: calc(2 * 1.4em); }
+/* 1.5 — это тот самый интерлиньяж, который у .vacancy-meta стоит на самом
+   деле. Пока здесь было 1.4, короткая мета держалась на 32.2 px, а мета
+   в две живые строки занимала 34.5 — треть карточек в сообществах
+   и навыках торчала на 3 px выше соседних. */
+.vacancy-list.tile-mode .vacancy-meta { min-height: calc(2 * 1.5em); }
 .ptile-grid.list-mode { grid-template-columns: 1fr; gap: 10px; }
 .ptile .img-wrap { min-height: 132px; }
 .ptile-grid.list-mode .ptile .img-wrap { min-height: 0; }
@@ -379,6 +383,13 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .vacancy-list.tile-mode .vacancy-salary { margin-bottom: 4px; }
 .vacancy-list.tile-mode .vacancy-meta { font-size: 11.5px; margin-bottom: 8px; }
 .vacancy-list.tile-mode .vacancy-posted { font-size: 11px; }
+/* Значок «Верифицирован» или «Новый участник» стоит внутри заголовка плитки
+   и при обычных отступах выше строки заголовка — 20.8 px против 18.9 px.
+   Строка от этого распухала, и пять карточек из ста торчали на 2–3 px выше
+   соседей. Ужимаем значок до размера строки; смысл его от этого не меняется. */
+.vacancy-list.tile-mode .vacancy-title .badge {
+  padding: 1px 6px; vertical-align: middle;
+}
 .vacancy-list.tile-mode .img-wrap > .org-mini-logo { background: var(--surface-2); }
 /* Навыки: превью ремесла в списке — скруглённый прямоугольник (круг зарезервирован
    за фото людей), аватар автора поверх плитки — кружок с белой обводкой. */
@@ -793,3 +804,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .button.danger { background: var(--error); color: #fff; border-color: var(--error); }
 .button.danger:hover { background: var(--error-text); border-color: var(--error-text); }
 
+/* ── Каталог расширений ────────────────────────────────────────────────
+   Раскладка — в styles.css. */
+.ext-tile { padding: 14px 16px; }
+.ext-tile-name { font-size: 13.5px; }
+.ext-tile-desc { color: var(--slate); font-size: 12px; }
+.ext-tile-actions .button { padding: 7px 14px; font-size: 12px; }

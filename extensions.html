@@ -109,18 +109,25 @@
 
   function card(m) {
     var on = M.isOn(m.id);
-    return '<article class="card" data-id="' + m.id + '" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px">'
-      + '<div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">'
-      + '<b style="font-size:13.5px">' + m.name + '</b>'
+    /* Где модуль живёт — выводим из самих данных, а не пишем руками: у одних
+       он добавляет вкладку организации, у других открывает свой раздел,
+       третьи работают в фоне. Строка есть всегда, поэтому плитки одинаковой
+       высоты — раньше разброс доходил до 87 px. */
+    var place = m.org ? 'Добавляет вкладку на страницу организации'
+              : m.page ? 'Открывает отдельный раздел платформы'
+              : 'Работает в фоне, своего экрана нет';
+    return '<article class="card ext-tile" data-id="' + m.id + '">'
+      + '<b class="ext-tile-name">' + m.name + '</b>'
+      + '<div class="ext-tile-marks">'
       + '<span class="chip">' + m.cat + '</span>'
       + (on ? '<span class="badge teal">Подключено</span>' : '')
       + '</div>'
-      + '<div style="color:var(--slate);font-size:12px;flex:1">' + m.desc + '</div>'
-      + (m.org ? '<div class="unit-hint">Добавляет вкладку на страницу организации</div>' : '')
-      + '<div style="display:flex;gap:8px;flex-wrap:wrap">'
-      + '<button class="button' + (on ? ' secondary' : '') + ' ext-toggle" type="button" style="padding:7px 14px;font-size:12px">'
+      + '<p class="ext-tile-desc">' + m.desc + '</p>'
+      + '<div class="unit-hint ext-tile-place">' + place + '</div>'
+      + '<div class="ext-tile-actions">'
+      + '<button class="button' + (on ? ' secondary' : '') + ' ext-toggle" type="button">'
       + (on ? 'Отключить' : 'Подключить') + '</button>'
-      + (m.page ? '<a class="button secondary" href="' + m.page + '" style="padding:7px 14px;font-size:12px">Открыть</a>' : '')
+      + (m.page ? '<a class="button secondary" href="' + m.page + '">Открыть</a>' : '')
       + '</div></article>';
   }
 
