@@ -114,7 +114,6 @@ a { text-decoration: none; }
 .button.secondary:hover { background: var(--teal-tint); }
 #fav-toggle.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
 #fav-toggle.active:hover { background: var(--ink-2); }
-#wishlist-toggle.active { background: var(--gold-tint); color: var(--gold-text); border-color: var(--gold); }
 .button.ghost { padding: 8.5px 18px; }
 .button.secondary.active:hover, .button.ghost.active:hover { background: var(--teal-dark); }
 

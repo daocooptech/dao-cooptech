@@ -282,17 +282,6 @@
           </div>
         </div>
 
-        <div class="cat-row collapsed" data-kind="Хочу такое">
-          <div class="cat-header">Хочу такое <span class="stat-note" title="Публичный сигнал того, что вы ищете, — помогает состояться бартеру. Отмечается кнопкой «Хочу такое» на странице ресурса.">ⓘ</span> <span class="cat-arrow">▼</span></div>
-          <div class="cat-items">
-            <button class="cat-nav" data-dir="-1">‹</button>
-            <div class="cat-track" id="wishlist-track">
-              <div class="cat-tile add-tile" data-kind="хочу такое"><a href="resources.html" style="display:block;color:inherit;text-decoration:none"><div class="cat-icon">+</div><div class="cat-label">Найти в каталоге</div></a></div>
-            </div>
-            <button class="cat-nav" data-dir="1">›</button>
-          </div>
-        </div>
-
         <div class="cat-row collapsed" data-kind="Организации">
           <div class="cat-header">Организации <span class="cat-arrow">▼</span></div>
           <div class="cat-items">
@@ -529,22 +518,6 @@ if (visibilityBtn) {
   });
   document.getElementById('listing-unpublish').addEventListener('click', function () {
     dismiss('Объявление снято с публикации в каталоге ресурсов.');
-  });
-})();
-
-// #3 Вишлист «Хочу такое» — заполняем карусель из localStorage (ставится кнопкой на странице ресурса)
-(function () {
-  var track = document.getElementById('wishlist-track');
-  if (!track) return;
-  var list = [];
-  try { list = JSON.parse(localStorage.getItem('coop_wishlist')) || []; } catch (e) {}
-  var addTile = track.querySelector('.add-tile');
-  list.forEach(function (item) {
-    var tile = document.createElement('a');
-    tile.className = 'cat-tile';
-    tile.href = item.url || 'resources.html';
-    tile.innerHTML = '<div class="cat-icon"><img src="' + item.image + '" alt="' + item.title + '" loading="lazy"></div><div class="cat-label">' + item.title + '</div>';
-    track.insertBefore(tile, addTile);
   });
 })();
 </script>

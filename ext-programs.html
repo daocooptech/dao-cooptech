@@ -61,6 +61,7 @@
     <div class="entity-tabs">
       <a href="ext-programs.html" class="active">Все программы</a>
       <a href="program-feed.html">Лента</a>
+          <a href="ext-programs.html?tab=favorites" data-fav-tab="programs">Избранное <span class="badge outline fav-tab-count">0</span></a>
     </div>
     <div class="search-row">
       <input class="input" id="filter-search" placeholder="Направление или название программы, например «энергия»">
@@ -72,9 +73,9 @@
         <div class="cat-section-title">
           <span>Целевые программы кооперации <span style="font-weight:400;color:var(--slate);font-size:12.5px">— найдено <span id="res-count">10</span></span></span>
         </div>
-        <div class="vacancy-list tile-mode" id="programs-list">
+        <div class="vacancy-list tile-mode" id="programs-list" data-fav-section="programs">
 
-          <div class="vacancy-card" data-category="Сельское хозяйство" data-region="Дербент" data-duration="12 месяцев">
+          <div class="vacancy-card" data-category="Сельское хозяйство" data-region="Дербент" data-duration="12 месяцев" data-fav-id="urozhay-soobscha"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/gazprom.png" alt="Кооператив «Шукты»" width="330" height="164"><span class="loc-bar">📍 Дербент</span></div>
               <div style="flex:1;min-width:0">
@@ -93,7 +94,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="ИТ и цифровая экономика" data-region="Москва" data-duration="18 месяцев">
+          <div class="vacancy-card" data-category="ИТ и цифровая экономика" data-region="Москва" data-duration="18 месяцев" data-fav-id="svoya-platforma"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/dao-cooptech.svg" alt="ДАО КООПТЕХ"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
@@ -112,7 +113,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Строительство и жильё" data-region="Екатеринбург" data-duration="бессрочно">
+          <div class="vacancy-card" data-category="Строительство и жильё" data-region="Екатеринбург" data-duration="бессрочно" data-fav-id="dom-na-vseh"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/vtb.png" alt="ЖСК «Соседи»" width="330" height="119" loading="lazy"><span class="loc-bar">📍 Екатеринбург</span></div>
               <div style="flex:1;min-width:0">
@@ -131,7 +132,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Образование" data-region="Красноярск" data-duration="6 месяцев">
+          <div class="vacancy-card" data-category="Образование" data-region="Красноярск" data-duration="6 месяцев" data-fav-id="shkola-kooperatora"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/sberbank.png" alt="Фонд «Территория 2020»" width="330" height="55" loading="lazy"><span class="loc-bar">📍 Красноярск</span></div>
               <div style="flex:1;min-width:0">
@@ -150,7 +151,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Здравоохранение и соцпомощь" data-region="Новосибирск" data-duration="24 месяца">
+          <div class="vacancy-card" data-category="Здравоохранение и соцпомощь" data-region="Новосибирск" data-duration="24 месяца" data-fav-id="zabota-po-sosedstvu"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/alfabank.png" alt="АНО «Здоровье для всех»" width="330" height="117" loading="lazy"><span class="loc-bar">📍 Новосибирск</span></div>
               <div style="flex:1;min-width:0">
@@ -169,7 +170,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Микрофинансирование" data-region="Москва" data-duration="бессрочно">
+          <div class="vacancy-card" data-category="Микрофинансирование" data-region="Москва" data-duration="бессрочно" data-fav-id="obschaya-kassa"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/avito.png" alt="Кредитный кооператив «Взаимопомощь»" width="330" height="84" loading="lazy"><span class="loc-bar">📍 Москва</span></div>
               <div style="flex:1;min-width:0">
@@ -188,7 +189,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Ремесленное производство" data-region="Челябинск" data-duration="12 месяцев">
+          <div class="vacancy-card" data-category="Ремесленное производство" data-region="Челябинск" data-duration="12 месяцев" data-fav-id="masterskaya-bez-hozyaina"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/tinkoff.png" alt="Артель «Уральские мастера»" width="330" height="36" loading="lazy"><span class="loc-bar">📍 Челябинск</span></div>
               <div style="flex:1;min-width:0">
@@ -207,7 +208,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Зелёная энергетика" data-region="Пермь" data-duration="24 месяца">
+          <div class="vacancy-card" data-category="Зелёная энергетика" data-region="Пермь" data-duration="24 месяца" data-fav-id="svoya-energiya"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/rostelecom.png" alt="Энергокооператив «СветСвои»" width="330" height="129" loading="lazy"><span class="loc-bar">📍 Пермь</span></div>
               <div style="flex:1;min-width:0">
@@ -226,7 +227,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Логистика и сбыт" data-region="Хабаровск" data-duration="12 месяцев">
+          <div class="vacancy-card" data-category="Логистика и сбыт" data-region="Хабаровск" data-duration="12 месяцев" data-fav-id="odin-sklad-na-vseh"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/severstal.png" alt="Кооператив «Речной порт»" width="330" height="105" loading="lazy"><span class="loc-bar">📍 Хабаровск</span></div>
               <div style="flex:1;min-width:0">
@@ -245,7 +246,7 @@
             </div>
           </div>
 
-          <div class="vacancy-card" data-category="Культура и местные сообщества" data-region="Ярославль" data-duration="бессрочно">
+          <div class="vacancy-card" data-category="Культура и местные сообщества" data-region="Ярославль" data-duration="бессрочно" data-fav-id="sosedskiy-kapital"><span class="fav-btn" role="button" tabindex="0" aria-pressed="false" aria-label="Добавить в избранное" title="Добавить в избранное"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3l-1.3-1.2C6 15 3 12.3 3 8.9 3 6.2 5.1 4 7.8 4c1.5 0 3 .7 4 1.9C12.8 4.7 14.3 4 15.8 4 18.5 4 20.6 6.2 20.6 8.9c0 3.4-3 6.1-7.7 10.2z"/></svg></span>
             <div class="card-row">
               <div class="img-wrap"><img class="org-mini-logo" src="img/org-logos/wildberries.png" alt="Содружество кооперативов «Эмилия»" width="330" height="50" loading="lazy"><span class="loc-bar">📍 Ярославль</span></div>
               <div style="flex:1;min-width:0">
