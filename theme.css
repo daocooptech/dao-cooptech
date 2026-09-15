@@ -87,7 +87,15 @@ a:hover { color: var(--teal-dark); text-decoration: none; }
 .topbar-left { gap: 10px; }
 .logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -.02em; }
 .logo .mark { border-radius: 7px; }
-.logo-img { height: 22px; width: auto; border-radius: 3px; }
+/* Лого нарисовано для тёмной темы: чёрная подложка и белые буквы. На
+   тёмном фоне подложка сливается и видны буквы, а на светлом выходит
+   чёрный прямоугольник. Светлая тема — умолчание, поэтому инверсия
+   стоит здесь, а тёмная её снимает ниже.
+
+   Инвертировать можно без потерь: в файле ровно два цвета — чёрный и
+   белый, полутонов нет, и оттенки не поедут. */
+.logo-img { height: 22px; width: auto; border-radius: 3px; filter: invert(1); }
+html[data-theme="dark"] .logo-img { filter: none; }
 .platform-name { color: var(--slate-light); font-weight: 600; font-size: 12.5px; }
 .topbar-right { gap: 14px; color: var(--ink-2); }
 .topbar-right a { color: var(--ink-2); font-weight: 500; font-size: 12.5px; }
