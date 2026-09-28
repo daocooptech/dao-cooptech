@@ -326,59 +326,68 @@ class BilateralDeal(unittest.TestCase):
         self.a = _log(NODE_A, SECRET_A)
         self.b = _log(NODE_B, SECRET_B)
         self.parties = (NODE_A, NODE_B)
+        self.offer = None
 
     def merged(self):
         return self.a.events + self.b.events
+
+    def propose(self, body=None):
+        self.offer = self.a.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, body or {})
+        return self.offer
+
+    def answer(self, journal, ts, type_, **body):
+        body['refs'] = self.offer['id']
+        return journal.append(ts, type_, DEAL, body)
 
     def test_nothing_before_proposal(self):
         self.assertIsNone(deal.state(DEAL, self.parties, self.merged()))
 
     def test_proposed_then_accepted(self):
-        self.a.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {'сумма': '150000.00'})
+        self.propose({'сумма': '150000.00'})
         self.assertEqual(deal.state(DEAL, self.parties, self.merged()), deal.PROPOSED)
-        self.b.append('2026-09-01T11:00:00Z', 'deal.accepted', DEAL, {})
+        self.answer(self.b, '2026-09-01T11:00:00Z', 'deal.accepted')
         self.assertEqual(deal.state(DEAL, self.parties, self.merged()), deal.ACCEPTED)
 
     def test_one_signature_is_not_enough(self):
-        self.a.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
-        self.b.append('2026-09-01T11:00:00Z', 'deal.accepted', DEAL, {})
-        self.a.append('2026-09-02T09:00:00Z', 'deal.act.signed', DEAL, {})
+        self.propose()
+        self.answer(self.b, '2026-09-01T11:00:00Z', 'deal.accepted')
+        self.answer(self.a, '2026-09-02T09:00:00Z', 'deal.act.signed')
         self.assertEqual(deal.state(DEAL, self.parties, self.merged()), deal.AWAITING)
         self.assertEqual(deal.missing_signature(DEAL, self.parties, self.merged()), NODE_B)
 
     def test_both_signatures_close_the_deal(self):
-        self.a.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
-        self.b.append('2026-09-01T11:00:00Z', 'deal.accepted', DEAL, {})
-        self.a.append('2026-09-02T09:00:00Z', 'deal.act.signed', DEAL, {})
-        self.b.append('2026-09-02T10:00:00Z', 'deal.act.signed', DEAL, {})
+        self.propose()
+        self.answer(self.b, '2026-09-01T11:00:00Z', 'deal.accepted')
+        self.answer(self.a, '2026-09-02T09:00:00Z', 'deal.act.signed')
+        self.answer(self.b, '2026-09-02T10:00:00Z', 'deal.act.signed')
         self.assertEqual(deal.state(DEAL, self.parties, self.merged()), deal.DONE)
         self.assertIsNone(deal.missing_signature(DEAL, self.parties, self.merged()))
 
     def test_order_of_arrival_does_not_matter(self):
         """События приходят с задержкой и вперемешку — состояние то же."""
-        self.a.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
-        self.b.append('2026-09-01T11:00:00Z', 'deal.accepted', DEAL, {})
-        self.a.append('2026-09-02T09:00:00Z', 'deal.act.signed', DEAL, {})
-        self.b.append('2026-09-02T10:00:00Z', 'deal.act.signed', DEAL, {})
+        self.propose()
+        self.answer(self.b, '2026-09-01T11:00:00Z', 'deal.accepted')
+        self.answer(self.a, '2026-09-02T09:00:00Z', 'deal.act.signed')
+        self.answer(self.b, '2026-09-02T10:00:00Z', 'deal.act.signed')
         shuffled = list(reversed(self.merged()))
         self.assertEqual(deal.state(DEAL, self.parties, shuffled), deal.DONE)
 
     def test_third_party_cannot_close_a_deal(self):
         """Чужой узел подписывает что угодно — на состояние это не влияет."""
         outsider = _log(NODE_C, bytes(range(64, 96)))
-        self.a.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
-        self.b.append('2026-09-01T11:00:00Z', 'deal.accepted', DEAL, {})
-        self.a.append('2026-09-02T09:00:00Z', 'deal.act.signed', DEAL, {})
-        outsider.append('2026-09-02T09:30:00Z', 'deal.act.signed', DEAL, {})
+        self.propose()
+        self.answer(self.b, '2026-09-01T11:00:00Z', 'deal.accepted')
+        self.answer(self.a, '2026-09-02T09:00:00Z', 'deal.act.signed')
+        self.answer(outsider, '2026-09-02T09:30:00Z', 'deal.act.signed')
         events = self.merged() + outsider.events
         self.assertEqual(deal.state(DEAL, self.parties, events), deal.AWAITING)
 
-    def test_dispute_wins_over_everything(self):
-        self.a.append('2026-09-01T10:00:00Z', 'deal.proposed', DEAL, {})
-        self.b.append('2026-09-01T11:00:00Z', 'deal.accepted', DEAL, {})
-        self.a.append('2026-09-02T09:00:00Z', 'deal.act.signed', DEAL, {})
-        self.b.append('2026-09-02T10:00:00Z', 'deal.act.signed', DEAL, {})
-        self.b.append('2026-09-03T10:00:00Z', 'deal.disputed', DEAL, {'причина': 'недовоз'})
+    def test_dispute_overrides_signed_act(self):
+        self.propose()
+        self.answer(self.b, '2026-09-01T11:00:00Z', 'deal.accepted')
+        self.answer(self.a, '2026-09-02T09:00:00Z', 'deal.act.signed')
+        self.answer(self.b, '2026-09-02T10:00:00Z', 'deal.act.signed')
+        self.answer(self.b, '2026-09-03T10:00:00Z', 'deal.disputed', причина='недовоз')
         self.assertEqual(deal.state(DEAL, self.parties, self.merged()), deal.DISPUTED)
 
     def test_counterparty_cannot_forge_my_signature(self):

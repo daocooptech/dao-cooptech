@@ -13,9 +13,12 @@ info:
     вовсе; общее хранилище снимает нагрузку с раздачи вложений. Узел, который умеет только `GET /federation/log`,
     полноценный участник сети.
 
-    Аутентификация запросов не нужна: подлинность даёт подпись каждого события,
-    а не канал. Адресное событие постороннему выдаётся вымаранным — конверт
-    целиком, тело отцеплено; см. `/federation/log` и параметр `for`.
+    Для проверки журнала аутентификация не нужна: подлинность даёт подпись
+    каждого события, а не канал. Адресное событие постороннему выдаётся
+    вымаранным — конверт целиком, тело отцеплено. Тело получает только
+    адресат, **подписавший запрос** своим ключом (заголовки `X-Coop-*`, см.
+    `/federation/log`); неподписанный запрос не получает отказа — он получает
+    вымаранный журнал.
 servers:
   - url: https://{host}/
     variables:
@@ -49,8 +52,20 @@ paths:
                         id: {type: string, examples: ["did:web:coop.example.ru#key-1"]}
                         type: {const: Ed25519VerificationKey2020}
                         publicKeyMultibase: {type: string}
+                        controller: {type: string}
                         notBefore: {type: string, format: date-time}
-                        revoked: {type: string, format: date-time}
+                        revoked:
+                          type: string
+                          format: date-time
+                          description: Плановый отзыв. Подписи до этого момента действуют.
+                        compromised:
+                          type: string
+                          format: date-time
+                          description: |
+                            Ключ украден. Подписи с этого момента помечаются
+                            сомнительными и не применяются до переподтверждения;
+                            история не удаляется. Без этой отметки сосед не
+                            отличил бы плановую смену ключа от взлома.
   /federation/manifest:
     get:
       summary: Что узел умеет
@@ -123,6 +138,27 @@ paths:
             содержимого. Полностью скрывать адресные события нельзя — у
             получателя порвётся цепочка `prev`, и он не сможет убедиться, что
             журнал полон.
+
+            **Параметру не верят на слово.** Он учитывается, только если запрос
+            подписан ключом этого узла — иначе любой, назвавшийся адресатом,
+            получил бы его тела. Подпись — Ed25519 от канонической сериализации
+            `{method, path, query, reader, ts}` (все параметры запроса, включая
+            `for`), допуск по времени ±300 с; см. `ref/reader.py`.
+        - name: X-Coop-Reader
+          in: header
+          schema: {type: string}
+          description: DID читателя; обязан совпадать с `for`.
+        - name: X-Coop-Kid
+          in: header
+          schema: {type: string}
+          description: Ключ читателя, `<did>#key-N`, из его DID-документа.
+        - name: X-Coop-Ts
+          in: header
+          schema: {type: string, pattern: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"}
+        - name: X-Coop-Sig
+          in: header
+          schema: {type: string}
+          description: Подпись, base64url без выравнивания.
       responses:
         "200":
           description: Порция журнала
